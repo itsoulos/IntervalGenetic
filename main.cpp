@@ -244,7 +244,7 @@ int main(int argc,char **argv)
     p.setParameter("normalTrain",1);
      Problem np(&p,bestMargin);
 
-#pragma omp parallel for shared(adam_b1,adam_b2,adam_learningrate,adam_iterations) num_threads(threads)
+//#pragma omp parallel for shared(adam_b1,adam_b2,adam_learningrate,adam_iterations) num_threads(threads)
     for(int i=1;i<=tries;i++)
     {
         Data bestx;
@@ -293,7 +293,7 @@ int main(int argc,char **argv)
         }
 
        QJsonObject result=p.done(bestx);
-#pragma omp critical
+//#pragma omp critical
 {
        avgTrainError+=besty;
 
