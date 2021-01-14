@@ -8,7 +8,7 @@
 # include <omp.h>
 # define LOCALSEARCH
 
-# define MAXTHREADS 32
+# define MAXTHREADS 12
 int have_finished=0;
 #pragma omp threadprivate(have_finished)
 int iprint=0;
@@ -270,7 +270,7 @@ void	DoublePop::mutate()
 void	DoublePop::calcFitnessArray()
 {
 	double dmin=1e+100;
-//#pragma omp parallel for num_threads(MAXTHREADS) schedule(static) reduction(min:dmin)
+#pragma omp parallel for num_threads(MAXTHREADS) schedule(static) reduction(min:dmin)
 	for(int i=0;i<genome_count;i++)
 	{
 		fitness_array[i]=fitness(genome[i]);
@@ -449,7 +449,7 @@ void	DoublePop::Solve()
 		Data tempg;
 		double tempf;
 		tempg.resize(genome_size);
-//#pragma omp parallel for num_threads(MAXTHREADS) schedule(dynamic)
+#pragma omp parallel for num_threads(MAXTHREADS) schedule(dynamic)
                 for(int i=0;i<5;i++)
                 {
                 int randPos=rand() % genome.size();
