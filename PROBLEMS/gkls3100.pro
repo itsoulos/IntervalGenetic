@@ -1,0 +1,2 @@
+TEMPLATE=lib
+SOURCES+=gkls3100.cc

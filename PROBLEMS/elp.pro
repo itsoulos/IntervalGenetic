@@ -1,0 +1,2 @@
+TEMPLATE=lib
+SOURCES+=elp.cc

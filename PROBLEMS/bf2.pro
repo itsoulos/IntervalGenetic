@@ -1,0 +1,2 @@
+TEMPLATE=lib
+SOURCES+=bf2.cc

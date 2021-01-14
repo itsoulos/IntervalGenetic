@@ -1,0 +1,2 @@
+TEMPLATE=lib
+SOURCES+=B2.cc
