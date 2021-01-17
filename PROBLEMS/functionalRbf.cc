@@ -810,11 +810,11 @@ void 	getmargins(vector<Interval> &x)
     {
             x[i]=Interval(initialLeft,initialRight);
     }
-	/*
+	
     if(variances.size()!=0)
     {
             int icount=0;
-	    	double f=1.0;
+	    	double f=10.0;
             for(int i=0;i<nodes;i++)
             {
                 for(int j=0;j<trainx[0].size();j++)
@@ -860,7 +860,7 @@ void 	getmargins(vector<Interval> &x)
 	    }
 #endif
 
-    }*/
+    }
 }
 
 int icount=0;
