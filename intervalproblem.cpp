@@ -134,9 +134,11 @@ IntervalData    IntervalProblem::createRandomInterval()
 void    IntervalProblem::randomize(IntervalData &x,int pos)
 {
    double r1=randomDouble();
+   double r2=randomDouble();
    double lvalue=x[pos].leftValue();
    double rvalue=x[pos].rightValue();
-   x[pos]=lvalue+(rvalue-lvalue)*r1;
+   //x[pos]=lvalue+(rvalue-lvalue)*r1;
+	x[pos]=Interval(r1*lvalue,r2*rvalue);
 }
 
 
