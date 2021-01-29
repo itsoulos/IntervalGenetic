@@ -9,8 +9,8 @@ using namespace std;
 
 extern "C"{
 int natoms=20;
-double leftmargin=  -5.0;
-double rightmargin= 5.0;
+double leftmargin=  -20.0;
+double rightmargin= 20.0;
 typedef vector<double> Data;
 
 int	getdimension()
