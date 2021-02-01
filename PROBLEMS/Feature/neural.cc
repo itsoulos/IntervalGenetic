@@ -17,8 +17,28 @@ static double sigder(double x)
 	return s*(1-s);
 }
 
-Neural::Neural(Mapper *m):Model(m)
+Neural::Neural(Mapper *m,int r):Model(m)
 {
+#pragma omp critical
+{
+	srand48(r);
+	/*
+	int randcount=1000000;
+	nextRand=0;
+	for(int i=0;i<randcount;i++)
+	{
+		double r=drand48();
+		randomValues.push_back(r);
+	}*/
+}
+}
+
+double  Neural::getRandom()
+{
+	return drand48();
+	double v=randomValues[nextRand];
+	nextRand=(nextRand+1) % randomValues.size();
+	return v;
 }
 
 void	Neural::setWeights(Matrix x)
@@ -41,7 +61,7 @@ double Neural::train1()
 	MinInfo Info;
 	Info.p = this;
 	Info.iters=61;
-	return tolmin(weight,Info.p,Info.iters);
+	return tolmin(weight,Info);
 }
 
 double	Neural::countViolate(double limit)
@@ -76,10 +96,35 @@ double Neural::train2()
 	MinInfo Info;
 	Info.p=this;
 	Info.iters=2001;
-	randomizeWeights();
+	weight.resize((pattern_dimension+2)*num_weights);
+	setDimension(weight.size());
+	for(int i=0;i<weight.size();i++) 
+		weight[i]=2.0*getRandom()-1.0;
+	//randomizeWeights();
 	
+	//GenSolve(this,weight,v,1,0);
+	lmargin.resize(weight.size());
+	rmargin.resize(weight.size());
+	for(int i=0;i<weight.size();i++)
+	{
+		lmargin[i]=-5.0*fabs(weight[i]);
+	//	if(lmargin[i]>-5) lmargin[i]=-5;
+		rmargin[i]= 5.0*fabs(weight[i]);
+	//	if(rmargin[i]<5) rmargin[i]=5;
+		lmargin[i]=-10;
+		rmargin[i]= 10;
+	}
+	setLeftMargin(lmargin);
+	setRightMargin(rmargin);
 	GenSolve(this,weight,v,1,0);
-	v=tolmin(weight,Info.p,Info.iters);
+	for(int i=0;i<weight.size();i++)
+	{
+		lmargin[i]=-5.0*fabs(weight[i]);
+		rmargin[i]= 5.0*fabs(weight[i]);
+		
+	}
+	//GenSolve(this,weight,v,0,1);
+	v=tolmin(weight,Info);
 	return v;
 }
 

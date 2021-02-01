@@ -821,7 +821,7 @@ void 	getmargins(vector<Interval> &x)
                 {
 
                     double cx=centers[i * trainx[0].size()+j];
-                    if(fabs(cx)<5.0) cx=5.0;
+                    //if(fabs(cx)<5.0) cx=5.0;
                     x[icount++]=Interval(-f * fabs(cx),
                                           f * fabs(cx));
                 }
@@ -836,7 +836,7 @@ void 	getmargins(vector<Interval> &x)
                     double vx=variances[i * trainx[0].size()+j];
 		    if(fabs(vx)>maxvx) maxvx=fabs(vx);
 		}
-		if(maxvx<0.1) maxvx=1.0;
+		//if(maxvx<0.1) maxvx=1.0;
 		for(int j=0;j<trainx[0].size();j++)
 		{
                     x[icount++]=Interval(-f*maxvx,f * maxvx);
@@ -853,7 +853,7 @@ void 	getmargins(vector<Interval> &x)
                     double vx=variances[i * trainx[0].size()+j];
                     maxvx+=vx;
 		}
-        if(maxvx<0.1) maxvx=1.0;
+     //   if(maxvx<0.1) maxvx=1.0;
 
         x[icount++]=Interval(-f * maxvx,f * maxvx);
 		   

@@ -3,8 +3,12 @@
 # include <model.h>
 class Neural :public Model
 {
+	private:
+		int nextRand;
+		vector<double> randomValues;
 	public:
-		Neural(Mapper *m);
+		Neural(Mapper *m,int x);
+		double  getRandom();
 		double	countViolate(double limit);
 		virtual double train1();
 		virtual double train2();

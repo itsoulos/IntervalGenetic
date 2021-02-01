@@ -120,6 +120,31 @@ static	void findDigits(int x,vector<int> &d)
 	}
 }
 
+int		Cprogram::Parse(string expr)
+{
+	return (parser.Parse(expr,vars)==-1);
+}
+
+int		Cprogram::EvalError()
+{
+	return	parser.EvalError();
+}
+
+double	Cprogram::Eval( const double *X)
+{
+		return parser.Eval(X);
+}
+
+Symbol	*Cprogram::getStartSymbol()
+{
+	return &Start;
+}
+
+Cprogram::~Cprogram()
+{
+	for(int i=0;i<rule.size();i++)
+		delete rule[i];
+}
 void	Cprogram::makeRules()
 {
 	int r;
@@ -128,39 +153,84 @@ void	Cprogram::makeRules()
         Start.addRule(rule[r]);
 	
 	r=newRule();
-	rule[r]->addSymbol(&terminal);
-	Expr.addRule(rule[r]);
+	rule[r]->addSymbol(&XXlist);
+	sx.addRule(rule[r]);
 
 	r=newRule();
 	rule[r]->addSymbol(&XXlist);
-	Expr.addRule(rule[r]);
-
-	/** NEW RULES 
-	r=newRule();
-	rule[r]->addSymbol(&terminal);
-	rule[r]->addSymbol(&Mult);
-	rule[r]->addSymbol(&XXlist);
-	Expr.addRule(rule[r]);
+	rule[r]->addSymbol(&Plus);
+	rule[r]->addSymbol(&sx);
+	sx.addRule(rule[r]);
 	
 	r=newRule();
 	rule[r]->addSymbol(&terminal);
 	rule[r]->addSymbol(&Mult);
 	rule[r]->addSymbol(&XXlist);
+	sx.addRule(rule[r]);
+
+	r=newRule();
+	rule[r]->addSymbol(&terminal);
+	rule[r]->addSymbol(&Mult);
+	rule[r]->addSymbol(&XXlist);
 	rule[r]->addSymbol(&Plus);
-	rule[r]->addSymbol(&Expr);
-	Expr.addRule(rule[r]);
-	 END NEW RULES **/
+	rule[r]->addSymbol(&sx);
+	sx.addRule(rule[r]);
 
 	r=newRule();
 	rule[r]->addSymbol(&Lpar);
-	rule[r]->addSymbol(&Minus);
+	rule[r]->addSymbol(&terminal);
+	rule[r]->addSymbol(&Div);
+	rule[r]->addSymbol(&terminal);
+	rule[r]->addSymbol(&Rpar);
+	rule[r]->addSymbol(&Mult);
+	rule[r]->addSymbol(&XXlist);
+	sx.addRule(rule[r]);
+
+	r=newRule();
+	rule[r]->addSymbol(&Lpar);
+	rule[r]->addSymbol(&terminal);
+	rule[r]->addSymbol(&Div);
+	rule[r]->addSymbol(&terminal);
+	rule[r]->addSymbol(&Rpar);
+	rule[r]->addSymbol(&Mult);
+	rule[r]->addSymbol(&XXlist);
+	rule[r]->addSymbol(&Plus);
+	rule[r]->addSymbol(&sx);
+	sx.addRule(rule[r]);
+	
+	r=newRule();
+	rule[r]->addSymbol(&function);
+	rule[r]->addSymbol(&Lpar);
+	rule[r]->addSymbol(&sx);
+	rule[r]->addSymbol(&Rpar);
+	sx.addRule(rule[r]);
+
+	r=newRule();
+	rule[r]->addSymbol(&sx);
+	Expr.addRule(rule[r]);
+
+		/** ADD RULES **/
+	r=newRule();
+	rule[r]->addSymbol(&Lpar);
+	rule[r]->addSymbol(&terminal);
+	rule[r]->addSymbol(&Mult);
 	rule[r]->addSymbol(&XXlist);
 	rule[r]->addSymbol(&Rpar);
 	Expr.addRule(rule[r]);
 
 	r=newRule();
 	rule[r]->addSymbol(&Lpar);
+	rule[r]->addSymbol(&XXlist);
+	rule[r]->addSymbol(&binaryop);
 	rule[r]->addSymbol(&Expr);
+	rule[r]->addSymbol(&Rpar);
+	Expr.addRule(rule[r]);
+	
+	r=newRule();
+	rule[r]->addSymbol(&Lpar);
+	rule[r]->addSymbol(&terminal);
+	rule[r]->addSymbol(&Mult);
+	rule[r]->addSymbol(&XXlist);
 	rule[r]->addSymbol(&binaryop);
 	rule[r]->addSymbol(&Expr);
 	rule[r]->addSymbol(&Rpar);
@@ -172,6 +242,7 @@ void	Cprogram::makeRules()
 	rule[r]->addSymbol(&Expr);
 	rule[r]->addSymbol(&Rpar);
 	Expr.addRule(rule[r]);
+	/** END ADD RULES **/
 
 	/** NEW RULES ******************/
 	r=newRule();
@@ -179,7 +250,7 @@ void	Cprogram::makeRules()
 	rule[r]->addSymbol(&Lpar);
 	rule[r]->addSymbol(&Digit[0]);
 	rule[r]->addSymbol(&Rpar);
-//	XXlist.addRule(rule[r]);
+	//XXlist.addRule(rule[r]);
 
 	r=newRule();
 	rule[r]->addSymbol(&maxx);
@@ -250,6 +321,7 @@ void	Cprogram::makeRules()
 	r=newRule();
 	rule[r]->addSymbol(&Digit0);
 	rule[r]->addSymbol(&Digit0);
+	//rule[r]->addSymbol(&DigitList);
 	DigitList.addRule(rule[r]);
 
 	r=newRule();
@@ -273,12 +345,12 @@ void	Cprogram::makeRules()
 	rule[r]->addSymbol(&Rpar);
 	terminal.addRule(rule[r]);
 
+
 	for(int i=0;i<dimension;i++)
 	{
 		r=newRule();
 		rule[r]->addSymbol(&XX[i]);
 		XXlist.addRule(rule[r]);
-
 	}
 
 	for(int i=0;i<10;i++)
@@ -289,30 +361,4 @@ void	Cprogram::makeRules()
 		
 	}
 	
-}
-
-int		Cprogram::Parse(string expr)
-{
-	return (parser.Parse(expr,vars)==-1);
-}
-
-int		Cprogram::EvalError()
-{
-	return	parser.EvalError();
-}
-
-double	Cprogram::Eval( const double *X)
-{
-		return parser.Eval(X);
-}
-
-Symbol	*Cprogram::getStartSymbol()
-{
-	return &Start;
-}
-
-Cprogram::~Cprogram()
-{
-	for(int i=0;i<rule.size();i++)
-		delete rule[i];
 }

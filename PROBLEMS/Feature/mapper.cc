@@ -65,15 +65,20 @@ int	Mapper::map(Matrix x,Matrix &x1)
 	if(countx!=parser.size()) return 0;
 	double *xx=new double[x.size()];
 	for(int i=0;i<x.size();i++) xx[i]=x[i];
+	mapper_error=0;
 	for(int i=0;i<parser.size();i++) 
 	{
 		x1[i]=parser[i]->Eval(xx);
 		if(isnan(x1[i]) || isinf(x1[i])) {
-					delete[] xx;return 0;}
+					mapper_error=1;
+					delete[] xx;return 0;
+		}
 		if(parser[i]->EvalError()) {
+			mapper_error=2;
 		delete[] xx;return 0;}
-        //x1[i]=fmod(x1[i],scale_factor);
-		if(fabs(x1[i])>1e+2) {delete[] xx;return 0;}
+		if(fabs(x1[i])>1e+2) {
+			mapper_error=3;
+			delete[] xx;return 0;}
 	}
 	delete[] xx;
 	return 1;

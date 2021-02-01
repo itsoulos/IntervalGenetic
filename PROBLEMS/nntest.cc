@@ -19,6 +19,7 @@ extern "C"
 
 QString trainName="xy.data";
 QString testName="xy.data";
+const double lambda=10.0;
 int nodes=10;
 int dimension=0;
 typedef vector<double> Data;
@@ -27,8 +28,8 @@ Data trainy;
 vector<Data> testx;
 Data testy;
 Data dclass;
-double initialLeft=-100.0;
-double initialRight= 100.0;
+double initialLeft=-10.0;
+double initialRight= 10.0;
 Interval maxWidth;
 int failCount=0;
 int normalTrain=0;
@@ -276,7 +277,7 @@ adept::adouble afunmin(adept::aVector &Weights){
     }
     //std::cout << sum.value() << std::endl;
     if(normalTrain==1) return sum;
-    return sum+100.0*pow(fcount*1.0/(nodes * trainx.size()),2.0);
+    return sum+lambda*pow(fcount*1.0/(nodes * trainx.size()),2.0);
 
 }
 
@@ -291,7 +292,7 @@ double	funmin(vector<double> &x)
         sum+=per * per;
     }
     if(normalTrain==1) return sum;
-    return sum+100.0*pow(fcount*1.0/(nodes * trainx.size()),2.0);
+    return sum+lambda*pow(fcount*1.0/(nodes * trainx.size()),2.0);
 }
 
 void    granal(vector<double> &x,vector<double> &g)

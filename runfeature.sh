@@ -3,8 +3,8 @@ DATAPATH=/home/sheridan/Desktop/ERGASIES/FeatureConstruction2/datasets/tenfoldin
 #DATAPATH=/home/sheridan/COVID/
 NODES=10
 GENS=200
-
-./IntervalGenetic  --localmethod=genetic --intervalmethod=none --filename=PROBLEMS/Feature/libFeature.so --param=features --value=2 --param=trainName --value=$DATAPATH/$1.train --param=testName --value=$DATAPATH/$1.test --param=nodes --value=$NODES --generations=$GENS  --threads=32
+echo ./IntervalGenetic  --localmethod=genetic --intervalmethod=double --filename=PROBLEMS/Feature/libFeature.so --param=features --value=2 --param=trainName --value=$DATAPATH/$1.train --param=testName --value=$DATAPATH/$1.test --param=nodes --value=$NODES --generations=$GENS  --threads=16
+./IntervalGenetic  --localmethod=genetic --intervalmethod=double --filename=PROBLEMS/Feature/libFeature.so --param=features --value=2 --param=trainName --value=$DATAPATH/$1.train --param=testName --value=$DATAPATH/$1.test --param=nodes --value=$NODES --generations=$GENS  --threads=16
 
 
 

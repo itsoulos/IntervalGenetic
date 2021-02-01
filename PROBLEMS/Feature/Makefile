@@ -54,7 +54,6 @@ OBJECTS_DIR   = ./
 
 SOURCES       = feature.cpp \
 		doublestack.cc \
-		interval.cpp \
 		symbol.cc \
 		rule.cc \
 		program.cc \
@@ -71,11 +70,11 @@ SOURCES       = feature.cpp \
 		nnprogram.cc \
 		knn.cc \
 		rbf_model.cc \
+		interval.cpp \
 		Rbf.cc \
 		tolmin.cc 
 OBJECTS       = feature.o \
 		doublestack.o \
-		interval.o \
 		symbol.o \
 		rule.o \
 		program.o \
@@ -92,6 +91,7 @@ OBJECTS       = feature.o \
 		nnprogram.o \
 		knn.o \
 		rbf_model.o \
+		interval.o \
 		Rbf.o \
 		tolmin.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -177,8 +177,10 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		interval.h \
 		symbol.h \
 		rule.h \
-		grand.h \
+		interval.h \
+		tolmin.h \
 		program.h \
+		grand.h \
 		fptypes.hh \
 		fpconfig.hh \
 		fparser.hh \
@@ -195,7 +197,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		rbf_model.h \
 		Rbf.h feature.cpp \
 		doublestack.cc \
-		interval.cpp \
 		symbol.cc \
 		rule.cc \
 		program.cc \
@@ -212,6 +213,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		nnprogram.cc \
 		knn.cc \
 		rbf_model.cc \
+		interval.cpp \
 		Rbf.cc \
 		tolmin.cc
 QMAKE_TARGET  = Feature
@@ -414,8 +416,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents feature.h feature_global.h doublestack.h interval.h symbol.h rule.h grand.h program.h fptypes.hh fpconfig.hh fparser.hh cprogram.h kmeans.h matrix_functions.h mapper.h model.h problem.h neural.h gensolver.h nnprogram.h knn.h rbf_model.h Rbf.h $(DISTDIR)/
-	$(COPY_FILE) --parents feature.cpp doublestack.cc interval.cpp symbol.cc rule.cc program.cc fpoptimizer.cc fparser.cc cprogram.cc kmeans.cc matrix_functions.cc mapper.cc model.cc problem.cc neural.cc gensolver.cc nnprogram.cc knn.cc rbf_model.cc Rbf.cc tolmin.cc $(DISTDIR)/
+	$(COPY_FILE) --parents feature.h feature_global.h doublestack.h interval.h symbol.h rule.h interval.h tolmin.h program.h grand.h fptypes.hh fpconfig.hh fparser.hh cprogram.h kmeans.h matrix_functions.h mapper.h model.h problem.h neural.h gensolver.h nnprogram.h knn.h rbf_model.h Rbf.h $(DISTDIR)/
+	$(COPY_FILE) --parents feature.cpp doublestack.cc symbol.cc rule.cc program.cc fpoptimizer.cc fparser.cc cprogram.cc kmeans.cc matrix_functions.cc mapper.cc model.cc problem.cc neural.cc gensolver.cc nnprogram.cc knn.cc rbf_model.cc interval.cpp Rbf.cc tolmin.cc $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -475,6 +477,7 @@ feature.o: feature.cpp feature.h \
 		model.h \
 		problem.h \
 		mapper.h \
+		grand.h \
 		neural.h \
 		rbf_model.h \
 		Rbf.h \
@@ -486,9 +489,6 @@ feature.o: feature.cpp feature.h \
 
 doublestack.o: doublestack.cc doublestack.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o doublestack.o doublestack.cc
-
-interval.o: interval.cpp interval.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o interval.o interval.cpp
 
 symbol.o: symbol.cc symbol.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o symbol.o symbol.cc
@@ -521,7 +521,8 @@ cprogram.o: cprogram.cc cprogram.h \
 		fparser.hh
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cprogram.o cprogram.cc
 
-kmeans.o: kmeans.cc kmeans.h
+kmeans.o: kmeans.cc kmeans.h \
+		grand.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o kmeans.o kmeans.cc
 
 matrix_functions.o: matrix_functions.cc matrix_functions.h
@@ -534,7 +535,8 @@ mapper.o: mapper.cc mapper.h \
 model.o: model.cc model.h \
 		problem.h \
 		mapper.h \
-		fparser.hh
+		fparser.hh \
+		grand.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o model.o model.cc
 
 problem.o: problem.cc problem.h
@@ -545,7 +547,9 @@ neural.o: neural.cc neural.h \
 		problem.h \
 		mapper.h \
 		fparser.hh \
-		gensolver.h
+		grand.h \
+		gensolver.h \
+		tolmin.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o neural.o neural.cc
 
 gensolver.o: gensolver.cc gensolver.h \
@@ -553,7 +557,9 @@ gensolver.o: gensolver.cc gensolver.h \
 		neural.h \
 		model.h \
 		mapper.h \
-		fparser.hh
+		fparser.hh \
+		grand.h \
+		tolmin.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gensolver.o gensolver.cc
 
 nnprogram.o: nnprogram.cc nnprogram.h \
@@ -566,6 +572,7 @@ nnprogram.o: nnprogram.cc nnprogram.h \
 		model.h \
 		problem.h \
 		mapper.h \
+		grand.h \
 		neural.h \
 		rbf_model.h \
 		Rbf.h \
@@ -579,6 +586,7 @@ knn.o: knn.cc knn.h \
 		problem.h \
 		mapper.h \
 		fparser.hh \
+		grand.h \
 		gensolver.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o knn.o knn.cc
 
@@ -587,17 +595,23 @@ rbf_model.o: rbf_model.cc rbf_model.h \
 		problem.h \
 		mapper.h \
 		fparser.hh \
+		grand.h \
 		Rbf.h \
 		matrix_functions.h \
 		kmeans.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o rbf_model.o rbf_model.cc
 
+interval.o: interval.cpp interval.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o interval.o interval.cpp
+
 Rbf.o: Rbf.cc Rbf.h \
 		matrix_functions.h \
-		kmeans.h
+		kmeans.h \
+		grand.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Rbf.o Rbf.cc
 
-tolmin.o: tolmin.cc 
+tolmin.o: tolmin.cc tolmin.h \
+		problem.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tolmin.o tolmin.cc
 
 ####### Install

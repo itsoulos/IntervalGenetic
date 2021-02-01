@@ -6,6 +6,8 @@ class Rbf :public Model
 {
 	private:
 	        double *input,*centers,*variances,*weights;
+		vector<double> randNumber;
+double *Output;
 	public:
 		Rbf(Mapper *m);
 		virtual double train1();

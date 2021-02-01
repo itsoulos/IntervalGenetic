@@ -15,7 +15,6 @@ class GenSolver
 		double  maxx;
 
 		double 	fitness(vector<double> &g);
-		void	select();
 		void	crossover();
 		void	mutate();
 		void	calcFitnessArray();
@@ -23,6 +22,7 @@ class GenSolver
 		Problem	*problem;
 		int	small_tolmin_flag;
 	public:
+		void	select();
 		void	local();
 		GenSolver(int gcount,Problem *p,double mx,int f);
 		void	setElitism(int s);

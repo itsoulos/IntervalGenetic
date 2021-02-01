@@ -9,9 +9,10 @@ Rbf::Rbf(Mapper *m)
 	weights = NULL;
 	input  = NULL;
 	weight.resize(0);
+	for(int i=0;i<10000;i++) randNumber.push_back(drand48());
 }
 
-double *Output;
+int isTrain2=0;
 
 double Rbf::train1()
 {
@@ -56,6 +57,7 @@ double Rbf::train1()
 		Output[i]=ypoint[i];
 	}
 
+
         Kmeans(rnd,input,centers,variances,
 			xpoint.size(),pattern_dimension,num_weights);
 	
@@ -63,12 +65,18 @@ double Rbf::train1()
 			centers,variances,weights,input,Output);
 	double v =0.0;
 	v=funmin(weight);
-	if(icode==1) return 1e+8;
+	if(icode==1) 
+	{
+		if(isTrain2)
+		printf("fail3\n");
+	return	1e+8;
+	}
 	return v;
 }
 
 double Rbf::train2()
 {
+	isTrain2=1;
 	return train1();
 }
 

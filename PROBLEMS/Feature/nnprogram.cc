@@ -13,7 +13,7 @@ NNprogram::NNprogram(int type,int pdimension,char *filename)
 	fclose(fp);	
 	model_type = type;
 	if(type == MODEL_NEURAL)
-		model = new Neural(mapper);
+		model = new Neural(mapper,1);
 	else
 	if(type == MODEL_RBF)
 		model = new Rbf(mapper);
@@ -43,7 +43,7 @@ void NNprogram::setData(int type,int pdimension,double scale,vector<Matrix> &xda
     mapper=new Mapper(d,scale);
     model_type = type;
     if(type == MODEL_NEURAL)
-        model = new Neural(mapper);
+        model = new Neural(mapper,1);
     else
     if(type == MODEL_RBF)
         model = new Rbf(mapper);

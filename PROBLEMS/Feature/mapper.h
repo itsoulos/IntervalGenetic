@@ -14,6 +14,7 @@ class Mapper
 		vector<int> foundX;
 		int countx;
 	public:
+		int mapper_error=0;
         Mapper(int d,double scale);
 		void	setExpr(vector<string> s);
 		int	map(Matrix x,Matrix &x1);

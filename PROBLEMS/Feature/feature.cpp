@@ -28,7 +28,7 @@ extern "C"
 
     int populationCount=0;
     int dimension=1;
-    int weights=10;
+    int weights=20;
     int dcount=0;
     QVector<NNprogram> program;
     vector<int> genome;
@@ -170,7 +170,7 @@ void    init(QJsonObject obj)
     program.resize(maxthreads);
     for(int i=0;i<maxthreads;i++)
     {
-    program[i].setData(MODEL_NEURAL,features,scale_factor,trainx,trainy);
+    program[i].setData(MODEL_RBF,features,scale_factor,trainx,trainy);
     program[i].getModel()->setNumOfWeights(weights);
     }
     populationCount=chromosomeSize * features;
@@ -213,37 +213,66 @@ int thread()
 QJsonObject    done(Data &x)
 {
     double sum=0.0;
-
+	vector<int> genome;
+	genome.resize(getdimension());
     for(int i=0;i<getdimension();i++)
         genome[i]=(int)fabs(x[i]);
- double ff=program[omp_get_thread_num()].fitness(genome);
-
+    double ff;
+    string lastExpr="";
+    for(int i=0;i<omp_get_num_threads();i++)
+    {
+ 		 ff=program[i].fitness(genome);
+		 lastExpr=program[i].printF(genome);
+    }
  double avg_test_error=0.0;
  double avg_class_error=0.0;
 
  int ntimes=30;
  
- QString bestProgram=QString::fromStdString(program[thread()].printF(genome));
+ QString bestProgram=QString::fromStdString(program[0].printF(genome));
  
-Neural *neural = new Neural(program[thread()].getMapper());
-// Rbf *neural = new Rbf(program[thread()].getMapper());
- neural->setRand(program[thread()].getRand());
+int threads=24;
+ ntimes= threads;
+	 vector<string> pstring;
+	 pstring.resize(features);
+	for(int i=0;i<features;i++)
+	{
+		vector<int> pgenome;
+		pgenome.resize(genome.size()/features);
+		for(int j=0;j<pgenome.size();j++)
+			pgenome[j]=genome[i*genome.size()/features+j];
+		int redo=0;
+		pstring[i]=program[0].printRandomProgram(pgenome,redo);
+	}
+#pragma omp parallel for num_threads(threads)
+ for(int i=1;i<=ntimes;i++)
+ {
+	 Mapper *myMapper=new Mapper(dimension,0.0);
+	myMapper->setExpr(pstring);
+//Neural *neural = new Neural(myMapper,i);
+Rbf *neural = new Rbf(myMapper);
+ neural->setRand(program[0].getRand());
  neural->readPatterns(trainx,trainy);
  neural->setPatternDimension(features);
  neural->setNumOfWeights(10);
- for(int i=1;i<=ntimes;i++)
- {
- neural->train2();
+ double ff=neural->train2();
  double testError=neural->testError(testx,testy);
- if(testError>1e+4) continue;
+ //if(testError>1e+4) continue;
+#pragma omp critical
+ {
  double classTestError=neural->classTestError(testx,testy);
  avg_test_error+=testError;
  avg_class_error+=classTestError;
+ printf("Starting thread %d  Values: %lf  %.2lf%% %lf \n",thread(),
+		ff,	 
+		 classTestError,testError);
+ }
+ delete neural;
+ delete myMapper;
  }
  avg_test_error/=ntimes;
  avg_class_error/=ntimes;
  printf("Average test is %lf \n",avg_class_error);
- delete neural;
 /*
      QEventLoop loop;
      QUrl serviceUrl = QUrl(urlpath+QString("upload_result.php"));
