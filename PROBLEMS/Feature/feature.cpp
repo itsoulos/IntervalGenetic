@@ -249,8 +249,8 @@ int threads=24;
  {
 	 Mapper *myMapper=new Mapper(dimension,0.0);
 	myMapper->setExpr(pstring);
-//Neural *neural = new Neural(myMapper,i);
-Rbf *neural = new Rbf(myMapper);
+Neural *neural = new Neural(myMapper,i);
+//Rbf *neural = new Rbf(myMapper);
  neural->setRand(program[0].getRand());
  neural->readPatterns(trainx,trainy);
  neural->setPatternDimension(features);

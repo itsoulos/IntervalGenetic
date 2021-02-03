@@ -48,7 +48,6 @@ int train_rbf(int in_n, int hid_n, int out_n, int samples_n,
 	if(var_diag<0.00000001) var_diag=0.001;
    // -----------------------------------
  
-	int violcount=0;
    for(i=0; i<samples_n; i++) {
 	for(j=0; j<hid_n; j++) {
 		/* Ypologizw ton pinaka Input-Centers gia kathe hidden neuron */
