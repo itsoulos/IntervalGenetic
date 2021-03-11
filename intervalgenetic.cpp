@@ -19,7 +19,7 @@ IntervalGenetic::IntervalGenetic(IntervalProblem *p,int gcount)
     fitnessArray.resize(count);
     chromosome.resize(count);
     children.resize(count);
-    setSamples(50);
+    setSamples(200);
     for(int i=0;i<count;i++)
     {
         chromosome[i].resize(problem[omp_get_thread_num()]->getDimension());
@@ -35,7 +35,7 @@ IntervalGenetic::IntervalGenetic(IntervalProblem *p,int gcount)
 void    IntervalGenetic::setSamples(int n)
 {
     nsamples=n;
-    drandDat.resize(
+    drandDat.resize(nsamples+
                 nsamples*problem[omp_get_thread_num()]->getDimension());
 
     for (unsigned i = 0; i < drandDat.size();i++) {
@@ -52,8 +52,8 @@ IntervalGenetic::IntervalGenetic(QString filename,QJsonObject settings,int gcoun
     generation=0;
     setSelectionRate(0.1);
     setMutationRate(0.05);
-    nsamples=50;
-    drandDat.resize(nsamples*problem[omp_get_thread_num()]->getDimension());
+    nsamples=200;
+    drandDat.resize(nsamples+nsamples*problem[omp_get_thread_num()]->getDimension());
     for (unsigned i = 0; i < drandDat.size();i++) {
         drandDat[i]=randGen.generateDouble();
     }
@@ -141,12 +141,130 @@ void   IntervalGenetic::optimize(IntervalData &x)
      x=copyx;
 }
 
+
+static double getDist(Data &x,Data &y)
+{
+    double sum=0.0;
+    for(int i=0;i<x.size();i++)
+        sum+=(x[i]-y[i])*(x[i]-y[i]);
+    return sqrt(sum);
+}
+void   IntervalGenetic::makeSamples(IntervalData  &x,vector<Data> &cx,int ti)
+{
+    vector<Data> tx;
+
+    Problem np(problem[ti]);
+
+    tx.resize(nsamples);
+    for(int i=0;i<nsamples;i++)
+        tx[i].resize(x.size());
+
+    for(int k=1;k<=nsamples;k++)
+    {
+
+        for(int i=0;i<x.size();i++)
+        {
+            tx[k-1][i]=x[i].leftValue()+(x[i].rightValue()-x[i].leftValue())*drandDat[(k-1)*np.getDimension()+i];
+        }
+
+    }
+
+    const int ncenters=20;//nsamples/10;
+
+    vector<int> team;
+    team.resize(nsamples);
+
+    vector<int> countTeams;
+    countTeams.resize(ncenters);
+    for(int i=0;i<countTeams.size();i++)
+        countTeams[i]=0;
+    for(int i=0;i<nsamples;i++)
+    {
+        int randomValue=(int)(drandDat[drandDat.size()-i]*ncenters);
+        team[i]=randomValue;
+        if(team[i]<0) team[i]=-team[i];
+    }
+     cx.resize(ncenters);
+    for(int i=0;i<ncenters;i++)
+    {
+        cx[i].resize(x.size());
+
+    }
+
+    int maxTeamCount=10;
+    while((maxTeamCount--)>0)
+    {
+        for(int i=0;i<cx.size();i++)
+            for(int j=0;j<cx[i].size();j++)
+                cx[i][j]=0.0;
+        for(int i=0;i<countTeams.size();i++)
+            countTeams[i]=0;
+
+        for(int i=0;i<nsamples;i++)
+        {
+            int t=team[i];
+
+            countTeams[t]++;
+
+            for(int j=0;j<x.size();j++)
+            {
+
+                cx[t][j]+=tx[i][j];
+
+            }
+        }
+
+        for(int i=0;i<cx.size();i++)
+            for(int j=0;j<x.size();j++)
+
+            {
+                if(countTeams[i])
+                cx[i][j]/=countTeams[i]; else cx[i][j]/=1;
+                if(cx[i][j]<x[j].leftValue()) cx[i][j]=x[j].leftValue();
+                if(cx[i][j]>x[j].rightValue()) cx[i][j]=x[j].rightValue();
+            }
+
+        for(int i=0;i<nsamples;i++)
+        {
+            Data trialx = tx[i];
+            double minDist=1e+100;
+            int    imin=-1;
+            for(int j=0;j<ncenters;j++)
+            {
+                    double d=getDist(trialx,cx[j]);
+                    if(d<minDist)
+                    {
+                        minDist=d;
+                        imin=j;
+                    }
+            }
+            team[i]=imin;
+        }
+    }
+}
+
 Interval IntervalGenetic::fitness(IntervalData &x,unsigned ti)
 {
+
+
     Data trialx;
     trialx.resize(x.size());
     double miny=1e+100,maxy=1e+100;
     Problem np(problem[ti]);
+
+
+    vector<Data> cx;
+    makeSamples(x,cx,ti);
+
+    for(int k=0;k<cx.size();k++)
+    {
+        trialx=cx[k];
+        double fx=problem[ti]->funmin(trialx);//tolmin(trialx,&np,10);
+
+        if(k==0 || fx>maxy) maxy=fx;
+        if(k==0 || fx<miny) miny=fx;
+    }
+    /*
     for(int k=1;k<=nsamples;k++)
     {
     for(int i=0;i<x.size();i++)
@@ -157,7 +275,7 @@ Interval IntervalGenetic::fitness(IntervalData &x,unsigned ti)
 
     if(k==1 || fx>maxy) maxy=fx;
     if(k==1 || fx<miny) miny=fx;
-    }
+    }*/
     return Interval(miny,maxy);
    // return problem[omp_get_thread_num()]->IntFunmin(x);
 }
@@ -169,7 +287,6 @@ void   IntervalGenetic::calcFitnessArray()
     for(int i=0;i<count;i++)
     {
         fitnessArray[i]=fitness(chromosome[i],omp_get_thread_num());
-
     }
 }
 
@@ -381,7 +498,7 @@ void    IntervalGenetic::localSearch(IntervalData &x,Interval &value)
            x[ipos]=temp;
        }
     }
-    cout<<"ITERATION "<<k<<" NEW VALUE "<<value<<endl;
+//    cout<<"ITERATION "<<k<<" NEW VALUE "<<value<<endl;
     break;
  //  if (minFound) break;
     }

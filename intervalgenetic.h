@@ -21,6 +21,7 @@ private:
     void    crossover();
     void    mutate();
     void    selection();
+    void    makeSamples(IntervalData &x,vector<Data> &s,int ti);
     Data drandDat;
 public:
     IntervalGenetic(IntervalProblem *p,int gcount);
