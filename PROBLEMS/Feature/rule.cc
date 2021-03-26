@@ -58,6 +58,33 @@ void	Rule::updateNegative(vector<int> genome,int &pos,int &redo,
 #endif
 }
 
+string  Rule::printRule(vector<double> &genome,int &pos,int &redo)
+{
+    string str="";
+    string str2="";
+    Rule *r;
+    for(int i=0;i<length;i++)
+    {
+        Symbol *s=data[i];
+        if(s->getTerminalStatus())
+        {
+            str=str+s->getName();
+        }
+        else
+        {
+            if(pos>=genome.size()) {redo++;pos=0;}
+            int pos1 = (int)(genome[pos]*s->getCountRules());
+            pos1 = pos1 % s->getCountRules();
+            r=s->getRule(pos1);
+            pos++;
+            if(pos>=genome.size()) {redo++;pos=0;}
+            if(redo>=REDO_MAX) return str;
+            str2=r->printRule(genome,pos,redo);
+            str=str+str2;
+        }
+    }
+    return str;
+}
 string	Rule::printRule(vector<int> genome,int &pos,int &redo)
 {
 	string str="";

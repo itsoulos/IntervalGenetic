@@ -18,6 +18,7 @@ class Rule
 		Symbol	*getSymbol(int pos) const;
 		void	setSymbol(int pos,Symbol *s);
 		int	getLength() const;
+        string  printRule(vector<double> &genome,int &pos,int &redo);
 		string	printRule(vector<int> genome,int &pos,int &redo);
 		void	updatePositive(vector<int> genome,int &pos,int &redo,
 				vector<Rule*> &rule,vector<double> &weight);

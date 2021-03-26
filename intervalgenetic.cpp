@@ -252,7 +252,7 @@ Interval IntervalGenetic::fitness(IntervalData &x,unsigned ti)
     double miny=1e+100,maxy=1e+100;
     Problem np(problem[ti]);
 
-
+	/*
     vector<Data> cx;
     makeSamples(x,cx,ti);
 
@@ -263,8 +263,8 @@ Interval IntervalGenetic::fitness(IntervalData &x,unsigned ti)
 
         if(k==0 || fx>maxy) maxy=fx;
         if(k==0 || fx<miny) miny=fx;
-    }
-    /*
+    }*/
+    
     for(int k=1;k<=nsamples;k++)
     {
     for(int i=0;i<x.size();i++)
@@ -275,7 +275,7 @@ Interval IntervalGenetic::fitness(IntervalData &x,unsigned ti)
 
     if(k==1 || fx>maxy) maxy=fx;
     if(k==1 || fx<miny) miny=fx;
-    }*/
+    }
     return Interval(miny,maxy);
    // return problem[omp_get_thread_num()]->IntFunmin(x);
 }

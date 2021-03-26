@@ -19,6 +19,7 @@ class NNprogram	:public Program
 	private:
 		vector<string> pstring;
 		vector<int>    pgenome;
+        vector<double> fpgenome;
 		int	model_type;
 		int	pattern_dimension;
 		Cprogram *program;
@@ -34,7 +35,9 @@ class NNprogram	:public Program
 		NNprogram(int type,int pdimension,char *filename);
         NNprogram(int type,int pdimension,double scale,vector<Matrix> &xdata,Matrix &ydata);
 		string	printF(vector<int> &genome);
+        string  printF(vector<double> &genome);
 		virtual double 	fitness(vector<int> &genome);
+        virtual double fitness(vector<double> &genome);
 		Model	*getModel();
 		Mapper	*getMapper();
 		~NNprogram();

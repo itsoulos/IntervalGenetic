@@ -18,9 +18,11 @@ class Program
 		void	setStartSymbol(Symbol *s);
 		Symbol	*getStartSymbol() const;
 		string	printRandomProgram(vector<int> &genome,int &redo);
+        string	printRandomProgram(vector<double> &genome,int &redo);
 		int	hasFailed();
 		int	parse(vector<Symbol*> slist);
 		virtual double	fitness(vector<int> &genome);
+        virtual double fitness(vector<double> &genome);
 		void	updatePositive(vector<int> &genome);
 		void	updateNegative(vector<int> &genome);
 		void	updateAll(vector<int> &genome1,vector<int> &genome2);

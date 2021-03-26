@@ -11,7 +11,7 @@ extern "C"
     //parameters
     const int maxthreads=64;
     double leftMargin=0.0;
-    double rightMargin=255.0;
+    double rightMargin=1.0;;//255.0;
     int random_seed=1;
     QString trainfile="";
     QString testfile="";
@@ -221,26 +221,26 @@ QJsonObject    done(Data &x)
     string lastExpr="";
     for(int i=0;i<omp_get_num_threads();i++)
     {
- 		 ff=program[i].fitness(genome);
-		 lastExpr=program[i].printF(genome);
+         ff=program[i].fitness(x);
+         lastExpr=program[i].printF(x);
     }
  double avg_test_error=0.0;
  double avg_class_error=0.0;
 
  int ntimes=30;
  
- QString bestProgram=QString::fromStdString(program[0].printF(genome));
+ QString bestProgram=QString::fromStdString(program[0].printF(x));
  
 int threads=24;
  ntimes= threads;
-	 vector<string> pstring;
+     vector<string> pstring;
 	 pstring.resize(features);
 	for(int i=0;i<features;i++)
 	{
-		vector<int> pgenome;
-		pgenome.resize(genome.size()/features);
+        vector<double> pgenome;
+        pgenome.resize(x.size()/features);
 		for(int j=0;j<pgenome.size();j++)
-			pgenome[j]=genome[i*genome.size()/features+j];
+            pgenome[j]=x[i*genome.size()/features+j];
 		int redo=0;
 		pstring[i]=program[0].printRandomProgram(pgenome,redo);
 	}
@@ -332,11 +332,13 @@ Neural *neural = new Neural(myMapper,i);
 double	funmin(vector<double> &x)
 {
   setlocale(LC_ALL,"C");
+  return -program[thread()].fitness(x);
+  /*
   vector<int>  genome;
   genome.resize(getdimension());
   for(int i=0;i<getdimension();i++) genome[i]=(int)fabs(x[i]);
   double f=program[thread()].fitness(genome);
-  return -f;
+  return -f;*/
 }
 double dmax(double a,double b){return a>b?a:b;}
 

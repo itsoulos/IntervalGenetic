@@ -62,6 +62,27 @@ NNprogram::NNprogram(int type,int pdimension,double scale,vector<Matrix> &xdata,
     setData(type,pdimension,scale,xdata,ydata);
 }
 
+string  NNprogram::printF(vector<double> &genome)
+{
+
+    string ret="";
+    if(fpgenome.size()!=genome.size()/pattern_dimension)
+        fpgenome.resize(genome.size()/pattern_dimension);
+    for(int i=0;i<pattern_dimension;i++)
+    {
+        for(int j=0;j<genome.size()/pattern_dimension;j++)
+            fpgenome[j]=genome[i*genome.size()/pattern_dimension+j];
+        int redo=0;
+        pstring[i]=printRandomProgram(fpgenome,redo);
+        if(redo>=REDO_MAX) return "";
+        char str[10];
+        sprintf(str,"f%d(x)=",i+1);
+        ret+=str;
+        ret+=pstring[i];
+        ret+="\n";
+    }
+    return ret;
+}
 string	NNprogram::printF(vector<int> &genome)
 {
 	string ret="";
@@ -113,6 +134,32 @@ double 	NNprogram::fitness(vector<int> &genome)
 	value=model->train1();
 	if(isnan(value) || isinf(value)) return -1e+8;
 	return -value;
+}
+
+
+double 	NNprogram::fitness(vector<double> &genome)
+{
+    double value=0.0;
+    if(fpgenome.size()!=genome.size()/pattern_dimension)
+        fpgenome.resize(genome.size()/pattern_dimension);
+    for(int i=0;i<pattern_dimension;i++)
+    {
+        for(int j=0;j<fpgenome.size();j++)
+        {
+            fpgenome[j]=genome[i*genome.size()/pattern_dimension+j];
+        }
+        int redo=0;
+        pstring[i]=printRandomProgram(fpgenome,redo);
+        if(redo>=REDO_MAX) return -1e+8;
+    }
+    mapper->setExpr(pstring);
+        rnd.seed(random_seed+getpid());
+        model->setRand(&rnd);
+    model->setPatternDimension(pattern_dimension);
+    if(model_type==MODEL_NEURAL) model->randomizeWeights();
+    value=model->train1();
+    if(isnan(value) || isinf(value)) return -1e+8;
+    return -value;
 }
 
 Model	*NNprogram::getModel()
