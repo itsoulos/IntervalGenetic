@@ -142,7 +142,6 @@ void    init(QJsonObject obj)
      for(int j=0;j<dimension;j++) in>>xdata[i][j];
      in>>ydata[i];
      }
-
     program.resize(maxthreads);
     for(int i=0;i<maxthreads;i++)
     program[i].setData(xdata,ydata);
