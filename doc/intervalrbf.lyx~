@@ -755,7 +755,7 @@ Experimental results for classification datasets.
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="36" columns="5">
+<lyxtabular version="3" rows="35" columns="5">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -935,7 +935,7 @@ AUSTRALIAN
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+21.69%
 \end_layout
 
 \end_inset
@@ -1265,53 +1265,6 @@ HEART
 
 \begin_layout Plain Layout
 22.14%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-HEPATITIS
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
@@ -2345,7 +2298,7 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+2.09%
 \end_layout
 
 \end_inset
@@ -2392,7 +2345,7 @@ Z_O_N_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+48.01%
 \end_layout
 
 \end_inset
@@ -2439,7 +2392,7 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+9.00%
 \end_layout
 
 \end_inset
