@@ -1,7 +1,7 @@
 #!/bin/bash
 DATAPATH=/home/sheridan/Desktop/ERGASIES/FeatureConstruction2/datasets/tenfolding/
 #DATAPATH=/home/sheridan/COVID/
-DATAPATH=/home/sheridan/Desktop/ERGASIES/NEWBETTER/
+#DATAPATH=/home/sheridan/Desktop/ERGASIES/NEWBETTER/
 NODES=10
 GENS=200
 

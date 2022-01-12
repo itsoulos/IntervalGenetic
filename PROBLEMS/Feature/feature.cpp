@@ -11,7 +11,7 @@ extern "C"
     //parameters
     const int maxthreads=64;
     double leftMargin=0.0;
-    double rightMargin=1.0;;//255.0;
+    double rightMargin=255.0;
     int random_seed=1;
     QString trainfile="";
     QString testfile="";
@@ -221,15 +221,15 @@ QJsonObject    done(Data &x)
     string lastExpr="";
     for(int i=0;i<omp_get_num_threads();i++)
     {
-         ff=program[i].fitness(x);
-         lastExpr=program[i].printF(x);
+         ff=program[i].fitness(genome);
+         lastExpr=program[i].printF(genome);
     }
  double avg_test_error=0.0;
  double avg_class_error=0.0;
 
  int ntimes=30;
  
- QString bestProgram=QString::fromStdString(program[0].printF(x));
+ QString bestProgram=QString::fromStdString(program[0].printF(genome));
  
 int threads=24;
  ntimes= threads;
@@ -237,7 +237,7 @@ int threads=24;
 	 pstring.resize(features);
 	for(int i=0;i<features;i++)
 	{
-        vector<double> pgenome;
+        vector<int> pgenome;
         pgenome.resize(x.size()/features);
 		for(int j=0;j<pgenome.size();j++)
             pgenome[j]=x[i*genome.size()/features+j];
@@ -254,10 +254,10 @@ Neural *neural = new Neural(myMapper,i);
  neural->setRand(program[0].getRand());
  neural->readPatterns(trainx,trainy);
  neural->setPatternDimension(features);
- neural->setNumOfWeights(10);
+ neural->setNumOfWeights(20);
  double ff=neural->train2();
  double testError=neural->testError(testx,testy);
- //if(testError>1e+4) continue;
+ if(testError>1e+4) {ntimes--;continue;}
 #pragma omp critical
  {
  double classTestError=neural->classTestError(testx,testy);
@@ -332,13 +332,17 @@ Neural *neural = new Neural(myMapper,i);
 double	funmin(vector<double> &x)
 {
   setlocale(LC_ALL,"C");
-  return -program[thread()].fitness(x);
-  /*
+  //return -program[thread()].fitness(x);
+  
   vector<int>  genome;
   genome.resize(getdimension());
-  for(int i=0;i<getdimension();i++) genome[i]=(int)fabs(x[i]);
+  for(int i=0;i<getdimension();i++) {
+	  genome[i]=(int)fabs(x[i]);
+	  if(genome[i]<0) genome[i]=0;
+	  if(genome[i]>255) genome[i]=255;
+  }
   double f=program[thread()].fitness(genome);
-  return -f;*/
+  return -f;
 }
 double dmax(double a,double b){return a>b?a:b;}
 
@@ -347,11 +351,13 @@ void    granal(vector<double> &x,vector<double> &g)
     for(int i=0;i<x.size();i++)
          {
              double eps=pow(1e-18,1.0/3.0)*dmax(1.0,fabs(x[i]));
+	     eps = 0.01;
              x[i]+=eps;
              double v1=funmin(x);
              x[i]-=2.0 *eps;
              double v2=funmin(x);
              g[i]=(v1-v2)/(2.0 * eps);
+//	     printf("g = %lf f = %lf %lf  \n",g[i],v1,v2);
              x[i]+=eps;
          }
 
