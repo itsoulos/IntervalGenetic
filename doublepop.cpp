@@ -63,7 +63,8 @@ DoublePop::DoublePop(int gcount,Problem *p)
 		if(intervalMethod=="none")
 			genome[i]=problem->getUniformRandomPoint();
 		else
-        genome[i]=problem->getRandomPoint();
+		{
+        genome[i]=problem->getRandomPoint();}
 		bestgenome[i].resize(genome_size);
 		bestgenome[i]=genome[i];
 	}

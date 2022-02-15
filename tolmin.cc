@@ -2129,7 +2129,6 @@ int fgcalc_(long *n,double *x,double *f,double *g,Problem *p)
 	{
         if(*f<=oldmin)
 		{
-        printf("NEW MIN[%d] =%20.10lg\n",totcal_1.itnocs,*f);
 		 oldmin=*f;
 		}
 	}

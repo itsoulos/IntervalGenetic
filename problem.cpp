@@ -78,6 +78,9 @@ Data    Problem::getRandomPoint()
 	double middle=lmargin[i]+(rmargin[i]-lmargin[i])/2.0;
 	double delta = (r-1.0);
 	x[i]=middle+delta*(0.1 * (rmargin[i]-lmargin[i]));
+	double a=-1.0,b=1.0;
+	a=(lmargin[i]<a)?lmargin[i]:a;
+	b=(rmargin[i]<b)?rmargin[i]:b;
         //x[i]=lmargin[i]+r*(rmargin[i]-lmargin[i]);
     }
     return x;
