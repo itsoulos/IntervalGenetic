@@ -159,25 +159,9 @@ The following classification datasets were used:
 \begin_layout Enumerate
 
 \series bold
-Alcohol
-\series default
- dataset, a dataset about Alcohol consumption 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Alcohol"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
 Appendictis
 \series default
- dataset, proposed in 
+ a medical dataset, proposed in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "appendicitis"
@@ -209,6 +193,14 @@ Balance
 \begin_layout Enumerate
 
 \series bold
+Bands
+\series default
+ dataset, a printing problem used to identify cylinder bands.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
 Cleveland
 \series default
  dataset.
@@ -224,17 +216,6 @@ Dermatology
 \series default
  dataset, which is used for differential diagnosis of erythemato-squamous
  diseases.
- 
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Glass
-\series default
- dataset.
- The dataset contains glass component analysis for glass pieces that belong
- to 6 classes.
  
 \end_layout
 
@@ -715,8 +696,9 @@ Experiments for classification datasets
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="28" columns="4">
+<lyxtabular version="3" rows="28" columns="5">
 <features tabularvalignment="middle">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -752,11 +734,23 @@ GENETIC
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 \begin_inset Formula $F=100$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $F=200$
 \end_inset
 
 
@@ -788,7 +782,16 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
+15.00%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14.00%
 \end_layout
 
 \end_inset
@@ -797,7 +800,7 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
-14.00%
+16.07%
 \end_layout
 
 \end_inset
@@ -826,7 +829,16 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
+24.85%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30.20%
 \end_layout
 
 \end_inset
@@ -835,7 +847,7 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
-30.20%
+28.52%
 \end_layout
 
 \end_inset
@@ -864,7 +876,16 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
+7.42%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7.42%
 \end_layout
 
 \end_inset
@@ -873,7 +894,7 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
-7.42%
+7.67%
 \end_layout
 
 \end_inset
@@ -902,7 +923,16 @@ Bands
 \begin_inset Text
 
 \begin_layout Plain Layout
+32.00%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32.25%
 \end_layout
 
 \end_inset
@@ -911,7 +941,7 @@ Bands
 \begin_inset Text
 
 \begin_layout Plain Layout
-32.25%
+33.06%
 \end_layout
 
 \end_inset
@@ -940,7 +970,16 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
+41.64%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+44.66%
 \end_layout
 
 \end_inset
@@ -949,7 +988,7 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
-44.66%
+44.39%
 \end_layout
 
 \end_inset
@@ -978,7 +1017,16 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
+15.49%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11.00%
 \end_layout
 
 \end_inset
@@ -987,7 +1035,7 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
-11.00%
+10.80%
 \end_layout
 
 \end_inset
@@ -1016,7 +1064,16 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
+28.72%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+28.84%
 \end_layout
 
 \end_inset
@@ -1025,7 +1082,7 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
-28.84%
+32.05%
 \end_layout
 
 \end_inset
@@ -1054,7 +1111,16 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
+15.58%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17.07%
 \end_layout
 
 \end_inset
@@ -1063,7 +1129,7 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
-17.07%
+16.22%
 \end_layout
 
 \end_inset
@@ -1092,7 +1158,16 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
+3.92%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.78%
 \end_layout
 
 \end_inset
@@ -1101,7 +1176,7 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
-3.78%
+3.26%
 \end_layout
 
 \end_inset
@@ -1130,7 +1205,16 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
+12.25%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9.71%
 \end_layout
 
 \end_inset
@@ -1139,7 +1223,7 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
-9.71%
+7.12%
 \end_layout
 
 \end_inset
@@ -1168,7 +1252,16 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
+30.90%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29.54%
 \end_layout
 
 \end_inset
@@ -1177,7 +1270,7 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
-29.54%
+30.70%
 \end_layout
 
 \end_inset
@@ -1206,7 +1299,16 @@ Lymography
 \begin_inset Text
 
 \begin_layout Plain Layout
+18.98%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17.52%
 \end_layout
 
 \end_inset
@@ -1215,7 +1317,7 @@ Lymography
 \begin_inset Text
 
 \begin_layout Plain Layout
-17.52%
+17.67%
 \end_layout
 
 \end_inset
@@ -1244,7 +1346,16 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
+17.01%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17.60%
 \end_layout
 
 \end_inset
@@ -1253,7 +1364,7 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
-17.60%
+15.97%
 \end_layout
 
 \end_inset
@@ -1282,7 +1393,16 @@ PageBlocks
 \begin_inset Text
 
 \begin_layout Plain Layout
+7.73%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7.01%
 \end_layout
 
 \end_inset
@@ -1291,7 +1411,7 @@ PageBlocks
 \begin_inset Text
 
 \begin_layout Plain Layout
-7.01%
+6.71%
 \end_layout
 
 \end_inset
@@ -1320,7 +1440,16 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
+14.81%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13.86%
 \end_layout
 
 \end_inset
@@ -1329,7 +1458,7 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
-13.86%
+12.53%
 \end_layout
 
 \end_inset
@@ -1358,7 +1487,16 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
+23.51%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+25.31%
 \end_layout
 
 \end_inset
@@ -1367,7 +1505,7 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
-25.31%
+27.49%
 \end_layout
 
 \end_inset
@@ -1396,7 +1534,16 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
+6.13%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.93%
 \end_layout
 
 \end_inset
@@ -1405,7 +1552,7 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
-5.93%
+5.30%
 \end_layout
 
 \end_inset
@@ -1434,7 +1581,16 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
+24.01%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23.14%
 \end_layout
 
 \end_inset
@@ -1443,7 +1599,7 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
-23.14%
+23.62%
 \end_layout
 
 \end_inset
@@ -1472,7 +1628,16 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+28.94%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29.04%
 \end_layout
 
 \end_inset
@@ -1481,7 +1646,7 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
-29.04%
+29.93%
 \end_layout
 
 \end_inset
@@ -1510,7 +1675,16 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
+47.38%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+49.49%
 \end_layout
 
 \end_inset
@@ -1519,7 +1693,7 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
-49.49%
+40.61%
 \end_layout
 
 \end_inset
@@ -1548,7 +1722,16 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
+6.23%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.28%
 \end_layout
 
 \end_inset
@@ -1557,7 +1740,7 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
-5.28%
+5.49%
 \end_layout
 
 \end_inset
@@ -1586,7 +1769,16 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
+5.51%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.55%
 \end_layout
 
 \end_inset
@@ -1595,7 +1787,7 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
-6.55%
+6.22%
 \end_layout
 
 \end_inset
@@ -1624,7 +1816,16 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+4.70%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.61%
 \end_layout
 
 \end_inset
@@ -1633,7 +1834,7 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-5.61%
+6.01%
 \end_layout
 
 \end_inset
@@ -1662,7 +1863,16 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+5.39%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.67%
 \end_layout
 
 \end_inset
@@ -1671,7 +1881,7 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.67%
+5.81%
 \end_layout
 
 \end_inset
@@ -1700,7 +1910,16 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+1.85%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.07%
 \end_layout
 
 \end_inset
@@ -1709,7 +1928,7 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-2.07%
+2.24%
 \end_layout
 
 \end_inset
@@ -1738,7 +1957,16 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
+14.83%
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11.40%
 \end_layout
 
 \end_inset
@@ -1747,7 +1975,7 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
-11.40%
+8.50%
 \end_layout
 
 \end_inset
@@ -1781,6 +2009,19 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+17.49%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+17.42%
 \end_layout
 
 \end_inset
@@ -1791,7 +2032,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-17.42%
+17.08%
 \end_layout
 
 \end_inset
@@ -2438,6 +2679,62 @@ AVERAGE
 
 \begin_layout Section
 Conclusions
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Keel"
+literal "false"
+
+\end_inset
+
+J.
+ Alcalá-Fdez, A.
+ Fernandez, J.
+ Luengo, J.
+ Derrac, S.
+ García, L.
+ Sánchez, F.
+ Herrera.
+ KEEL Data-Mining Software Tool: Data Set Repository, Integration of Algorithms
+ and Experimental Analysis Framework.
+ Journal of Multiple-Valued Logic and Soft Computing 17, pp.
+ 255-287, 2011.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "appendicitis"
+literal "false"
+
+\end_inset
+
+Weiss, Sholom M.
+ and Kulikowski, Casimir A., Computer Systems That Learn: Classification
+ and Prediction Methods from Statistics, Neural Nets, Machine Learning,
+ and Expert Systems, Morgan Kaufmann Publishers Inc, 1991.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "hayesroth"
+literal "false"
+
+\end_inset
+
+B.
+ Hayes-Roth, B., F.
+ Hayes-Roth.
+ Concept learning and the recognition and classification of exemplars.
+ Journal of Verbal Learning and Verbal Behavior 
+\series bold
+16
+\series default
+, pp.
+ 321-338, 1977.
 \end_layout
 
 \end_body
