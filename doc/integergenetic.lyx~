@@ -285,10 +285,34 @@ Liverdisorder
 \series bold
 Mammographic
 \series default
- dataset.
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "mammographic"
+literal "false"
+
+\end_inset
+
+.
  This dataset be used to identify the severity (benign or malignant) of
  a mammographic mass lesion from BI-RADS attributes and the patient's age.
  It contains 830 patterns of 5 features each.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Page Blocks 
+\series default
+dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "pageblocks"
+literal "false"
+
+\end_inset
+
+, used to detect the page layout of a document.
 \end_layout
 
 \begin_layout Enumerate
@@ -353,16 +377,6 @@ literal "true"
 \begin_layout Enumerate
 
 \series bold
-Ring
-\series default
- dataset.
- It is an 20 dimensional problem with two classes.
- Each class is drawn from a multivariate normal distribution.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
 Saheart
 \series default
  dataset.
@@ -378,69 +392,6 @@ Segment
  dataset.
  This database contains patterns from a database of 7 outdoor images (classes).
  The dataset contains 2310 patterns with 19 features each.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Sonar
-\series default
- dataset.
- This data set contains signals obtained from a variety of different aspect
- angles, spanning 90 degrees for mines and 180 degrees for rocks.
- Each pattern is a set of 60 numbers in the range 0.0 to 1.0, where each number
- represents the energy within a particular frequency band, integrated over
- a certain period of time.
- The output attribute contains the letter R if the object is a rock and
- M if it is a mine (metal cylinder).
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Spiral
-\series default
- dataset: The spiral artificial dataset contains 1000 two-dimensional examples
- that belong to two classes (500 examples each).
- The number of the features is 2.
- The data in the first class are created using the following formula: 
-\begin_inset Formula $x_{1}=0.5t\cos\left(0.08t\right),\ x_{2}=0.5t\cos\left(0.08t+\frac{\pi}{2}\right)$
-\end_inset
-
- and the second class data using
-\series bold
-: 
-\begin_inset Formula $x_{1}=0.5t\cos\left(0.08t+\pi\right),\ x_{2}=0.5t\cos\left(0.08t+\frac{3\pi}{2}\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Tae
-\series default
- dataset.
- The data consist of evaluations of teaching performance over three regular
- semesters and two summer semesters of 151 teaching assistant (TA) assignments
- at the Statistics Department of the University of Wisconsin-Madison.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Thyroid
-\series default
- dataset, which concerns Thyroid disease records
-\begin_inset CommandInset citation
-LatexCommand cite
-key "thyroid"
-literal "true"
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Enumerate
@@ -543,11 +494,9 @@ literal "false"
 \begin_layout Enumerate
 
 \series bold
-Anacalt
+Baseball
 \series default
- dataset.
- This contains information about the decisions taken by a supreme court.
- 
+ dataset, a dataset to predict the salary of baseball players.
 \end_layout
 
 \begin_layout Enumerate
@@ -600,6 +549,23 @@ literal "false"
 \begin_layout Enumerate
 
 \series bold
+Dee
+\series default
+ dataset, used to predict the daily average price of TkWhe electricity energy
+ in Spain.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Diabetes
+\series default
+ dataset, a medical dataset.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
 Housing
 \series default
  dataset.
@@ -618,10 +584,11 @@ literal "true"
 \begin_layout Enumerate
 
 \series bold
-Laser
+FA
 \series default
- dataset.
- Dataset used in laser experiments.
+ dataset, which contains percentage of body fat and ten body circumference
+ measurements.
+ The goal is to fit body fat to the other measurements.
  
 \end_layout
 
@@ -646,19 +613,39 @@ literal "true"
 \begin_layout Enumerate
 
 \series bold
-NT
+MORTGAGE
 \series default
- dataset.
- This dataset contains data from 
+ dataset, which contains the Economic data information of USA.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+PY 
+\series default
+dataset, (Pyrimidines problem).
+ The source of this dataset is the URL: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://www.dcc.fc.up.pt/~ltorgo/Regression/DataSets.html
+\end_layout
+
+\end_inset
+
+ and it is a problem of 27 attributes and 74 number of patterns.
+ The task consists of Learning Quantitative Structure Activity Relationships
+ (QSARs) and provided by 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "ntdataset"
+key "pydataset"
 literal "false"
 
 \end_inset
 
- that examined whether the true mean body temperature is 98.6 F.
- 
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -671,6 +658,23 @@ Quake
  
 \end_layout
 
+\begin_layout Enumerate
+
+\series bold
+Treasure
+\series default
+ dataset, which contains Economic data information of USA from 01/04/1980
+ to 02/04/2000 on a weekly basis.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Wankara
+\series default
+ dataset, which contains weather information.
+\end_layout
+
 \begin_layout Subsection
 Experimental results
 \end_layout
@@ -679,7 +683,7 @@ Experimental results
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2075,8 +2079,9 @@ name "tab:exp2"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="15" columns="4">
+<lyxtabular version="3" rows="18" columns="5">
 <features tabularvalignment="middle">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -2096,6 +2101,18 @@ DATASET
 
 \begin_layout Plain Layout
 GENETIC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $F=50$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -2139,7 +2156,7 @@ ABALONE
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.90
+7.17
 \end_layout
 
 \end_inset
@@ -2148,7 +2165,16 @@ ABALONE
 \begin_inset Text
 
 \begin_layout Plain Layout
+4.22
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.18
 \end_layout
 
 \end_inset
@@ -2157,7 +2183,7 @@ ABALONE
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+3.89
 \end_layout
 
 \end_inset
@@ -2186,7 +2212,16 @@ AIRFOIL
 \begin_inset Text
 
 \begin_layout Plain Layout
+0.003
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.003
 \end_layout
 
 \end_inset
@@ -2195,7 +2230,7 @@ AIRFOIL
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.003
 \end_layout
 
 \end_inset
@@ -2224,7 +2259,16 @@ BASEBALL
 \begin_inset Text
 
 \begin_layout Plain Layout
+49.47
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+51.07
 \end_layout
 
 \end_inset
@@ -2233,7 +2277,7 @@ BASEBALL
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+53.57
 \end_layout
 
 \end_inset
@@ -2253,7 +2297,7 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.03
+0.027
 \end_layout
 
 \end_inset
@@ -2262,7 +2306,16 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
+0.017
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.017
 \end_layout
 
 \end_inset
@@ -2271,7 +2324,7 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.019
 \end_layout
 
 \end_inset
@@ -2291,7 +2344,7 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
-5.80
+5.74
 \end_layout
 
 \end_inset
@@ -2300,7 +2353,16 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
+0.0019
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0016
 \end_layout
 
 \end_inset
@@ -2309,7 +2371,7 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.0016
 \end_layout
 
 \end_inset
@@ -2329,7 +2391,7 @@ CONCRETE
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.26
+0.0099
 \end_layout
 
 \end_inset
@@ -2338,7 +2400,16 @@ CONCRETE
 \begin_inset Text
 
 \begin_layout Plain Layout
+0.0053
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0044
 \end_layout
 
 \end_inset
@@ -2347,7 +2418,54 @@ CONCRETE
 \begin_inset Text
 
 \begin_layout Plain Layout
+0.0042
+\end_layout
 
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DEE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.013
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.187
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.205
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.203
 \end_layout
 
 \end_inset
@@ -2376,7 +2494,16 @@ DIABETES
 \begin_inset Text
 
 \begin_layout Plain Layout
+0.31
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.31
 \end_layout
 
 \end_inset
@@ -2385,45 +2512,7 @@ DIABETES
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-FORESTFIRES
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4190.09
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+0.29
 \end_layout
 
 \end_inset
@@ -2452,7 +2541,16 @@ HOUSING
 \begin_inset Text
 
 \begin_layout Plain Layout
+19.28
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18.50
 \end_layout
 
 \end_inset
@@ -2461,7 +2559,7 @@ HOUSING
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+17.75
 \end_layout
 
 \end_inset
@@ -2490,7 +2588,16 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
+0.011
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.012
 \end_layout
 
 \end_inset
@@ -2499,7 +2606,7 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.012
 \end_layout
 
 \end_inset
@@ -2528,7 +2635,16 @@ MB
 \begin_inset Text
 
 \begin_layout Plain Layout
+0.048
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.047
 \end_layout
 
 \end_inset
@@ -2537,7 +2653,101 @@ MB
 \begin_inset Text
 
 \begin_layout Plain Layout
+0.047
+\end_layout
 
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MORTGAGE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.41
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.57
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.70
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.53
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PY
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+105.41
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.016
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.014
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.014
 \end_layout
 
 \end_inset
@@ -2557,7 +2767,7 @@ QUAKE
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.04
+0.040
 \end_layout
 
 \end_inset
@@ -2566,7 +2776,16 @@ QUAKE
 \begin_inset Text
 
 \begin_layout Plain Layout
+0.036
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.036
 \end_layout
 
 \end_inset
@@ -2575,7 +2794,54 @@ QUAKE
 \begin_inset Text
 
 \begin_layout Plain Layout
+0.036
+\end_layout
 
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TREASURY
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.929
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.473
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.677
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.622
 \end_layout
 
 \end_inset
@@ -2604,7 +2870,16 @@ WANKARA
 \begin_inset Text
 
 \begin_layout Plain Layout
+0.0003
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0002
 \end_layout
 
 \end_inset
@@ -2613,7 +2888,7 @@ WANKARA
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.0002
 \end_layout
 
 \end_inset
@@ -2637,7 +2912,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-336.40
+18.55
 \end_layout
 
 \end_inset
@@ -2648,7 +2923,18 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-226.70
+4.67
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+4.74
 \end_layout
 
 \end_inset
@@ -2659,7 +2945,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-215.68
+4.81
 \end_layout
 
 \end_inset
@@ -2715,6 +3001,251 @@ Weiss, Sholom M.
  and Kulikowski, Casimir A., Computer Systems That Learn: Classification
  and Prediction Methods from Statistics, Neural Nets, Machine Learning,
  and Expert Systems, Morgan Kaufmann Publishers Inc, 1991.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "hayesroth"
+literal "false"
+
+\end_inset
+
+B.
+ Hayes-Roth, B., F.
+ Hayes-Roth.
+ Concept learning and the recognition and classification of exemplars.
+ Journal of Verbal Learning and Verbal Behavior 
+\series bold
+16
+\series default
+, pp.
+ 321-338, 1977.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "mammographic"
+literal "false"
+
+\end_inset
+
+M.
+ Elter, R.
+ Schulz-Wendtland, T.
+ Wittenberg, The prediction of breast cancer biopsy outcomes using two CAD
+ approaches that both emphasize an intelligible decision process, Med Phys.
+ 
+\series bold
+34
+\series default
+, pp.
+ 4164-72, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "pageblocks"
+literal "false"
+
+\end_inset
+
+F.
+ Esposito F., D.
+ Malerba, G.
+ Semeraro, Multistrategy Learning for Document Recognition, Applied Artificial
+ Intelligence 
+\series bold
+8
+\series default
+, pp.
+ 33-84, 1994.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "parkinsons"
+literal "false"
+
+\end_inset
+
+M.A.
+ Little, P.E.
+ McSharry, E.J.
+ Hunter, J.
+ Spielman, L.O.
+ Ramig, Suitability of dysphonia measurements for telemonitoring of Parkinson's
+ disease.
+ IEEE Trans Biomed Eng.
+ 
+\series bold
+56
+\series default
+, pp.
+ 1015-1022, 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "regions"
+literal "false"
+
+\end_inset
+
+N.
+ Giannakeas, M.G.
+ Tsipouras, A.T.
+ Tzallas, K.
+ Kyriakidi, Z.E.
+ Tsianou, P.
+ Manousou, A.
+ Hall, E.C.
+ Karvounis, V.
+ Tsianos, E.
+ Tsianos, A clustering based method for collagen proportional area extraction
+ in liver biopsy images (2015) Proceedings of the Annual International Conferenc
+e of the IEEE Engineering in Medicine and Biology Society, EMBS, 2015-November,
+ art.
+ no.
+ 7319047, pp.
+ 3097-3100.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-20"
+literal "true"
+
+\end_inset
+
+R.G.
+ Andrzejak, K.
+ Lehnertz, F.
+ Mormann, C.
+ Rieke, P.
+ David, and C.
+ E.
+ Elger, Indications of nonlinear deterministic and finite-dimensional structures
+ in time series of brain electrical activity: Dependence on recording region
+ and brain state, Phys.
+ Rev.
+ E 
+\series bold
+64
+\series default
+, pp.
+ 1-8, 2001.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "airfoil"
+literal "false"
+
+\end_inset
+
+T.F.
+ Brooks, D.S.
+ Pope, A.M.
+ Marcolini, Airfoil self-noise and prediction.
+ Technical report, NASA RP-1218, July 1989.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Stat"
+literal "false"
+
+\end_inset
+
+J.S.
+ Simonoff, Smooting Methods in Statistics, Springer - Verlag, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "concrete"
+literal "false"
+
+\end_inset
+
+I.Cheng Yeh, Modeling of strength of high performance concrete using artificial
+ neural networks, Cement and Concrete Research.
+ 
+\series bold
+28
+\series default
+, pp.
+ 1797-1808, 1998.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key23"
+literal "true"
+
+\end_inset
+
+D.
+ Harrison and D.L.
+ Rubinfeld, Hedonic prices and the demand for clean ai, J.
+ Environ.
+ Economics & Management 
+\series bold
+5
+\series default
+, pp.
+ 81-102, 1978.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key21"
+literal "true"
+
+\end_inset
+
+J.S.
+ Simonoff, Smooting Methods in Statistics, Springer - Verlag, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "pydataset"
+literal "false"
+
+\end_inset
+
+R.D.
+ King, S.
+ Muggleton, R.
+ Lewis, M.J.E.
+ Sternberg, Proc.
+ Nat.
+ Acad.
+ Sci.
+ USA 
+\series bold
+89
+\series default
+, pp.
+ 11322–11326, 1992.
+ 
 \end_layout
 
 \end_body
