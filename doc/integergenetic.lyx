@@ -98,7 +98,7 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-Neural networks are well - established parametric tools 
+Artificial Neural networks (ANNs) are programming tools 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "nn1,nn2"
@@ -106,10 +106,29 @@ literal "true"
 
 \end_inset
 
-, used with success in many areas such as physics 
+ based on a series of parameters that commonly called weights or processeing
+ units.
+ They have been used in a variety of problems from different scientific
+ areas such as physics 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "nnphysics1,nnphysics2,nnphysics3"
+literal "false"
+
+\end_inset
+
+, solving of differential equations 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nnde1,nnde2"
+literal "false"
+
+\end_inset
+
+, agriculture 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nnagr1,nnagr2"
 literal "false"
 
 \end_inset
@@ -139,21 +158,27 @@ literal "false"
 \end_inset
 
  etc.
- A neural network usually is expressed as a function 
+ A common way to express a neural network is a function 
 \begin_inset Formula $N(\overrightarrow{x},\overrightarrow{w})$
 \end_inset
 
-, where
+, with 
 \begin_inset Formula $\overrightarrow{x}$
 \end_inset
 
- is the input vector and 
+ the input vector (commonly called pattern) and 
 \begin_inset Formula $\overrightarrow{w}$
 \end_inset
 
- is the weight vector to be calculated through some optimization process.
- This optimization process should estimate the weight vector by minimizing
- the following error function:
+ the weight vector.
+ A method that trains a neural network should be used to estimate the vector
+ 
+\begin_inset Formula $\overrightarrow{w}$
+\end_inset
+
+ for the certain problem.
+ The training procedure can be formulated also an optimization problem,
+ where the target is to minimize the so called error function:
 \begin_inset Formula 
 \begin{equation}
 E\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=\sum_{i=1}^{M}\left(N\left(\overrightarrow{x}_{i},\overrightarrow{w}\right)-y_{i}\right)^{2}\label{eq:eq1}
@@ -161,25 +186,34 @@ E\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=\sum_{i=1}^{M}
 
 \end_inset
 
-In the above equation the set 
+In equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eq1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ the set 
 \begin_inset Formula $\left(\overrightarrow{x_{i}},y_{i}\right),\ i=1,...,M$
 \end_inset
 
- is the data used to train the neural network, where symbol 
+ is the dataset used to train the neural network, with 
 \begin_inset Formula $y_{i}$
 \end_inset
 
- represents the actual output for the point 
+ being the actual output for the point 
 \begin_inset Formula $\overrightarrow{x_{i}}$
 \end_inset
 
  .
- In many cases the neural network 
+ The neural network 
 \begin_inset Formula $N(\overrightarrow{x},\overrightarrow{w})$
 \end_inset
 
- can be expressed as a weighted summation of processing units as proposed
- in 
+ can be modelled as a summation of processing unints as proposed in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "nnc"
@@ -187,7 +221,7 @@ literal "false"
 
 \end_inset
 
- and defined such as:
+:
 \begin_inset Formula 
 \begin{equation}
 N\left(\overrightarrow{x},\overrightarrow{w}\right)=\sum_{i=1}^{H}w_{(d+2)i-(d+1)}\sigma\left(\sum_{j=1}^{d}x_{j}w_{(d+2)i-(d+1)+j}+w_{(d+2)i}\right)\label{eq:nn}
@@ -195,7 +229,7 @@ N\left(\overrightarrow{x},\overrightarrow{w}\right)=\sum_{i=1}^{H}w_{(d+2)i-(d+1
 
 \end_inset
 
-where 
+with 
 \begin_inset Formula $H$
 \end_inset
 
@@ -207,7 +241,8 @@ where
 \begin_inset Formula $\overrightarrow{x}$
 \end_inset
 
- and 
+.
+ The function
 \begin_inset Formula $\sigma(x)$
 \end_inset
 
@@ -238,7 +273,121 @@ noprefix "false"
 \end_inset
 
 .
- 
+ The function of equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eq1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ has been minimized with a variety of optimization methods during the past
+ years such as: the Back Propagation method 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bpnn,bpnn2"
+literal "false"
+
+\end_inset
+
+, the RPROP method 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rpropnn,rpropnn3,rpropnn2"
+literal "false"
+
+\end_inset
+
+, Quasi Newton methods 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "quasinn,quasinn2"
+literal "false"
+
+\end_inset
+
+, Simulated Annealing 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nn_ann1,nn_ann2"
+literal "false"
+
+\end_inset
+
+, Genetic Algorithms 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "geneticnn,geneticnn2"
+literal "false"
+
+\end_inset
+
+, Particle Swarm Optimization 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "psonn,psonn2"
+literal "false"
+
+\end_inset
+
+ etc.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+This articles proposes a novell genetic algorithm that incorporates interval
+ optimization techniques 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "interval0,interval1,interval2"
+literal "false"
+
+\end_inset
+
+ to locate the best bounding box for the weight vector.
+ Interval optimization methods have been widely used to locate the global
+ minimum of of multivariable functions given by locate 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+where 
+\begin_inset Formula 
+\begin{equation}
+x^{*}=\mbox{arg}\min_{x\in S}f(x)\label{eq:eq1-3}
+\end{equation}
+
+\end_inset
+
+The set 
+\begin_inset Formula $S$
+\end_inset
+
+ is a subset of 
+\begin_inset Formula $\mathbb{R^{\mbox{n}}}$
+\end_inset
+
+ and it is described as: 
+\begin_inset Formula 
+\begin{equation}
+S=\left[a_{1},b_{1}\right]\otimes\left[a_{2},b_{2}\right]\otimes\ldots\left[a_{n},b_{n}\right]\label{eq:eq2}
+\end{equation}
+
+\end_inset
+
+In interval optimization methods usually the set 
+\begin_inset Formula $S$
+\end_inset
+
+ is divided subsequently and subregions that not contain the global solution
+ are discarded using some criteria.
+ The proposed method is divided in two phases: in the first case a genetic
+ algorithm that uses intervals as chromosomes is used to locate the best
+ bounding box of for the weight vector.
+ Subsequently, in the second phase a genetic algorithm is used to optimize
+ the weight vector inside the best bounding box located by the first phase.
 \end_layout
 
 \begin_layout Section
@@ -322,7 +471,15 @@ literal "false"
 \series bold
 Australian
 \series default
- dataset, the dataset is related to credit card applications.
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "australian"
+literal "false"
+
+\end_inset
+
+, the dataset is related to credit card applications.
 \end_layout
 
 \begin_layout Enumerate
@@ -330,8 +487,32 @@ Australian
 \series bold
 Balance
 \series default
- dataset, which models psychological experimental results.
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "balance"
+literal "false"
+
+\end_inset
+
+, which is used to predict psychological states.
  
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Cleveland
+\series default
+ dataset, a dataset used to detect heart disease used in various papers
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cleveland1,cleveland2"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -345,21 +526,17 @@ Bands
 \begin_layout Enumerate
 
 \series bold
-Cleveland
-\series default
- dataset.
- A dataset obtained from the V.A.
- Medical Center, Long Beach and Cleveland Clinic Foundation aimed to detect
- the presence of heart disease in patients.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
 Dermatology
 \series default
- dataset, which is used for differential diagnosis of erythemato-squamous
- diseases.
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "dermatology"
+literal "false"
+
+\end_inset
+
+, which is used for differential diagnosis of erythemato-squamous diseases.
  
 \end_layout
 
@@ -390,7 +567,15 @@ literal "false"
 \series bold
 Heart
 \series default
- dataset, which is used to identify the absence or presence of heart disease.
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "heart"
+literal "false"
+
+\end_inset
+
+, used to detect heart disease.
  
 \end_layout
 
@@ -399,9 +584,16 @@ Heart
 \series bold
 HouseVotes
 \series default
- dataset.
- This data set includes votes for each of the U.S.
- House of Representatives Congressmen on the 16 key votes.
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "housevotes"
+literal "false"
+
+\end_inset
+
+, which is about votes in the U.S.
+ House of Representatives Congressmen.
  
 \end_layout
 
@@ -412,7 +604,15 @@ Ionosphere
 \series default
  dataset.
  The ionosphere dataset contains data from the Johns Hopkins Ionosphere
- database.
+ database and it has been studied in a bunch of papers 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ion1,ion2"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -420,7 +620,15 @@ Ionosphere
 \series bold
 Liverdisorder
 \series default
-: This dataset contains blood analysis data from people with liver disorders.
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "liver"
+literal "false"
+
+\end_inset
+
+, used for detect liver disorders in peoples using blood analysis.
  
 \end_layout
 
@@ -482,9 +690,15 @@ literal "false"
 \series bold
 Pima
 \series default
- dataset.
- The Pima Indians Diabetes dataset contains 768 examples of 8 attributes
- each that are classified into two categories: healthy and diabetic.
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "pima"
+literal "false"
+
+\end_inset
+
+, used to detect the presence of diabetes.
 \end_layout
 
 \begin_layout Enumerate
@@ -492,9 +706,15 @@ Pima
 \series bold
 Popfailures
 \series default
- dataset.
- This dataset contains records of simulation crashes encountered during
- climate model uncertainty quantification (UQ) ensembles.
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "popfailures"
+literal "false"
+
+\end_inset
+
+, that is related to climate model simulation crashes of simulation crashes.
  
 \end_layout
 
@@ -523,9 +743,16 @@ literal "true"
 \series bold
 Saheart
 \series default
- dataset.
- The dataset is about to categorize persons if have a coronary heart disease.
- The dataset contains 462 patterns with 9 features each.
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "saheart"
+literal "false"
+
+\end_inset
+
+, used to detect heart disease.
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -533,9 +760,16 @@ Saheart
 \series bold
 Segment
 \series default
- dataset.
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "segment"
+literal "false"
+
+\end_inset
+
+.
  This database contains patterns from a database of 7 outdoor images (classes).
- The dataset contains 2310 patterns with 19 features each.
 \end_layout
 
 \begin_layout Enumerate
@@ -543,9 +777,15 @@ Segment
 \series bold
 Wdbc
 \series default
- dataset.
- The Wisconsin diagnostic breast cancer dataset contains data for breast
- tumors.
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wdbc"
+literal "false"
+
+\end_inset
+
+, which contains data for breast tumors.
  
 \end_layout
 
@@ -554,8 +794,16 @@ Wdbc
 \series bold
 Wine
 \series default
- dataset.
- The wine recognition dataset contains data from wine chemical analysis.
+ dataset, used to detect through chemical analysis determine the origin
+ of wines and is been used in various research papers 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wine1,wine2"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -567,7 +815,7 @@ Eeg
  As an real word example, consider an EEG dataset described in 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "key-20"
+key "nnagr2"
 literal "true"
 
 \end_inset
@@ -584,10 +832,15 @@ literal "true"
 \series bold
 Zoo
 \series default
- dataset.
- A simple database where the task is to classify animals in seven predefined
- classes and most of the attributes are boolean-valued.
- 
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "zoo"
+literal "false"
+
+\end_inset
+
+, where the task is classify animals in seven predefined classes.
 \end_layout
 
 \begin_layout Standard
@@ -611,7 +864,15 @@ ftp://lib.stat.cmu.edu/datasets/index.html
 \series bold
 Abalone
 \series default
- dataset.
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "abalone"
+literal "false"
+
+\end_inset
+
+.
  This data set can be used to obtain a model to predict the age of abalone
  from physical measurements.
  
@@ -3114,6 +3375,670 @@ Conclusions
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "nn1"
+literal "true"
+
+\end_inset
+
+C.
+ Bishop, Neural Networks for Pattern Recognition, Oxford University Press,
+ 1995.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn2"
+literal "true"
+
+\end_inset
+
+G.
+ Cybenko, Approximation by superpositions of a sigmoidal function, Mathematics
+ of Control Signals and Systems 
+\series bold
+2
+\series default
+, pp.
+ 303-314, 1989.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnphysics1"
+literal "false"
+
+\end_inset
+
+P.
+ Baldi, K.
+ Cranmer, T.
+ Faucett et al, Parameterized neural networks for high-energy physics, Eur.
+ Phys.
+ J.
+ C 
+\series bold
+76
+\series default
+, 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnphysics2"
+literal "true"
+
+\end_inset
+
+J.
+ J.
+ Valdas and G.
+ Bonham-Carter, Time dependent neural network models for detecting changes
+ of state in complex processes: Applications in earth sciences and astronomy,
+ Neural Networks 
+\series bold
+19
+\series default
+, pp.
+ 196-207, 2006
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnphysics3"
+literal "false"
+
+\end_inset
+
+G.
+ Carleo,M.
+ Troyer, Solving the quantum many-body problem with artificial neural networks,
+ Science 
+\series bold
+355
+\series default
+, pp.
+ 602-606, 2017.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnde1"
+literal "false"
+
+\end_inset
+
+Y.
+ Shirvany, M.
+ Hayati, R.
+ Moradian, Multilayer perceptron neural networks with novel unsupervised
+ training method for numerical solution of the partial differential equations,
+ Applied Soft Computing 
+\series bold
+9
+\series default
+, pp.
+ 20-29, 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnde2"
+literal "false"
+
+\end_inset
+
+A.
+ Malek, R.
+ Shekari Beidokhti, Numerical solution for high order differential equations
+ using a hybrid neural network—Optimization method, Applied Mathematics
+ and Computation 
+\series bold
+183
+\series default
+, pp.
+ 260-271, 2006.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnagr1"
+literal "false"
+
+\end_inset
+
+A.
+ Topuz, Predicting moisture content of agricultural products using artificial
+ neural networks, Advances in Engineering Software 
+\series bold
+41
+\series default
+, pp.
+ 464-470, 2010.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnagr2"
+literal "false"
+
+\end_inset
+
+A.
+ Escamilla-García, G.M.
+ Soto-Zarazúa, M.
+ Toledano-Ayala, E.
+ Rivas-Araiza, A.
+ Gastélum-Barrios, Abraham,Applications of Artificial Neural Networks in
+ Greenhouse Technology and Overview for Smart Agriculture Development, Applied
+ Sciences 
+\series bold
+10
+\series default
+, Article number 3835, 2020.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnchem1"
+literal "false"
+
+\end_inset
+
+Lin Shen, Jingheng Wu, and Weitao Yang, Multiscale Quantum Mechanics/Molecular
+ Mechanics Simulations with Neural Networks, Journal of Chemical Theory
+ and Computation 
+\series bold
+12
+\series default
+, pp.
+ 4934-4946, 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnchem2"
+literal "false"
+
+\end_inset
+
+Sergei Manzhos, Richard Dawes, Tucker Carrington, Neural network‐based approache
+s for building high dimensional and quantum dynamics‐friendly potential
+ energy surfaces, Int.
+ J.
+ Quantum Chem.
+ 
+\series bold
+115
+\series default
+, pp.
+ 1012-1020, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnchem3"
+literal "false"
+
+\end_inset
+
+Jennifer N.
+ Wei, David Duvenaud, and Alán Aspuru-Guzik, Neural Networks for the Prediction
+ of Organic Chemistry Reactions, ACS Central Science 
+\series bold
+2
+\series default
+, pp.
+ 725-732, 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnecon1"
+literal "false"
+
+\end_inset
+
+Lukas Falat and Lucia Pancikova, Quantitative Modelling in Economics with
+ Advanced Artificial Neural Networks, Procedia Economics and Finance 
+\series bold
+34
+\series default
+, pp.
+ 194-201, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnecon2"
+literal "false"
+
+\end_inset
+
+Mohammad Namazi, Ahmad Shokrolahi, Mohammad Sadeghzadeh Maharluie, Detecting
+ and ranking cash flow risk factors via artificial neural networks technique,
+ Journal of Business Research 
+\series bold
+69
+\series default
+, pp.
+ 1801-1806, 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nncecon3"
+literal "false"
+
+\end_inset
+
+G.
+ Tkacz, Neural network forecasting of Canadian GDP growth, International
+ Journal of Forecasting 
+\series bold
+17
+\series default
+, pp.
+ 57-69, 2001.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnmed1"
+literal "false"
+
+\end_inset
+
+Igor I.
+ Baskin, David Winkler and Igor V.
+ Tetko, A renaissance of neural networks in drug discovery, Expert Opinion
+ on Drug Discovery 
+\series bold
+11
+\series default
+, pp.
+ 785-795, 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnmed2"
+literal "false"
+
+\end_inset
+
+Ronadl Bartzatt, Prediction of Novel Anti-Ebola Virus Compounds Utilizing
+ Artificial Neural Network (ANN), Chemistry Faculty Publications 
+\series bold
+49
+\series default
+, pp.
+ 16-34, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnc"
+literal "false"
+
+\end_inset
+
+I.G.
+ Tsoulos, D.
+ Gavrilis, E.
+ Glavas, Neural network construction and training using grammatical evolution,
+ Neurocomputing 
+\series bold
+72
+\series default
+, pp.
+ 269-277, 2008.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "bpnn"
+literal "false"
+
+\end_inset
+
+D.E.
+ Rumelhart, G.E.
+ Hinton and R.J.
+ Williams, Learning representations by back-propagating errors, Nature 
+\series bold
+323
+\series default
+, pp.
+ 533 - 536 , 1986.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "bpnn2"
+literal "false"
+
+\end_inset
+
+T.
+ Chen and S.
+ Zhong, Privacy-Preserving Backpropagation Neural Network Learning, IEEE
+ Transactions on Neural Networks 
+\series bold
+20
+\series default
+, , pp.
+ 1554-1564, 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rpropnn"
+literal "false"
+
+\end_inset
+
+M.
+ Riedmiller and H.
+ Braun, A Direct Adaptive Method for Faster Backpropagation Learning: The
+ RPROP algorithm, Proc.
+ of the IEEE Intl.
+ Conf.
+ on Neural Networks, San Francisco, CA, pp.
+ 586–591, 1993.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rpropnn3"
+literal "false"
+
+\end_inset
+
+T.
+ Pajchrowski, K.
+ Zawirski and K.
+ Nowopolski, Neural Speed Controller Trained Online by Means of Modified
+ RPROP Algorithm, IEEE Transactions on Industrial Informatics 
+\series bold
+11
+\series default
+, pp.
+ 560-568, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rpropnn2"
+literal "false"
+
+\end_inset
+
+Rinda Parama Satya Hermanto, Suharjito, Diana, Ariadi Nugroho, Waiting-Time
+ Estimation in Bank Customer Queues using RPROP Neural Networks, Procedia
+ Computer Science 
+\series bold
+ 135
+\series default
+, pp.
+ 35-42, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-23"
+
+\end_inset
+
+Neural Networks, Procedia Computer Science 
+\series bold
+ 135
+\series default
+, pp.
+ 35-42, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "quasinn"
+literal "false"
+
+\end_inset
+
+B.
+ Robitaille and B.
+ Marcos and M.
+ Veillette and G.
+ Payre, Modified quasi-Newton methods for training neural networks, Computers
+ & Chemical Engineering 
+\series bold
+20
+\series default
+, pp.
+ 1133-1140, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "quasinn2"
+literal "false"
+
+\end_inset
+
+Q.
+ Liu, J.
+ Liu, R.
+ Sang, J.
+ Li, T.
+ Zhang and Q.
+ Zhang, Fast Neural Network Training on FPGA Using Quasi-Newton Optimization
+ Method,IEEE Transactions on Very Large Scale Integration (VLSI) Systems
+ 
+\series bold
+26
+\series default
+, pp.
+ 1575-1579, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "geneticnn"
+literal "false"
+
+\end_inset
+
+F.
+ H.
+ F.
+ Leung, H.
+ K.
+ Lam, S.
+ H.
+ Ling and P.
+ K.
+ S.
+ Tam, Tuning of the structure and parameters of a neural network using an
+ improved genetic algorithm, IEEE Transactions on Neural Networks 
+\series bold
+14
+\series default
+, pp.
+ 79-88, 2003
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "geneticnn2"
+literal "false"
+
+\end_inset
+
+X.
+ Yao, Evolving artificial neural networks, Proceedings of the IEEE, 87(9),
+ pp.
+ 1423-1447, 1999.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "psonn"
+literal "false"
+
+\end_inset
+
+C.
+ Zhang, H.
+ Shao and Y.
+ Li, Particle swarm optimisation for evolving artificial neural network,
+ IEEE International Conference on Systems, Man, and Cybernetics, , pp.
+ 2487-2490, 2000.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "psonn2"
+literal "false"
+
+\end_inset
+
+Jianbo Yu, Shijin Wang, Lifeng Xi, Evolving artificial neural networks using
+ an improved PSO and DPSO 
+\series bold
+71
+\series default
+, pp.
+ 1054-1060, 2008.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "interval0"
+literal "false"
+
+\end_inset
+
+E.
+ Hansen and G.W.
+ Walster.Global Optimization using Interval Analy-sis.Marcel Dekker Inc., New
+ York, 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "interval1"
+literal "false"
+
+\end_inset
+
+M.Cs.
+ Markót,FernándezL.G.
+ and CasadoT.
+ Csendes, New interval methods for constrained global optimization, Mathematical
+ Programming 
+\series bold
+106
+\series default
+, pp.
+ 287-318, 2006.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "interval2"
+literal "false"
+
+\end_inset
+
+A.
+ Žilinskas, and J.
+ Žilinskas, Interval Arithmetic Based Optimization in Nonlinear Regression,
+ Informatica 
+\series bold
+21
+\series default
+, pp.
+ 149-158, 2010.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_ann1"
+literal "false"
+
+\end_inset
+
+A.
+ Yamazaki, M.
+ C.
+ P.
+ de Souto,T.
+ B.
+ Ludermir, Optimization of neural network weights and architectures for
+ odor recognition using simulated annealing, In: Proceedings of the 2002
+ International Joint Conference on Neural Networks.
+ IJCNN'02 
+\series bold
+1
+\series default
+, pp.
+ 547-552 , 2002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_ann2"
+literal "false"
+
+\end_inset
+
+Y.
+ Da, G.
+ Xiurun, An improved PSO-based ANN with simulated annealing technique, Neurocomp
+uting 
+\series bold
+63
+\series default
+, pp.
+ 527-533, 2005.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "Keel"
 literal "false"
 
@@ -3150,6 +4075,124 @@ Weiss, Sholom M.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "australian"
+literal "false"
+
+\end_inset
+
+J.R.
+ Quinlan, Simplifying Decision Trees.
+ International Journal of Man-Machine Studies 
+\series bold
+27
+\series default
+, pp.
+ 221-234, 1987.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "balance"
+literal "false"
+
+\end_inset
+
+T.
+ Shultz, D.
+ Mareschal, W.
+ Schmidt, Modeling Cognitive Development on Balance Scale Phenomena, Machine
+ Learning 
+\series bold
+16
+\series default
+, pp.
+ 59-88, 1994.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "cleveland1"
+literal "false"
+
+\end_inset
+
+Z.H.
+ Zhou,Y.
+ Jiang, NeC4.5: neural ensemble based C4.5," in IEEE Transactions on Knowledge
+ and Data Engineering 
+\series bold
+16
+\series default
+, pp.
+ 770-773, 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "cleveland2"
+literal "false"
+
+\end_inset
+
+R.
+ Setiono , W.K.
+ Leow, FERNN: An Algorithm for Fast Extraction of Rules from Neural Networks,
+ Applied Intelligence 
+\series bold
+12
+\series default
+, pp.
+ 15-25, 2000.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "dermatology"
+literal "false"
+
+\end_inset
+
+G.
+ Demiroz, H.A.
+ Govenir, N.
+ Ilter, Learning Differential Diagnosis of Eryhemato-Squamous Diseases using
+ Voting Feature Intervals, Artificial Intelligence in Medicine.
+ 
+\series bold
+13
+\series default
+, pp.
+ 147–165, 1998.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "heart"
+literal "false"
+
+\end_inset
+
+I.
+ Kononenko, E.
+ Šimec, M.
+ Robnik-Šikonja, Overcoming the Myopia of Inductive Learning Algorithms
+ with RELIEFF, Applied Intelligence 
+\series bold
+7
+\series default
+, pp.
+ 39–55, 1997
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "hayesroth"
 literal "false"
 
@@ -3165,6 +4208,84 @@ B.
 \series default
 , pp.
  321-338, 1977.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "housevotes"
+literal "false"
+
+\end_inset
+
+R.M.
+ French, N.
+ Chater, Using noise to compute error surfaces in connectionist networks:
+ a novel means of reducing catastrophic forgetting, Neural Comput.
+ 
+\series bold
+14
+\series default
+, pp.
+ 1755-1769, 2002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ion1"
+literal "false"
+
+\end_inset
+
+J.G.
+ Dy , C.E.
+ Brodley, Feature Selection for Unsupervised Learning, The Journal of Machine
+ Learning Research 
+\series bold
+5
+\series default
+, pp 845–889, 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ion2"
+literal "false"
+
+\end_inset
+
+S.
+ J.
+ Perantonis, V.
+ Virvilis, Input Feature Extraction for Multilayered Perceptrons Using Supervise
+d Principal Component Analysis, Neural Processing Letters 
+\series bold
+10
+\series default
+, pp 243–252, 1999.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "liver"
+literal "false"
+
+\end_inset
+
+ J.
+ Garcke, M.
+ Griebel, Classification with sparse grids using simplicial basis functions,
+ Intell.
+ Data Anal.
+ 
+\series bold
+6
+\series default
+, pp.
+ 483-502, 2002.
 \end_layout
 
 \begin_layout Bibliography
@@ -3236,6 +4357,48 @@ M.A.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "pima"
+literal "false"
+
+\end_inset
+
+J.W.
+ Smith, J.E.
+ Everhart, W.C.
+ Dickson, W.C.
+ Knowler, R.S.
+ Johannes, Using the ADAP learning algorithm to forecast the onset of diabetes
+ mellitus, In: Proceedings of the Symposium on Computer Applications and
+ Medical Care IEEE Computer Society Press, pp.261-265, 1988.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "popfailures"
+literal "false"
+
+\end_inset
+
+D.D.
+ Lucas, R.
+ Klein, J.
+ Tannahill, D.
+ Ivanova, S.
+ Brandon, D.
+ Domyancic, Y.
+ Zhang, Failure analysis of parameter-induced simulation crashes in climate
+ models, Geoscientific Model Development 
+\series bold
+6
+\series default
+, pp.
+ 1157-1171, 2013.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "regions"
 literal "false"
 
@@ -3264,6 +4427,128 @@ e of the IEEE Engineering in Medicine and Biology Society, EMBS, 2015-November,
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "saheart"
+literal "false"
+
+\end_inset
+
+T.
+ Hastie, R.
+ Tibshirani, Non-parametric logistic and proportional odds regression, JRSS-C
+ (Applied Statistics) 
+\series bold
+36
+\series default
+, pp.
+ 260–276, 1987.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "segment"
+literal "false"
+
+\end_inset
+
+M.
+ Dash, H.
+ Liu, P.
+ Scheuermann, K.
+ L.
+ Tan, Fast hierarchical clustering and its validation, Data & Knowledge
+ Engineering 
+\series bold
+44
+\series default
+, pp 109–138, 2003.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "wdbc"
+literal "false"
+
+\end_inset
+
+W.H.
+ Wolberg, O.L.
+ Mangasarian, Multisurface method of pattern separation for medical diagnosis
+ applied to breast cytology, Proc Natl Acad Sci U S A.
+ 
+\series bold
+87
+\series default
+, pp.
+ 9193–9196, 1990.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "wine1"
+literal "false"
+
+\end_inset
+
+M.
+ Raymer, T.E.
+ Doom, L.A.
+ Kuhn, W.F.
+ Punch, Knowledge discovery in medical and biological datasets using a hybrid
+ Bayes classifier/evolutionary algorithm.
+ IEEE transactions on systems, man, and cybernetics.
+ Part B, Cybernetics : a publication of the IEEE Systems, Man, and Cybernetics
+ Society, 
+\series bold
+33
+\series default
+ , pp.
+ 802-813, 2003.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "wine2"
+literal "false"
+
+\end_inset
+
+P.
+ Zhong, M.
+ Fukushima, Regularized nonsmooth Newton method for multi-class support
+ vector machines, Optimization Methods and Software 
+\series bold
+22
+\series default
+, pp.
+ 225-236, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "zoo"
+literal "false"
+
+\end_inset
+
+M.
+ Koivisto, K.
+ Sood, Exact Bayesian Structure Discovery in Bayesian Networks, The Journal
+ of Machine Learning Research
+\series bold
+ 5
+\series default
+, pp.
+ 549–573, 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "key-20"
 literal "true"
 
@@ -3286,6 +4571,27 @@ R.G.
 \series default
 , pp.
  1-8, 2001.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "abalone"
+literal "false"
+
+\end_inset
+
+W.
+ J Nash, T.L.
+ Sellers, S.R.
+ Talbot, A.J.
+ Cawthor, W.B.
+ Ford, The Population Biology of Abalone (_Haliotis_ species) in Tasmania.
+ I.
+ Blacklip Abalone (_H.
+ rubra_) from the North Coast and Islands of Bass Strait, Sea Fisheries
+ Division, Technical Report No.
+ 48 (ISSN 1034-3288), 1994.
 \end_layout
 
 \begin_layout Bibliography
