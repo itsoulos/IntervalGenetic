@@ -16,7 +16,7 @@ IntegerGenetic::IntegerGenetic(IntervalProblem *p,int count,int t)
     setMutationRate(0.05);
     fitnessArray.resize(gcount);
     tempx.resize(problem->getDimension());
-    setSamples(50);
+    setSamples(nsamples);
 
     for(int i=0;i<gcount;i++)
     {
@@ -76,6 +76,7 @@ Interval IntegerGenetic::fitness(IDATA &x)
             trialx[i]=xx[i].leftValue()+(xx[i].rightValue()-xx[i].leftValue())*drandDat[(k-1)*problem->getDimension()+i];
         }
         double fx= problem->funmin(trialx);//tolmin(trialx,&np,10);// problem->funmin(trialx);
+//        double fx= tolmin(trialx,&np,5);// problem->funmin(trialx);
         if(k==1 || fx>maxy) maxy=fx;
         if(k==1 || fx<miny) miny=fx;
     }
@@ -84,9 +85,10 @@ Interval IntegerGenetic::fitness(IDATA &x)
 
 void  IntegerGenetic::calcFitnessArray()
 {
-    //IntervalData xx;
-#pragma omp parallel for num_threads(threads) schedule(static)
+//#pragma omp parallel for num_threads(threads) schedule(static)
 
+    omp_set_nested(0);
+#pragma omp parallel for schedule(dynamic)
     for(int i=0;i<gcount;i++)
     {
         fitnessArray[i]=fitness(genome[i]);
@@ -200,7 +202,7 @@ void IntegerGenetic::crossover()
         int parent1=tournament();
         int parent2=tournament();
         unsigned size=genome[0].size();
-     for(int i=0;i<size;i++)
+     /*for(int i=0;i<size;i++)
          {
              int r=rand()%2;
              if(r==0)
@@ -215,7 +217,8 @@ void IntegerGenetic::crossover()
              }
 
          }
-    /*
+     */
+    
         //ONE POINT CROSSOVER
       int cutPoint=rand() % size;
         for(int i=0;i<cutPoint;i++)
@@ -228,7 +231,7 @@ void IntegerGenetic::crossover()
             children[children_count][i]=genome[parent1][i];
             children[children_count+1][i]=genome[parent2][i];
         }
-*/
+
          children_count+=2;
          if(children_count>=children_size) break;
      }
@@ -283,7 +286,14 @@ void IntegerGenetic::nextGeneration()
     selection();
     crossover();
     ++generation;
-    if(generation%50000==0)
+    if(generation%20==0)
+    {
+	    int count = 20;
+	    for(int i=0;i<count;i++)
+		    localSearch(rand() % genome.size());
+	    selection();
+    }
+    if(generation%20000==0)
     {
         int icount=10;
         for(int i=0;i<icount;i++)
@@ -324,3 +334,39 @@ IntegerGenetic::~IntegerGenetic()
 {
 
 }
+void	IntegerGenetic::localSearch(int pos)
+{
+	int genome_size  = genome[0].size();
+	vector<int> g;
+	g.resize(genome_size);
+	for(int i=0;i<genome_size;i++) g[i]=genome[pos][i];
+	int genome_count = genome.size();
+	
+	for(int iters=1;iters<=100;iters++)
+	{
+		int gpos=rand() % genome_count;
+		int cutpoint=rand() % genome_size;
+		for(int j=0;j<cutpoint;j++) g[j]=genome[pos][j];
+		for(int j=cutpoint;j<genome_size;j++) g[j]=genome[gpos][j];
+                Interval fx=fitness(g);
+                if(problem->lowerValue(fx,fitnessArray[pos]))
+		{
+			printf("NEW MIN[%4d]=[%10.4lg,%10.4lg]\n",pos,fx.leftValue(),fx.rightValue());
+			for(int j=0;j<genome_size;j++) genome[pos][j]=g[j];
+			fitnessArray[pos]=fx;
+		}
+		else
+		{
+			for(int j=0;j<cutpoint;j++) g[j]=genome[gpos][j];
+			for(int j=cutpoint;j<genome_size;j++) g[j]=genome[pos][j];
+                	fx=fitness(g);
+                	if(problem->lowerValue(fx,fitnessArray[pos]))
+			{
+			printf("NEW MIN[%4d]=[%10.4lg,%10.4lg]\n",pos,fx.leftValue(),fx.rightValue());
+				for(int j=0;j<genome_size;j++) genome[pos][j]=g[j];
+				fitnessArray[pos]=fx;
+			}
+		}
+	}
+}
+		

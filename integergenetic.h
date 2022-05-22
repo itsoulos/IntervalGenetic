@@ -37,6 +37,7 @@ public:
     void getBest(IntervalData &x,Interval &y);
     IntervalData getMaximumInterval();
     Data getBestPoint();
+    void    localSearch(int pos);
     ~IntegerGenetic();
 };
 
