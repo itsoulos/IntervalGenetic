@@ -81,7 +81,7 @@ A rule based method to locate the bounds of neural networks
 
 \begin_layout Author
 Ioannis G.
- Tsoulos
+ Tsoulos, Alexandros Tzallas, Evangelos Karvounis
 \end_layout
 
 \begin_layout Date
@@ -241,7 +241,8 @@ with
 \begin_inset Formula $\overrightarrow{x}$
 \end_inset
 
- and 
+.
+ The function
 \begin_inset Formula $\sigma(x)$
 \end_inset
 
@@ -268,7 +269,7 @@ noprefix "false"
 \end_inset
 
  is computed as: 
-\begin_inset Formula $w=(d+2)H$
+\begin_inset Formula $n=(d+2)H$
 \end_inset
 
 .
@@ -335,10 +336,9 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-This articles proposes a novell genetic algorithm that incorporates interval
- optimization techniques 
+The present work proposes an innovative interval generation technique for
+ the initialization and training of artificial neural network parameters.
+ This new method has its roots in interval methods 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "interval0,interval1,interval2"
@@ -346,55 +346,1566 @@ literal "false"
 
 \end_inset
 
- to locate the best bounding box for the weight vector.
- Interval optimization methods have been widely used to locate the global
- minimum of of multivariable functions given by locate 
-\begin_inset Formula $x^{*}$
+.
+ In the current work, using arithmetic intervals, a set of rules for dividing
+ the initial interval for the parameters of the artificial neural network
+ is constructed.
+ The construction is carried out using a hybrid genetic algorithm, in which
+ chromosomes are the set of division rules.
+ After the termination of the genetic algorithm the artificial neural network
+ is initialized in the interval resulting from the application of the optimal
+ partitioning rules and then trained using a genetic algorithm.
+
+\series bold
+ 
+\end_layout
+
+\begin_layout Standard
+The rest of this article has as follows:
+\series bold
+ 
+\series default
+in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Method-description"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
-where 
-\begin_inset Formula 
-\begin{equation}
-x^{*}=\mbox{arg}\min_{x\in S}f(x)\label{eq:eq1-3}
-\end{equation}
+ the proposed method is discussed in detail, in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Experiments"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-The set 
-\begin_inset Formula $S$
-\end_inset
-
- is a subset of 
-\begin_inset Formula $\mathbb{R^{\mbox{n}}}$
-\end_inset
-
- and it is described as: 
-\begin_inset Formula 
-\begin{equation}
-S=\left[a_{1},b_{1}\right]\otimes\left[a_{2},b_{2}\right]\otimes\ldots\left[a_{n},b_{n}\right]\label{eq:eq2}
-\end{equation}
+ the experimental datasets as well as the results from the application of
+ the proposed method are provided and finally in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Conclusions"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-In interval optimization methods usually the set 
-\begin_inset Formula $S$
-\end_inset
-
- is divided subsequently and subregions that not contain the global solution
- are discarded using some criteria.
- The proposed method is divided in two phases: in the first case a genetic
- algorithm that uses intervals as chromosomes is used to locate the best
- bounding box of for the weight vector.
- Subsequently, in the second phase a genetic algorithm is used to optimize
- the weight vector inside the best bounding box located by the first phase.
+ some conclusions and guidelines for future enchancements are presented.
 \end_layout
 
 \begin_layout Section
 Method description 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Method-description"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The proposed method consists of two major steps: in the first step the construct
+ion of the partition rules of the initial value interval for the parameters
+ of the artificial neural network is made and in the second step the artificial
+ neural network is initialized in the optimal space resulting from the first
+ step and training takes place.
+ The training is performed through a second genetic algorithm.
+ In the first genetic algorithm the chromosomes are sets of partition rules
+ of the initial value interval of the artificial neural network and in the
+ second genetic algorithm the chromosomes are the parameters of the artificial
+ neural network.
+ It is obvious that this is a time consuming process and modern parallel
+ techniques such as the OpenMP 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "openmp"
+literal "false"
+
+\end_inset
+
+ library must be used to accelerate it.
+ The first genetic algorithm is analyzed in subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Locating-the-best"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and the second in subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Training-of-the"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Locating the best rules 
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Locating-the-best"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Firstly, we introduce the rule set 
+\begin_inset Formula $I_{n}$
+\end_inset
+
+ where:
+\begin_inset Formula 
+\begin{equation}
+I_{n}=\left\{ \left(l_{1},r_{1}\right),\left(l_{2},r_{2}\right),\ldots,\left(l_{n},r_{n}\right)\right\} \label{eq:I_eq}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $l_{i}\in\left\{ 0,1\right\} ,\ r_{i}\in\left\{ 0,1\right\} ,\ i=1,\ldots,n$
+\end_inset
+
+.
+ The set 
+\begin_inset Formula $I_{n}$
+\end_inset
+
+ defines the set of partition rules for a function defined as 
+\begin_inset Formula 
+\begin{equation}
+f:S\rightarrow R,S\subset R^{n}\label{eq:f_eq}
+\end{equation}
+
+\end_inset
+
+with 
+\begin_inset Formula $S$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{equation}
+S=\left[a_{1},b_{1}\right]\otimes\left[a_{2},b_{2}\right]\otimes\ldots\left[a_{n},b_{n}\right]\label{eq:eq_defines}
+\end{equation}
+
+\end_inset
+
+If 
+\begin_inset Formula $l_{i}=1$
+\end_inset
+
+ then 
+\begin_inset Formula $a_{i}=\frac{a_{i}}{2}$
+\end_inset
+
+ and if 
+\begin_inset Formula $r_{i}=1$
+\end_inset
+
+ then 
+\begin_inset Formula $b_{i}=\frac{b_{i}}{2}$
+\end_inset
+
+.
+ For example consider the Rastrigin function: 
+\begin_inset Formula 
+\begin{equation}
+f(x)=x_{1}^{2}+x_{2}^{2}-\cos\left(18x_{1}\right)-\cos\left(18x_{2}\right),\ x\in[-1,1]^{2}
+\end{equation}
+
+\end_inset
+
+Also consider the set 
+\begin_inset Formula $I_{2}=\left\{ \left(1,0\right),\left(0,1\right)\right\} $
+\end_inset
+
+ The produced bounding box for the Rastrigin function is now 
+\begin_inset Formula $S'=\left[-0.5,1\right]\times\left[-1,0.5\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Subsequently, we introduce the extended set 
+\begin_inset Formula $C_{Kn}$
+\end_inset
+
+ as a set of production rules defined as:
+\begin_inset Formula 
+\begin{equation}
+R_{Kn}=\left\{ I_{n}^{(1)},I_{n}^{(2)},\ldots,I_{n}^{(K)}\right\} \label{eq:ck}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $I_{n}^{(i)},\ i=1,..,K$
+\end_inset
+
+ are rule sets of equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:I_eq"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ For example let 
+\begin_inset Formula $K=2$
+\end_inset
+
+ for the Rastrigin function and 
+\begin_inset Formula $R_{22}=\left\{ \left\{ \left(0,1\right),\left(1,0\right)\right\} ,\left\{ \left(1,0\right),\left(1,1\right)\right\} \right\} $
+\end_inset
+
+.
+ The final bounding box is considered after applying the sets 
+\begin_inset Formula $\left\{ \left(0,1\right),\left(1,0\right)\right\} $
+\end_inset
+
+ and 
+\begin_inset Formula $\left\{ \left(1,0\right),\left(1,1\right)\right\} $
+\end_inset
+
+ in the original box 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ The compuation steps are:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Apply
+\series default
+ 
+\begin_inset Formula $\left\{ \left(0,1\right),\left(1,0\right)\right\} $
+\end_inset
+
+to S yelding 
+\begin_inset Formula $S'=\left[-0.5,1\right]\times\left[-1,0.5\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Apply
+\series default
+ 
+\begin_inset Formula $\left\{ \left(1,0\right),\left(1,1\right)\right\} $
+\end_inset
+
+ to 
+\begin_inset Formula $S'$
+\end_inset
+
+ yelding 
+\begin_inset Formula $S''=\left[-0.25,1\right]\times\left[-0.5,0.25\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We consider chromosomes in the form of equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ck"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for the first phase of the proposed method.
+ The value 
+\begin_inset Formula $n$
+\end_inset
+
+ is the total number of parameters of the neural network.
+ The fitness of every chromosome 
+\begin_inset Formula $g$
+\end_inset
+
+ is an interval 
+\begin_inset Formula $f_{g}=\left[f_{g,\mbox{min}},f_{g,\mbox{max}}\right]$
+\end_inset
+
+.
+ Hence, in order to compare two different intervals 
+\begin_inset Formula $a=\left[a_{1},a_{2}\right]$
+\end_inset
+
+ and 
+\begin_inset Formula $b=\left[b_{1},b_{2}\right]$
+\end_inset
+
+ we incorporate the following function: 
+\begin_inset Formula 
+\begin{eqnarray}
+L^{*}(a,b) & = & \begin{cases}
+\mbox{TRUE}, & a_{1}<b_{1},\mbox{OR\ \left(a_{1}=b_{1}\ \mbox{AND}\ a_{2}<b_{2}\right)}\\
+\mbox{FALSE}, & \mbox{\mbox{OTHERWISE}}
+\end{cases}\label{eq:eql}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hence, the steps of the genetic algorithm of the first phase are the following:
+\end_layout
+
+\begin_layout Paragraph
+Initialization step
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $K$
+\end_inset
+
+ as the number of rules.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $S=\left[-F,F\right]^{n}$
+\end_inset
+
+, as the initial bounding box for the parameters of the neural network.
+ 
+\begin_inset Formula $F$
+\end_inset
+
+ is considered as a positive number with 
+\begin_inset Formula $F>1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $N_{C}$
+\end_inset
+
+ as the total number of chromosomes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $N_{S}$
+\end_inset
+
+ the number of samples in fitness evaluation.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $P_{s}$
+\end_inset
+
+ as the selection rate, where 
+\begin_inset Formula $P_{s}\le1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $P_{m}$
+\end_inset
+
+ as the mutation rate, where 
+\begin_inset Formula $P_{m}\le1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $t=0$
+\end_inset
+
+ the current generation number.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $N_{t}$
+\end_inset
+
+ the maximum number of generations allowed.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialize
+\series default
+ randomly the chromosomes 
+\begin_inset Formula $C_{i},\ i=1,..,N_{C}$
+\end_inset
+
+ as sets of the equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ck"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+Termination check step 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ t=t+1
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $t\ge N_{t}$
+\end_inset
+
+ 
+\series bold
+terminate
+\series default
+.
+\end_layout
+
+\begin_layout Paragraph
+Genetic operations step 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ every chromosome 
+\begin_inset Formula $C_{i},\ i=1,..,N_{C}$
+\end_inset
+
+ calculate the corresponding fitness value 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+ using the algorithm of subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:FitnessRule"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Apply
+\series default
+ the selection operator.
+ Initially, the chromosomes are sorted according to their fitness value.
+ The sorting utilizes the function 
+\begin_inset Formula $L^{*}(a,b)$
+\end_inset
+
+ of equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eql"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to compare fitness values.
+ The best
+\series bold
+ 
+\begin_inset Formula $\left(1-P_{s}\right)\times N_{c}$
+\end_inset
+
+ 
+\series default
+are copied to the next generation
+\series bold
+ 
+\series default
+while the rest of the are substituted by offsprings created through the
+ crossover procedure.
+ The mating parents for the crossover procedure are selected using the well
+ - known technique of tournament selection
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Apply
+\series default
+ the crossover operator: For every pair of selected parents 
+\begin_inset Formula $(z,w)$
+\end_inset
+
+ two childreen 
+\begin_inset Formula $(cz,cw)$
+\end_inset
+
+ are produced using the uniform crossover procedure described in subsection
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:CrossoverRule"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Appy
+\series default
+ the mutation operator using the algorithm of subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:MutationRule"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Goto
+\series default
+ Termination Check Step.
+ 
+\end_layout
+
+\begin_layout Subsection
+Fitness evaluation for the rule genetic algorithm
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:FitnessRule"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The fitness value for each chromosome 
+\begin_inset Formula $g$
+\end_inset
+
+ is considered as an interval 
+\begin_inset Formula $f=\left[f_{\mbox{min}},f_{\mbox{max}}\right]$
+\end_inset
+
+ where 
+\begin_inset Formula $f_{\mbox{min}}$
+\end_inset
+
+is an estimation of the lower value obtained using the rules of the chromosome
+ 
+\begin_inset Formula $g$
+\end_inset
+
+ and 
+\begin_inset Formula $f_{\mbox{max}}$
+\end_inset
+
+is an estimation of the maximum value.
+ In order to calculate the fitness of every set of rules 
+\begin_inset Formula $C$
+\end_inset
+
+ the following steps are performed:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $f_{\mbox{min}}=\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $f_{\mbox{max}}=-\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Apply
+\series default
+ the rule set 
+\begin_inset Formula $g$
+\end_inset
+
+ to the original bounding box 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ The outcome of this application is the new bounding box 
+\begin_inset Formula $S_{g}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,..,N_{S}$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Produce
+\series default
+ a random sample 
+\begin_inset Formula $w\in S_{g}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Calculate
+\series default
+ the training error 
+\begin_inset Formula $E_{g}=E\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)$
+\end_inset
+
+ using equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eq1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $E_{g}\le f_{\mbox{min}}$
+\end_inset
+
+ then 
+\begin_inset Formula $f_{\mbox{min}}=E_{g}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $E_{g}\ge f_{max}$
+\end_inset
+
+ then 
+\begin_inset Formula $f_{\mbox{max}}=E_{g}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Return
+\series default
+ the interval 
+\begin_inset Formula $f=\left[f_{\mbox{min}},f_{\mbox{max}}\right]$
+\end_inset
+
+ as the fitness of chromosome 
+\begin_inset Formula $g.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Crossover for the rule genetic algorithm
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:CrossoverRule"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The crossover for the genetic algorithm of the first phase is performed
+ using uniform crossover.
+ For every couple 
+\begin_inset Formula $(z,w)$
+\end_inset
+
+ of selected parents two childreen 
+\begin_inset Formula $(cz,cw)$
+\end_inset
+
+ are produced through the following procedure:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1..K$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Let
+\series default
+ 
+\begin_inset Formula $z^{(i)}=\left\{ l_{z}^{(i)},r_{z}^{(i)}\right\} $
+\end_inset
+
+ the 
+\begin_inset Formula $i$
+\end_inset
+
+ item of the chromosome 
+\begin_inset Formula $z$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Let
+\series default
+ 
+\begin_inset Formula $w^{(i)}=\left\{ l_{w}^{(i)},r_{w}^{(i)}\right\} $
+\end_inset
+
+ the 
+\begin_inset Formula $i$
+\end_inset
+
+ item of the chromosome 
+\begin_inset Formula $w$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Produce
+\series default
+ a random number 
+\begin_inset Formula $r\le1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $r\le0.5$
+\end_inset
+
+ 
+\series bold
+then
+\series default
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $\mbox{cz}^{(i)}=\left\{ l_{z}^{(i)},r_{w}^{(i)}\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $\mbox{cw}^{(i)}=\left\{ l_{w}^{(i)},r_{z}^{(i)}\right\} $
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Else
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $\mbox{cz}^{(i)}=\left\{ l_{w}^{(i)},r_{z}^{(i)}\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $\mbox{cw}^{(i)}=\left\{ l_{z}^{(i)},r_{w}^{(i)}\right\} $
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Endif
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\begin_layout Subsection
+Mutation for the rule genetic algorithm
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:MutationRule"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The steps for the mutation procedure for the genetic algorithm of the first
+ phase have as following:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,..,N_{C}$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Let
+\series default
+ 
+\begin_inset Formula $C_{i}=\left\{ C_{i}^{(1)},C_{i}^{(2)},\ldots,C_{i}^{(K)}\right\} $
+\end_inset
+
+ the i chromosome of the population.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $j=1,..,K$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Let
+\series default
+ 
+\begin_inset Formula $C_{i}^{(j)}=\left\{ l_{i}^{(j)},r_{i}^{(j)}\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Take
+\series default
+ 
+\begin_inset Formula $r\le$
+\end_inset
+
+1 a random number.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $r\le P_{m}$
+\end_inset
+
+ 
+\series bold
+then
+\series default
+ alter randomly with probability 50% the 
+\begin_inset Formula $l_{i}^{(j)}$
+\end_inset
+
+ or the 
+\begin_inset Formula $r_{i}^{(j)}$
+\end_inset
+
+ part of 
+\begin_inset Formula $C_{i}^{(j)}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\begin_layout Subsection
+Second phase
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Training-of-the"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the second phase the best chromosome 
+\begin_inset Formula $g_{b}$
+\end_inset
+
+ defined as 
+\begin_inset Formula 
+\begin{equation}
+g_{\mbox{b}}=\left\{ \left\{ l_{b,1},r_{b,1}\right\} ,\left\{ l_{b,2},r_{b,2}\right\} ,\ldots,\left\{ l_{b,K},r_{b,K}\right\} \right\} 
+\end{equation}
+
+\end_inset
+
+ is used to transform the original bounding box 
+\begin_inset Formula $S=[-F,F]^{(n)}$
+\end_inset
+
+ to a new box 
+\begin_inset Formula $S_{b}$
+\end_inset
+
+.
+ The new hyperbox is defined as 
+\begin_inset Formula 
+\begin{equation}
+S_{b}=\left[a_{g,1},b_{g,1}\right]\times\left[a_{g,2},b_{g,2}\right]\times\ldots\times\left[a_{g,n},b_{g,n}\right]
+\end{equation}
+
+\end_inset
+
+This hyperbox will be used to bound the parameters of the neural network.
+ The parameters of the network are trained using a genetic algorithm with
+ the following steps:
+\end_layout
+
+\begin_layout Paragraph
+Initialization step
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $N_{C}$
+\end_inset
+
+ as the total number of chromosomes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $P_{s}$
+\end_inset
+
+ as the selection rate, where 
+\begin_inset Formula $P_{s}\le1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $P_{m}$
+\end_inset
+
+ as the mutation rate, where 
+\begin_inset Formula $P_{m}\le1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $t=0$
+\end_inset
+
+ the current generation number.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $N_{t}$
+\end_inset
+
+ the maximum number of generations allowed.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialize
+\series default
+ randomly the chromosomes 
+\begin_inset Formula $C_{i},\ i=1,..,N_{C}$
+\end_inset
+
+ inside the bounding box 
+\begin_inset Formula $S_{b}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Termination check step 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ t=t+1
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $t\ge N_{t}$
+\end_inset
+
+ 
+\series bold
+terminate
+\series default
+.
+\end_layout
+
+\begin_layout Paragraph
+Genetic operations step 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Calculate
+\series default
+ the fitness value of every chromosome
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1..N_{C}$
+\end_inset
+
+ 
+\series bold
+Do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $f_{i}=E\left(N\left(\overrightarrow{x},C_{i}\right)\right)$
+\end_inset
+
+ using the equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eq1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+\SpecialChar endofsentence
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Apply
+\series default
+ the crossover operator.
+ In this phase the best
+\series bold
+ 
+\begin_inset Formula $\left(1-P_{s}\right)\times N_{c}$
+\end_inset
+
+
+\series default
+ chromosomes are transferred intact to the next generation.
+ The rest of the chromsomes are substituded by offsprings created through
+ crossover.
+ The selection of two parents 
+\begin_inset Formula $x=\left(x_{1},x_{2},...,x_{n}\right),\ \ y=\left(y_{1},y_{2},...,y_{n}\right)$
+\end_inset
+
+ for crossover is performed using tournament selection.
+ Having selected the parents, the offsprings 
+\begin_inset Formula $\tilde{x}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{y}$
+\end_inset
+
+ are formed using the following:
+\begin_inset Formula 
+\begin{eqnarray}
+\tilde{x_{i}} & = & r_{i}x_{i}+\left(1-r_{i}\right)y_{i}\nonumber \\
+\tilde{y_{i}} & = & r_{i}y_{i}+\left(1-r_{i}\right)x_{i}\label{eq:crossover_ali}
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $r_{i}$
+\end_inset
+
+ are random numbers in 
+\begin_inset Formula $[-0.5,1.5]$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-6"
+literal "true"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Apply
+\series default
+ the mutation operator.
+ The mutation scheme is the same as in the work of Kaelo and Ali
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kaelo"
+literal "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1..N_{C}$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $j=1..n$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $r\in[0,1]$
+\end_inset
+
+ a random number
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $r\le P_{m}$
+\end_inset
+
+ alter the element 
+\begin_inset Formula $C_{ij}$
+\end_inset
+
+ using the following
+\begin_inset Formula 
+\begin{equation}
+C_{ij}=\left\{ \begin{array}{cc}
+C_{ij}+\Delta\left(\mbox{t},b_{g,i}-C_{ij}\right) & t=0\\
+C_{ij}-\Delta\left(\mbox{t},C_{ij}-a_{g,i}\right) & t=1
+\end{array}\right.\label{eq:ali_mutation}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $t$
+\end_inset
+
+ is a random number that takes either the values 0 or 1 and 
+\begin_inset Formula $\Delta(\mbox{t},y)$
+\end_inset
+
+ is calculated as:
+\begin_inset Formula 
+\begin{equation}
+\Delta(t,y)=y\left(1-r^{\left(1-\frac{t}{N_{t}}\right)z}\right)\label{eq:delta_equation}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $r\in[0,1]$
+\end_inset
+
+ is a random number and 
+\begin_inset Formula $z$
+\end_inset
+
+ is a user defined parameter.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Goto
+\series default
+ Termination check step.
+\end_layout
+
+\begin_layout Paragraph
+Local Search step
+\end_layout
+
+\begin_layout Enumerate
+Set 
+\begin_inset Formula $C^{*}$
+\end_inset
+
+ the best chromosome of the population.
+\end_layout
+
+\begin_layout Enumerate
+Apply a local search procedure 
+\begin_inset Formula $C^{*}={\cal L}\left(C^{*}\right)$
+\end_inset
+
+.
+ The local search procedure used was a BFGS method of Powell.
 \end_layout
 
 \begin_layout Section
 Experiments 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Experiments"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1087,7 +2598,217 @@ Experimental results
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Experimental parameters.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Experimental-parameters."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PARAMETER
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+VALUE
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $K$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{C}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+200
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{S}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+50
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{t}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+200
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $P_{s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $P_{m}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.01
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2456,10 +4177,13 @@ AVERAGE
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3369,6 +5093,17 @@ AVERAGE
 
 \begin_layout Section
 Conclusions
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Conclusions"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(Write some text here)
 \end_layout
 
 \begin_layout Bibliography
@@ -4033,6 +5768,75 @@ uting
 \series default
 , pp.
  527-533, 2005.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "openmp"
+literal "false"
+
+\end_inset
+
+L.
+ Dagum, R.
+ Menon, OpenMP: an industry standard API for shared-memory programming,
+ IEEE Computational Science and Engineering 
+\series bold
+ 5
+\series default
+, pp.
+ 46-55, 1998.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-6"
+literal "true"
+
+\end_inset
+
+Z.
+ Michaelewicz, Genetic Algorithms + Data Structures = Evolution Programs.
+ Springer - Verlag, Berlin, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "kaelo"
+literal "true"
+
+\end_inset
+
+P.
+ Kaelo, M.M.
+ Ali, Integrated crossover rules in real coded genetic algorithms, European
+ Journal of Operational Research 
+\series bold
+176
+\series default
+, pp.
+ 60-76, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "powell"
+literal "true"
+
+\end_inset
+
+M.J.D Powell, A Tolerant Algorithm for Linearly Constrained Optimization Calculati
+ons, Mathematical Programming 
+\series bold
+45
+\series default
+, pp.
+ 547-566, 1989.
+ 
 \end_layout
 
 \begin_layout Bibliography

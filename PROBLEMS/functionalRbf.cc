@@ -12,7 +12,7 @@
 #include <armadillo>
 #pragma GCC optimize("-Ofast")
 using namespace std;
-//# define KMEANS
+# define KMEANS
 //-------------------------------------
 // [0, pattern_dim)                   |
 // [pattern_dim 2*pattern_dim)        |
