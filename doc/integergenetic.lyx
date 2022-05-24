@@ -361,6 +361,12 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+(Write some motivation here)
+\end_layout
+
+\begin_layout Standard
 The rest of this article has as follows:
 \series bold
  
@@ -1626,9 +1632,9 @@ If
 
  
 \series bold
-terminate
+goto
 \series default
-.
+ Local Search Step.
 \end_layout
 
 \begin_layout Paragraph
@@ -1798,7 +1804,11 @@ do
 
 \begin_deeper
 \begin_layout Enumerate
-Let 
+
+\series bold
+Let
+\series default
+ 
 \begin_inset Formula $r\in[0,1]$
 \end_inset
 
@@ -1806,7 +1816,11 @@ Let
 \end_layout
 
 \begin_layout Enumerate
-If 
+
+\series bold
+If
+\series default
+ 
 \begin_inset Formula $r\le P_{m}$
 \end_inset
 
@@ -1881,7 +1895,11 @@ Local Search step
 \end_layout
 
 \begin_layout Enumerate
-Set 
+
+\series bold
+Set
+\series default
+ 
 \begin_inset Formula $C^{*}$
 \end_inset
 
@@ -1889,7 +1907,11 @@ Set
 \end_layout
 
 \begin_layout Enumerate
-Apply a local search procedure 
+
+\series bold
+Apply
+\series default
+ a local search procedure 
 \begin_inset Formula $C^{*}={\cal L}\left(C^{*}\right)$
 \end_inset
 
@@ -1916,12 +1938,10 @@ name "sec:Experiments"
 
 \end_layout
 
-\begin_layout Subsection
-Experimental datasets 
-\end_layout
-
 \begin_layout Standard
-The classification problems used for the experiments were found in most
+The proposed method is evaluated on a series of classification and regression
+ problems from the relevant literature.
+ The classification problems used for the experiments were found in most
  cased in two internet databases:
 \end_layout
 
@@ -1961,6 +1981,28 @@ literal "false"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+The regression datasets are in most cases available from the Statlib URL
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+ftp://lib.stat.cmu.edu/datasets/index.html 
+\end_layout
+
+\end_inset
+
+.
+ The proposed method is compared against a neural network trained by a genetic
+ algorithm and the results are reported.
+\end_layout
+
+\begin_layout Subsection
+Experimental datasets 
 \end_layout
 
 \begin_layout Standard
@@ -2362,19 +2404,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-The regression datasets are in most cases available from the Statlib URL
- 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-ftp://lib.stat.cmu.edu/datasets/index.html 
-\end_layout
-
-\end_inset
-
-: 
+Also, the following regression datasets were used:
 \end_layout
 
 \begin_layout Enumerate
@@ -2603,14 +2633,122 @@ Experimental results
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float table
-wide false
-sideways false
+The method is compared against a genetic algorithm with the same parameters
+ that are shown in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Experimental-parameters."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ All the experiments were conducted 30 times with different seed for the
+ random number generator each time and averages were taken.
+ To perform the experiments the software 
+\emph on
+IntervalGenetic
+\emph default
+ which is freely available from 
+\begin_inset Flex URL
 status open
 
 \begin_layout Plain Layout
 
+https://github.com/itsoulos/IntervalGenetic
 \end_layout
+
+\end_inset
+
+ was utilized.
+ The experimental results for classification datasets are shown in Table
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Experiments-for-classification"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and the results for the regression datasets are outlined in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:exp2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ For classification problems the average classification error on the test
+ set is shown and for regression datasets the average mean squared error
+ on the test set is displayed.
+
+\series bold
+ 
+\series default
+In all cases 10 fold cross validation was used.
+ The column DATASET stands for the name of the Dataset incorporated, the
+ column GENETIC denotes the application of a neural network of 
+\begin_inset Formula $H$
+\end_inset
+
+ hidden nodes trained by a genetic algorithm, the columns 
+\begin_inset Formula $F=50$
+\end_inset
+
+ represents the application of the proposed method with 
+\begin_inset Formula $F=50$
+\end_inset
+
+ as the initial value, the column 
+\begin_inset Formula $F=100$
+\end_inset
+
+ stands for the results of the proposed method with 
+\begin_inset Formula $F=100$
+\end_inset
+
+ and finally the column 
+\begin_inset Formula $F=200$
+\end_inset
+
+ represents the results of the proposed method with 
+\begin_inset Formula $F=200$
+\end_inset
+
+.
+ In both tables an additional row was added at the end showing the average
+ classification or regression error for all datasets and it is denoted by
+ the name AVERAGE.
+\end_layout
+
+\begin_layout Standard
+As can be seen from the experimental results, the proposed method is significant
+ly superior to the genetic algorithm especially in the case of regresion
+ data.
+ For the case of classification datasets the proposed method reduces the
+ average classification error by 27% while in the case of regression datasets
+ the reduction in average test error is raised to 75%.
+ Also the change of the parameter 
+\begin_inset Formula $f$
+\end_inset
+
+ does not seem to have a significant effect on the performance of the algorithm
+ and the proposed algorithm achieves high performance even for small values
+ of this parameter.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2634,7 +2772,7 @@ name "tab:Experimental-parameters."
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="7" columns="2">
+<lyxtabular version="3" rows="8" columns="2">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -2676,6 +2814,29 @@ VALUE
 
 \begin_layout Plain Layout
 20
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $H$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
 \end_layout
 
 \end_inset
@@ -2816,13 +2977,20 @@ VALUE
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Experiments for classification datasets
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Experiments-for-classification"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -4191,7 +4359,7 @@ AVERAGE
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -5111,7 +5279,52 @@ name "sec:Conclusions"
 \end_layout
 
 \begin_layout Standard
-(Write some text here)
+An innovative method of training artificial neural networks was presented
+ in this paper.
+ The method consists of two important phases: in the first phase through
+ a hybrid genetic algorithm an attempt is made to identify the optimal interval
+ of initialization and training of the network parameters and in the second
+ phase the training of the parameters in the optimal intervals of the first
+ phase is done using a genetic algorithm.
+ The optimization of the optimal interval in the first phase is done by
+ using partition rules of the initial interval that are applied in order.
+ This technique aims to reduce the parameter search space and then significantly
+ speed up network configuration training.
+ 
+\end_layout
+
+\begin_layout Standard
+The proposed method was tested on a series of classification and regression
+ datasets from the relevant literature and the experimental results seem
+ to be very promising compared to the genetic algorithm procedure.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(.......)
+\end_layout
+
+\begin_layout Subsection*
+Compliance with Ethical Standards 
+\end_layout
+
+\begin_layout Standard
+All authors declare that they have no has no conflict of interest.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Acknowledgments
+\end_layout
+
+\begin_layout Standard
+The experiments of this research work was performed at the high performance
+ computing system established at Knowledge and Intelligent Computing Lab-oratory
+, Dept of Informatics and Telecommunications, University of Ioannina, acquired
+ with the project "Educational Laboratory equipment of TEI of Epirus" with
+ MIS 5007094 funded by the Operational Programme "Epirus" 2014-2020, by
+ ERDF and national finds.
 \end_layout
 
 \begin_layout Bibliography
