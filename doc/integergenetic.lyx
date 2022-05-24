@@ -90,7 +90,17 @@ Department of Informatics and Telecommunications, University of Ioannina,
 \end_layout
 
 \begin_layout Abstract
-Write some abstract here
+An advanced method of training artificial neural networks is presented here,
+ which aims to identify the optimal interval for initialization and training
+ of artificial neural networks.
+ The location of the optimal interval is performed using rules evolving
+ from a genetic algorithm.
+ The method has two phases: in the first phase, an attempt is made to locate
+ the optimal interval and in the second phase, the artificial neural network
+ is initialized and trained in this interval using a method of global optimizati
+on, such as genetic algorithms.
+ The method has been tested on a range of categorization and function learning
+ data and the experimental results are extremely encouraging.
 \end_layout
 
 \begin_layout Section
@@ -106,10 +116,10 @@ literal "true"
 
 \end_inset
 
- based on a series of parameters that commonly called weights or processeing
+ based on a series of parameters that are commonly called weights or processing
  units.
  They have been used in a variety of problems from different scientific
- areas such as physics 
+ areas, such as physics 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "nnphysics1,nnphysics2,nnphysics3"
@@ -176,9 +186,9 @@ literal "false"
 \begin_inset Formula $\overrightarrow{w}$
 \end_inset
 
- for the certain problem.
- The training procedure can be formulated also an optimization problem,
- where the target is to minimize the so called error function:
+ for a certain problem.
+ The training procedure can also be formulated as an optimization problem,
+ where the target is to minimize the so-called error function:
 \begin_inset Formula 
 \begin{equation}
 E\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=\sum_{i=1}^{M}\left(N\left(\overrightarrow{x}_{i},\overrightarrow{w}\right)-y_{i}\right)^{2}\label{eq:eq1}
@@ -213,7 +223,7 @@ noprefix "false"
 \begin_inset Formula $N(\overrightarrow{x},\overrightarrow{w})$
 \end_inset
 
- can be modelled as a summation of processing unints as proposed in 
+ can be modeled as a summation of processing units as proposed in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "nnc"
@@ -264,7 +274,7 @@ noprefix "false"
 
 \end_inset
 
- one can obtain that the dimension of weight vector 
+ one can obtain that the dimension of the weight vector 
 \begin_inset Formula $w$
 \end_inset
 
@@ -347,12 +357,12 @@ literal "false"
 \end_inset
 
 .
- In the current work, using arithmetic intervals, a set of rules for dividing
+ In current work, using arithmetic intervals, a set of rules for dividing
  the initial interval for the parameters of the artificial neural network
  is constructed.
  The construction is carried out using a hybrid genetic algorithm, in which
  chromosomes are the set of division rules.
- After the termination of the genetic algorithm the artificial neural network
+ After the termination of the genetic algorithm, the artificial neural network
  is initialized in the interval resulting from the application of the optimal
  partitioning rules and then trained using a genetic algorithm.
 
@@ -361,13 +371,19 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-(Write some motivation here)
+This method used has two objectives: the first objective is to detect a
+ small interval of initialization of the parameters of the artificial neural
+ network and the second objective is to accelerate the training of the network.
+ In the first target, using information from the training data the algorithm
+ will make an attempt to identify that interval that will ultimately give
+ better results.
+ In the second objective, once a small value interval has been detected,
+ a global optimization method can be used more efficiently to detect the
+ lowest value of the network error.
 \end_layout
 
 \begin_layout Standard
-The rest of this article has as follows:
+The rest of this article is as follows:
 \series bold
  
 \series default
@@ -402,7 +418,7 @@ noprefix "false"
 
 \end_inset
 
- some conclusions and guidelines for future enchancements are presented.
+ some conclusions and guidelines for future enhancements are presented.
 \end_layout
 
 \begin_layout Section
@@ -417,16 +433,16 @@ name "sec:Method-description"
 \end_layout
 
 \begin_layout Standard
-The proposed method consists of two major steps: in the first step the construct
-ion of the partition rules of the initial value interval for the parameters
- of the artificial neural network is made and in the second step the artificial
- neural network is initialized in the optimal space resulting from the first
- step and training takes place.
+The proposed method consists of two major steps: in the first step, the
+ construction of the partition rules of the initial value interval for the
+ parameters of the artificial neural network is made and in the second step,
+ the artificial neural network is initialized in the optimal space resulting
+ from the first step and training takes place.
  The training is performed through a second genetic algorithm.
- In the first genetic algorithm the chromosomes are sets of partition rules
- of the initial value interval of the artificial neural network and in the
- second genetic algorithm the chromosomes are the parameters of the artificial
- neural network.
+ In the first genetic algorithm, the chromosomes are sets of partition rules
+ of the initial value interval of the artificial neural network, and in
+ the second genetic algorithm, the chromosomes are the parameters of the
+ artificial neural network.
  It is obvious that this is a time consuming process and modern parallel
  techniques such as the OpenMP 
 \begin_inset CommandInset citation
@@ -599,7 +615,7 @@ noprefix "false"
 \end_inset
 
 .
- The compuation steps are:
+ The computation steps are:
 \end_layout
 
 \begin_layout Enumerate
@@ -611,7 +627,7 @@ Apply
 \begin_inset Formula $\left\{ \left(0,1\right),\left(1,0\right)\right\} $
 \end_inset
 
-to S yelding 
+to S yielding 
 \begin_inset Formula $S'=\left[-0.5,1\right]\times\left[-1,0.5\right]$
 \end_inset
 
@@ -631,7 +647,7 @@ Apply
 \begin_inset Formula $S'$
 \end_inset
 
- yelding 
+ yielding 
 \begin_inset Formula $S''=\left[-0.25,1\right]\times\left[-0.5,0.25\right]$
 \end_inset
 
@@ -921,10 +937,10 @@ are copied to the next generation
 \series bold
  
 \series default
-while the rest of the are substituted by offsprings created through the
+while the rest of them are substituted by offsprings created through the
  crossover procedure.
  The mating parents for the crossover procedure are selected using the well
- - known technique of tournament selection
+ - known technique of tournament selection.
 \end_layout
 
 \begin_layout Enumerate
@@ -933,10 +949,10 @@ while the rest of the are substituted by offsprings created through the
 Apply
 \series default
  the crossover operator: For every pair of selected parents 
-\begin_inset Formula $(z,w)$
+\begin_inset Formula $(z,w),$
 \end_inset
 
- two childreen 
+ two children 
 \begin_inset Formula $(cz,cw)$
 \end_inset
 
@@ -957,7 +973,7 @@ noprefix "false"
 \begin_layout Enumerate
 
 \series bold
-Appy
+Apply
 \series default
  the mutation operator using the algorithm of subsection 
 \begin_inset CommandInset ref
@@ -1189,7 +1205,7 @@ The crossover for the genetic algorithm of the first phase is performed
 \begin_inset Formula $(z,w)$
 \end_inset
 
- of selected parents two childreen 
+ of selected parents two children 
 \begin_inset Formula $(cz,cw)$
 \end_inset
 
@@ -1711,7 +1727,7 @@ Apply
 
 \series default
  chromosomes are transferred intact to the next generation.
- The rest of the chromsomes are substituded by offsprings created through
+ The rest of the chromosomes are substituted by offsprings created through
  crossover.
  The selection of two parents 
 \begin_inset Formula $x=\left(x_{1},x_{2},...,x_{n}\right),\ \ y=\left(y_{1},y_{2},...,y_{n}\right)$
@@ -1942,7 +1958,7 @@ name "sec:Experiments"
 The proposed method is evaluated on a series of classification and regression
  problems from the relevant literature.
  The classification problems used for the experiments were found in most
- cased in two internet databases:
+ cases in two internet databases:
 \end_layout
 
 \begin_layout Enumerate
@@ -2504,7 +2520,7 @@ literal "false"
 \series bold
 Dee
 \series default
- dataset, used to predict the daily average price of TkWhe electricity energy
+ dataset, used to predict the daily average price of the electricity energy
  in Spain.
 \end_layout
 
@@ -2645,9 +2661,9 @@ noprefix "false"
 \end_inset
 
 .
- All the experiments were conducted 30 times with different seed for the
+ All the experiments were conducted 30 times with different seeds for the
  random number generator each time and averages were taken.
- To perform the experiments the software 
+ To perform the experiments, the software 
 \emph on
 IntervalGenetic
 \emph default
@@ -2685,20 +2701,20 @@ noprefix "false"
 \end_inset
 
 .
- For classification problems the average classification error on the test
+ For classification problems, the average classification error on the test
  set is shown and for regression datasets the average mean squared error
  on the test set is displayed.
 
 \series bold
  
 \series default
-In all cases 10 fold cross validation was used.
+In all cases, 10 fold cross validation was used.
  The column DATASET stands for the name of the Dataset incorporated, the
  column GENETIC denotes the application of a neural network of 
 \begin_inset Formula $H$
 \end_inset
 
- hidden nodes trained by a genetic algorithm, the columns 
+ hidden nodes trained by a genetic algorithm, the column 
 \begin_inset Formula $F=50$
 \end_inset
 
@@ -2723,19 +2739,19 @@ In all cases 10 fold cross validation was used.
 \end_inset
 
 .
- In both tables an additional row was added at the end showing the average
+ In both tables, an additional row was added at the end showing the average
  classification or regression error for all datasets and it is denoted by
  the name AVERAGE.
 \end_layout
 
 \begin_layout Standard
 As can be seen from the experimental results, the proposed method is significant
-ly superior to the genetic algorithm especially in the case of regresion
+ly superior to the genetic algorithm, especially in the case of regression
  data.
- For the case of classification datasets the proposed method reduces the
- average classification error by 27% while in the case of regression datasets
+ For the case of classification datasets, the proposed method reduces the
+ average classification error by 27%, while in the case of regression datasets,
  the reduction in average test error is raised to 75%.
- Also the change of the parameter 
+ Also, the change of the parameter 
 \begin_inset Formula $f$
 \end_inset
 
@@ -5282,10 +5298,10 @@ name "sec:Conclusions"
 An innovative method of training artificial neural networks was presented
  in this paper.
  The method consists of two important phases: in the first phase through
- a hybrid genetic algorithm an attempt is made to identify the optimal interval
- of initialization and training of the network parameters and in the second
- phase the training of the parameters in the optimal intervals of the first
- phase is done using a genetic algorithm.
+ a hybrid genetic algorithm, an attempt is made to identify the optimal
+ interval of initialization and training of the network parameters and at
+ the second phase the training of the parameters in the optimal intervals
+ of the first phase is done using a genetic algorithm.
  The optimization of the optimal interval in the first phase is done by
  using partition rules of the initial interval that are applied in order.
  This technique aims to reduce the parameter search space and then significantly
@@ -5297,12 +5313,18 @@ An innovative method of training artificial neural networks was presented
 The proposed method was tested on a series of classification and regression
  datasets from the relevant literature and the experimental results seem
  to be very promising compared to the genetic algorithm procedure.
+ However, since the method consists of two computational phases, it is much
+ slower than other training techniques of artificial neural networks and
+ therefore, the use of parallel processing techniques is considered necessary.
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-(.......)
+Future improvements to the proposed method may include the incorporation
+ of additional global optimization techniques instead of  genetic algorithms,
+ the usage of more advanced stopping rules and the application of the method
+ to other types of neural networks such as Radial Basis Function networks
+ (RBF).
+ 
 \end_layout
 
 \begin_layout Subsection*
@@ -5320,8 +5342,8 @@ Acknowledgments
 
 \begin_layout Standard
 The experiments of this research work was performed at the high performance
- computing system established at Knowledge and Intelligent Computing Lab-oratory
-, Dept of Informatics and Telecommunications, University of Ioannina, acquired
+ computing system established at Knowledge and Intelligent Computing Laboratory,
+ Dept of Informatics and Telecommunications, University of Ioannina, acquired
  with the project "Educational Laboratory equipment of TEI of Epirus" with
  MIS 5007094 funded by the Operational Programme "Epirus" 2014-2020, by
  ERDF and national finds.
