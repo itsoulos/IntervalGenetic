@@ -64,7 +64,7 @@ void ConstrainedAdam::Optimize(){
     std::vector<double> initial;
 #pragma omp critical
 {
-    initial =target->getRandomPoint();// target->getUniformRandomPoint();
+    initial =target->getUniformRandomPoint();// target->getRandomPoint();// target->getUniformRandomPoint();
 }
     //for(auto b : initial) std::cout << b << " ";
     for(unsigned i = 0; i < iterations; i++){

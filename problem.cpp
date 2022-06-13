@@ -20,7 +20,7 @@ Data       Problem::getUniformRandomPoint()
     for(int i=0;i<dimension;i++)
     {
         double r=randomDouble();
-        x[i]=(2.0*r-1.0);
+        x[i]=0.1*(2.0*r-1.0);
     }
     return x;
 }
