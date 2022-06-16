@@ -728,16 +728,16 @@ Set
 Set
 \series default
  
-\begin_inset Formula $S=\left[-F,F\right]^{n}$
+\begin_inset Formula $S=\left[-D,D\right]^{n}$
 \end_inset
 
 , as the initial bounding box for the parameters of the neural network.
  
-\begin_inset Formula $F$
+\begin_inset Formula $D$
 \end_inset
 
  is considered as a positive number with 
-\begin_inset Formula $F>1$
+\begin_inset Formula $D>1$
 \end_inset
 
 .
@@ -2649,8 +2649,11 @@ Experimental results
 \end_layout
 
 \begin_layout Standard
-The method is compared against a genetic algorithm with the same parameters
- that are shown in Table 
+The method is compared against three other methods:
+\end_layout
+
+\begin_layout Enumerate
+A genetic algorithm with the same parameters that are shown in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Experimental-parameters."
@@ -2661,7 +2664,51 @@ noprefix "false"
 \end_inset
 
 .
- All the experiments were conducted 30 times with different seeds for the
+ Also, after the termination of the genetic algorithm the local search procedure
+ of BFGS is applied to the best chromosome of the population, in order to
+ enhance the quality of the solution.
+ The column GENETIC in the experimental tables denotes the results from
+ the application of this method.
+\end_layout
+
+\begin_layout Enumerate
+The Adam stochastic optimization method 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Adam"
+literal "false"
+
+\end_inset
+
+.
+ The results for this method are listed in the column ADAM in the relevant
+ tables.
+\end_layout
+
+\begin_layout Enumerate
+The Rprop method 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rpropnn"
+literal "false"
+
+\end_inset
+
+ as implemented in the FCNN software package 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fcn"
+literal "false"
+
+\end_inset
+
+.
+ The results for this method are listed in the column RPROP in the relevant
+ tables.
+\end_layout
+
+\begin_layout Standard
+All the experiments were conducted 30 times with different seeds for the
  random number generator each time and averages were taken.
  To perform the experiments, the software 
 \emph on
@@ -2708,40 +2755,49 @@ noprefix "false"
 \series bold
  
 \series default
-In all cases, 10 fold cross validation was used.
- The column DATASET stands for the name of the Dataset incorporated, the
- column GENETIC denotes the application of a neural network of 
+In all cases, 10 fold cross validation was used and the number of hidden
+ nodes (parameter 
 \begin_inset Formula $H$
 \end_inset
 
- hidden nodes trained by a genetic algorithm, the column 
-\begin_inset Formula $F=50$
+) was set to 10.
+ The column DATASET stands for the name of the Dataset incorporated, the
+ column 
+\begin_inset Formula $D=50$
 \end_inset
 
  represents the application of the proposed method with 
-\begin_inset Formula $F=50$
+\begin_inset Formula $D=50$
 \end_inset
 
- as the initial value, the column 
-\begin_inset Formula $F=100$
+ as the initial value for the interval of weights, the column 
+\begin_inset Formula $D=100$
 \end_inset
 
  stands for the results of the proposed method with 
-\begin_inset Formula $F=100$
+\begin_inset Formula $D=100$
 \end_inset
 
  and finally the column 
-\begin_inset Formula $F=200$
+\begin_inset Formula $D=200$
 \end_inset
 
  represents the results of the proposed method with 
-\begin_inset Formula $F=200$
+\begin_inset Formula $D=200$
 \end_inset
 
 .
  In both tables, an additional row was added at the end showing the average
  classification or regression error for all datasets and it is denoted by
  the name AVERAGE.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(Na mpei kai sxolio gia ADAM kai RPROP.
+ Px genetic is better than other methods in classification results and not
+ in regression)
 \end_layout
 
 \begin_layout Standard
@@ -2752,7 +2808,7 @@ ly superior to the genetic algorithm, especially in the case of regression
  average classification error by 27%, while in the case of regression datasets,
  the reduction in average test error is raised to 75%.
  Also, the change of the parameter 
-\begin_inset Formula $f$
+\begin_inset Formula $D$
 \end_inset
 
  does not seem to have a significant effect on the performance of the algorithm
@@ -3067,7 +3123,7 @@ RPROP
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $F=50$
+\begin_inset Formula $D=50$
 \end_inset
 
 
@@ -3079,7 +3135,7 @@ RPROP
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $F=100$
+\begin_inset Formula $D=100$
 \end_inset
 
 
@@ -3091,7 +3147,7 @@ RPROP
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $F=200$
+\begin_inset Formula $D=200$
 \end_inset
 
 
@@ -4959,7 +5015,7 @@ RPROP
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $F=50$
+\begin_inset Formula $D=50$
 \end_inset
 
 
@@ -4971,7 +5027,7 @@ RPROP
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $F=100$
+\begin_inset Formula $D=100$
 \end_inset
 
 
@@ -4983,7 +5039,7 @@ RPROP
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $F=200$
+\begin_inset Formula $D=200$
 \end_inset
 
 
@@ -5275,7 +5331,7 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1.04
 \end_layout
 
 \end_inset
@@ -5284,7 +5340,7 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+4.38
 \end_layout
 
 \end_inset
@@ -5340,7 +5396,7 @@ CONCRETE
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.062
 \end_layout
 
 \end_inset
@@ -5349,7 +5405,7 @@ CONCRETE
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.0086
 \end_layout
 
 \end_inset
@@ -5405,7 +5461,7 @@ DEE
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.755
 \end_layout
 
 \end_inset
@@ -5414,7 +5470,7 @@ DEE
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.608
 \end_layout
 
 \end_inset
@@ -5470,7 +5526,7 @@ DIABETES
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+5.36
 \end_layout
 
 \end_inset
@@ -5479,7 +5535,7 @@ DIABETES
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1.11
 \end_layout
 
 \end_inset
@@ -5535,7 +5591,7 @@ HOUSING
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+70.24
 \end_layout
 
 \end_inset
@@ -5544,7 +5600,7 @@ HOUSING
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+74.38
 \end_layout
 
 \end_inset
@@ -5600,7 +5656,7 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.32
 \end_layout
 
 \end_inset
@@ -5609,7 +5665,7 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.14
 \end_layout
 
 \end_inset
@@ -5665,7 +5721,7 @@ MB
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.098
 \end_layout
 
 \end_inset
@@ -5674,7 +5730,7 @@ MB
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.055
 \end_layout
 
 \end_inset
@@ -5730,7 +5786,7 @@ MORTGAGE
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+9.69
 \end_layout
 
 \end_inset
@@ -5739,7 +5795,7 @@ MORTGAGE
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+9.19
 \end_layout
 
 \end_inset
@@ -5795,7 +5851,7 @@ PY
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.36
 \end_layout
 
 \end_inset
@@ -5804,7 +5860,7 @@ PY
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.039
 \end_layout
 
 \end_inset
@@ -5860,7 +5916,7 @@ QUAKE
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.202
 \end_layout
 
 \end_inset
@@ -5869,7 +5925,7 @@ QUAKE
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.041
 \end_layout
 
 \end_inset
@@ -5925,7 +5981,7 @@ TREASURY
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+11.60
 \end_layout
 
 \end_inset
@@ -5934,7 +5990,7 @@ TREASURY
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+10.88
 \end_layout
 
 \end_inset
@@ -5990,7 +6046,7 @@ WANKARA
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.002
 \end_layout
 
 \end_inset
@@ -5999,7 +6055,7 @@ WANKARA
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.0003
 \end_layout
 
 \end_inset
@@ -6060,6 +6116,8 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+11.99
 \end_layout
 
 \end_inset
@@ -6069,6 +6127,8 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+12.44
 \end_layout
 
 \end_inset
@@ -7578,6 +7638,45 @@ R.D.
 , pp.
  11322–11326, 1992.
  
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Adam"
+literal "false"
+
+\end_inset
+
+D.
+ P.
+ Kingma, J.
+ L.
+ Ba, ADAM: a method for stochastic optimization, in: Proceedings of the
+ 3rd International Conference on Learning Representations (ICLR 2015), pp.
+ 1–15, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "fcn"
+literal "true"
+
+\end_inset
+
+Grzegorz Klima, Fast Compressed Neural Networks, available from 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://fcnn.sourceforge.net/
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \end_body
