@@ -2827,27 +2827,9 @@ noprefix "false"
 \end_inset
 
 .
- In order to speed up the proposed method, the genetic algorithm used was
- parallelized using the open source library OpenMP 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "openmp"
-literal "false"
-
-\end_inset
-
-.
  The column THREAD1 stands for the average time execution of the proposed
  method with one thread, the column THREADS 2 represents the average execution
- time of the proposed method using two threads in the OpenMP implementation,
- the column THREADS 4 denotes the average execution time of the proposed
- method for four threads and finally the column THREADS 8 denotes the average
- execution time for eight threads for the OpenMP implementation.
- The proposed method has slow execution times when performed on one thread,
- but as the number of threads used increases the execution time decreases
- dramatically.
- This is very important, because it means that it could be used in large
-  problems if the computer in use has enough execution threads.
+ ti
 \end_layout
 
 \begin_layout Standard

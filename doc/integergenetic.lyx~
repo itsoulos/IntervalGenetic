@@ -2664,6 +2664,9 @@ noprefix "false"
 \end_inset
 
 .
+ Also, after the termination of the genetic algorithm the local search procedure
+ of BFGS is applied to the best chromosome of the population, in order to
+ enhance the quality of the solution.
  The column GENETIC in the experimental tables denotes the results from
  the application of this method.
 \end_layout
@@ -2787,23 +2790,20 @@ In all cases, 10 fold cross validation was used and the number of hidden
  In both tables, an additional row was added at the end showing the average
  classification or regression error for all datasets and it is denoted by
  the name AVERAGE.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-(Na mpei kai sxolio gia ADAM kai RPROP.
- Px genetic is better than other methods in classification results and not
- in regression)
+ .
+ All the experiments were conducted on an AMD Ryzen 5950X equipped with
+ 128GB of RAM.
+ The operating system used was OpenSUSE Linux and all the programs are compiled
+ using the GNU C++ compiler.
 \end_layout
 
 \begin_layout Standard
 As can be seen from the experimental results, the proposed method is significant
-ly superior to the genetic algorithm, especially in the case of regression
+ly superior than the other methods, especially in the case of regression
  data.
- For the case of classification datasets, the proposed method reduces the
- average classification error by 27%, while in the case of regression datasets,
- the reduction in average test error is raised to 75%.
+ The RPROP training method seems to overcome ADAM in most cases of classificatio
+n datasets and the simple Genetic method is better thank ADAM and RPROP
+ for classification datasets but not for regression datasets.
  Also, the change of the parameter 
 \begin_inset Formula $D$
 \end_inset
@@ -2814,10 +2814,47 @@ ly superior to the genetic algorithm, especially in the case of regression
 \end_layout
 
 \begin_layout Standard
+In addition, the average execution times for all the problems of this publicatio
+n were compared between the proposed method and the others mentioned above.
+ The average execution times are presented graphically in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:time"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ In order to speed up the proposed method, the genetic algorithm used was
+ parallelized using the open source library OpenMP 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "openmp"
+literal "false"
+
+\end_inset
+
+.
+ The column THREAD1 stands for the average time execution of the proposed
+ method with one thread, the column THREADS 2 represents the average execution
+ time of the proposed method using two threads in the OpenMP implementation,
+ the column THREADS 4 denotes the average execution time of the proposed
+ method for four threads and finally the column THREADS 8 denotes the average
+ execution time for eight threads for the OpenMP implementation.
+ The proposed method has slow execution times when performed on one thread,
+ but as the number of threads used increases the execution time decreases
+ dramatically.
+ This is very important, because it means that it could be used in large
+ computer problems if the computer in use has enough execution threads.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3046,7 +3083,7 @@ VALUE
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -4938,7 +4975,7 @@ AVERAGE
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6165,6 +6202,52 @@ AVERAGE
 </cell>
 </row>
 </lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Execution time comparison between the proposed algorithm and the other mentioned
+ methods.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:time"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Graphics
+	filename time_comparison.eps
+	scale 50
 
 \end_inset
 
