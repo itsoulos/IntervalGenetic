@@ -402,7 +402,44 @@ literal "false"
 \end_inset
 
  etc.
- 
+ Also, more advanced and more recent techniques from the area of computational
+ intelligence have been proposed for neural network training such as the
+ Differential Evolution method 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_de1,weight_de2"
+literal "false"
+
+\end_inset
+
+, construction of neural networks with Ant Colony Optimization 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_aco"
+literal "false"
+
+\end_inset
+
+, construction of neural networks using Grammatical Evolution to solve different
+ial equations 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_nnc"
+literal "false"
+
+\end_inset
+
+ etc.
+ Furthermore, due to development of GPU units a lot of works have been published
+ that take advantage of these processing units 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_gpu1,weight_gpu2"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -440,6 +477,19 @@ This method used has two objectives: the first objective is to detect a
  In the second objective, once a small value interval has been detected,
  a global optimization method can be used more efficiently to detect the
  lowest value of the network error.
+\end_layout
+
+\begin_layout Standard
+The proposed method is expected to achieve significant results since in
+ principle it has all the advantages of genetic algorithms, such as tolerance
+ on errors, possibilities for parallel implementation, efficient exploration
+ of the research space, etc.
+ In addition, in the first phase of the method will 
+\series bold
+reduce the volume of the possible values for the weights
+\series default
+, so that in the second phase the search for global minimum of the network
+ error function becomes more efficient and faster.
 \end_layout
 
 \begin_layout Standard
@@ -1822,7 +1872,7 @@ where
  
 \begin_inset CommandInset citation
 LatexCommand cite
-key "key-6"
+key "weight_gpu2"
 literal "true"
 
 \end_inset
@@ -7070,6 +7120,121 @@ C.S.
 \series default
 , pp.
  147-174, 2001.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_de1"
+literal "false"
+
+\end_inset
+
+J.
+ lonen, J.K.
+ Kamarainen, J.
+ Lampinen, Differential Evolution Training Algorithm for Feed-Forward Neural
+ Networks, Neural Processing Letters 
+\series bold
+17
+\series default
+, pp.
+ 93–105, 2003.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_de2"
+literal "false"
+
+\end_inset
+
+M.
+ Baioletti, G.
+ Di Bari, A.
+ Milani, V.
+ Poggioni, Differential Evolution for Neural Networks Optimization, Mathematics
+ 
+\series bold
+8
+\series default
+, 2020.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_aco"
+literal "false"
+
+\end_inset
+
+K.M.
+ Salama, A.M.
+ Abdelbar, Learning neural network structures with ant colony algorithms,
+ Swarm Intell 
+\series bold
+9
+\series default
+, pp.
+ 229–265, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_nnc"
+literal "false"
+
+\end_inset
+
+I.G.
+ Tsoulos, D.
+ Gavrilis, E.
+ Glavas, Solving differential equations with constructed neural networks,
+ Neurocomputing 72, pp.
+ 2385-2391, 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_gpu1"
+literal "false"
+
+\end_inset
+
+M.
+ Martínez-Zarzuela, F.J.
+ Díaz Pernas, J.F.
+ Díez Higuera, M.A.
+ Rodríguez, Fuzzy ART Neural Network Parallel Computing on the GPU.
+ In: Sandoval, F., Prieto, A., Cabestany, J., Graña, M.
+ (eds) Computational and Ambient Intelligence.
+ IWANN 2007.
+ Lecture Notes in Computer Science, vol 4507.
+ Springer, Berlin, Heidelberg, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_gpu2"
+literal "false"
+
+\end_inset
+
+A.A.
+ Huqqani, E.
+ Schikuta, S.
+ Ye Peng Chen, Multicore and GPU Parallelization of Neural Networks for
+ Face Recognition, Procedia Computer Science 
+\series bold
+18
+\series default
+, pp.
+ 349-358, 2013.
 \end_layout
 
 \begin_layout Bibliography
