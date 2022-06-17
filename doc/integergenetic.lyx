@@ -343,6 +343,78 @@ literal "false"
 \end_inset
 
  etc.
+ Also, various researchers have worked on the initialization of the weights
+ of the neural networks such as initialization using decision trees 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_init1"
+literal "false"
+
+\end_inset
+
+, an initialization method based on the Cauchy's inequality 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_init2"
+literal "false"
+
+\end_inset
+
+, a method based on discriminant learning 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_init3"
+literal "false"
+
+\end_inset
+
+ etc.
+ Another topic that attracted the interest of many researchers is the weight
+ decaying, which is a regularization method that adapts the weights of the
+ network aiming to avoid the overfitting problem.
+
+\series bold
+ 
+\series default
+Several papers have appeared in this area such as method with positive correlati
+on 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_decay1"
+literal "true"
+
+\end_inset
+
+, the SarProp algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_decay2"
+literal "false"
+
+\end_inset
+
+, incroporation of prunning techniques 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_decay3"
+literal "false"
+
+\end_inset
+
+ etc.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+1) na baloume anafora se paper me DE kai neural network training
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+2) na baloume anafora se GPU kai neural networks 
 \end_layout
 
 \begin_layout Standard
@@ -2847,7 +2919,7 @@ literal "false"
  but as the number of threads used increases the execution time decreases
  dramatically.
  This is very important, because it means that it could be used in large
-  problems if the computer in use has enough execution threads.
+ problems if the computer in use has enough execution threads.
 \end_layout
 
 \begin_layout Standard
@@ -6890,6 +6962,126 @@ Jianbo Yu, Shijin Wang, Lifeng Xi, Evolving artificial neural networks using
 \series default
 , pp.
  1054-1060, 2008.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_init1"
+literal "false"
+
+\end_inset
+
+I.
+ Ivanova, M.
+ Kubat, Initialization of neural networks by means of decision trees, Knowledge-
+Based Systems 
+\series bold
+8
+\series default
+, pp.
+ 333-344, 1995.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_init2"
+literal "false"
+
+\end_inset
+
+J.Y.F.
+ Yam, T.W.S.
+ Chow, A weight initialization method for improving training speed in feedforwar
+d neural network, Neurocomputing 
+\series bold
+30
+\series default
+, pp.
+ 219-232, 2000.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_init3"
+literal "false"
+
+\end_inset
+
+K.
+ Chumachenko, A.
+ Iosifidis, M.
+ Gabbouj, Feedforward neural networks initialization based on discriminant
+ learning, Neural Networks 
+\series bold
+146
+\series default
+, pp.
+ 220-229, 2022.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_decay1"
+literal "true"
+
+\end_inset
+
+M.D.
+ Shahjahan, M.
+ Kazuyuki, Neural network training algorithm with possitive correlation,
+ IEEE Trans.
+ Inf & Syst.
+ 
+\series bold
+88
+\series default
+, pp.
+ 2399-2409, 2005.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_decay2"
+literal "true"
+
+\end_inset
+
+N.K.
+ Treadgold, T.D.
+ Gedeon, Simulated annealing and weight decay in adaptive learning: the
+ SARPROP algorithm, IEEE Trans.
+ on Neural Networks 
+\series bold
+9
+\series default
+, pp.
+ 662-668, 1998.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_decay3"
+literal "true"
+
+\end_inset
+
+C.S.
+ Leung, K.W.
+ Wong, P.F.
+ Sum, L.W.
+ Chan, A pruning method for the recursive least squared algorithm, Neural
+ networks 
+\series bold
+14
+\series default
+, pp.
+ 147-174, 2001.
 \end_layout
 
 \begin_layout Bibliography
