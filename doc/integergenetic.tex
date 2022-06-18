@@ -3,8 +3,10 @@
 \documentclass[english]{article}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
+\usepackage{textcomp}
 \usepackage{url}
 \usepackage{amsmath}
+\usepackage{graphicx}
 
 \makeatletter
 
@@ -74,7 +76,25 @@ methods during the past years such as: the Back Propagation method
 \cite{bpnn,bpnn2}, the RPROP method \cite{rpropnn,rpropnn3,rpropnn2},
 Quasi Newton methods \cite{quasinn,quasinn2}, Simulated Annealing
 \cite{nn_ann1,nn_ann2}, Genetic Algorithms \cite{geneticnn,geneticnn2},
-Particle Swarm Optimization \cite{psonn,psonn2} etc.
+Particle Swarm Optimization \cite{psonn,psonn2} etc. Also, various
+researchers have worked on the initialization of the weights of the
+neural networks such as initialization using decision trees \cite{weight_init1},
+an initialization method based on the Cauchy's inequality \cite{weight_init2},
+a method based on discriminant learning \cite{weight_init3} etc.
+Another topic that attracted the interest of many researchers is the
+weight decaying, which is a regularization method that adapts the
+weights of the network aiming to avoid the overfitting problem.\textbf{
+}Several papers have appeared in this area such as method with positive
+correlation \cite{weight_decay1}, the SarProp algorithm \cite{weight_decay2},
+incorporation of pruning techniques \cite{weight_decay3} etc. Also,
+more advanced and more recent techniques from the area of computational
+intelligence have been proposed for neural network training such as
+the Differential Evolution method \cite{weight_de1,weight_de2}, construction
+of neural networks with Ant Colony Optimization \cite{weight_aco},
+construction of neural networks using Grammatical Evolution to solve
+differential equations \cite{weight_nnc} etc. Furthermore, due to
+development of GPU units a lot of works have been published that take
+advantage of these processing units \cite{weight_gpu1,weight_gpu2}.
 
 The present work proposes an innovative interval generation technique
 for the initialization and training of artificial neural network parameters.
@@ -96,6 +116,35 @@ that will ultimately give better results. In the second objective,
 once a small value interval has been detected, a global optimization
 method can be used more efficiently to detect the lowest value of
 the network error.
+
+The proposed method is expected to achieve significant results since
+in principle it has all the advantages of genetic algorithms, such
+as tolerance on errors, possibilities for parallel implementation,
+efficient exploration of the research space, etc. In addition, in
+the first phase of the method will reduce the volume of the possible
+values for the weights, so that in the second phase the search for
+global minimum of the network error function becomes more efficient
+and faster.
+
+The proposed methodology can even be applied to different types of
+artificial neural networks such as Recurrent Neural networks \cite{rnn1,rnn2}.
+A simple recurrent neural network can be expressed as single neural
+cell with a single input, a single output and a state (also known
+as the memory of the cell). Given the input of the cell $x(t)$ at
+step $t$ and the previous state of the cell $h(t-1)$ at step $t-1$
+the updated state of the cell $h(t)$ is estimated as shown in the
+equation: 
+\begin{equation}
+\textbf{h}(t)=f\left(\textbf{W}_{hh}*\textbf{h}(t-1)+\textbf{W}_{xh}*\textbf{x}(t)+\textbf{b}_{h}\right)
+\end{equation}
+
+\begin{equation}
+\boldsymbol{y}(t)=\sigma\left(\boldsymbol{W}_{hy}\text{\textasteriskcentered}h(t)+\boldsymbol{b}_{y}\right)
+\end{equation}
+where the $f(x)$ function is usually the softmax function. The proposed
+method can be used here to estimate a promising bounding box for the
+vector parameters $\textbf{W},\textbf{b}$ of the network before any
+other training method is applied. 
 
 The rest of this article is as follows:\textbf{ }in section \ref{sec:Method-description}
 the proposed method is discussed in detail, in section \ref{sec:Experiments}
@@ -179,9 +228,9 @@ following:
 \paragraph{Initialization step}
 \begin{enumerate}
 \item \textbf{Set} $K$ as the number of rules.
-\item \textbf{Set} $S=\left[-F,F\right]^{n}$, as the initial bounding box
-for the parameters of the neural network. $F$ is considered as a
-positive number with $F>1$.
+\item \textbf{Set} $S=\left[-D,D\right]^{n}$, as the initial bounding box
+for the parameters of the neural network. $D$ is considered as a
+positive number with $D>1$.
 \item \textbf{Set} $N_{C}$ as the total number of chromosomes.
 \item \textbf{Set} $N_{S}$ the number of samples in fitness evaluation.
 \item \textbf{Set} $P_{s}$ as the selection rate, where $P_{s}\le1$.
@@ -349,7 +398,7 @@ using the following:
 \tilde{x_{i}} & = & r_{i}x_{i}+\left(1-r_{i}\right)y_{i}\nonumber \\
 \tilde{y_{i}} & = & r_{i}y_{i}+\left(1-r_{i}\right)x_{i}\label{eq:crossover_ali}
 \end{eqnarray}
-where $r_{i}$ are random numbers in $[-0.5,1.5]$ \cite{key-6}. 
+where $r_{i}$ are random numbers in $[-0.5,1.5]$ \cite{weight_gpu2}. 
 \item \textbf{Apply} the mutation operator. The mutation scheme is the same
 as in the work of Kaelo and Ali\cite{kaelo}:
 \begin{enumerate}
@@ -501,38 +550,70 @@ of USA from 01/04/1980 to 02/04/2000 on a weekly basis.
 
 \subsection{Experimental results}
 
-The method is compared against a genetic algorithm with the same parameters
-that are shown in Table \ref{tab:Experimental-parameters.}. All the
-experiments were conducted 30 times with different seeds for the random
-number generator each time and averages were taken. To perform the
-experiments, the software \emph{IntervalGenetic} which is freely available
-from \url{https://github.com/itsoulos/IntervalGenetic} was utilized.
-The experimental results for classification datasets are shown in
-Table \ref{tab:Experiments-for-classification} and the results for
-the regression datasets are outlined in Table \ref{tab:exp2}. For
-classification problems, the average classification error on the test
-set is shown and for regression datasets the average mean squared
+The method is compared against three other methods:
+\begin{enumerate}
+\item A genetic algorithm with the same parameters that are shown in Table
+\ref{tab:Experimental-parameters.}. Also, after the termination of
+the genetic algorithm the local search procedure of BFGS is applied
+to the best chromosome of the population, in order to enhance the
+quality of the solution. The column GENETIC in the experimental tables
+denotes the results from the application of this method.
+\item The Adam stochastic optimization method \cite{Adam}. The results
+for this method are listed in the column ADAM in the relevant tables.
+\item The Rprop method \cite{rpropnn} as implemented in the FCNN software
+package \cite{fcn}. The results for this method are listed in the
+column RPROP in the relevant tables.
+\end{enumerate}
+All the experiments were conducted 30 times with different seeds for
+the random number generator each time and averages were taken. To
+perform the experiments, the software \emph{IntervalGenetic} which
+is freely available from \url{https://github.com/itsoulos/IntervalGenetic}
+was utilized. The experimental results for classification datasets
+are shown in Table \ref{tab:Experiments-for-classification} and the
+results for the regression datasets are outlined in Table \ref{tab:exp2}.
+For classification problems, the average classification error on the
+test set is shown and for regression datasets the average mean squared
 error on the test set is displayed.\textbf{ }In all cases, 10 fold
-cross validation was used. The column DATASET stands for the name
-of the Dataset incorporated, the column GENETIC denotes the application
-of a neural network of $H$ hidden nodes trained by a genetic algorithm,
-the column $F=50$ represents the application of the proposed method
-with $F=50$ as the initial value, the column $F=100$ stands for
-the results of the proposed method with $F=100$ and finally the column
-$F=200$ represents the results of the proposed method with $F=200$.
-In both tables, an additional row was added at the end showing the
-average classification or regression error for all datasets and it
-is denoted by the name AVERAGE.
+cross validation was used and the number of hidden nodes (parameter
+$H$) was set to 10. The column DATASET stands for the name of the
+Dataset incorporated, the column $D=50$ represents the application
+of the proposed method with $D=50$ as the initial value for the interval
+of weights, the column $D=100$ stands for the results of the proposed
+method with $D=100$ and finally the column $D=200$ represents the
+results of the proposed method with $D=200$. In both tables, an additional
+row was added at the end showing the average classification or regression
+error for all datasets and it is denoted by the name AVERAGE. . All
+the experiments were conducted on an AMD Ryzen 5950X equipped with
+128GB of RAM. The operating system used was OpenSUSE Linux and all
+the programs are compiled using the GNU C++ compiler.
 
 As can be seen from the experimental results, the proposed method
-is significantly superior to the genetic algorithm, especially in
-the case of regression data. For the case of classification datasets,
-the proposed method reduces the average classification error by 27\%,
-while in the case of regression datasets, the reduction in average
-test error is raised to 75\%. Also, the change of the parameter $f$
-does not seem to have a significant effect on the performance of the
-algorithm and the proposed algorithm achieves high performance even
-for small values of this parameter.
+is significantly superior than the other methods, especially in the
+case of regression data. The RPROP training method seems to overcome
+ADAM in most cases of classification datasets and the simple Genetic
+method is better thank ADAM and RPROP for classification datasets
+but not for regression datasets. Also, the change of the parameter
+$D$ does not seem to have a significant effect on the performance
+of the algorithm and the proposed algorithm achieves high performance
+even for small values of this parameter.
+
+In addition, the average execution times for all the problems of this
+publication were compared between the proposed method and the others
+mentioned above. The average execution times are presented graphically
+in Figure \ref{fig:time}. In order to speed up the proposed method,
+the genetic algorithm used was parallelized using the open source
+library OpenMP \cite{openmp}. The column THREAD1 stands for the average
+time execution of the proposed method with one thread, the column
+THREADS 2 represents the average execution time of the proposed method
+using two threads in the OpenMP implementation, the column THREADS
+4 denotes the average execution time of the proposed method for four
+threads and finally the column THREADS 8 denotes the average execution
+time for eight threads for the OpenMP implementation. The proposed
+method has slow execution times when performed on one thread, but
+as the number of threads used increases the execution time decreases
+dramatically. This is very important, because it means that it could
+be used in large problems if the computer in use has enough execution
+threads.
 
 \begin{table}
 \caption{Experimental parameters.\label{tab:Experimental-parameters.}}
@@ -565,64 +646,64 @@ $P_{m}$ & 0.01\tabularnewline
 \caption{Experiments for classification datasets\label{tab:Experiments-for-classification}}
 
 \centering{}%
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
-DATASET & GENETIC & $F=50$ & $F=100$ & $F=200$\tabularnewline
+DATASET & GENETIC & ADAM & RPROP & $D=50$ & $D=100$ & $D=200$\tabularnewline
 \hline 
 \hline 
-Appendicitis & 18.10\% & 15.00\% & 14.00\% & 16.07\%\tabularnewline
+Appendicitis & 18.10\% & 17.43\% & 16.30\% & 15.00\% & 14.00\% & 16.07\%\tabularnewline
 \hline 
-Australian & 32.21\% & 24.85\% & 30.20\% & 28.52\%\tabularnewline
+Australian & 32.21\% & 44.32\% & 36.12\% & 24.85\% & 30.20\% & 28.52\%\tabularnewline
 \hline 
-Balance & 8.97\% & 7.42\% & 7.42\% & 7.67\%\tabularnewline
+Balance & 8.97\% & 10.12\% & 8.81\% & 7.42\% & 7.42\% & 7.67\%\tabularnewline
 \hline 
-Bands & 35.75\% & 32.00\% & 32.25\% & 33.06\%\tabularnewline
+Bands & 35.75\% & 40.28\% & 36.32\% & 32.00\% & 32.25\% & 33.06\%\tabularnewline
 \hline 
-Cleveland & 51.60\% & 41.64\% & 44.66\% & 44.39\%\tabularnewline
+Cleveland & 51.60\% & 68.66\% & 61.41\% & 41.64\% & 44.66\% & 44.39\%\tabularnewline
 \hline 
-Dermatology & 30.58\% & 15.49\% & 11.00\% & 10.80\%\tabularnewline
+Dermatology & 30.58\% & 31.84\% & 15.12\% & 15.49\% & 11.00\% & 10.80\%\tabularnewline
 \hline 
-Hayes Roth & 56.18\% & 28.72\% & 28.84\% & 32.05\%\tabularnewline
+Hayes Roth & 56.18\% & 52.23\% & 37.46\% & 28.72\% & 28.84\% & 32.05\%\tabularnewline
 \hline 
-Heart & 28.34\% & 15.58\% & 17.07\% & 16.22\%\tabularnewline
+Heart & 28.34\% & 44.62\% & 30.51\% & 15.58\% & 17.07\% & 16.22\%\tabularnewline
 \hline 
-HouseVotes & 6.62\% & 3.92\% & 3.78\% & 3.26\%\tabularnewline
+HouseVotes & 6.62\% & 12.74\% & 6.04\% & 3.92\% & 3.78\% & 3.26\%\tabularnewline
 \hline 
-Ionosphere & 15.14\% & 12.25\% & 9.71\% & 7.12\%\tabularnewline
+Ionosphere & 15.14\% & 20.10\% & 13.65\% & 12.25\% & 9.71\% & 7.12\%\tabularnewline
 \hline 
-Liverdisorder & 31.11\% & 30.90\% & 29.54\% & 30.70\%\tabularnewline
+Liverdisorder & 31.11\% & 44.29\% & 40.26\% & 30.90\% & 29.54\% & 30.70\%\tabularnewline
 \hline 
-Lymography & 23.26\% & 18.98\% & 17.52\% & 17.67\%\tabularnewline
+Lymography & 23.26\% & 30.38\% & 24.67\% & 18.98\% & 17.52\% & 17.67\%\tabularnewline
 \hline 
-Mammographic & 19.88\% & 17.01\% & 17.60\% & 15.97\%\tabularnewline
+Mammographic & 19.88\% & 41.94\% & 18.46\% & 17.01\% & 17.60\% & 15.97\%\tabularnewline
 \hline 
-PageBlocks & 8.06\% & 7.73\% & 7.01\% & 6.71\%\tabularnewline
+PageBlocks & 8.06\% & 7.38\% & 7.82\% & 7.73\% & 7.01\% & 6.71\%\tabularnewline
 \hline 
-Parkinsons & 18.05\% & 14.81\% & 13.86\% & 12.53\%\tabularnewline
+Parkinsons & 18.05\% & 40.82\% & 22.28\% & 14.81\% & 13.86\% & 12.53\%\tabularnewline
 \hline 
-Pima & 32.19\% & 23.51\% & 25.31\% & 27.49\%\tabularnewline
+Pima & 32.19\% & 38.26\% & 34.27\% & 23.51\% & 25.31\% & 27.49\%\tabularnewline
 \hline 
-Popfailures & 5.94\% & 6.13\% & 5.93\% & 5.30\%\tabularnewline
+Popfailures & 5.94\% & 8.64\% & 4.81\% & 6.13\% & 5.93\% & 5.30\%\tabularnewline
 \hline 
-Regions2 & 29.39\% & 24.01\% & 23.14\% & 23.62\%\tabularnewline
+Regions2 & 29.39\% & 49.68\% & 27.53\% & 24.01\% & 23.14\% & 23.62\%\tabularnewline
 \hline 
-Saheart & 34.86\% & 28.94\% & 29.04\% & 29.93\%\tabularnewline
+Saheart & 34.86\% & 40.28\% & 34.90\% & 28.94\% & 29.04\% & 29.93\%\tabularnewline
 \hline 
-Segment & 57.72\% & 47.38\% & 49.49\% & 40.61\%\tabularnewline
+Segment & 57.72\% & 55.34\% & 52.14\% & 47.38\% & 49.49\% & 40.61\%\tabularnewline
 \hline 
-Wdbc & 8.56\% & 6.23\% & 5.28\% & 5.49\%\tabularnewline
+Wdbc & 8.56\% & 27.85\% & 21.57\% & 6.23\% & 5.28\% & 5.49\%\tabularnewline
 \hline 
-Wine & 19.20\% & 5.51\% & 6.55\% & 6.22\%\tabularnewline
+Wine & 19.20\% & 33.94\% & 30.73\% & 5.51\% & 6.55\% & 6.22\%\tabularnewline
 \hline 
-Z\_F\_S & 10.73\% & 4.70\% & 5.61\% & 6.01\%\tabularnewline
+Z\_F\_S & 10.73\% & 39.26\% & 29.28\% & 4.70\% & 5.61\% & 6.01\%\tabularnewline
 \hline 
-ZO\_NF\_S & 8.41\% & 5.39\% & 4.67\% & 5.81\%\tabularnewline
+ZO\_NF\_S & 8.41\% & 8.53\% & 6.43\% & 5.39\% & 4.67\% & 5.81\%\tabularnewline
 \hline 
-ZONF\_S & 2.60\% & 1.85\% & 2.07\% & 2.24\%\tabularnewline
+ZONF\_S & 2.60\% & 33.89\% & 27.27\% & 1.85\% & 2.07\% & 2.24\%\tabularnewline
 \hline 
-ZOO & 16.67\% & 14.83\% & 11.40\% & 8.50\%\tabularnewline
+ZOO & 16.67\% & 17.19\% & 15.47\% & 14.83\% & 11.40\% & 8.50\%\tabularnewline
 \hline 
-\textbf{AVERAGE} & \textbf{23.47\%} & \textbf{17.49\%} & \textbf{17.42\%} & \textbf{17.08\%}\tabularnewline
+\textbf{AVERAGE} & \textbf{23.47\%} & \textbf{33.08\%} & \textbf{25.37\%} & \textbf{17.49\%} & \textbf{17.42\%} & \textbf{17.08\%}\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
@@ -631,47 +712,55 @@ ZOO & 16.67\% & 14.83\% & 11.40\% & 8.50\%\tabularnewline
 \caption{Experiments for regression datasets.\label{tab:exp2}}
 
 \centering{}%
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
-DATASET & GENETIC & $F=50$ & $F=100$ & $F=200$\tabularnewline
+DATASET & GENETIC & ADAM & RPROP & $D=50$ & $D=100$ & $D=200$\tabularnewline
 \hline 
 \hline 
-ABALONE & 7.17 & 4.22 & 4.18 & 3.89\tabularnewline
+ABALONE & 7.17 & 4.45 & 4.55 & 4.22 & 4.18 & 3.89\tabularnewline
 \hline 
-AIRFOIL & 0.003 & 0.003 & 0.003 & 0.003\tabularnewline
+AIRFOIL & 0.003 & 0.003 & 0.002 & 0.003 & 0.003 & 0.003\tabularnewline
 \hline 
-BASEBALL & 103.60 & 49.47 & 51.07 & 53.57\tabularnewline
+BASEBALL & 103.60 & 87.63 & 92.05 & 49.47 & 51.07 & 53.57\tabularnewline
 \hline 
-BK & 0.027 & 0.017 & 0.017 & 0.019\tabularnewline
+BK & 0.027 & 0.092 & 1.599 & 0.017 & 0.017 & 0.019\tabularnewline
 \hline 
-BL & 5.74 & 0.0019 & 0.0016 & 0.0016\tabularnewline
+BL & 5.74 & 1.04 & 4.38 & 0.0019 & 0.0016 & 0.0016\tabularnewline
 \hline 
-CONCRETE & 0.0099 & 0.0053 & 0.0044 & 0.0042\tabularnewline
+CONCRETE & 0.0099 & 0.062 & 0.0086 & 0.0053 & 0.0044 & 0.0042\tabularnewline
 \hline 
-DEE & 1.013 & 0.187 & 0.205 & 0.203\tabularnewline
+DEE & 1.013 & 0.755 & 0.608 & 0.187 & 0.205 & 0.203\tabularnewline
 \hline 
-DIABETES & 19.86 & 0.31 & 0.31 & 0.29\tabularnewline
+DIABETES & 19.86 & 5.36 & 1.11 & 0.31 & 0.31 & 0.29\tabularnewline
 \hline 
-HOUSING & 43.26 & 19.28 & 18.50 & 17.75\tabularnewline
+HOUSING & 43.26 & 70.24 & 74.38 & 19.28 & 18.50 & 17.75\tabularnewline
 \hline 
-FA & 1.95 & 0.011 & 0.012 & 0.012\tabularnewline
+FA & 1.95 & 0.32 & 0.14 & 0.011 & 0.012 & 0.012\tabularnewline
 \hline 
-MB & 3.39 & 0.048 & 0.047 & 0.047\tabularnewline
+MB & 3.39 & 0.098 & 0.055 & 0.048 & 0.047 & 0.047\tabularnewline
 \hline 
-MORTGAGE & 2.41 & 0.57 & 0.70 & 0.53\tabularnewline
+MORTGAGE & 2.41 & 9.69 & 9.19 & 0.57 & 0.70 & 0.53\tabularnewline
 \hline 
-PY & 105.41 & 0.016 & 0.014 & 0.014\tabularnewline
+PY & 105.41 & 0.36 & 0.039 & 0.016 & 0.014 & 0.014\tabularnewline
 \hline 
-QUAKE & 0.040 & 0.036 & 0.036 & 0.036\tabularnewline
+QUAKE & 0.040 & 0.202 & 0.041 & 0.036 & 0.036 & 0.036\tabularnewline
 \hline 
-TREASURY & 2.929 & 0.473 & 0.677 & 0.622\tabularnewline
+TREASURY & 2.929 & 11.60 & 10.88 & 0.473 & 0.677 & 0.622\tabularnewline
 \hline 
-WANKARA & 0.012 & 0.0003 & 0.0002 & 0.0002\tabularnewline
+WANKARA & 0.012 & 0.002 & 0.0003 & 0.0003 & 0.0002 & 0.0002\tabularnewline
 \hline 
-\textbf{AVERAGE} & \textbf{18.55} & \textbf{4.67} & \textbf{4.74} & \textbf{4.81}\tabularnewline
+\textbf{AVERAGE} & \textbf{18.55} & \textbf{11.99} & \textbf{12.44} & \textbf{4.67} & \textbf{4.74} & \textbf{4.81}\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
+
+\begin{figure}
+
+\caption{Execution time comparison between the proposed algorithm and the other
+mentioned methods.\label{fig:time}}
+
+\raggedright{}\includegraphics[scale=0.5]{time_comparison}
+\end{figure}
 
 
 \section{Conclusions\label{sec:Conclusions}}
@@ -845,6 +934,57 @@ on Systems, Man, and Cybernetics, , pp. 2487-2490, 2000.
 neural networks using an improved PSO and DPSO \textbf{71}, pp. 1054-1060,
 2008.
 
+\bibitem{weight_init1}I. Ivanova, M. Kubat, Initialization of neural
+networks by means of decision trees, Knowledge-Based Systems \textbf{8},
+pp. 333-344, 1995.
+
+\bibitem{weight_init2}J.Y.F. Yam, T.W.S. Chow, A weight initialization
+method for improving training speed in feedforward neural network,
+Neurocomputing \textbf{30}, pp. 219-232, 2000.
+
+\bibitem{weight_init3}K. Chumachenko, A. Iosifidis, M. Gabbouj, Feedforward
+neural networks initialization based on discriminant learning, Neural
+Networks \textbf{146}, pp. 220-229, 2022.
+
+\bibitem{weight_decay1}M.D. Shahjahan, M. Kazuyuki, Neural network
+training algorithm with possitive correlation, IEEE Trans. Inf \&
+Syst. \textbf{88}, pp. 2399-2409, 2005.
+
+\bibitem{weight_decay2}N.K. Treadgold, T.D. Gedeon, Simulated annealing
+and weight decay in adaptive learning: the SARPROP algorithm, IEEE
+Trans. on Neural Networks \textbf{9}, pp. 662-668, 1998.
+
+\bibitem{weight_decay3}C.S. Leung, K.W. Wong, P.F. Sum, L.W. Chan,
+A pruning method for the recursive least squared algorithm, Neural
+networks \textbf{14}, pp. 147-174, 2001.
+
+\bibitem{weight_de1}J. lonen, J.K. Kamarainen, J. Lampinen, Differential
+Evolution Training Algorithm for Feed-Forward Neural Networks, Neural
+Processing Letters \textbf{17}, pp. 93--105, 2003.
+
+\bibitem{weight_de2}M. Baioletti, G. Di Bari, A. Milani, V. Poggioni,
+Differential Evolution for Neural Networks Optimization, Mathematics
+\textbf{8}, 2020.
+
+\bibitem{weight_aco}K.M. Salama, A.M. Abdelbar, Learning neural network
+structures with ant colony algorithms, Swarm Intell \textbf{9}, pp.
+229--265, 2015.
+
+\bibitem{weight_nnc}I.G. Tsoulos, D. Gavrilis, E. Glavas, Solving
+differential equations with constructed neural networks, Neurocomputing
+72, pp. 2385-2391, 2009.
+
+\bibitem{weight_gpu1}M. Martínez-Zarzuela, F.J. Díaz Pernas, J.F.
+Díez Higuera, M.A. Rodríguez, Fuzzy ART Neural Network Parallel Computing
+on the GPU. In: Sandoval, F., Prieto, A., Cabestany, J., Graña, M.
+(eds) Computational and Ambient Intelligence. IWANN 2007. Lecture
+Notes in Computer Science, vol 4507. Springer, Berlin, Heidelberg,
+2007.
+
+\bibitem{weight_gpu2}A.A. Huqqani, E. Schikuta, S. Ye Peng Chen,
+Multicore and GPU Parallelization of Neural Networks for Face Recognition,
+Procedia Computer Science \textbf{18}, pp. 349-358, 2013.
+
 \bibitem{interval0}E. Hansen and G.W. Walster.Global Optimization
 using Interval Analy-sis.Marcel Dekker Inc., New York, 2004.
 
@@ -855,6 +995,14 @@ Programming \textbf{106}, pp. 287-318, 2006.
 \bibitem{interval2}A. ´ilinskas, and J. ´ilinskas, Interval Arithmetic
 Based Optimization in Nonlinear Regression, Informatica \textbf{21},
 pp. 149-158, 2010.
+
+\bibitem{rnn1}P. Rodriguez, J. Wiles, J.L. Elman, A Recurrent Neural
+Network that Learns to Count, Connection Science \textbf{11}, pp.
+5-40, 1999.
+
+\bibitem{rnn2}R. Chandra, M. Zhang, Cooperative coevolution of Elman
+recurrent neural networks for chaotic time series prediction, Neurocomputing
+\textbf{86}, pp. 116-123, 2012.
 
 \bibitem{nn_ann1}A. Yamazaki, M. C. P. de Souto,T. B. Ludermir, Optimization
 of neural network weights and architectures for odor recognition using
@@ -1026,6 +1174,13 @@ pp. 81-102, 1978.
 
 \bibitem{pydataset}R.D. King, S. Muggleton, R. Lewis, M.J.E. Sternberg,
 Proc. Nat. Acad. Sci. USA \textbf{89}, pp. 11322--11326, 1992. 
+
+\bibitem{Adam}D. P. Kingma, J. L. Ba, ADAM: a method for stochastic
+optimization, in: Proceedings of the 3rd International Conference
+on Learning Representations (ICLR 2015), pp. 1--15, 2015.
+
+\bibitem{fcn}Grzegorz Klima, Fast Compressed Neural Networks, available
+from \url{http://fcnn.sourceforge.net/}.
 \end{thebibliography}
 
 \end{document}

@@ -393,7 +393,7 @@ literal "false"
 
 \end_inset
 
-, incroporation of prunning techniques 
+, incorporation of pruning techniques 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "weight_decay3"
@@ -488,6 +488,73 @@ The proposed method is expected to achieve significant results since in
  the possible values for the weights, so that in the second phase the search
  for global minimum of the network error function becomes more efficient
  and faster.
+\end_layout
+
+\begin_layout Standard
+The proposed methodology can even be applied to different types of artificial
+ neural networks such as Recurrent Neural networks 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rnn1,rnn2"
+literal "false"
+
+\end_inset
+
+.
+ A simple recurrent neural network can be expressed as single neural cell
+ with a single input, a single output and a state (also known as the memory
+ of the cell).
+ Given the input of the cell 
+\begin_inset Formula $x(t)$
+\end_inset
+
+ at step 
+\begin_inset Formula $t$
+\end_inset
+
+ and the previous state of the cell 
+\begin_inset Formula $h(t-1)$
+\end_inset
+
+ at step 
+\begin_inset Formula $t-1$
+\end_inset
+
+ the updated state of the cell 
+\begin_inset Formula $h(t)$
+\end_inset
+
+ is estimated as shown in the equation: 
+\begin_inset Formula 
+\begin{equation}
+\textbf{h}(t)=f\left(\textbf{W}_{hh}*\textbf{h}(t-1)+\textbf{W}_{xh}*\textbf{x}(t)+\textbf{b}_{h}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{y}(t)=σ\left(\boldsymbol{W}_{hy}\text{∗}h(t)+\boldsymbol{b}_{y}\right)
+\end{equation}
+
+\end_inset
+
+where the 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ function is usually the softmax function.
+ The proposed method can be used here to estimate a promising bounding box
+ for the vector parameters 
+\begin_inset Formula $\textbf{W},\textbf{b}$
+\end_inset
+
+ of the network before any other training method is applied.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -7286,6 +7353,45 @@ A.
 \series default
 , pp.
  149-158, 2010.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rnn1"
+literal "false"
+
+\end_inset
+
+P.
+ Rodriguez, J.
+ Wiles, J.L.
+ Elman, A Recurrent Neural Network that Learns to Count, Connection Science
+ 
+\series bold
+11
+\series default
+, pp.
+ 5-40, 1999.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rnn2"
+literal "false"
+
+\end_inset
+
+R.
+ Chandra, M.
+ Zhang, Cooperative coevolution of Elman recurrent neural networks for chaotic
+ time series prediction, Neurocomputing 
+\series bold
+86
+\series default
+, pp.
+ 116-123, 2012.
 \end_layout
 
 \begin_layout Bibliography
