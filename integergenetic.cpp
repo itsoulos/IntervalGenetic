@@ -289,6 +289,7 @@ void IntegerGenetic::nextGeneration()
     if(generation%20==0)
     {
 	    int count = 20;
+#pragma omp parallel for schedule(dynamic)
 	    for(int i=0;i<count;i++)
 		    localSearch(rand() % genome.size());
 	    selection();
