@@ -1,4 +1,4 @@
-%% LyX 2.3.6 created this file.  For more info, see http://www.lyx.org/.
+%% LyX 2.3.6.1 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[english]{article}
 \usepackage[T1]{fontenc}
@@ -558,11 +558,15 @@ the genetic algorithm the local search procedure of BFGS is applied
 to the best chromosome of the population, in order to enhance the
 quality of the solution. The column GENETIC in the experimental tables
 denotes the results from the application of this method.
-\item The Adam stochastic optimization method \cite{Adam}. The results
-for this method are listed in the column ADAM in the relevant tables.
+\item The Adam stochastic optimization method \cite{Adam} as implemented
+in OptimLib, freely available from \url{https://github.com/kthohr/optim}.
+The results for this method are listed in the column ADAM in the relevant
+tables.
 \item The Rprop method \cite{rpropnn} as implemented in the FCNN software
 package \cite{fcn}. The results for this method are listed in the
 column RPROP in the relevant tables.
+\item The NEAT method (NeuroEvolution of Augmenting Topologies ) \cite{neat}
+as implemented in EvolutionNet package freely available from \url{https://github.com/BiagioFesta/EvolutionNet}.
 \end{enumerate}
 All the experiments were conducted 30 times with different seeds for
 the random number generator each time and averages were taken. To
@@ -598,22 +602,43 @@ of the algorithm and the proposed algorithm achieves high performance
 even for small values of this parameter.
 
 In addition, the average execution times for all the problems of this
-publication were compared between the proposed method and the others
-mentioned above. The average execution times are presented graphically
-in Figure \ref{fig:time}. In order to speed up the proposed method,
-the genetic algorithm used was parallelized using the open source
-library OpenMP \cite{openmp}. The column THREAD1 stands for the average
-time execution of the proposed method with one thread, the column
-THREADS 2 represents the average execution time of the proposed method
-using two threads in the OpenMP implementation, the column THREADS
-4 denotes the average execution time of the proposed method for four
-threads and finally the column THREADS 8 denotes the average execution
-time for eight threads for the OpenMP implementation. The proposed
-method has slow execution times when performed on one thread, but
-as the number of threads used increases the execution time decreases
-dramatically. This is very important, because it means that it could
-be used in large problems if the computer in use has enough execution
-threads.
+publication were compared between the proposed method and the methods
+ADAM, RPROP and GENETIC mentioned above. The average execution times
+are presented graphically in Figure \ref{fig:time}. In order to speed
+up the proposed method, the genetic algorithm used was parallelized
+using the open source library OpenMP \cite{openmp}. The column THREAD1
+stands for the average time execution of the proposed method with
+one thread, the column THREADS 2 represents the average execution
+time of the proposed method using two threads in the OpenMP implementation,
+the column THREADS 4 denotes the average execution time of the proposed
+method for four threads and finally the column THREADS 8 denotes the
+average execution time for eight threads for the OpenMP implementation.
+The proposed method has slow execution times when performed on one
+thread, but as the number of threads used increases the execution
+time decreases dramatically. This is very important, because it means
+that it could be used in large problems if the computer in use has
+enough execution threads. Obviously all methods of training artificial
+neural networks could be parallelized in one way or another. The parallelization
+of the proposed method is done since it is by nature an extremely
+slow method, since it requires the use of two genetic algorithms in
+series. By using parallel techniques this problem is alleviated, however
+the computational cost remains high. But this is the only substantial
+price for using this technique. Also, a time comparison is made for
+the PageBlocks dataset between the proposed method and a parallel
+imlementation of the Adam algorithm named DADAM for number of threads
+ranging from 1 to 8. The time comparison is graphically illustrated
+in Figure \ref{fig:dadam}.
+
+To make the dynamics of the proposed method clearer, another series
+of experiments was performed. In these, the maximum number of generations
+(parameter $N_{t}$) received three values: 20, 40 and 100 and for
+each value all experiments for classification and regression datasets
+were performed. The results for the classification datasets are listed
+in Table \ref{tab:class_nt} and the results for regression datasets
+are shown in Table \ref{tab:regression_nt}. As expected, the proposed
+method improves its performance as the maximum number of generations
+increases, but even for a small number of generations it has a satisfactory
+performance.
 
 \begin{table}
 \caption{Experimental parameters.\label{tab:Experimental-parameters.}}
@@ -646,64 +671,64 @@ $P_{m}$ & 0.01\tabularnewline
 \caption{Experiments for classification datasets\label{tab:Experiments-for-classification}}
 
 \centering{}%
-\begin{tabular}{|c|c|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
 \hline 
-DATASET & GENETIC & ADAM & RPROP & $D=50$ & $D=100$ & $D=200$\tabularnewline
+DATASET & GENETIC & ADAM & RPROP & NEAT & $D=50$ & $D=100$ & $D=200$\tabularnewline
 \hline 
 \hline 
-Appendicitis & 18.10\% & 17.43\% & 16.30\% & 15.00\% & 14.00\% & 16.07\%\tabularnewline
+Appendicitis & 18.10\% & 16.50\% & 16.30\% & 17.20\% & 15.00\% & 14.00\% & 16.07\%\tabularnewline
 \hline 
-Australian & 32.21\% & 44.32\% & 36.12\% & 24.85\% & 30.20\% & 28.52\%\tabularnewline
+Australian & 32.21\% & 35.65\% & 36.12\% & 31.98\% & 24.85\% & 30.20\% & 28.52\%\tabularnewline
 \hline 
-Balance & 8.97\% & 10.12\% & 8.81\% & 7.42\% & 7.42\% & 7.67\%\tabularnewline
+Balance & 8.97\% & 7.87\% & 8.81\% & 23.14\% & 7.42\% & 7.42\% & 7.67\%\tabularnewline
 \hline 
-Bands & 35.75\% & 40.28\% & 36.32\% & 32.00\% & 32.25\% & 33.06\%\tabularnewline
+Bands & 35.75\% & 36.25\% & 36.32\% & 34.30\% & 32.00\% & 32.25\% & 33.06\%\tabularnewline
 \hline 
-Cleveland & 51.60\% & 68.66\% & 61.41\% & 41.64\% & 44.66\% & 44.39\%\tabularnewline
+Cleveland & 51.60\% & 67.55\% & 61.41\% & 53.44\% & 41.64\% & 44.66\% & 44.39\%\tabularnewline
 \hline 
-Dermatology & 30.58\% & 31.84\% & 15.12\% & 15.49\% & 11.00\% & 10.80\%\tabularnewline
+Dermatology & 30.58\% & 26.14\% & 15.12\% & 32.43\% & 15.49\% & 11.00\% & 10.80\%\tabularnewline
 \hline 
-Hayes Roth & 56.18\% & 52.23\% & 37.46\% & 28.72\% & 28.84\% & 32.05\%\tabularnewline
+Hayes Roth & 56.18\% & 59.70\% & 37.46\% & 50.15\% & 28.72\% & 28.84\% & 32.05\%\tabularnewline
 \hline 
-Heart & 28.34\% & 44.62\% & 30.51\% & 15.58\% & 17.07\% & 16.22\%\tabularnewline
+Heart & 28.34\% & 38.53\% & 30.51\% & 39.27\% & 15.58\% & 17.07\% & 16.22\%\tabularnewline
 \hline 
-HouseVotes & 6.62\% & 12.74\% & 6.04\% & 3.92\% & 3.78\% & 3.26\%\tabularnewline
+HouseVotes & 6.62\% & 7.48\% & 6.04\% & 10.89\% & 3.92\% & 3.78\% & 3.26\%\tabularnewline
 \hline 
-Ionosphere & 15.14\% & 20.10\% & 13.65\% & 12.25\% & 9.71\% & 7.12\%\tabularnewline
+Ionosphere & 15.14\% & 16.64\% & 13.65\% & 19.67\% & 12.25\% & 9.71\% & 7.12\%\tabularnewline
 \hline 
-Liverdisorder & 31.11\% & 44.29\% & 40.26\% & 30.90\% & 29.54\% & 30.70\%\tabularnewline
+Liverdisorder & 31.11\% & 41.53\% & 40.26\% & 30.67\% & 30.90\% & 29.54\% & 30.70\%\tabularnewline
 \hline 
-Lymography & 23.26\% & 30.38\% & 24.67\% & 18.98\% & 17.52\% & 17.67\%\tabularnewline
+Lymography & 23.26\% & 29.26\% & 24.67\% & 33.70\% & 18.98\% & 17.52\% & 17.67\%\tabularnewline
 \hline 
-Mammographic & 19.88\% & 41.94\% & 18.46\% & 17.01\% & 17.60\% & 15.97\%\tabularnewline
+Mammographic & 19.88\% & 46.25\% & 18.46\% & 22.85\% & 17.01\% & 17.60\% & 15.97\%\tabularnewline
 \hline 
-PageBlocks & 8.06\% & 7.38\% & 7.82\% & 7.73\% & 7.01\% & 6.71\%\tabularnewline
+PageBlocks & 8.06\% & 7.93\% & 7.82\% & 10.22\% & 7.73\% & 7.01\% & 6.71\%\tabularnewline
 \hline 
-Parkinsons & 18.05\% & 40.82\% & 22.28\% & 14.81\% & 13.86\% & 12.53\%\tabularnewline
+Parkinsons & 18.05\% & 24.06\% & 22.28\% & 18.56\% & 14.81\% & 13.86\% & 12.53\%\tabularnewline
 \hline 
-Pima & 32.19\% & 38.26\% & 34.27\% & 23.51\% & 25.31\% & 27.49\%\tabularnewline
+Pima & 32.19\% & 34.85\% & 34.27\% & 34.51\% & 23.51\% & 25.31\% & 27.49\%\tabularnewline
 \hline 
-Popfailures & 5.94\% & 8.64\% & 4.81\% & 6.13\% & 5.93\% & 5.30\%\tabularnewline
+Popfailures & 5.94\% & 5.18\% & 4.81\% & 7.05\% & 6.13\% & 5.93\% & 5.30\%\tabularnewline
 \hline 
-Regions2 & 29.39\% & 49.68\% & 27.53\% & 24.01\% & 23.14\% & 23.62\%\tabularnewline
+Regions2 & 29.39\% & 29.85\% & 27.53\% & 33.23\% & 24.01\% & 23.14\% & 23.62\%\tabularnewline
 \hline 
-Saheart & 34.86\% & 40.28\% & 34.90\% & 28.94\% & 29.04\% & 29.93\%\tabularnewline
+Saheart & 34.86\% & 34.04\% & 34.90\% & 34.51\% & 28.94\% & 29.04\% & 29.93\%\tabularnewline
 \hline 
-Segment & 57.72\% & 55.34\% & 52.14\% & 47.38\% & 49.49\% & 40.61\%\tabularnewline
+Segment & 57.72\% & 49.75\% & 52.14\% & 66.72\% & 47.38\% & 49.49\% & 40.61\%\tabularnewline
 \hline 
-Wdbc & 8.56\% & 27.85\% & 21.57\% & 6.23\% & 5.28\% & 5.49\%\tabularnewline
+Wdbc & 8.56\% & 35.35\% & 21.57\% & 12.88\% & 6.23\% & 5.28\% & 5.49\%\tabularnewline
 \hline 
-Wine & 19.20\% & 33.94\% & 30.73\% & 5.51\% & 6.55\% & 6.22\%\tabularnewline
+Wine & 19.20\% & 29.40\% & 30.73\% & 25.43\% & 5.51\% & 6.55\% & 6.22\%\tabularnewline
 \hline 
-Z\_F\_S & 10.73\% & 39.26\% & 29.28\% & 4.70\% & 5.61\% & 6.01\%\tabularnewline
+Z\_F\_S & 10.73\% & 47.81\% & 29.28\% & 38.41\% & 4.70\% & 5.61\% & 6.01\%\tabularnewline
 \hline 
-ZO\_NF\_S & 8.41\% & 8.53\% & 6.43\% & 5.39\% & 4.67\% & 5.81\%\tabularnewline
+ZO\_NF\_S & 8.41\% & 47.43\% & 6.43\% & 43.75\% & 5.39\% & 4.67\% & 5.81\%\tabularnewline
 \hline 
-ZONF\_S & 2.60\% & 33.89\% & 27.27\% & 1.85\% & 2.07\% & 2.24\%\tabularnewline
+ZONF\_S & 2.60\% & 11.99\% & 27.27\% & 5.44\% & 1.85\% & 2.07\% & 2.24\%\tabularnewline
 \hline 
-ZOO & 16.67\% & 17.19\% & 15.47\% & 14.83\% & 11.40\% & 8.50\%\tabularnewline
+ZOO & 16.67\% & 14.13\% & 15.47\% & 20.27\% & 14.83\% & 11.40\% & 8.50\%\tabularnewline
 \hline 
-\textbf{AVERAGE} & \textbf{23.47\%} & \textbf{33.08\%} & \textbf{25.37\%} & \textbf{17.49\%} & \textbf{17.42\%} & \textbf{17.08\%}\tabularnewline
+\textbf{AVERAGE} & \textbf{23.47\%} & \textbf{30.81\%} & \textbf{25.37\%} & \textbf{28.87\%} & \textbf{17.49\%} & \textbf{17.42\%} & \textbf{17.08\%}\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
@@ -712,54 +737,177 @@ ZOO & 16.67\% & 17.19\% & 15.47\% & 14.83\% & 11.40\% & 8.50\%\tabularnewline
 \caption{Experiments for regression datasets.\label{tab:exp2}}
 
 \centering{}%
-\begin{tabular}{|c|c|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
 \hline 
-DATASET & GENETIC & ADAM & RPROP & $D=50$ & $D=100$ & $D=200$\tabularnewline
+DATASET & GENETIC & ADAM & RPROP & NEAT & $D=50$ & $D=100$ & $D=200$\tabularnewline
 \hline 
 \hline 
-ABALONE & 7.17 & 4.45 & 4.55 & 4.22 & 4.18 & 3.89\tabularnewline
+ABALONE & 7.17 & 4.30 & 4.55 & 9.88 & 4.22 & 4.18 & 3.89\tabularnewline
 \hline 
-AIRFOIL & 0.003 & 0.003 & 0.002 & 0.003 & 0.003 & 0.003\tabularnewline
+AIRFOIL & 0.003 & 0.005 & 0.002 & 0.067 & 0.003 & 0.003 & 0.003\tabularnewline
 \hline 
-BASEBALL & 103.60 & 87.63 & 92.05 & 49.47 & 51.07 & 53.57\tabularnewline
+BASEBALL & 103.60 & 77.90 & 92.05 & 100.39 & 49.47 & 51.07 & 53.57\tabularnewline
 \hline 
-BK & 0.027 & 0.092 & 1.599 & 0.017 & 0.017 & 0.019\tabularnewline
+BK & 0.027 & 0.03 & 1.599 & 0.15 & 0.017 & 0.017 & 0.019\tabularnewline
 \hline 
-BL & 5.74 & 1.04 & 4.38 & 0.0019 & 0.0016 & 0.0016\tabularnewline
+BL & 5.74 & 0.28 & 4.38 & 0.05 & 0.0019 & 0.0016 & 0.0016\tabularnewline
 \hline 
-CONCRETE & 0.0099 & 0.062 & 0.0086 & 0.0053 & 0.0044 & 0.0042\tabularnewline
+CONCRETE & 0.0099 & 0.078 & 0.0086 & 0.081 & 0.0053 & 0.0044 & 0.0042\tabularnewline
 \hline 
-DEE & 1.013 & 0.755 & 0.608 & 0.187 & 0.205 & 0.203\tabularnewline
+DEE & 1.013 & 0.63 & 0.608 & 1.512 & 0.187 & 0.205 & 0.203\tabularnewline
 \hline 
-DIABETES & 19.86 & 5.36 & 1.11 & 0.31 & 0.31 & 0.29\tabularnewline
+DIABETES & 19.86 & 3.03 & 1.11 & 4.25 & 0.31 & 0.31 & 0.29\tabularnewline
 \hline 
-HOUSING & 43.26 & 70.24 & 74.38 & 19.28 & 18.50 & 17.75\tabularnewline
+HOUSING & 43.26 & 80.20 & 74.38 & 56.49 & 19.28 & 18.50 & 17.75\tabularnewline
 \hline 
-FA & 1.95 & 0.32 & 0.14 & 0.011 & 0.012 & 0.012\tabularnewline
+FA & 1.95 & 0.11 & 0.14 & 0.19 & 0.011 & 0.012 & 0.012\tabularnewline
 \hline 
-MB & 3.39 & 0.098 & 0.055 & 0.048 & 0.047 & 0.047\tabularnewline
+MB & 3.39 & 0.06 & 0.055 & 0.061 & 0.048 & 0.047 & 0.047\tabularnewline
 \hline 
-MORTGAGE & 2.41 & 9.69 & 9.19 & 0.57 & 0.70 & 0.53\tabularnewline
+MORTGAGE & 2.41 & 9.24 & 9.19 & 14.11 & 0.57 & 0.70 & 0.53\tabularnewline
 \hline 
-PY & 105.41 & 0.36 & 0.039 & 0.016 & 0.014 & 0.014\tabularnewline
+PY & 105.41 & 0.09 & 0.039 & 0.075 & 0.016 & 0.014 & 0.014\tabularnewline
 \hline 
-QUAKE & 0.040 & 0.202 & 0.041 & 0.036 & 0.036 & 0.036\tabularnewline
+QUAKE & 0.040 & 0.06 & 0.041 & 0.298 & 0.036 & 0.036 & 0.036\tabularnewline
 \hline 
-TREASURY & 2.929 & 11.60 & 10.88 & 0.473 & 0.677 & 0.622\tabularnewline
+TREASURY & 2.929 & 11.16 & 10.88 & 15.52 & 0.473 & 0.677 & 0.622\tabularnewline
 \hline 
-WANKARA & 0.012 & 0.002 & 0.0003 & 0.0003 & 0.0002 & 0.0002\tabularnewline
+WANKARA & 0.012 & 0.02 & 0.0003 & 0.005 & 0.0003 & 0.0002 & 0.0002\tabularnewline
 \hline 
-\textbf{AVERAGE} & \textbf{18.55} & \textbf{11.99} & \textbf{12.44} & \textbf{4.67} & \textbf{4.74} & \textbf{4.81}\tabularnewline
+\textbf{AVERAGE} & \textbf{18.55} & \textbf{11.70} & \textbf{12.44} & \textbf{12.70} & \textbf{4.67} & \textbf{4.74} & \textbf{4.81}\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
 
 \begin{figure}
-
 \caption{Execution time comparison between the proposed algorithm and the other
 mentioned methods.\label{fig:time}}
 
 \raggedright{}\includegraphics[scale=0.5]{time_comparison}
+\end{figure}
+
+\begin{table}
+\caption{Experiments with $N_{t}$ for the classification datasets.\label{tab:class_nt}}
+
+\begin{centering}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+DATASET & $N_{t}=20$ & $N_{t}=40$ & $N_{t}=100$\tabularnewline
+\hline 
+\hline 
+Appendicitis & 15.23\% & 15.37\% & 15.77\%\tabularnewline
+\hline 
+Australian & 32.85\% & 33.15\% & 30.18\%\tabularnewline
+\hline 
+Balance & 11.92\% & 7.61\% & 8.71\%\tabularnewline
+\hline 
+Bands & 35.61\% & 33.86\% & 32.96\%\tabularnewline
+\hline 
+Cleveland & 43.91\% & 43.35\% & 41.29\%\tabularnewline
+\hline 
+Dermatology & 28.41\% & 21.28\% & 14.33\%\tabularnewline
+\hline 
+Hayes Roth & 50.33\% & 38.56\% & 36.80\%\tabularnewline
+\hline 
+Heart & 20.61\% & 21.16\% & 19.99\%\tabularnewline
+\hline 
+HouseVotes & 4.07\% & 4.31\% & 3.58\%\tabularnewline
+\hline 
+Ionosphere & 12.14\% & 11.19\% & 9.23\%\tabularnewline
+\hline 
+Liverdisorder & 31.47\% & 33.01\% & 31.24\%\tabularnewline
+\hline 
+Lymography & 22.24\% & 22.57\% & 20.74\%\tabularnewline
+\hline 
+Mammographic & 18.66\% & 17.37\% & 15.71\%\tabularnewline
+\hline 
+PageBlocks & 7.95\% & 7.68\% & 6.81\%\tabularnewline
+\hline 
+Parkinsons & 17.28\% & 17.44\% & 13.86\%\tabularnewline
+\hline 
+Pima & 33.19\% & 31.94\% & 30.71\%\tabularnewline
+\hline 
+Popfailures & 6.65\% & 5.81\% & 5.24\%\tabularnewline
+\hline 
+Regions2 & 26.33\% & 26.03\% & 22.25\%\tabularnewline
+\hline 
+Saheart & 36.11\% & 32.96\% & 34.45\%\tabularnewline
+\hline 
+Segment & 66.37\% & 58.33\% & 49.85\%\tabularnewline
+\hline 
+Wdbc & 7.38\% & 6.95\% & 7.68\%\tabularnewline
+\hline 
+Wine & 13.49\% & 11.55\% & 8.39\%\tabularnewline
+\hline 
+Z\_F\_S & 7.77\% & 7.59\% & 8.38\%\tabularnewline
+\hline 
+ZO\_NF\_S & 8.21\% & 7.52\% & 7.28\%\tabularnewline
+\hline 
+ZONF\_S & 2.26\% & 1.87\% & 1.99\%\tabularnewline
+\hline 
+ZOO & 14.70\% & 12.30\% & 13.50\%\tabularnewline
+\hline 
+\textbf{AVERAGE} & \textbf{22.12\%} & \textbf{20.41\%} & \textbf{18.88\%}\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+\end{table}
+
+\begin{table}
+
+\caption{Experiments with different values of $N_{t}$ parameter for the regression
+datasets.\label{tab:regression_nt}}
+
+\begin{centering}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+DATASET & $N_{t}=20$ & $N_{t}=40$ & $N_{t}=100$\tabularnewline
+\hline 
+\hline 
+ABALONE & 4.88 & 4.77 & 4.63\tabularnewline
+\hline 
+AIRFOIL & 0.004 & 0.004 & 0.004\tabularnewline
+\hline 
+BASEBALL & 69.83 & 65.37 & 69.72\tabularnewline
+\hline 
+BK & 0.02 & 0.02 & 0.02\tabularnewline
+\hline 
+BL & 0.006 & 0.005 & 0.007\tabularnewline
+\hline 
+CONCRETE & 0.008 & 0.006 & 0.005\tabularnewline
+\hline 
+DEE & 0.224 & 0.225 & 0.199\tabularnewline
+\hline 
+DIABETES & 0.357 & 0.343 & 0.321\tabularnewline
+\hline 
+HOUSING & 26.43 & 25.88 & 20.65\tabularnewline
+\hline 
+FA & 0.019 & 0.019 & 0.017\tabularnewline
+\hline 
+MB & 0.05 & 0.05 & 0.05\tabularnewline
+\hline 
+MORTGAGE & 2.11 & 1.76 & 1.44\tabularnewline
+\hline 
+PY & 0.02 & 0.018 & 0.022\tabularnewline
+\hline 
+QUAKE & 0.042 & 0.037 & 0.037\tabularnewline
+\hline 
+TREASURY & 2.37 & 2.12 & 1.48\tabularnewline
+\hline 
+WANKARA & 0.0004 & 0.0003 & 0.0003\tabularnewline
+\hline 
+\textbf{AVERAGE} & \textbf{6.65} & \textbf{6.29} & \textbf{6.16}\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+\end{table}
+
+\begin{figure}
+
+\caption{Time comparison between the proposed method and a parallell implementation
+of Adam algorithm. The comparison is made for the dataset Page Blocks.\label{fig:dadam}}
+
+\includegraphics[scale=0.5]{dadam}
 \end{figure}
 
 
@@ -1181,6 +1329,10 @@ on Learning Representations (ICLR 2015), pp. 1--15, 2015.
 
 \bibitem{fcn}Grzegorz Klima, Fast Compressed Neural Networks, available
 from \url{http://fcnn.sourceforge.net/}.
+
+\bibitem{neat}K. O. Stanley, R. Miikkulainen, Evolving Neural Networks
+through Augmenting Topologies, Evolutionary Computation \textbf{10},
+pp. 99-127, 2002.
 \end{thebibliography}
 
 \end{document}
