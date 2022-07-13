@@ -2999,8 +2999,7 @@ In all cases, 10 fold cross validation was used and the number of hidden
  In both tables, an additional row was added at the end showing the average
  classification or regression error for all datasets and it is denoted by
  the name AVERAGE.
- .
- All the experiments were conducted on an AMD Ryzen 5950X equipped with
+  All the experiments were conducted on an AMD Ryzen 5950X equipped with
  128GB of RAM.
  The operating system used was OpenSUSE Linux and all the programs are compiled
  using the GNU C++ compiler.

@@ -3069,7 +3069,17 @@ nal cost remains high.
  Also, a time comparison is made for the PageBlocks dataset between the
  proposed method and a parallel imlementation of the Adam algorithm named
  DADAM for number of threads ranging from 1 to 8.
- The time comparison is graphically illustrated in Figure .
+ The time comparison is graphically illustrated in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:dadam"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
