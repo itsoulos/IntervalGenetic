@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2022.6.13)  1 JUL 2022 12:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2022.7.21)  28 JUL 2022 15:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **integergenetic.tex
 (./integergenetic.tex
 LaTeX2e <2021-11-15> patch level 1
-L3 programming layer <2022-02-24>
+L3 programming layer <2022-06-02>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
@@ -124,7 +124,7 @@ File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 \Gin@req@width=\dimen149
 )
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2022/02/26 3.73 The Babel package
+Package: babel 2022/05/22 3.75 The Babel package
 \babel@savecnt=\count271
 \U@D=\dimen150
 \l@unhyphenated=\language7
@@ -146,8 +146,12 @@ Package babel Info: Hyphen rules for 'australian' set to \l@english
 Package babel Info: Hyphen rules for 'newzealand' set to \l@english
 (babel)             (\language0). Reported on input line 108.
 ))
+(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
+Package babel Info: Importing font and identification data for english
+(babel)             from babel-en.ini. Reported on input line 11.
+)
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2022-04-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count273
 \l__pdf_internal_box=\box52
 )
@@ -206,33 +210,33 @@ orgo / Regression / DataSets . html$
  []
 
 [11] [12]
-Overfull \hbox (82.98138pt too wide) in paragraph at lines 674--734
+Overfull \hbox (82.98138pt too wide) in paragraph at lines 685--745
  [][] 
  []
 
 
-Overfull \hbox (59.6073pt too wide) in paragraph at lines 740--780
+Overfull \hbox (59.6073pt too wide) in paragraph at lines 751--791
  [][] 
  []
 
 Package epstopdf Info: Source file: <time_comparison.eps>
-(epstopdf)                    date: 2022-06-17 14:56:18
-(epstopdf)                    size: 102074 bytes
+(epstopdf)                    date: 2022-07-28 15:54:35
+(epstopdf)                    size: 53361 bytes
 (epstopdf)             Output file: <time_comparison-eps-converted-to.pdf>
-(epstopdf)                    date: 2022-06-18 08:27:33
-(epstopdf)                    size: 21180 bytes
+(epstopdf)                    date: 2022-07-28 15:54:49
+(epstopdf)                    size: 30876 bytes
 (epstopdf)             Command: <repstopdf --outfile=time_comparison-eps-conver
 ted-to.pdf time_comparison.eps>
-(epstopdf)             \includegraphics on input line 786.
+(epstopdf)             \includegraphics on input line 797.
 Package epstopdf Info: Output file is already uptodate.
-<time_comparison-eps-converted-to.pdf, id=60, 928.46875pt x 511.9125pt>
+<time_comparison-eps-converted-to.pdf, id=60, 455.7025pt x 255.95625pt>
 File: time_comparison-eps-converted-to.pdf Graphic file (type pdf)
 <use time_comparison-eps-converted-to.pdf>
 Package pdftex.def Info: time_comparison-eps-converted-to.pdf  used on input li
-ne 786.
-(pdftex.def)             Requested size: 464.23325pt x 255.95563pt.
+ne 797.
+(pdftex.def)             Requested size: 455.70137pt x 255.95561pt.
 
-Overfull \hbox (119.23325pt too wide) in paragraph at lines 786--787
+Overfull \hbox (110.70137pt too wide) in paragraph at lines 797--798
 [][]  
  []
 
@@ -240,35 +244,35 @@ Package epstopdf Info: Source file: <dadam.eps>
 (epstopdf)                    date: 2022-07-01 12:49:09
 (epstopdf)                    size: 84447 bytes
 (epstopdf)             Output file: <dadam-eps-converted-to.pdf>
-(epstopdf)                    date: 2022-07-01 12:58:04
+(epstopdf)                    date: 2022-07-28 15:54:49
 (epstopdf)                    size: 21389 bytes
 (epstopdf)             Command: <repstopdf --outfile=dadam-eps-converted-to.pdf
  dadam.eps>
-(epstopdf)             \includegraphics on input line 910.
+(epstopdf)             \includegraphics on input line 920.
 Package epstopdf Info: Output file is already uptodate.
 <dadam-eps-converted-to.pdf, id=61, 900.36375pt x 495.8525pt>
 File: dadam-eps-converted-to.pdf Graphic file (type pdf)
 <use dadam-eps-converted-to.pdf>
-Package pdftex.def Info: dadam-eps-converted-to.pdf  used on input line 910.
+Package pdftex.def Info: dadam-eps-converted-to.pdf  used on input line 920.
 (pdftex.def)             Requested size: 450.18077pt x 247.92564pt.
 
-Overfull \hbox (105.18077pt too wide) in paragraph at lines 910--911
+Overfull \hbox (105.18077pt too wide) in paragraph at lines 920--921
 [][] 
  []
 
 [13] [14] [15 <./time_comparison-eps-converted-to.pdf>] [16] [17 <./dadam-eps-c
-onverted-to.pdf>] [18] [19]
-Underfull \hbox (badness 1406) in paragraph at lines 1052--1056
+onverted-to.pdf>] [18] [19] [20] [21]
+Underfull \hbox (badness 1406) in paragraph at lines 1178--1182
 []\T1/cmr/m/n/10 Rinda Parama Satya Her-manto, Suhar-jito, Di-ana, Ari-adi Nu-g
 roho,
  []
 
-[20] [21] [22] [23] [24] [25] (./integergenetic.aux) ) 
+[22] [23] [24] [25] [26] [27] (./integergenetic.aux) ) 
 Here is how much of TeX's memory you used:
- 3547 strings out of 480152
- 55174 string characters out of 5894086
- 408584 words of memory out of 5000000
- 21463 multiletter control sequences out of 15000+600000
+ 3621 strings out of 480177
+ 57180 string characters out of 5892706
+ 429113 words of memory out of 5000000
+ 21507 multiletter control sequences out of 15000+600000
  487917 words of font info for 69 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  55i,16n,62p,291b,412s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -293,10 +297,10 @@ texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on integergenetic.pdf (25 pages, 298321 bytes).
+Output written on integergenetic.pdf (27 pages, 313522 bytes).
 PDF statistics:
- 524 PDF objects out of 1000 (max. 8388607)
- 130 compressed objects within 2 object streams
+ 529 PDF objects out of 1000 (max. 8388607)
+ 134 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
