@@ -6,7 +6,7 @@ COUNT=500
 rm -f $1.out
 for i in {1..10}
 do
-./IntervalGenetic  --chromosomes=$COUNT --localmethod=genetic --intervalmethod=double --filename=PROBLEMS/NNC/libNNC.so --param=trainName --value=$DATAPATH/$1.train --param=testName --value=$DATAPATH/$1.test --param=nodes --value=$NODES --generations=$GENS  --threads=8 --debug=no --seed=$i >> $1.out
+./IntervalGenetic  --chromosomes=$COUNT --localmethod=none --intervalmethod=double --filename=PROBLEMS/NNC/libNNC.so --param=trainName --value=$DATAPATH/$1.train --param=testName --value=$DATAPATH/$1.test --param=nodes --value=$NODES --generations=$GENS  --threads=2 --debug=no --seed=$i >> $1.out
 echo "finish $1 iter $i "
 done
 

@@ -26,7 +26,8 @@ SOURCES += \
     rule.cc \
     sigprogram.cc \
     gensolver.cc \
-    symbol.cc
+    symbol.cc \
+    gpopulation.cc
 
 HEADERS += \
     NNC_global.h \
@@ -44,7 +45,8 @@ HEADERS += \
     tolmin.h \
     gensolver.h \
     sigprogram.h \
-    symbol.h
+    symbol.h \
+    gpopulation.h
 
 # Default rules for deployment.
 unix {
