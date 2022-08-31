@@ -109,6 +109,7 @@
 #define __FLT64X_MANT_DIG__ 64
 #define __GNUC__ 12
 #define __GXX_RTTI 1
+#define __pie__ 2
 #define __MMX__ 1
 #define __FLT_HAS_DENORM__ 1
 #define __SIZEOF_LONG_DOUBLE__ 16
@@ -189,7 +190,7 @@
 #define __DEC128_MAX__ 9.999999999999999999999999999999999E6144DL
 #define __FLT_MANT_DIG__ 24
 #define __LDBL_DECIMAL_DIG__ 21
-#define __VERSION__ "12.1.0"
+#define __VERSION__ "12.2.0"
 #define __UINT64_C(c) c ## UL
 #define __cpp_unicode_characters 200704L
 #define _STDC_PREDEF_H 1
@@ -199,7 +200,6 @@
 #define __FLT32_MANT_DIG__ 24
 #define __FLOAT_WORD_ORDER__ __ORDER_LITTLE_ENDIAN__
 #define __FLT32X_MIN_EXP__ (-1021)
-#define __STDC_IEC_60559_COMPLEX__ 201404L
 #define __FLT128_HAS_DENORM__ 1
 #define __FLT32_DECIMAL_DIG__ 9
 #define __FLT128_DIG__ 33
@@ -231,7 +231,6 @@
 #define __SIG_ATOMIC_MAX__ 0x7fffffff
 #define __GCC_ATOMIC_WCHAR_T_LOCK_FREE 2
 #define __USER_LABEL_PREFIX__ 
-#define __STDC_IEC_60559_BFP__ 201404L
 #define __SIZEOF_PTRDIFF_T__ 8
 #define __LDBL_DIG__ 18
 #define __FLT64_IS_IEC_60559__ 2
@@ -294,6 +293,7 @@
 #define __INTPTR_TYPE__ long int
 #define __UINT16_TYPE__ short unsigned int
 #define __WCHAR_TYPE__ int
+#define __pic__ 2
 #define __UINTPTR_MAX__ 0xffffffffffffffffUL
 #define __INT_FAST64_WIDTH__ 64
 #define __cpp_decltype 200707L
@@ -365,6 +365,7 @@
 #define __FLT128_IS_IEC_60559__ 2
 #define __INT8_MAX__ 0x7f
 #define __LONG_WIDTH__ 64
+#define __PIC__ 2
 #define __UINT_FAST32_TYPE__ long unsigned int
 #define __FLT32X_NORM_MAX__ 1.79769313486231570814527423731704357e+308F32x
 #define __CHAR32_TYPE__ unsigned int
@@ -381,10 +382,11 @@
 #define __DEC128_MAX_EXP__ 6145
 #define __FLT32X_HAS_QUIET_NAN__ 1
 #define __ATOMIC_CONSUME 1
-#define __GNUC_MINOR__ 1
+#define __GNUC_MINOR__ 2
 #define __GLIBCXX_TYPE_INT_N_0 __int128
 #define __INT_FAST16_WIDTH__ 64
 #define __UINTMAX_MAX__ 0xffffffffffffffffUL
+#define __PIE__ 2
 #define __FLT32X_DENORM_MIN__ 4.94065645841246544176568792868221372e-324F32x
 #define __DBL_MAX_10_EXP__ 308
 #define __LDBL_DENORM_MIN__ 3.64519953188247460252840593361941982e-4951L

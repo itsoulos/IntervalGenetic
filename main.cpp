@@ -66,7 +66,7 @@ QString checkInList(QStringList &lst,QString value)
 void parseCmdLine(QStringList args)
 {
     intervalMethodList<<"double"<<"integer"<<"none";
-    localMethodList<<"gradient"<<"adam"<<"bfgs"<<"genetic";
+    localMethodList<<"gradient"<<"adam"<<"bfgs"<<"genetic"<<"none";
 
     QString lastParam="";
     for(int i=1;i<args.size();i++)
@@ -248,9 +248,8 @@ int main(int argc,char **argv)
     for(int i=1;i<=tries;i++)
     {
         Data bestx;
-        double besty;
+        double besty=0;
         srand(randomSeed+i);
-
         if(localMethod=="gradient")
         {
             BoundedGradientDescent Optimizer(&np);
@@ -290,6 +289,14 @@ int main(int argc,char **argv)
              bestx=np.getUniformRandomPoint();
 		else bestx=bestgeneticx;
             besty=tolmin(bestx,&np,bfgs_iterations);
+        }
+        else
+        if(localMethod=="none")
+        {
+            if(intervalMethod=="none")
+                 bestx=np.getUniformRandomPoint();
+            else bestx=bestgeneticx;
+            np.done(bestx);
         }
 
        QJsonObject result=p.done(bestx);

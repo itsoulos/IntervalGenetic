@@ -233,13 +233,14 @@ extern "C"
 	Data saveW = w;
 	for(int ik=1;ik<=iters;ik++)
 	{
-		/*
+
 		srand48(ik);
 		srand(ik);
 		w = saveW;
-//	GenSolve(&program[thread()],w,ff,0,0);
+    //GenSolve(&program[thread()],w,ff,0,0);
 
 	program[thread()].neuralparser->setWeights(w);
+    tries = 0;
 //	fprintf(stderr,"After genetic value = %lf \n",ff);
         do
         {
@@ -252,7 +253,7 @@ extern "C"
            old_f=value;
            tries++;
            if(tries>=200) break;
-         }while(1);*/
+         }while(1);
 	  program[thread()].neuralparser->getWeights(w);
         avg_test+=program[thread()].getTestError();
         avg_class+=program[thread()].getClassTestError(genome);

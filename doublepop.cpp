@@ -6,12 +6,12 @@
 # include <tolmin.h>
 # include <QString>
 # include <omp.h>
-//# define LOCALSEARCH
+# define LOCALSEARCH
 
 # define MAXTHREADS 12
 int have_finished=0;
 #pragma omp threadprivate(have_finished)
-int iprint=0;
+int iprint=1;
 #pragma omp threadprivate(iprint)
 
 
