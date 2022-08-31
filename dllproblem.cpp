@@ -41,7 +41,6 @@ DllProblem::DllProblem(QString filename,QJsonObject settings)
 
 void    DllProblem::init(QJsonObject x)
 {
-    qDebug()<<"X is "<<x<<endl;
     if(Init!=NULL)
         Init(x);
 }

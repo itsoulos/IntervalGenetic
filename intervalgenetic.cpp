@@ -19,7 +19,7 @@ IntervalGenetic::IntervalGenetic(IntervalProblem *p,int gcount)
     fitnessArray.resize(count);
     chromosome.resize(count);
     children.resize(count);
-    setSamples(200);
+    setSamples(100);
     for(int i=0;i<count;i++)
     {
         chromosome[i].resize(problem[omp_get_thread_num()]->getDimension());
@@ -52,7 +52,7 @@ IntervalGenetic::IntervalGenetic(QString filename,QJsonObject settings,int gcoun
     generation=0;
     setSelectionRate(0.1);
     setMutationRate(0.05);
-    nsamples=200;
+    nsamples=100;
     drandDat.resize(nsamples+nsamples*problem[omp_get_thread_num()]->getDimension());
     for (unsigned i = 0; i < drandDat.size();i++) {
         drandDat[i]=randGen.generateDouble();
@@ -252,7 +252,7 @@ Interval IntervalGenetic::fitness(IntervalData &x,unsigned ti)
     double miny=1e+100,maxy=1e+100;
     Problem np(problem[ti]);
 
-	/*
+/*	
     vector<Data> cx;
     makeSamples(x,cx,ti);
 
@@ -263,7 +263,8 @@ Interval IntervalGenetic::fitness(IntervalData &x,unsigned ti)
 
         if(k==0 || fx>maxy) maxy=fx;
         if(k==0 || fx<miny) miny=fx;
-    }*/
+    }
+  */  
     
     for(int k=1;k<=nsamples;k++)
     {
@@ -276,6 +277,7 @@ Interval IntervalGenetic::fitness(IntervalData &x,unsigned ti)
     if(k==1 || fx>maxy) maxy=fx;
     if(k==1 || fx<miny) miny=fx;
     }
+    
     return Interval(miny,maxy);
    // return problem[omp_get_thread_num()]->IntFunmin(x);
 }
@@ -424,8 +426,6 @@ void   IntervalGenetic::nextGeneration()
            int randPos=(i-1)*(chromosome.size()/count) + randGen.generate() % (chromosome.size()/count);
            Interval fx=fitnessArray[randPos];
            localSearch(chromosome[randPos],fitnessArray[randPos]);
-           cout<<"LOCALSEARCH["<<randPos<<"]="<<fx<<".....>"<<fitnessArray[randPos]<<
-                    "FROM THREAD["<<omp_get_thread_num()<<"]"<<endl;
 
         }
  IntervalData mx=getMaximumInterval();

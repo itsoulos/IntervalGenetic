@@ -1,7 +1,7 @@
 # include <getoptions.h>
 QString filename="";
 int     randomSeed=1;
-int     chromosomes=200;
+int     chromosomes=500;
 int     maxGenerations=200;
 double  selection_rate=0.10;
 double  mutation_rate=0.05;

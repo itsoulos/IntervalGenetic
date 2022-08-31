@@ -182,7 +182,7 @@ IntervalData runIntegerInterval(DllProblem *p,Data &bestp)
     {
         gen.nextGeneration();
         gen.getBest(bestx,besty);
-        if(debug)
+        if(debug && g %50==0)
         {
             cout<<"g="<<g<<" BESTY "<<besty<<endl;
             if(g%20==0)    p->printData(bestx);
@@ -206,7 +206,7 @@ IntervalData runDoubleInterval(DllProblem *p,Data &bestp)
     {
         gen.nextGeneration();
         gen.getBest(bestx,besty);
-        if(debug)
+	if(debug && g %50==0)
         {
             cout<<"g="<<g<<" BESTY "<<besty<<endl;
             if(g%20==0)    p->printData(bestx);
@@ -240,7 +240,7 @@ int main(int argc,char **argv)
     double minTrainError=0.0;
     double minTestError=0.0;
     double minClassError=0.0;
-    int tries=30;
+    int tries=1;
     p.setParameter("normalTrain",1);
      Problem np(&p,bestMargin);
 
@@ -302,7 +302,9 @@ int main(int argc,char **argv)
             avgTestError+=result["testError"].toDouble();
             avgClassError+=result["classError"].toDouble();
 
-           printf("GENETIC STEP[%4d]=%20.10lg %20.10lg%% ",i,besty,result["classError"].toDouble());
+           printf("GENETIC STEP[%4d]=%20.10lg %10.5lg %20.10lg%% ",i,besty,
+			   result["testError"].toDouble(),
+			   result["classError"].toDouble());
            cout<<result["string"].toString().toStdString()<<endl;
         if(i==1 || besty<minTrainError)
         {
@@ -313,12 +315,14 @@ int main(int argc,char **argv)
        }
  }
     }
+if(debug)
+{
     printf("AVERAGE TRAIN ERROR: %20.10lg\n",avgTrainError/tries);
     printf("AVERAGE TEST  ERROR: %20.10lg\n",avgTestError/tries);
     printf("AVERAGE CLASS ERROR: %20.10lg%%\n",avgClassError/tries);
     printf("MINIMUM TRAIN ERROR: %20.10lg\n",minTrainError);
     printf("MINIMUM TEST  ERROR: %20.10lg\n",minTestError);
     printf("MINIMUM CLASS ERROR: %20.10lg%%\n",minClassError);
-    //*/
+}   
     return 0;
 }
