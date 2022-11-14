@@ -206,7 +206,7 @@ IntervalData runDoubleInterval(DllProblem *p,Data &bestp)
     {
         gen.nextGeneration();
         gen.getBest(bestx,besty);
-	if(debug && g %50==0)
+	if(debug && g %2==0)
         {
             cout<<"g="<<g<<" BESTY "<<besty<<endl;
             if(g%20==0)    p->printData(bestx);
