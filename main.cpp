@@ -217,6 +217,33 @@ IntervalData runDoubleInterval(DllProblem *p,Data &bestp)
     return bestMargin;
 }
 
+IntervalData runPsoInterval(DllProblem *p,Data &bestp)
+{
+    IntervalPso pso(p,chromosomes);
+   // gen.setSamples(double_samples);
+    //gen.setMutationRate(mutation_rate);
+    //gen.setSelectionRate(selection_rate);
+    IntervalData bestx;
+    Interval besty;
+    pso.Solve();
+    bestx = pso.getBestx();
+    return bestx;
+/*
+    for(int g=1;g<=maxGenerations;g++)
+    {
+        gen.nextGeneration();
+        gen.getBest(bestx,besty);
+	if(debug && g %2==0)
+        {
+            cout<<"g="<<g<<" BESTY "<<besty<<endl;
+            if(g%20==0)    p->printData(bestx);
+        }
+    }
+    bestp=gen.getBestPoint();
+    IntervalData bestMargin=bestx;
+    return bestMargin;*/
+}
+
 int main(int argc,char **argv)
 {
     QCoreApplication app(argc,argv);
@@ -233,6 +260,8 @@ int main(int argc,char **argv)
     if(intervalMethod=="integer") bestMargin=runIntegerInterval(&p,bestgeneticx);
     else
     if(intervalMethod=="double") bestMargin=runDoubleInterval(&p,bestgeneticx);
+    else
+    if(intervalMethod=="pso") ;    
 
     double avgTrainError=0.0;
     double avgTestError=0.0;
