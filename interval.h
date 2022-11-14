@@ -20,6 +20,7 @@ public:
     void    divideRight();
     friend std::ostream& operator<<(std::ostream& out, const Interval &f1);
     friend Interval operator+(const Interval& a, const Interval& b);
+    friend Interval operator-(const Interval& a, const Interval& b);
     friend Interval operator*(double value,const Interval &other);
     friend Interval operator*(const Interval &other,double value);
     ~Interval();

@@ -149,13 +149,13 @@ void           IntervalPso::updateVelocities()
     for(int i=0;i<particleCount;i++)
     {
         for(int j=0;j<problem->getDimension();j++)
-        {/*
+        {
             Interval oldVel=velocity[i][j];
            velocity[i][j]=inertia * velocity[i][j]+c1 * psoRand()*
                    (bestPosition[i][j]-position[i][j])
                    +c2 * psoRand()*(bestx[i]-position[i][j]);
 
-           if(velocity[i][j].is_empty())
+        /*   if(velocity[i][j].is_empty())
                 velocity[i][j]=oldVel;
             if(velocity[i][j].is_empty())
             {

@@ -33,6 +33,10 @@ Interval operator+(const Interval& a, const Interval& b)
     return Interval(a.leftValue()+b.leftValue(),a.rightValue()+b.rightValue());
 }
 
+Interval operator-(const Interval& a, const Interval& b)
+{
+    return Interval(a.leftValue()-b.leftValue(),a.rightValue()-b.rightValue());
+}
 Interval Interval::left() const
 {
     double mid=(_right-_left)/2.0;
