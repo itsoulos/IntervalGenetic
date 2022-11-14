@@ -296,7 +296,7 @@ int main(int argc,char **argv)
             if(intervalMethod=="none")
                  bestx=np.getUniformRandomPoint();
             else bestx=bestgeneticx;
-            np.done(bestx);
+           // np.done(bestx);
         }
 
        QJsonObject result=p.done(bestx);

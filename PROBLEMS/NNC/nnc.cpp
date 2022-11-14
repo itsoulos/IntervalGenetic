@@ -4,12 +4,13 @@
 # include "tolmin.h"
 # include "converter.h"
 # include "gensolver.h"
+# include <gpopulation.h>
 extern "C"
 {
     //parameters
     const int maxthreads=64;
     double leftMargin=0.0;
-    double rightMargin=5000;
+    double rightMargin=2047.0;
     QString trainfile="";
     QString testfile="";
     QString urlpath="http://itsoulos.teiep.gr/genclass/";
@@ -202,11 +203,22 @@ extern "C"
 
     QJsonObject    done(Data &x)
     {
+	    
         double sum=0.0;
         vector<int> genome;
 	genome.resize(getdimension());
         for(int i=0;i<getdimension();i++)
             genome[i]=(int)fabs(x[i]);
+
+	GPopulation pop(500,getdimension(),genome,&program[thread()]);
+	for(int i=1;i<=200;i++)
+	{
+		pop.nextGeneration();
+		double f = pop.getBestFitness();
+		fprintf(stderr,"nnc[%d]=%lf\n",i,f);
+	}
+	genome= pop.getBestGenome();
+	
      	double ff=program[thread()].fitness(genome);
  	int tries=0;
    	MinInfo Info1;
@@ -248,7 +260,7 @@ extern "C"
            value=tolmin(w,Info1);
 		program[thread()].neuralparser->setWeights(w);
            program[thread()].neuralparser->getWeights(w);
-	   fprintf(stderr,"value [%d ] =%lf \n",tries,value);
+	//   fprintf(stderr,"value [%d ] =%lf \n",tries,value);
            if(fabs(old_f-value)<1e-5) break;
            old_f=value;
            tries++;
@@ -276,6 +288,7 @@ extern "C"
 
 
         return result;
+	
     }
 
 }
