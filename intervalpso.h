@@ -25,6 +25,8 @@ public:
     void            Solve();
     IntervalData    getBestx();
     Interval        getBesty();
+    Data    getBestPoint();
+
 };
 
 #endif // INTERVALPSO_H

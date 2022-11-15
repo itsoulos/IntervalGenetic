@@ -65,7 +65,7 @@ QString checkInList(QStringList &lst,QString value)
 
 void parseCmdLine(QStringList args)
 {
-    intervalMethodList<<"double"<<"integer"<<"none";
+    intervalMethodList<<"double"<<"integer"<<"pso"<<"none";
     localMethodList<<"gradient"<<"adam"<<"bfgs"<<"genetic"<<"none";
 
     QString lastParam="";
@@ -227,6 +227,7 @@ IntervalData runPsoInterval(DllProblem *p,Data &bestp)
     Interval besty;
     pso.Solve();
     bestx = pso.getBestx();
+    bestp = pso.getBestPoint();
     return bestx;
 /*
     for(int g=1;g<=maxGenerations;g++)
@@ -257,11 +258,13 @@ int main(int argc,char **argv)
     Data bestgeneticx;
     bestgeneticx.resize(p.getDimension());
     IntervalData bestMargin=p.getMargins();
+    qDebug()<<"Interval method "<<intervalMethod<<endl;
     if(intervalMethod=="integer") bestMargin=runIntegerInterval(&p,bestgeneticx);
     else
     if(intervalMethod=="double") bestMargin=runDoubleInterval(&p,bestgeneticx);
     else
-    if(intervalMethod=="pso") ;    
+    if(intervalMethod=="pso")
+        bestMargin = runPsoInterval(&p,bestgeneticx);
 
     double avgTrainError=0.0;
     double avgTestError=0.0;
@@ -269,7 +272,7 @@ int main(int argc,char **argv)
     double minTrainError=0.0;
     double minTestError=0.0;
     double minClassError=0.0;
-    int tries=30;
+    int tries=1;
     p.setParameter("normalTrain",1);
      Problem np(&p,bestMargin);
 

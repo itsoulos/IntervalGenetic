@@ -30,6 +30,7 @@ IntervalPso::IntervalPso(IntervalProblem *p,int pcount)
        }
        bestPosition[i]=position[i];
        fitnessArray[i]=psoFitness(position[i]);
+
        bestFitnessArray[i]=fitnessArray[i];
        if(i==0 || problem->lowerValue(fitnessArray[i],besty))
        {
@@ -45,27 +46,44 @@ int            IntervalPso::getParticleCount() const
     return particleCount;
 }
 
+Data    IntervalPso::getBestPoint()
+{
+    Data bestx1;
+    Data trialx;
+    trialx.resize(position[0].size());
+    double miny=1e+100;
+    const int nsamples = 50;
+    srand48(1);
+    for(int k=1;k<=nsamples;k++)
+    {
+    for(int i=0;i<bestx.size();i++)
+    {
+        trialx[i]=bestx[i].leftValue()+(bestx[i].rightValue()-bestx[i].leftValue())*drand48();
+    }
+    double fx=problem->funmin(trialx);//tolmin(trialx,&np,10);
+
+    if(k==1 || fx<miny)
+    {
+        printf("FINAL MINY = %20.10lg\n",miny);
+
+        miny=fx;
+        bestx1=trialx;
+    }}
+    printf("FINAL MINY = %20.10lg\n",miny);
+    return bestx1;
+}
+
 void           IntervalPso::Solve()
 {
-    for(generationCount=1;generationCount<=500;generationCount++)
+    for(generationCount=1;generationCount<=20;generationCount++)
     {
         updatePositions();
         updateVelocities();
-        double v=problem->getVolume(bestx);
-        v=v/problem->getDimension();
-        printf("print bestx \n");
-        for(int i=0;i<problem->getDimension();i++)
-        cout<<">> "<<bestx[i]<<endl;
-        printf("SOLUTION VOLUME IS %lf\n",v);
-        cout<<"best y ="<<besty<<endl;
+
 
     }
-    besty=psoLocalSearch(bestx,100);
-    printf("print bestx \n");
-    for(int i=0;i<problem->getDimension();i++)
-    cout<<">> "<<bestx[i]<<endl;
+  //  besty=psoLocalSearch(bestx,100);
 
-    cout<<"best y ="<<besty<<endl;
 }
 
 IntervalData   IntervalPso::getBestx()
@@ -111,35 +129,28 @@ Interval       IntervalPso::psoLocalSearch(IntervalData &x,int iters)
 }
 Interval       IntervalPso::psoFitness(IntervalData &x)
 {
- //   if(rand()%10<=8) return problem->IntFunmin(x);
-    IntervalData left=x;
-    IntervalData right=x;
-    IntervalData trialx=x;
+
+    Data trialxx;
+    trialxx.resize(x.size());
+    double miny=1e+100,maxy=1e+100;
+     const int nsamples = 50;
+
+     srand48(1);
+    for(int k=1;k<=nsamples;k++)
+    {
     for(int i=0;i<x.size();i++)
     {
-        left[i]=x[i].left();
-        right[i]=x[i].right();
-      //  x[i].split(left[i],right[i]);
+        trialxx[i]=x[i].leftValue()+(x[i].rightValue()-x[i].leftValue())*drand48();
+
+//        trialx[i]=x[i].leftValue()+(x[i].rightValue()-x[i].leftValue())*drandDat[(k-1)*np.getDimension()+i];
     }
-    Interval mv;//=problem->IntFunmin(x);
-    for(int i=0;i<x.size();i++)
-    {
-       Interval t=x[i];
-        x[i]=left[i];
-        Interval mf;//=problem->IntFunmin(x);
-        if(!problem->lowerValue(mf,mv))
-            x[i]=t;
-        else
-            mv=mf;
-        t=x[i];
-        x[i]=right[i];
-        //mf=problem->IntFunmin(x);
-        if(!problem->lowerValue(mf,mv))
-            x[i]=t;
-        else
-            mv=mf;
+    double fx=problem->funmin(trialxx);//tolmin(trialx,&np,10);
+
+    if(k==1 || fx>maxy) maxy=fx;
+    if(k==1 || fx<miny) miny=fx;
     }
-    return mv;//(rand()%2==0)?2:5);
+    return Interval(miny,maxy);
+
 }
 
 void           IntervalPso::updateVelocities()
@@ -154,6 +165,11 @@ void           IntervalPso::updateVelocities()
            velocity[i][j]=inertia * velocity[i][j]+c1 * psoRand()*
                    (bestPosition[i][j]-position[i][j])
                    +c2 * psoRand()*(bestx[i]-position[i][j]);
+           velocity[i][j]=Interval(velocity[i][j].leftValue()/100.0,
+                                   velocity[i][j].rightValue()/100.0);
+        /*   printf("velocity %lf %lf\n",
+                  velocity[i][j].leftValue(),
+                  velocity[i][j].rightValue());*/
 
         /*   if(velocity[i][j].is_empty())
                 velocity[i][j]=oldVel;
@@ -164,7 +180,7 @@ void           IntervalPso::updateVelocities()
             }*/
 
         }
-    //   problem->boundInterval(velocity[i]);
+       problem->boundInterval(velocity[i]);
     }
 }
 
@@ -177,28 +193,33 @@ void           IntervalPso::updatePositions()
         for(int j=0;j<problem->getDimension();j++)
         {
 
-          //  position[i][j]=position[i][j]+velocity[i][j];
+            position[i][j]=position[i][j]+velocity[i][j];
         }
 
-        if(!problem->isPointIn(position[i]))
+        /*if(!problem->isPointIn(position[i]))
         {
             failcount++;
             position[i]=oldPos;
 
             continue;
-        }
+        }*/
             fitnessArray[i]=psoFitness(position[i]);
         if(problem->lowerValue(fitnessArray[i],bestFitnessArray[i]))
         {
             bestPosition[i]=position[i];
             bestFitnessArray[i]=fitnessArray[i];
+
         }
 
         if(problem->lowerValue(bestFitnessArray[i],besty))
         {
 
             besty=bestFitnessArray[i];
+            printf("BESTY [%lf %lf]\n",besty.leftValue(),
+                   besty.rightValue());
             bestx=bestPosition[i];
+            Interval ff = psoFitness(bestx);
+            printf("Best fitness [%lf,%lf]\n ",ff.leftValue(),ff.rightValue());
         }
     }
     printf("failcount = %d \n",failcount);

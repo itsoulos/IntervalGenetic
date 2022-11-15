@@ -429,7 +429,6 @@ void Kmeans(double * data_vectors,
     for(int i=0;i<K;i++)
         cluster_members[i]=new int[m];
     num_of_cluster_members.resize(K);
-printf("Size %d \n",num_of_cluster_members.size());
 
     double distance=0;
     double total_distance=0;
@@ -514,7 +513,6 @@ printf("Size %d \n",num_of_cluster_members.size());
 
        for(l=0; l<n; l++)
         new_centers[min_center*n + l] += data_vectors[i*n + l];
-	printf("Min Center: %d \n",min_center);
        cluster_members[min_center][num_of_cluster_members[min_center]] = i;
        num_of_cluster_members[min_center]++;
 
@@ -748,7 +746,6 @@ void    init(QJsonObject data)
            redo=true;
            posRedo=i;
         }
-        printf("members[%d]=%.2lf%%\n",i,num_of_cluster_members[i]*100.0/trainx.size());
     }
     for(int i=0;i<nodes;i++)
     {
@@ -777,8 +774,6 @@ void    init(QJsonObject data)
             if(dist<minDist) minDist=dist;
 
         }
-        if(i)
-         printf("Dist[%d]=%10.2lf\n",i,minDist);
         //if(minDist<0.1) redo=true;
         if(redo)
         {
