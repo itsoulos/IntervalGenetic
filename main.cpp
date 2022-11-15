@@ -269,7 +269,7 @@ int main(int argc,char **argv)
     double minTrainError=0.0;
     double minTestError=0.0;
     double minClassError=0.0;
-    int tries=1;
+    int tries=30;
     p.setParameter("normalTrain",1);
      Problem np(&p,bestMargin);
 

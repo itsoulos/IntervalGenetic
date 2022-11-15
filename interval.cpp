@@ -35,7 +35,7 @@ Interval operator+(const Interval& a, const Interval& b)
 
 Interval operator-(const Interval& a, const Interval& b)
 {
-    return Interval(a.leftValue()-b.leftValue(),a.rightValue()-b.rightValue());
+    return Interval(a.leftValue()-b.rightValue(),a.rightValue()-b.leftValue());
 }
 Interval Interval::left() const
 {
