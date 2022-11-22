@@ -222,5 +222,4 @@ void           IntervalPso::updatePositions()
             printf("Best fitness [%lf,%lf]\n ",ff.leftValue(),ff.rightValue());
         }
     }
-    printf("failcount = %d \n",failcount);
 }
