@@ -6,12 +6,12 @@
 # include <tolmin.h>
 # include <QString>
 # include <omp.h>
-# define LOCALSEARCH
+//# define LOCALSEARCH
 
 # define MAXTHREADS 12
 int have_finished=0;
 #pragma omp threadprivate(have_finished)
-int iprint=1;
+int iprint=0;
 #pragma omp threadprivate(iprint)
 
 
@@ -482,7 +482,7 @@ void	DoublePop::Solve()
 		if(diff2<1e-8 && i>=20) break;
 		if(variance<=stopat && i>=20) break;
 	}
-	//LocalSearch(problem,genome[0],fitness_array[0]);
+	LocalSearch(problem,genome[0],fitness_array[0]);
 	have_finished=1;
 	fitness_array[0]=problem->funmin(genome[0]);
 	have_finished=0;

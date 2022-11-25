@@ -167,9 +167,9 @@ void           IntervalPso::updateVelocities()
                    +c2 * psoRand()*(bestx[i]-position[i][j]);
            velocity[i][j]=Interval(velocity[i][j].leftValue()/100.0,
                                    velocity[i][j].rightValue()/100.0);
-        /*   printf("velocity %lf %lf\n",
+           printf("velocity %lf %lf\n",
                   velocity[i][j].leftValue(),
-                  velocity[i][j].rightValue());*/
+                  velocity[i][j].rightValue());
 
         /*   if(velocity[i][j].is_empty())
                 velocity[i][j]=oldVel;
