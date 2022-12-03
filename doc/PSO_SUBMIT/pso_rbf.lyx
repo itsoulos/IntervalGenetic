@@ -81,8 +81,8 @@ Locate the parameters of RBF networks using a hybrid Particle Swarm Optimization
 \end_layout
 
 \begin_layout Author
-Vasilieos Charilogis, Ioannis G.
- Tsoulos
+Ioannis G.
+ Tsoulos, Vasilieos Charilogis
 \end_layout
 
 \begin_layout Date
@@ -101,6 +101,1189 @@ on and local minimization is used to train the neural network within the
  space identified in the first phase.
  This technique is evaluated on a number of regression and classification
  datasets from the relevant literature.
+\end_layout
+
+\begin_layout Section
+Introduction 
+\end_layout
+
+\begin_layout Standard
+Regression and data classification are two major categories of problems
+ that are solved with machine learning techniques.
+ Such problems appear regularly in scientific areas such as physics 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "physics_ml1,physics_ml2"
+literal "false"
+
+\end_inset
+
+, chemistry 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chemistry_ml1,chemistry_ml2"
+literal "false"
+
+\end_inset
+
+, economics 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "econ_ml1,econ_ml2"
+literal "false"
+
+\end_inset
+
+, medicine 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "med_ml1,med_ml2"
+literal "false"
+
+\end_inset
+
+, etc.
+ A programming tool that is used quite often to handle such problems is
+ the RBF artificial neural network 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbf1"
+literal "false"
+
+\end_inset
+
+.
+ The RBF networks can be expressed as a function:
+\series bold
+
+\begin_inset Formula 
+\begin{equation}
+y\left(\overrightarrow{x}\right)=\sum_{i=1}^{k}w_{i}\phi\left(\left\Vert \overrightarrow{x}-\overrightarrow{c_{i}}\right\Vert \right)\label{eq:firstrbf}
+\end{equation}
+
+\end_inset
+
+
+\series default
+The following applies to the above equation
+\end_layout
+
+\begin_layout Enumerate
+The vector 
+\begin_inset Formula $\overrightarrow{x}$
+\end_inset
+
+ is the input pattern to the equation.
+\end_layout
+
+\begin_layout Enumerate
+The vectors 
+\begin_inset Formula $\overrightarrow{c_{i}},\ i=1,..,k$
+\end_inset
+
+ are denoted as the center vectors.
+\end_layout
+
+\begin_layout Enumerate
+The vector 
+\begin_inset Formula $\overrightarrow{w}$
+\end_inset
+
+ is considered as the output weight of the RBF network.
+\end_layout
+
+\begin_layout Enumerate
+The value 
+\begin_inset Formula $y\left(\overrightarrow{x}\right)$
+\end_inset
+
+ is the predicted value of the network for the pattern 
+\begin_inset Formula $\overrightarrow{x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Typically, the function 
+\begin_inset Formula $\phi(x)$
+\end_inset
+
+ is a Gaussian function defined as:
+\series bold
+
+\begin_inset Formula 
+\begin{equation}
+\phi(x)=\exp\left(-\frac{\left(x-c\right)^{2}}{\sigma^{2}}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Method description 
+\end_layout
+
+\begin_layout Section
+Experiments 
+\end_layout
+
+\begin_layout Subsection
+Experimental datasets 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(na dothoun references about the usage of some datasets)
+\end_layout
+
+\begin_layout Standard
+All the experiments were conducted 30 times using different seed for the
+ random generator each time and averages were taken.
+ The following datasets were used 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Wine
+\series default
+ dataset.
+ The wine recognition dataset contains data from wine chemical analysis.
+ It contains 178 examples of 13 features each that are classified into three
+ classes.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Glass
+\series default
+ dataset.
+ The dataset contains glass component analysis for glass pieces that belong
+ to 6 classes.
+ The dataset contains 214 examples with 10 attributes each.
+\end_layout
+
+\begin_layout Enumerate
+Liverdisorder: This dataset, which will be denoted by LIVER in the following
+ tables, contains blood analysis data from people with liver disorders.
+ It consists of 345 examples of 6 features each.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Tae
+\series default
+ dataset.
+ The data consist of evaluations of teaching performance over three regular
+ semesters and two summer semesters of 151 teaching assistant (TA) assignments
+ at the Statistics Department of the University of Wisconsin-Madison.
+\end_layout
+
+\begin_layout Enumerate
+Liverdisorder dataset.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Spiral
+\series default
+ dataset: The spiral artificial dataset contains 1000 two-dimensional examples
+ that belong to two classes (500 examples each).
+ The number of the features is 2.
+ The data in the first class are created using the following formula: 
+\begin_inset Formula $x_{1}=0.5t\cos\left(0.08t\right),\ x_{2}=0.5t\cos\left(0.08t+\frac{\pi}{2}\right)$
+\end_inset
+
+ and the second class data using
+\series bold
+: 
+\begin_inset Formula $x_{1}=0.5t\cos\left(0.08t+\pi\right),\ x_{2}=0.5t\cos\left(0.08t+\frac{3\pi}{2}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Pima
+\series default
+ dataset.
+ The Pima Indians Diabetes dataset contains 768 examples of 8 attributes
+ each that are classified into two categories: healthy and diabetic.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Ionosphere
+\series default
+ dataset.
+ The ionosphere dataset (ION in the following tables) contains data from
+ the Johns Hopkins Ionosphere database.
+ The two-class dataset contains 351 exam
+\backslash
+ples of 34 features each.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Appendictis
+\series default
+ dataset, proposed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "appendicitis"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Australian
+\series default
+ dataset, the dataset concerns credit card applications.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Hayes roth
+\series default
+ dataset.
+ This dataset
+\begin_inset CommandInset citation
+LatexCommand cite
+key "hayesroth"
+literal "false"
+
+\end_inset
+
+ contains 
+\series bold
+5
+\series default
+ numeric-valued attributes and 132 patterns.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Alcohol
+\series default
+ dataset, a dataset about Alcohol consumption 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Alcohol"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Dermatology
+\series default
+ dataset.
+ Dataset used for differential diagnosis of erythemato-squamous diseases.
+ The dataset has 366 instances of 34 features each.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Balance
+\series default
+ dataset.
+ This data set was generated to model psychological experimental results.
+ It contains 625 patterns of 4 features each.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Regions2
+\series default
+ dataset.
+ It is created from liver biopsy images of patients with hepatitis C 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "regions"
+literal "true"
+
+\end_inset
+
+.
+ From each region in the acquired images, 18 shape-based and color-based
+ features were extracted, while it was also annotated form medical experts.
+ The resulting dataset includes 600 samples belonging into 6 classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Parkinsons
+\series default
+ dataset.
+ This dataset is composed of a range of biomedical voice measurements from
+ 31 people, 23 with Parkinson's disease (PD)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "parkinsons"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Wdbc
+\series default
+ dataset.
+ The Wisconsin diagnostic breast cancer dataset (WDBC) contains data for
+ breast tumors.
+ It contains 569 patterns of 30 features each.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Popfailures
+\series default
+ dataset.
+ This dataset contains records of simulation crashes encountered during
+ climate model uncertainty quantification (UQ) ensembles.
+ It contains 540 patterns of 18 features each.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Heart
+\series default
+ dataset.
+ The task is to detect the absence or presence of heart disease.
+ It contains 270 patterns of 13 features each.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Haberman
+\series default
+ dataset.
+ A dataset about breast cancer from a study at the University of Chicago's
+ Billings Hospital.
+ It contains 306 patterns of 3 features each.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+HouseVotes
+\series default
+ dataset.
+ This data set includes votes for each of the U.S.
+ House of Representatives Congressmen on the 16 key votes.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Lymography
+\series default
+ dataset.
+ The aim here is to detect the presence of a lymphoma in patients.
+ It contains 148 patterns of 18 features each.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Mammographic
+\series default
+ dataset.
+ This dataset be used to identify the severity (benign or malignant) of
+ a mammographic mass lesion from BI-RADS attributes and the patient's age.
+ It contains 830 patterns of 5 features each.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+OptDigits
+\series default
+ dataset.
+ Optical Recognition of Handwritten Digits data set.
+ It contains 5620 patterns of 64 features each.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Page Blocks
+\series default
+ dataset.
+ The dataset contains blocks of the page layout of a document that has been
+ detected by a segmentation process.
+ It has 5473 patterns with 10 features each.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Penbased
+\series default
+ dataset.
+ This is a Pen-Based Recognition of Handwritten Digits data set with 10992
+ patterns of 16 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Saheart
+\series default
+ dataset.
+ The dataset is about to categorize persons if have a coronary heart disease.
+ The dataset contains 462 patterns with 9 features each.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Segment
+\series default
+ dataset.
+ This database contains patterns from a database of 7 outdoor images (classes).
+ The dataset contains 2310 patterns with 19 features each.
+\end_layout
+
+\begin_layout Enumerate
+Eeg dataset.
+ As an real word example, consider an EEG dataset described in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-20"
+literal "true"
+
+\end_inset
+
+ is used here.
+ The dataset consists of five sets (denoted as Z, O, N, F and S) each containing
+ 100 single-channel EEG segments each having 23.6 sec duration.
+ Sets Z and O have been taken from surface EEG recordings of five healthy
+ volunteers with eye open and closed, respectively.
+ Signals in two sets have been measured in seizure-free intervals from five
+ patients in the epileptogenic zone (F) and from the hippocampal formation
+ of the opposite hemisphere of the brain (N).
+ Set S contains seizure activity, selected from all recording sites exhibiting
+ ictal activity.
+ Sets Z and O have been recorded extracranially, whereas sets N, F and S
+ have been recorded intracranially.
+\end_layout
+
+\begin_layout Enumerate
+Fertility Data Set (FERT): 100 volunteers provide a semen sample analyzed
+ according to the WHO 2010 criteria.
+ Sperm concentration is related to socio-demographic data, environmental
+ factors, health status, and life habits.
+ It contains 100 examples of 10 features each.
+\end_layout
+
+\begin_layout Standard
+The regression datasets are available from the Statlib URL 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+ftp://lib.stat.cmu.edu/datasets/index.html 
+\end_layout
+
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Abalone
+\series default
+ dataset.
+ This data set can be used to obtain a model to predict the age of abalone
+ from physical measurements.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Airfoil 
+\series default
+dataset.
+ This is a NASA data set, obtained from a series of aerodynamic and acoustic
+ tests 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "airfoil"
+literal "false"
+
+\end_inset
+
+.
+ The dataset has 1503 instances of 6 features each.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Anacalt
+\series default
+ dataset.
+ This contains information about the decisions taken by a supreme court.
+ The dataset has 4052 instances of 7 features each.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+BK
+\series default
+ dataset.
+ This dataset comes from Smoothing Methods in Statistics 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Stat"
+literal "false"
+
+\end_inset
+
+ and is used to estimate the points scored per minute in a basketball game.
+ The dataset has 96 patterns of 4 features each.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+BL
+\series default
+ dataset: This dataset can be downloaded from StatLib.
+ It contains data from an experiment on the affects of machine adjustments
+ on the time to count bolts.
+ It contains 40 patters of 7 features each.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Concrete
+\series default
+ dataset.
+ This dataset is taken from civil engineering
+\begin_inset CommandInset citation
+LatexCommand cite
+key "concrete"
+literal "false"
+
+\end_inset
+
+.
+ The dataset has 1030 instances of 8 features each.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Housing
+\series default
+ dataset.
+ This dataset was taken from the StatLib library which is maintained at
+ Carnegie Mellon University and it is described in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key23"
+literal "true"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Laser
+\series default
+ dataset.
+ Dataset used in laser experiments.
+ The dataset has 993 instances of 4 features each.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+MB
+\series default
+ dataset.
+ This dataset is available from Smoothing Methods in Statistics 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key21"
+literal "true"
+
+\end_inset
+
+ and it includes 61 patterns.
+ The number of features is 2.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+NT
+\series default
+ dataset.
+ This dataset contains data from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ntdataset"
+literal "false"
+
+\end_inset
+
+ that examined whether the true mean body temperature is 98.6 F.
+ The number of patterns is 131 and the number of features 2.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Quake
+\series default
+ dataset.
+ The objective here is to approximate the strength of a earthquake.
+ The dataset has 2178 instances of 3 features each.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Wankara
+\series default
+ dataset.
+ This dataset is used to predict the mean temperature for the Ankara.
+ The dataset has 1609 datasets of 9 features each.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+FA
+\series default
+ dataset.
+ The FA dataset contains percentage of body fat, age, weight, height, and
+ ten body circumference measurements.
+ The goal is to fit body fat to the other measurements.
+ The number of the features is 18.
+ The total number of patterns is 252.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+PY
+\series default
+ dataset (Pyrimidines problem).
+ The source of this dataset is the URL: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://www.dcc.fc.up.pt/~ltorgo/Regression/DataSets.html
+\end_layout
+
+\end_inset
+
+ and it is a problem of 27 attributes and 74 number of patterns.
+ The task consists of Learning Quantitative Structure Activity Relationships
+ (QSARs) and provided by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "pydataset"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+Conclusions
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physics_ml1"
+literal "false"
+
+\end_inset
+
+M.
+ Mjahed, The use of clustering techniques for the classification of high
+ energy physics data, Nuclear Instruments and Methods in Physics Research
+ Section A: Accelerators, Spectrometers, Detectors and Associated Equipment
+ 
+\series bold
+559
+\series default
+, pp.
+ 199-202, 2006.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physics_ml2"
+literal "false"
+
+\end_inset
+
+M Andrews, M Paulini, S Gleyzer, B Poczos, End-to-End Event Classification
+ of High-Energy Physics Data, Journal of Physics: Conference Series 
+\series bold
+1085
+\series default
+, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "chemistry_ml1"
+literal "false"
+
+\end_inset
+
+P.
+ He, C.J.
+ Xu, Y.Z.
+ Liang, K.T.
+ Fang, Improving the classification accuracy in chemistry via boosting technique
+, Chemometrics and Intelligent Laboratory Systems 70, pp.
+ 39-46, 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "chemistry_ml2"
+literal "false"
+
+\end_inset
+
+J.A.
+ Aguiar, M.L.
+ Gong, T.Tasdizen, Crystallographic prediction from diffraction and chemistry
+ data for higher throughput classification using machine learning, Computational
+ Materials Science 
+\series bold
+173
+\series default
+, 109409, 2020.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "econ_ml1"
+literal "false"
+
+\end_inset
+
+I.
+ Kaastra, M.
+ Boyd, Designing a neural network for forecasting financial and economic
+ time series, Neurocomputing 
+\series bold
+10
+\series default
+, pp.
+ 215-236, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "econ_ml2"
+literal "false"
+
+\end_inset
+
+R.
+ Hafezi, J.
+ Shahrabi, E.
+ Hadavandi, A bat-neural network multi-agent system (BNNMAS) for stock price
+ prediction: Case study of DAX stock price, Applied Soft Computing 
+\series bold
+29
+\series default
+, pp.
+ 196-210, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "med_ml1"
+literal "false"
+
+\end_inset
+
+S.S.
+ Yadav, S.M.
+ Jadhav, Deep convolutional neural network based medical image classification
+ for disease diagnosis.
+ J Big Data 
+\series bold
+6
+\series default
+, 113, 2019.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "med_ml2"
+literal "false"
+
+\end_inset
+
+L.
+ Qing, W.
+ Linhong , D.
+ Xuehai, A Novel Neural Network-Based Method for Medical Text Classification,
+ Future Internet 
+\series bold
+11
+\series default
+, 255, 2019.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbf1"
+literal "false"
+
+\end_inset
+
+J.
+ Park and I.
+ W.
+ Sandberg, Universal Approximation Using Radial-Basis-Function Networks,
+ Neural Computation 
+\series bold
+3
+\series default
+, pp.
+ 246-257, 1991.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Keel"
+literal "false"
+
+\end_inset
+
+J.
+ Alcalá-Fdez, A.
+ Fernandez, J.
+ Luengo, J.
+ Derrac, S.
+ García, L.
+ Sánchez, F.
+ Herrera.
+ KEEL Data-Mining Software Tool: Data Set Repository, Integration of Algorithms
+ and Experimental Analysis Framework.
+ Journal of Multiple-Valued Logic and Soft Computing 17, pp.
+ 255-287, 2011.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "appendicitis"
+literal "false"
+
+\end_inset
+
+Weiss, Sholom M.
+ and Kulikowski, Casimir A., Computer Systems That Learn: Classification
+ and Prediction Methods from Statistics, Neural Nets, Machine Learning,
+ and Expert Systems, Morgan Kaufmann Publishers Inc, 1991.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "hayesroth"
+literal "false"
+
+\end_inset
+
+B.
+ Hayes-Roth, B., F.
+ Hayes-Roth.
+ Concept learning and the recognition and classification of exemplars.
+ Journal of Verbal Learning and Verbal Behavior 
+\series bold
+16
+\series default
+, pp.
+ 321-338, 1977.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Alcohol"
+literal "false"
+
+\end_inset
+
+Tzimourta, Katerina D.
+ and Tsoulos, Ioannis and Bilero, Thanasis and Tzallas, Alexandros T.
+ and Tsipouras, Markos G.
+ and Giannakeas, Nikolaos, Direct Assessment of Alcohol Consumption in Mental
+ State Using Brain Computer Interfaces and Grammatical Evolution, Inventions
+ 
+\series bold
+3
+\series default
+, pp.
+ 1-12, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "parkinsons"
+literal "false"
+
+\end_inset
+
+Little MA, McSharry PE, Hunter EJ, Spielman J, Ramig LO.
+ Suitability of dysphonia measurements for telemonitoring of Parkinson's
+ disease.
+ IEEE Trans Biomed Eng.
+ 2009;56(4):1015.
+ doi:10.1109/TBME.2008.2005954
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "regions"
+literal "false"
+
+\end_inset
+
+Giannakeas, N., Tsipouras, M.G., Tzallas, A.T., Kyriakidi, K., Tsianou, Z.E., Manousou,
+ P., Hall, A., Karvounis, E.C., Tsianos, V., Tsianos, E.
+ A clustering based method for collagen proportional area extraction in
+ liver biopsy images (2015) Proceedings of the Annual International Conference
+ of the IEEE Engineering in Medicine and Biology Society, EMBS, 2015-November,
+ art.
+ no.
+ 7319047, pp.
+ 3097-3100.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-20"
+literal "true"
+
+\end_inset
+
+R.G.
+ Andrzejak, K.
+ Lehnertz, F.
+ Mormann, C.
+ Rieke, P.
+ David, and C.
+ E.
+ Elger, Indications of nonlinear deterministic and finite-dimensional structures
+ in time series of brain electrical activity: Dependence on recording region
+ and brain state, Phys.
+ Rev.
+ E 
+\series bold
+64
+\series default
+, pp.
+ 1-8, 2001.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "airfoil"
+literal "false"
+
+\end_inset
+
+T.F.
+ Brooks, D.S.
+ Pope, and A.M.
+ Marcolini.
+ Airfoil self-noise and prediction.
+ Technical report, NASA RP-1218, July 1989.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "concrete"
+literal "false"
+
+\end_inset
+
+I.Cheng Yeh, Modeling of strength of high performance concrete using artificial
+ neural networks, Cement and Concrete Research.
+ 
+\series bold
+28
+\series default
+, pp.
+ 1797-1808, 1998.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key23"
+literal "true"
+
+\end_inset
+
+D.
+ Harrison and D.L.
+ Rubinfeld, Hedonic prices and the demand for clean ai, J.
+ Environ.
+ Economics & Management 
+\series bold
+5
+\series default
+, pp.
+ 81-102, 1978.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key21"
+literal "true"
+
+\end_inset
+
+J.S.
+ Simonoff, Smooting Methods in Statistics, Springer - Verlag, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ntdataset"
+literal "false"
+
+\end_inset
+
+Mackowiak, P.A., Wasserman, S.S., Levine, M.M., 1992.
+ A critical appraisal of 98.6 degrees f, the upper limit of the normal body
+ temperature, and other legacies of Carl Reinhold August Wunderlich.
+ J.
+ Amer.
+ Med.
+ Assoc.
+ 268, 1578–1580
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Stat"
+literal "false"
+
+\end_inset
+
+J.S.
+ Simonoff, Smooting Methods in Statistics, Springer - Verlag, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "pydataset"
+literal "false"
+
+\end_inset
+
+R.D.
+ King, S.
+ Muggleton, R.
+ Lewis, M.J.E.
+ Sternberg, Proc.
+ Nat.
+ Acad.
+ Sci.
+ USA 
+\series bold
+89
+\series default
+, pp.
+ 11322–11326, 1992.
+ 
 \end_layout
 
 \end_body
