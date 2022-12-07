@@ -220,6 +220,144 @@ Typically, the function
 \end_inset
 
 
+\series default
+A plot for the Gaussian function with 
+\begin_inset Formula $c=0,\ \sigma=1$
+\end_inset
+
+ is shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:gauss"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ RBF networks was used as an approximation tools in various cases such as
+  solution of differential equations 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbfde1,rbfde2"
+literal "false"
+
+\end_inset
+
+,
+\series bold
+ 
+\series default
+digital communications 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbfnetwork1,rbfnetwork2"
+literal "false"
+
+\end_inset
+
+,
+\series bold
+ 
+\series default
+physics 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbfphysics1,rbfphysics2"
+literal "false"
+
+\end_inset
+
+, chemistry 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbfchemistry1,rbfchemistry2"
+literal "false"
+
+\end_inset
+
+,
+\series bold
+ 
+\series default
+economics 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbfecon0,rbfecon1,rbfecon2"
+literal "false"
+
+\end_inset
+
+, network security 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbf_dos1,rbf_dos2"
+literal "false"
+
+\end_inset
+
+ etc.
+
+\series bold
+ and they have many advantages
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbfadv"
+literal "false"
+
+\end_inset
+
+ such as: good generalization abilities, tolerance in noisy data, parallelizatio
+n ability
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbfparallel"
+literal "false"
+
+\end_inset
+
+ etc
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Typical plot for the Gaussian function.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:gauss"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename gaussian.eps
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -690,8 +828,8 @@ literal "true"
 \end_inset
 
  is used here.
- The datasets derived from the dataset are denoted as Z_F_S, ZONF_S, ZO_NF_S
- and Z_O_N_F_S.
+ The datasets derived from the dataset are denoted as Z_F_S, ZONF_S and
+  ZO_NF_S.
 \end_layout
 
 \begin_layout Enumerate
@@ -1046,7 +1184,7 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+14.03%
 \end_layout
 
 \end_inset
@@ -1084,7 +1222,7 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+22.39%
 \end_layout
 
 \end_inset
@@ -1122,7 +1260,7 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+13.15%
 \end_layout
 
 \end_inset
@@ -1160,7 +1298,7 @@ Bands
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+36.29%
 \end_layout
 
 \end_inset
@@ -1198,7 +1336,7 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+49.64%
 \end_layout
 
 \end_inset
@@ -1236,7 +1374,7 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+35.64%
 \end_layout
 
 \end_inset
@@ -1274,7 +1412,7 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+34.13%
 \end_layout
 
 \end_inset
@@ -1312,7 +1450,7 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+15.60%
 \end_layout
 
 \end_inset
@@ -1350,7 +1488,7 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+3.90%
 \end_layout
 
 \end_inset
@@ -1388,7 +1526,7 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+7.52%
 \end_layout
 
 \end_inset
@@ -1426,7 +1564,7 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+25.63%
 \end_layout
 
 \end_inset
@@ -1464,7 +1602,7 @@ Lymography
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+20.02%
 \end_layout
 
 \end_inset
@@ -1502,7 +1640,7 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+17.30%
 \end_layout
 
 \end_inset
@@ -1540,7 +1678,7 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+13.59%
 \end_layout
 
 \end_inset
@@ -1578,7 +1716,7 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+23.23%
 \end_layout
 
 \end_inset
@@ -1616,7 +1754,7 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+5.10%
 \end_layout
 
 \end_inset
@@ -1654,7 +1792,7 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+25.77%
 \end_layout
 
 \end_inset
@@ -1692,7 +1830,7 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+28.91%
 \end_layout
 
 \end_inset
@@ -1730,7 +1868,7 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+40.28%
 \end_layout
 
 \end_inset
@@ -1768,7 +1906,7 @@ Spiral
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+19.56%
 \end_layout
 
 \end_inset
@@ -1806,7 +1944,7 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+5.44%
 \end_layout
 
 \end_inset
@@ -1844,7 +1982,7 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+6.84%
 \end_layout
 
 \end_inset
@@ -1882,7 +2020,7 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+4.18%
 \end_layout
 
 \end_inset
@@ -1920,7 +2058,7 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+4.35%
 \end_layout
 
 \end_inset
@@ -1958,7 +2096,7 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+2.08%
 \end_layout
 
 \end_inset
@@ -1996,7 +2134,7 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+11.13%
 \end_layout
 
 \end_inset
@@ -2041,6 +2179,8 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+18.68%
 \end_layout
 
 \end_inset
@@ -2159,7 +2299,7 @@ ABALONE
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+5.32
 \end_layout
 
 \end_inset
@@ -2197,7 +2337,7 @@ AIRFOIL
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.003
 \end_layout
 
 \end_inset
@@ -2217,7 +2357,7 @@ BASEBALL
 \begin_inset Text
 
 \begin_layout Plain Layout
-78.89
+93.02
 \end_layout
 
 \end_inset
@@ -2226,7 +2366,7 @@ BASEBALL
 \begin_inset Text
 
 \begin_layout Plain Layout
-85.36
+78.89
 \end_layout
 
 \end_inset
@@ -2235,7 +2375,7 @@ BASEBALL
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+85.58
 \end_layout
 
 \end_inset
@@ -2273,7 +2413,7 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.03
 \end_layout
 
 \end_inset
@@ -2311,7 +2451,7 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.0003
 \end_layout
 
 \end_inset
@@ -2349,7 +2489,7 @@ CONCRETE
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.007
 \end_layout
 
 \end_inset
@@ -2387,7 +2527,7 @@ DEE
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.16
 \end_layout
 
 \end_inset
@@ -2425,7 +2565,7 @@ DIABETES
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.89
 \end_layout
 
 \end_inset
@@ -2463,7 +2603,7 @@ HOUSING
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+21.54
 \end_layout
 
 \end_inset
@@ -2501,7 +2641,7 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.029
 \end_layout
 
 \end_inset
@@ -2539,7 +2679,7 @@ MB
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.09
 \end_layout
 
 \end_inset
@@ -2577,7 +2717,7 @@ MORTGAGE
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.78
 \end_layout
 
 \end_inset
@@ -2615,7 +2755,7 @@ NT
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.007
 \end_layout
 
 \end_inset
@@ -2653,7 +2793,7 @@ PY
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.014
 \end_layout
 
 \end_inset
@@ -2691,7 +2831,7 @@ QUAKE
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.03
 \end_layout
 
 \end_inset
@@ -2729,7 +2869,7 @@ TREASURY
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.51
 \end_layout
 
 \end_inset
@@ -2767,7 +2907,7 @@ WANKARA
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.002
 \end_layout
 
 \end_inset
@@ -2791,7 +2931,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-9.34
+10.17
 \end_layout
 
 \end_inset
@@ -2802,7 +2942,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-6.65
+6.27
 \end_layout
 
 \end_inset
@@ -2812,6 +2952,8 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+6.76
 \end_layout
 
 \end_inset
@@ -3001,6 +3143,260 @@ J.
 \series default
 , pp.
  246-257, 1991.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfde1"
+literal "false"
+
+\end_inset
+
+Nam Mai-Duy, Thanh Tran-Cong, Numerical solution of differential equations
+ using multiquadric radial basis function networks, Neural Networks 14,
+ pp.
+ 185-199, 2001.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfde2"
+literal "false"
+
+\end_inset
+
+N.
+ Mai‐Duy, Solving high order ordinary differential equations with radial
+ basis function networks.
+ Int.
+ J.
+ Numer.
+ Meth.
+ Engng.
+ 
+\series bold
+62
+\series default
+, pp.
+ 824-852, 2005.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfnetwork1"
+literal "false"
+
+\end_inset
+
+C.
+ Laoudias, P.
+ Kemppi and C.
+ G.
+ Panayiotou, Localization Using Radial Basis Function Networks and Signal
+ Strength Fingerprints in WLAN, GLOBECOM 2009 - 2009 IEEE Global Telecommunicati
+ons Conference, Honolulu, HI, 2009, pp.
+ 1-6, 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfnetwork2"
+literal "false"
+
+\end_inset
+
+M.
+ Azarbad, S.
+ Hakimi, A.
+ Ebrahimzadeh, Automatic recognition of digital communication signal, Internatio
+nal journal of energy, information and communications 
+\series bold
+3
+\series default
+, pp.
+ 21-33, 2012.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfphysics1"
+literal "false"
+
+\end_inset
+
+P.
+ Teng, Machine-learning quantum mechanics: Solving quantum mechanics problems
+ using radial basis function networks, Phys.
+ Rev.
+ E 
+\series bold
+98
+\series default
+, 033305, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfphysics2"
+literal "false"
+
+\end_inset
+
+R.
+ Jovanović, A.
+ Sretenovic, Ensemble of radial basis neural networks with K-means clustering
+ for heating energy consumption prediction, FME Transactions 
+\series bold
+45
+\series default
+, pp.
+ 51-57, 2017.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfchemistry1"
+literal "false"
+
+\end_inset
+
+D.L.
+ Yu, J.B.
+ Gomm, D.
+ Williams, Sensor fault diagnosis in a chemical process via RBF neural networks,
+ Control Engineering Practice 
+\series bold
+7
+\series default
+, pp.
+ 49-55, 1999.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfchemistry2"
+literal "false"
+
+\end_inset
+
+V.
+ Shankar, G.B.
+ Wright, A.L.
+ Fogelson, R.M.
+ Kirby, A radial basis function (RBF) finite difference method for the simulatio
+n of reaction–diffusion equations on stationary platelets within the augmented
+ forcing method, Int.
+ J.
+ Numer.
+ Meth.
+ Fluids 
+\series bold
+75
+\series default
+, pp.
+ 1-22, 2014.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfecon0"
+literal "false"
+
+\end_inset
+
+W.
+ Shen, X.
+ Guo, C.
+ Wu, D.
+ Wu, Forecasting stock indices using radial basis function neural networks
+ optimized by artificial fish swarm algorithm, Knowledge-Based Systems 24,
+ pp.
+ 378-385, 2011.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfecon1"
+literal "false"
+
+\end_inset
+
+J.
+ A.
+ Momoh, S.
+ S.
+ Reddy, Combined Economic and Emission Dispatch using Radial Basis Function,
+ 2014 IEEE PES General Meeting | Conference & Exposition, National Harbor,
+ MD, pp.
+ 1-5, 2014.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfecon2"
+literal "false"
+
+\end_inset
+
+P.
+ Sohrabi, B.
+ Jodeiri Shokri, H.
+ Dehghani, Predicting coal price using time series methods and combination
+ of radial basis function (RBF) neural network with time series.
+ Miner Econ 2021.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbf_dos1"
+literal "false"
+
+\end_inset
+
+U.
+ Ravale, N.
+ Marathe, P.
+ Padiya, Feature Selection Based Hybrid Anomaly Intrusion Detection System
+ Using K Means and RBF Kernel Function, Procedia Computer Science 
+\series bold
+45
+\series default
+, pp.
+ 428-435, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbf_dos2"
+literal "false"
+
+\end_inset
+
+M.
+ Lopez-Martin, A.
+ Sanchez-Esguevillas, J.
+ I.
+ Arribas, B.
+ Carro, Network Intrusion Detection Based on Extended RBF Neural Network
+ With Offline Reinforcement Learning, IEEE Access 
+\series bold
+9
+\series default
+, pp.
+ 153153-153170, 2021.
 \end_layout
 
 \begin_layout Bibliography
