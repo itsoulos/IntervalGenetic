@@ -174,6 +174,11 @@ The vector
 \end_inset
 
  is the input pattern to the equation.
+ The number of values in this vector is denoted as 
+\begin_inset Formula $d$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -300,9 +305,11 @@ literal "false"
 \end_inset
 
  etc.
-
+ RBF networks are thoroughly discussed in
 \series bold
- and they have many advantages
+ 
+\series default
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "rbfadv"
@@ -310,23 +317,99 @@ literal "false"
 
 \end_inset
 
- such as: good generalization abilities, tolerance in noisy data, parallelizatio
-n ability
+ and it has been parallelized in a variety of research papers 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "rbfparallel"
+key "rbfpar1,rbfpar2"
 literal "false"
 
 \end_inset
 
- etc
+.
+ This model has been extended by various researchers in tasks such as creating
+ new initialization techniques for the network parameters,
+\series bold
+ 
+\series default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbfinit1,rbfinit2,rbfinit3"
+literal "false"
+
+\end_inset
+
+, prunning techniques
+\series bold
+ 
+\series default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbfprun1,rbfprun2,rbfprun3"
+literal "false"
+
+\end_inset
+
+, construction of RBF networks 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbfcon1,rbfcon2,rbfcon3"
+literal "false"
+
+\end_inset
+
+ etc.
+ In the current work, a hybrid technique is proposed for the optimal calculation
+ of the parameters of an RBF network.
+ This technique consists of two phases: during the first phase a range of
+ values for the network parameters is estimated using an interval technique,
+ guided by a Particle Swarm Optimizer (PSO).
+ In the second phase, the network parameters are optimized within the optimal
+ value interval of the first phase using a genetic algorithm.
+\end_layout
+
+\begin_layout Standard
+The rest of this article is organized as follows: in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Method-description"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ the two phases of the proposed method are thoroughly discussed, in section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Experiments"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ the experimental datasets are listed as well as the experimental results
+ and finally in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Conclusions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ some conclusions are presented.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -364,10 +447,1620 @@ name "fig:gauss"
 
 \begin_layout Section
 Method description 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Method-description"
+
+\end_inset
+
+
 \end_layout
 
+\begin_layout Standard
+The proposed work uses two computational phases to optimally calculate the
+ network parameters.
+ The following subsections analyze both of these phases in detail.
+\end_layout
+
+\begin_layout Subsection
+Interval location phase 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(na spasei se ypoenotites)
+\end_layout
+
+\begin_layout Standard
+During this phase arithmetic interval techniques are used to find a suitable
+ interval of values for the network parameters.
+ To do this the training error of the network is minimized: 
+\begin_inset Formula 
+\begin{equation}
+\min\left(E\left(y\right)\right)=\sum_{i=1}^{m}\left(y\left(x_{i}\right)-t_{i}\right)^{2}\label{eq:eqrbf}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $m$
+\end_inset
+
+ is number of patterns and 
+\begin_inset Formula $t_{i}$
+\end_inset
+
+ is the output for pattern 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+.
+ The interval techniques 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "interval0,interval1,interval2"
+literal "false"
+
+\end_inset
+
+ are a common method in global optimization with various applications 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "interval_app1,interval_app2,interval_app3"
+literal "false"
+
+\end_inset
+
+.
+ In the proposed algorithm, the RBF network contains 
+\begin_inset Formula $n$
+\end_inset
+
+ variables, where
+\begin_inset Formula 
+\begin{equation}
+n=(d+2)\times k
+\end{equation}
+
+\end_inset
+
+ The value of 
+\begin_inset Formula $n$
+\end_inset
+
+ is calculated as follows:
+\end_layout
+
+\begin_layout Enumerate
+Every center 
+\begin_inset Formula $\overrightarrow{c_{i}},\ i=1,..,k$
+\end_inset
+
+ has 
+\begin_inset Formula $d$
+\end_inset
+
+ variables, which means 
+\begin_inset Formula $d\times k$
+\end_inset
+
+ variables.
+\end_layout
+
+\begin_layout Enumerate
+For every center a separated value 
+\begin_inset Formula $\sigma_{i}$
+\end_inset
+
+ is used for the Gaussian processing unit, which means 
+\begin_inset Formula $k$
+\end_inset
+
+ variables.
+\end_layout
+
+\begin_layout Enumerate
+The output weight 
+\begin_inset Formula $\overrightarrow{w}$
+\end_inset
+
+ has also 
+\begin_inset Formula $k$
+\end_inset
+
+ variables.
+\end_layout
+
+\begin_layout Standard
+The first phase aims to locate the most promising bounding box for the 
+\begin_inset Formula $n$
+\end_inset
+
+ parameters of the neural network.
+ The initial bounding box is defined as
+\series bold
+ 
+\begin_inset Formula $S$
+\end_inset
+
+ 
+\series default
+which is a subset of 
+\begin_inset Formula $\mathbb{R^{\mbox{n}}}$
+\end_inset
+
+:
+\series bold
+ 
+\begin_inset Formula 
+\begin{equation}
+S=\left[a_{1},b_{1}\right]\otimes\left[a_{2},b_{2}\right]\otimes\ldots\left[a_{n},b_{n}\right]\label{eq:eq2}
+\end{equation}
+
+\end_inset
+
+
+\series default
+The interval method of the first phase divides the set 
+\begin_inset Formula $S$
+\end_inset
+
+ subsequently
+\series bold
+ 
+\series default
+by discarding areas that may not contain the global optimum of equation
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eqrbf"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ In order to perform interval arithmetic on RBF networks the following definitio
+ns are introduced:
+\end_layout
+
+\begin_layout Enumerate
+The comparison of two intervals 
+\begin_inset Formula $W=\left[w_{1},w_{2}\right]$
+\end_inset
+
+, 
+\begin_inset Formula $Z=\left[z_{1},z_{2}\right]$
+\end_inset
+
+ is performed through the function 
+\begin_inset Formula 
+\begin{eqnarray}
+L^{*}(W,Z) & = & \begin{cases}
+\mbox{TRUE}, & w_{1}<z_{1},\mbox{OR\ \ensuremath{\left(w_{1}=z_{1}\ \mbox{AND}\ w_{2}<z_{2}\right)}}\\
+\mbox{FALSE}, & \mbox{\mbox{OTHERWISE}}
+\end{cases}\label{eq:eql}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The function 
+\begin_inset Formula $E(y)$
+\end_inset
+
+ (equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eqrbf"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) is modified to an interval one
+\begin_inset Formula 
+\begin{equation}
+[E_{min},E_{max}]=\sum_{i=1}^{M}\left(y\left(x_{i}\right)-t_{i}\right)^{2}\label{eq:eq1interval}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In order to locate the best interval for the parameters of the network a
+ modified PSO algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "pso1"
+literal "false"
+
+\end_inset
+
+ is used, in which the particles are intervals for the network parameters.
+
+\series bold
+ 
+\series default
+The PSO method is a global optimization method based on a population of
+ candidate solutions, that in most cases called called particles.
+ The method is based on two vectors: the current location of particles denoted
+ as 
+\begin_inset Formula $\overrightarrow{p}$
+\end_inset
+
+ and the velocity for their movement denoted as 
+\begin_inset Formula $\overrightarrow{u}$
+\end_inset
+
+.
+ The PSO method finds the global minimum by moving the particles based on
+ their previous best position as well as the best position of the total
+ population of particles.
+ The initial bounding boxes for the centres and variances of the RBF network
+ are constructed using the K-Means clustering algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kmeans"
+literal "false"
+
+\end_inset
+
+, which is shown in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:The-K-Means-algorithm."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Subsequently, the initial values for the intervals 
+\begin_inset Formula $\left[a_{i},b_{i}\right]$
+\end_inset
+
+ are calculated through the algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:initialValues"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The values for the intervals for the first 
+\begin_inset Formula $(d+1)\times k$
+\end_inset
+
+ variables are obtained as a multiple of the positive quantity 
+\begin_inset Formula $F$
+\end_inset
+
+ with the values obtained from the KMeans.
+ The value 
+\begin_inset Formula $B$
+\end_inset
+
+ is used to initialize the intervals for the output weight 
+\begin_inset Formula $\overrightarrow{w}$
+\end_inset
+
+.
+ Afterwards, the following PSO variant is taken place:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $N_{c}$
+\end_inset
+
+ the number of particles.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+ the maximum number of generations allowed.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Construct
+\series default
+ 
+\begin_inset Formula $S=\left[a_{1},b_{1}\right]\otimes\left[a_{2},b_{2}\right]\otimes\ldots\left[a_{n},b_{n}\right]$
+\end_inset
+
+, as obtained from the previous two algorithms.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialize
+\series default
+ the 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+ particles.
+ Each particle 
+\begin_inset Formula $p_{i},\ i=1,...,N_{c}$
+\end_inset
+
+ is considered as a set of intervals randomly initialized in 
+\begin_inset Formula $S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,...,N_{c}$
+\end_inset
+
+ 
+\series bold
+do 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $p_{b,i}=p_{i}$
+\end_inset
+
+ the best located value for particle 
+\begin_inset Formula $i$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $j=1,...,n$
+\end_inset
+
+ do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $\delta$
+\end_inset
+
+ the width of interval 
+\begin_inset Formula $p_{ij}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $u_{ij}=\left[-r\frac{\delta}{20},r\frac{\delta}{20}\right]$
+\end_inset
+
+, where 
+\begin_inset Formula $r$
+\end_inset
+
+ a random number in 
+\begin_inset Formula $[0,1]$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ iter=0
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,...,N_{c}$
+\end_inset
+
+ 
+\series bold
+do 
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:For--do"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ iter=iter+1
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $\mbox{iter\ensuremath{\le N_{g}} }$
+\end_inset
+
+goto step 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:For--do"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The K-Means algorithm.
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:The-K-Means-algorithm."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Repeat
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $S_{j}=\left\{ \right\} ,\ j=1..k$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ each sample 
+\begin_inset Formula $x_{i},\ i=1,...,m$
+\end_inset
+
+ 
+\series bold
+Do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Calculate
+\series default
+ 
+\begin_inset Formula $j^{*}=\min_{i=1}^{k}\left\{ D\left(x_{i},c_{j}\right)\right\} $
+\end_inset
+
+, the nearest center for sample 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $S_{j^{*}}=S_{j^{*}}\cup\left\{ x_{i}\right\} $
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ every center 
+\begin_inset Formula $c_{j},\ j=1..k$
+\end_inset
+
+ 
+\series bold
+Do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Define
+\series default
+ 
+\begin_inset Formula $M_{j}$
+\end_inset
+
+ as the number of elements in 
+\begin_inset Formula $S_{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Calculate 
+\series default
+
+\begin_inset Formula $c_{j}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula 
+\[
+c_{j}=\frac{1}{M_{j}}\sum_{i=1}^{M_{j}}x_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\series default
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Calculate
+\series default
+ the variances for every center as 
+\begin_inset Formula 
+\[
+s_{j}^{2}=\frac{\sum_{i=1}^{M_{j}}\left(x_{i}-c_{j}\right)^{2}}{M_{j}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Terminate 
+\series default
+if there is no change in centers 
+\begin_inset Formula $c_{j}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float algorithm
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The location of the initial values for 
+\begin_inset Formula $\left[a_{i},b_{i}\right],\ i=1,...,n$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:initialValues"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ m=0
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $F>1,\ B>0$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1..k$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $j=1..d$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $a_{m}$
+\end_inset
+
+=
+\begin_inset Formula $-F\times c_{ij}$
+\end_inset
+
+, 
+\begin_inset Formula $b_{m}$
+\end_inset
+
+=
+\begin_inset Formula $F\times c_{ij}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $m=m+1$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $a_{m}=-F\times\sigma_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $b_{m}=F\times\sigma_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $m=m+1$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $j=1,...,k$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $a_{m}=-B,\ b_{m}=B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $m=m+1$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Optimization of parameters through genetic algorithm
+\end_layout
+
+\begin_layout Standard
+For the case of the RBF network a particle has the form of figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-layout-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The layout of the particles in the proposed PSO algorithm.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:The-layout-of"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="20">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c_{11}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c_{12}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c_{1d}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c_{21}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c_{22}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c_{2d}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sigma_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c_{k1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c_{k2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c_{kd}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sigma_{k}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $w_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $w_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\ldots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $w_{k}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(to be changed)
+\end_layout
+
+\begin_layout Standard
+The genetic algorithm used here is based on the algorithm denoted as 
+\begin_inset Formula $\mbox{GA}\left(c_{r1},l\right)$
+\end_inset
+
+ in the paper of Kaelo and Ali
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kaeloali"
+literal "false"
+
+\end_inset
+
+  with a modified stopping rule as proposed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Tsoulos1"
+literal "false"
+
+\end_inset
+
+.
+ The basic steps of the main algorithm are given below:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialization Step
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Read
+\series default
+ the train set with 
+\begin_inset Formula $m$
+\end_inset
+
+ patterns of 
+\begin_inset Formula $d$
+\end_inset
+
+ dimension.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $k$
+\end_inset
+
+ the number of nodes for the RBF network.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Estimate
+\series default
+ the vectors 
+\begin_inset Formula $\overrightarrow{L},\ \overrightarrow{R}$
+\end_inset
+
+ using the procedure of subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Bound-location-phase"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialize
+\series default
+ a genetic population of 
+\begin_inset Formula $N_{C}$
+\end_inset
+
+ random chromosomes inside 
+\begin_inset Formula $[L,R]$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ the selection rate 
+\begin_inset Formula $p_{s}\in[0,1]$
+\end_inset
+
+, the mutation rate 
+\begin_inset Formula $p_{M}\in[0,1]$
+\end_inset
+
+ , 
+\begin_inset Formula $iter=0,$
+\end_inset
+
+ and 
+\begin_inset Formula $i_{max}$
+\end_inset
+
+ the maximum number of generations.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Evaluation Step
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\series bold
+For
+\series default
+ every chromosome 
+\begin_inset Formula $g$
+\end_inset
+
+ 
+\series bold
+calculate
+\series default
+ using the procedure defined in subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Fitness-evaluation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ the fitness 
+\begin_inset Formula $f_{g}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Genetic operations step
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+During this step three genetic operations are performed: selection, crossover
+ and mutation.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Selection procedure.
+
+\series default
+ Firstly the chromosomes are sorted with relevance to their corresponding
+ fitness value.
+ The best 
+\begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
+\end_inset
+
+ are transferred without change to the next generation and the remain ones
+ are substituted by offsprings created through the crossover procedure.
+ In the crossover procedure the mating parent are selected using tournament
+ selection for every parent.
+ The tournament selection has as follows: 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Select as set of 
+\begin_inset Formula $T>2$
+\end_inset
+
+ chromosomes from the population
+\end_layout
+
+\begin_layout Enumerate
+Return the chromosome with the best fitness value in this subset.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Crossover procedure
+\series default
+ : For every pair 
+\begin_inset Formula $(z,w)$
+\end_inset
+
+ of selected parents create two new offsprings 
+\begin_inset Formula $\tilde{z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{w}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray}
+\tilde{z_{i}} & = & a_{i}z_{i}+\left(1-a_{i}\right)w_{i}\nonumber \\
+\tilde{w_{i}} & = & a_{i}w_{i}+\left(1-a_{i}\right)z_{i}\label{eq:crossover_ali-1}
+\end{eqnarray}
+
+\end_inset
+
+with 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ a random number and 
+\begin_inset Formula $a_{i}\in[-0.5,1.5]$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kaeloali"
+literal "true"
+
+\end_inset
+
+.
+ This crossover scheme will be able to better explore the search space of
+ the train error.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Mutation procedure
+\series default
+ : For every element of each chromosome create a random number 
+\begin_inset Formula $r\in\left[0,1\right]$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $r\le p_{m}$
+\end_inset
+
+ then change randomly this element.
+ The mutation is performed in a way similar to other approaches of genetic
+ algorithms
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Tsoulos1"
+literal "false"
+
+\end_inset
+
+ and it is described in subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Mutation-procedure"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Replace
+\series default
+ the 
+\begin_inset Formula $p_{s}\times N_{c}$
+\end_inset
+
+ worst chromosomes in the population with the generated offsprings.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Termination Check Step
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $iter=iter+1$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Terminate
+\series default
+ if the termination criteria of subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Stopping-rule"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ are satisfied, 
+\series bold
+else Goto
+\series default
+ Evaluation Step.
+\end_layout
+
+\end_deeper
 \begin_layout Section
 Experiments 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Experiments"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1080,6 +2773,158 @@ Wankara
 
 \begin_layout Subsection
 Experimental results
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Experimental parameters
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Experimental-parameters"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PARAMETER
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+VALUE
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2975,6 +4820,17 @@ AVERAGE
 
 \begin_layout Section
 Conclusions
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Conclusions"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Write some conclusions here
 \end_layout
 
 \begin_layout Bibliography
@@ -3399,6 +5255,395 @@ M.
 \series default
 , pp.
  153153-153170, 2021.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfadv"
+literal "false"
+
+\end_inset
+
+H.
+ Yu, T.
+ Xie, S.
+ Paszczynski and B.
+ M.
+ Wilamowski, Advantages of Radial Basis Function Networks for Dynamic System
+ Design,IEEE Transactions on Industrial Electronics v
+\series bold
+ 58
+\series default
+, pp.
+ 5438-5450, 2011.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfpar1"
+literal "false"
+
+\end_inset
+
+R.
+ Yokota, L.A.
+ Barba, M.
+ G.
+ Knepley, PetRBF — A parallel O(N) algorithm for radial basis function interpola
+tion with Gaussians, Computer Methods in Applied Mechanics and Engineering
+ 
+\series bold
+199
+\series default
+, pp.
+ 1793-1804, 2010.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfpar2"
+literal "false"
+
+\end_inset
+
+C.
+ Lu, N.
+ Ma, Z.
+ Wang, Fault detection for hydraulic pump based on chaotic parallel RBF
+ network, EURASIP J.
+ Adv.
+ Signal Process.
+ 
+\series bold
+2011
+\series default
+, 49, 2011.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfinit1"
+literal "false"
+
+\end_inset
+
+L.I.
+ Kuncheva, Initializing of an RBF network by a genetic algorithm, Neurocomputing
+ 
+\series bold
+14
+\series default
+, pp.
+ 273-288, 1997.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfinit2"
+literal "false"
+
+\end_inset
+
+F.
+ Ros, M.
+ Pintore, A.
+ Deman, J.R.
+ Chrétien, Automatical initialization of RBF neural networks, Chemometrics
+ and Intelligent Laboratory Systems 
+\series bold
+87
+\series default
+, pp.
+ 26-32, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfinit3"
+literal "false"
+
+\end_inset
+
+D.
+ Wang, X.J.
+ Zeng, J.A.
+ Keane, A clustering algorithm for radial basis function neural network
+ initialization, Neurocomputing 
+\series bold
+77
+\series default
+, pp.
+ 144-155, 2012.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfprun1"
+literal "false"
+
+\end_inset
+
+E.
+ Ricci, R.
+ Perfetti, Improved pruning strategy for radial basis function networks
+ with dynamic decay adjustment, Neurocomputing 
+\series bold
+69
+\series default
+, pp.
+ 1728-1732, 2006.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfprun3"
+literal "false"
+
+\end_inset
+
+Guang-Bin Huang, P.
+ Saratchandran and N.
+ Sundararajan, A generalized growing and pruning RBF (GGAP-RBF) neural network
+ for function approximation, IEEE Transactions on Neural Networks 
+\series bold
+16
+\series default
+, pp.
+ 57-67, 2005.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfprun2"
+literal "false"
+
+\end_inset
+
+M.
+ Bortman and M.
+ Aladjem, A Growing and Pruning Method for Radial Basis Function Networks,
+ IEEE Transactions on Neural Networks 
+\series bold
+20
+\series default
+, pp.
+ 1039-1045, 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfcon1"
+literal "false"
+
+\end_inset
+
+N.
+ B.
+ Karayiannis, M.
+ M.
+ Randolph-Gips, On the construction and training of reformulated radial
+ basis function neural networks, IEEE Transactions on Neural Networks 
+\series bold
+14
+\series default
+, pp.
+ 835-846, 2003.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfcon2"
+literal "false"
+
+\end_inset
+
+J.X.
+ Peng, K.
+ Li, D.S.
+ Huang, A Hybrid Forward Algorithm for RBF Neural Network Construction,
+ IEEE Transactions on Neural Networks, 
+\series bold
+17
+\series default
+, pp.
+ 1439-1451, 2006.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfcon3"
+literal "false"
+
+\end_inset
+
+D.
+ Du, K.
+ Li, M.
+ Fei, A fast multi-output RBF neural network construction method, Neurocomputing
+ 
+\series bold
+73
+\series default
+, pp.
+ 2196-2202, 2010.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "interval0"
+literal "false"
+
+\end_inset
+
+E.
+ Hansen and G.W.
+ Walster.Global Optimization using Interval Analy-sis.Marcel Dekker Inc., New
+ York, 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "interval1"
+literal "false"
+
+\end_inset
+
+M.Cs.
+ Markót,FernándezL.G.
+ and CasadoT.
+ Csendes, New interval methods for constrained global optimization, Mathematical
+ Programming 
+\series bold
+106
+\series default
+, pp.
+ 287-318, 2006.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "interval2"
+literal "false"
+
+\end_inset
+
+A.
+ Žilinskas, and J.
+ Žilinskas, Interval Arithmetic Based Optimization in Nonlinear Regression,
+ Informatica 
+\series bold
+21
+\series default
+, pp.
+ 149-158, 2010.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "interval_app1"
+literal "false"
+
+\end_inset
+
+C.A.
+ Schnepper, M.A.
+ Stadtherr, Robust process simulation using interval methods, Computers
+ & Chemical Engineering 
+\series bold
+20
+\series default
+, pp.
+ 187-199, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "interval_app2"
+literal "false"
+
+\end_inset
+
+C.
+ Carreras, I.
+ D.
+ Walker, Interval methods for fault-tree analysis in robotics, IEEE Transactions
+ on Reliability 
+\series bold
+50
+\series default
+, pp.
+ 3-11, 2001.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "interval_app3"
+literal "false"
+
+\end_inset
+
+A.
+ Serguieva, J.
+ Hunte, Fuzzy interval methods in investment risk appraisal, Fuzzy Sets
+ and Systems 
+\series bold
+142
+\series default
+, pp.
+ 443-466, 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "pso1"
+literal "true"
+
+\end_inset
+
+Riccardo Poli, James Kennedy kennedy, Tim Blackwell, Particle swarm optimization
+ An Overview, Swarm Intelligence 
+\series bold
+1
+\series default
+, pp 33-57, 2007.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "kmeans"
+literal "false"
+
+\end_inset
+
+J.
+ MacQueen, Some methods for classification and analysis of multivariate
+ observations, in: Proceedings of the fifth Berkeley symposium on mathematical
+ statistics and probability, Vol.
+ 1, No.
+ 14, pp.
+ 281-297, 1967.
+ 
 \end_layout
 
 \begin_layout Bibliography

@@ -25,7 +25,9 @@ IntervalPso::IntervalPso(IntervalProblem *p,int pcount)
        for(int j=0;j<problem->getDimension();j++)
        {
            double r=psoRand();
-           velocity[i][j]=Interval(0.0,0.0);
+	   
+	   double delta = position[i][j].width()/20.0;
+           velocity[i][j]=Interval(-psoRand()*delta,psoRand()*delta);
 
        }
        bestPosition[i]=position[i];
@@ -64,25 +66,49 @@ Data    IntervalPso::getBestPoint()
 
     if(k==1 || fx<miny)
     {
-        printf("FINAL MINY = %20.10lg\n",miny);
+        //printf("FINAL MINY = %20.10lg\n",miny);
 
         miny=fx;
         bestx1=trialx;
     }}
-    printf("FINAL MINY = %20.10lg\n",miny);
+    //printf("FINAL MINY = %20.10lg\n",miny);
     return bestx1;
 }
 
 void           IntervalPso::Solve()
 {
-    for(generationCount=1;generationCount<=20;generationCount++)
+    for(generationCount=1;generationCount<=100;generationCount++)
     {
         updatePositions();
         updateVelocities();
+	printf("ITERATION =%5d BESTY=[%lf,%lf]\n",generationCount,besty.leftValue(),besty.rightValue());
+	if(generationCount%10==0)
+	{
+		besty = psoLocalSearch(bestx,50);
+		if(2==3)
+		for(int i=0;i<20;i++)
+		{
+			int pos = rand() %particleCount;
+			fitnessArray[pos]=psoLocalSearch(position[pos],50);
+        		if(problem->lowerValue(fitnessArray[pos],bestFitnessArray[pos]))
+        		{
+            			bestPosition[pos]=position[pos];
+           			 bestFitnessArray[pos]=fitnessArray[pos];
 
+	    			printf("LOCAL UPDATE %d to [%lf,%lf]\n",pos,bestFitnessArray[pos].leftValue(),
+				bestFitnessArray[pos].rightValue());
+        			if(problem->lowerValue(bestFitnessArray[pos],besty))
+        			{
+
+            				besty=bestFitnessArray[pos];
+            				bestx=bestPosition[pos];
+        			}
+        		}
+
+		}
+	}
 
     }
-  //  besty=psoLocalSearch(bestx,100);
 
 }
 
@@ -98,34 +124,54 @@ Interval       IntervalPso::getBesty()
 
 Interval       IntervalPso::psoLocalSearch(IntervalData &x,int iters)
 {
-    IntervalData left=x;
-    IntervalData right=x;
-    Interval value;//=problem->IntFunmin(x);
+    Interval fL=Interval(0,0);
+    Interval fR=Interval(0,0);
+
+    Interval value =psoFitness(x);
     for(int k=1;k<=iters;k++)
     {
+        bool minFound=false;
     for(int i=0;i<x.size();i++)
     {
+       Interval temp=Interval(0,0);
+       int ipos=rand() % x.size();
+       temp=x[ipos];
+       x[ipos]=x[ipos].left();
+       Interval fL=psoFitness(x);
+       if(problem->lowerValue(fL,value))
+       {
 
-        left[i]=x[i].right();
-        right[i]=x[i].left();
+           value=fL;
+           minFound=true;
+         break;
+       }
+       else
+       {
+           x[ipos]=temp;
+       }
+
+       temp=x[ipos];
+       x[ipos]=x[ipos].right();
+       Interval fR=psoFitness(x);
+       if(problem->lowerValue(fR,value))
+       {
+
+           value=fR;
+           minFound=true;
+         break;
+       }
+       else
+       {
+           x[ipos]=temp;
+       }
     }
-    Interval fL;//=problem->IntFunmin(left);
-    Interval fR;//=problem->IntFunmin(right);
-
-    if(problem->lowerValue(fL,fR))
-    {
-        x=left;
-        value=fL;
-    }
-    else
-    {
-        x=right;
-        value=fR;
-     }
-
-     if(problem->getVolume(x)/problem->getDimension()<1e-5) break;
+//    cout<<"ITERATION "<<k<<" NEW VALUE "<<value<<endl;
+   // break;
+   
+ //  if (minFound) break;
     }
     return value;
+
 }
 Interval       IntervalPso::psoFitness(IntervalData &x)
 {
@@ -157,19 +203,31 @@ void           IntervalPso::updateVelocities()
 {
     double inertia=0.50+psoRand()/2.0;
     double c1=1.0,c2=1.0;
+    const double wmax =0.9;
+    const double wmin =0.5;
+    const int maxgenerations = 100;
+//    inertia = wmax - generationCount *1.0/maxgenerations*(wmax-wmin);
+
     for(int i=0;i<particleCount;i++)
     {
+	    double norm = 0.0;
+	    for(int j=0;j<problem->getDimension();j++)
+	    {
+		    norm+=pow(position[i][j].leftValue(),2.0);
+	    }
+	    norm = sqrt(norm);
+	    norm = 1000.0;
         for(int j=0;j<problem->getDimension();j++)
         {
             Interval oldVel=velocity[i][j];
            velocity[i][j]=inertia * velocity[i][j]+c1 * psoRand()*
                    (bestPosition[i][j]-position[i][j])
                    +c2 * psoRand()*(bestx[i]-position[i][j]);
-           velocity[i][j]=Interval(velocity[i][j].leftValue()/100.0,
-                                   velocity[i][j].rightValue()/100.0);
-           printf("velocity %lf %lf\n",
-                  velocity[i][j].leftValue(),
-                  velocity[i][j].rightValue());
+           velocity[i][j]=Interval(velocity[i][j].leftValue()/norm,
+                                  velocity[i][j].rightValue()/norm);
+           //printf("velocity %lf %lf\n",
+           //       velocity[i][j].leftValue(),
+           //       velocity[i][j].rightValue());
 
         /*   if(velocity[i][j].is_empty())
                 velocity[i][j]=oldVel;
@@ -180,7 +238,6 @@ void           IntervalPso::updateVelocities()
             }*/
 
         }
-       problem->boundInterval(velocity[i]);
     }
 }
 
@@ -195,6 +252,7 @@ void           IntervalPso::updatePositions()
 
             position[i][j]=position[i][j]+velocity[i][j];
         }
+       problem->boundInterval(position[i]);
 
         /*if(!problem->isPointIn(position[i]))
         {
@@ -215,11 +273,7 @@ void           IntervalPso::updatePositions()
         {
 
             besty=bestFitnessArray[i];
-            printf("BESTY [%lf %lf]\n",besty.leftValue(),
-                   besty.rightValue());
             bestx=bestPosition[i];
-            Interval ff = psoFitness(bestx);
-            printf("Best fitness [%lf,%lf]\n ",ff.leftValue(),ff.rightValue());
         }
     }
 }
