@@ -243,16 +243,6 @@ noprefix "false"
 .
  As can be seen from the figure, the value of the function decreases as
  we move away from the center.
- An extensive overview of RBF networks is given in the work of Ghosh and
- Nag 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "rbfghosh"
-literal "false"
-
-\end_inset
-
-.
  RBF networks was used as an approximation tools in various cases such as
   solution of differential equations 
 \begin_inset CommandInset citation
@@ -467,135 +457,6 @@ name "sec:Method-description"
 \end_layout
 
 \begin_layout Standard
-The training error of the RBF network is expressed as: 
-\begin_inset Formula 
-\begin{equation}
-E(y)=\sum_{i=1}^{m}\left(y\left(x_{i}\right)-t_{i}\right)^{2}\label{eq:eqrbf}
-\end{equation}
-
-\end_inset
-
-where 
-\begin_inset Formula $m$
-\end_inset
-
- is number of patterns and 
-\begin_inset Formula $t_{i}$
-\end_inset
-
- is the output for pattern 
-\begin_inset Formula $x_{i}$
-\end_inset
-
-.
- Usually RBF networks are trained through a two phase procedure: 
-\end_layout
-
-\begin_layout Enumerate
-In the first phase the 
-\begin_inset Formula $k$
-\end_inset
-
- centers as well as the associated variances are estimated through K-Means
- algorithm 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "kmeans"
-literal "false"
-
-\end_inset
-
-.
- A typical formulation of the K-Means algorithm is outlined in Algorithm
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:The-K-Means-algorithm."
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-In the second phase, the weight vector 
-\begin_inset Formula $\overrightarrow{w}=\left(w_{1},w_{2},\ldots,w_{k}\right)$
-\end_inset
-
- is estimated by solving a linear system of equations.
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- 
-\series bold
-
-\begin_inset Formula $W=w_{kj}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- 
-\series bold
-
-\begin_inset Formula $\Phi=\phi_{j}\left(x_{i}\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set 
-\begin_inset Formula $T=\left\{ t_{i}=f\left(x_{i}\right),i=1,..,M\right\} $
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Enumerate
-The system to be solved is identified as:
-\series bold
- 
-\begin_inset Formula 
-\begin{equation}
-\Phi^{T}\left(T-\Phi W^{T}\right)=0
-\end{equation}
-
-\end_inset
-
-
-\series default
-With solution:
-\series bold
-
-\begin_inset Formula 
-\begin{equation}
-W^{T}=\left(\Phi^{T}\Phi\right)^{-1}\Phi^{T}T=\Phi^{\dagger}T\label{eq:eqoutput}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
 The proposed work uses two computational phases to optimally calculate the
  network parameters.
  The following subsections analyze both of these phases in detail.
@@ -614,6 +475,27 @@ Interval location phase
 \begin_layout Standard
 During this phase arithmetic interval techniques are used to find a suitable
  interval of values for the network parameters.
+ To do this the training error of the network is minimized: 
+\begin_inset Formula 
+\begin{equation}
+\min\left(E\left(y\right)\right)=\sum_{i=1}^{m}\left(y\left(x_{i}\right)-t_{i}\right)^{2}\label{eq:eqrbf}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $m$
+\end_inset
+
+ is number of patterns and 
+\begin_inset Formula $t_{i}$
+\end_inset
+
+ is the output for pattern 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+.
  The interval techniques 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2904,21 +2786,20 @@ literal "false"
 \end_inset
 
 .
- In addition, in order to have greater reliability in the experimental results,
- a 10-fold validation technique was used.
- All the experiments were executed 30 times with different seed for the
- random generator each time and average was measured.
- For the classification datasets average classification error was reported
- and for the regression datasets the mean test error.
-
+  
 \series bold
- 
-\series default
-All the experiments were conducted on an AMD Ryzen 5950X equipped with 128GB
- of RAM.
- The operating system used was Debian Linux.
- In order to speed up the training process the OpenMP library was incorporated
- 
+Also, to have more reliability in the results the common used method of
+ 10 - fold cross validation was used, which means that the the original
+ data was randomly partitioned into 10 equal sized subsamples.
+ Subsequently, 10 independent experiments were conducted: in each experiments
+ one subsample is used as the testing data and all the others as the training
+ data.
+ The average error on the test data is the total test error.
+ All the experiments were executed 30 times with different initialization
+ for the random generator each time.
+ The random generator used was the function drand48() of C programming language.
+ The execution environment was an Intel Xeon E5-2630 multi core machine
+ using the OpenMP library 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "openmp"
@@ -2926,116 +2807,7 @@ literal "false"
 
 \end_inset
 
-.
- The experimental settings are listed in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Experimental-parameters"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- The experimental results for the classification datasets are listed in
- Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Experiments-for-classification"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-and for the regression datasets in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:experiments-regression"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- The following applies to the tables of results:
-\end_layout
-
-\begin_layout Enumerate
-The column RBF-KMEANS denotes the classic training method for RBF networks
- by estimating centers and variances through K-Means and the output weights
- by solving a linear system of equations.
-\end_layout
-
-\begin_layout Enumerate
-The column IRBF-100 denotes the application of the proposed method with
- 
-\begin_inset Formula $\lambda=100$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-The column IRBF-1000 denotes the application of the proposed method with
- 
-\begin_inset Formula $\lambda=1000$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-In both tables an extra line has been added, in which the mean error for
- each method is shown.
- This row is denoted by the name AVERAGE.
-\end_layout
-
-\begin_layout Standard
-From the experimental results, it is evident that the proposed technique
- significantly outperforms the RBF training technique by an average of 35-40%
- in terms of error in the test set.
- In fact, in some dataset this gain is more than doubled.
- Furthermore, the differences in performance between the original training
- method and the proposed technique are graphically presented in the figures
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:class_error"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:graph_regression"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- However, the proposed technique is significantly slower than the original
- training technique, as it is a two-stage technique.
- In the first stage, an optimal interval of values for the network parameters
- is created with a modified PSO method, and in the second stage, the network
- is trained using a genetic algorithm.
- Of course, this extra time could be significantly reduced by using parallel
- techniques, as was done experimentally using the OpenMP library.
- Furthermore, changing the normalization factor 
-\begin_inset Formula $\lambda$
-\end_inset
-
- from 100 to 1000 did not have much effect on the mean error in the set
- set.
- This means that the proposed method is quite robust, since it doesn't have
- much dependence on this parameter.
+ for parallelization and the Ubuntu Linux operating system.
 \end_layout
 
 \begin_layout Standard
@@ -3043,6 +2815,10 @@ noprefix "false"
 wide false
 sideways false
 status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3066,7 +2842,7 @@ name "tab:Experimental-parameters"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="2">
+<lyxtabular version="3" rows="5" columns="2">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -3141,9 +2917,6 @@ VALUE
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $k$
-\end_inset
-
 
 \end_layout
 
@@ -3153,30 +2926,7 @@ VALUE
 \begin_inset Text
 
 \begin_layout Plain Layout
-10
-\end_layout
 
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $p_{s}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.90
 \end_layout
 
 \end_inset
@@ -3187,9 +2937,6 @@ VALUE
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $p_{m}$
-\end_inset
-
 
 \end_layout
 
@@ -3199,7 +2946,7 @@ VALUE
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.05
+
 \end_layout
 
 \end_inset
@@ -4349,7 +4096,7 @@ status collapsed
 Experiments for regression datasets.
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:experiments-regression"
+name "tab:exp2"
 
 \end_inset
 
@@ -5389,23 +5136,6 @@ J.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "rbfghosh"
-literal "false"
-
-\end_inset
-
-J.
- Ghosh, A.
- Nag, An Overview of Radial Basis Function Networks.
- In: Howlett, R.J., Jain, L.C.
- (eds) Radial Basis Function Networks 2.
- Studies in Fuzziness and Soft Computing, vol 67.
- Physica, Heidelberg, 2001.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
 key "rbfde1"
 literal "false"
 
@@ -5903,24 +5633,6 @@ D.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "kmeans"
-literal "false"
-
-\end_inset
-
-J.
- MacQueen, Some methods for classification and analysis of multivariate
- observations, in: Proceedings of the fifth Berkeley symposium on mathematical
- statistics and probability, Vol.
- 1, No.
- 14, pp.
- 281-297, 1967.
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
 key "interval0"
 literal "false"
 
@@ -6043,6 +5755,24 @@ Riccardo Poli, James Kennedy kennedy, Tim Blackwell, Particle swarm optimization
 1
 \series default
 , pp 33-57, 2007.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "kmeans"
+literal "false"
+
+\end_inset
+
+J.
+ MacQueen, Some methods for classification and analysis of multivariate
+ observations, in: Proceedings of the fifth Berkeley symposium on mathematical
+ statistics and probability, Vol.
+ 1, No.
+ 14, pp.
+ 281-297, 1967.
  
 \end_layout
 
