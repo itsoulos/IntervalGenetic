@@ -470,7 +470,7 @@ name "sec:Method-description"
 The training error of the RBF network is expressed as: 
 \begin_inset Formula 
 \begin{equation}
-E(y)=\sum_{i=1}^{m}\left(y\left(x_{i}\right)-t_{i}\right)^{2}\label{eq:eqrbf}
+E(y(x,g))=\sum_{i=1}^{m}\left(y\left(x_{i}\right)-t_{i}\right)^{2}\label{eq:eqrbf}
 \end{equation}
 
 \end_inset
@@ -488,6 +488,11 @@ where
 \end_inset
 
 .
+ The vector 
+\begin_inset Formula $g$
+\end_inset
+
+ is the set of the parameters of the RBF network.
  Usually RBF networks are trained through a two phase procedure: 
 \end_layout
 
@@ -598,501 +603,12 @@ W^{T}=\left(\Phi^{T}\Phi\right)^{-1}\Phi^{T}T=\Phi^{\dagger}T\label{eq:eqoutput}
 \begin_layout Standard
 The proposed work uses two computational phases to optimally calculate the
  network parameters.
+ In the first phase, a promising range for the parameters of the network
+ is calculated through an optimization process that incorporates interval
+ arithmetic.
+ In the second phase, the parametes of the network are trained with the
+ usage of a genetic algorithm inside the located range of the first phase.
  The following subsections analyze both of these phases in detail.
-\end_layout
-
-\begin_layout Subsection
-Interval location phase 
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-(na spasei se ypoenotites)
-\end_layout
-
-\begin_layout Standard
-During this phase arithmetic interval techniques are used to find a suitable
- interval of values for the network parameters.
- The interval techniques 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "interval0,interval1,interval2"
-literal "false"
-
-\end_inset
-
- are a common method in global optimization with various applications 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "interval_app1,interval_app2,interval_app3"
-literal "false"
-
-\end_inset
-
-.
- In the proposed algorithm, the RBF network contains 
-\begin_inset Formula $n$
-\end_inset
-
- variables, where
-\begin_inset Formula 
-\begin{equation}
-n=(d+2)\times k
-\end{equation}
-
-\end_inset
-
- The value of 
-\begin_inset Formula $n$
-\end_inset
-
- is calculated as follows:
-\end_layout
-
-\begin_layout Enumerate
-Every center 
-\begin_inset Formula $\overrightarrow{c_{i}},\ i=1,..,k$
-\end_inset
-
- has 
-\begin_inset Formula $d$
-\end_inset
-
- variables, which means 
-\begin_inset Formula $d\times k$
-\end_inset
-
- variables.
-\end_layout
-
-\begin_layout Enumerate
-For every center a separated value 
-\begin_inset Formula $\sigma_{i}$
-\end_inset
-
- is used for the Gaussian processing unit, which means 
-\begin_inset Formula $k$
-\end_inset
-
- variables.
-\end_layout
-
-\begin_layout Enumerate
-The output weight 
-\begin_inset Formula $\overrightarrow{w}$
-\end_inset
-
- has also 
-\begin_inset Formula $k$
-\end_inset
-
- variables.
-\end_layout
-
-\begin_layout Standard
-The first phase aims to locate the most promising bounding box for the 
-\begin_inset Formula $n$
-\end_inset
-
- parameters of the neural network.
- The initial bounding box is defined as
-\series bold
- 
-\begin_inset Formula $S$
-\end_inset
-
- 
-\series default
-which is a subset of 
-\begin_inset Formula $\mathbb{R^{\mbox{n}}}$
-\end_inset
-
-:
-\series bold
- 
-\begin_inset Formula 
-\begin{equation}
-S=\left[a_{1},b_{1}\right]\otimes\left[a_{2},b_{2}\right]\otimes\ldots\left[a_{n},b_{n}\right]\label{eq:eq2}
-\end{equation}
-
-\end_inset
-
-
-\series default
-The interval method of the first phase divides the set 
-\begin_inset Formula $S$
-\end_inset
-
- subsequently
-\series bold
- 
-\series default
-by discarding areas that may not contain the global optimum of equation
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:eqrbf"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- In order to perform interval arithmetic on RBF networks the following definitio
-ns are introduced:
-\end_layout
-
-\begin_layout Enumerate
-The comparison of two intervals 
-\begin_inset Formula $W=\left[w_{1},w_{2}\right]$
-\end_inset
-
-, 
-\begin_inset Formula $Z=\left[z_{1},z_{2}\right]$
-\end_inset
-
- is performed through the function 
-\begin_inset Formula 
-\begin{eqnarray}
-L^{*}(W,Z) & = & \begin{cases}
-\mbox{TRUE}, & w_{1}<z_{1},\mbox{OR\ \ensuremath{\left(w_{1}=z_{1}\ \mbox{AND}\ w_{2}<z_{2}\right)}}\\
-\mbox{FALSE}, & \mbox{\mbox{OTHERWISE}}
-\end{cases}\label{eq:eql}
-\end{eqnarray}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-The function 
-\begin_inset Formula $E(y)$
-\end_inset
-
- (equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:eqrbf"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-) is modified to an interval one
-\begin_inset Formula 
-\begin{equation}
-[E_{min},E_{max}]=\sum_{i=1}^{M}\left(y\left(x_{i}\right)-t_{i}\right)^{2}\label{eq:eq1interval}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-In order to locate the best interval for the parameters of the network a
- modified PSO algorithm 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "pso1"
-literal "false"
-
-\end_inset
-
- is used, in which the particles are intervals for the network parameters.
-
-\series bold
- 
-\series default
-The PSO method is a global optimization method based on a population of
- candidate solutions, that in most cases called called particles.
- The method is based on two vectors: the current location of particles denoted
- as 
-\begin_inset Formula $\overrightarrow{p}$
-\end_inset
-
- and the velocity for their movement denoted as 
-\begin_inset Formula $\overrightarrow{u}$
-\end_inset
-
-.
- The PSO method finds the global minimum by moving the particles based on
- their previous best position as well as the best position of the total
- population of particles.
- The initial bounding boxes for the centres and variances of the RBF network
- are constructed using the K-Means clustering algorithm 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "kmeans"
-literal "false"
-
-\end_inset
-
-, which is shown in algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:The-K-Means-algorithm."
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- Subsequently, the initial values for the intervals 
-\begin_inset Formula $\left[a_{i},b_{i}\right]$
-\end_inset
-
- are calculated through the algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:initialValues"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- The values for the intervals for the first 
-\begin_inset Formula $(d+1)\times k$
-\end_inset
-
- variables are obtained as a multiple of the positive quantity 
-\begin_inset Formula $F$
-\end_inset
-
- with the values obtained from the KMeans.
- The value 
-\begin_inset Formula $B$
-\end_inset
-
- is used to initialize the intervals for the output weight 
-\begin_inset Formula $\overrightarrow{w}$
-\end_inset
-
-.
- Afterwards, the following PSO variant is taken place:
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- 
-\begin_inset Formula $N_{c}$
-\end_inset
-
- the number of particles.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- 
-\begin_inset Formula $N_{g}$
-\end_inset
-
- the maximum number of generations allowed.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Construct
-\series default
- 
-\begin_inset Formula $S=\left[a_{1},b_{1}\right]\otimes\left[a_{2},b_{2}\right]\otimes\ldots\left[a_{n},b_{n}\right]$
-\end_inset
-
-, as obtained from the previous two algorithms.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Initialize
-\series default
- the 
-\begin_inset Formula $N_{g}$
-\end_inset
-
- particles.
- Each particle 
-\begin_inset Formula $p_{i},\ i=1,...,N_{c}$
-\end_inset
-
- is considered as a set of intervals randomly initialized in 
-\begin_inset Formula $S$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-For
-\series default
- 
-\begin_inset Formula $i=1,...,N_{c}$
-\end_inset
-
- 
-\series bold
-do 
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- 
-\begin_inset Formula $p_{b,i}=p_{i}$
-\end_inset
-
- the best located value for particle 
-\begin_inset Formula $i$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-For
-\series default
- 
-\begin_inset Formula $j=1,...,n$
-\end_inset
-
- do
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- 
-\begin_inset Formula $\delta$
-\end_inset
-
- the width of interval 
-\begin_inset Formula $p_{ij}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- 
-\begin_inset Formula $u_{ij}=\left[-r\frac{\delta}{20},r\frac{\delta}{20}\right]$
-\end_inset
-
-, where 
-\begin_inset Formula $r$
-\end_inset
-
- a random number in 
-\begin_inset Formula $[0,1]$
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-
-\series bold
-EndFor
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-
-\series bold
-EndFor
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- iter=0
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-For
-\series default
- 
-\begin_inset Formula $i=1,...,N_{c}$
-\end_inset
-
- 
-\series bold
-do 
-\begin_inset CommandInset label
-LatexCommand label
-name "enu:For--do"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-EndFor
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- iter=iter+1
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-If
-\series default
- 
-\begin_inset Formula $\mbox{iter\ensuremath{\le N_{g}} }$
-\end_inset
-
-goto step 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "enu:For--do"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Standard
@@ -1100,10 +616,6 @@ noprefix "false"
 wide false
 sideways false
 status collapsed
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1167,7 +679,6 @@ Calculate
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Enumerate
@@ -1258,8 +769,6 @@ c_{j}=\frac{1}{M_{j}}\sum_{i=1}^{M_{j}}x_{i}
 
 \series bold
 EndFor
-\series default
- 
 \end_layout
 
 \end_deeper
@@ -1294,6 +803,709 @@ if there is no change in centers
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Preliminaries 
+\end_layout
+
+\begin_layout Standard
+In order to perform interval arithmetic on RBF networks the following definition
+s are introduced:
+\end_layout
+
+\begin_layout Enumerate
+The comparison of two intervals 
+\begin_inset Formula $W=\left[w_{1},w_{2}\right]$
+\end_inset
+
+, 
+\begin_inset Formula $Z=\left[z_{1},z_{2}\right]$
+\end_inset
+
+ is performed through the function 
+\begin_inset Formula 
+\begin{eqnarray}
+L^{*}(W,Z) & = & \begin{cases}
+\mbox{TRUE}, & w_{1}<z_{1},\mbox{OR\ \ensuremath{\left(w_{1}=z_{1}\ \mbox{AND}\ w_{2}<z_{2}\right)}}\\
+\mbox{FALSE}, & \mbox{\mbox{OTHERWISE}}
+\end{cases}\label{eq:eql}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The function 
+\begin_inset Formula $E(y)$
+\end_inset
+
+ (equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eqrbf"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) is modified to an interval one
+\begin_inset Formula 
+\begin{equation}
+[E_{min},E_{max}]=\sum_{i=1}^{M}\left(y\left(x_{i}\right)-t_{i}\right)^{2}\label{eq:eq1interval}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the proposed algorithm, the RBF network contains 
+\begin_inset Formula $n$
+\end_inset
+
+ variables, where
+\begin_inset Formula 
+\begin{equation}
+n=(d+2)\times k
+\end{equation}
+
+\end_inset
+
+ The value of 
+\begin_inset Formula $n$
+\end_inset
+
+ is calculated as follows:
+\end_layout
+
+\begin_layout Enumerate
+Every center 
+\begin_inset Formula $\overrightarrow{c_{i}},\ i=1,..,k$
+\end_inset
+
+ has 
+\begin_inset Formula $d$
+\end_inset
+
+ variables, which means 
+\begin_inset Formula $d\times k$
+\end_inset
+
+ variables.
+\end_layout
+
+\begin_layout Enumerate
+For every center a separated value 
+\begin_inset Formula $\sigma_{i}$
+\end_inset
+
+ is used for the Gaussian processing unit, which means 
+\begin_inset Formula $k$
+\end_inset
+
+ variables.
+\end_layout
+
+\begin_layout Enumerate
+The output weight 
+\begin_inset Formula $\overrightarrow{w}$
+\end_inset
+
+ has also 
+\begin_inset Formula $k$
+\end_inset
+
+ variables.
+\end_layout
+
+\begin_layout Subsection
+The proposed PSO algorithm
+\end_layout
+
+\begin_layout Standard
+During this phase arithmetic interval techniques are used to find a suitable
+ range for the the parameters of the RBF network.
+ The interval techniques 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "interval0,interval1,interval2"
+literal "false"
+
+\end_inset
+
+ are a common method in global optimization with various applications 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "interval_app1,interval_app2,interval_app3"
+literal "false"
+
+\end_inset
+
+.
+ The first phase aims to locate the most promising bounding box for the
+ 
+\begin_inset Formula $n$
+\end_inset
+
+ parameters of the neural network.
+ The initial bounding box is defined as
+\series bold
+ 
+\begin_inset Formula $S$
+\end_inset
+
+ 
+\series default
+which is a subset of 
+\begin_inset Formula $\mathbb{R^{\mbox{n}}}$
+\end_inset
+
+:
+\series bold
+ 
+\begin_inset Formula 
+\begin{equation}
+S=\left[a_{1},b_{1}\right]\otimes\left[a_{2},b_{2}\right]\otimes\ldots\left[a_{n},b_{n}\right]\label{eq:eq2}
+\end{equation}
+
+\end_inset
+
+
+\series default
+The interval method of the first phase divides the set 
+\begin_inset Formula $S$
+\end_inset
+
+ subsequently
+\series bold
+ 
+\series default
+by discarding areas that may not contain the global optimum of equation
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eqrbf"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ In order to locate the best interval for the parameters of the network
+ a modified PSO algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "pso1"
+literal "false"
+
+\end_inset
+
+ is used, in which the particles are intervals for the network parameters.
+
+\series bold
+ 
+\series default
+The PSO method is a global optimization method based on a population of
+ candidate solutions, that in most cases called called particles.
+ The method is based on two vectors: the current location of particles denoted
+ as 
+\begin_inset Formula $\overrightarrow{p}$
+\end_inset
+
+ and the velocity for their movement denoted as 
+\begin_inset Formula $\overrightarrow{u}$
+\end_inset
+
+.
+ The PSO method finds the global minimum by moving the particles based on
+ their previous best position as well as the best position of the total
+ population of particles.
+ 
+\end_layout
+
+\begin_layout Standard
+The initial bounding boxes for the centres and variances of the RBF network
+ are constructed using the K-Means clustering algorithm.
+ Subsequently, the initial values for the intervals 
+\begin_inset Formula $\left[a_{i},b_{i}\right]$
+\end_inset
+
+ are calculated through the algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:initialValues"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The values for the intervals of the first 
+\begin_inset Formula $(d+1)\times k$
+\end_inset
+
+ variables are obtained as a multiple of the positive quantity 
+\begin_inset Formula $F$
+\end_inset
+
+ with the values obtained by the K-Means.
+ The value 
+\begin_inset Formula $B$
+\end_inset
+
+ is used to initialize the intervals for the output weight 
+\begin_inset Formula $\overrightarrow{w}$
+\end_inset
+
+.
+ Afterwards, the following PSO variant is executed:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $N_{c}$
+\end_inset
+
+ the number of particles.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ the normalization factor 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+ the maximum number of generations allowed.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $N_{s}$
+\end_inset
+
+ the number of random samples that will be used in the fitness calculation
+ algorithm.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $f^{*}=\left[\infty,\infty\right]$
+\end_inset
+
+, the fitness of the best located particle 
+\begin_inset Formula $p^{*}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Construct
+\series default
+ 
+\begin_inset Formula $S=\left[a_{1},b_{1}\right]\otimes\left[a_{2},b_{2}\right]\otimes\ldots\left[a_{n},b_{n}\right]$
+\end_inset
+
+, as obtained from the previous two algorithms.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialize
+\series default
+ the 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+ particles.
+ Each particle 
+\begin_inset Formula $p_{i},\ i=1,...,N_{c}$
+\end_inset
+
+ is considered as a set of intervals randomly initialized in 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ The layout of each chromosome is graphically presented in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-layout-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,...,N_{c}$
+\end_inset
+
+ 
+\series bold
+do 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Calculate
+\series default
+ the fitness 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+ of particle 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ using the procedure outlined in Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Fitness-calculation-for"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $L^{*}\left(f_{i},f^{*}\right)=\mbox{TRUE}$
+\end_inset
+
+ 
+\series bold
+then
+\series default
+ 
+\begin_inset Formula $f^{*}=f_{i},\ p^{*}=p_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $p_{b,i}=p_{i},\ f_{b,i}=f_{i}$
+\end_inset
+
+ the best located position for particle 
+\begin_inset Formula $i$
+\end_inset
+
+ and the associated fitness value.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $j=1,...,n$
+\end_inset
+
+ do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $\delta$
+\end_inset
+
+ the width of interval 
+\begin_inset Formula $p_{ij}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $u_{ij}=\left[-r\frac{\delta}{20},r\frac{\delta}{20}\right]$
+\end_inset
+
+, where 
+\begin_inset Formula $r$
+\end_inset
+
+ a random number in 
+\begin_inset Formula $[0,1]$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ iter=0
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Calculate
+\series default
+ the inertia value as 
+\begin_inset Formula $\omega=\omega_{\mbox{max}}-\frac{\mbox{iter}}{N_{g}}\left(\omega_{\mbox{max}}-\omega_{\mbox{min}}\right)$
+\end_inset
+
+where common values for these parameters are 
+\begin_inset Formula $\omega_{\mbox{min}}=0.4$
+\end_inset
+
+ and 
+\begin_inset Formula $\omega_{\mbox{max}}=0.9$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,...,N_{c}$
+\end_inset
+
+ 
+\series bold
+do 
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:For--do"
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Calculate
+\series default
+ the new velocity 
+\begin_inset Formula $u_{i}=\omega u_{i}+r_{1}\left(p_{b,i}-p_{i}\right)+r_{2}\left(p^{*}-p_{i}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Normalize
+\series default
+ the velocity as: 
+\begin_inset Formula $u_{i}=\frac{1}{\lambda}u_{i}$
+\end_inset
+
+, where 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ a positive number with 
+\begin_inset Formula $\lambda>1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Update
+\series default
+ the position 
+\begin_inset Formula $p_{i}=p_{i}+u_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Calculate
+\series default
+ the fitness 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+ of particle 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If 
+\series default
+
+\begin_inset Formula $L^{*}\left(f_{i},f_{b,i}\right)=\mbox{TRUE}$
+\end_inset
+
+ 
+\series bold
+then
+\series default
+ 
+\begin_inset Formula $p_{b,i}=p_{i},\ f_{b,i}=f_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $L^{*}\left(f_{i},f^{*}\right)=\mbox{TRUE}$
+\end_inset
+
+ 
+\series bold
+then
+\series default
+ 
+\begin_inset Formula $f^{*}=f_{i},\ p^{*}=p_{i}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ iter=iter+1
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $\mbox{iter\ensuremath{\le N_{g}} }$
+\end_inset
+
+goto step 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:For--do"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float algorithm
 wide false
 sideways false
@@ -1499,27 +1711,6 @@ EndFor
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsection
-Optimization of parameters through genetic algorithm
-\end_layout
-
-\begin_layout Standard
-For the case of the RBF network a particle has the form of figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:The-layout-of"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -1809,6 +2000,112 @@ name "fig:The-layout-of"
 \end_inset
 
 
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fitness calculation for the modified PSO algorithm.
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Fitness-calculation-for"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+The fitness calculation for a given particle 
+\begin_inset Formula $g$
+\end_inset
+
+ has as follows:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Take
+\series default
+ 
+\begin_inset Formula $N_{S}$
+\end_inset
+
+ random samples in 
+\begin_inset Formula $g$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Calculate 
+\series default
+
+\begin_inset Formula $E_{\min}\left(g\right)=\min_{g_{i}\in N_{S}}\left(\left(\sum_{j=1}^{M}y\left(x_{j},g_{i}\right)-t_{j}\right)^{2}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Calculate
+\series default
+ 
+\begin_inset Formula $E_{max}\left(g\right)=\max_{g_{i}\in N_{S}}\left(\left(\sum_{j=1}^{M}y\left(x_{j},g_{i}\right)-y_{j}\right)^{2}\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Return
+\series default
+ 
+\begin_inset Formula $f_{g}=\left[E_{min}(g),E_{max}(g)\right].$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Optimization of parameters through genetic algorithm
+\end_layout
+
+\begin_layout Standard
+For the case of the RBF network a particle has the form of figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-layout-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -3042,7 +3339,7 @@ noprefix "false"
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3066,7 +3363,7 @@ name "tab:Experimental-parameters"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="2">
+<lyxtabular version="3" rows="9" columns="2">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -3131,6 +3428,75 @@ VALUE
 
 \begin_layout Plain Layout
 100
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+50
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $F$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10.0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $B$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100.0
 \end_layout
 
 \end_inset
