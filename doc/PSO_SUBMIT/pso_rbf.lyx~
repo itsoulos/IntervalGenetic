@@ -470,7 +470,7 @@ name "sec:Method-description"
 The training error of the RBF network is expressed as: 
 \begin_inset Formula 
 \begin{equation}
-E(y(x,g))=\sum_{i=1}^{m}\left(y\left(x_{i}\right)-t_{i}\right)^{2}\label{eq:eqrbf}
+E(y(x,g))=\sum_{i=1}^{m}\left(y\left(x_{i},g\right)-t_{i}\right)^{2}\label{eq:eqrbf}
 \end{equation}
 
 \end_inset
@@ -925,6 +925,13 @@ The output weight
 
 \begin_layout Subsection
 The proposed PSO algorithm
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:The-proposed-PSO"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1081,11 +1088,27 @@ Set
 \end_layout
 
 \begin_layout Enumerate
-Set the normalization factor 
+
+\series bold
+Set
+\series default
+ the normalization factor 
 \begin_inset Formula $\lambda$
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ the 
+\begin_inset Formula $k$
+\end_inset
+
+ weights of the RBF network.
 \end_layout
 
 \begin_layout Enumerate
@@ -1496,6 +1519,22 @@ plural "false"
 caps "false"
 noprefix "false"
 
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Else Return
+\series default
+ 
+\begin_inset Formula $S=\left[a_{1},b_{1}\right]\otimes\left[a_{2},b_{2}\right]\otimes\ldots\left[a_{n},b_{n}\right]$
+\end_inset
+
+ the domain range for the best particle 
+\begin_inset Formula $p^{*}$
 \end_inset
 
 .
@@ -2091,39 +2130,23 @@ Optimization of parameters through genetic algorithm
 \end_layout
 
 \begin_layout Standard
-For the case of the RBF network a particle has the form of figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:The-layout-of"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-(to be changed)
-\end_layout
-
-\begin_layout Standard
-The genetic algorithm used here is based on the algorithm denoted as 
+In the second phase of the proposed method, a genetic algorithm is performed,
+ which optimizes the parameters of the RBF network within the optimal interval
+ calculated in the first phase.
+ The used genetic algorithm has its roots in the 
 \begin_inset Formula $\mbox{GA}\left(c_{r1},l\right)$
 \end_inset
 
- in the paper of Kaelo and Ali
+ algorithm from the paper of Kaelo and Ali 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "kaeloali"
+key "kaelo"
 literal "false"
 
 \end_inset
 
-  with a modified stopping rule as proposed in 
+.
+ This method is enchanced using the stopping rule suggested by Tsoulos 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Tsoulos1"
@@ -2132,7 +2155,7 @@ literal "false"
 \end_inset
 
 .
- The basic steps of the main algorithm are given below:
+ This genetic algorithm has the following steps:
 \end_layout
 
 \begin_layout Enumerate
@@ -2145,18 +2168,37 @@ Initialization Step
 \begin_layout Enumerate
 
 \series bold
-Read
+Set
 \series default
- the train set with 
-\begin_inset Formula $m$
+ as 
+\begin_inset Formula $N_{c}$
 \end_inset
 
- patterns of 
-\begin_inset Formula $d$
-\end_inset
-
- dimension.
+ the number of chromosomes.
+ Every chromosome is coded as in case of PSO using the scheme of Figure
  
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-layout-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ as 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+ the maximum number of generations allowed.
 \end_layout
 
 \begin_layout Enumerate
@@ -2174,16 +2216,16 @@ Set
 \begin_layout Enumerate
 
 \series bold
-Estimate
+Obtain
 \series default
- the vectors 
-\begin_inset Formula $\overrightarrow{L},\ \overrightarrow{R}$
+ the domain range 
+\begin_inset Formula $S$
 \end_inset
 
- using the procedure of subsection 
+ from the procedure of subsection 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Bound-location-phase"
+reference "subsec:The-proposed-PSO"
 plural "false"
 caps "false"
 noprefix "false"
@@ -2191,7 +2233,6 @@ noprefix "false"
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Enumerate
@@ -2199,12 +2240,12 @@ noprefix "false"
 \series bold
 Initialize
 \series default
- a genetic population of 
+ the 
 \begin_inset Formula $N_{C}$
 \end_inset
 
- random chromosomes inside 
-\begin_inset Formula $[L,R]$
+ randomly in 
+\begin_inset Formula $S$
 \end_inset
 
 .
@@ -2220,19 +2261,27 @@ Set
 \begin_inset Formula $p_{s}\in[0,1]$
 \end_inset
 
-, the mutation rate 
-\begin_inset Formula $p_{M}\in[0,1]$
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ the mutation rate 
+\begin_inset Formula $p_{m}\in[0,1]$
 \end_inset
 
- , 
-\begin_inset Formula $iter=0,$
-\end_inset
+ 
+\end_layout
 
- and 
-\begin_inset Formula $i_{max}$
-\end_inset
+\begin_layout Enumerate
 
- the maximum number of generations.
+\series bold
+Set
+\series default
+ iter=0
 \end_layout
 
 \end_deeper
@@ -2254,23 +2303,13 @@ For
 
  
 \series bold
-calculate
+calculate 
 \series default
- using the procedure defined in subsection 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Fitness-evaluation"
-plural "false"
-caps "false"
-noprefix "false"
-
+the associated fitness value 
+\begin_inset Formula $f_{g}=\sum_{i=1}^{m}\left(y\left(x_{i},g\right)-t_{i}\right)^{2}$
 \end_inset
 
- the fitness 
-\begin_inset Formula $f_{g}$
-\end_inset
 
-.
 \end_layout
 
 \end_deeper
@@ -2283,8 +2322,7 @@ Genetic operations step
 
 
 \series default
-During this step three genetic operations are performed: selection, crossover
- and mutation.
+Apply the genetic operations of selection, crossover and mutation.
 \end_layout
 
 \begin_deeper
@@ -2294,22 +2332,21 @@ During this step three genetic operations are performed: selection, crossover
 Selection procedure.
 
 \series default
- Firstly the chromosomes are sorted with relevance to their corresponding
- fitness value.
- The best 
+ First, chromosomes are sorted based on their fitness value.
+ The first 
 \begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
 \end_inset
 
- are transferred without change to the next generation and the remain ones
- are substituted by offsprings created through the crossover procedure.
- In the crossover procedure the mating parent are selected using tournament
- selection for every parent.
- The tournament selection has as follows: 
+ with the best fitness value are transferred unchanged to the next generation,
+ and the rest are replaced by offspring resulting from crossover.
+ During the crossover procedure a series of mating pairs are selected using
+ the well - known procedure of tournament selection for every parent.
+ The tournament selection is formulated as: 
 \end_layout
 
 \begin_deeper
 \begin_layout Enumerate
-Select as set of 
+The algorithm selects a set of 
 \begin_inset Formula $T>2$
 \end_inset
 
@@ -2317,8 +2354,8 @@ Select as set of
 \end_layout
 
 \begin_layout Enumerate
-Return the chromosome with the best fitness value in this subset.
- 
+The chromosome with the best fitness value in the set is selected as mating
+ parent.
 \end_layout
 
 \end_deeper
@@ -2331,7 +2368,7 @@ Crossover procedure
 \begin_inset Formula $(z,w)$
 \end_inset
 
- of selected parents create two new offsprings 
+ of parents two offprings 
 \begin_inset Formula $\tilde{z}$
 \end_inset
 
@@ -2339,7 +2376,7 @@ Crossover procedure
 \begin_inset Formula $\tilde{w}$
 \end_inset
 
-:
+ are created as:
 \begin_inset Formula 
 \begin{eqnarray}
 \tilde{z_{i}} & = & a_{i}z_{i}+\left(1-a_{i}\right)w_{i}\nonumber \\
@@ -2352,21 +2389,19 @@ with
 \begin_inset Formula $a_{i}$
 \end_inset
 
- a random number and 
+ being a random number with the property 
 \begin_inset Formula $a_{i}\in[-0.5,1.5]$
 \end_inset
 
  
 \begin_inset CommandInset citation
 LatexCommand cite
-key "kaeloali"
+key "kaelo"
 literal "true"
 
 \end_inset
 
 .
- This crossover scheme will be able to better explore the search space of
- the train error.
  
 \end_layout
 
@@ -2375,49 +2410,24 @@ literal "true"
 \series bold
 Mutation procedure
 \series default
- : For every element of each chromosome create a random number 
-\begin_inset Formula $r\in\left[0,1\right]$
+ :
+\series bold
+ 
+\series default
+Draw a random number 
+\begin_inset Formula $r\in[0,1]$
 \end_inset
 
-.
- If 
+ for each element of every chromosome.
+
+\series bold
+ 
+\series default
+IF 
 \begin_inset Formula $r\le p_{m}$
 \end_inset
 
- then change randomly this element.
- The mutation is performed in a way similar to other approaches of genetic
- algorithms
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Tsoulos1"
-literal "false"
-
-\end_inset
-
- and it is described in subsection 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Mutation-procedure"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Replace
-\series default
- the 
-\begin_inset Formula $p_{s}\times N_{c}$
-\end_inset
-
- worst chromosomes in the population with the generated offsprings.
- 
+, then the corresponding element is altered randomly.
 \end_layout
 
 \end_deeper
@@ -2445,17 +2455,7 @@ Set
 \series bold
 Terminate
 \series default
- if the termination criteria of subsection 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Stopping-rule"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- are satisfied, 
+ if the termination criteria are satisfied, 
 \series bold
 else Goto
 \series default
@@ -3469,7 +3469,7 @@ VALUE
 \begin_inset Text
 
 \begin_layout Plain Layout
-10.0
+5.0
 \end_layout
 
 \end_inset
@@ -5575,7 +5575,21 @@ name "sec:Conclusions"
 \end_layout
 
 \begin_layout Standard
-Write some conclusions here
+In this work, a two-stage technique for data classification and function
+ regression was presented using an RBF model.
+ In the first stage of the technique, an attempt is made to discover a promising
+ range of values for the network parameters and in the second stage the
+ network parameters are adjusted within this range using a genetic algorithm.
+ From the experiments performed, it appears that this technique is in most
+ cases much more efficient than the traditional training technique of such
+ models.
+ Moreover, this technique appears to be largely robust, as changes in its
+ critical parameters do not entail large changes in its reliability.
+ However, the proposed technique is significantly more time-consuming than
+ the traditional training technique as it requires computational time for
+ both its phases.
+ However, this problem can be mitigated to a significant extent by the use
+ of modern parallel computing techniques.
 \end_layout
 
 \begin_layout Bibliography
@@ -6406,6 +6420,43 @@ Riccardo Poli, James Kennedy kennedy, Tim Blackwell, Particle swarm optimization
 \series default
 , pp 33-57, 2007.
  
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "kaelo"
+literal "true"
+
+\end_inset
+
+P.
+ Kaelo, M.M.
+ Ali, Integrated crossover rules in real coded genetic algorithms, European
+ Journal of Operational Research 
+\series bold
+176
+\series default
+, pp.
+ 60-76, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Tsoulos1"
+literal "false"
+
+\end_inset
+
+I.G.
+ Tsoulos, Modifications of real code genetic algorithm for global optimization,
+ Applied Mathematics and Computation 
+\series bold
+203
+\series default
+, pp.
+ 598-607, 2008.
 \end_layout
 
 \begin_layout Bibliography
