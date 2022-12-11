@@ -848,7 +848,7 @@ void 	getmargins(vector<Interval> &x)
                     double vx=variances[i * trainx[0].size()+j];
                     maxvx+=vx;
 		}
-     //   if(maxvx<0.1) maxvx=1.0;
+//        if(maxvx<0.1) maxvx=1.0;
 
         x[icount++]=Interval(-f * maxvx,f * maxvx);
 		   
@@ -944,7 +944,7 @@ double	funmin(vector<double> &x)
         errorSum += ( tempOut - trainy[i] ) * ( tempOut - trainy[i] );
     }
 
-  if(norm>1000) return errorSum*(1.0+norm);
+ // if(norm>1000) return errorSum*(1.0+norm);
   return errorSum;
 #endif
 }
@@ -1048,7 +1048,9 @@ QJsonObject    done(Data &x)
 #ifdef KMEANS
     funmin(x);
     double *weights=new double[nodes];
-    train_rbf(dimension,nodes,1,trainx.size(),
+    //train_rbf(dimension,nodes,1,trainx.size(),
+    //                        centers,variances,weights,xinput,yinput);
+    train_rbf(trainx[0].size(),nodes,1,trainx.size(),
                             centers,variances,weights,xinput,yinput);
     double *xt=new double[dimension];
     printf("WEIGHTS ");
