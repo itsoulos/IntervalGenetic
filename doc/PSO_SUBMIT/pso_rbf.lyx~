@@ -153,7 +153,7 @@ literal "false"
 \end_inset
 
 .
- The RBF networks can be expressed as a function:
+ An RBF networks can be expressed as a function:
 \series bold
 
 \begin_inset Formula 
@@ -253,8 +253,8 @@ literal "false"
 \end_inset
 
 .
- RBF networks was used as an approximation tools in various cases such as
-  solution of differential equations 
+ RBF networks are used as approximation tools in various cases, such as
+  solutions of differential equations 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "rbfde1,rbfde2"
@@ -479,7 +479,7 @@ where
 \begin_inset Formula $m$
 \end_inset
 
- is number of patterns and 
+ is the number of patterns and 
 \begin_inset Formula $t_{i}$
 \end_inset
 
@@ -493,7 +493,7 @@ where
 \end_inset
 
  is the set of the parameters of the RBF network.
- Usually RBF networks are trained through a two phase procedure: 
+ Usually, RBF networks are trained through a two phase procedure: 
 \end_layout
 
 \begin_layout Enumerate
@@ -935,8 +935,8 @@ name "subsec:The-proposed-PSO"
 \end_layout
 
 \begin_layout Standard
-During this phase arithmetic interval techniques are used to find a suitable
- range for the the parameters of the RBF network.
+During this phase, arithmetic interval techniques are used to find a suitable
+ range for the parameters of the RBF network.
  The interval techniques 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1004,7 +1004,7 @@ noprefix "false"
 \end_inset
 
 .
- In order to locate the best interval for the parameters of the network
+ In order to locate the best interval for the parameters of the network,
  a modified PSO algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1019,13 +1019,13 @@ literal "false"
  
 \series default
 The PSO method is a global optimization method based on a population of
- candidate solutions, that in most cases called called particles.
+ candidate solutions, that in most cases called particles.
  The method is based on two vectors: the current location of particles denoted
  as 
 \begin_inset Formula $\overrightarrow{p}$
 \end_inset
 
- and the velocity for their movement denoted as 
+ and the velocity of their movement denoted as 
 \begin_inset Formula $\overrightarrow{u}$
 \end_inset
 
@@ -2339,7 +2339,7 @@ Selection procedure.
 
  with the best fitness value are transferred unchanged to the next generation,
  and the rest are replaced by offspring resulting from crossover.
- During the crossover procedure a series of mating pairs are selected using
+ During the crossover procedure, a series of mating pairs are selected using
  the well - known procedure of tournament selection for every parent.
  The tournament selection is formulated as: 
 \end_layout
@@ -2354,8 +2354,8 @@ The algorithm selects a set of
 \end_layout
 
 \begin_layout Enumerate
-The chromosome with the best fitness value in the set is selected as mating
- parent.
+The chromosome with the best fitness value in the set is selected as the
+ mating parent.
 \end_layout
 
 \end_deeper
@@ -3187,7 +3187,7 @@ Experimental results
 \end_layout
 
 \begin_layout Standard
-The RBF network for the experiments was codes in ANSI C++ with the help
+The RBF network for the experiments was coded in ANSI C++ with the help
  of the freely available Armadillo library 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3199,9 +3199,9 @@ literal "false"
 .
  In addition, in order to have greater reliability in the experimental results,
  a 10-fold validation technique was used.
- All the experiments were executed 30 times with different seed for the
+ All the experiments were executed 30 times with different seeds for the
  random generator each time and average was measured.
- For the classification datasets average classification error was reported
+ For the classification datasets the average classification error was reported
  and for the regression datasets the mean test error.
 
 \series bold
@@ -3210,7 +3210,7 @@ literal "false"
 All the experiments were conducted on an AMD Ryzen 5950X equipped with 128GB
  of RAM.
  The operating system used was Debian Linux.
- In order to speed up the training process the OpenMP library was incorporated
+ In order to speed up the training process, the OpenMP library was incorporated
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3220,7 +3220,7 @@ literal "false"
 \end_inset
 
 .
- The experimental settings are listed in Table 
+ The experimental settings are listed in the Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Experimental-parameters"
@@ -3290,7 +3290,7 @@ In both tables an extra line has been added, in which the mean error for
 From the experimental results, it is evident that the proposed technique
  significantly outperforms the RBF training technique by an average of 35-40%
  in terms of error in the test set.
- In fact, in some dataset this gain is more than doubled.
+ In fact, in some datasets this gain is more than doubled.
  Furthermore, the differences in performance between the original training
  method and the proposed technique are graphically presented in the figures
  
@@ -3325,10 +3325,44 @@ noprefix "false"
 \begin_inset Formula $\lambda$
 \end_inset
 
- from 100 to 1000 did not have much effect on the mean error in the set
+ from 100 to 1000 did not have much effect on the mean error in the test
  set.
  This means that the proposed method is quite robust, since it doesn't have
  much dependence on this parameter.
+ 
+\end_layout
+
+\begin_layout Standard
+An additional experiment was performed with different values for the parameter
+ 
+\begin_inset Formula $F$
+\end_inset
+
+.
+ The results for the classification data are presented in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expsFClass"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and the results for the regression problems in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expsFRegression"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ And for this critical parameter, no large deviations appear in the results
+ of the proposed method.
+ This further enhances the robustness and reliability of the proposed technique.
 \end_layout
 
 \begin_layout Standard
@@ -3587,7 +3621,7 @@ VALUE
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -5478,10 +5512,6 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -5563,11 +5593,7 @@ name "fig:graph_regression"
 \begin_inset Float table
 wide false
 sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6364,7 +6390,7 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+43.28%
 \end_layout
 
 \end_inset
@@ -6402,7 +6428,7 @@ Spiral
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+22.18%
 \end_layout
 
 \end_inset
@@ -6440,7 +6466,7 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+5.10%
 \end_layout
 
 \end_inset
@@ -6478,7 +6504,7 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+8.27%
 \end_layout
 
 \end_inset
@@ -6516,7 +6542,7 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+4.03%
 \end_layout
 
 \end_inset
@@ -6554,7 +6580,7 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+3.72%
 \end_layout
 
 \end_inset
@@ -6592,7 +6618,7 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1.98%
 \end_layout
 
 \end_inset
@@ -6630,7 +6656,7 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+9.97%
 \end_layout
 
 \end_inset
@@ -6675,6 +6701,798 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+19.12%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Experimental results using different values for the parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ on the classification datasets.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:expsFRegression"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="19" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DATASET
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $F=3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $F=5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $F=10$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ABALONE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.56
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.32
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.41
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+AIRFOIL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.004
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.003
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.004
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+BASEBALL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+88.40
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+85.58
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+84.43
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+BK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.03
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.03
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.02
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+BL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0005
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0003
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0002
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CONCRETE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.009
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.007
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.007
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DEE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.18
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.16
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DIABETES
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.67
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.89
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.77
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+HOUSING
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.03
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+21.54
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.84
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FA
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.03
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.029
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.036
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MB
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.19
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.09
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.26
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MORTGAGE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.89
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.78
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.03
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+NT
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.006
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.007
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.007
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PY
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.027
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.014
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.018
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+QUAKE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.04
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.03
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.04
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TREASURY
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.77
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.51
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.17
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+WANKARA
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.002
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.002
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.002
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+AVERAGE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+6.87
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+6.76
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+6.60
 \end_layout
 
 \end_inset
@@ -6707,7 +7525,7 @@ name "sec:Conclusions"
 In this work, a two-stage technique for data classification and function
  regression was presented using an RBF model.
  In the first stage of the technique, an attempt is made to discover a promising
- range of values for the network parameters and in the second stage the
+ range of values for the network parameters and, in the second stage the
  network parameters are adjusted within this range using a genetic algorithm.
  From the experiments performed, it appears that this technique is in most
  cases much more efficient than the traditional training technique of such
