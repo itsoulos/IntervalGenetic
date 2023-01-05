@@ -2332,43 +2332,29 @@ Apply the genetic operations of selection, crossover and mutation.
 Selection procedure.
 
 \series default
- First, chromosomes are sorted based on their fitness value.
- The first 
+ First, the population of chromosomes is sorted based on the associated
+ fitness values.
+ The best 
 \begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
 \end_inset
 
- with the best fitness value are transferred unchanged to the next generation,
- and the rest are replaced by offspring resulting from crossover.
- During the crossover procedure, a series of mating pairs are selected using
- the well - known procedure of tournament selection for every parent.
- The tournament selection is formulated as: 
+ chromosomes are transferred unchanged to the next generation, while the
+ remaining ones are replaced by offsprings created by the crossover procedure.
+ During the selection step, a series of mating pairs are chosen using the
+ well - known procedure of tournament selection for each parent.
+ 
 \end_layout
 
-\begin_deeper
-\begin_layout Enumerate
-The algorithm selects a set of 
-\begin_inset Formula $T>2$
-\end_inset
-
- chromosomes from the population
-\end_layout
-
-\begin_layout Enumerate
-The chromosome with the best fitness value in the set is selected as the
- mating parent.
-\end_layout
-
-\end_deeper
 \begin_layout Enumerate
 
 \series bold
 Crossover procedure
 \series default
- : For every pair 
+: For each pair 
 \begin_inset Formula $(z,w)$
 \end_inset
 
- of parents two offsprings 
+ of selected parents two new offsprings 
 \begin_inset Formula $\tilde{z}$
 \end_inset
 
@@ -2376,7 +2362,7 @@ Crossover procedure
 \begin_inset Formula $\tilde{w}$
 \end_inset
 
- are created as:
+ are created with the following procedure:
 \begin_inset Formula 
 \begin{eqnarray}
 \tilde{z_{i}} & = & a_{i}z_{i}+\left(1-a_{i}\right)w_{i}\nonumber \\
@@ -2385,11 +2371,11 @@ Crossover procedure
 
 \end_inset
 
-with 
+where 
 \begin_inset Formula $a_{i}$
 \end_inset
 
- being a random number with the property 
+ is a random number with 
 \begin_inset Formula $a_{i}\in[-0.5,1.5]$
 \end_inset
 
@@ -2410,24 +2396,24 @@ literal "true"
 \series bold
 Mutation procedure
 \series default
- :
+:
 \series bold
  
 \series default
-Draw a random number 
+For every element of each chromosome pick a random number 
 \begin_inset Formula $r\in[0,1]$
 \end_inset
 
- for each element of every chromosome.
+.
 
 \series bold
- 
+ IF
 \series default
-IF 
+ 
 \begin_inset Formula $r\le p_{m}$
 \end_inset
 
-, then the corresponding element is altered randomly.
+, then alter randomly the corresponding element.
 \end_layout
 
 \end_deeper
@@ -2453,9 +2439,13 @@ Set
 \begin_layout Enumerate
 
 \series bold
+If 
+\series default
+the termination criteria are hold then 
+\series bold
 Terminate
 \series default
- if the termination criteria are satisfied, 
+ 
 \series bold
 else Goto
 \series default
@@ -2475,7 +2465,7 @@ name "sec:Experiments"
 \end_layout
 
 \begin_layout Standard
-The proposed method was tested on a series of classification and regression
+The suggested method was tested on a series of classification and regression
  problems found in various papers and sites from the relevant literature.
  For the classification problems two internet databases were used:
 \end_layout
@@ -2539,7 +2529,7 @@ Experimental datasets
 \end_layout
 
 \begin_layout Standard
-The following classification datasets were used:
+The classification datasets that were used are the following:
 \end_layout
 
 \begin_layout Enumerate
@@ -2571,7 +2561,7 @@ literal "false"
 
 \end_inset
 
-, which is related to credit card applications.
+, an economic dataset.
 \end_layout
 
 \begin_layout Enumerate
@@ -2596,7 +2586,7 @@ literal "false"
 \series bold
 Cleveland
 \series default
- dataset, a dataset related to heart diseases 
+ dataset, related to heart diseases 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "cleveland1,cleveland2"
@@ -2765,9 +2755,7 @@ literal "false"
 \series bold
 Parkinsons
 \series default
- dataset.
- This dataset is composed of a range of biomedical voice measurements from
- 31 people, 23 with Parkinson's disease (PD)
+ dataset, a medical dataset about the Parkinson's Disease (PD)
 \begin_inset CommandInset citation
 LatexCommand cite
 key "parkinsons"
@@ -2783,7 +2771,7 @@ literal "false"
 \series bold
 Pima
 \series default
- dataset, a medical dataset used to predict cases of diabetes 
+ dataset, a medical dataset
 \begin_inset CommandInset citation
 LatexCommand cite
 key "pima"
@@ -2836,8 +2824,7 @@ Spiral
 \series bold
 Regions2
 \series default
- dataset.
- It is created from liver biopsy images of patients with hepatitis C 
+ dataset, described in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "regions"
@@ -2908,7 +2895,7 @@ Wine
  The wine recognition dataset contains data from wine chemical analysis.
  It contains 178 examples of 13 features each that are classified into three
  classes.
- It has been examinated in various research papers 
+ It has been examinated in many published works 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "wine1,wine2"
@@ -2951,7 +2938,7 @@ literal "false"
 
 \end_inset
 
-, where the task is classify animals in seven predefined classes.
+, usedt for classification of animals.
 \end_layout
 
 \begin_layout Standard
@@ -2972,8 +2959,6 @@ literal "false"
 \end_inset
 
 .
- This dataset can be used to obtain a model to predict the age of abalone
- from physical measurements.
  
 \end_layout
 
@@ -2998,7 +2983,7 @@ literal "false"
 \series bold
 Baseball
 \series default
- dataset, a dataset used to predict the outcome of baseball players.
+ dataset, a dataset used to predict the points scored by baseball players.
 \end_layout
 
 \begin_layout Enumerate
@@ -3031,8 +3016,7 @@ BL
 \series bold
 Concrete
 \series default
- dataset.
- This dataset is taken from civil engineering
+ dataset, related to civil engineering
 \begin_inset CommandInset citation
 LatexCommand cite
 key "concrete"
@@ -3066,7 +3050,7 @@ Diabetes
 \series bold
 FA
 \series default
- dataset, which is related to fat measurements.
+ dataset, related to fat measurements.
  
 \end_layout
 
@@ -3075,9 +3059,7 @@ FA
 \series bold
 Housing
 \series default
- dataset.
- This dataset was taken from the StatLib library and it is described in
- 
+ dataset, described in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key23"
@@ -3093,8 +3075,7 @@ literal "true"
 \series bold
 MB
 \series default
- dataset.
- This dataset is available from Smoothing Methods in Statistics 
+ dataset, a statistics dataset 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key21"
@@ -3102,8 +3083,7 @@ literal "true"
 
 \end_inset
 
- and it includes 61 patterns.
- 
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -3111,7 +3091,7 @@ literal "true"
 \series bold
 MORTGAGE
 \series default
- dataset, which contains the Economic data information of USA.
+ dataset, which contains economic data.
 \end_layout
 
 \begin_layout Enumerate
@@ -3153,8 +3133,7 @@ literal "false"
 \series bold
 Quake
 \series default
- dataset.
- The objective here is to approximate the strength of a earthquake 
+ dataset, which contains data from earthquakes 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "quake"
@@ -3171,7 +3150,7 @@ literal "false"
 \series bold
 Treasure
 \series default
- dataset, which contains Economic data information of USA
+ dataset, which contains economic data.
 \end_layout
 
 \begin_layout Enumerate
@@ -3179,7 +3158,7 @@ Treasure
 \series bold
 Wankara
 \series default
- dataset, which contains weather measurements.
+ dataset, that is about weather measurements.
 \end_layout
 
 \begin_layout Subsection
@@ -3203,15 +3182,11 @@ literal "false"
  random generator each time and average was measured.
  For the classification datasets the average classification error was reported
  and for the regression datasets the mean test error.
-
-\series bold
- 
-\series default
-All the experiments were conducted on an AMD Ryzen 5950X equipped with 128GB
+ The machine used for the experiments was an AMD Ryzen 5950X with 128GB
  of RAM.
- The operating system used was Debian Linux.
- In order to speed up the training process, the OpenMP library was incorporated
- 
+ The used operating system was Debian Linux.
+ In order to accelarate the training process, the OpenMP library was incorporate
+d 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "openmp"
@@ -3242,7 +3217,7 @@ noprefix "false"
 
 \end_inset
 
-and for the regression datasets in Table 
+ and for the regression datasets in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:experiments-regression"
@@ -3253,7 +3228,7 @@ noprefix "false"
 \end_inset
 
 .
- The following applies to the tables of results:
+ For the experimental tables the following are applied:
 \end_layout
 
 \begin_layout Enumerate
@@ -3263,8 +3238,7 @@ The column RBF-KMEANS denotes the classic training method for RBF networks
 \end_layout
 
 \begin_layout Enumerate
-The column IRBF-100 denotes the application of the proposed method with
- 
+The column IRBF-100 denotes the application of the current method with 
 \begin_inset Formula $\lambda=100$
 \end_inset
 
@@ -3272,7 +3246,7 @@ The column IRBF-100 denotes the application of the proposed method with
 \end_layout
 
 \begin_layout Enumerate
-The column IRBF-1000 denotes the application of the proposed method with
+The column IRBF-1000 denotes the application of the current method with
  
 \begin_inset Formula $\lambda=1000$
 \end_inset
@@ -3287,7 +3261,7 @@ In both tables an extra line has been added, in which the mean error for
 \end_layout
 
 \begin_layout Standard
-From the experimental results, it is evident that the proposed technique
+As one can observe from the experimental results, the suggested technique
  significantly outperforms the RBF training technique by an average of 35-40%
  in terms of error in the test set.
  In fact, in some datasets this gain is more than doubled.
@@ -3319,16 +3293,16 @@ noprefix "false"
  In the first stage, an optimal interval of values for the network parameters
  is created with a modified PSO method, and in the second stage, the network
  is trained using a genetic algorithm.
- Of course, this extra time could be significantly reduced by using parallel
- techniques, as was done experimentally using the OpenMP library.
+ Of course, this extra time can be significantly reduced by incorporating
+ parallel techniques, as was done experimentally using the OpenMP library.
  Furthermore, changing the normalization factor 
 \begin_inset Formula $\lambda$
 \end_inset
 
  from 100 to 1000 did not have much effect on the mean error in the test
  set.
- This means that the proposed method is quite robust, since it doesn't have
- much dependence on this parameter.
+ This induces that the proposed method is quite robust, since it doesn't
+ have much dependence on this parameter.
  
 \end_layout
 
@@ -3339,7 +3313,7 @@ An additional experiment was performed with different values for the parameter
 \end_inset
 
 .
- The results for the classification data are presented in Table 
+ The experimental results for this experiment are shown in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:expsFClass"
@@ -3349,7 +3323,7 @@ noprefix "false"
 
 \end_inset
 
-, and the results for the regression problems in Table 
+ for the classification datasets and in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:expsFRegression"
@@ -3359,7 +3333,7 @@ noprefix "false"
 
 \end_inset
 
-.
+ for the regression datasets.
  And for this critical parameter, no large deviations appear in the results
  of the proposed method.
  This further enhances the robustness and reliability of the proposed technique.
@@ -7535,8 +7509,8 @@ In this work, a two-stage technique for data classification and function
  However, the proposed technique is significantly more time-consuming than
  the traditional training technique as it requires computational time for
  both its phases.
- However, this problem can be mitigated to a significant extent by the use
- of modern parallel computing techniques.
+ Although, this effect can be overcomed to some extent by the use of modern
+ parallel computing techniques.
 \end_layout
 
 \begin_layout Bibliography
