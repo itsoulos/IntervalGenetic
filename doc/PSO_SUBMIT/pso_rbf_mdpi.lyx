@@ -3648,6 +3648,13 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
+The column NN-GENETIC denotes the application of a genetic algorithm in
+ the artificial neural network with 10 hidden nodes.
+ The parameters of the used genetic algorithm are the some as in the second
+ phase of the proposed method.
+\end_layout
+
+\begin_layout Enumerate
 The column RBF-KMEANS denotes the classic training method for RBF networks
  by estimating centers and variances through K-Means and the output weights
  by solving a linear system of equations.
@@ -3674,6 +3681,9 @@ The column IRBF-1000 denotes the application of the current method with
 In both tables an extra line has been added, in which the mean error for
  each method is shown.
  This row is denoted by the name AVERAGE.
+ This line also shows the number of times the corresponding method achieved
+ the best result.
+ This number is shown in parentheses.
 \end_layout
 
 \begin_layout Standard
@@ -5625,7 +5635,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-26.86%
+26.86%(3)
 \end_layout
 
 \end_inset
@@ -5636,7 +5646,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-24.87%
+24.87%(1)
 \end_layout
 
 \end_inset
@@ -5647,7 +5657,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-29.03%
+29.03%(1)
 \end_layout
 
 \end_inset
@@ -5658,7 +5668,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-19.43%
+19.43%(8)
 \end_layout
 
 \end_inset
@@ -5669,7 +5679,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-18.68%
+18.68%(13)
 \end_layout
 
 \end_inset
@@ -5688,7 +5698,7 @@ AVERAGE
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard

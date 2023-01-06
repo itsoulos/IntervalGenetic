@@ -3626,7 +3626,15 @@ literal "false"
 
 \end_inset
 
- in an artificial neural network with 10 hidden nodes.
+ in an artificial neural network 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn1,nn2"
+literal "false"
+
+\end_inset
+
+ with 10 hidden nodes.
  The RPROP method is coded in the FCNN software package 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3637,6 +3645,13 @@ literal "false"
 
 .
  
+\end_layout
+
+\begin_layout Enumerate
+The column NN-GENETIC denotes the application of a genetic algorithm in
+ the artificial neural network with 10 hidden nodes.
+ The parameters of the used genetic algorithm are the some as in the second
+ phase of the proposed method.
 \end_layout
 
 \begin_layout Enumerate
@@ -5617,7 +5632,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-26.86%
+26.86%(3)
 \end_layout
 
 \end_inset
@@ -5628,7 +5643,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-24.87%
+24.87%(1)
 \end_layout
 
 \end_inset
@@ -5639,7 +5654,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-29.03%
+29.03%(1)
 \end_layout
 
 \end_inset
@@ -5650,7 +5665,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-19.43%
+19.43%(8)
 \end_layout
 
 \end_inset
@@ -5661,7 +5676,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-18.68%
+18.68%(13)
 \end_layout
 
 \end_inset
@@ -5680,7 +5695,7 @@ AVERAGE
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard

@@ -1030,7 +1030,7 @@ double nearestClass(double y)
 {
     int ifound=-1;
     double dmin=1e+100;
-    for(int i=0;i<dclass.size();i++)
+    for(unsigned int i=0;i<dclass.size();i++)
     {
         if(fabs(dclass[i]-y)<dmin)
         {
@@ -1040,6 +1040,65 @@ double nearestClass(double y)
     }
     return dclass[ifound];
 }
+
+int nearestClassIndex(double y)
+{
+    int ifound=-1;
+    double dmin=1e+100;
+    for(unsigned int i=0;i<dclass.size();i++)
+    {
+        if(fabs(dclass[i]-y)<dmin)
+        {
+            dmin=fabs(dclass[i]-y);
+            ifound=i;
+        }
+    }
+    return ifound;
+}
+
+void	printConfusionMatrix(vector<double> &T,vector<double> &O,
+                             vector<double> &precision,
+                             vector<double> &recall)
+{
+    int i,j;
+
+    int N=T.size();
+    int nclass=dclass.size();
+    precision.resize(nclass);
+    recall.resize(nclass);
+    int **CM;
+    printf("** CONFUSION MATRIX ** Number of classes: %d\n",nclass);
+    CM=new int*[nclass];
+    for(i=0;i<nclass;i++) CM[i]=new int[nclass];
+    for(i=0;i<nclass;i++)
+        for(j=0;j<nclass;j++) CM[i][j] = 0;
+
+    for(i=0;i<N;i++) CM[(int)T[i]][(int)O[i]]++;
+
+    for(i=0;i<nclass;i++)
+    {
+        double sum = 0.0;
+        for(j=0;j<nclass;j++)
+            sum+=CM[j][i];
+
+        precision[i]=CM[i][i]/sum;
+        sum = 0.0;
+        for(j=0;j<nclass;j++)
+            sum+=CM[i][j];
+        recall[i]=CM[i][i]/sum;
+    }
+    for(i=0;i<nclass;i++)
+    {
+        for(j=0;j<nclass;j++)
+        {
+            printf("%4d ",CM[i][j]);
+        }
+        printf("\n");
+        delete[] CM[i];
+    }
+    delete[] CM;
+}
+
 QJsonObject    done(Data &x)
 {
     double sum=0.0;
@@ -1077,26 +1136,55 @@ QJsonObject    done(Data &x)
 #else
     arma::vec Linear = train(x);
 
-    for(int i=0;i<testx.size();i++)
+    vector<double> T;
+    vector<double> O;
+    T.resize(testx.size());
+    O.resize(testx.size());
+
+    for(unsigned int i=0;i<testx.size();i++)
     {
 	       Data pattern = testx[i];
         arma::vec neuronOuts(nodes);
-        for(unsigned j = 0; j < nodes;j++){
+        for(int j = 0; j < nodes;j++){
             neuronOuts[j] = neuronOutput(x,pattern,pattern.size(),j);
         }
         double tempOut = arma::dot(neuronOuts,Linear);
 
         per=tempOut-testy[i];
+        T[i]=nearestClassIndex(testy[i]);
+        O[i]=nearestClassIndex(tempOut);
         classError+=fabs(testy[i]-nearestClass(tempOut))>1e-7;
         sum+=per * per;
     }
+    vector<double> precision;
+    vector<double> recall;
+    vector<double> fscore;
+    fscore.resize(dclass.size());
+    double avg_precision = 0.0, avg_recall = 0.0,avg_fscore=0.0;
+    printConfusionMatrix(T,O,precision,recall);
+    for(int i=0;i<dclass.size();i++)
+    {
+        avg_precision+=precision[i];
+        avg_recall+=recall[i];
+        fscore[i]=2.0*precision[i]*recall[i]/(precision[i]+recall[i]);
+        avg_fscore+=fscore[i];
+    }
+    avg_precision/=dclass.size();
+    avg_recall/=dclass.size();
+    avg_fscore/=dclass.size();
     printf("CLASSERROR=%.2lf%% TESTERROR=%10.5lf\n",
            classError*100.0/testy.size(),sum);
+    printf("PRECISION=%10.5lg RECALL=%10.5lg FSCORE=%10.5lg\n",
+           avg_precision,avg_recall,avg_fscore);
+
 #endif
     QJsonObject result;
     result["nodes"]=nodes;
     result["testError"]=sum;
     result["classError"]=classError*100.0/testy.size();
+    result["precision"]=avg_precision;
+    result["recall"]=avg_recall;
+    result["fscore"]=avg_fscore;
     result["string"]=toString(x);
     return result;
 }

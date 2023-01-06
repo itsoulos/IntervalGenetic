@@ -272,7 +272,10 @@ int main(int argc,char **argv)
     double minTrainError=0.0;
     double minTestError=0.0;
     double minClassError=0.0;
-    int tries=1;
+    double avg_precision = 0.0;
+    double avg_recall  = 0.0;
+    double avg_fscore = 0.0;
+    int tries=30;
     p.setParameter("normalTrain",1);
      Problem np(&p,bestMargin);
 
@@ -340,7 +343,9 @@ int main(int argc,char **argv)
         {
             avgTestError+=result["testError"].toDouble();
             avgClassError+=result["classError"].toDouble();
-
+            avg_precision+=result["precision"].toDouble();
+            avg_recall+=result["recall"].toDouble();
+            avg_fscore+=result["fscore"].toDouble();
            printf("GENETIC STEP[%4d]=%20.10lg %10.5lg %20.10lg%% ",i,besty,
 			   result["testError"].toDouble(),
 			   result["classError"].toDouble());
@@ -359,6 +364,10 @@ if(debug)
     printf("AVERAGE TRAIN ERROR: %20.10lg\n",avgTrainError/tries);
     printf("AVERAGE TEST  ERROR: %20.10lg\n",avgTestError/tries);
     printf("AVERAGE CLASS ERROR: %20.10lg%%\n",avgClassError/tries);
+    printf("AVERAGE PRECISION  : %20.10lg\n",avg_precision/tries);
+    printf("AVERAGE RECALL     : %20.10lg\n",avg_recall/tries);
+    printf("AVERAGE FSCORE     : %20.10lg\n",avg_fscore/tries);
+    printf("==================================================\n");
     printf("MINIMUM TRAIN ERROR: %20.10lg\n",minTrainError);
     printf("MINIMUM TEST  ERROR: %20.10lg\n",minTestError);
     printf("MINIMUM CLASS ERROR: %20.10lg%%\n",minClassError);
