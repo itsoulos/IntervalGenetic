@@ -1546,9 +1546,10 @@ Else Return
 
 \begin_layout Standard
 \begin_inset Float algorithm
+placement h
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1751,9 +1752,10 @@ EndFor
 
 
 \begin_inset Float figure
+placement h
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2047,9 +2049,10 @@ name "fig:The-layout-of"
 
 
 \begin_inset Float algorithm
+placement h
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3354,7 +3357,7 @@ noprefix "false"
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3606,7 +3609,7 @@ VALUE
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3726,6 +3729,8 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 12.23%
 \end_layout
 
@@ -3800,6 +3805,8 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 22.39%
 \end_layout
 
@@ -3820,6 +3827,8 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 8.81%
 \end_layout
 
@@ -3885,6 +3894,8 @@ Bands
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 35.75%
 \end_layout
 
@@ -3968,6 +3979,8 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 49.64%
 \end_layout
 
@@ -3988,6 +4001,8 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 15.12%
 \end_layout
 
@@ -4071,6 +4086,8 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 33.62%
 \end_layout
 
@@ -4136,6 +4153,8 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 15.60%
 \end_layout
 
@@ -4192,6 +4211,8 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 3.90%
 \end_layout
 
@@ -4248,6 +4269,8 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 7.52%
 \end_layout
 
@@ -4304,6 +4327,8 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 25.63%
 \end_layout
 
@@ -4351,6 +4376,8 @@ Lymography
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 19.12%
 \end_layout
 
@@ -4407,6 +4434,8 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 17.17%
 \end_layout
 
@@ -4472,6 +4501,8 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 13.59%
 \end_layout
 
@@ -4528,6 +4559,8 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 23.23%
 \end_layout
 
@@ -4548,6 +4581,8 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 4.81%
 \end_layout
 
@@ -4640,6 +4675,8 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 25.77%
 \end_layout
 
@@ -4687,6 +4724,8 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 27.94%
 \end_layout
 
@@ -4752,6 +4791,8 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 40.28%
 \end_layout
 
@@ -4772,7 +4813,7 @@ Spiral
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+46.59%
 \end_layout
 
 \end_inset
@@ -4781,7 +4822,7 @@ Spiral
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+44.50%
 \end_layout
 
 \end_inset
@@ -4799,6 +4840,8 @@ Spiral
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 19.43%
 \end_layout
 
@@ -4855,6 +4898,8 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 5.33%
 \end_layout
 
@@ -4920,6 +4965,8 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 6.84%
 \end_layout
 
@@ -4976,6 +5023,8 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 4.18%
 \end_layout
 
@@ -5023,6 +5072,8 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 4.31%
 \end_layout
 
@@ -5088,6 +5139,8 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 2.08%
 \end_layout
 
@@ -5135,6 +5188,8 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 10.13%
 \end_layout
 
@@ -5167,6 +5222,8 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+26.86%
 \end_layout
 
 \end_inset
@@ -5176,6 +5233,8 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+24.87%
 \end_layout
 
 \end_inset
@@ -5227,7 +5286,7 @@ AVERAGE
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -5329,6 +5388,8 @@ ABALONE
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 4.55
 \end_layout
 
@@ -5421,6 +5482,8 @@ AIRFOIL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.003
 \end_layout
 
@@ -5468,6 +5531,8 @@ BASEBALL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 78.89
 \end_layout
 
@@ -5515,6 +5580,8 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.02
 \end_layout
 
@@ -5580,6 +5647,8 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.0003
 \end_layout
 
@@ -5636,6 +5705,8 @@ CONCRETE
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.007
 \end_layout
 
@@ -5692,6 +5763,8 @@ DEE
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.16
 \end_layout
 
@@ -5739,6 +5812,8 @@ DIABETES
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.49
 \end_layout
 
@@ -5804,6 +5879,8 @@ HOUSING
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 20.27
 \end_layout
 
@@ -5851,6 +5928,8 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.015
 \end_layout
 
@@ -5889,7 +5968,7 @@ MB
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.055
+0.55
 \end_layout
 
 \end_inset
@@ -5925,6 +6004,8 @@ MB
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.09
 \end_layout
 
@@ -5972,6 +6053,8 @@ MORTGAGE
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.39
 \end_layout
 
@@ -6001,7 +6084,7 @@ NT
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.04
 \end_layout
 
 \end_inset
@@ -6011,6 +6094,8 @@ NT
 
 \begin_layout Plain Layout
 
+\series bold
+0.006
 \end_layout
 
 \end_inset
@@ -6075,6 +6160,8 @@ PY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.012
 \end_layout
 
@@ -6149,6 +6236,8 @@ QUAKE
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.03
 \end_layout
 
@@ -6196,6 +6285,8 @@ TREASURY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.33
 \end_layout
 
@@ -6243,6 +6334,8 @@ WANKARA
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.001
 \end_layout
 
@@ -6284,15 +6377,8 @@ AVERAGE
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+\series bold
+11.71(1)
 \end_layout
 
 \end_inset
@@ -6303,7 +6389,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-10.17
+11.34(1)
 \end_layout
 
 \end_inset
@@ -6314,7 +6400,18 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-6.27
+10.17(5)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+6.27(7)
 \end_layout
 
 \end_inset
@@ -6325,7 +6422,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-6.76
+6.76(3)
 \end_layout
 
 \end_inset
@@ -6342,9 +6439,10 @@ AVERAGE
 
 
 \begin_inset Float figure
+placement h
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -6378,9 +6476,10 @@ name "fig:class_error"
 
 
 \begin_inset Float figure
+placement h
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center

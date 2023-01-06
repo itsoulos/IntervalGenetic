@@ -3354,7 +3354,7 @@ noprefix "false"
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3606,7 +3606,7 @@ VALUE
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -4498,8 +4498,6 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\series bold
 13.59%
 \end_layout
 
@@ -4556,8 +4554,6 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\series bold
 23.23%
 \end_layout
 
@@ -4578,8 +4574,6 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\series bold
 4.81%
 \end_layout
 
@@ -4672,8 +4666,6 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\series bold
 25.77%
 \end_layout
 
@@ -4721,8 +4713,6 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\series bold
 27.94%
 \end_layout
 
@@ -4788,8 +4778,6 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\series bold
 40.28%
 \end_layout
 
@@ -4837,8 +4825,6 @@ Spiral
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\series bold
 19.43%
 \end_layout
 
@@ -4895,8 +4881,6 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\series bold
 5.33%
 \end_layout
 
@@ -4962,8 +4946,6 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\series bold
 6.84%
 \end_layout
 
@@ -5020,8 +5002,6 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\series bold
 4.18%
 \end_layout
 
@@ -5069,8 +5049,6 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\series bold
 4.31%
 \end_layout
 
@@ -5136,8 +5114,6 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\series bold
 2.08%
 \end_layout
 
@@ -5185,8 +5161,6 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\series bold
 10.13%
 \end_layout
 
@@ -5283,7 +5257,7 @@ AVERAGE
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6436,10 +6410,9 @@ AVERAGE
 
 
 \begin_inset Float figure
-placement h
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -6473,10 +6446,9 @@ name "fig:class_error"
 
 
 \begin_inset Float figure
-placement h
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
