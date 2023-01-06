@@ -4,13 +4,139 @@
 \begin_header
 \save_transient_properties true
 \origin unavailable
-\textclass article
-\use_default_options true
+\textclass Definitions/mdpi
+\begin_preamble
+%  LaTeX support: latex@mdpi.com 
+%  For support, please attach all files needed for compiling as well as the log file, and specify your operating system, LaTeX version, and LaTeX editor.
+
+%=================================================================
+
+
+% For posting an early version of this manuscript as a preprint, you may use "preprints" as the journal and change "submit" to "accept". The document class line would be, e.g., \documentclass[preprints,article,accept,moreauthors,pdftex]{mdpi}. This is especially recommended for submission to arXiv, where line numbers should be removed before posting. For preprints.org, the editorial staff will make this change immediately prior to posting.
+
+%--------------------
+% Class Options:
+%--------------------
+%----------
+% journal
+%----------
+% Choose between the following MDPI journals:
+% acoustics, actuators, addictions, admsci, adolescents, aerospace, agriculture, agriengineering, agronomy, ai, algorithms, allergies, alloys, analytica, animals, antibiotics, antibodies, antioxidants, applbiosci, appliedchem, appliedmath, applmech, applmicrobiol, applnano, applsci, aquacj, architecture, arts, asc, asi, astronomy, atmosphere, atoms, audiolres, automation, axioms, bacteria, batteries, bdcc, behavsci, beverages, biochem, bioengineering, biologics, biology, biomass, biomechanics, biomed, biomedicines, biomedinformatics, biomimetics, biomolecules, biophysica, biosensors, biotech, birds, bloods, blsf, brainsci, breath, buildings, businesses, cancers, carbon, cardiogenetics, catalysts, cells, ceramics, challenges, chemengineering, chemistry, chemosensors, chemproc, children, chips, cimb, civileng, cleantechnol, climate, clinpract, clockssleep, cmd, coasts, coatings, colloids, colorants, commodities, compounds, computation, computers, condensedmatter, conservation, constrmater, cosmetics, covid, crops, cryptography, crystals, csmf, ctn, curroncol, currophthalmol, cyber, dairy, data, dentistry, dermato, dermatopathology, designs, diabetology, diagnostics, dietetics, digital, disabilities, diseases, diversity, dna, drones, dynamics, earth, ebj, ecologies, econometrics, economies, education, ejihpe, electricity, electrochem, electronicmat, electronics, encyclopedia, endocrines, energies, eng, engproc, ent, entomology, entropy, environments, environsciproc, epidemiologia, epigenomes, est, fermentation, fibers, fintech, fire, fishes, fluids, foods, forecasting, forensicsci, forests, foundations, fractalfract, fuels, futureinternet, futureparasites, futurepharmacol, futurephys, futuretransp, galaxies, games, gases, gastroent, gastrointestdisord, gels, genealogy, genes, geographies, geohazards, geomatics, geosciences, geotechnics, geriatrics, hazardousmatters, healthcare, hearts, hemato, heritage, highthroughput, histories, horticulturae, humanities, humans, hydrobiology, hydrogen, hydrology, hygiene, idr, ijerph, ijfs, ijgi, ijms, ijns, ijtm, ijtpp, immuno, informatics, information, infrastructures, inorganics, insects, instruments, inventions, iot, j, jal, jcdd, jcm, jcp, jcs, jdb, jeta, jfb, jfmk, jimaging, jintelligence, jlpea, jmmp, jmp, jmse, jne, jnt, jof, joitmc, jor, journalmedia, jox, jpm, jrfm, jsan, jtaer, jzbg, kidney, kidneydial, knowledge, land, languages, laws, life, liquids, literature, livers, logics, logistics, lubricants, lymphatics, machines, macromol, magnetism, magnetochemistry, make, marinedrugs, materials, materproc, mathematics, mca, measurements, medicina, medicines, medsci, membranes, merits, metabolites, metals, meteorology, methane, metrology, micro, microarrays, microbiolres, micromachines, microorganisms, microplastics, minerals, mining, modelling, molbank, molecules, mps, msf, mti, muscles, nanoenergyadv, nanomanufacturing, nanomaterials, ncrna, network, neuroglia, neurolint, neurosci, nitrogen, notspecified, nri, nursrep, nutraceuticals, nutrients, obesities, oceans, ohbm, onco, oncopathology, optics, oral, organics, organoids, osteology, oxygen, parasites, parasitologia, particles, pathogens, pathophysiology, pediatrrep, pharmaceuticals, pharmaceutics, pharmacoepidemiology, pharmacy, philosophies, photochem, photonics, phycology, physchem, physics, physiologia, plants, plasma, pollutants, polymers, polysaccharides, poultry, powders, preprints, proceedings, processes, prosthesis, proteomes, psf, psych, psychiatryint, psychoactives, publications, quantumrep, quaternary, qubs, radiation, reactions, recycling, regeneration, religions, remotesensing, reports, reprodmed, resources, rheumato, risks, robotics, ruminants, safety, sci, scipharm, seeds, sensors, separations, sexes, signals, sinusitis, skins, smartcities, sna, societies, socsci, software, soilsystems, solar, solids, sports, standards, stats, stresses, surfaces, surgeries, suschem, sustainability, symmetry, synbio, systems, taxonomy, technologies, telecom, test, textiles, thalassrep, thermo, tomography, tourismhosp, toxics, toxins, transplantology, transportation, traumacare, traumas, tropicalmed, universe, urbansci, uro, vaccines, vehicles, venereology, vetsci, vibration, viruses, vision, waste, water, wem, wevj, wind, women, world, youth, zoonoticdis 
+
+%---------
+% article
+%---------
+% The default type of manuscript is "article", but can be replaced by: 
+% abstract, addendum, article, book, bookreview, briefreport, casereport, comment, commentary, communication, conferenceproceedings, correction, conferencereport, entry, expressionofconcern, extendedabstract, datadescriptor, editorial, essay, erratum, hypothesis, interestingimage, obituary, opinion, projectreport, reply, retraction, review, perspective, protocol, shortnote, studyprotocol, systematicreview, supfile, technicalnote, viewpoint, guidelines, registeredreport, tutorial
+% supfile = supplementary materials
+
+%----------
+% submit
+%----------
+% The class option "submit" will be changed to "accept" by the Editorial Office when the paper is accepted. This will only make changes to the frontpage (e.g., the logo of the journal will get visible), the headings, and the copyright information. Also, line numbering will be removed. Journal info and pagination for accepted papers will also be assigned by the Editorial Office.
+
+%------------------
+% moreauthors
+%------------------
+% If there is only one author the class option oneauthor should be used. Otherwise use the class option moreauthors.
+
+%---------
+% pdftex
+%---------
+% The option pdftex is for use with pdfLaTeX. If eps figures are used, remove the option pdftex and use LaTeX and dvi2pdf.
+
+%=================================================================
+% MDPI internal commands
+\firstpage{1} 
+ 
+\setcounter{page}{\@firstpage} 
+
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2022}
+\copyrightyear{2022}
+%\externaleditor{Academic Editor: Firstname Lastname} % For journal Automation, please change Academic Editor to "Communicated by"
+\datereceived{} 
+\dateaccepted{} 
+\datepublished{} 
+%\datecorrected{} % Corrected papers include a "Corrected: XXX" date in the original paper.
+%\dateretracted{} % Corrected papers include a "Retracted: XXX" date in the original paper.
+\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+%------------------------------------------------------------------
+% The following line should be uncommented if the LaTeX file is uploaded to arXiv.org
+%\pdfoutput=1
+
+%=================================================================
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, lineno, float, amsmath, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, cleveref, amsthm, hyphenat, natbib, hyperref, footmisc, url, geometry, newfloat, caption
+
+%=================================================================
+%% Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
+%% For proofs, please use the proof environment (the amsthm package is loaded by the MDPI class).
+
+%=================================================================
+% The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
+%\PACS{J0101}
+%\MSC{}
+%\JEL{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Diversity
+%\LSID{\url{http://}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Applied Sciences:
+%\featuredapplication{Authors are encouraged to provide a concise description of the specific application or a potential application of the work. This section is not mandatory.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Data:
+%\dataset{DOI number or link to the deposited data set in cases where the data set is published or set to be published separately. If the data set is submitted and will be published as a supplement to this paper in the journal Data, this field will be filled by the editors of the journal. In this case, please make sure to submit the data set as a supplement when entering your manuscript into our manuscript editorial system.}
+
+%\datasetlicense{license under which the data set is made available (CC0, CC-BY, CC-BY-SA, CC-BY-NC, etc.)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Toxins
+%\keycontribution{The breakthroughs or highlights of the manuscript. Authors can write one or two sentences to describe the most important part of the paper.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Encyclopedia
+%\encyclopediadef{Instead of the abstract}
+%\entrylink{The Link to this entry published on the encyclopedia platform.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_preamble
+\options journal,article,submit,pdftex,moreauthors
+\use_default_options false
 \maintain_unincluded_children false
+\begin_local_layout
+#Adds an endnote inset, in addition to footnotes. You will need to add
+#\printendnotes in TeX-code where you want the endnotes to appear.
+
+Format 66
+
+Counter endnotes
+    PrettyFormat "Endnote ##"
+End
+
+InsetLayout Flex:Endnote
+   LyXType     custom
+   LatexName   endnote
+   LatexType   command
+   Counter     endnotes
+   Decoration  classic
+   Font
+     Size Small
+   EndFont
+   MultiPar    true
+   LabelString endnote
+   Requires    enotez
+End
+\end_local_layout
 \language english
-\language_package default
-\inputencoding auto
-\fontencoding global
+\language_package none
+\inputencoding utf8
+\fontencoding default
 \font_roman "default" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
@@ -29,27 +155,29 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
 \use_package amsmath 1
-\use_package amssymb 1
-\use_package cancel 1
+\use_package amssymb 0
+\use_package cancel 0
 \use_package esint 1
-\use_package mathdots 1
-\use_package mathtools 1
-\use_package mhchem 1
-\use_package stackrel 1
-\use_package stmaryrd 1
-\use_package undertilde 1
-\cite_engine basic
-\cite_engine_type default
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
 \justification true
-\use_refstyle 1
+\use_refstyle 0
 \use_minted 0
 \index Index
 \shortcut idx
@@ -80,14 +208,143 @@ Locate the parameters of RBF networks using a hybrid Particle Swarm Optimization
  method
 \end_layout
 
-\begin_layout Author
-Ioannis G.
- Tsoulos, Vasilieos Charilogis
+\begin_layout Title Citation
+Locate the parameters of RBF networks using a hybrid Particle Swarm Optimization
+ method
 \end_layout
 
-\begin_layout Date
+\begin_layout Author Orcid ID
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+orcidauthorA
+\end_layout
+
+\end_inset
+
+0000-0000-0000-000X
+\end_layout
+
+\begin_layout Author Orcid ID
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+orcidauthorB
+\end_layout
+
+\end_inset
+
+0000-0000-0000-000X
+\end_layout
+
+\begin_layout Author
+Ioannis G.
+ Tsoulos
+\begin_inset Formula $^{1,\dagger,\ddagger,*}$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+orcidA{}
+\end_layout
+
+\end_inset
+
+, Vasileios Charilogis
+\begin_inset Formula $^{2,\dagger}$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+orcidB{}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $^{2,}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author Names for PDF
+Ioannis G.
+ Tsoulos, Vasileios Charilogis 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Authors, for metadata in PDF
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author Names for Citation
+Tsoulos, I.G.; Charilogis V.
+\end_layout
+
+\begin_layout Address
+\begin_inset Formula $^{1}$
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
 Department of Informatics and Telecommunications, University of Ioannina,
- Greece
+ Greece; itsoulos@uoi.gr
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $^{2}$
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+Department of Informatics and Telecommunications, University of Ioannina,
+ Greece; v.charilog@uoi.gr
+\end_layout
+
+\begin_layout Corresponding Author
+Correspondence: itsoulos@uoi.gr;
+\end_layout
+
+\begin_layout First Note
+Current address: Department of Informatics and Telecommunications, University
+ of Ioannina, Greece.
+\end_layout
+
+\begin_layout Second Note
+These authors contributed equally to this work.
 \end_layout
 
 \begin_layout Abstract
@@ -103,8 +360,12 @@ The present paper proposes a two-phase technique for training Radial Basis
  from the associated literature.
 \end_layout
 
+\begin_layout Keywords
+Neural networks; RBF networks; Particle Swarm Optimization.
+\end_layout
+
 \begin_layout Section
-Introduction 
+Introduction
 \end_layout
 
 \begin_layout Standard
@@ -417,11 +678,19 @@ noprefix "false"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename gaussian.eps
+
+\end_inset
+
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -440,23 +709,13 @@ name "fig:gauss"
 
 \end_layout
 
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename gaussian.eps
-
-\end_inset
-
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Section
-Method description 
+Method description
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Method-description"
@@ -1546,9 +1805,10 @@ Else Return
 
 \begin_layout Standard
 \begin_inset Float algorithm
+placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1590,7 +1850,7 @@ Set
 \begin_inset Formula $F>1,\ B>0$
 \end_inset
 
- 
+
 \end_layout
 
 \begin_layout Enumerate
@@ -1751,6 +2011,7 @@ EndFor
 
 
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -1783,6 +2044,8 @@ name "fig:The-layout-of"
 
 \begin_layout Plain Layout
 \align center
+
+\size footnotesize
 \begin_inset Tabular
 <lyxtabular version="3" rows="1" columns="20">
 <features tabularvalignment="middle">
@@ -1811,6 +2074,8 @@ name "fig:The-layout-of"
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $c_{11}$
 \end_inset
 
@@ -1823,6 +2088,8 @@ name "fig:The-layout-of"
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $c_{12}$
 \end_inset
 
@@ -1835,6 +2102,8 @@ name "fig:The-layout-of"
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 ...
 \end_layout
 
@@ -1844,6 +2113,8 @@ name "fig:The-layout-of"
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $c_{1d}$
 \end_inset
 
@@ -1856,6 +2127,8 @@ name "fig:The-layout-of"
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\sigma_{1}$
 \end_inset
 
@@ -1868,6 +2141,8 @@ name "fig:The-layout-of"
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $c_{21}$
 \end_inset
 
@@ -1880,6 +2155,8 @@ name "fig:The-layout-of"
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $c_{22}$
 \end_inset
 
@@ -1892,6 +2169,8 @@ name "fig:The-layout-of"
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 ...
 \end_layout
 
@@ -1901,6 +2180,8 @@ name "fig:The-layout-of"
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $c_{2d}$
 \end_inset
 
@@ -1913,6 +2194,8 @@ name "fig:The-layout-of"
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\sigma_{2}$
 \end_inset
 
@@ -1925,6 +2208,8 @@ name "fig:The-layout-of"
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 ...
 \end_layout
 
@@ -1934,6 +2219,8 @@ name "fig:The-layout-of"
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $c_{k1}$
 \end_inset
 
@@ -1946,6 +2233,8 @@ name "fig:The-layout-of"
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $c_{k2}$
 \end_inset
 
@@ -1958,6 +2247,8 @@ name "fig:The-layout-of"
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 ...
 \end_layout
 
@@ -1967,6 +2258,8 @@ name "fig:The-layout-of"
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $c_{kd}$
 \end_inset
 
@@ -1979,6 +2272,8 @@ name "fig:The-layout-of"
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\sigma_{k}$
 \end_inset
 
@@ -1991,6 +2286,8 @@ name "fig:The-layout-of"
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $w_{1}$
 \end_inset
 
@@ -2003,6 +2300,8 @@ name "fig:The-layout-of"
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $w_{2}$
 \end_inset
 
@@ -2015,6 +2314,8 @@ name "fig:The-layout-of"
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $\ldots$
 \end_inset
 
@@ -2027,6 +2328,8 @@ name "fig:The-layout-of"
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 \begin_inset Formula $w_{k}$
 \end_inset
 
@@ -2047,9 +2350,10 @@ name "fig:The-layout-of"
 
 
 \begin_inset Float algorithm
+placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2092,7 +2396,6 @@ Take
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Enumerate
@@ -2116,7 +2419,7 @@ Calculate
 \begin_inset Formula $E_{max}\left(g\right)=\max_{g_{i}\in N_{S}}\left(\left(\sum_{j=1}^{M}y\left(x_{j},g_{i}\right)-y_{j}\right)^{2}\right)$
 \end_inset
 
- 
+
 \end_layout
 
 \begin_layout Enumerate
@@ -2128,7 +2431,7 @@ Return
 \begin_inset Formula $f_{g}=\left[E_{min}(g),E_{max}(g)\right].$
 \end_inset
 
- 
+
 \end_layout
 
 \end_inset
@@ -2465,7 +2768,7 @@ else Goto
 
 \end_deeper
 \begin_layout Section
-Experiments 
+Experiments
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Experiments"
@@ -3169,7 +3472,7 @@ Treasure
 \series bold
 Wankara
 \series default
- dataset, that is about weather measurements.
+ dataset, that is about weather measurement
 \end_layout
 
 \begin_layout Subsection
@@ -3383,19 +3686,23 @@ name "tab:Experimental-parameters"
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 PARAMETER
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 VALUE
 \end_layout
 
@@ -3593,10 +3900,6 @@ VALUE
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -3606,7 +3909,7 @@ VALUE
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -4498,6 +4801,8 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 13.59%
 \end_layout
 
@@ -4554,6 +4859,8 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 23.23%
 \end_layout
 
@@ -4574,6 +4881,8 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 4.81%
 \end_layout
 
@@ -4666,6 +4975,8 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 25.77%
 \end_layout
 
@@ -4713,6 +5024,8 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 27.94%
 \end_layout
 
@@ -4778,6 +5091,8 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 40.28%
 \end_layout
 
@@ -4825,6 +5140,8 @@ Spiral
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 19.43%
 \end_layout
 
@@ -4881,6 +5198,8 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 5.33%
 \end_layout
 
@@ -4946,6 +5265,8 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 6.84%
 \end_layout
 
@@ -5002,6 +5323,8 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 4.18%
 \end_layout
 
@@ -5049,6 +5372,8 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 4.31%
 \end_layout
 
@@ -5114,6 +5439,8 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 2.08%
 \end_layout
 
@@ -5161,6 +5488,8 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 10.13%
 \end_layout
 
@@ -5257,7 +5586,7 @@ AVERAGE
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -5290,55 +5619,67 @@ name "tab:experiments-regression"
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 DATASET
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 NN-RPROP
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 NN-GENETIC
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 RBF-KMEANS
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 IRBF-100
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 IRBF-1000
 \end_layout
 
@@ -6410,6 +6751,7 @@ AVERAGE
 
 
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status collapsed
@@ -6446,6 +6788,7 @@ name "fig:class_error"
 
 
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -6474,10 +6817,6 @@ name "fig:graph_regression"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -6525,19 +6864,23 @@ name "tab:expsFClass"
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 DATASET
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 \begin_inset Formula $F=3$
 \end_inset
 
@@ -6546,10 +6889,12 @@ DATASET
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 \begin_inset Formula $F=5$
 \end_inset
 
@@ -6558,10 +6903,12 @@ DATASET
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 \begin_inset Formula $F=10$
 \end_inset
 
@@ -7618,7 +7965,7 @@ AVERAGE
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -7653,19 +8000,23 @@ name "tab:expsFRegression"
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 DATASET
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 \begin_inset Formula $F=3$
 \end_inset
 
@@ -7674,10 +8025,12 @@ DATASET
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 \begin_inset Formula $F=5$
 \end_inset
 
@@ -7686,10 +8039,12 @@ DATASET
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 \begin_inset Formula $F=10$
 \end_inset
 
@@ -8432,7 +8787,131 @@ In this work, a two-stage technique for data classification and function
  parallel computing techniques.
 \end_layout
 
+\begin_layout Standard
+\begin_inset VSpace 6pt
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author Contributions
+I.G.T.
+ and V.C.
+ conceived of the idea and methodology and supervised the technical part
+ regarding the software.
+ I.G.T.
+ conducted the experiments, employing datasets, and provided the comparative
+ experiments.
+ V.C.
+ performed the statistical analysis and prepared the manuscript.
+ All authors have read and agreed to the published version of the manuscript.
+\end_layout
+
+\begin_layout Funding
+This research received no external funding.
+\end_layout
+
+\begin_layout Institutional Review
+Not applicable.
+\end_layout
+
+\begin_layout Informed Consent
+Not applicable.
+ 
+\end_layout
+
+\begin_layout Institutional Review
+Not applicable.
+\end_layout
+
+\begin_layout Acknowledgments
+The experiments of this research work were performed at the high performance
+ computing system established at Knowledge and Intelligent Computing Laboratory,
+ Department of Informatics and Telecommunications, University of Ioannina,
+ acquired with the project “Educational Laboratory equipment of TEI of Epirus”
+ with MIS 5007094 funded by the Operational Programme “Epirus” 2014–2020,
+ by ERDF and national funds.
+\end_layout
+
+\begin_layout Conflicts of Interest
+The authors declare no conflict of interest.
+\end_layout
+
+\begin_layout Sample Availability
+Not applicable.
+\end_layout
+
+\begin_layout Appendix Titles
+no
+\end_layout
+
+\begin_layout Start of Appendix
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Keep empty!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Begin Whole Page
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Keep empty!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Dissolve the outer note inset to print a list of endnotes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Print End Notes
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Keep empty!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout References Title
+References
+\end_layout
+
 \begin_layout Bibliography
+\labelwidthstring 999
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "physics_ml1"
@@ -8440,7 +8919,7 @@ literal "false"
 
 \end_inset
 
-M.
+ M.
  Mjahed, The use of clustering techniques for the classification of high
  energy physics data, Nuclear Instruments and Methods in Physics Research
  Section A: Accelerators, Spectrometers, Detectors and Associated Equipment
@@ -10037,6 +10516,275 @@ R.
  McDonald and R.
  Menon, Parallel Programming in OpenMP, Morgan Kaufmann Publishers Inc.,
  2001.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+If authors have biography, please use the format below
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Short Biography of Authors
+\end_layout
+
+\begin_layout Biography
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+Definitions/author
+\end_layout
+
+\end_inset
+
+
+\series bold
+Firstname Lastname
+\series default
+ Biography of first author
+\end_layout
+
+\begin_layout Biography
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+Definitions/author
+\end_layout
+
+\end_inset
+
+
+\series bold
+Firstname Lastname
+\series default
+ Biography of second author
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+For the MDPI journals use author-date citation, please follow the formatting
+ guidelines on http://www.mdpi.com/authors/references
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+To cite two works by the same author: 
+\backslash
+citeauthor{ref-journal-1a} (
+\backslash
+citeyear{ref-journal-1a}, 
+\backslash
+citeyear{ref-journal-1b}).
+ This produces: Whittaker (1967, 1975).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+To cite two works by the same author with specific pages: 
+\backslash
+citeauthor{ref-journal-3a} (
+\backslash
+citeyear{ref-journal-3a}, p.
+ 328; 
+\backslash
+citeyear{ref-journal-3b}, p.475).
+ This produces: Wong (1999, p.
+ 328; 2000, p.
+ 475).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+To obtain 
+\backslash
+citeauthor{} in LyX you have to choose 
+\begin_inset Quotes eld
+\end_inset
+
+Author1
+\begin_inset Quotes erd
+\end_inset
+
+ (or 
+\begin_inset Quotes eld
+\end_inset
+
+Author2
+\begin_inset Quotes erd
+\end_inset
+
+, or \SpecialChar ldots
+) in 
+\family sans
+Insert\SpecialChar menuseparator
+Citation\SpecialChar menuseparator
+Citation style
+\family default
+, as demonstrated in this citation inset: 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+key "ref-journal"
+literal "false"
+
+\end_inset
+
+ (either left- or right-click it).
+\end_layout
+
+\begin_layout Plain Layout
+To obtain 
+\backslash
+citeyear{} in LyX you have to choose 
+\begin_inset Quotes eld
+\end_inset
+
+year
+\begin_inset Quotes erd
+\end_inset
+
+ in 
+\family sans
+Insert\SpecialChar menuseparator
+Citation\SpecialChar menuseparator
+Citation style
+\family default
+, as demonstrated in this citation inset: 
+\begin_inset CommandInset citation
+LatexCommand citeyear
+key "ref-journal"
+literal "false"
+
+\end_inset
+
+ (either left- or right-click it).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+%% for journal Sci
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+reviewreports{
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Reviewer 1 comments and authors' response
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Reviewer 2 comments and authors' response
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Reviewer 3 comments and authors' response
+\end_layout
+
+\begin_layout Plain Layout
+
+%}
+\end_layout
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout End Whole Page
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Keep empty!
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
