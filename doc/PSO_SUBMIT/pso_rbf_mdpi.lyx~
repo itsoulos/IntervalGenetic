@@ -214,7 +214,6 @@ Locate the parameters of RBF networks using a hybrid Particle Swarm Optimization
 \end_layout
 
 \begin_layout Author Orcid ID
-
 \begin_inset Argument 1
 status open
 
@@ -231,7 +230,6 @@ orcidauthorA
 \end_layout
 
 \begin_layout Author Orcid ID
-
 \begin_inset Argument 1
 status open
 
@@ -646,6 +644,53 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
+Recently, many works have been appeared to tune the parameters of of machine
+ learning models such as the work of Agarwal and Bhanot 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbftune"
+literal "false"
+
+\end_inset
+
+ for the adaptation of the RBF parameters, the incorporation of an improved
+ ABC algorithm to adapt the parameters of RBF networks 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfABC"
+literal "false"
+
+\end_inset
+
+, the usage of the Firefly algorithm for optimization 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "fireflyMain"
+literal "false"
+
+\end_inset
+
+ along with machine learning models for Cervical cancer diagnosis 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "fireflyCancer"
+literal "false"
+
+\end_inset
+
+, adaptation of CNN and XGBOOST models by an optimization algorithm for
+ COVID-19 diagnosis 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "hybridCNN"
+literal "false"
+
+\end_inset
+
+ etc.
+\end_layout
+
+\begin_layout Standard
 The rest of this article is organized as follows: in section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -699,7 +744,15 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Typical plot for the Gaussian function.
+A typical plot for the Gaussian function, for 
+\begin_inset Formula $c=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma=1$
+\end_inset
+
+.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:gauss"
@@ -1445,7 +1498,7 @@ Initialize
 \end_inset
 
 .
- The layout of each chromosome is graphically presented in Figure 
+ The layout of each particle is graphically presented in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:The-layout-of"
@@ -1815,7 +1868,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-The location of the initial values for 
+Algorithm used to locate the initial values for 
 \begin_inset Formula $\left[a_{i},b_{i}\right],\ i=1,...,n$
 \end_inset
 
@@ -3681,6 +3734,9 @@ The column IRBF-1000 denotes the application of the current method with
 In both tables an extra line has been added, in which the mean error for
  each method is shown.
  This row is denoted by the name AVERAGE.
+ This line also shows the number of times the corresponding method achieved
+ the best result.
+ This number is shown in parentheses.
 \end_layout
 
 \begin_layout Standard
@@ -3772,7 +3828,9 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experimental parameters
+The used values for the experimental parameters.
+ The first column denotes the name of the parameter and the second the used
+ value.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Experimental-parameters"
@@ -4018,13 +4076,14 @@ VALUE
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experiments for classification datasets
+Experimental results for the classification datasets.
+ The first column is the name of the used dataset.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Experiments-for-classification"
@@ -5695,13 +5754,14 @@ AVERAGE
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experiments for regression datasets.
+Experimental results for the regression datasets.
+ The first column is the name of the used regression dataset.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:experiments-regression"
@@ -6863,7 +6923,7 @@ AVERAGE
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -6877,7 +6937,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graphical comparison of the three methods for the classification datasets.
+Graphical comparison of all three methods for the classification datasets.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -6936,15 +6996,17 @@ name "fig:graph_regression"
 
 \begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experimental results using different values for the parameter 
+Experimental results with the proposed method and using different values
+ for the parameter 
 \begin_inset Formula $F$
 \end_inset
 
@@ -8072,15 +8134,17 @@ AVERAGE
 
 
 \begin_inset Float table
+placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experimental results using different values for the parameter 
+Experimental results with the proposed method using different values for
+ the parameter 
 \begin_inset Formula $F$
 \end_inset
 
@@ -8879,21 +8943,53 @@ name "sec:Conclusions"
 \end_layout
 
 \begin_layout Standard
-In this work, a two-stage technique for data classification and function
- regression was presented using an RBF model.
- In the first stage of the technique, an attempt is made to discover a promising
- range of values for the network parameters and, in the second stage, the
- network parameters are adjusted within this range using a genetic algorithm.
- From the experiments performed, it appears that this technique is in most
- cases much more efficient than the traditional training technique of such
- models.
- Moreover, this technique appears to be largely robust, as changes in its
- critical parameters do not entail large changes in its reliability.
+In the present work, a two-stage hybrid method was proposed to efficiently
+ identify the parameters of RBF neural networks.
+ In the first stage of the method, a technique rooted in particle swarm
+ optimization was used to efficiently identify a reliable interval of values
+ for the neural network parameters.
+ In the second stage of the method, an intelligent global optimization technique
+ was used to locate the neural network parameter within the optimal value
+ interval of the first stage.
+ In this work, a genetic algorithm was used in the second phase, however
+ any global optimization method could be used in its place.
+\end_layout
+
+\begin_layout Standard
+The method was applied to a multitude of classification and regression problems
+ from the relevant literature.
+ In almost all cases, the proposed method significantly outperforms other
+ machine learning models, and on average the improvement in the error on
+ the test sets was of the order of 40% relative to the established RBF training
+ method.
+ Moreover, the method is quite robust with respect to the basic parameters
+ since any changes in the parameter values do not significantly affect its
+ performance.
+ Furthermore, the method can efficiently locate the value interval of network
+ parameters without any prior knowledge about the type of training data
+ or whether it is a classification or a regression problem.
  However, the proposed technique is significantly more time-consuming than
  the traditional training technique as it requires computational time for
  both its phases.
  Although, this effect can be overcomed to some extent by the use of modern
  parallel computing techniques.
+\end_layout
+
+\begin_layout Standard
+The method could be extended by the use of other techniques of training
+ the parameters in RBF networks, such as for example the differential evolutiona
+ry method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "dePaper"
+literal "false"
+
+\end_inset
+
+.
+ Furthermore, more efficient methods of terminating the first stage of the
+ method could be used as finding a suitable interval of values for the network
+ parameters requires many numerical calculations.
 \end_layout
 
 \begin_layout Standard
@@ -9702,6 +9798,116 @@ D.
 \series default
 , pp.
  2196-2202, 2010.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbftune"
+literal "false"
+
+\end_inset
+
+V.
+ Agarwal, S.
+ Bhanot, Radial basis function neural network-based face recognition using
+ firefly algorithm, Neural Comput & Applic 
+\series bold
+30
+\series default
+, pp.
+ 2643–2660, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfABC"
+literal "false"
+
+\end_inset
+
+S.
+ Jiang et al., Prediction of Ecological Pressure on Resource-Based Cities
+ Based on an RBF Neural Network Optimized by an Improved ABC Algorithm,
+ IEEE Access.
+
+\series bold
+ 7
+\series default
+, pp.
+ 47423-47436, 2019.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "fireflyMain"
+literal "false"
+
+\end_inset
+
+H.
+ Wang, W.
+ Wang, X.
+ Zhou, H.
+ Sun, J.
+ Zhao, X.
+ Yu, Z.
+ Cui, Firefly algorithm with neighborhood attraction, Information Sciences
+ 
+\series bold
+382-383
+\series default
+, pp.
+ 374-387, 2017.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "fireflyCancer"
+literal "false"
+
+\end_inset
+
+I.U.
+ Khan,N.
+ Aslam, R.
+ Alshehri, S.
+ Alzahrani, M.
+ Alghamdi, A.
+ Almalki, M.
+ Balabeed, Cervical Cancer Diagnosis Model Using Extreme Gradient Boosting
+ and Bioinspired Firefly Optimization, Scientific Programming 
+\series bold
+2021
+\series default
+, Article ID 5540024, 2021.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "hybridCNN"
+literal "false"
+
+\end_inset
+
+M.
+ Zivkovic, N.
+ Bacanin, M.
+ Antonijevic, B.
+ Nikolic, G.
+ Kvascev, M.
+ Marjanovic, N.
+ Savanovic, Hybrid CNN and XGBoost Model Tuned by Modified Arithmetic Optimizati
+on Algorithm for COVID-19 Early Diagnostics from X-ray Images, Electronics
+ 
+\series bold
+11
+\series default
+, 3798, 2022.
 \end_layout
 
 \begin_layout Bibliography
@@ -10696,6 +10902,26 @@ http://fcnn.sourceforge.net/
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "dePaper"
+literal "false"
+
+\end_inset
+
+S.
+ Das, P.
+ N.
+ Suganthan, Differential Evolution: A Survey of the State-of-the-Art, IEEE
+ Transactions on Evolutionary Computation 
+\series bold
+15
+\series default
+, pp.
+ 4-31, 2011.
 \end_layout
 
 \begin_layout Standard
