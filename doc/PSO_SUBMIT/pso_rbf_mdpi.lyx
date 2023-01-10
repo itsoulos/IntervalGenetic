@@ -214,6 +214,7 @@ Locate the parameters of RBF networks using a hybrid Particle Swarm Optimization
 \end_layout
 
 \begin_layout Author Orcid ID
+
 \begin_inset Argument 1
 status open
 
@@ -230,6 +231,7 @@ orcidauthorA
 \end_layout
 
 \begin_layout Author Orcid ID
+
 \begin_inset Argument 1
 status open
 
@@ -634,13 +636,91 @@ literal "false"
 \end_inset
 
  etc.
- In the current work, a hybrid technique is proposed for the optimal calculation
+ 
+\end_layout
+
+\begin_layout Standard
+In the current work, a hybrid technique is proposed for the optimal calculation
  of the parameters of an RBF network.
- This technique consists of two phases: during the first phase a range of
- values for the network parameters is estimated using an interval technique,
- guided by a Particle Swarm Optimizer (PSO).
- In the second phase, the network parameters are optimized within the optimal
- value interval of the first phase using a genetic algorithm.
+ This technique consists of two phases.
+ During the first phase, information is collected from the training data
+ of the neural network and an attempt is made to identify a small interval
+ of values for the neural network parameters.
+ To identify this interval, an optimization method is used, which gradually
+ creates the optimal value interval, which is estimated to give the lowest
+ value for the training error of the network.
+ To locate the optimal interval, the particle swarm optimization (PSO) technique
+ is used 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "psoTutorial"
+literal "false"
+
+\end_inset
+
+.
+ The PSO method was chosen for the first phase because it is fast and flexible
+ enough for optimization problems, does not require a large number of parameters
+ to be input by the user, and has been successfully used in a variety of
+ problems such as flow shop scheduling 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "psoApp1"
+literal "false"
+
+\end_inset
+
+, developing charging stragies for electric vehicles 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "psoApp2"
+literal "false"
+
+\end_inset
+
+, emotion recognition 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "psoApp3"
+literal "false"
+
+\end_inset
+
+, robot trajectury planning 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "psoApp4"
+literal "false"
+
+\end_inset
+
+ etc.
+ The detection of the value interval is performed in order to then make
+ the minimization of the network error faster and more efficient in the
+ second phase optimization method.
+ In the second phase, the parameters of the neural network are optimized
+ within the optimal value interval of the first phase.
+ The optimization can be performed by any global optimization method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "goReview"
+literal "false"
+
+\end_inset
+
+.
+ In this work, the genetic algorithms 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ga1,ga2,ga3"
+literal "false"
+
+\end_inset
+
+ were chosen for the second phase.
+ The main advantages of genetic algorithms are tolerance on errors, easy
+ to implement in parallel, efficient exploration of the search space etc.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -731,7 +811,7 @@ noprefix "false"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1307,18 +1387,8 @@ The interval method of the first phase divides the set
 \begin_inset Formula $S$
 \end_inset
 
- subsequently by discarding areas that may not contain the global optimum
- of equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:eqrbf"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
+ subsequently by discarding areas that are not promising enough to contain
+ the global minimum.
  In order to locate the best interval for the parameters of the network,
  a modified PSO algorithm 
 \begin_inset CommandInset citation
@@ -1328,7 +1398,19 @@ literal "false"
 
 \end_inset
 
- is used, in which the particles are intervals for the network parameters.
+ is used.
+ The proposed variant of the PSO method is based on the original technique
+ (algorithm 1 of
+\begin_inset CommandInset citation
+LatexCommand citep
+key "pso1"
+literal "false"
+
+\end_inset
+
+ ) but the particles are intervals of values and at each iteration a normalizati
+on of the velocity vector takes place to avoid generating particles outside
+ the original range of values.
 
 \series bold
  
@@ -1637,7 +1719,11 @@ Set
 \end_inset
 
 .
- 
+ The velocity is initialized to a small sub-interval of the range of values
+ for the corresponding parameter in order to avoid, as far as possible,
+ excessive values for the velocity.
+ This would result in the particles moving out of their value range very
+ quickly and thus making the optimization process difficult.
 \end_layout
 
 \end_deeper
@@ -1679,7 +1765,61 @@ where common values for these parameters are
 \begin_inset Formula $\omega_{\mbox{max}}=0.9$
 \end_inset
 
+.
+ Many inertia calculations appeared in the relevant literarature such as
+ constant inertia 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "psoConstant"
+literal "false"
 
+\end_inset
+
+, linearly decreasing inertia 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "psoLinear"
+literal "false"
+
+\end_inset
+
+, exponential inertia 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "psoExp"
+literal "false"
+
+\end_inset
+
+, random inertia calculation 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "psoRandom"
+literal "false"
+
+\end_inset
+
+, dynamic inertia 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "psoDynamic"
+literal "false"
+
+\end_inset
+
+, fuzzy inertia calculation 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "psoFuzzy"
+literal "false"
+
+\end_inset
+
+ etc.
+ The present method of calculating the inertia was chosen because it decreases
+ linearly with time and for large values of the inertia it allows a wider
+ search in the search space and for low values it allows a more focused
+ search.
 \end_layout
 
 \begin_layout Enumerate
@@ -1710,10 +1850,39 @@ name "enu:For--do"
 Calculate
 \series default
  the new velocity 
-\begin_inset Formula $u_{i}=\omega u_{i}+r_{1}\left(p_{b,i}-p_{i}\right)+r_{2}\left(p^{*}-p_{i}\right)$
+\begin_inset Formula $u_{i}=\omega u_{i}+r_{1}c_{1}\left(p_{b,i}-p_{i}\right)+r_{2}c_{2}\left(p^{*}-p_{i}\right)$
 \end_inset
 
+, where 
+\begin_inset Formula $r_{1},r_{2}$
+\end_inset
 
+ are random numbers in 
+\begin_inset Formula $[0,1]$
+\end_inset
+
+ and the constant values 
+\begin_inset Formula $c_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $c_{2}$
+\end_inset
+
+ stand for the cognitive and the social parameters correspondigly.
+ Usually, the values for 
+\begin_inset Formula $c_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $c_{2}$
+\end_inset
+
+ are in 
+\begin_inset Formula $[1,2]$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -3822,7 +3991,7 @@ noprefix "false"
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3848,7 +4017,7 @@ name "tab:Experimental-parameters"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="9" columns="2">
+<lyxtabular version="3" rows="11" columns="2">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -3940,6 +4109,52 @@ VALUE
 
 \begin_layout Plain Layout
 50
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.0
 \end_layout
 
 \end_inset
@@ -9842,6 +10057,134 @@ S.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "psoTutorial"
+literal "false"
+
+\end_inset
+
+F.
+ Marini, B.
+ Walczak, Particle swarm optimization (PSO).
+ A tutorial, Chemometrics and Intelligent Laboratory Systems 
+\series bold
+149
+\series default
+, pp.
+ 153-165, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "psoApp1"
+literal "false"
+
+\end_inset
+
+B.
+ Liu, L.
+ Wang, Y.H.
+ Jin, An Effective PSO-Based Memetic Algorithm for Flow Shop Scheduling,
+ IEEE Transactions on Systems, Man, and Cybernetics, Part B (Cybernetics)
+ 
+\series bold
+37
+\series default
+, pp.
+ 18-27, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "psoApp2"
+literal "false"
+
+\end_inset
+
+J.
+ Yang, L.
+ He, S.
+ Fu, An improved PSO-based charging strategy of electric vehicles in electrical
+ distribution grid, Applied Energy 
+\series bold
+128
+\series default
+, pp.
+ 82-92, 2014.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "psoApp3"
+literal "false"
+
+\end_inset
+
+K.
+ Mistry, L.
+ Zhang, S.
+ C.
+ Neoh, C.
+ P.
+ Lim, B.
+ Fielding, A Micro-GA Embedded PSO Feature Selection Approach to Intelligent
+ Facial Emotion Recognition, IEEE Transactions on Cybernetics.
+ 
+\series bold
+47
+\series default
+, pp.
+ 1496-1509, 2017.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "psoApp4"
+literal "false"
+
+\end_inset
+
+S.
+ Han, X.
+ Shan, J.
+ Fu, W.
+ Xu, H.
+ Mi, Industrial robot trajectory planning based on improved pso algorithm,
+ J.
+ Phys.: Conf.
+ Ser.
+ 
+\series bold
+1820
+\series default
+, 012185, 2021.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "goReview"
+literal "false"
+
+\end_inset
+
+C.A.
+ Floudas, C.E.
+ Gounaris, A review of recent advances in global optimization, J Glob Optim
+ 
+\series bold
+45
+\series default
+, pp.
+ 3–38, 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "fireflyMain"
 literal "false"
 
@@ -9861,6 +10204,52 @@ H.
 \series default
 , pp.
  374-387, 2017.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ga1"
+literal "true"
+
+\end_inset
+
+D.
+ Goldberg, Genetic Algorithms in Search, Optimization and Machine Learning,
+ Addison-Wesley Publishing Company, Reading, Massachussets, 1989.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ga2"
+literal "true"
+
+\end_inset
+
+Z.
+ Michaelewicz, Genetic Algorithms + Data Structures = Evolution Programs.
+ Springer - Verlag, Berlin, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ga3"
+literal "true"
+
+\end_inset
+
+S.A.
+ Grady, M.Y.
+ Hussaini, M.M.
+ Abdullah, Placement of wind turbines using genetic algorithms, Renewable
+ Energy 
+\series bold
+30
+\series default
+, pp.
+ 259-270, 2005.
 \end_layout
 
 \begin_layout Bibliography
@@ -10054,6 +10443,113 @@ Riccardo Poli, James Kennedy kennedy, Tim Blackwell, Particle swarm optimization
 \series default
 , pp 33-57, 2007.
  
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "psoConstant"
+literal "false"
+
+\end_inset
+
+I.C.
+ Trelea, The particle swarm optimization algorithm: convergence analysis
+ and parameter selection, Information Processing Letters 
+\series bold
+85
+\series default
+, pp.
+ 317-325, 2003.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "psoLinear"
+literal "false"
+
+\end_inset
+
+Y.
+ Shi, R.C.
+ Eberhart, Empirical study of particle swarm optimization, In: Proceedings
+ of the 1999 Congress on Evolutionary Computation-CEC99 (Cat.
+ No.
+ 99TH8406), pp.
+ 1945-1950 Vol.
+ 3, 1999.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "psoExp"
+literal "false"
+
+\end_inset
+
+B.
+ Borowska, Exponential Inertia Weight in Particle Swarm Optimization.
+ In: Wilimowska, Z., Borzemski, L., Grzech, A., Świątek, J.
+ (eds) Information Systems Architecture and Technology: Proceedings of 37th
+ International Conference on Information Systems Architecture and Technology
+ – ISAT 2016 – Part IV.
+ Advances in Intelligent Systems and Computing, vol 524.
+ Springer, Cham, 2017.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "psoRandom"
+literal "false"
+
+\end_inset
+
+L.
+ Zhang, H.
+ Yu, S.
+ Hu, A New Approach to Improve Particle Swarm Optimization.
+ In: , et al.
+ Genetic and Evolutionary Computation — GECCO 2003.
+ GECCO 2003.
+ Lecture Notes in Computer Science, vol 2723.
+ Springer, Berlin, Heidelberg, 2003.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "psoDynamic"
+literal "false"
+
+\end_inset
+
+B.
+ Borowska, Dynamic Inertia Weight in Particle Swarm Optimization.
+ In: Shakhovska, N., Stepashko, V.
+ (eds) Advances in Intelligent Systems and Computing II.
+ CSIT 2017.
+ Advances in Intelligent Systems and Computing, vol 689 .
+ Springer, Cham, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "psoFuzzy"
+literal "false"
+
+\end_inset
+
+Y.
+ Shi, R.C.
+ Eberhart, Fuzzy adaptive particle swarm optimization, In: Proceedings of
+ the 2001 Congress on Evolutionary Computation (IEEE Cat.
+ No.01TH8546), pp.
+ 101-106 vol.
+ 1, 2001.
 \end_layout
 
 \begin_layout Bibliography
