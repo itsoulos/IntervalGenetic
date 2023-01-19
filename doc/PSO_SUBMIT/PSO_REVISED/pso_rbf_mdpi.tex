@@ -52,7 +52,7 @@ for parameter tuning in Radial Basis Function artificial neural networks.
 These kinds of machine learning models find application in many scientific
 fields in classification problems or in function regression. In the
 first phase, a technique based on Particle Swarm Optimization is performed
-to find a promising interval of values for the network parameters.
+to locate a promising interval of values for the network parameters.
 Particle swarm optimization was used as it is a highly reliable method
 for global optimization problems and, in addition, it is one of the
 fastest and most flexible techniques of its class. In the second phase,
@@ -60,8 +60,8 @@ the network is trained within the optimal interval using a global
 optimization technique such as a Genetic Algorithm. Furthermore, in
 order to speed up the training of the network and due to the use of
 a two-stage method, parallel programming techniques were utilized.
-The new method was applied to a number of well-known classification
-and regression datasets, and the results were more than promising.}
+The new method was applied to a number famous classification and regression
+datasets, and the results were more than promising.}
 
 
 \keyword{Neural networks; Particle Swarm Optimization; Genetic algorithms}
@@ -184,32 +184,33 @@ and regression datasets, and the results were more than promising.}
 
 Regression and data classification are two major categories of problems
 that are solved with machine learning techniques. Such problems appear
-regularly in scientific areas such as physics \citep{physics_ml1,physics_ml2},
+regularly in scientific fields such as physics \citep{physics_ml1,physics_ml2},
 chemistry \citep{chemistry_ml1,chemistry_ml2}, economics \citep{econ_ml1,econ_ml2},
 medicine \citep{med_ml1,med_ml2}, etc. A programming tool that is
 used quite often to handle such problems is the Radial Basis Function
 (RBF) artificial neural network \citep{rbf1}. An RBF network can
-be expressed as a function:\textbf{
+be defined as the following function:\textbf{
 \begin{equation}
 y\left(\overrightarrow{x}\right)=\sum_{i=1}^{k}w_{i}\phi\left(\left\Vert \overrightarrow{x}-\overrightarrow{c_{i}}\right\Vert \right)\label{eq:firstrbf}
 \end{equation}
 }The following applies to the above equation
 \begin{enumerate}
-\item The vector $\overrightarrow{x}$ is the input pattern to the equation.
-The number of values in this vector is denoted as $d$.
+\item The vector $\overrightarrow{x}$ stands for the input pattern to the
+equation \ref{eq:firstrbf}. The number of elements in this vector
+is denoted as $d$.
 \item The vectors $\overrightarrow{c_{i}},\ i=1,..,k$ are denoted as the
 center vectors.
 \item The vector $\overrightarrow{w}$ is considered as the output weight
 of the RBF network.
-\item The value $y\left(\overrightarrow{x}\right)$ is the predicted value
-of the network for the pattern $\overrightarrow{x}$.
+\item The value $y\left(\overrightarrow{x}\right)$ represents the predicted
+value of the network for the pattern $\overrightarrow{x}$.
 \end{enumerate}
 Typically, the Gaussian function can bed used as the function $\phi(x)$
 and it defined as:\textbf{
 \begin{equation}
 \phi(x)=\exp\left(-\frac{\left(x-c\right)^{2}}{\sigma^{2}}\right)
 \end{equation}
-}A plot for the Gaussian function with $c=0,\ \sigma=1$ is displayed
+}A plot for the previous function with $c=0,\ \sigma=1$ is displayed
 in Figure \ref{fig:gauss}. As it is observed, the value of the function
 decreases as we move away from the center. An extensive overview of
 RBF networks is given in the work of Ghosh and Nag \citep{rbfghosh}.
@@ -225,17 +226,17 @@ as creating new initialization techniques for the network parameters,\textbf{
 }\citep{rbfinit1,rbfinit2,rbfinit3}, pruning techniques\textbf{ }\citep{rbfprun1,rbfprun2,rbfprun3},
 construction of RBF networks \citep{rbfcon1,rbfcon2,rbfcon3} etc. 
 
-In the current work, a hybrid technique is proposed for the optimal
-calculation of the parameters of an RBF network. This technique consists
-of two phases. During the first phase, information is collected from
-the training data of the neural network and an attempt is made to
-identify a small interval of values for the neural network parameters.
-To identify this interval, an optimization method is used, which gradually
-creates the optimal value interval, which is estimated to give the
-lowest value for the training error of the network. To locate the
-optimal interval, the particle swarm optimization (PSO) technique
-is used \citep{psoTutorial}. The PSO method was chosen for the first
-phase because it is fast and flexible enough for optimization problems,
+In this work, a hybrid technique is proposed for the optimal calculation
+of the parameters of an RBF network. This technique consists of two
+phases. During the first phase, information is collected from the
+training data of the neural network and an attempt is made to identify
+a small interval of values for the neural network parameters. To identify
+this interval, an optimization method is used, which gradually creates
+the optimal value interval, which is estimated to give the lowest
+value for the training error of the network. To locate the optimal
+interval, the particle swarm optimization (PSO) technique is used
+\citep{psoTutorial}. The PSO method was chosen for the first phase
+because it is fast and flexible enough for optimization problems,
 does not require a large number of parameters to be input by the user,
 and has been successfully used in a variety of problems such as flow
 shop scheduling \citep{psoApp1}, developing charging strategies for
@@ -277,13 +278,13 @@ The training error of the RBF network is expressed as:
 \begin{equation}
 E(y(x,g))=\sum_{i=1}^{m}\left(y\left(x_{i},g\right)-t_{i}\right)^{2}\label{eq:eqrbf}
 \end{equation}
-The value $m$ stands for the number of patterns and $t_{i}$ is the
-actual output for pattern $x_{i}$. The vector $g$ is the set of
-the parameters of the RBF network. Usually, RBF networks are trained
-through a two-phase procedure: 
+The value $m$ stands for the number of patterns and the values $t_{i}$
+denote the real output for the input. The vector $g$ denotes the
+set of the parameters of the RBF network. Usually, RBF networks are
+trained through a two-phase procedure: 
 \begin{enumerate}
 \item In the first phase the $k$ centers as well as the associated variances
-are estimated through K-Means algorithm \citep{kmeans}. A typical
+are calculated through K-Means algorithm \citep{kmeans}. A typical
 formulation of the K-Means algorithm is outlined in Algorithm \ref{alg:The-K-Means-algorithm.}.
 \item In the second phase, the weight vector $\overrightarrow{w}=\left(w_{1},w_{2},\ldots,w_{k}\right)$
 is estimated by solving a linear system of equations.
@@ -303,21 +304,21 @@ W^{T}=\left(\Phi^{T}\Phi\right)^{-1}\Phi^{T}T=\Phi^{\dagger}T\label{eq:eqoutput}
 \end{enumerate}
 \end{enumerate}
 The proposed work uses two computational phases to optimally calculate
-the network parameters. In the first phase, a promising range for
-the parameters of the network is calculated through an optimization
-process that incorporates interval arithmetic. In the second phase,
-the parameters of the network are trained with the usage of a genetic
-algorithm inside the located range of the first phase. The following
-subsections analyze both of these phases in detail.
+the network parameters. Firstly, a promising range for the parameters
+of the network is calculated through an optimization process that
+incorporates interval arithmetic. Subsequently, the parameters of
+the network are trained with the usage of a genetic algorithm inside
+the located range of the first phase. The following subsections analyze
+both of these phases in detail.
 
-\begin{algorithm}
+\begin{algorithm}[H]
 \caption{The K-Means algorithm.\label{alg:The-K-Means-algorithm.}}
 
 \begin{enumerate}
 \item \textbf{Repeat}
 \begin{enumerate}
 \item $S_{j}=\left\{ \right\} ,\ j=1..k$
-\item \textbf{For} each sample $x_{i},\ i=1,...,m$ \textbf{do}
+\item \textbf{For} each pattern $x_{i},\ i=1,...,m$ \textbf{do}
 \begin{enumerate}
 \item \textbf{Calculate} $j^{*}=\min_{i=1}^{k}\left\{ D\left(x_{i},c_{j}\right)\right\} $.
 \item \textbf{Update} $S_{j^{*}}=S_{j^{*}}\cup\left\{ x_{i}\right\} $.
@@ -333,7 +334,7 @@ c_{j}=\frac{1}{M_{j}}\sum_{i=1}^{M_{j}}x_{i}
 \end{enumerate}
 \item \textbf{EndFor}
 \end{enumerate}
-\item \textbf{Calculate} the variances for every center as 
+\item \textbf{Compute} the variances for every center as 
 \[
 \sigma_{j}^{2}=\frac{\sum_{i=1}^{M_{j}}\left(x_{i}-c_{j}\right)^{2}}{M_{j}}
 \]
@@ -372,34 +373,46 @@ which means $d\times k$ variables.
 processing unit, which means $k$ variables.
 \item The output weight $\overrightarrow{w}$ also has $k$ variables.
 \end{enumerate}
+\begin{algorithm}[H]
+\caption{Fitness calculation for the modified PSO algorithm.\label{alg:Fitness-calculation-for}}
+
+The fitness calculation for a given particle $g$ has as follows:
+\begin{enumerate}
+\item \textbf{Take} $N_{S}$ random samples in $g$.
+\item \textbf{Calculate }$E_{\min}\left(g\right)=\min_{g_{i}\in N_{S}}\left(\left(\sum_{j=1}^{M}y\left(x_{j},g_{i}\right)-t_{j}\right)^{2}\right)$.
+\item \textbf{Calculate} $E_{max}\left(g\right)=\max_{g_{i}\in N_{S}}\left(\left(\sum_{j=1}^{M}y\left(x_{j},g_{i}\right)-y_{j}\right)^{2}\right)$
+\item \textbf{Return} $f_{g}=\left[E_{min}(g),E_{max}(g)\right].$
+\end{enumerate}
+\end{algorithm}
+
 
 \subsection{The proposed PSO algorithm\label{subsec:The-proposed-PSO}}
 
-During this phase, arithmetic interval techniques are used to find
-a suitable range for the parameters of the RBF network. The interval
-techniques \citep{interval0,interval1,interval2} are a common method
-in global optimization with various applications \citep{interval_app1,interval_app2,interval_app3}.
+During this phase, arithmetic interval techniques are used to locate
+a range for the parameters of the RBF network. The interval techniques
+\citep{interval0,interval1,interval2} are a common method in global
+optimization with various applications \citep{interval_app1,interval_app2,interval_app3}.
 The first phase aims to locate the most promising bounding box for
-the $n$ parameters of the corresponding neural network. The initial
+the $n$ parameters of the corresponding RBF network. The initial
 bounding box is defined as\textbf{ $S$ }which is a subset of $\mathbb{R^{\mbox{n}}}$:\textbf{
 \begin{equation}
 S=\left[a_{1},b_{1}\right]\otimes\left[a_{2},b_{2}\right]\otimes\ldots\left[a_{n},b_{n}\right]\label{eq:eq2}
 \end{equation}
 }The interval method of the first phase divides the set $S$ subsequently
 by discarding areas that are not promising enough to contain the global
-minimum. In order to locate the best interval for the parameters of
-the network, a modified PSO algorithm \citep{pso1} is used. The proposed
-variant of the PSO method is based on the original technique (algorithm
-1 of\citep{pso1} ) but the particles are intervals of values and
-at each iteration a normalization of the velocity vector takes place
+minimum. In order to locate the best interval for equation \ref{eq:eq2},
+a modified PSO algorithm \citep{pso1} is used. The proposed variant
+of the PSO method is based on the original technique (algorithm 1
+of\citep{pso1} ) but the particles are intervals of values and at
+each iteration a normalization of the velocity vector takes place
 to avoid generating particles outside the original range of values.\textbf{
-}The PSO method is a global optimization method based on a population
-of candidate solutions, which in most cases are called particles.
-The method is based on two vectors: the current location of particles
-denoted as $\overrightarrow{p}$ and the velocity of their movement
-denoted as $\overrightarrow{u}$. The PSO method finds the global
-minimum by moving the particles based on their previous best position
-as well as the best position of the total population of particles. 
+}The PSO method is based on a population of candidate solutions, which
+in most cases are called particles. The method is based on two vectors:
+the current location of particles denoted as $\overrightarrow{p}$
+and the velocity of their movement denoted as $\overrightarrow{u}$.
+The PSO method finds the global minimum by moving the particles based
+on their previous best position as well as the best position of the
+total population of particles. 
 
 The initial bounding boxes for the centers and variances of the RBF
 network are constructed using the K-Means clustering algorithm. Subsequently,
@@ -411,17 +424,17 @@ by the K-Means. The value $B$ is used to initialize the intervals
 for the output weight $\overrightarrow{w}$. Afterwards, the following
 PSO variant is executed:
 \begin{enumerate}
-\item \textbf{Set} $N_{c}$ the number of particles.
+\item \textbf{Set} $N_{c}$ as the amount of particles.
 \item \textbf{Set} the normalization factor $\lambda$.
 \item \textbf{Set} the $k$ weights of the RBF network.
-\item \textbf{Set} $N_{g}$ the maximum number of generations allowed.
+\item \textbf{Set} $N_{g}$ the maximum generations allowed.
 \item \textbf{Set} $N_{s}$ the number of random samples that will be used
 in the fitness calculation algorithm.
 \item \textbf{Set} $f^{*}=\left[\infty,\infty\right]$, the fitness of the
 best located particle $p^{*}$.
 \item \textbf{Construct} $S=\left[a_{1},b_{1}\right]\otimes\left[a_{2},b_{2}\right]\otimes\ldots\left[a_{n},b_{n}\right]$,
 as obtained from the previous two algorithms.
-\item \textbf{Initialize} the $N_{g}$ particles. Each particle $p_{i},\ i=1,...,N_{c}$
+\item \textbf{Initialize} the $N_{c}$ particles. Each particle $p_{i},\ i=1,...,N_{c}$
 is considered as a set of intervals randomly initialized in $S$.
 The layout of each particle is graphically presented in Figure \ref{fig:The-layout-of}.
 \item \textbf{For} $i=1,...,N_{c}$ \textbf{do }
@@ -436,7 +449,7 @@ for particle $i$ and the associated fitness value.
 \begin{enumerate}
 \item \textbf{Set} $\delta$ the width of interval $p_{ij}$
 \item \textbf{Set} $u_{ij}=\left[-r\frac{\delta}{20},r\frac{\delta}{20}\right]$,
-with $r$ being a random number in $[0,1]$. The velocity is initialized
+with $r$ a random number in $[0,1]$. The velocity is initialized
 to a small sub-interval of the range of values for the corresponding
 parameter in order to avoid, as far as possible, excessive values
 for the velocity. This would result in the particles moving out of
@@ -508,7 +521,7 @@ the domain range for the best particle $p^{*}$.
 \end{enumerate}
 \end{algorithm}
 \begin{figure}[H]
-\caption{The layout of the particles in the proposed PSO algorithm.\label{fig:The-layout-of}}
+\caption{The scheme of the particles in the current PSO algorithm.\label{fig:The-layout-of}}
 
 $ $
 \centering{}{\footnotesize{}}%
@@ -518,17 +531,6 @@ $ $
 \hline 
 \end{tabular}{\footnotesize\par}
 \end{figure}
-\begin{algorithm}[H]
-\caption{Fitness calculation for the modified PSO algorithm.\label{alg:Fitness-calculation-for}}
-
-The fitness calculation for a given particle $g$ has as follows:
-\begin{enumerate}
-\item \textbf{Take} $N_{S}$ random samples in $g$.
-\item \textbf{Calculate }$E_{\min}\left(g\right)=\min_{g_{i}\in N_{S}}\left(\left(\sum_{j=1}^{M}y\left(x_{j},g_{i}\right)-t_{j}\right)^{2}\right)$.
-\item \textbf{Calculate} $E_{max}\left(g\right)=\max_{g_{i}\in N_{S}}\left(\left(\sum_{j=1}^{M}y\left(x_{j},g_{i}\right)-y_{j}\right)^{2}\right)$
-\item \textbf{Return} $f_{g}=\left[E_{min}(g),E_{max}(g)\right].$
-\end{enumerate}
-\end{algorithm}
 
 
 \subsection{Optimization of parameters through genetic algorithm}
@@ -546,12 +548,12 @@ genetic algorithm has the following steps:
 \item \textbf{Set} as $N_{c}$ the number of chromosomes. Every chromosome
 is coded as in case of PSO using the scheme of Figure \ref{fig:The-layout-of}.
 \item \textbf{Set} as $N_{g}$ the maximum number of generations allowed.
-\item \textbf{Set} $k$ the number of nodes for the RBF network.
+\item \textbf{Set} $k$ the weight number of the RBF network.
 \item \textbf{Obtain} the domain range $S$ from the procedure of subsection
 \ref{subsec:The-proposed-PSO}.
 \item \textbf{Initialize} the $N_{C}$ randomly in $S$. 
-\item \textbf{Set} the selection rate $p_{s}\in[0,1]$
-\item \textbf{Set} the mutation rate $p_{m}\in[0,1]$ 
+\item \textbf{Define} the selection rate $p_{s}\in[0,1]$
+\item \textbf{Define} the mutation rate $p_{m}\in[0,1]$ 
 \item \textbf{Set} iter=0
 \end{enumerate}
 \item \textbf{Evaluation Step}
@@ -559,18 +561,17 @@ is coded as in case of PSO using the scheme of Figure \ref{fig:The-layout-of}.
 \textbf{For} every chromosome $g$ \textbf{calculate }the associated
 fitness value $f_{g}=\sum_{i=1}^{m}\left(y\left(x_{i},g\right)-t_{i}\right)^{2}$
 \item \textbf{Genetic operations step}\\
-Apply the genetic operations of selection, crossover and mutation.
+Perform the genetic operations of selection, crossover and mutation.
 \begin{enumerate}
 \item \textbf{Selection procedure.} First, the population of chromosomes
-is sorted based on the associated fitness values. The best $\left(1-p_{s}\right)\times N_{c}$
-chromosomes are transferred unchanged to the next generation, while
-the remaining ones are replaced by offsprings created by the crossover
-procedure. During the selection step, a series of mating pairs are
-chosen using the well - known procedure of tournament selection for
-each parent. 
-\item \textbf{Crossover procedure}: For each pair $(z,w)$ of selected parents
-two new offsprings $\tilde{z}$ and $\tilde{w}$ are created with
-the following procedure:
+is sorted based on the associated fitness values. The first $\left(1-p_{s}\right)\times N_{c}$
+chromosomes are copied unchanged to the next generation, while the
+rest are replaced by offsprings constructed by the crossover procedure.
+During the selection step, a series of mating pairs are chosen using
+the well - known procedure of tournament selection for each parent. 
+\item \textbf{Crossover procedure}: For each pair $(z,w)$ of chosen parents
+two new offsprings $\tilde{z}$ and $\tilde{w}$ are constructed with
+the steps:
 \begin{eqnarray}
 \tilde{z_{i}} & = & a_{i}z_{i}+\left(1-a_{i}\right)w_{i}\nonumber \\
 \tilde{w_{i}} & = & a_{i}w_{i}+\left(1-a_{i}\right)z_{i}\label{eq:crossover_ali-1}
@@ -613,12 +614,12 @@ on 5 January 2023)
 \item The Keel repository, \url{https://sci2s.ugr.es/keel/datasets.php}(accessed
 on 5 January 2023)\citep{Keel}.
 \end{enumerate}
-The regression datasets was found in the Statlib URL \url{ftp://lib.stat.cmu.edu/datasets/index.html }(accessed
+The regression problems was found in the Statlib URL \url{ftp://lib.stat.cmu.edu/datasets/index.html }(accessed
 on 5 January 2023). 
 
 \subsection{Experimental datasets }
 
-The classification datasets that were used are the following:
+The classification problems used here are:
 \begin{enumerate}
 \item \textbf{Appendictis} dataset, a medical dataset suggested in \citep{appendicitis}.
 \item \textbf{Australian} dataset \citep{australian}, an economic dataset.
@@ -628,18 +629,14 @@ psychological states.
 \item \textbf{Bands} dataset, a dataset related to printing problems \citep{Bands}.
 \item \textbf{Dermatology} dataset \citep{dermatology}, which is a medical
 dataset.
-\item \textbf{Hayes roth} dataset. This dataset\citep{hayesroth} contains
-\textbf{5} numeric-valued attributes and 132 patterns. 
-\item \textbf{Heart} dataset \citep{heart}, a medical dataset about heart
-diseases.
-\item \textbf{HouseVotes} dataset \citep{housevotes}, which is about votes
-in the U.S. House of Representatives Congressmen. 
+\item \textbf{Hayes roth} datase\citep{hayesroth}.
+\item \textbf{Heart} dataset \citep{heart}, a medical dataset.
+\item \textbf{HouseVotes} dataset \citep{housevotes}.
 \item \textbf{Ionosphere} dataset a dataset found the Johns Hopkins database
 \citep{ion1,ion2}.
 \item \textbf{Liverdisorder} dataset \citep{liver}, a medical dataset about
 liver disorders.
-\item \textbf{Lymography} dataset \citep{lymography}. The aim here is to
-detect the presence of a lymphoma in patients.
+\item \textbf{Lymography} dataset \citep{lymography}. 
 \item \textbf{Mammographic} dataset \citep{mammographic}, which is a dataset
 about breast cancer.
 \item \textbf{Parkinsons} dataset, a medical dataset about the Parkinson's
@@ -695,12 +692,12 @@ electricity energy in Spain.
 
 \subsection{Experimental results}
 
-The RBF network for the experiments was coded in ANSI C++ with the
-help of the freely available Armadillo library \citep{Armadillo}.
-In addition, in order to have greater reliability in the experimental
-results, a 10-fold validation technique was used. All the experiments
-were executed 30 times with different seeds for the random generator
-each time and the average was measured. For the classification datasets,
+The RBF network for the tests was coded in ANSI C++ with the help
+of the freely available Armadillo library \citep{Armadillo}. In addition,
+in order to have greater reliability in the experimental results,
+a 10-fold validation technique was used. All the experiments were
+executed 30 times with different seeds for the random generator each
+time and the average was measured. For the classification datasets,
 the average classification error was reported and for the regression
 datasets the mean test error. The machine used for the experiments
 was an AMD Ryzen 5950X with 128GB of RAM. The used operating system

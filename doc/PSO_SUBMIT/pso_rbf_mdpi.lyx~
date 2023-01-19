@@ -353,7 +353,7 @@ In the present work, an innovative two-phase method is presented for parameter
  These kinds of machine learning models find application in many scientific
  fields in classification problems or in function regression.
  In the first phase, a technique based on Particle Swarm Optimization is
- performed to find a promising interval of values for the network parameters.
+ performed to locate a promising interval of values for the network parameters.
  Particle swarm optimization was used as it is a highly reliable method
  for global optimization problems and, in addition, it is one of the fastest
  and most flexible techniques of its class.
@@ -361,8 +361,8 @@ In the present work, an innovative two-phase method is presented for parameter
  using a global optimization technique such as a Genetic Algorithm.
  Furthermore, in order to speed up the training of the network and due to
  the use of a two-stage method, parallel programming techniques were utilized.
- The new method was applied to a number of well-known classification and
- regression datasets, and the results were more than promising.
+ The new method was applied to a number famous classification and regression
+ datasets, and the results were more than promising.
 \end_layout
 
 \begin_layout Keywords
@@ -376,7 +376,7 @@ Introduction
 \begin_layout Standard
 Regression and data classification are two major categories of problems
  that are solved with machine learning techniques.
- Such problems appear regularly in scientific areas such as physics 
+ Such problems appear regularly in scientific fields such as physics 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "physics_ml1,physics_ml2"
@@ -419,7 +419,7 @@ literal "false"
 \end_inset
 
 .
- An RBF network can be expressed as a function:
+ An RBF network can be defined as the following function:
 \series bold
 
 \begin_inset Formula 
@@ -439,8 +439,18 @@ The vector
 \begin_inset Formula $\overrightarrow{x}$
 \end_inset
 
- is the input pattern to the equation.
- The number of values in this vector is denoted as 
+ stands for the input pattern to the equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:firstrbf"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The number of elements in this vector is denoted as 
 \begin_inset Formula $d$
 \end_inset
 
@@ -468,7 +478,7 @@ The value
 \begin_inset Formula $y\left(\overrightarrow{x}\right)$
 \end_inset
 
- is the predicted value of the network for the pattern 
+ represents the predicted value of the network for the pattern 
 \begin_inset Formula $\overrightarrow{x}$
 \end_inset
 
@@ -492,7 +502,7 @@ Typically, the Gaussian function can bed used as the function
 
 
 \series default
-A plot for the Gaussian function with 
+A plot for the previous function with 
 \begin_inset Formula $c=0,\ \sigma=1$
 \end_inset
 
@@ -640,7 +650,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-In the current work, a hybrid technique is proposed for the optimal calculation
+In this work, a hybrid technique is proposed for the optimal calculation
  of the parameters of an RBF network.
  This technique consists of two phases.
  During the first phase, information is collected from the training data
@@ -876,20 +886,16 @@ The value
 \begin_inset Formula $m$
 \end_inset
 
- stands for the number of patterns and 
+ stands for the number of patterns and the values 
 \begin_inset Formula $t_{i}$
 \end_inset
 
- is the actual output for pattern 
-\begin_inset Formula $x_{i}$
-\end_inset
-
-.
+ denote the real output for the input.
  The vector 
 \begin_inset Formula $g$
 \end_inset
 
- is the set of the parameters of the RBF network.
+ denotes the set of the parameters of the RBF network.
  Usually, RBF networks are trained through a two-phase procedure: 
 \end_layout
 
@@ -898,7 +904,7 @@ In the first phase the
 \begin_inset Formula $k$
 \end_inset
 
- centers as well as the associated variances are estimated through K-Means
+ centers as well as the associated variances are calculated through K-Means
  algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1000,16 +1006,16 @@ W^{T}=\left(\Phi^{T}\Phi\right)^{-1}\Phi^{T}T=\Phi^{\dagger}T\label{eq:eqoutput}
 \begin_layout Standard
 The proposed work uses two computational phases to optimally calculate the
  network parameters.
- In the first phase, a promising range for the parameters of the network
- is calculated through an optimization process that incorporates interval
- arithmetic.
- In the second phase, the parameters of the network are trained with the
- usage of a genetic algorithm inside the located range of the first phase.
+ Firstly, a promising range for the parameters of the network is calculated
+ through an optimization process that incorporates interval arithmetic.
+ Subsequently, the parameters of the network are trained with the usage
+ of a genetic algorithm inside the located range of the first phase.
  The following subsections analyze both of these phases in detail.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float algorithm
+placement H
 wide false
 sideways false
 status open
@@ -1052,7 +1058,7 @@ Repeat
 \series bold
 For
 \series default
- each sample 
+ each pattern 
 \begin_inset Formula $x_{i},\ i=1,...,m$
 \end_inset
 
@@ -1168,7 +1174,7 @@ EndFor
 \begin_layout Enumerate
 
 \series bold
-Calculate
+Compute
 \series default
  the variances for every center as 
 \begin_inset Formula 
@@ -1322,6 +1328,97 @@ The output weight
  variables.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fitness calculation for the modified PSO algorithm.
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Fitness-calculation-for"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+The fitness calculation for a given particle 
+\begin_inset Formula $g$
+\end_inset
+
+ has as follows:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Take
+\series default
+ 
+\begin_inset Formula $N_{S}$
+\end_inset
+
+ random samples in 
+\begin_inset Formula $g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Calculate 
+\series default
+
+\begin_inset Formula $E_{\min}\left(g\right)=\min_{g_{i}\in N_{S}}\left(\left(\sum_{j=1}^{M}y\left(x_{j},g_{i}\right)-t_{j}\right)^{2}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Calculate
+\series default
+ 
+\begin_inset Formula $E_{max}\left(g\right)=\max_{g_{i}\in N_{S}}\left(\left(\sum_{j=1}^{M}y\left(x_{j},g_{i}\right)-y_{j}\right)^{2}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Return
+\series default
+ 
+\begin_inset Formula $f_{g}=\left[E_{min}(g),E_{max}(g)\right].$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 The proposed PSO algorithm
 \begin_inset CommandInset label
@@ -1334,8 +1431,8 @@ name "subsec:The-proposed-PSO"
 \end_layout
 
 \begin_layout Standard
-During this phase, arithmetic interval techniques are used to find a suitable
- range for the parameters of the RBF network.
+During this phase, arithmetic interval techniques are used to locate a range
+ for the parameters of the RBF network.
  The interval techniques 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1358,7 +1455,7 @@ literal "false"
 \begin_inset Formula $n$
 \end_inset
 
- parameters of the corresponding neural network.
+ parameters of the corresponding RBF network.
  The initial bounding box is defined as
 \series bold
  
@@ -1389,8 +1486,17 @@ The interval method of the first phase divides the set
 
  subsequently by discarding areas that are not promising enough to contain
  the global minimum.
- In order to locate the best interval for the parameters of the network,
- a modified PSO algorithm 
+ In order to locate the best interval for equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eq2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, a modified PSO algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "pso1"
@@ -1415,8 +1521,8 @@ on of the velocity vector takes place to avoid generating particles outside
 \series bold
  
 \series default
-The PSO method is a global optimization method based on a population of
- candidate solutions, which in most cases are called particles.
+The PSO method is based on a population of candidate solutions, which in
+ most cases are called particles.
  The method is based on two vectors: the current location of particles denoted
  as 
 \begin_inset Formula $\overrightarrow{p}$
@@ -1481,7 +1587,7 @@ Set
 \begin_inset Formula $N_{c}$
 \end_inset
 
- the number of particles.
+ as the amount of particles.
 \end_layout
 
 \begin_layout Enumerate
@@ -1517,7 +1623,7 @@ Set
 \begin_inset Formula $N_{g}$
 \end_inset
 
- the maximum number of generations allowed.
+ the maximum generations allowed.
 \end_layout
 
 \begin_layout Enumerate
@@ -1567,7 +1673,7 @@ Construct
 Initialize
 \series default
  the 
-\begin_inset Formula $N_{g}$
+\begin_inset Formula $N_{c}$
 \end_inset
 
  particles.
@@ -1714,7 +1820,7 @@ Set
 \begin_inset Formula $r$
 \end_inset
 
- being a random number in 
+ a random number in 
 \begin_inset Formula $[0,1]$
 \end_inset
 
@@ -2031,7 +2137,7 @@ Else Return
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2237,13 +2343,13 @@ EndFor
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-The layout of the particles in the proposed PSO algorithm.
+The scheme of the particles in the current PSO algorithm.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:The-layout-of"
@@ -2572,94 +2678,6 @@ name "fig:The-layout-of"
 \end_inset
 
 
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Fitness calculation for the modified PSO algorithm.
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:Fitness-calculation-for"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-The fitness calculation for a given particle 
-\begin_inset Formula $g$
-\end_inset
-
- has as follows:
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Take
-\series default
- 
-\begin_inset Formula $N_{S}$
-\end_inset
-
- random samples in 
-\begin_inset Formula $g$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Calculate 
-\series default
-
-\begin_inset Formula $E_{\min}\left(g\right)=\min_{g_{i}\in N_{S}}\left(\left(\sum_{j=1}^{M}y\left(x_{j},g_{i}\right)-t_{j}\right)^{2}\right)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Calculate
-\series default
- 
-\begin_inset Formula $E_{max}\left(g\right)=\max_{g_{i}\in N_{S}}\left(\left(\sum_{j=1}^{M}y\left(x_{j},g_{i}\right)-y_{j}\right)^{2}\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Return
-\series default
- 
-\begin_inset Formula $f_{g}=\left[E_{min}(g),E_{max}(g)\right].$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -2747,7 +2765,7 @@ Set
 \begin_inset Formula $k$
 \end_inset
 
- the number of nodes for the RBF network.
+ the weight number of the RBF network.
 \end_layout
 
 \begin_layout Enumerate
@@ -2792,7 +2810,7 @@ Initialize
 \begin_layout Enumerate
 
 \series bold
-Set
+Define
 \series default
  the selection rate 
 \begin_inset Formula $p_{s}\in[0,1]$
@@ -2804,7 +2822,7 @@ Set
 \begin_layout Enumerate
 
 \series bold
-Set
+Define
 \series default
  the mutation rate 
 \begin_inset Formula $p_{m}\in[0,1]$
@@ -2859,7 +2877,7 @@ Genetic operations step
 
 
 \series default
-Apply the genetic operations of selection, crossover and mutation.
+Perform the genetic operations of selection, crossover and mutation.
 \end_layout
 
 \begin_deeper
@@ -2871,12 +2889,12 @@ Selection procedure.
 \series default
  First, the population of chromosomes is sorted based on the associated
  fitness values.
- The best 
+ The first 
 \begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
 \end_inset
 
- chromosomes are transferred unchanged to the next generation, while the
- remaining ones are replaced by offsprings created by the crossover procedure.
+ chromosomes are copied unchanged to the next generation, while the rest
+ are replaced by offsprings constructed by the crossover procedure.
  During the selection step, a series of mating pairs are chosen using the
  well - known procedure of tournament selection for each parent.
  
@@ -2891,7 +2909,7 @@ Crossover procedure
 \begin_inset Formula $(z,w)$
 \end_inset
 
- of selected parents two new offsprings 
+ of chosen parents two new offsprings 
 \begin_inset Formula $\tilde{z}$
 \end_inset
 
@@ -2899,7 +2917,7 @@ Crossover procedure
 \begin_inset Formula $\tilde{w}$
 \end_inset
 
- are created with the following procedure:
+ are constructed with the steps:
 \begin_inset Formula 
 \begin{eqnarray}
 \tilde{z_{i}} & = & a_{i}z_{i}+\left(1-a_{i}\right)w_{i}\nonumber \\
@@ -3117,7 +3135,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-The regression datasets was found in the Statlib URL 
+The regression problems was found in the Statlib URL 
 \begin_inset Flex URL
 status open
 
@@ -3137,7 +3155,7 @@ Experimental datasets
 \end_layout
 
 \begin_layout Standard
-The classification datasets that were used are the following:
+The classification problems used here are:
 \end_layout
 
 \begin_layout Enumerate
@@ -3242,8 +3260,7 @@ literal "false"
 \series bold
 Hayes roth
 \series default
- dataset.
- This dataset
+ datase
 \begin_inset CommandInset citation
 LatexCommand cite
 key "hayesroth"
@@ -3251,12 +3268,7 @@ literal "false"
 
 \end_inset
 
- contains 
-\series bold
-5
-\series default
- numeric-valued attributes and 132 patterns.
- 
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -3272,7 +3284,7 @@ literal "false"
 
 \end_inset
 
-, a medical dataset about heart diseases.
+, a medical dataset.
 \end_layout
 
 \begin_layout Enumerate
@@ -3288,9 +3300,7 @@ literal "false"
 
 \end_inset
 
-, which is about votes in the U.S.
- House of Representatives Congressmen.
- 
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -3339,7 +3349,7 @@ literal "false"
 \end_inset
 
 .
- The aim here is to detect the presence of a lymphoma in patients.
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -3774,8 +3784,8 @@ Experimental results
 \end_layout
 
 \begin_layout Standard
-The RBF network for the experiments was coded in ANSI C++ with the help
- of the freely available Armadillo library 
+The RBF network for the tests was coded in ANSI C++ with the help of the
+ freely available Armadillo library 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Armadillo"
@@ -10783,8 +10793,8 @@ The method was applied to a multitude of classification and regression problems
 
 \begin_layout Standard
 The method could be extended by the use of other techniques of training
- the parameters in RBF networks, such as, for example the differential evolution
-ary method 
+ the parameters in RBF networks, such as, for example, the differential
+ evolutionary method 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "dePaper"
