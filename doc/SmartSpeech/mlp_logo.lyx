@@ -1,0 +1,3194 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass Definitions/mdpi
+\begin_preamble
+%  LaTeX support: latex@mdpi.com 
+%  For support, please attach all files needed for compiling as well as the log file, and specify your operating system, LaTeX version, and LaTeX editor.
+
+%=================================================================
+
+
+% For posting an early version of this manuscript as a preprint, you may use "preprints" as the journal and change "submit" to "accept". The document class line would be, e.g., \documentclass[preprints,article,accept,moreauthors,pdftex]{mdpi}. This is especially recommended for submission to arXiv, where line numbers should be removed before posting. For preprints.org, the editorial staff will make this change immediately prior to posting.
+
+%--------------------
+% Class Options:
+%--------------------
+%----------
+% journal
+%----------
+% Choose between the following MDPI journals:
+% acoustics, actuators, addictions, admsci, adolescents, aerospace, agriculture, agriengineering, agronomy, ai, algorithms, allergies, alloys, analytica, animals, antibiotics, antibodies, antioxidants, applbiosci, appliedchem, appliedmath, applmech, applmicrobiol, applnano, applsci, aquacj, architecture, arts, asc, asi, astronomy, atmosphere, atoms, audiolres, automation, axioms, bacteria, batteries, bdcc, behavsci, beverages, biochem, bioengineering, biologics, biology, biomass, biomechanics, biomed, biomedicines, biomedinformatics, biomimetics, biomolecules, biophysica, biosensors, biotech, birds, bloods, blsf, brainsci, breath, buildings, businesses, cancers, carbon, cardiogenetics, catalysts, cells, ceramics, challenges, chemengineering, chemistry, chemosensors, chemproc, children, chips, cimb, civileng, cleantechnol, climate, clinpract, clockssleep, cmd, coasts, coatings, colloids, colorants, commodities, compounds, computation, computers, condensedmatter, conservation, constrmater, cosmetics, covid, crops, cryptography, crystals, csmf, ctn, curroncol, currophthalmol, cyber, dairy, data, dentistry, dermato, dermatopathology, designs, diabetology, diagnostics, dietetics, digital, disabilities, diseases, diversity, dna, drones, dynamics, earth, ebj, ecologies, econometrics, economies, education, ejihpe, electricity, electrochem, electronicmat, electronics, encyclopedia, endocrines, energies, eng, engproc, ent, entomology, entropy, environments, environsciproc, epidemiologia, epigenomes, est, fermentation, fibers, fintech, fire, fishes, fluids, foods, forecasting, forensicsci, forests, foundations, fractalfract, fuels, futureinternet, futureparasites, futurepharmacol, futurephys, futuretransp, galaxies, games, gases, gastroent, gastrointestdisord, gels, genealogy, genes, geographies, geohazards, geomatics, geosciences, geotechnics, geriatrics, hazardousmatters, healthcare, hearts, hemato, heritage, highthroughput, histories, horticulturae, humanities, humans, hydrobiology, hydrogen, hydrology, hygiene, idr, ijerph, ijfs, ijgi, ijms, ijns, ijtm, ijtpp, immuno, informatics, information, infrastructures, inorganics, insects, instruments, inventions, iot, j, jal, jcdd, jcm, jcp, jcs, jdb, jeta, jfb, jfmk, jimaging, jintelligence, jlpea, jmmp, jmp, jmse, jne, jnt, jof, joitmc, jor, journalmedia, jox, jpm, jrfm, jsan, jtaer, jzbg, kidney, kidneydial, knowledge, land, languages, laws, life, liquids, literature, livers, logics, logistics, lubricants, lymphatics, machines, macromol, magnetism, magnetochemistry, make, marinedrugs, materials, materproc, mathematics, mca, measurements, medicina, medicines, medsci, membranes, merits, metabolites, metals, meteorology, methane, metrology, micro, microarrays, microbiolres, micromachines, microorganisms, microplastics, minerals, mining, modelling, molbank, molecules, mps, msf, mti, muscles, nanoenergyadv, nanomanufacturing, nanomaterials, ncrna, network, neuroglia, neurolint, neurosci, nitrogen, notspecified, nri, nursrep, nutraceuticals, nutrients, obesities, oceans, ohbm, onco, oncopathology, optics, oral, organics, organoids, osteology, oxygen, parasites, parasitologia, particles, pathogens, pathophysiology, pediatrrep, pharmaceuticals, pharmaceutics, pharmacoepidemiology, pharmacy, philosophies, photochem, photonics, phycology, physchem, physics, physiologia, plants, plasma, pollutants, polymers, polysaccharides, poultry, powders, preprints, proceedings, processes, prosthesis, proteomes, psf, psych, psychiatryint, psychoactives, publications, quantumrep, quaternary, qubs, radiation, reactions, recycling, regeneration, religions, remotesensing, reports, reprodmed, resources, rheumato, risks, robotics, ruminants, safety, sci, scipharm, seeds, sensors, separations, sexes, signals, sinusitis, skins, smartcities, sna, societies, socsci, software, soilsystems, solar, solids, sports, standards, stats, stresses, surfaces, surgeries, suschem, sustainability, symmetry, synbio, systems, taxonomy, technologies, telecom, test, textiles, thalassrep, thermo, tomography, tourismhosp, toxics, toxins, transplantology, transportation, traumacare, traumas, tropicalmed, universe, urbansci, uro, vaccines, vehicles, venereology, vetsci, vibration, viruses, vision, waste, water, wem, wevj, wind, women, world, youth, zoonoticdis 
+
+%---------
+% article
+%---------
+% The default type of manuscript is "article", but can be replaced by: 
+% abstract, addendum, article, book, bookreview, briefreport, casereport, comment, commentary, communication, conferenceproceedings, correction, conferencereport, entry, expressionofconcern, extendedabstract, datadescriptor, editorial, essay, erratum, hypothesis, interestingimage, obituary, opinion, projectreport, reply, retraction, review, perspective, protocol, shortnote, studyprotocol, systematicreview, supfile, technicalnote, viewpoint, guidelines, registeredreport, tutorial
+% supfile = supplementary materials
+
+%----------
+% submit
+%----------
+% The class option "submit" will be changed to "accept" by the Editorial Office when the paper is accepted. This will only make changes to the frontpage (e.g., the logo of the journal will get visible), the headings, and the copyright information. Also, line numbering will be removed. Journal info and pagination for accepted papers will also be assigned by the Editorial Office.
+
+%------------------
+% moreauthors
+%------------------
+% If there is only one author the class option oneauthor should be used. Otherwise use the class option moreauthors.
+
+%---------
+% pdftex
+%---------
+% The option pdftex is for use with pdfLaTeX. If eps figures are used, remove the option pdftex and use LaTeX and dvi2pdf.
+
+%=================================================================
+% MDPI internal commands
+\firstpage{1} 
+ 
+\setcounter{page}{\@firstpage} 
+
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2022}
+\copyrightyear{2022}
+%\externaleditor{Academic Editor: Firstname Lastname} % For journal Automation, please change Academic Editor to "Communicated by"
+\datereceived{} 
+\dateaccepted{} 
+\datepublished{} 
+%\datecorrected{} % Corrected papers include a "Corrected: XXX" date in the original paper.
+%\dateretracted{} % Corrected papers include a "Retracted: XXX" date in the original paper.
+\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+%------------------------------------------------------------------
+% The following line should be uncommented if the LaTeX file is uploaded to arXiv.org
+%\pdfoutput=1
+
+%=================================================================
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, lineno, float, amsmath, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, cleveref, amsthm, hyphenat, natbib, hyperref, footmisc, url, geometry, newfloat, caption
+
+%=================================================================
+%% Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
+%% For proofs, please use the proof environment (the amsthm package is loaded by the MDPI class).
+
+%=================================================================
+% The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
+%\PACS{J0101}
+%\MSC{}
+%\JEL{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Diversity
+%\LSID{\url{http://}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Applied Sciences:
+%\featuredapplication{Authors are encouraged to provide a concise description of the specific application or a potential application of the work. This section is not mandatory.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Data:
+%\dataset{DOI number or link to the deposited data set in cases where the data set is published or set to be published separately. If the data set is submitted and will be published as a supplement to this paper in the journal Data, this field will be filled by the editors of the journal. In this case, please make sure to submit the data set as a supplement when entering your manuscript into our manuscript editorial system.}
+
+%\datasetlicense{license under which the data set is made available (CC0, CC-BY, CC-BY-SA, CC-BY-NC, etc.)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Toxins
+%\keycontribution{The breakthroughs or highlights of the manuscript. Authors can write one or two sentences to describe the most important part of the paper.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Encyclopedia
+%\encyclopediadef{Instead of the abstract}
+%\entrylink{The Link to this entry published on the encyclopedia platform.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_preamble
+\options journal,article,submit,pdftex,moreauthors
+\use_default_options false
+\maintain_unincluded_children false
+\begin_local_layout
+#Adds an endnote inset, in addition to footnotes. You will need to add
+#\printendnotes in TeX-code where you want the endnotes to appear.
+
+Format 66
+
+Counter endnotes
+    PrettyFormat "Endnote ##"
+End
+
+InsetLayout Flex:Endnote
+   LyXType     custom
+   LatexName   endnote
+   LatexType   command
+   Counter     endnotes
+   Decoration  classic
+   Font
+     Size Small
+   EndFont
+   MultiPar    true
+   LabelString endnote
+   Requires    enotez
+End
+\end_local_layout
+\language english
+\language_package none
+\inputencoding utf8
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Applying neural networks on biometric datasets...
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Title
+This is the Capitalized Title of the Paper
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title Citation
+Title for Citation in the Left Column
+\end_layout
+
+\begin_layout Author
+Firstname Lastname
+\begin_inset Formula $^{1,\dagger,\ddagger}$
+\end_inset
+
+, Firstname Lastname
+\begin_inset Formula $^{2,\dagger}$
+\end_inset
+
+ and Firstname Lastname
+\begin_inset Formula $^{2,*}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author Names for PDF
+Firstname Lastname, Firstname Lastname and Firstname Lastname 
+\end_layout
+
+\begin_layout Author Names for Citation
+Lastname, F.; Lastname, F.; Lastname, F.
+ 
+\end_layout
+
+\begin_layout Address
+\begin_inset Formula $^{1}$
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+Affiliation 1; e-mail@e-mail.com
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $^{2}$
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+Affiliation 2; e-mail@e-mail.com
+\end_layout
+
+\begin_layout Corresponding Author
+Correspondence: e-mail@e-mail.com; Tel.: (optional; include country code;
+ if there are multiple corresponding authors, add author initials) +xx-xxxx-xxx-
+xxxx (F.L.)
+\end_layout
+
+\begin_layout First Note
+Current address: Affiliation 3.
+\end_layout
+
+\begin_layout Second Note
+These authors contributed equally to this work.
+\end_layout
+
+\begin_layout Abstract
+Write some abstract.
+\end_layout
+
+\begin_layout Keywords
+Neural networks; optimization; genetic algorithms; biometrical data
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+Artificial Neural networks (ANNs) are parametric machine learning tools
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nn1,nn2"
+literal "true"
+
+\end_inset
+
+ that are utilizing a seires of parameters commonly called weights or processing
+ units.
+ These tools have found application in a variety of scientific areas, such
+ as physics 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nnphysics1,nnphysics2,nnphysics3"
+literal "false"
+
+\end_inset
+
+, solution of differential equations 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nnde1,nnde2"
+literal "false"
+
+\end_inset
+
+, agriculture 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nnagr1,nnagr2"
+literal "false"
+
+\end_inset
+
+, chemistry 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nnchem1,nnchem2,nnchem3"
+literal "false"
+
+\end_inset
+
+, economics 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nnecon1,nnecon2,nncecon3"
+literal "false"
+
+\end_inset
+
+, medicine 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nnmed1,nnmed2"
+literal "false"
+
+\end_inset
+
+ etc.
+ Also, recently, neural networks have been used in solar radiation prediction
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nnsolar"
+literal "false"
+
+\end_inset
+
+, 3D printing 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn3d"
+literal "false"
+
+\end_inset
+
+, lung cancer research 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nnlung"
+literal "false"
+
+\end_inset
+
+ etc.
+ A neural network 
+\begin_inset Formula $N\left(\overrightarrow{x},\overrightarrow{w}\right)$
+\end_inset
+
+ can be expressed as a summation of processing units as suggested in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nnc"
+literal "false"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+N\left(\overrightarrow{x},\overrightarrow{w}\right)=\sum_{i=1}^{H}w_{(d+2)i-(d+1)}\sigma\left(\sum_{j=1}^{d}x_{j}w_{(d+2)i-(d+1)+j}+w_{(d+2)i}\right)\label{eq:nn}
+\end{equation}
+
+\end_inset
+
+where the constant 
+\begin_inset Formula $H$
+\end_inset
+
+ defines the total number of processing units for the network and the value
+ 
+\begin_inset Formula $d$
+\end_inset
+
+ is considered as the dimension of vector 
+\begin_inset Formula $\overrightarrow{x}$
+\end_inset
+
+.
+ The function 
+\begin_inset Formula $\sigma(x)$
+\end_inset
+
+ is called sigmoid function and it is defined as: 
+\begin_inset Formula 
+\begin{equation}
+\sigma(x)=\frac{1}{1+\exp(-x)}\label{eq:sig}
+\end{equation}
+
+\end_inset
+
+The training error of the neural network is defined as:
+\begin_inset Formula 
+\begin{equation}
+E\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=\sum_{i=1}^{M}\left(N\left(\overrightarrow{x}_{i},\overrightarrow{w}\right)-y_{i}\right)^{2}\label{eq:eq1}
+\end{equation}
+
+\end_inset
+
+where the set 
+\begin_inset Formula $\left(\overrightarrow{x_{i}},y_{i}\right),\ i=1,...,M$
+\end_inset
+
+ is the training dataset for the neural network and 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ stands for the actual output for the input pattern 
+\begin_inset Formula $\overrightarrow{x_{i}}$
+\end_inset
+
+ .
+ Essentially, the training of the artificial neural network consists in
+ determining the optimal vector of parameters 
+\begin_inset Formula $\overrightarrow{w}$
+\end_inset
+
+ through the minimization of equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eq1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ During the recent years a variety of optimization methods have been proposed
+ to minimize this equation such as the Back Propagation method 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bpnn,bpnn2"
+literal "false"
+
+\end_inset
+
+, the RPROP method 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rpropnn,rpropnn3,rpropnn2"
+literal "false"
+
+\end_inset
+
+, Quasi Newton methods 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "quasinn,quasinn2"
+literal "false"
+
+\end_inset
+
+, Simulated Annealing 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nn_ann1,nn_ann2"
+literal "false"
+
+\end_inset
+
+, Genetic Algorithms 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "geneticnn,geneticnn2"
+literal "false"
+
+\end_inset
+
+, Particle Swarm Optimization 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "psonn,psonn2"
+literal "false"
+
+\end_inset
+
+ etc.
+ 
+\end_layout
+
+\begin_layout Section
+Data description
+\end_layout
+
+\begin_layout Standard
+The 
+\end_layout
+
+\begin_layout Section
+Materials and Methods
+\end_layout
+
+\begin_layout Section
+Results
+\end_layout
+
+\begin_layout Standard
+This 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Experimental results for the EYE dataset using different methods for the
+ neural network training.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:eyeResults"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="5">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="100text%">
+<column alignment="center" valignment="top" width="20text%">
+<column alignment="center" valignment="top" width="19text%">
+<column alignment="center" valignment="top" width="19text%">
+<column alignment="center" valignment="top" width="19text%">
+<column alignment="center" valignment="top" width="19text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+DATASET
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+ADAM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+BFGS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+GENETIC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+INN
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DISORDER
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+22.36%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.53%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17.76%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.67%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DEPIK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+31.63%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29.46%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+25.49%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23.78%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+EMD
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+31.77%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29.44%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+25.68%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+22.49%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+NOITIKI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+41.50%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40.30%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+31.50%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+26.63%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TADAF
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30.06%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+27.07%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+24.32%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.94%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TADEPY
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30.79%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+27.30%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23.42%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.69%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+AVERAGE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+31.35%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+28.85%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+24.70%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+20.20%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Experimental results for the HEART dataset using different methods for the
+ neural network training.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:heartResults"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="5">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="100text%">
+<column alignment="center" valignment="top" width="20text%">
+<column alignment="center" valignment="top" width="19text%">
+<column alignment="center" valignment="top" width="19text%">
+<column alignment="center" valignment="top" width="19text%">
+<column alignment="center" valignment="top" width="19text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+DATASET
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+ADAM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+BFGS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+GENETIC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+INN
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DISORDER
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+24.83%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29.26%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+21.26%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18.95%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DEPIK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.54%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+31.61%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.17%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.02%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+EMD
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+24.02%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32.98%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.17%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.06%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+NOITIKI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+22.43%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+31.13%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.89%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.61%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TADAF
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23.41%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32.31%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.61%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.83%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TADEPY
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+26.30%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+34.11%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+21.11%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.89%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+AVERAGE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+23.59%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+31.90%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+20.54%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+19.56%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Experimental results for the GAME dataset using different methods for the
+ neural network training.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:gameResults"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="5">
+<features booktabs="true" tabularvalignment="middle" tabularwidth="100text%">
+<column alignment="center" valignment="top" width="20text%">
+<column alignment="center" valignment="top" width="19text%">
+<column alignment="center" valignment="top" width="19text%">
+<column alignment="center" valignment="top" width="19text%">
+<column alignment="center" valignment="top" width="19text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+DATASET
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+ADAM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+BFGS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+GENETIC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+INN
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DISORDER
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DEPIK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+EMD
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+NOITIKI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TADAF
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TADEPY
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+AVERAGE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusions
+\end_layout
+
+\begin_layout Standard
+This section is not mandatory, but can be added to the manuscript if the
+ discussion is unusually long or complex.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 6pt
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author Contributions
+For research articles with several authors, a short paragraph specifying
+ their individual contributions must be provided.
+ The following statements should be used 
+\begin_inset Quotes eld
+\end_inset
+
+Conceptualization, X.X.
+ and Y.Y.; methodology, X.X.; software, X.X.; validation, X.X., Y.Y.
+ and Z.Z.; formal analysis, X.X.; investigation, X.X.; resources, X.X.; data curation,
+ X.X.; writing—original draft preparation, X.X.; writing—review and editing,
+ X.X.; visualization, X.X.; supervision, X.X.; project administration, X.X.; funding
+ acquisition, Y.Y.
+ All authors have read and agreed to the published version of the manuscript.
+\begin_inset Quotes erd
+\end_inset
+
+, please turn to the 
+\begin_inset CommandInset href
+LatexCommand href
+name "CRediT taxonomy"
+target "http://img.mdpi.org/data/contributor-role-instruction.pdf"
+literal "false"
+
+\end_inset
+
+for the term explanation.
+ Authorship must be limited to those who have contributed substantially
+ to the work
+\begin_inset space ~
+\end_inset
+
+reported.
+\end_layout
+
+\begin_layout Funding
+Please add: 
+\begin_inset Quotes eld
+\end_inset
+
+This research received no external funding
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+This research was funded by NAME OF FUNDER grant number XXX.
+\begin_inset Quotes erd
+\end_inset
+
+ and and 
+\begin_inset Quotes eld
+\end_inset
+
+The APC was funded by XXX
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Check carefully that the details given are accurate and use the standard
+ spelling of funding agency names at 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://search.crossref.org/funding
+\end_layout
+
+\end_inset
+
+, any errors may affect your future funding.
+\end_layout
+
+\begin_layout Institutional Review
+In this section, please add the Institutional Review Board Statement and
+ approval number for studies involving humans or animals.
+ Please note that the Editorial Office might ask you for further information.
+ Please add 
+\begin_inset Quotes eld
+\end_inset
+
+The study was conducted according to the guidelines of the Declaration of
+ Helsinki, and approved by the Institutional Review Board (or Ethics Committee)
+ of NAME OF INSTITUTE (protocol code XXX and date of approval).
+\begin_inset Quotes erd
+\end_inset
+
+ OR 
+\begin_inset Quotes eld
+\end_inset
+
+Ethical review and approval were waived for this study, due to REASON (please
+ provide a detailed justification).
+\begin_inset Quotes erd
+\end_inset
+
+ OR 
+\begin_inset Quotes eld
+\end_inset
+
+Not applicable
+\begin_inset Quotes erd
+\end_inset
+
+ for studies not involving humans or animals.
+ You might also choose to exclude this statement if the study did not involve
+ humans or animals.
+\end_layout
+
+\begin_layout Informed Consent
+Any research article describing a study involving humans should contain
+ this statement.
+ Please add 
+\begin_inset Quotes eld
+\end_inset
+
+Informed consent was obtained from all subjects involved in the study.
+\begin_inset Quotes erd
+\end_inset
+
+ OR 
+\begin_inset Quotes eld
+\end_inset
+
+Patient consent was waived due to REASON (please provide a detailed justificatio
+n).
+\begin_inset Quotes erd
+\end_inset
+
+ OR 
+\begin_inset Quotes eld
+\end_inset
+
+Not applicable
+\begin_inset Quotes erd
+\end_inset
+
+ for studies not involving humans.
+ You might also choose to exclude this statement if the study did not involve
+ humans.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+As LyX does not allow multiple paragraphs in command type environments,
+ the following ERT is used to introduce a blank line in the LaTeX output.
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+Written informed consent for publication must be obtained from participating
+ patients who can be identified (including by the patients themselves).
+ Please state 
+\begin_inset Quotes eld
+\end_inset
+
+Written informed consent has been obtained from the patient(s) to publish
+ this paper
+\begin_inset Quotes erd
+\end_inset
+
+ if applicable.
+\end_layout
+
+\begin_layout Data Availability
+In this section, please provide details regarding where data supporting
+ reported results can be found, including links to publicly archived datasets
+ analyzed or generated during the study.
+ Please refer to suggested Data Availability Statements in section 
+\begin_inset Quotes eld
+\end_inset
+
+MDPI Research Data Policies
+\begin_inset Quotes erd
+\end_inset
+
+ at 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://www.mdpi.com/ethics
+\end_layout
+
+\end_inset
+
+.
+ You might choose to exclude this statement if the study did not report
+ any data.
+\end_layout
+
+\begin_layout Acknowledgments
+In this section you can acknowledge any support given which is not covered
+ by the author contribution or funding sections.
+ This may include administrative and technical support, or donations in
+ kind (e.g., materials used for experiments).
+\end_layout
+
+\begin_layout Conflicts of Interest
+Declare conflicts of interest or state 
+\begin_inset Quotes eld
+\end_inset
+
+The authors declare no conflict of interest.
+\begin_inset Quotes erd
+\end_inset
+
+ Authors must identify and declare any personal circumstances or interest
+ that may be perceived as inappropriately influencing the representation
+ or interpretation of reported research results.
+ Any role of the funders in the design of the study; in the collection,
+ analyses or interpretation of data; in the writing of the manuscript; or
+ in the decision to publish the results must be declared in this section.
+ If there is no role, please state 
+\begin_inset Quotes eld
+\end_inset
+
+The funders had no role in the design of the study; in the collection, analyses,
+ or interpretation of data; in the writing of the manuscript; or in the
+ decision to publish the
+\begin_inset space ~
+\end_inset
+
+results
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Sample Availability
+Samples of the compounds ...
+ are available from the authors.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Optional
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Only for journal Encyclopedia
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Entry Link
+The Link to this entry published on the encyclopedia platform.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abbreviations
+The following abbreviations are used in this manuscript:
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Optional
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features tabularvalignment="middle">
+<column alignment="none" valignment="top" special="@{}l">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MDPI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Multidisciplinary Digital Publishing Institute
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DOAJ
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Directory of open access journals
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TLA
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Three letter acronym
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+LD
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Linear dichroism
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Appendix Titles
+no
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Optional
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Leave argument 
+\begin_inset Quotes eld
+\end_inset
+
+no
+\begin_inset Quotes erd
+\end_inset
+
+ if all appendix headings stay EMPTY (then no dot is printed after 
+\begin_inset Quotes eld
+\end_inset
+
+Appendix A
+\begin_inset Quotes erd
+\end_inset
+
+).
+ If the appendix sections contain a heading then change the argument to
+ 
+\begin_inset Quotes eld
+\end_inset
+
+yes
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+Please, note that in LyX a trailing dot is always present and the name 
+\begin_inset Quotes eld
+\end_inset
+
+Appendix
+\begin_inset Quotes erd
+\end_inset
+
+ is missing.
+ Also make sure that no space follows the argument 
+\begin_inset Quotes eld
+\end_inset
+
+yes
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Start of Appendix
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Keep empty!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Begin Whole Page
+\start_of_appendix
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Keep empty!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Dissolve the outer note inset to print a list of endnotes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Print End Notes
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Keep empty!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout References Title
+References
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring 999
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn1"
+literal "true"
+
+\end_inset
+
+ C.
+ Bishop, Neural Networks for Pattern Recognition, Oxford University Press,
+ 1995.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn2"
+literal "true"
+
+\end_inset
+
+G.
+ Cybenko, Approximation by superpositions of a sigmoidal function, Mathematics
+ of Control Signals and Systems 
+\series bold
+2
+\series default
+, pp.
+ 303-314, 1989.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnphysics1"
+literal "false"
+
+\end_inset
+
+P.
+ Baldi, K.
+ Cranmer, T.
+ Faucett et al, Parameterized neural networks for high-energy physics, Eur.
+ Phys.
+ J.
+ C 
+\series bold
+76
+\series default
+, 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnphysics2"
+literal "true"
+
+\end_inset
+
+J.
+ J.
+ Valdas and G.
+ Bonham-Carter, Time dependent neural network models for detecting changes
+ of state in complex processes: Applications in earth sciences and astronomy,
+ Neural Networks 
+\series bold
+19
+\series default
+, pp.
+ 196-207, 2006
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnphysics3"
+literal "false"
+
+\end_inset
+
+G.
+ Carleo,M.
+ Troyer, Solving the quantum many-body problem with artificial neural networks,
+ Science 
+\series bold
+355
+\series default
+, pp.
+ 602-606, 2017.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnde1"
+literal "false"
+
+\end_inset
+
+Y.
+ Shirvany, M.
+ Hayati, R.
+ Moradian, Multilayer perceptron neural networks with novel unsupervised
+ training method for numerical solution of the partial differential equations,
+ Applied Soft Computing 
+\series bold
+9
+\series default
+, pp.
+ 20-29, 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnde2"
+literal "false"
+
+\end_inset
+
+A.
+ Malek, R.
+ Shekari Beidokhti, Numerical solution for high order differential equations
+ using a hybrid neural network—Optimization method, Applied Mathematics
+ and Computation 
+\series bold
+183
+\series default
+, pp.
+ 260-271, 2006.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnagr1"
+literal "false"
+
+\end_inset
+
+A.
+ Topuz, Predicting moisture content of agricultural products using artificial
+ neural networks, Advances in Engineering Software 
+\series bold
+41
+\series default
+, pp.
+ 464-470, 2010.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnagr2"
+literal "false"
+
+\end_inset
+
+A.
+ Escamilla-García, G.M.
+ Soto-Zarazúa, M.
+ Toledano-Ayala, E.
+ Rivas-Araiza, A.
+ Gastélum-Barrios, Abraham,Applications of Artificial Neural Networks in
+ Greenhouse Technology and Overview for Smart Agriculture Development, Applied
+ Sciences 
+\series bold
+10
+\series default
+, Article number 3835, 2020.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnchem1"
+literal "false"
+
+\end_inset
+
+Lin Shen, Jingheng Wu, and Weitao Yang, Multiscale Quantum Mechanics/Molecular
+ Mechanics Simulations with Neural Networks, Journal of Chemical Theory
+ and Computation 
+\series bold
+12
+\series default
+, pp.
+ 4934-4946, 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnchem2"
+literal "false"
+
+\end_inset
+
+Sergei Manzhos, Richard Dawes, Tucker Carrington, Neural network‐based approache
+s for building high dimensional and quantum dynamics‐friendly potential
+ energy surfaces, Int.
+ J.
+ Quantum Chem.
+ 
+\series bold
+115
+\series default
+, pp.
+ 1012-1020, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnchem3"
+literal "false"
+
+\end_inset
+
+Jennifer N.
+ Wei, David Duvenaud, and Alán Aspuru-Guzik, Neural Networks for the Prediction
+ of Organic Chemistry Reactions, ACS Central Science 
+\series bold
+2
+\series default
+, pp.
+ 725-732, 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnecon1"
+literal "false"
+
+\end_inset
+
+Lukas Falat and Lucia Pancikova, Quantitative Modelling in Economics with
+ Advanced Artificial Neural Networks, Procedia Economics and Finance 
+\series bold
+34
+\series default
+, pp.
+ 194-201, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnecon2"
+literal "false"
+
+\end_inset
+
+Mohammad Namazi, Ahmad Shokrolahi, Mohammad Sadeghzadeh Maharluie, Detecting
+ and ranking cash flow risk factors via artificial neural networks technique,
+ Journal of Business Research 
+\series bold
+69
+\series default
+, pp.
+ 1801-1806, 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nncecon3"
+literal "false"
+
+\end_inset
+
+G.
+ Tkacz, Neural network forecasting of Canadian GDP growth, International
+ Journal of Forecasting 
+\series bold
+17
+\series default
+, pp.
+ 57-69, 2001.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnmed1"
+literal "false"
+
+\end_inset
+
+Igor I.
+ Baskin, David Winkler and Igor V.
+ Tetko, A renaissance of neural networks in drug discovery, Expert Opinion
+ on Drug Discovery 
+\series bold
+11
+\series default
+, pp.
+ 785-795, 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnmed2"
+literal "false"
+
+\end_inset
+
+Ronadl Bartzatt, Prediction of Novel Anti-Ebola Virus Compounds Utilizing
+ Artificial Neural Network (ANN), Chemistry Faculty Publications 
+\series bold
+49
+\series default
+, pp.
+ 16-34, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnsolar"
+literal "false"
+
+\end_inset
+
+A.K.
+ Yadav, S.S.
+ Chandel, Solar radiation prediction using Artificial Neural Network techniques:
+ A review, Renewable and Sustainable Energy Reviews 
+\series bold
+33
+\series default
+, pp.
+ 772-781, 2014.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn3d"
+literal "false"
+
+\end_inset
+
+M.A.
+ Mahmood, A.I.
+ Visan, C.
+ Ristoscu, I.N.
+ Mihailescu, Artificial Neural Network Algorithms for 3D Printing, Materials
+ 
+\series bold
+14
+\series default
+, 163, 2021.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnlung"
+literal "false"
+
+\end_inset
+
+E.
+ Prisciandaro, G.
+ Sedda, A.
+ Cara, C.
+ Diotti, L.
+ Spaggiari, L.
+ Bertolaccini, Artificial Neural Networks in Lung Cancer Research: A Narrative
+ Review, Journal of Clinical Medicine 
+\series bold
+12
+\series default
+, 880, 2023.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnc"
+literal "false"
+
+\end_inset
+
+I.G.
+ Tsoulos, D.
+ Gavrilis, E.
+ Glavas, Neural network construction and training using grammatical evolution,
+ Neurocomputing 
+\series bold
+72
+\series default
+, pp.
+ 269-277, 2008.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-5"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "bpnn"
+literal "false"
+
+\end_inset
+
+D.E.
+ Rumelhart, G.E.
+ Hinton and R.J.
+ Williams, Learning representations by back-propagating errors, Nature 
+\series bold
+323
+\series default
+, pp.
+ 533 - 536 , 1986.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "bpnn2"
+literal "false"
+
+\end_inset
+
+T.
+ Chen and S.
+ Zhong, Privacy-Preserving Backpropagation Neural Network Learning, IEEE
+ Transactions on Neural Networks 
+\series bold
+20
+\series default
+, , pp.
+ 1554-1564, 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rpropnn"
+literal "false"
+
+\end_inset
+
+M.
+ Riedmiller and H.
+ Braun, A Direct Adaptive Method for Faster Backpropagation Learning: The
+ RPROP algorithm, Proc.
+ of the IEEE Intl.
+ Conf.
+ on Neural Networks, San Francisco, CA, pp.
+ 586–591, 1993.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rpropnn3"
+literal "false"
+
+\end_inset
+
+T.
+ Pajchrowski, K.
+ Zawirski and K.
+ Nowopolski, Neural Speed Controller Trained Online by Means of Modified
+ RPROP Algorithm, IEEE Transactions on Industrial Informatics 
+\series bold
+11
+\series default
+, pp.
+ 560-568, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rpropnn2"
+literal "false"
+
+\end_inset
+
+Rinda Parama Satya Hermanto, Suharjito, Diana, Ariadi Nugroho, Waiting-Time
+ Estimation in Bank Customer Queues using RPROP Neural Networks, Procedia
+ Computer Science 
+\series bold
+ 135
+\series default
+, pp.
+ 35-42, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-23"
+
+\end_inset
+
+Neural Networks, Procedia Computer Science 
+\series bold
+ 135
+\series default
+, pp.
+ 35-42, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "quasinn"
+literal "false"
+
+\end_inset
+
+B.
+ Robitaille and B.
+ Marcos and M.
+ Veillette and G.
+ Payre, Modified quasi-Newton methods for training neural networks, Computers
+ & Chemical Engineering 
+\series bold
+20
+\series default
+, pp.
+ 1133-1140, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "quasinn2"
+literal "false"
+
+\end_inset
+
+Q.
+ Liu, J.
+ Liu, R.
+ Sang, J.
+ Li, T.
+ Zhang and Q.
+ Zhang, Fast Neural Network Training on FPGA Using Quasi-Newton Optimization
+ Method,IEEE Transactions on Very Large Scale Integration (VLSI) Systems
+ 
+\series bold
+26
+\series default
+, pp.
+ 1575-1579, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_ann1"
+literal "false"
+
+\end_inset
+
+A.
+ Yamazaki, M.
+ C.
+ P.
+ de Souto,T.
+ B.
+ Ludermir, Optimization of neural network weights and architectures for
+ odor recognition using simulated annealing, In: Proceedings of the 2002
+ International Joint Conference on Neural Networks.
+ IJCNN'02 
+\series bold
+1
+\series default
+, pp.
+ 547-552 , 2002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_ann2"
+literal "false"
+
+\end_inset
+
+Y.
+ Da, G.
+ Xiurun, An improved PSO-based ANN with simulated annealing technique, Neurocomp
+uting 
+\series bold
+63
+\series default
+, pp.
+ 527-533, 2005.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "geneticnn"
+literal "false"
+
+\end_inset
+
+F.
+ H.
+ F.
+ Leung, H.
+ K.
+ Lam, S.
+ H.
+ Ling and P.
+ K.
+ S.
+ Tam, Tuning of the structure and parameters of a neural network using an
+ improved genetic algorithm, IEEE Transactions on Neural Networks 
+\series bold
+14
+\series default
+, pp.
+ 79-88, 2003
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "geneticnn2"
+literal "false"
+
+\end_inset
+
+X.
+ Yao, Evolving artificial neural networks, Proceedings of the IEEE, 87(9),
+ pp.
+ 1423-1447, 1999.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "psonn"
+literal "false"
+
+\end_inset
+
+C.
+ Zhang, H.
+ Shao and Y.
+ Li, Particle swarm optimisation for evolving artificial neural network,
+ IEEE International Conference on Systems, Man, and Cybernetics, , pp.
+ 2487-2490, 2000.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "psonn2"
+literal "false"
+
+\end_inset
+
+Jianbo Yu, Shijin Wang, Lifeng Xi, Evolving artificial neural networks using
+ an improved PSO and DPSO 
+\series bold
+71
+\series default
+, pp.
+ 1054-1060, 2008.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+%% for journal Sci
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+reviewreports{
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Reviewer 1 comments and authors' response
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Reviewer 2 comments and authors' response
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Reviewer 3 comments and authors' response
+\end_layout
+
+\begin_layout Plain Layout
+
+%}
+\end_layout
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout End Whole Page
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Keep empty!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
