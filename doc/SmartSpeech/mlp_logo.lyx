@@ -544,7 +544,7 @@ This
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -593,17 +593,6 @@ DATASET
 \begin_layout Plain Layout
 
 \series bold
-ADAM
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
 BFGS
 \end_layout
 
@@ -616,6 +605,17 @@ BFGS
 
 \series bold
 GENETIC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+PSO
 \end_layout
 
 \end_inset
@@ -646,15 +646,6 @@ DISORDER
 \begin_inset Text
 
 \begin_layout Plain Layout
-22.36%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 19.53%
 \end_layout
 
@@ -665,6 +656,15 @@ DISORDER
 
 \begin_layout Plain Layout
 17.76%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14.14%
 \end_layout
 
 \end_inset
@@ -693,15 +693,6 @@ DEPIK
 \begin_inset Text
 
 \begin_layout Plain Layout
-31.63%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 29.46%
 \end_layout
 
@@ -712,6 +703,15 @@ DEPIK
 
 \begin_layout Plain Layout
 25.49%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+27.96%
 \end_layout
 
 \end_inset
@@ -740,15 +740,6 @@ EMD
 \begin_inset Text
 
 \begin_layout Plain Layout
-31.77%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 29.44%
 \end_layout
 
@@ -759,6 +750,15 @@ EMD
 
 \begin_layout Plain Layout
 25.68%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+25.88%
 \end_layout
 
 \end_inset
@@ -787,15 +787,6 @@ NOITIKI
 \begin_inset Text
 
 \begin_layout Plain Layout
-41.50%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 40.30%
 \end_layout
 
@@ -806,6 +797,15 @@ NOITIKI
 
 \begin_layout Plain Layout
 31.50%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+37.33%
 \end_layout
 
 \end_inset
@@ -834,15 +834,6 @@ TADAF
 \begin_inset Text
 
 \begin_layout Plain Layout
-30.06%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 27.07%
 \end_layout
 
@@ -853,6 +844,15 @@ TADAF
 
 \begin_layout Plain Layout
 24.32%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+25.59%
 \end_layout
 
 \end_inset
@@ -881,7 +881,7 @@ TADEPY
 \begin_inset Text
 
 \begin_layout Plain Layout
-30.79%
+27.30%
 \end_layout
 
 \end_inset
@@ -890,7 +890,7 @@ TADEPY
 \begin_inset Text
 
 \begin_layout Plain Layout
-27.30%
+23.42%
 \end_layout
 
 \end_inset
@@ -932,17 +932,6 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-31.35%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
 28.85%
 \end_layout
 
@@ -955,6 +944,17 @@ AVERAGE
 
 \series bold
 24.70%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+25.72%
 \end_layout
 
 \end_inset
@@ -985,7 +985,7 @@ AVERAGE
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1034,17 +1034,6 @@ DATASET
 \begin_layout Plain Layout
 
 \series bold
-ADAM
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
 BFGS
 \end_layout
 
@@ -1057,6 +1046,17 @@ BFGS
 
 \series bold
 GENETIC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+PSO
 \end_layout
 
 \end_inset
@@ -1087,15 +1087,6 @@ DISORDER
 \begin_inset Text
 
 \begin_layout Plain Layout
-24.83%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 29.26%
 \end_layout
 
@@ -1106,6 +1097,15 @@ DISORDER
 
 \begin_layout Plain Layout
 21.26%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+22.09%
 \end_layout
 
 \end_inset
@@ -1134,15 +1134,6 @@ DEPIK
 \begin_inset Text
 
 \begin_layout Plain Layout
-20.54%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 31.61%
 \end_layout
 
@@ -1153,6 +1144,15 @@ DEPIK
 
 \begin_layout Plain Layout
 20.17%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.48%
 \end_layout
 
 \end_inset
@@ -1181,15 +1181,6 @@ EMD
 \begin_inset Text
 
 \begin_layout Plain Layout
-24.02%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 32.98%
 \end_layout
 
@@ -1200,6 +1191,15 @@ EMD
 
 \begin_layout Plain Layout
 19.17%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+22.02%
 \end_layout
 
 \end_inset
@@ -1228,15 +1228,6 @@ NOITIKI
 \begin_inset Text
 
 \begin_layout Plain Layout
-22.43%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 31.13%
 \end_layout
 
@@ -1247,6 +1238,15 @@ NOITIKI
 
 \begin_layout Plain Layout
 20.89%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+24.98%
 \end_layout
 
 \end_inset
@@ -1275,15 +1275,6 @@ TADAF
 \begin_inset Text
 
 \begin_layout Plain Layout
-23.41%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 32.31%
 \end_layout
 
@@ -1294,6 +1285,15 @@ TADAF
 
 \begin_layout Plain Layout
 20.61%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23.19%
 \end_layout
 
 \end_inset
@@ -1322,15 +1322,6 @@ TADEPY
 \begin_inset Text
 
 \begin_layout Plain Layout
-26.30%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 34.11%
 \end_layout
 
@@ -1341,6 +1332,15 @@ TADEPY
 
 \begin_layout Plain Layout
 21.11%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+26.69%
 \end_layout
 
 \end_inset
@@ -1373,17 +1373,6 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-23.59%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
 31.90%
 \end_layout
 
@@ -1396,6 +1385,17 @@ AVERAGE
 
 \series bold
 20.54%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+23.25%
 \end_layout
 
 \end_inset
@@ -1475,17 +1475,6 @@ DATASET
 \begin_layout Plain Layout
 
 \series bold
-ADAM
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
 BFGS
 \end_layout
 
@@ -1498,6 +1487,17 @@ BFGS
 
 \series bold
 GENETIC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+PSO
 \end_layout
 
 \end_inset
@@ -1528,7 +1528,7 @@ DISORDER
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+25.92%
 \end_layout
 
 \end_inset
@@ -1537,7 +1537,7 @@ DISORDER
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+21.92%
 \end_layout
 
 \end_inset
@@ -1546,7 +1546,7 @@ DISORDER
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+24.37%
 \end_layout
 
 \end_inset
@@ -1555,7 +1555,7 @@ DISORDER
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+18.95%
 \end_layout
 
 \end_inset
@@ -1575,7 +1575,7 @@ DEPIK
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+30.61%
 \end_layout
 
 \end_inset
@@ -1584,7 +1584,7 @@ DEPIK
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+22.25%
 \end_layout
 
 \end_inset
@@ -1593,7 +1593,7 @@ DEPIK
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+25.92%
 \end_layout
 
 \end_inset
@@ -1602,7 +1602,7 @@ DEPIK
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+22.57%
 \end_layout
 
 \end_inset
@@ -1622,7 +1622,7 @@ EMD
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+30.22%
 \end_layout
 
 \end_inset
@@ -1631,7 +1631,7 @@ EMD
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+22.59%
 \end_layout
 
 \end_inset
@@ -1640,7 +1640,7 @@ EMD
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+27.15%
 \end_layout
 
 \end_inset
@@ -1649,7 +1649,7 @@ EMD
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+21.95%
 \end_layout
 
 \end_inset
@@ -1669,7 +1669,7 @@ NOITIKI
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+29.62%
 \end_layout
 
 \end_inset
@@ -1678,7 +1678,7 @@ NOITIKI
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+22.64%
 \end_layout
 
 \end_inset
@@ -1687,7 +1687,7 @@ NOITIKI
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+26.67%
 \end_layout
 
 \end_inset
@@ -1696,7 +1696,7 @@ NOITIKI
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+21.25%
 \end_layout
 
 \end_inset
@@ -1716,7 +1716,7 @@ TADAF
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+28.84%
 \end_layout
 
 \end_inset
@@ -1725,7 +1725,7 @@ TADAF
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+20.96%
 \end_layout
 
 \end_inset
@@ -1734,7 +1734,7 @@ TADAF
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+25.42%
 \end_layout
 
 \end_inset
@@ -1743,7 +1743,7 @@ TADAF
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+20.39%
 \end_layout
 
 \end_inset
@@ -1763,7 +1763,7 @@ TADEPY
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+29.64%
 \end_layout
 
 \end_inset
@@ -1772,7 +1772,7 @@ TADEPY
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+21.54%
 \end_layout
 
 \end_inset
@@ -1781,7 +1781,7 @@ TADEPY
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+29.62%
 \end_layout
 
 \end_inset
@@ -1790,7 +1790,7 @@ TADEPY
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+21.52%
 \end_layout
 
 \end_inset
@@ -1813,6 +1813,8 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+29.14%
 \end_layout
 
 \end_inset
@@ -1822,6 +1824,8 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+21.98%
 \end_layout
 
 \end_inset
@@ -1831,6 +1835,8 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+26.53%
 \end_layout
 
 \end_inset
@@ -1840,6 +1846,8 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+21.11%
 \end_layout
 
 \end_inset
@@ -2162,131 +2170,6 @@ Only for journal Encyclopedia
 \begin_layout Entry Link
 The Link to this entry published on the encyclopedia platform.
 \end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Abbreviations
-The following abbreviations are used in this manuscript:
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Optional
-\end_layout
-
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-noindent
-\end_layout
-
-\end_inset
-
-
-\begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="2">
-<features tabularvalignment="middle">
-<column alignment="none" valignment="top" special="@{}l">
-<column alignment="left" valignment="top">
-<row>
-<cell alignment="none" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-MDPI
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Multidisciplinary Digital Publishing Institute
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="none" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-DOAJ
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Directory of open access journals
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="none" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TLA
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Three letter acronym
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="none" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-LD
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Linear dichroism
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
 
 \end_inset
 
