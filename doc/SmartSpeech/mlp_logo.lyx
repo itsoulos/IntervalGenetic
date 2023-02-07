@@ -204,46 +204,50 @@ End
 \begin_body
 
 \begin_layout Title
-Applying neural networks on biometric datasets...
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Title
-This is the Capitalized Title of the Paper
-\end_layout
-
-\end_inset
-
-
+Applying neural networks on biometric datasets for screening speech and
+ language deficiencies in children communication 
 \end_layout
 
 \begin_layout Title Citation
-Title for Citation in the Left Column
+Applying neural networks on biometric datasets for screening speech and
+ language deficiencies in children communication 
 \end_layout
 
 \begin_layout Author
-Firstname Lastname
-\begin_inset Formula $^{1,\dagger,\ddagger}$
+Eugenia I.
+ Toki
+\begin_inset Formula $^{1}$
 \end_inset
 
-, Firstname Lastname
-\begin_inset Formula $^{2,\dagger}$
+, Giorgos Tatsis
+\begin_inset Formula $^{1,2}$
 \end_inset
 
- and Firstname Lastname
-\begin_inset Formula $^{2,*}$
+, Vasileios A.
+ Tatsis
+\begin_inset Formula $^{1,3}$
 \end_inset
 
+, Konstantinos Plachouras
+\begin_inset Formula $^{1}$
+\end_inset
 
+, Ioannis G.
+ Tsoulos
+\begin_inset Formula $^{4,*}$
+\end_inset
+
+,
 \end_layout
 
 \begin_layout Author Names for PDF
-Firstname Lastname, Firstname Lastname and Firstname Lastname 
+Eugenia Toki, Giorgos Tatsis, Vasileios A.
+ Tatsis, Konstantinos Plachouras, Ioannis G.
+ Tsoulos
 \end_layout
 
 \begin_layout Author Names for Citation
-Lastname, F.; Lastname, F.; Lastname, F.
- 
+Toki, E.; Tatsis, G.; Tatsis, V.A; Plachouras, K; Tsoulos, I.G 
 \end_layout
 
 \begin_layout Address
@@ -254,7 +258,8 @@ Lastname, F.; Lastname, F.; Lastname, F.
 \begin_inset space \quad{}
 \end_inset
 
-Affiliation 1; e-mail@e-mail.com
+Department of Speech and Language Therapy, School of Health Sciences, University
+ of Ioannina, Greece; toki@uoi.gr, kplachouras@uoi.gr
 \begin_inset Newline newline
 \end_inset
 
@@ -266,29 +271,84 @@ Affiliation 1; e-mail@e-mail.com
 \begin_inset space \quad{}
 \end_inset
 
-Affiliation 2; e-mail@e-mail.com
+Physics Department, University of Ioannina, Greece; gtatsis@uoi.gr
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $^{3}$
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+Department of Computer Science & Engineering, University of Ioannina, Greece;
+ vtatsis@uoi.gr
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $^{4}$
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+Department of Informatics and Telecommunications, University of Ioannina,
+ University of Ioannina, Greece; itsoulos@uoi.gr
 \end_layout
 
 \begin_layout Corresponding Author
-Correspondence: e-mail@e-mail.com; Tel.: (optional; include country code;
- if there are multiple corresponding authors, add author initials) +xx-xxxx-xxx-
-xxxx (F.L.)
-\end_layout
-
-\begin_layout First Note
-Current address: Affiliation 3.
-\end_layout
-
-\begin_layout Second Note
-These authors contributed equally to this work.
+Correspondence: itsoulos@uoi.gr
 \end_layout
 
 \begin_layout Abstract
-Write some abstract.
+Screening and evaluation of developmental disorders include complex and
+ tough procedures, exhibit uncertainties in the diagnostic fit, and require
+ high clinical expertise.
+ Traditionally, clinicians rely on diagnostic instrumentation, child observation
+s, and parents’ reports resulting occasionally to subjective evaluation
+ outcomes.
+ Current advances in artificial intelligence offer new opportunities for
+ decision making, classification and clinical assessment.
+ The current study explores the performance of different neural networks
+ optimizers in biometric datasets for screening typically and non-typically
+ developed children for speech and language communication deficiencies.
+ The main motivation was to give clinicians a robust tool to help them identify
+ speech disorders automatically by using artificial intelligence methodologies.
+ For this reason, in this study a new dataset from an innovative, recently
+ developed serious game that focuses on collecting a variety of data on
+ children’s speech and language abilities was used.
+ Specifically, a variety of neural network approaches were used by utilizing
+ state-of-the-art optimization algorithms such as the Broyden-Fletcher-Goldfarb-
+Shanno (BFGS), the Particle Swarm Optimization (PSO), and a Genetic algorithm,
+ along with an Integer bounded Neural Network (INN).
+ The results were promising, while INN proved to be the best competitor,
+ opening new inquiring for future work towards automated classification
+ supporting clinician’s decisions on developmental disorders.
 \end_layout
 
 \begin_layout Keywords
-Neural networks; optimization; genetic algorithms; biometrical data
+SmartSpeech; Neural networks; optimization; genetic algorithms; biometrical
+ data
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+clearpage
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
