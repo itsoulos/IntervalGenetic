@@ -324,7 +324,7 @@ s, and parents’ reports resulting occasionally to subjective evaluation
  Specifically, a variety of neural network approaches were used by utilizing
  state-of-the-art optimization algorithms such as the Broyden-Fletcher-Goldfarb-
 Shanno (BFGS), the Particle Swarm Optimization (PSO), and a Genetic algorithm,
- along with an Interfaced Neural Network (INN).
+ along with an Integer bounded Neural Network (INN).
  The results were promising, while INN proved to be the best competitor,
  opening new inquiring for future work towards automated classification
  supporting clinician’s decisions on developmental disorders.

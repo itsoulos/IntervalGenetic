@@ -1,0 +1,542 @@
+%% LyX 2.3.6 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[journal,article,submit,pdftex,moreauthors]{Definitions/mdpi}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{url}
+\ifx\hypersetup\undefined
+  \AtBeginDocument{%
+    \hypersetup{unicode=true}
+  }
+\else
+  \hypersetup{unicode=true}
+\fi
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+
+\Title{Applying neural networks on biometric datasets for screening speech
+and language deficiencies in children communication }
+
+\TitleCitation{Applying neural networks on biometric datasets for screening speech
+and language deficiencies in children communication }
+
+\Author{Eugenia I. Toki$^{1}$, Giorgos Tatsis$^{1,2}$, Vasileios A. Tatsis$^{1,3}$,
+Konstantinos Plachouras$^{1}$, Ioannis G. Tsoulos$^{4,*}$,}
+
+\AuthorNames{Eugenia Toki, Giorgos Tatsis, Vasileios A. Tatsis, Konstantinos Plachouras,
+Ioannis G. Tsoulos}
+
+\AuthorCitation{Toki, E.; Tatsis, G.; Tatsis, V.A; Plachouras, K; Tsoulos, I.G }
+
+
+\address{$^{1}$\quad{}Department of Speech and Language Therapy, School
+of Health Sciences, University of Ioannina, Greece; toki@uoi.gr, kplachouras@uoi.gr\\
+$^{2}$\quad{}Physics Department, University of Ioannina, Greece;
+gtatsis@uoi.gr\\
+$^{3}$\quad{}Department of Computer Science \& Engineering, University
+of Ioannina, Greece; vtatsis@uoi.gr\\
+$^{4}$\quad{}Department of Informatics and Telecommunications, University
+of Ioannina, University of Ioannina, Greece; itsoulos@uoi.gr}
+
+
+\corres{Correspondence: itsoulos@uoi.gr}
+
+
+\abstract{Screening and evaluation of developmental disorders include complex
+and tough procedures, exhibit uncertainties in the diagnostic fit,
+and require high clinical expertise. Traditionally, clinicians rely
+on diagnostic instrumentation, child observations, and parents’ reports
+resulting occasionally to subjective evaluation outcomes. Current
+advances in artificial intelligence offer new opportunities for decision
+making, classification and clinical assessment. The current study
+explores the performance of different neural networks optimizers in
+biometric datasets for screening typically and non-typically developed
+children for speech and language communication deficiencies. The main
+motivation was to give clinicians a robust tool to help them identify
+speech disorders automatically by using artificial intelligence methodologies.
+For this reason, in this study a new dataset from an innovative, recently
+developed serious game that focuses on collecting a variety of data
+on children’s speech and language abilities was used. Specifically,
+a variety of neural network approaches were used by utilizing state-of-the-art
+optimization algorithms such as the Broyden-Fletcher-Goldfarb-Shanno
+(BFGS), the Particle Swarm Optimization (PSO), and a Genetic algorithm,
+along with an Integer bounded Neural Network (INN). The results were
+promising, while INN proved to be the best competitor, opening new
+inquiring for future work towards automated classification supporting
+clinician’s decisions on developmental disorders.}
+
+
+\keyword{SmartSpeech; Neural networks; optimization; genetic algorithms; biometrical
+data}
+
+
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+%  LaTeX support: latex@mdpi.com 
+%  For support, please attach all files needed for compiling as well as the log file, and specify your operating system, LaTeX version, and LaTeX editor.
+
+%=================================================================
+
+
+% For posting an early version of this manuscript as a preprint, you may use "preprints" as the journal and change "submit" to "accept". The document class line would be, e.g., \documentclass[preprints,article,accept,moreauthors,pdftex]{mdpi}. This is especially recommended for submission to arXiv, where line numbers should be removed before posting. For preprints.org, the editorial staff will make this change immediately prior to posting.
+
+%--------------------
+% Class Options:
+%--------------------
+%----------
+% journal
+%----------
+% Choose between the following MDPI journals:
+% acoustics, actuators, addictions, admsci, adolescents, aerospace, agriculture, agriengineering, agronomy, ai, algorithms, allergies, alloys, analytica, animals, antibiotics, antibodies, antioxidants, applbiosci, appliedchem, appliedmath, applmech, applmicrobiol, applnano, applsci, aquacj, architecture, arts, asc, asi, astronomy, atmosphere, atoms, audiolres, automation, axioms, bacteria, batteries, bdcc, behavsci, beverages, biochem, bioengineering, biologics, biology, biomass, biomechanics, biomed, biomedicines, biomedinformatics, biomimetics, biomolecules, biophysica, biosensors, biotech, birds, bloods, blsf, brainsci, breath, buildings, businesses, cancers, carbon, cardiogenetics, catalysts, cells, ceramics, challenges, chemengineering, chemistry, chemosensors, chemproc, children, chips, cimb, civileng, cleantechnol, climate, clinpract, clockssleep, cmd, coasts, coatings, colloids, colorants, commodities, compounds, computation, computers, condensedmatter, conservation, constrmater, cosmetics, covid, crops, cryptography, crystals, csmf, ctn, curroncol, currophthalmol, cyber, dairy, data, dentistry, dermato, dermatopathology, designs, diabetology, diagnostics, dietetics, digital, disabilities, diseases, diversity, dna, drones, dynamics, earth, ebj, ecologies, econometrics, economies, education, ejihpe, electricity, electrochem, electronicmat, electronics, encyclopedia, endocrines, energies, eng, engproc, ent, entomology, entropy, environments, environsciproc, epidemiologia, epigenomes, est, fermentation, fibers, fintech, fire, fishes, fluids, foods, forecasting, forensicsci, forests, foundations, fractalfract, fuels, futureinternet, futureparasites, futurepharmacol, futurephys, futuretransp, galaxies, games, gases, gastroent, gastrointestdisord, gels, genealogy, genes, geographies, geohazards, geomatics, geosciences, geotechnics, geriatrics, hazardousmatters, healthcare, hearts, hemato, heritage, highthroughput, histories, horticulturae, humanities, humans, hydrobiology, hydrogen, hydrology, hygiene, idr, ijerph, ijfs, ijgi, ijms, ijns, ijtm, ijtpp, immuno, informatics, information, infrastructures, inorganics, insects, instruments, inventions, iot, j, jal, jcdd, jcm, jcp, jcs, jdb, jeta, jfb, jfmk, jimaging, jintelligence, jlpea, jmmp, jmp, jmse, jne, jnt, jof, joitmc, jor, journalmedia, jox, jpm, jrfm, jsan, jtaer, jzbg, kidney, kidneydial, knowledge, land, languages, laws, life, liquids, literature, livers, logics, logistics, lubricants, lymphatics, machines, macromol, magnetism, magnetochemistry, make, marinedrugs, materials, materproc, mathematics, mca, measurements, medicina, medicines, medsci, membranes, merits, metabolites, metals, meteorology, methane, metrology, micro, microarrays, microbiolres, micromachines, microorganisms, microplastics, minerals, mining, modelling, molbank, molecules, mps, msf, mti, muscles, nanoenergyadv, nanomanufacturing, nanomaterials, ncrna, network, neuroglia, neurolint, neurosci, nitrogen, notspecified, nri, nursrep, nutraceuticals, nutrients, obesities, oceans, ohbm, onco, oncopathology, optics, oral, organics, organoids, osteology, oxygen, parasites, parasitologia, particles, pathogens, pathophysiology, pediatrrep, pharmaceuticals, pharmaceutics, pharmacoepidemiology, pharmacy, philosophies, photochem, photonics, phycology, physchem, physics, physiologia, plants, plasma, pollutants, polymers, polysaccharides, poultry, powders, preprints, proceedings, processes, prosthesis, proteomes, psf, psych, psychiatryint, psychoactives, publications, quantumrep, quaternary, qubs, radiation, reactions, recycling, regeneration, religions, remotesensing, reports, reprodmed, resources, rheumato, risks, robotics, ruminants, safety, sci, scipharm, seeds, sensors, separations, sexes, signals, sinusitis, skins, smartcities, sna, societies, socsci, software, soilsystems, solar, solids, sports, standards, stats, stresses, surfaces, surgeries, suschem, sustainability, symmetry, synbio, systems, taxonomy, technologies, telecom, test, textiles, thalassrep, thermo, tomography, tourismhosp, toxics, toxins, transplantology, transportation, traumacare, traumas, tropicalmed, universe, urbansci, uro, vaccines, vehicles, venereology, vetsci, vibration, viruses, vision, waste, water, wem, wevj, wind, women, world, youth, zoonoticdis 
+
+%---------
+% article
+%---------
+% The default type of manuscript is "article", but can be replaced by: 
+% abstract, addendum, article, book, bookreview, briefreport, casereport, comment, commentary, communication, conferenceproceedings, correction, conferencereport, entry, expressionofconcern, extendedabstract, datadescriptor, editorial, essay, erratum, hypothesis, interestingimage, obituary, opinion, projectreport, reply, retraction, review, perspective, protocol, shortnote, studyprotocol, systematicreview, supfile, technicalnote, viewpoint, guidelines, registeredreport, tutorial
+% supfile = supplementary materials
+
+%----------
+% submit
+%----------
+% The class option "submit" will be changed to "accept" by the Editorial Office when the paper is accepted. This will only make changes to the frontpage (e.g., the logo of the journal will get visible), the headings, and the copyright information. Also, line numbering will be removed. Journal info and pagination for accepted papers will also be assigned by the Editorial Office.
+
+%------------------
+% moreauthors
+%------------------
+% If there is only one author the class option oneauthor should be used. Otherwise use the class option moreauthors.
+
+%---------
+% pdftex
+%---------
+% The option pdftex is for use with pdfLaTeX. If eps figures are used, remove the option pdftex and use LaTeX and dvi2pdf.
+
+%=================================================================
+% MDPI internal commands
+\firstpage{1} 
+ 
+\setcounter{page}{\@firstpage} 
+
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2022}
+\copyrightyear{2022}
+%\externaleditor{Academic Editor: Firstname Lastname} % For journal Automation, please change Academic Editor to "Communicated by"
+\datereceived{} 
+\dateaccepted{} 
+\datepublished{} 
+%\datecorrected{} % Corrected papers include a "Corrected: XXX" date in the original paper.
+%\dateretracted{} % Corrected papers include a "Retracted: XXX" date in the original paper.
+\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+%------------------------------------------------------------------
+% The following line should be uncommented if the LaTeX file is uploaded to arXiv.org
+%\pdfoutput=1
+
+%=================================================================
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, lineno, float, amsmath, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, cleveref, amsthm, hyphenat, natbib, hyperref, footmisc, url, geometry, newfloat, caption
+
+%=================================================================
+%% Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
+%% For proofs, please use the proof environment (the amsthm package is loaded by the MDPI class).
+
+%=================================================================
+% The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
+%\PACS{J0101}
+%\MSC{}
+%\JEL{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Diversity
+%\LSID{\url{http://}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Applied Sciences:
+%\featuredapplication{Authors are encouraged to provide a concise description of the specific application or a potential application of the work. This section is not mandatory.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Data:
+%\dataset{DOI number or link to the deposited data set in cases where the data set is published or set to be published separately. If the data set is submitted and will be published as a supplement to this paper in the journal Data, this field will be filled by the editors of the journal. In this case, please make sure to submit the data set as a supplement when entering your manuscript into our manuscript editorial system.}
+
+%\datasetlicense{license under which the data set is made available (CC0, CC-BY, CC-BY-SA, CC-BY-NC, etc.)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Toxins
+%\keycontribution{The breakthroughs or highlights of the manuscript. Authors can write one or two sentences to describe the most important part of the paper.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Encyclopedia
+%\encyclopediadef{Instead of the abstract}
+%\entrylink{The Link to this entry published on the encyclopedia platform.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatother
+
+\begin{document}
+\maketitle
+\clearpage
+
+\section{Introduction}
+
+Artificial Neural networks (ANNs) are parametric machine learning
+tools \citep{nn1,nn2} that are utilizing a seires of parameters commonly
+called weights or processing units. These tools have found application
+in a variety of scientific areas, such as physics \citep{nnphysics1,nnphysics2,nnphysics3},
+solution of differential equations \citep{nnde1,nnde2}, agriculture
+\citep{nnagr1,nnagr2}, chemistry \citep{nnchem1,nnchem2,nnchem3},
+economics \citep{nnecon1,nnecon2,nncecon3}, medicine \citep{nnmed1,nnmed2}
+etc. Also, recently, neural networks have been used in solar radiation
+prediction \citep{nnsolar}, 3D printing \citep{nn3d}, lung cancer
+research \citep{nnlung} etc. A neural network $N\left(\overrightarrow{x},\overrightarrow{w}\right)$
+can be expressed as a summation of processing units as suggested in
+\citep{nnc}:
+\begin{equation}
+N\left(\overrightarrow{x},\overrightarrow{w}\right)=\sum_{i=1}^{H}w_{(d+2)i-(d+1)}\sigma\left(\sum_{j=1}^{d}x_{j}w_{(d+2)i-(d+1)+j}+w_{(d+2)i}\right)\label{eq:nn}
+\end{equation}
+where the constant $H$ defines the total number of processing units
+for the network and the value $d$ is considered as the dimension
+of vector $\overrightarrow{x}$. The function $\sigma(x)$ is called
+sigmoid function and it is defined as: 
+\begin{equation}
+\sigma(x)=\frac{1}{1+\exp(-x)}\label{eq:sig}
+\end{equation}
+The training error of the neural network is defined as:
+\begin{equation}
+E\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=\sum_{i=1}^{M}\left(N\left(\overrightarrow{x}_{i},\overrightarrow{w}\right)-y_{i}\right)^{2}\label{eq:eq1}
+\end{equation}
+where the set $\left(\overrightarrow{x_{i}},y_{i}\right),\ i=1,...,M$
+is the training dataset for the neural network and $y_{i}$ stands
+for the actual output for the input pattern $\overrightarrow{x_{i}}$
+. Essentially, the training of the artificial neural network consists
+in determining the optimal vector of parameters $\overrightarrow{w}$
+through the minimization of equation \ref{eq:eq1}. During the recent
+years a variety of optimization methods have been proposed to minimize
+this equation such as the Back Propagation method \citep{bpnn,bpnn2},
+the RPROP method \citep{rpropnn,rpropnn3,rpropnn2}, Quasi Newton
+methods \citep{quasinn,quasinn2}, Simulated Annealing \citep{nn_ann1,nn_ann2},
+Genetic Algorithms \citep{geneticnn,geneticnn2}, Particle Swarm Optimization
+\citep{psonn,psonn2} etc. 
+
+\section{Data description}
+
+The 
+
+\section{Materials and Methods}
+
+\section{Results}
+
+This 
+
+\begin{table}[H]
+\caption{Experimental results for the EYE dataset using different methods for
+the neural network training.\label{tab:eyeResults}}
+
+\begin{tabular*}{1\textwidth}{@{\extracolsep{\fill}}>{\centering}p{0.2\textwidth}>{\centering}p{0.19\textwidth}>{\centering}p{0.19\textwidth}>{\centering}p{0.19\textwidth}>{\centering}p{0.19\textwidth}}
+\toprule 
+\textbf{DATASET} & \textbf{BFGS} & \textbf{GENETIC} & \textbf{PSO} & \textbf{INN}\tabularnewline
+\midrule 
+DISORDER & 19.53\% & 17.76\% & 14.14\% & 8.67\%\tabularnewline
+DEPIK & 29.46\% & 25.49\% & 27.96\% & 23.78\%\tabularnewline
+EMD & 29.44\% & 25.68\% & 25.88\% & 22.49\%\tabularnewline
+NOITIKI & 40.30\% & 31.50\% & 37.33\% & 26.63\%\tabularnewline
+TADAF & 27.07\% & 24.32\% & 25.59\% & 19.94\%\tabularnewline
+TADEPY & 27.30\% & 23.42\% & 23.42\% & 19.69\%\tabularnewline
+\textbf{AVERAGE} & \textbf{28.85\%} & \textbf{24.70\%} & \textbf{25.72\%} & \textbf{20.20\%}\tabularnewline
+\end{tabular*}
+\end{table}
+\begin{table}[H]
+\caption{Experimental results for the HEART dataset using different methods
+for the neural network training.\label{tab:heartResults}}
+
+\begin{tabular*}{1\textwidth}{@{\extracolsep{\fill}}>{\centering}p{0.2\textwidth}>{\centering}p{0.19\textwidth}>{\centering}p{0.19\textwidth}>{\centering}p{0.19\textwidth}>{\centering}p{0.19\textwidth}}
+\toprule 
+\textbf{DATASET} & \textbf{BFGS} & \textbf{GENETIC} & \textbf{PSO} & \textbf{INN}\tabularnewline
+\midrule 
+DISORDER & 29.26\% & 21.26\% & 22.09\% & 18.95\%\tabularnewline
+DEPIK & 31.61\% & 20.17\% & 20.48\% & 20.02\%\tabularnewline
+EMD & 32.98\% & 19.17\% & 22.02\% & 19.06\%\tabularnewline
+NOITIKI & 31.13\% & 20.89\% & 24.98\% & 19.61\%\tabularnewline
+TADAF & 32.31\% & 20.61\% & 23.19\% & 19.83\%\tabularnewline
+TADEPY & 34.11\% & 21.11\% & 26.69\% & 19.89\%\tabularnewline
+\textbf{AVERAGE} & \textbf{31.90\%} & \textbf{20.54\%} & \textbf{23.25\%} & \textbf{19.56\%}\tabularnewline
+\end{tabular*}
+\end{table}
+\begin{table}[H]
+\caption{Experimental results for the GAME dataset using different methods
+for the neural network training.\label{tab:gameResults}}
+
+\begin{tabular*}{1\textwidth}{@{\extracolsep{\fill}}>{\centering}p{0.2\textwidth}>{\centering}p{0.19\textwidth}>{\centering}p{0.19\textwidth}>{\centering}p{0.19\textwidth}>{\centering}p{0.19\textwidth}}
+\toprule 
+\textbf{DATASET} & \textbf{BFGS} & \textbf{GENETIC} & \textbf{PSO} & \textbf{INN}\tabularnewline
+\midrule 
+DISORDER & 25.92\% & 21.92\% & 24.37\% & 18.95\%\tabularnewline
+DEPIK & 30.61\% & 22.25\% & 25.92\% & 22.57\%\tabularnewline
+EMD & 30.22\% & 22.59\% & 27.15\% & 21.95\%\tabularnewline
+NOITIKI & 29.62\% & 22.64\% & 26.67\% & 21.25\%\tabularnewline
+TADAF & 28.84\% & 20.96\% & 25.42\% & 20.39\%\tabularnewline
+TADEPY & 29.64\% & 21.54\% & 29.62\% & 21.52\%\tabularnewline
+\textbf{AVERAGE} & \textbf{29.14\%} & \textbf{21.98\%} & \textbf{26.53\%} & \textbf{21.11\%}\tabularnewline
+\end{tabular*}
+\end{table}
+
+
+\section{Conclusions}
+
+This section is not mandatory, but can be added to the manuscript
+if the discussion is unusually long or complex.
+
+\vspace{6pt}
+
+
+\authorcontributions{For research articles with several authors, a short paragraph specifying
+their individual contributions must be provided. The following statements
+should be used ``Conceptualization, X.X. and Y.Y.; methodology, X.X.;
+software, X.X.; validation, X.X., Y.Y. and Z.Z.; formal analysis,
+X.X.; investigation, X.X.; resources, X.X.; data curation, X.X.; writing---original
+draft preparation, X.X.; writing---review and editing, X.X.; visualization,
+X.X.; supervision, X.X.; project administration, X.X.; funding acquisition,
+Y.Y. All authors have read and agreed to the published version of
+the manuscript.'', please turn to the \href{http://img.mdpi.org/data/contributor-role-instruction.pdf}{CRediT taxonomy}for
+the term explanation. Authorship must be limited to those who have
+contributed substantially to the work~reported.}
+
+\funding{Please add: ``This research received no external funding'' or ``This
+research was funded by NAME OF FUNDER grant number XXX.'' and and
+``The APC was funded by XXX''. Check carefully that the details
+given are accurate and use the standard spelling of funding agency
+names at \url{https://search.crossref.org/funding}, any errors may
+affect your future funding.}
+
+\institutionalreview{In this section, please add the Institutional Review Board Statement
+and approval number for studies involving humans or animals. Please
+note that the Editorial Office might ask you for further information.
+Please add ``The study was conducted according to the guidelines
+of the Declaration of Helsinki, and approved by the Institutional
+Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol
+code XXX and date of approval).'' OR ``Ethical review and approval
+were waived for this study, due to REASON (please provide a detailed
+justification).'' OR ``Not applicable'' for studies not involving
+humans or animals. You might also choose to exclude this statement
+if the study did not involve humans or animals.}
+
+\informedconsent{Any research article describing a study involving humans should contain
+this statement. Please add ``Informed consent was obtained from all
+subjects involved in the study.'' OR ``Patient consent was waived
+due to REASON (please provide a detailed justification).'' OR ``Not
+applicable'' for studies not involving humans. You might also choose
+to exclude this statement if the study did not involve humans. 
+
+Written informed consent for publication must be obtained from participating
+patients who can be identified (including by the patients themselves).
+Please state ``Written informed consent has been obtained from the
+patient(s) to publish this paper'' if applicable.}
+
+\dataavailability{In this section, please provide details regarding where data supporting
+reported results can be found, including links to publicly archived
+datasets analyzed or generated during the study. Please refer to suggested
+Data Availability Statements in section ``MDPI Research Data Policies''
+at \url{https://www.mdpi.com/ethics}. You might choose to exclude
+this statement if the study did not report any data.}
+
+\acknowledgments{In this section you can acknowledge any support given which is not
+covered by the author contribution or funding sections. This may include
+administrative and technical support, or donations in kind (e.g.,
+materials used for experiments).}
+
+\conflictsofinterest{Declare conflicts of interest or state ``The authors declare no
+conflict of interest.'' Authors must identify and declare any personal
+circumstances or interest that may be perceived as inappropriately
+influencing the representation or interpretation of reported research
+results. Any role of the funders in the design of the study; in the
+collection, analyses or interpretation of data; in the writing of
+the manuscript; or in the decision to publish the results must be
+declared in this section. If there is no role, please state ``The
+funders had no role in the design of the study; in the collection,
+analyses, or interpretation of data; in the writing of the manuscript;
+or in the decision to publish the~results''.}
+
+\sampleavailability{Samples of the compounds ... are available from the authors. }
+
+
+\appendixtitles{no}
+
+\appendixstart{}
+
+\appendix
+
+\begin{adjustwidth}{-\extralength}{0cm}{}
+
+
+\reftitle{References}
+\begin{thebibliography}{999}
+\bibitem{nn1} C. Bishop, Neural Networks for Pattern Recognition,
+Oxford University Press, 1995.
+
+\bibitem{nn2}G. Cybenko, Approximation by superpositions of a sigmoidal
+function, Mathematics of Control Signals and Systems \textbf{2}, pp.
+303-314, 1989.
+
+\bibitem{nnphysics1}P. Baldi, K. Cranmer, T. Faucett et al, Parameterized
+neural networks for high-energy physics, Eur. Phys. J. C \textbf{76},
+2016.
+
+\bibitem{nnphysics2}J. J. Valdas and G. Bonham-Carter, Time dependent
+neural network models for detecting changes of state in complex processes:
+Applications in earth sciences and astronomy, Neural Networks \textbf{19},
+pp. 196-207, 2006
+
+\bibitem{nnphysics3}G. Carleo,M. Troyer, Solving the quantum many-body
+problem with artificial neural networks, Science \textbf{355}, pp.
+602-606, 2017.
+
+\bibitem{nnde1}Y. Shirvany, M. Hayati, R. Moradian, Multilayer perceptron
+neural networks with novel unsupervised training method for numerical
+solution of the partial differential equations, Applied Soft Computing
+\textbf{9}, pp. 20-29, 2009.
+
+\bibitem{nnde2}A. Malek, R. Shekari Beidokhti, Numerical solution
+for high order differential equations using a hybrid neural network---Optimization
+method, Applied Mathematics and Computation \textbf{183}, pp. 260-271,
+2006.
+
+\bibitem{nnagr1}A. Topuz, Predicting moisture content of agricultural
+products using artificial neural networks, Advances in Engineering
+Software \textbf{41}, pp. 464-470, 2010.
+
+\bibitem{nnagr2}A. Escamilla-García, G.M. Soto-Zarazúa, M. Toledano-Ayala,
+E. Rivas-Araiza, A. Gastélum-Barrios, Abraham,Applications of Artificial
+Neural Networks in Greenhouse Technology and Overview for Smart Agriculture
+Development, Applied Sciences \textbf{10}, Article number 3835, 2020.
+
+\bibitem{nnchem1}Lin Shen, Jingheng Wu, and Weitao Yang, Multiscale
+Quantum Mechanics/Molecular Mechanics Simulations with Neural Networks,
+Journal of Chemical Theory and Computation \textbf{12}, pp. 4934-4946,
+2016.
+
+\bibitem{nnchem2}Sergei Manzhos, Richard Dawes, Tucker Carrington,
+Neural network‐based approaches for building high dimensional and
+quantum dynamics‐friendly potential energy surfaces, Int. J. Quantum
+Chem. \textbf{115}, pp. 1012-1020, 2015.
+
+\bibitem{nnchem3}Jennifer N. Wei, David Duvenaud, and Alán Aspuru-Guzik,
+Neural Networks for the Prediction of Organic Chemistry Reactions,
+ACS Central Science \textbf{2}, pp. 725-732, 2016.
+
+\bibitem{nnecon1}Lukas Falat and Lucia Pancikova, Quantitative Modelling
+in Economics with Advanced Artificial Neural Networks, Procedia Economics
+and Finance \textbf{34}, pp. 194-201, 2015.
+
+\bibitem{nnecon2}Mohammad Namazi, Ahmad Shokrolahi, Mohammad Sadeghzadeh
+Maharluie, Detecting and ranking cash flow risk factors via artificial
+neural networks technique, Journal of Business Research \textbf{69},
+pp. 1801-1806, 2016.
+
+\bibitem{nncecon3}G. Tkacz, Neural network forecasting of Canadian
+GDP growth, International Journal of Forecasting \textbf{17}, pp.
+57-69, 2001.
+
+\bibitem{nnmed1}Igor I. Baskin, David Winkler and Igor V. Tetko,
+A renaissance of neural networks in drug discovery, Expert Opinion
+on Drug Discovery \textbf{11}, pp. 785-795, 2016.
+
+\bibitem{nnmed2}Ronadl Bartzatt, Prediction of Novel Anti-Ebola Virus
+Compounds Utilizing Artificial Neural Network (ANN), Chemistry Faculty
+Publications \textbf{49}, pp. 16-34, 2018.
+
+\bibitem{nnsolar}A.K. Yadav, S.S. Chandel, Solar radiation prediction
+using Artificial Neural Network techniques: A review, Renewable and
+Sustainable Energy Reviews \textbf{33}, pp. 772-781, 2014.
+
+\bibitem{nn3d}M.A. Mahmood, A.I. Visan, C. Ristoscu, I.N. Mihailescu,
+Artificial Neural Network Algorithms for 3D Printing, Materials \textbf{14},
+163, 2021. 
+
+\bibitem{nnlung}E. Prisciandaro, G. Sedda, A. Cara, C. Diotti, L.
+Spaggiari, L. Bertolaccini, Artificial Neural Networks in Lung Cancer
+Research: A Narrative Review, Journal of Clinical Medicine \textbf{12},
+880, 2023.
+
+\bibitem{nnc}I.G. Tsoulos, D. Gavrilis, E. Glavas, Neural network
+construction and training using grammatical evolution, Neurocomputing
+\textbf{72}, pp. 269-277, 2008.
+
+\bibitem{bpnn}D.E. Rumelhart, G.E. Hinton and R.J. Williams, Learning
+representations by back-propagating errors, Nature \textbf{323}, pp.
+533 - 536 , 1986.
+
+\bibitem{bpnn2}T. Chen and S. Zhong, Privacy-Preserving Backpropagation
+Neural Network Learning, IEEE Transactions on Neural Networks \textbf{20},
+, pp. 1554-1564, 2009.
+
+\bibitem{rpropnn}M. Riedmiller and H. Braun, A Direct Adaptive Method
+for Faster Backpropagation Learning: The RPROP algorithm, Proc. of
+the IEEE Intl. Conf. on Neural Networks, San Francisco, CA, pp. 586--591,
+1993.
+
+\bibitem{rpropnn3}T. Pajchrowski, K. Zawirski and K. Nowopolski,
+Neural Speed Controller Trained Online by Means of Modified RPROP
+Algorithm, IEEE Transactions on Industrial Informatics \textbf{11},
+pp. 560-568, 2015.
+
+\bibitem{rpropnn2}Rinda Parama Satya Hermanto, Suharjito, Diana,
+Ariadi Nugroho, Waiting-Time Estimation in Bank Customer Queues using
+RPROP Neural Networks, Procedia Computer Science \textbf{ 135}, pp.
+35-42, 2018.
+
+\bibitem{key-23}Neural Networks, Procedia Computer Science \textbf{ 135},
+pp. 35-42, 2018.
+
+\bibitem{quasinn}B. Robitaille and B. Marcos and M. Veillette and
+G. Payre, Modified quasi-Newton methods for training neural networks,
+Computers \& Chemical Engineering \textbf{20}, pp. 1133-1140, 1996.
+
+\bibitem{quasinn2}Q. Liu, J. Liu, R. Sang, J. Li, T. Zhang and Q.
+Zhang, Fast Neural Network Training on FPGA Using Quasi-Newton Optimization
+Method,IEEE Transactions on Very Large Scale Integration (VLSI) Systems
+\textbf{26}, pp. 1575-1579, 2018.
+
+\bibitem{nn_ann1}A. Yamazaki, M. C. P. de Souto,T. B. Ludermir, Optimization
+of neural network weights and architectures for odor recognition using
+simulated annealing, In: Proceedings of the 2002 International Joint
+Conference on Neural Networks. IJCNN'02 \textbf{1}, pp. 547-552 ,
+2002.
+
+\bibitem{nn_ann2}Y. Da, G. Xiurun, An improved PSO-based ANN with
+simulated annealing technique, Neurocomputing \textbf{63}, pp. 527-533,
+2005.
+
+\bibitem{geneticnn}F. H. F. Leung, H. K. Lam, S. H. Ling and P. K.
+S. Tam, Tuning of the structure and parameters of a neural network
+using an improved genetic algorithm, IEEE Transactions on Neural Networks
+\textbf{14}, pp. 79-88, 2003
+
+\bibitem{geneticnn2}X. Yao, Evolving artificial neural networks,
+Proceedings of the IEEE, 87(9), pp. 1423-1447, 1999.
+
+\bibitem{psonn}C. Zhang, H. Shao and Y. Li, Particle swarm optimisation
+for evolving artificial neural network, IEEE International Conference
+on Systems, Man, and Cybernetics, , pp. 2487-2490, 2000.
+
+\bibitem{psonn2}Jianbo Yu, Shijin Wang, Lifeng Xi, Evolving artificial
+neural networks using an improved PSO and DPSO \textbf{71}, pp. 1054-1060,
+2008.
+\end{thebibliography}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% for journal Sci
+%\reviewreports{\\
+%Reviewer 1 comments and authors' response\\
+%Reviewer 2 comments and authors' response\\
+%Reviewer 3 comments and authors' response
+%}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{adjustwidth}{}
+\end{document}
