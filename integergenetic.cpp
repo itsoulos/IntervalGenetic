@@ -352,7 +352,7 @@ void	IntegerGenetic::localSearch(int pos)
                 Interval fx=fitness(g);
                 if(problem->lowerValue(fx,fitnessArray[pos]))
 		{
-			printf("NEW MIN[%4d]=[%10.4lg,%10.4lg]\n",pos,fx.leftValue(),fx.rightValue());
+			//printf("NEW MIN[%4d]=[%10.4lg,%10.4lg]\n",pos,fx.leftValue(),fx.rightValue());
 			for(int j=0;j<genome_size;j++) genome[pos][j]=g[j];
 			fitnessArray[pos]=fx;
 		}
@@ -363,7 +363,7 @@ void	IntegerGenetic::localSearch(int pos)
                 	fx=fitness(g);
                 	if(problem->lowerValue(fx,fitnessArray[pos]))
 			{
-			printf("NEW MIN[%4d]=[%10.4lg,%10.4lg]\n",pos,fx.leftValue(),fx.rightValue());
+			//printf("NEW MIN[%4d]=[%10.4lg,%10.4lg]\n",pos,fx.leftValue(),fx.rightValue());
 				for(int j=0;j<genome_size;j++) genome[pos][j]=g[j];
 				fitnessArray[pos]=fx;
 			}

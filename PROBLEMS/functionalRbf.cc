@@ -1067,7 +1067,7 @@ void	printConfusionMatrix(vector<double> &T,vector<double> &O,
     precision.resize(nclass);
     recall.resize(nclass);
     int **CM;
-    printf("** CONFUSION MATRIX ** Number of classes: %d\n",nclass);
+    //printf("** CONFUSION MATRIX ** Number of classes: %d\n",nclass);
     CM=new int*[nclass];
     for(i=0;i<nclass;i++) CM[i]=new int[nclass];
     for(i=0;i<nclass;i++)
@@ -1091,9 +1091,9 @@ void	printConfusionMatrix(vector<double> &T,vector<double> &O,
     {
         for(j=0;j<nclass;j++)
         {
-            printf("%4d ",CM[i][j]);
+            //printf("%4d ",CM[i][j]);
         }
-        printf("\n");
+        //printf("\n");
         delete[] CM[i];
     }
     delete[] CM;
