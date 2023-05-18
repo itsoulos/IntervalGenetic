@@ -2,6 +2,37 @@
 # include <math.h>
 # include <gensolver.h>
 # include <tolmin.h>
+#include <Eigen/Core>
+#include <iostream>
+#include <LBFGSB.h>
+
+using namespace LBFGSpp;
+
+typedef double Scalar;
+typedef Eigen::Matrix<Scalar, Eigen::Dynamic, 1> Vector;
+
+class NeuralWrapper
+{
+private:
+	Neural *neural;
+public:
+    NeuralWrapper(Neural *t) {
+		neural = t;
+	}
+    Scalar operator()(const Vector& x, Vector& grad)
+    {
+		int n=neural->getDimension();
+		Data xx,gg;
+		xx.resize(n);
+		gg.resize(n);
+		for(int i=0;i<n;i++) xx[i]=x[i];
+        Scalar fx = neural->funmin(xx);
+		neural->granal(xx,gg);
+		for(int i=0;i<n;i++)
+			grad[i]=gg[i];
+        return fx;
+    }
+};
 
 //# define CLASSERROR
 int pass=0;
@@ -116,6 +147,7 @@ double Neural::train2()
 	}
 	setLeftMargin(lmargin);
 	setRightMargin(rmargin);
+	/*
 	GenSolve(this,weight,v,1,0);
 	for(int i=0;i<weight.size();i++)
 	{
@@ -123,8 +155,35 @@ double Neural::train2()
 		rmargin[i]= 5.0*fabs(weight[i]);
 		
 	}
-	//GenSolve(this,weight,v,0,1);
-	v=tolmin(weight,Info);
+	v=tolmin(weight,Info);*/
+
+	LBFGSBParam<Scalar> param;
+    LBFGSBSolver<Scalar> solver(param);
+    NeuralWrapper fun(this);
+
+	int n = weight.size();
+    // Variable bounds
+    Vector lb = Vector::Constant(n, 2.0);
+    Vector ub = Vector::Constant(n, 4.0);
+
+	// Initial values
+    Vector x = Vector::Constant(n, 3.0);
+	for(int i=0;i<n;i++)
+	{
+		lb[i]=lmargin[i];
+		ub[i]=rmargin[i];
+		x[i]=weight[i];
+	}
+
+    Scalar fx;
+    int niter = solver.minimize(fun, x, fx, lb, ub);
+
+    std::cout << niter << " iterations" << std::endl;
+    std::cout << "x = \n" << x.transpose() << std::endl;
+    std::cout << "f(x) = " << fx << std::endl;
+    std::cout << "grad = " << solver.final_grad().transpose() << std::endl;
+    std::cout << "projected grad norm = " << solver.final_grad_norm() << std::endl;
+
 	return v;
 }
 

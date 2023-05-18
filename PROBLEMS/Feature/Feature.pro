@@ -10,15 +10,16 @@ QT       -= gui
 
 TARGET = Feature
 TEMPLATE = lib
+INCLUDEPATH += /usr/include/eigen3/
 
-QMAKE_CXXFLAGS_RELEASE += -O4 -fopenmp -march=native -unroll-loops -omit-frame-pointer -Winline -unsafe-math-optimizations -mtune=native -mno-vzeroupper -ffast-math -fopt-info
-QMAKE_CFLAGS_RELEASE += -O4 -fopenmp -march=native -unroll-loops -omit-frame-pointer -Winline -unsafe-math-optimizations -mtune=native -mno-vzeroupper -ffast-math
+QMAKE_CXXFLAGS_RELEASE += -O4 -fopenmp -march=native -unroll-loops -omit-frame-pointer -Winline -unsafe-math-optimizations -mtune=native  -ffast-math -fopt-info
+QMAKE_CFLAGS_RELEASE += -O4 -fopenmp -march=native -unroll-loops -omit-frame-pointer -Winline -unsafe-math-optimizations -mtune=native  -ffast-math
 
 QMAKE_CXXFLAGS_RELEASE += -std=c++11
 QMAKE_CFLAGS_RELEASE += -std=c++11
 
-QMAKE_CXXFLAGS += -O4 -fopenmp -march=native -unroll-loops -omit-frame-pointer -Winline -unsafe-math-optimizations -mtune=native -mno-vzeroupper -ffast-math
-QMAKE_CFLAGS += -O4 -fopenmp -march=native -unroll-loops -omit-frame-pointer -Winline -unsafe-math-optimizations -mtune=native -mno-vzeroupper -ffast-math
+QMAKE_CXXFLAGS += -O4 -fopenmp -march=native -unroll-loops -omit-frame-pointer -Winline -unsafe-math-optimizations -mtune=native  -ffast-math
+QMAKE_CFLAGS += -O4 -fopenmp -march=native -unroll-loops -omit-frame-pointer -Winline -unsafe-math-optimizations -mtune=native -ffast-math
 
 DEFINES += FEATURE_LIBRARY
 LIBS +=  -larmadillo
@@ -60,6 +61,7 @@ HEADERS += feature.h\
     fparser.hh \
     cprogram.h \
     kmeans.h \
+    LBFGSB.h \
     matrix_functions.h \
     mapper.h \
     model.h \
@@ -68,6 +70,16 @@ HEADERS += feature.h\
     gensolver.h \
     nnprogram.h \
     knn.h \
+    LBFGS.h \
+	LBFGSpp/BFGSMat.h\
+	LBFGSpp/BKLDLT.h\
+	LBFGSpp/Cauchy.h\
+	LBFGSpp/LineSearchBacktracking.h\
+	LBFGSpp/LineSearchBracketing.h\
+	LBFGSpp/LineSearchMoreThuente.h\
+	LBFGSpp/LineSearchNocedalWright.h\
+	LBFGSpp/Param.h\
+	LBFGSpp/SubspaceMin.h\
     rbf_model.h \
     Rbf.h
 
