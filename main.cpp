@@ -275,7 +275,7 @@ int main(int argc,char **argv)
     double avg_precision = 0.0;
     double avg_recall  = 0.0;
     double avg_fscore = 0.0;
-    int tries=30;
+    int tries=1;
     p.setParameter("normalTrain",1);
      Problem np(&p,bestMargin);
 
@@ -285,6 +285,7 @@ int main(int argc,char **argv)
         Data bestx;
         double besty=0;
         srand(randomSeed+i);
+	srand48(randomSeed+i);
         if(localMethod=="gradient")
         {
             BoundedGradientDescent Optimizer(&np);

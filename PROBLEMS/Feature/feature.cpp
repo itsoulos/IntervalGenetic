@@ -11,7 +11,7 @@ extern "C"
     //parameters
     const int maxthreads=64;
     double leftMargin=0.0;
-    double rightMargin=255.0;
+    double rightMargin=5012.0;
     int random_seed=1;
     QString trainfile="";
     QString testfile="";
@@ -146,8 +146,8 @@ void    init(QJsonObject obj)
     }
     if(obj.contains("leftmargin"))
         leftMargin=obj["leftmargin"].toDouble();
-    if(obj.contains("rightmargin"))
-        rightMargin=obj["rightmargin"].toDouble();
+    if(obj.contains("rightMargin"))
+        rightMargin=obj["rightMargin"].toDouble();
     if(obj.contains("chromosomesize"))
         chromosomeSize=obj["chromosomesize"].toInt();
     if(obj.contains("features"))
@@ -244,6 +244,10 @@ int threads=24;
 		int redo=0;
 		pstring[i]=program[0].printRandomProgram(pgenome,redo);
 	}
+	vector<double> cclass;
+	vector<double> ctest;
+	cclass.resize(ntimes);
+	ctest.resize(ntimes);
 #pragma omp parallel for num_threads(threads)
  for(int i=1;i<=ntimes;i++)
  {
@@ -257,18 +261,27 @@ Neural *neural = new Neural(myMapper,i);
  neural->setNumOfWeights(20);
  double ff=neural->train2();
  double testError=neural->testError(testx,testy);
- if(testError>1e+4) {ntimes--;continue;}
+ double classTestError=neural->classTestError(testx,testy);
+ cclass[i]=classTestError;
+ ctest[i]=testError;
+ printf("Starting thread %d  Values: %lf  %.2lf%% %lf \n",thread(),
+		ff,	 
+		 classTestError,testError);
+// if(testError>1e+4) {ntimes--;continue;}
+/*
 #pragma omp critical
  {
  double classTestError=neural->classTestError(testx,testy);
  avg_test_error+=testError;
  avg_class_error+=classTestError;
- printf("Starting thread %d  Values: %lf  %.2lf%% %lf \n",thread(),
-		ff,	 
-		 classTestError,testError);
- }
+ }*/
  delete neural;
  delete myMapper;
+ }
+ for(int i=0;i<ntimes;i++)
+ {
+	 avg_test_error+=ctest[i];
+	 avg_class_error+=cclass[i];
  }
  avg_test_error/=ntimes;
  avg_class_error/=ntimes;

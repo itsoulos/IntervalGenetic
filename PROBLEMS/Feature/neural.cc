@@ -133,7 +133,7 @@ double Neural::train2()
 		weight[i]=2.0*getRandom()-1.0;
 	//randomizeWeights();
 	
-	//GenSolve(this,weight,v,1,0);
+	//GenSolve(this,weight,v,0,0);
 	lmargin.resize(weight.size());
 	rmargin.resize(weight.size());
 	for(int i=0;i<weight.size();i++)
@@ -142,8 +142,8 @@ double Neural::train2()
 	//	if(lmargin[i]>-5) lmargin[i]=-5;
 		rmargin[i]= 5.0*fabs(weight[i]);
 	//	if(rmargin[i]<5) rmargin[i]=5;
-		lmargin[i]=-10;
-		rmargin[i]= 10;
+		lmargin[i]=-100;
+		rmargin[i]= 100;
 	}
 	setLeftMargin(lmargin);
 	setRightMargin(rmargin);
@@ -158,6 +158,7 @@ double Neural::train2()
 	v=tolmin(weight,Info);*/
 
 	LBFGSBParam<Scalar> param;
+	param.max_linesearch=2000;
     LBFGSBSolver<Scalar> solver(param);
     NeuralWrapper fun(this);
 

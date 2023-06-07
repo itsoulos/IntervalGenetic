@@ -44,7 +44,7 @@ typedef QVector<double> Data;
     //parameters
     const int maxthreads=64;
     double leftMargin=0.0;
-    double rightMargin=255.0;
+    double rightMargin=5012.0;
     QString trainfile="";
     QString testfile="";
     QString urlpath="http://itsoulos.teiep.gr/genclass/";
@@ -231,7 +231,9 @@ double	funmin(vector<double> &x)
 vector<int> genome;
     genome.resize(populationCount);
        for(int i=0;i<getdimension();i++)
+       {
            genome[i]=(int)fabs(x[i]);
+       }
        double f=program[omp_get_thread_num()].fitness(genome);
        program[omp_get_thread_num()].printF(genome);
        return -f;

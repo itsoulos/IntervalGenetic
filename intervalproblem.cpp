@@ -40,7 +40,7 @@ int    IntervalProblem::getDimension() const
 
 double  IntervalProblem::randomDouble()
 {
-    return rand()*1.0/RAND_MAX;
+    return drand48();//rand()*1.0/RAND_MAX;
 }
 
 bool   IntervalProblem::isPointIn(Data &x) const
