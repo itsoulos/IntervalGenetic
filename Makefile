@@ -57,6 +57,14 @@ SOURCES       = boundedgradientdescent.cpp \
 		dllproblem.cpp \
 		doublepop.cpp \
 		getoptions.cpp \
+		GE/grammargenetic.cpp \
+		GE/symbol.cc \
+		GE/doublestack.cc \
+		GE/fparser.cc \
+		GE/fpoptimizer.cc \
+		GE/program.cc \
+		GE/rule.cc \
+		GE/cprogram.cc \
 		integergenetic.cpp \
 		interval.cpp \
 		intervalgenetic.cpp \
@@ -70,6 +78,14 @@ OBJECTS       = boundedgradientdescent.o \
 		dllproblem.o \
 		doublepop.o \
 		getoptions.o \
+		grammargenetic.o \
+		symbol.o \
+		doublestack.o \
+		fparser.o \
+		fpoptimizer.o \
+		program.o \
+		rule.o \
+		cprogram.o \
 		integergenetic.o \
 		interval.o \
 		intervalgenetic.o \
@@ -168,6 +184,15 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		dllproblem.h \
 		doublepop.h \
 		getoptions.h \
+		GE/grammargenetic.h \
+		GE/symbol.h \
+		GE/doublestack.h \
+		GE/fparser.hh \
+		GE/fpconfig.hh \
+		GE/fptypes.hh \
+		GE/program.h \
+		GE/rule.h \
+		GE/cprogram.h \
 		integergenetic.h \
 		interval.h \
 		intervalgenetic.h \
@@ -179,6 +204,14 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		dllproblem.cpp \
 		doublepop.cpp \
 		getoptions.cpp \
+		GE/grammargenetic.cpp \
+		GE/symbol.cc \
+		GE/doublestack.cc \
+		GE/fparser.cc \
+		GE/fpoptimizer.cc \
+		GE/program.cc \
+		GE/rule.cc \
+		GE/cprogram.cc \
 		integergenetic.cpp \
 		interval.cpp \
 		intervalgenetic.cpp \
@@ -386,8 +419,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents boundedgradientdescent.h constrainedadam.h dllproblem.h doublepop.h getoptions.h integergenetic.h interval.h intervalgenetic.h intervalproblem.h intervalpso.h tolmin.h problem.h $(DISTDIR)/
-	$(COPY_FILE) --parents boundedgradientdescent.cpp constrainedadam.cpp dllproblem.cpp doublepop.cpp getoptions.cpp integergenetic.cpp interval.cpp intervalgenetic.cpp intervalproblem.cpp intervalpso.cpp main.cpp tolmin.cc problem.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents boundedgradientdescent.h constrainedadam.h dllproblem.h doublepop.h getoptions.h GE/grammargenetic.h GE/symbol.h GE/doublestack.h GE/fparser.hh GE/fpconfig.hh GE/fptypes.hh GE/program.h GE/rule.h GE/cprogram.h integergenetic.h interval.h intervalgenetic.h intervalproblem.h intervalpso.h tolmin.h problem.h $(DISTDIR)/
+	$(COPY_FILE) --parents boundedgradientdescent.cpp constrainedadam.cpp dllproblem.cpp doublepop.cpp getoptions.cpp GE/grammargenetic.cpp GE/symbol.cc GE/doublestack.cc GE/fparser.cc GE/fpoptimizer.cc GE/program.cc GE/rule.cc GE/cprogram.cc integergenetic.cpp interval.cpp intervalgenetic.cpp intervalproblem.cpp intervalpso.cpp main.cpp tolmin.cc problem.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -462,6 +495,51 @@ doublepop.o: doublepop.cpp doublepop.h \
 getoptions.o: getoptions.cpp getoptions.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o getoptions.o getoptions.cpp
 
+grammargenetic.o: GE/grammargenetic.cpp GE/grammargenetic.h \
+		intervalproblem.h \
+		interval.h \
+		GE/cprogram.h \
+		GE/symbol.h \
+		GE/rule.h \
+		GE/doublestack.h \
+		GE/fparser.hh
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o grammargenetic.o GE/grammargenetic.cpp
+
+symbol.o: GE/symbol.cc GE/symbol.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o symbol.o GE/symbol.cc
+
+doublestack.o: GE/doublestack.cc GE/doublestack.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o doublestack.o GE/doublestack.cc
+
+fparser.o: GE/fparser.cc GE/fparser.hh \
+		GE/fpconfig.hh \
+		GE/fptypes.hh
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o fparser.o GE/fparser.cc
+
+fpoptimizer.o: GE/fpoptimizer.cc GE/fpconfig.hh \
+		GE/fparser.hh \
+		GE/fptypes.hh
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o fpoptimizer.o GE/fpoptimizer.cc
+
+program.o: GE/program.cc GE/program.h \
+		GE/symbol.h \
+		GE/rule.h \
+		GE/doublestack.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o program.o GE/program.cc
+
+rule.o: GE/rule.cc GE/rule.h \
+		GE/symbol.h \
+		GE/doublestack.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o rule.o GE/rule.cc
+
+cprogram.o: GE/cprogram.cc GE/cprogram.h \
+		GE/symbol.h \
+		GE/rule.h \
+		GE/doublestack.h \
+		GE/fparser.hh \
+		interval.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cprogram.o GE/cprogram.cc
+
 integergenetic.o: integergenetic.cpp integergenetic.h \
 		intervalproblem.h \
 		interval.h \
@@ -500,7 +578,13 @@ main.o: main.cpp intervalproblem.h \
 		doublepop.h \
 		integergenetic.h \
 		constrainedadam.h \
-		boundedgradientdescent.h
+		boundedgradientdescent.h \
+		GE/grammargenetic.h \
+		GE/cprogram.h \
+		GE/symbol.h \
+		GE/rule.h \
+		GE/doublestack.h \
+		GE/fparser.hh
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 tolmin.o: tolmin.cc tolmin.h \

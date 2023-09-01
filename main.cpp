@@ -14,6 +14,7 @@
 #include "constrainedadam.h"
 #include "boundedgradientdescent.h"
 #include "tolmin.h"
+# include <GE/grammargenetic.h>
 using namespace  std;
 
 #define GENETIC
@@ -37,7 +38,7 @@ void printParams()
     printf("--generations=<i>\tSpecify the maximum number of generations for the genetic populations.\n");
     printf("--selection_rate=<f> \tSpecify the value for selection rate.\n");
     printf("--mutation_rate=<f>  \tSpecify the value for mutation rate.\n");
-    printf("--intervalmethod=<double|integer|none>     Specify the desired interval pre processing.\n");
+    printf("--intervalmethod=<double|integer|grammar|pso|none>     Specify the desired interval pre processing.\n");
     printf("--localmethod=<gradient|adam|bfgs|genetic> Specify the desired local method.\n");
     printf("--gradient_learningrate=<f>\tSet the value of gradient descent learning rate.\n");
     printf("--gradient_iterations=<i>  \tSet the number of maximum gradient descent iterations.\n");
@@ -65,7 +66,7 @@ QString checkInList(QStringList &lst,QString value)
 
 void parseCmdLine(QStringList args)
 {
-    intervalMethodList<<"double"<<"integer"<<"pso"<<"none";
+    intervalMethodList<<"double"<<"integer"<<"pso"<<"grammar"<<"none";
     localMethodList<<"gradient"<<"adam"<<"bfgs"<<"genetic"<<"none";
 
     QString lastParam="";
@@ -193,6 +194,31 @@ IntervalData runIntegerInterval(DllProblem *p,Data &bestp)
     return bestMargin;
 }
 
+IntervalData runGrammarInterval(DllProblem *p,Data &bestp)
+{
+    GrammarGenetic gen(chromosomes,200,p);
+    gen.setMutationRate(mutation_rate);
+    gen.setSelectionRate(selection_rate);
+    IntervalData bestx;
+    Interval besty;
+    for(int g=1;g<=maxGenerations;g++)
+    {
+        gen.nextGeneration();
+        gen.getBest(bestx,besty);
+        //if(debug && g %50==0)
+        {
+            cout<<"g="<<g<<" BESTY "<<besty<<endl;
+            if(g%20==0)    p->printData(bestx);
+        }
+    }
+
+    gen.getBest(bestx,besty);
+    bestp=gen.getBestPoint();
+
+    IntervalData bestMargin=bestx;
+    return bestMargin;
+}
+
 IntervalData runDoubleInterval(DllProblem *p,Data &bestp)
 {
     IntervalGenetic gen(filename,params,chromosomes,threads);
@@ -210,6 +236,7 @@ IntervalData runDoubleInterval(DllProblem *p,Data &bestp)
         {
             cout<<"g="<<g<<" BESTY "<<besty<<endl;
             if(g%20==0)    p->printData(bestx);
+             bestp=gen.getBestPoint();
         }
     }
     bestp=gen.getBestPoint();
@@ -265,6 +292,11 @@ int main(int argc,char **argv)
     else
     if(intervalMethod=="pso")
         bestMargin = runPsoInterval(&p,bestgeneticx);
+    else
+    if(intervalMethod=="grammar")
+    {
+        bestMargin=runGrammarInterval(&p,bestgeneticx);
+    }
 
     double avgTrainError=0.0;
     double avgTestError=0.0;

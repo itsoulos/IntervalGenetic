@@ -33,6 +33,14 @@ SOURCES += \
         dllproblem.cpp \
     doublepop.cpp \
         getoptions.cpp \
+    GE/grammargenetic.cpp \
+    GE/symbol.cc \
+    GE/doublestack.cc \
+    GE/fparser.cc \
+    GE/fpoptimizer.cc \
+    GE/program.cc \
+    GE/rule.cc \
+    GE/cprogram.cc \
     integergenetic.cpp \
     interval.cpp \
         intervalgenetic.cpp \
@@ -53,6 +61,15 @@ HEADERS += \
     dllproblem.h \
     doublepop.h \
     getoptions.h \
+    GE/grammargenetic.h \
+    GE/symbol.h \
+    GE/doublestack.h\
+    GE/fparser.hh \
+    GE/fpconfig.hh \
+    GE/fptypes.hh \
+    GE/program.h \
+    GE/rule.h \
+    GE/cprogram.h \
     integergenetic.h \
     interval.h \
     intervalgenetic.h \
