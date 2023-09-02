@@ -189,7 +189,7 @@ void    GrammarGenetic::nextGeneration()
     printf("Generation=%4d Best Value=[%20.10lg,%20.10lg]\n",
            generation,fitnessArray[0].leftValue(),
             fitnessArray[0].rightValue());
-    if(generation%5==0)
+//    if(generation%5==0)
     {
         IntervalData xpoint;
         Interval ypoint;

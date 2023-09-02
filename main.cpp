@@ -307,7 +307,7 @@ int main(int argc,char **argv)
     double avg_precision = 0.0;
     double avg_recall  = 0.0;
     double avg_fscore = 0.0;
-    int tries=1;
+    int tries=30;
     p.setParameter("normalTrain",1);
      Problem np(&p,bestMargin);
 
