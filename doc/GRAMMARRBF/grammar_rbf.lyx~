@@ -583,13 +583,7 @@ literal "false"
 \end_inset
 
  presents a comparison of some learning method for RBF networks.
- 
-\series bold
-(OK)
-\end_layout
-
-\begin_layout Standard
-pruning techniques
+ Additionally, a variety of pruning techniques
 \series bold
  
 \series default
@@ -601,16 +595,15 @@ literal "false"
 
 \end_inset
 
-, construction of RBF networks 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "rbfcon1,rbfcon2,rbfcon3"
-literal "false"
+ have been proposed to reduce the number of required parameters of the RBF
+ networks.
 
-\end_inset
-
- etc.
- and it has been parallelized in a variety of research papers 
+\series bold
+ 
+\series default
+Due to the widespread usages of RBF networks but also because considerable
+ computing time is often required for their effective training, in recent
+ years a series of techniques have been proposed 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "rbfpar1,rbfpar2"
@@ -618,23 +611,86 @@ literal "false"
 
 \end_inset
 
-.
- 
+ for the exploitation of parallel computing units to adjust the parameters
+ of neural networks.
 \end_layout
 
 \begin_layout Standard
-In this work, In the second phase, the parameters of the neural network
- are optimized within the optimal value interval of the first phase.
- The optimization can be performed by any global optimization method 
+The current work proposes a two phase method for the effective adjustment
+ of the parameters of RBF networks in order to minimize the so -called training
+ error given by:
+\begin_inset Formula 
+\begin{equation}
+E(y(x,g))=\sum_{i=1}^{m}\left(y\left(x_{i},g\right)-t_{i}\right)^{2}\label{eq:eqrbf}
+\end{equation}
+
+\end_inset
+
+Where the parameter 
+\begin_inset Formula $m$
+\end_inset
+
+ denotes the number of input patterns, the 
+\begin_inset Formula $t_{i}$
+\end_inset
+
+ values represent the expected output for the input pattern 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+.
+ The vector 
+\begin_inset Formula $g$
+\end_inset
+
+ represents the parameter set of the RBF network.
+ During the first phase an attempt is made to bound the parameter values
+ to intervals in which the training error of equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eqrbf"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is likely to be significantly reduced.
+ The identification of the most promising intervals for the parameters is
+ performed using a technique that utilizes Grammatical Evolution
 \begin_inset CommandInset citation
 LatexCommand citep
-key "goReview"
+key "ge1"
 literal "false"
 
 \end_inset
 
 .
- In this work, the genetic algorithms 
+ First, an estimate of an interval of values for the network parameters
+ is made using the Kmeans algorithm 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "kmeans"
+literal "false"
+
+\end_inset
+
+.
+ Then, with the help of Grammatical Evolution, a series of division rules
+ are applied to the initial interval of values in order to find an range
+ of values that significantly reduces the training error.
+ During the second phase, the parameters of the RBF network can be trained
+ within the optimal range found in the first phase using some global optimizatio
+n method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfSA,rbfPSO"
+literal "false"
+
+\end_inset
+
+.
+ In the proposed approach, the widely used method of genetic algorithm 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ga1,ga2,ga3"
@@ -642,14 +698,12 @@ literal "false"
 
 \end_inset
 
- were chosen for the second phase.
- The main advantages of genetic algorithms are tolerance on errors, easy
- to implement in parallel, efficient exploration of the search space etc.
- 
+ was used for the second phase of the process.
 \end_layout
 
 \begin_layout Standard
-The rest of this article is organized as follows: in section 
+The rest of this paper is divided in the following sections: in section
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Method-description"
@@ -659,8 +713,7 @@ noprefix "false"
 
 \end_inset
 
- the two phases of the proposed method are thoroughly discussed, in section
- 
+ the proposed method is fully described, in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Experiments"
@@ -670,8 +723,8 @@ noprefix "false"
 
 \end_inset
 
- the experimental datasets are listed as well as the experimental results
- and finally in section 
+ the datasets used in the experiments are listed as well as the experimental
+ results and finally in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Conclusions"
@@ -681,7 +734,7 @@ noprefix "false"
 
 \end_inset
 
- some conclusions are presented.
+ some conclusions are provided.
 \end_layout
 
 \begin_layout Section
@@ -695,30 +748,150 @@ name "sec:Method-description"
 
 \end_layout
 
+\begin_layout Subsection
+Grammatical Evolution 
+\end_layout
+
 \begin_layout Standard
-The training error of the RBF network is expressed as: 
-\begin_inset Formula 
-\begin{equation}
-E(y(x,g))=\sum_{i=1}^{m}\left(y\left(x_{i},g\right)-t_{i}\right)^{2}\label{eq:eqrbf}
-\end{equation}
+Grammatical evolution is an evolutionary procedure where the chromosomes
+ represent production rules from a BNF (Backus–Naur form) grammar
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bnf1"
+literal "false"
 
 \end_inset
 
-The value 
-\begin_inset Formula $m$
+, which is used very often to describe the syntax of programming languages,
+ document formats etc.
+ These grammars are defined as the set 
+\series bold
+
+\begin_inset Formula $G=\left(N,T,S,P\right)$
 \end_inset
 
- stands for the number of patterns and the values 
-\begin_inset Formula $t_{i}$
+
+\series default
+, where
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\begin_inset Formula $N$
 \end_inset
 
- denote the real output for the input.
- The vector 
-\begin_inset Formula $g$
+ 
+\series default
+is the set of non-terminal symbols, which produce through production rules
+ series of terminal symbols.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\begin_inset Formula $T$
 \end_inset
 
- denotes the set of the parameters of the RBF network.
- Usually, RBF networks are trained through a two-phase procedure: 
+ 
+\series default
+is the set of terminal symbols.
+
+\series bold
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $S$
+\end_inset
+
+ is a non-terminal symbol also called the start symbol
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\begin_inset Formula $P$
+\end_inset
+
+ 
+\series default
+is a set of production rules in the form 
+\series bold
+
+\begin_inset Formula $A\rightarrow a$
+\end_inset
+
+ 
+\series default
+or
+\series bold
+ 
+\begin_inset Formula $A\rightarrow aB,\ A,B\in N,\ a\in T$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The production procedure initiates from the start symbol of the BNF grammar
+ and iteratively produces programs by replacing non-terminal symbols with
+ the right hand of the production rules that will be selected according
+ to the value of each element in the chromosome
+\series bold
+.
+
+\series default
+ In the proposed method, the BNF grammar of Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:BNF-grammar-of"
+
+\end_inset
+
+ was used to create a new feature from the initial features.
+ The symbols that are in <> are considered as non-terminal symbols.
+ The parameter N denotes the number of original features.
+ Typically, a chromosome 
+\begin_inset Formula $x$
+\end_inset
+
+ in grammatical evolution is expressed as a series of binary values 0 or
+ 1.
+ In the current work, in order to simplify the mapping procedure and to
+ increase the speed of the algorithm, every element of each chromosome is
+ considered as an integer in a predefined range.
+ In our case, the range 
+\begin_inset Formula $[0,255]$
+\end_inset
+
+ was used but of course, this could be easily changed.
+\end_layout
+
+\begin_layout Standard
+Take, for example, the chromosome 
+\begin_inset Formula $x=\left[9,8,6,4,16,10,17,23,8,14\right]$
+\end_inset
+
+ and 
+\begin_inset Formula $N=3$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+The first phase 
+\end_layout
+
+\begin_layout Subsection
+The second phase
+\end_layout
+
+\begin_layout Standard
+The training error of the RBF network is expressed as: Usually, RBF networks
+ are trained through a two-phase procedure: 
 \end_layout
 
 \begin_layout Enumerate
@@ -1024,10 +1197,6 @@ if there is no change in centers
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsection
-Grammatical Evolution
 \end_layout
 
 \begin_layout Subsection
@@ -7010,6 +7179,8 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+18.73%
 \end_layout
 
 \end_inset
@@ -7898,86 +8069,6 @@ M.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "rbfcon1"
-literal "false"
-
-\end_inset
-
-N.
- B.
- Karayiannis, M.
- M.
- Randolph-Gips, On the construction and training of reformulated radial
- basis function neural networks, IEEE Transactions on Neural Networks 
-\series bold
-14
-\series default
-, pp.
- 835-846, 2003.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "rbfcon2"
-literal "false"
-
-\end_inset
-
-J.X.
- Peng, K.
- Li, D.S.
- Huang, A Hybrid Forward Algorithm for RBF Neural Network Construction,
- IEEE Transactions on Neural Networks, 
-\series bold
-17
-\series default
-, pp.
- 1439-1451, 2006.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "rbfcon3"
-literal "false"
-
-\end_inset
-
-D.
- Du, K.
- Li, M.
- Fei, A fast multi-output RBF neural network construction method, Neurocomputing
- 
-\series bold
-73
-\series default
-, pp.
- 2196-2202, 2010.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "goReview"
-literal "false"
-
-\end_inset
-
-C.A.
- Floudas, C.E.
- Gounaris, A review of recent advances in global optimization, J Glob Optim
- 
-\series bold
-45
-\series default
-, pp.
- 3–38, 2009.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
 key "rbfpar1"
 literal "false"
 
@@ -8017,6 +8108,85 @@ C.
 2011
 \series default
 , 49, 2011.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge1"
+literal "true"
+
+\end_inset
+
+M.
+ O’Neill, C.
+ Ryan, Grammatical evolution, IEEE Trans.
+ Evol.
+ Comput.
+ 
+\series bold
+5,
+\series default
+pp.
+ 349–358, 2001.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "kmeans"
+literal "false"
+
+\end_inset
+
+J.
+ MacQueen, Some methods for classification and analysis of multivariate
+ observations, in: Proceedings of the fifth Berkeley symposium on mathematical
+ statistics and probability, Vol.
+ 1, No.
+ 14, pp.
+ 281-297, 1967.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfSA"
+literal "false"
+
+\end_inset
+
+H.Q.
+ Wang, D.S.
+ Huang, B.
+ Wang, Optimisation of radial basis function classifiers using simulated
+ annealing algorithm for cancer classification.
+ electronics letters 
+\series bold
+41
+\series default
+, pp.
+ 630-632, 2005.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfPSO"
+literal "false"
+
+\end_inset
+
+V.
+ Fathi, G.A.
+ Montazer, An improvement in RBF learning algorithm based on PSO for real
+ time applications, Neurocomputing 
+\series bold
+111
+\series default
+, pp.
+ 169-176, 2013.
 \end_layout
 
 \begin_layout Bibliography
@@ -8063,24 +8233,6 @@ S.A.
 \series default
 , pp.
  259-270, 2005.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "kmeans"
-literal "false"
-
-\end_inset
-
-J.
- MacQueen, Some methods for classification and analysis of multivariate
- observations, in: Proceedings of the fifth Berkeley symposium on mathematical
- statistics and probability, Vol.
- 1, No.
- 14, pp.
- 281-297, 1967.
- 
 \end_layout
 
 \begin_layout Bibliography
