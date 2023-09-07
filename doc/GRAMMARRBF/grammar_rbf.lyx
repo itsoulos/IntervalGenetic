@@ -946,54 +946,600 @@ The algorithm starts from the symbol
 
  and gradually creates terminal symbols by replacing non-terminal symbols
  with the right hand of the selected production rule.
+ The rule is selected through the following procedure:
+\end_layout
+
+\begin_layout Itemize
+Read the next element V from the current chromosome.
+\end_layout
+
+\begin_layout Itemize
+The production rule is selected as: Rule = V mod R, where R is the total
+ number of production rules for the current non – terminal symbol.
  
-\series bold
-(OK)
 \end_layout
 
 \begin_layout Standard
-that will be selected according to the value of each element in the chromosome
-\series bold
-.
-
-\series default
- In the proposed method, the BNF grammar of Figure 
+The BNF grammar used in this work is presented in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:BNF-grammar-of"
 
 \end_inset
 
- was used to create a new feature from the initial features.
- The symbols that are in <> are considered as non-terminal symbols.
- The parameter N denotes the number of original features.
- 
+.
+ The symbols enclosed in <> denote the non-terminal symbols of the grammar.
+ The numbers in parentheses in the right part of the grammar indicate production
+ rule sequence number.
+ The number n is the total number of parameters of the problem, in the case
+ of this paper it is the total number of parameters of the RBF network.
+ For the current work the number 
+\begin_inset Formula $n$
+\end_inset
+
+ can be computed using the following formula:
+\begin_inset Formula 
+\begin{equation}
+n=(d+2)\times k
+\end{equation}
+
+\end_inset
+
+The number 
+\begin_inset Formula $n$
+\end_inset
+
+ is computed as follows:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Every center 
+\begin_inset Formula $\overrightarrow{c_{i}},\ i=1,..,k$
+\end_inset
+
+ has 
+\begin_inset Formula $d$
+\end_inset
+
+ variables, which means 
+\begin_inset Formula $d\times k$
+\end_inset
+
+ variables.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For every center, a separate value 
+\begin_inset Formula $\sigma_{i}$
+\end_inset
+
+ is used for the Gaussian processing unit, which means 
+\begin_inset Formula $k$
+\end_inset
+
+ variables.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+The output weight 
+\begin_inset Formula $\overrightarrow{w}$
+\end_inset
+
+ also has 
+\begin_inset Formula $k$
+\end_inset
+
+ variables.
 \end_layout
 
 \begin_layout Standard
-Take, for example, the chromosome 
-\begin_inset Formula $x=\left[9,8,6,4,16,10,17,23,8,14\right]$
+As an example of production considere the chromosome 
+\begin_inset Formula $x=\left[9,8,6,4,15,9,16,23,8\right]$
 \end_inset
 
  and 
-\begin_inset Formula $N=3$
+\begin_inset Formula $d=2,\ k=2,\ n=8$
+\end_inset
+
+ .
+ The steps to produce the final program 
+\begin_inset Formula $p_{\mbox{test}}=(x7,0,1),(x1,1,0)$
+\end_inset
+
+ are outlined in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:table_with_steps"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
 .
+ Every partition program consists of a series of partition rules.
+ Each partition rule contains three elements: 
+\end_layout
+
+\begin_layout Enumerate
+The variable for which its original interval will be partitioned, for example
  
+\begin_inset Formula $x_{7}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+An integer number with values 0 and 1 for the left end of the value interval.
+ If this value is 1, then the left end of the corresponding variable's value
+ field will be divided by two, otherwise no change will be made.
+\end_layout
+
+\begin_layout Enumerate
+An integer number with values 0 and 1 for the right end of range of values
+ of the variable.
+ If this value is 1, then the right end of the corresponding variable's
+ value field will be divided by two, otherwise no change will be made.
+\end_layout
+
+\begin_layout Standard
+Hence, for the example program 
+\begin_inset Formula $p_{\mbox{test}}$
+\end_inset
+
+ the two partition rules will divide the right end of the variable 
+\begin_inset Formula $x_{7}$
+\end_inset
+
+ and the left end of the variable 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+BNF grammar used in the current work.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:BNF-grammar-of"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+S::=<expr>   (0) 
+\end_layout
+
+\begin_layout LyX-Code
+<expr> ::=  (<xlist> , <digit>,<digit>)  (0)             
+\end_layout
+
+\begin_layout LyX-Code
+           |<expr>,<expr>                (1)
+\end_layout
+
+\begin_layout LyX-Code
+<xlist>::=x1    (0)              
+\end_layout
+
+\begin_layout LyX-Code
+           | x2 (1)              
+\end_layout
+
+\begin_layout LyX-Code
+           ………             
+\end_layout
+
+\begin_layout LyX-Code
+           | xn (n)
+\end_layout
+
+\begin_layout LyX-Code
+<digit>  ::= 0 (0)             
+\end_layout
+
+\begin_layout LyX-Code
+           | 1 (1) 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Steps to produce a valid expression from the BNF grammar.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:table_with_steps"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="11" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Expression
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Chromosome
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Operation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9,8,6,4,15,9,16,23,8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9 mod 2=1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+<expr>,<expr>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8,6,4,15,9,16,23,8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8 mod 2=0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(<xlist>,<digit>,<digit>),<expr>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6,4,15,9,16,23,8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6 mod 8=6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(x7,<digit>,<digit>),<expr>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4,15,9,16,23,8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4 % 2=0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(x7,0,<digit>),<expr>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15,9,16,23,8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15%2=1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(x7,0,1),<expr>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9,16,23,8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9 %2 =1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(x7,0,1),(<xlist>,<digit>,<digit>)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16,23,8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16%8=0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(x7,0,1),(x1,<digit>,<digit>)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23,8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23%2=1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(x7,0,1),(x1,1,<digit>)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8%2=0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(x7,0,1),(x1,1,0)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
 The first phase of the proposed algorithm
 \end_layout
 
-\begin_layout Subsection
-The second phase of the proposed algorithm
-\end_layout
-
 \begin_layout Standard
-The training error of the RBF network is expressed as: Usually, RBF networks
- are trained through a two-phase procedure: 
+Usually, RBF networks are trained through a two-phase procedure: 
 \end_layout
 
 \begin_layout Enumerate
@@ -1301,10 +1847,6 @@ if there is no change in centers
 
 \end_layout
 
-\begin_layout Subsection
-Preliminaries 
-\end_layout
-
 \begin_layout Standard
 In order to perform interval arithmetic on RBF networks the following definition
 s are introduced:
@@ -1366,71 +1908,11 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-In the proposed algorithm, the RBF network contains 
-\begin_inset Formula $n$
-\end_inset
-
- variables, where
-\begin_inset Formula 
-\begin{equation}
-n=(d+2)\times k
-\end{equation}
-
-\end_inset
-
- The value of 
-\begin_inset Formula $n$
-\end_inset
-
- is calculated as follows:
-\end_layout
-
-\begin_layout Enumerate
-Every center 
-\begin_inset Formula $\overrightarrow{c_{i}},\ i=1,..,k$
-\end_inset
-
- has 
-\begin_inset Formula $d$
-\end_inset
-
- variables, which means 
-\begin_inset Formula $d\times k$
-\end_inset
-
- variables.
-\end_layout
-
-\begin_layout Enumerate
-For every center, a separate value 
-\begin_inset Formula $\sigma_{i}$
-\end_inset
-
- is used for the Gaussian processing unit, which means 
-\begin_inset Formula $k$
-\end_inset
-
- variables.
-\end_layout
-
-\begin_layout Enumerate
-The output weight 
-\begin_inset Formula $\overrightarrow{w}$
-\end_inset
-
- also has 
-\begin_inset Formula $k$
-\end_inset
-
- variables.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float algorithm
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1623,18 +2105,6 @@ Set
 \series bold
 Set
 \series default
- the normalization factor 
-\begin_inset Formula $\lambda$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
  the 
 \begin_inset Formula $k$
 \end_inset
@@ -1804,69 +2274,6 @@ Set
  and the associated fitness value.
 \end_layout
 
-\begin_layout Enumerate
-
-\series bold
-For
-\series default
- 
-\begin_inset Formula $j=1,...,n$
-\end_inset
-
- 
-\series bold
-do
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- 
-\begin_inset Formula $\delta$
-\end_inset
-
- the width of interval 
-\begin_inset Formula $p_{ij}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- 
-\begin_inset Formula $u_{ij}=\left[-r\frac{\delta}{20},r\frac{\delta}{20}\right]$
-\end_inset
-
-, with 
-\begin_inset Formula $r$
-\end_inset
-
- a random number in 
-\begin_inset Formula $[0,1]$
-\end_inset
-
-.
- The velocity is initialized to a small sub-interval of the range of values
- for the corresponding parameter in order to avoid, as far as possible,
- excessive values for the velocity.
- This would result in the particles moving out of their value range very
- quickly and thus making the optimization process difficult.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-
-\series bold
-EndFor
-\end_layout
-
 \end_deeper
 \begin_layout Enumerate
 
@@ -1912,79 +2319,6 @@ name "enu:For--do"
 \end_layout
 
 \begin_deeper
-\begin_layout Enumerate
-
-\series bold
-Calculate
-\series default
- the new velocity 
-\begin_inset Formula $u_{i}=\omega u_{i}+r_{1}c_{1}\left(p_{b,i}-p_{i}\right)+r_{2}c_{2}\left(p^{*}-p_{i}\right)$
-\end_inset
-
-, where 
-\begin_inset Formula $r_{1},r_{2}$
-\end_inset
-
- are random numbers in 
-\begin_inset Formula $[0,1]$
-\end_inset
-
- and the constant values 
-\begin_inset Formula $c_{1}$
-\end_inset
-
- and 
-\begin_inset Formula $c_{2}$
-\end_inset
-
- stand for the cognitive and the social parameters correspondingly.
- Usually, the values for 
-\begin_inset Formula $c_{1}$
-\end_inset
-
- and 
-\begin_inset Formula $c_{2}$
-\end_inset
-
- are in 
-\begin_inset Formula $[1,2]$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Normalize
-\series default
- the velocity as: 
-\begin_inset Formula $u_{i}=\frac{1}{\lambda}u_{i}$
-\end_inset
-
-, where 
-\begin_inset Formula $\lambda$
-\end_inset
-
- a positive number with 
-\begin_inset Formula $\lambda>1$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Update
-\series default
- the position 
-\begin_inset Formula $p_{i}=p_{i}+u_{i}$
-\end_inset
-
-
-\end_layout
-
 \begin_layout Enumerate
 
 \series bold
@@ -2304,7 +2638,7 @@ EndFor
 \end_layout
 
 \begin_layout Subsection
-Optimization of parameters through genetic algorithm
+The second phase of the proposed algorithm
 \end_layout
 
 \begin_layout Standard
@@ -2638,21 +2972,6 @@ else Goto
 \end_layout
 
 \end_deeper
-\begin_layout Standard
-The overall process of the two phases can be graphically shown in Figure
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Graphical-representation-of"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\end_layout
-
 \begin_layout Section
 Experiments
 \begin_inset CommandInset label
@@ -3421,33 +3740,9 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The column NN-GENETIC denotes the application of a genetic algorithm in
- the artificial neural network with 10 hidden nodes.
- The parameters of the used genetic algorithm are the same as in the second
- phase of the proposed method.
-\end_layout
-
-\begin_layout Enumerate
 The column RBF-KMEANS denotes the classic training method for RBF networks
  by estimating centers and variances through K-Means and the output weights
  by solving a linear system of equations.
-\end_layout
-
-\begin_layout Enumerate
-The column IRBF-100 denotes the application of the current method with 
-\begin_inset Formula $\lambda=100$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-The column IRBF-1000 denotes the application of the current method with
- 
-\begin_inset Formula $\lambda=1000$
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Enumerate
@@ -6222,7 +6517,7 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+16.60%
 \end_layout
 
 \end_inset
@@ -6260,7 +6555,7 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+23.94%
 \end_layout
 
 \end_inset
@@ -6298,7 +6593,7 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+15.39%
 \end_layout
 
 \end_inset
@@ -6336,7 +6631,7 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+51.65%
 \end_layout
 
 \end_inset
@@ -6374,7 +6669,7 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+36.81%
 \end_layout
 
 \end_inset
@@ -6412,7 +6707,7 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+32.31%
 \end_layout
 
 \end_inset
@@ -6450,7 +6745,7 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+15.54%
 \end_layout
 
 \end_inset
@@ -6488,7 +6783,7 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+3.90%
 \end_layout
 
 \end_inset
@@ -6526,7 +6821,7 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+11.44%
 \end_layout
 
 \end_inset
@@ -6564,7 +6859,7 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+28.19%
 \end_layout
 
 \end_inset
@@ -6602,7 +6897,7 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+17.15%
 \end_layout
 
 \end_inset
@@ -6640,7 +6935,7 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+15.17%
 \end_layout
 
 \end_inset
@@ -6678,7 +6973,7 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+23.97%
 \end_layout
 
 \end_inset
@@ -6716,7 +7011,7 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+5.86%
 \end_layout
 
 \end_inset
@@ -6754,7 +7049,7 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+26.29%
 \end_layout
 
 \end_inset
@@ -6792,7 +7087,7 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+28.59%
 \end_layout
 
 \end_inset
@@ -6830,7 +7125,7 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+48.77%
 \end_layout
 
 \end_inset
@@ -6868,7 +7163,7 @@ Spiral
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+18.19%
 \end_layout
 
 \end_inset
@@ -6906,7 +7201,7 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+5.01%
 \end_layout
 
 \end_inset
@@ -6944,7 +7239,7 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+8.39%
 \end_layout
 
 \end_inset
@@ -6982,7 +7277,7 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+4.26%
 \end_layout
 
 \end_inset
@@ -7020,7 +7315,7 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+4.21%
 \end_layout
 
 \end_inset
@@ -7058,7 +7353,7 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+2.26%
 \end_layout
 
 \end_inset
@@ -7096,7 +7391,7 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+10.50%
 \end_layout
 
 \end_inset
@@ -7137,6 +7432,8 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+18.93%
 \end_layout
 
 \end_inset
@@ -7174,6 +7471,22 @@ name "sec:Conclusions"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+1) na efarmostei ayti i texniki kai se alla texnita neuronika diktya
+\end_layout
+
+\begin_layout Standard
+2) na ginoyn texnikes mutation kai crossover poy na einai pio konta stin
+ methodo kai oxi oi genikes texnikes tis grammatical evolution
+\end_layout
+
+\begin_layout Standard
+3) na ginei xrisi parallilon texnikon gia beltiosi tis taxytitas, giati
+ einai methodos dyo stadion.
+ Auto einai eukolo na ginei mias kai exoume genetikous algorithmous pou
+ apo tin fysi tous mporoyn na ginoun parallila
 \end_layout
 
 \begin_layout Standard
