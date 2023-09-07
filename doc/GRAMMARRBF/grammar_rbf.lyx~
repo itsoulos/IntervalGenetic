@@ -748,13 +748,22 @@ name "sec:Method-description"
 
 \end_layout
 
+\begin_layout Standard
+This section begins with a detailed description of the Grammatical Evolution
+ technique and the grammar that will be used to generate partition rules
+ for the parameter set of RBFs.
+ Subsequently, the first phase of the proposed methodology will be extensively
+ analyzed and then the second phase, where a Genetic Algorithm will be applied
+ to outcome of the first phase.
+\end_layout
+
 \begin_layout Subsection
 Grammatical Evolution 
 \end_layout
 
 \begin_layout Standard
-Grammatical evolution is an evolutionary procedure where the chromosomes
- represent production rules from a BNF (Backus–Naur form) grammar
+Grammatical evolution is a genetic algorithm where the chromosomes stands
+ for the production rules of any given BNF (Backus–Naur form) grammar
 \begin_inset CommandInset citation
 LatexCommand cite
 key "bnf1"
@@ -762,9 +771,98 @@ literal "false"
 
 \end_inset
 
-, which is used very often to describe the syntax of programming languages,
- document formats etc.
- These grammars are defined as the set 
+.
+ Grammatical Evolution has been used sucessfully in a variety of cases such
+ as function approximation
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ge_program1,ge_program2"
+literal "false"
+
+\end_inset
+
+, solution of trigonometric equations 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ge_trig"
+literal "false"
+
+\end_inset
+
+, automatic music composition of music 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ge_music"
+literal "false"
+
+\end_inset
+
+,
+\series bold
+ 
+\series default
+neural network construction 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ge_nn,ge_nn2"
+literal "false"
+
+\end_inset
+
+, creating numeric constrants
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ge_constant"
+literal "false"
+
+\end_inset
+
+
+\series bold
+, 
+\series default
+video games 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ge_pacman,ge_supermario"
+literal "false"
+
+\end_inset
+
+,
+\series bold
+ 
+\series default
+estimation of energy demand
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ge_energy"
+literal "false"
+
+\end_inset
+
+,
+\series bold
+ 
+\series default
+combinatorial optimization 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ge_comb"
+literal "false"
+
+\end_inset
+
+, cryptography 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ge_crypt"
+literal "false"
+
+\end_inset
+
+ etc.The BNF grammar can be used to describe the syntax of programming languages
+ and usually it is defined as set 
 \series bold
 
 \begin_inset Formula $G=\left(N,T,S,P\right)$
@@ -772,7 +870,7 @@ literal "false"
 
 
 \series default
-, where
+ where
 \end_layout
 
 \begin_layout Itemize
@@ -783,8 +881,9 @@ literal "false"
 
  
 \series default
-is the set of non-terminal symbols, which produce through production rules
- series of terminal symbols.
+is the set of the so - called non-terminal symbols.
+ Every non - terminal symbol is associated with a series of production rules
+ used to produce terminal symbols.
 \end_layout
 
 \begin_layout Itemize
@@ -805,7 +904,11 @@ is the set of terminal symbols.
 \begin_inset Formula $S$
 \end_inset
 
- is a non-terminal symbol also called the start symbol
+ is a the start symbol of the grammar and 
+\begin_inset Formula $S\in N$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Itemize
@@ -816,7 +919,9 @@ is the set of terminal symbols.
 
  
 \series default
-is a set of production rules in the form 
+is a set of production rules, used to produce terminal symbols from non
+ - terminal symbols.
+ These rules are in the form 
 \series bold
 
 \begin_inset Formula $A\rightarrow a$
@@ -834,10 +939,19 @@ or
 \end_layout
 
 \begin_layout Standard
-The production procedure initiates from the start symbol of the BNF grammar
- and iteratively produces programs by replacing non-terminal symbols with
- the right hand of the production rules that will be selected according
- to the value of each element in the chromosome
+The algorithm starts from the symbol 
+\begin_inset Formula $S$
+\end_inset
+
+ and gradually creates terminal symbols by replacing non-terminal symbols
+ with the right hand of the selected production rule.
+ 
+\series bold
+(OK)
+\end_layout
+
+\begin_layout Standard
+that will be selected according to the value of each element in the chromosome
 \series bold
 .
 
@@ -852,20 +966,7 @@ reference "fig:BNF-grammar-of"
  was used to create a new feature from the initial features.
  The symbols that are in <> are considered as non-terminal symbols.
  The parameter N denotes the number of original features.
- Typically, a chromosome 
-\begin_inset Formula $x$
-\end_inset
-
- in grammatical evolution is expressed as a series of binary values 0 or
- 1.
- In the current work, in order to simplify the mapping procedure and to
- increase the speed of the algorithm, every element of each chromosome is
- considered as an integer in a predefined range.
- In our case, the range 
-\begin_inset Formula $[0,255]$
-\end_inset
-
- was used but of course, this could be easily changed.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -882,11 +983,11 @@ Take, for example, the chromosome
 \end_layout
 
 \begin_layout Subsection
-The first phase 
+The first phase of the proposed algorithm
 \end_layout
 
 \begin_layout Subsection
-The second phase
+The second phase of the proposed algorithm
 \end_layout
 
 \begin_layout Standard
@@ -1414,17 +1515,6 @@ Return
 
 \end_layout
 
-\begin_layout Subsection
-The proposed PSO algorithm
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:The-proposed-PSO"
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
 During this phase, arithmetic interval techniques are used to locate a range
  for the parameters of the RBF network.
@@ -1474,64 +1564,6 @@ S=\left[a_{1},b_{1}\right]\otimes\left[a_{2},b_{2}\right]\otimes\ldots\left[a_{n
 \end_inset
 
 
-\series default
-The interval method of the first phase divides the set 
-\begin_inset Formula $S$
-\end_inset
-
- subsequently by discarding areas that are not promising enough to contain
- the global minimum.
- In order to locate the best interval for equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:eq2"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, a modified PSO algorithm 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "pso1"
-literal "false"
-
-\end_inset
-
- is used.
- The proposed variant of the PSO method is based on the original technique
- (algorithm 1 of
-\begin_inset CommandInset citation
-LatexCommand citep
-key "pso1"
-literal "false"
-
-\end_inset
-
- ) but the particles are intervals of values and at each iteration a normalizati
-on of the velocity vector takes place to avoid generating particles outside
- the original range of values.
-
-\series bold
- 
-\series default
-The PSO method is based on a population of candidate solutions, which in
- most cases are called particles.
- The method is based on two vectors: the current location of particles denoted
- as 
-\begin_inset Formula $\overrightarrow{p}$
-\end_inset
-
- and the velocity of their movement denoted as 
-\begin_inset Formula $\overrightarrow{u}$
-\end_inset
-
-.
- The PSO method finds the global minimum by moving the particles based on
- their previous best position as well as the best position of the total
- population of particles.
- 
 \end_layout
 
 \begin_layout Standard
@@ -1854,73 +1886,7 @@ Set
 \series bold
 Calculate
 \series default
- the inertia value as 
-\begin_inset Formula $\omega=\omega_{\mbox{max}}-\frac{\mbox{iter}}{N_{g}}\left(\omega_{\mbox{max}}-\omega_{\mbox{min}}\right)$
-\end_inset
-
-where common values for these parameters are 
-\begin_inset Formula $\omega_{\mbox{min}}=0.4$
-\end_inset
-
- and 
-\begin_inset Formula $\omega_{\mbox{max}}=0.9$
-\end_inset
-
-.
- Many inertia calculations appeared in the relevant literature such as constant
- inertia 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "psoConstant"
-literal "false"
-
-\end_inset
-
-, linearly decreasing inertia 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "psoLinear"
-literal "false"
-
-\end_inset
-
-, exponential inertia 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "psoExp"
-literal "false"
-
-\end_inset
-
-, random inertia calculation 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "psoRandom"
-literal "false"
-
-\end_inset
-
-, dynamic inertia 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "psoDynamic"
-literal "false"
-
-\end_inset
-
-, fuzzy inertia calculation 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "psoFuzzy"
-literal "false"
-
-\end_inset
-
- etc.
- The present method of calculating the inertia was chosen because it decreases
- linearly with time and for large values of the inertia it allows a wider
- search in the search space and for low values it allows a more focused
- search.
+ the inertia
 \end_layout
 
 \begin_layout Enumerate
@@ -8238,6 +8204,262 @@ S.A.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "bnf1"
+literal "false"
+
+\end_inset
+
+J.
+ W.
+ Backus.
+ The Syntax and Semantics of the Proposed International Algebraic Language
+ of the Zurich ACM-GAMM Conference.
+ Proceedings of the International Conference on Information Processing,
+ UNESCO, 1959, pp.125-132.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_program1"
+literal "false"
+
+\end_inset
+
+C.
+ Ryan, J.
+ Collins, M.
+ O’Neill, Grammatical evolution: Evolving programs for an arbitrary language.
+ In: Banzhaf, W., Poli, R., Schoenauer, M., Fogarty, T.C.
+ (eds) Genetic Programming.
+ EuroGP 1998.
+ Lecture Notes in Computer Science, vol 1391.
+ Springer, Berlin, Heidelberg, 1998.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_program2"
+literal "false"
+
+\end_inset
+
+M.
+ O’Neill, M., C.
+ Ryan, Evolving Multi-line Compilable C Programs.
+ In: Poli, R., Nordin, P., Langdon, W.B., Fogarty, T.C.
+ (eds) Genetic Programming.
+ EuroGP 1999.
+ Lecture Notes in Computer Science, vol 1598.
+ Springer, Berlin, Heidelberg, 1999.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_trig"
+literal "false"
+
+\end_inset
+
+C.
+ Ryan, M.
+ O’Neill, J.J.
+ Collins, Grammatical evolution: Solving trigonometric identities, proceedings
+ of Mendel.
+ Vol.
+ 98.
+ 1998.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_music"
+literal "false"
+
+\end_inset
+
+A.O.
+ Puente, R.
+ S.
+ Alfonso, M.
+ A.
+ Moreno, Automatic composition of music by means of grammatical evolution,
+ In: APL '02: Proceedings of the 2002 conference on APL: array processing
+ languages: lore, problems, and applications July 2002 Pages 148–155.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_nn"
+literal "false"
+
+\end_inset
+
+Lídio Mauro Limade Campo, R.
+ Célio Limã Oliveira,Mauro Roisenberg, Optimization of neural networks through
+ grammatical evolution and a genetic algorithm, Expert Systems with Applications
+ 
+\series bold
+56
+\series default
+, pp.
+ 368-384, 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_nn2"
+literal "false"
+
+\end_inset
+
+K.
+ Soltanian, A.
+ Ebnenasir, M.
+ Afsharchi, Modular Grammatical Evolution for the Generation of Artificial
+ Neural Networks, Evolutionary Computation 
+\series bold
+30
+\series default
+, pp 291–327, 2022.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_constant"
+literal "false"
+
+\end_inset
+
+I.
+ Dempsey, M.O' Neill, A.
+ Brabazon, Constant creation in grammatical evolution, International Journal
+ of Innovative Computing and Applications 
+\series bold
+1
+\series default
+ , pp 23–38, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_pacman"
+literal "false"
+
+\end_inset
+
+E.
+ Galván-López, J.M.
+ Swafford, M.
+ O’Neill, A.
+ Brabazon, Evolving a Ms.
+ PacMan Controller Using Grammatical Evolution.
+ In: , et al.
+ Applications of Evolutionary Computation.
+ EvoApplications 2010.
+ Lecture Notes in Computer Science, vol 6024.
+ Springer, Berlin, Heidelberg, 2010.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_supermario"
+literal "false"
+
+\end_inset
+
+N.
+ Shaker, M.
+ Nicolau, G.
+ N.
+ Yannakakis, J.
+ Togelius, M.
+ O'Neill, Evolving levels for Super Mario Bros using grammatical evolution,
+ 2012 IEEE Conference on Computational Intelligence and Games (CIG), 2012,
+ pp.
+ 304-31.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_energy"
+literal "false"
+
+\end_inset
+
+D.
+ Martínez-Rodríguez, J.
+ M.
+ Colmenar, J.
+ I.
+ Hidalgo, R.J.
+ Villanueva Micó, S.
+ Salcedo-Sanz, Particle swarm grammatical evolution for energy demand estimation
+, Energy Science and Engineering 
+\series bold
+8
+\series default
+, pp.
+ 1068-1079, 2020.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_comb"
+literal "false"
+
+\end_inset
+
+N.
+ R.
+ Sabar, M.
+ Ayob, G.
+ Kendall, R.
+ Qu, Grammatical Evolution Hyper-Heuristic for Combinatorial Optimization
+ Problems, IEEE Transactions on Evolutionary Computation 
+\series bold
+17
+\series default
+, pp.
+ 840-861, 2013.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_crypt"
+literal "false"
+
+\end_inset
+
+C.
+ Ryan, M.
+ Kshirsagar, G.
+ Vaidya, G.
+ et al.
+ Design of a cryptographically secure pseudo random number generator with
+ grammatical evolution.
+ Sci Rep 
+\series bold
+12
+\series default
+, 8602, 2022.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "interval0"
 literal "false"
 
@@ -8344,130 +8566,6 @@ A.
 \series default
 , pp.
  443-466, 2004.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "pso1"
-literal "true"
-
-\end_inset
-
-Riccardo Poli, James Kennedy kennedy, Tim Blackwell, Particle swarm optimization
- An Overview, Swarm Intelligence 
-\series bold
-1
-\series default
-, pp 33-57, 2007.
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "psoConstant"
-literal "false"
-
-\end_inset
-
-I.C.
- Trelea, The particle swarm optimization algorithm: convergence analysis
- and parameter selection, Information Processing Letters 
-\series bold
-85
-\series default
-, pp.
- 317-325, 2003.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "psoLinear"
-literal "false"
-
-\end_inset
-
-Y.
- Shi, R.C.
- Eberhart, Empirical study of particle swarm optimization, In: Proceedings
- of the 1999 Congress on Evolutionary Computation-CEC99 (Cat.
- No.
- 99TH8406), pp.
- 1945-1950 Vol.
- 3, 1999.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "psoExp"
-literal "false"
-
-\end_inset
-
-B.
- Borowska, Exponential Inertia Weight in Particle Swarm Optimization.
- In: Wilimowska, Z., Borzemski, L., Grzech, A., Świątek, J.
- (eds) Information Systems Architecture and Technology: Proceedings of 37th
- International Conference on Information Systems Architecture and Technology
- – ISAT 2016 – Part IV.
- Advances in Intelligent Systems and Computing, vol 524.
- Springer, Cham, 2017.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "psoRandom"
-literal "false"
-
-\end_inset
-
-L.
- Zhang, H.
- Yu, S.
- Hu, A New Approach to Improve Particle Swarm Optimization.
- In: , et al.
- Genetic and Evolutionary Computation — GECCO 2003.
- GECCO 2003.
- Lecture Notes in Computer Science, vol 2723.
- Springer, Berlin, Heidelberg, 2003.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "psoDynamic"
-literal "false"
-
-\end_inset
-
-B.
- Borowska, Dynamic Inertia Weight in Particle Swarm Optimization.
- In: Shakhovska, N., Stepashko, V.
- (eds) Advances in Intelligent Systems and Computing II.
- CSIT 2017.
- Advances in Intelligent Systems and Computing, vol 689 .
- Springer, Cham, 2018.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "psoFuzzy"
-literal "false"
-
-\end_inset
-
-Y.
- Shi, R.C.
- Eberhart, Fuzzy adaptive particle swarm optimization, In: Proceedings of
- the 2001 Congress on Evolutionary Computation (IEEE Cat.
- No.01TH8546), pp.
- 101-106 vol.
- 1, 2001.
 \end_layout
 
 \begin_layout Bibliography
