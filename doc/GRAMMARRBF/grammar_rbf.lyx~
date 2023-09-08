@@ -993,49 +993,44 @@ The number
 \end_layout
 
 \begin_layout Enumerate
-
-\series bold
-Every center 
+For every center 
 \begin_inset Formula $\overrightarrow{c_{i}},\ i=1,..,k$
 \end_inset
 
- has 
+ there are 
 \begin_inset Formula $d$
 \end_inset
 
- variables, which means 
+ variables.
+ Hence, the total number of parameters required by the centers are 
 \begin_inset Formula $d\times k$
 \end_inset
 
- variables.
+.
 \end_layout
 
 \begin_layout Enumerate
-
-\series bold
-For every center, a separate value 
-\begin_inset Formula $\sigma_{i}$
+Every Gaussian unit required an additional parameter 
+\begin_inset Formula $\sigma_{i},\ i=1,..,k$
 \end_inset
 
- is used for the Gaussian processing unit, which means 
+, which means 
 \begin_inset Formula $k$
 \end_inset
 
- variables.
+ more parameters.
 \end_layout
 
 \begin_layout Enumerate
-
-\series bold
-The output weight 
+The weight vector 
 \begin_inset Formula $\overrightarrow{w}$
 \end_inset
 
- also has 
+ used in the outout has 
 \begin_inset Formula $k$
 \end_inset
 
- variables.
+ parameters.
 \end_layout
 
 \begin_layout Standard
@@ -1536,19 +1531,19 @@ Operation
 
 \begin_layout Subsection
 The first phase of the proposed algorithm
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:The-first-phase"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Usually, RBF networks are trained through a two-phase procedure: 
-\end_layout
-
-\begin_layout Enumerate
-In the first phase the 
-\begin_inset Formula $k$
-\end_inset
-
- centers as well as the associated variances are calculated through K-Means
- algorithm 
+The first step of the first phase of the proposed method is to initalize
+ the bounds of the RBF network.
+ For this initialization, the K-Means algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "kmeans"
@@ -1556,8 +1551,9 @@ literal "false"
 
 \end_inset
 
-.
- A typical formulation of the K-Means algorithm is outlined in Algorithm
+ technique is used, which is also used for the traditional RBF network training
+ technique.
+ A description of this algorithm in a series of steps is shown in Algorithm
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1569,91 +1565,6 @@ noprefix "false"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Enumerate
-In the second phase, the weight vector 
-\begin_inset Formula $\overrightarrow{w}=\left(w_{1},w_{2},\ldots,w_{k}\right)$
-\end_inset
-
- is estimated by solving a linear system of equations.
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- 
-\series bold
-
-\begin_inset Formula $W=w_{kj}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- 
-\series bold
-
-\begin_inset Formula $\Phi=\phi_{j}\left(x_{i}\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set 
-\begin_inset Formula $T=\left\{ t_{i}=f\left(x_{i}\right),i=1,..,M\right\} $
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Enumerate
-The system to be solved is identified as:
-\series bold
- 
-\begin_inset Formula 
-\begin{equation}
-\Phi^{T}\left(T-\Phi W^{T}\right)=0
-\end{equation}
-
-\end_inset
-
-
-\series default
-With solution:
-\series bold
-
-\begin_inset Formula 
-\begin{equation}
-W^{T}=\left(\Phi^{T}\Phi\right)^{-1}\Phi^{T}T=\Phi^{\dagger}T\label{eq:eqoutput}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-The proposed work uses two computational phases to optimally calculate the
- network parameters.
- Firstly, a promising range for the parameters of the network is calculated
- through an optimization process that incorporates interval arithmetic.
- Subsequently, the parameters of the network are trained with the usage
- of a genetic algorithm inside the located range of the first phase.
- The following subsections analyze both of these phases in detail.
 \end_layout
 
 \begin_layout Standard
@@ -1690,6 +1601,7 @@ Repeat
 
 \begin_deeper
 \begin_layout Enumerate
+Set 
 \begin_inset Formula $S_{j}=\left\{ \right\} ,\ j=1..k$
 \end_inset
 
@@ -1701,7 +1613,7 @@ Repeat
 \series bold
 For
 \series default
- each pattern 
+ every pattern 
 \begin_inset Formula $x_{i},\ i=1,...,m$
 \end_inset
 
@@ -1714,7 +1626,7 @@ do
 \begin_layout Enumerate
 
 \series bold
-Calculate
+Set
 \series default
  
 \begin_inset Formula $j^{*}=\min_{i=1}^{k}\left\{ D\left(x_{i},c_{j}\right)\right\} $
@@ -1726,7 +1638,7 @@ Calculate
 \begin_layout Enumerate
 
 \series bold
-Update
+Set
 \series default
  
 \begin_inset Formula $S_{j^{*}}=S_{j^{*}}\cup\left\{ x_{i}\right\} $
@@ -1747,7 +1659,7 @@ EndFor
 \series bold
 For
 \series default
- each center 
+ every center 
 \begin_inset Formula $c_{j},\ j=1..k$
 \end_inset
 
@@ -1760,13 +1672,13 @@ do
 \begin_layout Enumerate
 
 \series bold
-Define
+Set
 \series default
- 
+ as 
 \begin_inset Formula $M_{j}$
 \end_inset
 
- as the number of points in 
+ the number of points in 
 \begin_inset Formula $S_{j}$
 \end_inset
 
@@ -1776,13 +1688,13 @@ Define
 \begin_layout Enumerate
 
 \series bold
-Calculate 
+Compute 
 \series default
 
 \begin_inset Formula $c_{j}$
 \end_inset
 
-
+ as
 \family roman
 \series medium
 \shape up
@@ -1817,9 +1729,13 @@ EndFor
 \begin_layout Enumerate
 
 \series bold
-Compute
+Calculate
 \series default
- the variances for every center as 
+ the quantities 
+\begin_inset Formula $s_{j}$
+\end_inset
+
+ as 
 \begin_inset Formula 
 \[
 \sigma_{j}^{2}=\frac{\sum_{i=1}^{M_{j}}\left(x_{i}-c_{j}\right)^{2}}{M_{j}}
@@ -1833,9 +1749,9 @@ Compute
 \begin_layout Enumerate
 
 \series bold
-Terminate 
+Stop 
 \series default
-if there is no change in centers 
+the algorithm, if there is no change in centers 
 \begin_inset Formula $c_{j}$
 \end_inset
 
@@ -1844,219 +1760,24 @@ if there is no change in centers
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-In order to perform interval arithmetic on RBF networks the following definition
-s are introduced:
-\end_layout
-
-\begin_layout Enumerate
-The comparison of two intervals 
-\begin_inset Formula $W=\left[w_{1},w_{2}\right]$
+Having calculated the centers 
+\begin_inset Formula $c_{i}$
 \end_inset
 
-, 
-\begin_inset Formula $Z=\left[z_{1},z_{2}\right]$
+ and the corresponding variances 
+\begin_inset Formula $\sigma_{i}$
 \end_inset
 
- is performed through the function 
-\begin_inset Formula 
-\begin{eqnarray}
-L^{*}(W,Z) & = & \begin{cases}
-\mbox{TRUE}, & w_{1}<z_{1},\mbox{OR\ \ensuremath{\left(w_{1}=z_{1}\ \mbox{AND}\ w_{2}<z_{2}\right)}}\\
-\mbox{FALSE}, & \mbox{\mbox{OTHERWISE}}
-\end{cases}\label{eq:eql}
-\end{eqnarray}
-
+, the algorithm continues to compute the vectors 
+\begin_inset Formula $\overrightarrow{L},\ \overrightarrow{R}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Enumerate
-The function 
-\begin_inset Formula $E(y)$
-\end_inset
-
- (equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:eqrbf"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-) is modified to an interval one 
-\begin_inset Formula $\left[E_{\mbox{min}}(y),E_{\mbox{max}}(y)\right]$
-\end_inset
-
- calculated with the procedure given in Algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:Fitness-calculation-for"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Fitness calculation for the modified PSO algorithm.
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:Fitness-calculation-for"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-The fitness calculation for a given particle 
-\begin_inset Formula $g$
-\end_inset
-
- has as follows:
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Take
-\series default
- 
-\begin_inset Formula $N_{S}$
-\end_inset
-
- random samples in 
-\begin_inset Formula $g$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Calculate 
-\series default
-
-\begin_inset Formula $E_{\min}\left(g\right)=\min_{g_{i}\in N_{S}}\left(\left(\sum_{j=1}^{M}y\left(x_{j},g_{i}\right)-t_{j}\right)^{2}\right)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Calculate
-\series default
- 
-\begin_inset Formula $E_{max}\left(g\right)=\max_{g_{i}\in N_{S}}\left(\left(\sum_{j=1}^{M}y\left(x_{j},g_{i}\right)-y_{j}\right)^{2}\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Return
-\series default
- 
-\begin_inset Formula $f_{g}=\left[E_{min}(g),E_{max}(g)\right].$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-During this phase, arithmetic interval techniques are used to locate a range
- for the parameters of the RBF network.
- The interval techniques 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "interval0,interval1,interval2"
-literal "false"
-
-\end_inset
-
- are a common method in global optimization with various applications 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "interval_app1,interval_app2,interval_app3"
-literal "false"
-
-\end_inset
-
-.
- The first phase aims to locate the most promising bounding box for the
- 
+ with dimension 
 \begin_inset Formula $n$
 \end_inset
 
- parameters of the corresponding RBF network.
- The initial bounding box is defined as
-\series bold
- 
-\begin_inset Formula $S$
-\end_inset
-
- 
-\series default
-which is a subset of 
-\begin_inset Formula $\mathbb{R^{\mbox{n}}}$
-\end_inset
-
-:
-\series bold
- 
-\begin_inset Formula 
-\begin{equation}
-S=\left[a_{1},b_{1}\right]\otimes\left[a_{2},b_{2}\right]\otimes\ldots\left[a_{n},b_{n}\right]\label{eq:eq2}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The initial bounding boxes for the centers and variances of the RBF network
- are constructed using the K-Means clustering algorithm.
- Subsequently, the initial values for the intervals 
-\begin_inset Formula $\left[a_{i},b_{i}\right]$
-\end_inset
-
- are calculated through the algorithm 
+, that will be used as the initial bounds of the parameters.
+ The above vectors are calculated through the procedure of algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:initialValues"
@@ -2064,365 +1785,6 @@ plural "false"
 caps "false"
 noprefix "false"
 
-\end_inset
-
-.
- The values for the intervals of the first 
-\begin_inset Formula $(d+1)\times k$
-\end_inset
-
- variables are obtained as a multiple of the positive quantity 
-\begin_inset Formula $F$
-\end_inset
-
- with the values obtained by the K-Means.
- The value 
-\begin_inset Formula $B$
-\end_inset
-
- is used to initialize the intervals for the output weight 
-\begin_inset Formula $\overrightarrow{w}$
-\end_inset
-
-.
- Afterwards, the following algorithm is executed:
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- 
-\begin_inset Formula $N_{c}$
-\end_inset
-
- as the amount of particles.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- the 
-\begin_inset Formula $k$
-\end_inset
-
- weights of the RBF network.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- 
-\begin_inset Formula $N_{g}$
-\end_inset
-
- the maximum generations allowed.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- 
-\begin_inset Formula $N_{s}$
-\end_inset
-
- the number of random samples that will be used in the fitness calculation
- algorithm.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- 
-\begin_inset Formula $f^{*}=\left[\infty,\infty\right]$
-\end_inset
-
-, the fitness of the best located particle 
-\begin_inset Formula $p^{*}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Construct
-\series default
- 
-\begin_inset Formula $S=\left[a_{1},b_{1}\right]\otimes\left[a_{2},b_{2}\right]\otimes\ldots\left[a_{n},b_{n}\right]$
-\end_inset
-
-, as obtained from the previous two algorithms.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Initialize
-\series default
- the 
-\begin_inset Formula $N_{c}$
-\end_inset
-
- particles.
- Each particle 
-\begin_inset Formula $p_{i},\ i=1,...,N_{c}$
-\end_inset
-
- is considered as a set of intervals randomly initialized in 
-\begin_inset Formula $S$
-\end_inset
-
-.
- The layout of each particle is graphically presented in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:The-layout-of"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-For
-\series default
- 
-\begin_inset Formula $i=1,...,N_{c}$
-\end_inset
-
- 
-\series bold
-do 
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-
-\series bold
-Calculate
-\series default
- the fitness 
-\begin_inset Formula $f_{i}$
-\end_inset
-
- of particle 
-\begin_inset Formula $p_{i}$
-\end_inset
-
- using the procedure outlined in Algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:Fitness-calculation-for"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-If
-\series default
- 
-\begin_inset Formula $L^{*}\left(f_{i},f^{*}\right)=\mbox{TRUE}$
-\end_inset
-
- 
-\series bold
-then
-\series default
- 
-\begin_inset Formula $f^{*}=f_{i},\ p^{*}=p_{i}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- 
-\begin_inset Formula $p_{b,i}=p_{i},\ f_{b,i}=f_{i}$
-\end_inset
-
- the best located position for particle 
-\begin_inset Formula $i$
-\end_inset
-
- and the associated fitness value.
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-
-\series bold
-EndFor
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- iter=0
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Calculate
-\series default
- the inertia
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-For
-\series default
- 
-\begin_inset Formula $i=1,...,N_{c}$
-\end_inset
-
- 
-\series bold
-do 
-\begin_inset CommandInset label
-LatexCommand label
-name "enu:For--do"
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-
-\series bold
-Calculate
-\series default
- the fitness 
-\begin_inset Formula $f_{i}$
-\end_inset
-
- of particle 
-\begin_inset Formula $p_{i}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-If 
-\series default
-
-\begin_inset Formula $L^{*}\left(f_{i},f_{b,i}\right)=\mbox{TRUE}$
-\end_inset
-
- 
-\series bold
-then
-\series default
- 
-\begin_inset Formula $p_{b,i}=p_{i},\ f_{b,i}=f_{i}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-If
-\series default
- 
-\begin_inset Formula $L^{*}\left(f_{i},f^{*}\right)=\mbox{TRUE}$
-\end_inset
-
- 
-\series bold
-then
-\series default
- 
-\begin_inset Formula $f^{*}=f_{i},\ p^{*}=p_{i}$
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-
-\series bold
-EndFor
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- iter=iter+1
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-If
-\series default
- 
-\begin_inset Formula $\mbox{iter\ensuremath{\le N_{g}} }$
-\end_inset
-
-goto step 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "enu:For--do"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Else Return
-\series default
- 
-\begin_inset Formula $S=\left[a_{1},b_{1}\right]\otimes\left[a_{2},b_{2}\right]\otimes\ldots\left[a_{n},b_{n}\right]$
-\end_inset
-
- the domain range for the best particle 
-\begin_inset Formula $p^{*}$
 \end_inset
 
 .
@@ -2439,8 +1801,8 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Algorithm used to locate the initial values for 
-\begin_inset Formula $\left[a_{i},b_{i}\right],\ i=1,...,n$
+Algorithm to locate the vectors 
+\begin_inset Formula $\overrightarrow{L},\ \overrightarrow{R}$
 \end_inset
 
  
@@ -2472,10 +1834,26 @@ Set
 Set
 \series default
  
-\begin_inset Formula $F>1,\ B>0$
+\begin_inset Formula $F>1$
 \end_inset
 
+, the scaling factor.
+\end_layout
 
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $B>0$
+\end_inset
+
+, the initial upper bound for the weight vector 
+\begin_inset Formula $\overrightarrow{w}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -2514,7 +1892,7 @@ do
 Set
 \series default
  
-\begin_inset Formula $a_{m}$
+\begin_inset Formula $L_{m}$
 \end_inset
 
 =
@@ -2522,7 +1900,7 @@ Set
 \end_inset
 
 , 
-\begin_inset Formula $b_{m}$
+\begin_inset Formula $R_{m}$
 \end_inset
 
 =
@@ -2557,11 +1935,11 @@ EndFor
 Set
 \series default
  
-\begin_inset Formula $a_{m}=-F\times\sigma_{i}$
+\begin_inset Formula $L_{m}=-F\times\sigma_{i}$
 \end_inset
 
 , 
-\begin_inset Formula $b_{m}=F\times\sigma_{i}$
+\begin_inset Formula $R_{m}=F\times\sigma_{i}$
 \end_inset
 
 
@@ -2607,7 +1985,7 @@ do
 Set
 \series default
  
-\begin_inset Formula $a_{m}=-B,\ b_{m}=B$
+\begin_inset Formula $L_{m}=-B,\ R_{m}=B$
 \end_inset
 
 
@@ -2634,6 +2012,538 @@ EndFor
 
 \end_inset
 
+The bounds for the first 
+\begin_inset Formula $(d+1)\times k$
+\end_inset
+
+ variables of any given RBF network are considered as a multiple of the
+ quantity 
+\begin_inset Formula $F$
+\end_inset
+
+ with the values calculated by the K-Means algorithm.
+ The positive constant 
+\begin_inset Formula $B$
+\end_inset
+
+ is used to initialize the intervals for the weight 
+\begin_inset Formula $\overrightarrow{w}$
+\end_inset
+
+.
+ Afterwards, the following genetic algorithm is executed to locate the most
+ promising vectors 
+\begin_inset Formula $\overrightarrow{L},\ \overrightarrow{R}$
+\end_inset
+
+ for the RBF parameters:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $N_{c}$
+\end_inset
+
+ as the number of chromosomes for the Grammatical Evolution.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ as 
+\begin_inset Formula $k$
+\end_inset
+
+ the number of weights of the RBF network.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+ the maximum number of allowed generations.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ as 
+\begin_inset Formula $p_{s}$
+\end_inset
+
+ the selection rate of the algorithm, with 
+\begin_inset Formula $p_{s}\le1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ as 
+\begin_inset Formula $p_{m}$
+\end_inset
+
+ the mutation rate, with 
+\begin_inset Formula $p_{m}\le1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $N_{s}$
+\end_inset
+
+as the number of randomly created RBF networks, used in the fitness calculation.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialize
+\series default
+ randomly the 
+\begin_inset Formula $N_{c}$
+\end_inset
+
+ chromosomes as sets of random numbers.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $f^{*}=\left[\infty,\infty\right]$
+\end_inset
+
+, the fitness of the best chromosome.
+ The fitness function 
+\begin_inset Formula $f_{g}$
+\end_inset
+
+ of any given chromosome 
+\begin_inset Formula $g$
+\end_inset
+
+ is considered as an interval 
+\series bold
+
+\begin_inset Formula $f_{g}=\left[f_{g,\mbox{low}},f_{g,\mbox{upper}}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ iter=0.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,\ldots,N_{c}$
+\end_inset
+
+ 
+\series bold
+do
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:For--do"
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Create 
+\series default
+the partition program 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ using the grammar of Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:BNF-grammar-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for the chromosome 
+\begin_inset Formula $cr_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Produce 
+\series default
+the bounds 
+\begin_inset Formula $\left[\vec{L_{p_{i}}},\overrightarrow{R_{p_{i}}}\right]$
+\end_inset
+
+ for the partition program 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $E_{\mbox{min}}=\infty,\ E_{\mbox{max}}=-\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $j=1,\ldots,N_{S}$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Create
+\series default
+ randomly a set of parameters 
+\begin_inset Formula $g_{j}\in$
+\end_inset
+
+
+\begin_inset Formula $\left[\vec{L_{p_{i}}},\overrightarrow{R_{p_{i}}}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Calculate
+\series default
+ the error 
+\begin_inset Formula $E_{g_{j}}=\sum_{j=1}^{M}\left(y\left(x_{j},g_{j}\right)-t_{j}\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $E_{g_{j}}\le E_{\mbox{min}}$
+\end_inset
+
+ 
+\series bold
+then
+\series default
+ 
+\begin_inset Formula $E_{\mbox{min}}=E_{g_{j}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $E_{g_{j}}\ge E_{\mbox{max}}$
+\end_inset
+
+ 
+\series bold
+then
+\series default
+ 
+\begin_inset Formula $E_{\mbox{max}}=E_{g_{j}}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ the fitness
+\begin_inset Formula $f_{i}=\left[E_{\mbox{min}},E_{\mbox{max}}\right]$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Apply
+\series default
+ the selection procedure: Initially, the chromomes of the population are
+ sorted according to their fitness values.
+ In order to compare two fitness values 
+\begin_inset Formula $f_{a}=\left[a_{1},a_{2}\right]$
+\end_inset
+
+ and 
+\begin_inset Formula $f_{b}=\left[b_{1},b_{2}\right]$
+\end_inset
+
+ the 
+\begin_inset Formula $L^{*}$
+\end_inset
+
+ operator is used:
+\begin_inset Formula 
+\begin{eqnarray}
+L^{*}\left(f_{a},f_{b}\right) & = & \begin{cases}
+\mbox{TRUE}, & a_{1}<b_{1},\mbox{OR\ \ensuremath{\left(a_{1}=b_{1}\ \mbox{AND}\ a_{2}<b_{2}\right)}}\\
+\mbox{FALSE}, & \mbox{\mbox{OTHERWISE}}
+\end{cases}\label{eq:eql}
+\end{eqnarray}
+
+\end_inset
+
+Hence, the fitness value 
+\begin_inset Formula $f_{a}$
+\end_inset
+
+ is considered smaller than 
+\begin_inset Formula $f_{b}$
+\end_inset
+
+ if 
+\begin_inset Formula $L^{*}\left(f_{a},f_{b}\right)=\mbox{TRUE}$
+\end_inset
+
+.
+ The first 
+\begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
+\end_inset
+
+ chromosomes with smaller fitness values are transferred intact to the next
+ generation.
+ The remain chromosomes are replaced by offspring created in the crossover
+ procedure.
+ During the selection process for each offspring two parents are selected
+ from the population using the tournament selection.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Apply
+\series default
+ the crossover procedure.
+ The crossover procedure will create 
+\series bold
+
+\begin_inset Formula $p_{s}\times N_{c}$
+\end_inset
+
+ 
+\series default
+new chromosomes.
+
+\series bold
+ 
+\series default
+For each new offspring two parents are selected from the population using
+ the tournament selection.
+
+\series bold
+ 
+\series default
+For each pair 
+\begin_inset Formula $(z,w)$
+\end_inset
+
+ of selected parents, two new chromosomes 
+\begin_inset Formula $\tilde{z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{w}$
+\end_inset
+
+ are produced using the one - point crossover, shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:onepoint"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Apply
+\series default
+ the mutation procedure.
+ For each element of every chromosome, a random number 
+\begin_inset Formula $r\in\left[0,1\right]$
+\end_inset
+
+ is drawn.
+ The corresponding element is altered randomly if 
+\begin_inset Formula $r\le p_{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ iter=iter+1
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $\mbox{iter\ensuremath{\le N_{g}} }$
+\end_inset
+
+goto step 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:For--do"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename onepoint_crossover.eps
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+One point crossover, used in the Grammatical Evolution.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:onepoint"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -2642,32 +2552,362 @@ The second phase of the proposed algorithm
 \end_layout
 
 \begin_layout Standard
-During the second phase of the proposed method, a genetic algorithm is performed
-, which optimizes the parameters of the RBF network within the optimal interval
- calculated in the first phase.
- The used genetic algorithm has its roots in the 
-\begin_inset Formula $\mbox{GA}\left(c_{r1},l\right)$
-\end_inset
-
- algorithm from the paper of Kaelo and Ali 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "kaelo"
-literal "false"
+The second phase utilizes a genetic algorithm, to optimize the parameters
+ of the RBF network within the best interval returned by the first phase
+ of the method.
+ The layout of each chromosome is show in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-layout-of"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
 .
- This method is enhanced using the stopping rule suggested by Tsoulos 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Tsoulos1"
-literal "false"
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The layout of chromosomes in the second phase of the proposed algorithm.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:The-layout-of"
 
 \end_inset
 
-.
- This genetic algorithm has the following steps:
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size footnotesize
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="20">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $c_{11}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $c_{12}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $c_{1d}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $c_{21}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $c_{22}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $c_{2d}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $\sigma_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $c_{k1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $c_{k2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $c_{kd}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $\sigma_{k}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $w_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $w_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $\ldots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $w_{k}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
@@ -2682,23 +2922,11 @@ Initialization Step
 \series bold
 Set
 \series default
- as 
+ 
 \begin_inset Formula $N_{c}$
 \end_inset
 
- the number of chromosomes.
- Every chromosome is coded as in case of PSO using the scheme of Figure
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:The-layout-of"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
+ as the number of chromosomes.
 \end_layout
 
 \begin_layout Enumerate
@@ -2706,11 +2934,11 @@ noprefix "false"
 \series bold
 Set
 \series default
- as 
+ 
 \begin_inset Formula $N_{g}$
 \end_inset
 
- the maximum number of generations allowed.
+ the maximum number of allowed generations.
 \end_layout
 
 \begin_layout Enumerate
@@ -2728,16 +2956,16 @@ Set
 \begin_layout Enumerate
 
 \series bold
-Obtain
+Get
 \series default
- the domain range 
+ the best interval 
 \begin_inset Formula $S$
 \end_inset
 
- from the procedure of subsection 
+ from the first step of subsection 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:The-proposed-PSO"
+reference "subsec:The-first-phase"
 plural "false"
 caps "false"
 noprefix "false"
@@ -2752,11 +2980,11 @@ noprefix "false"
 \series bold
 Initialize
 \series default
- the 
+ nandomly the 
 \begin_inset Formula $N_{C}$
 \end_inset
 
- randomly in 
+ chromosomes in in 
 \begin_inset Formula $S$
 \end_inset
 
@@ -2767,25 +2995,17 @@ Initialize
 \begin_layout Enumerate
 
 \series bold
-Define
+Set
 \series default
- the selection rate 
-\begin_inset Formula $p_{s}\in[0,1]$
+ as 
+\begin_inset Formula $p_{s}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Define
-\series default
- the mutation rate 
-\begin_inset Formula $p_{m}\in[0,1]$
+ the selection rate of the algorithm, with 
+\begin_inset Formula $p_{s}\le1$
 \end_inset
 
- 
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -2793,35 +3013,80 @@ Define
 \series bold
 Set
 \series default
- iter=0
+ as 
+\begin_inset Formula $p_{m}$
+\end_inset
+
+ the mutation rate, with 
+\begin_inset Formula $p_{m}\le1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ iter=0.
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
 
 \series bold
-Evaluation Step
+Fitness calculation Step 
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:Fitness-calculation-Step"
+
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
-\begin_layout Standard
+\begin_layout Enumerate
 
 \series bold
 For
 \series default
- every chromosome 
-\begin_inset Formula $g$
+ 
+\begin_inset Formula $i=1,\ldots,N_{g}$
 \end_inset
 
  
 \series bold
-calculate 
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Calculate
 \series default
-the associated fitness value 
-\begin_inset Formula $f_{g}=\sum_{i=1}^{m}\left(y\left(x_{i},g\right)-t_{i}\right)^{2}$
+ the fitness 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+ of chromosome 
+\begin_inset Formula $g_{i}$
+\end_inset
+
+ as 
+\begin_inset Formula $f_{i}=\sum_{j=1}^{m}\left(y\left(x_{j},g_{i}\right)-t_{j}\right)^{2}$
 \end_inset
 
 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
 \end_layout
 
 \end_deeper
@@ -2829,12 +3094,6 @@ the associated fitness value
 
 \series bold
 Genetic operations step
-\begin_inset Newline newline
-\end_inset
-
-
-\series default
-Perform the genetic operations of selection, crossover and mutation.
 \end_layout
 
 \begin_deeper
@@ -2844,16 +3103,17 @@ Perform the genetic operations of selection, crossover and mutation.
 Selection procedure.
 
 \series default
- First, the population of chromosomes is sorted based on the associated
- fitness values.
- The first 
+ The chromosomes are sorted according to their fitness values.
+ The 
 \begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
 \end_inset
 
- chromosomes are copied unchanged to the next generation, while the rest
- are replaced by offsprings constructed by the crossover procedure.
- During the selection step, a series of mating pairs are chosen using the
- well - known procedure of tournament selection for each parent.
+ chromosomes with the lowest fitness values are transferred intact to the
+ next generation.
+ The remain chromosomes are substituted by offspings created in the crossover
+ procedure.
+ During the selection process for each offspring two parents are selected
+ from the population using the tournament selection.
  
 \end_layout
 
@@ -2862,11 +3122,11 @@ Selection procedure.
 \series bold
 Crossover procedure
 \series default
-: For each pair 
+: For every pair 
 \begin_inset Formula $(z,w)$
 \end_inset
 
- of chosen parents two new offsprings 
+ of selected parents two additional chromosomes 
 \begin_inset Formula $\tilde{z}$
 \end_inset
 
@@ -2874,7 +3134,7 @@ Crossover procedure
 \begin_inset Formula $\tilde{w}$
 \end_inset
 
- are constructed with the steps:
+ are produced using the following equations:
 \begin_inset Formula 
 \begin{eqnarray}
 \tilde{z_{i}} & = & a_{i}z_{i}+\left(1-a_{i}\right)w_{i}\nonumber \\
@@ -2883,11 +3143,11 @@ Crossover procedure
 
 \end_inset
 
-where 
+The value 
 \begin_inset Formula $a_{i}$
 \end_inset
 
- is a random number with 
+ is considered as a random number with the property 
 \begin_inset Formula $a_{i}\in[-0.5,1.5]$
 \end_inset
 
@@ -2912,20 +3172,16 @@ Mutation procedure
 \series bold
  
 \series default
-For every element of each chromosome pick a random number 
-\begin_inset Formula $r\in[0,1]$
+For each element of every chromosome, a random number 
+\begin_inset Formula $r\in\left[0,1\right]$
 \end_inset
 
-.
-
-\series bold
- IF
-\series default
- 
+ is drawn.
+ The corresponding element is altered randomly if 
 \begin_inset Formula $r\le p_{m}$
 \end_inset
 
-, then alter randomly the corresponding element.
+.
 \end_layout
 
 \end_deeper
@@ -2951,17 +3207,23 @@ Set
 \begin_layout Enumerate
 
 \series bold
-If 
-\series default
-the termination criteria are hold then 
-\series bold
-Terminate
+If
 \series default
  
-\series bold
-else Goto
-\series default
- Evaluation Step.
+\begin_inset Formula $\mbox{iter\ensuremath{\le N_{g}} }$
+\end_inset
+
+goto step 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:Fitness-calculation-Step"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -2985,8 +3247,9 @@ name "sec:Experiments"
 
 \begin_layout Standard
 The suggested method was tested on a series of classification and regression
- problems found in various papers and sites from the relevant literature.
- For the classification problems two internet databases were used:
+ problems from the relevant literature was compared against some other well
+ -known machine learning models.
+ The following databases were used to obtain the datasets:
 \end_layout
 
 \begin_layout Enumerate
@@ -3027,8 +3290,8 @@ literal "false"
 .
 \end_layout
 
-\begin_layout Standard
-The regression problems was found in the Statlib URL 
+\begin_layout Enumerate
+The Statlib URL 
 \begin_inset Flex URL
 status open
 
@@ -3789,14 +4052,6 @@ noprefix "false"
  is trained using a genetic algorithm.
  Of course, this extra time can be significantly reduced by incorporating
  parallel techniques, as was done experimentally using the OpenMP library.
- Furthermore, changing the normalization factor 
-\begin_inset Formula $\lambda$
-\end_inset
-
- from 100 to 1000 did not have much effect on the mean error in the test
- set.
- This induces that the proposed method is quite robust, since it doesn't
- have much dependence on this parameter.
  
 \end_layout
 
@@ -3831,24 +4086,6 @@ noprefix "false"
  And for this critical parameter, no large deviations appear in the results
  of the proposed method.
  This further enhances the robustness and reliability of the proposed technique.
-\end_layout
-
-\begin_layout Standard
-Also, in the Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:precisionRecall"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, the metrics of precision, recall and f-score are shown for a series of
- classification datasets and for the proposed method (mentioned as IRBF-100)
- and the classic method for training RBF networks (mentioned as RBF-KMEANS)
- .And in these experimental results, the reader can see the superiority of
- the proposed technique over the traditional method of training RBF networks.
 \end_layout
 
 \begin_layout Standard
@@ -6508,7 +6745,7 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+15.57%
 \end_layout
 
 \end_inset
@@ -6546,7 +6783,7 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+24.29%
 \end_layout
 
 \end_inset
@@ -6584,7 +6821,7 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+17.22%
 \end_layout
 
 \end_inset
@@ -6622,7 +6859,7 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+52.09%
 \end_layout
 
 \end_inset
@@ -6660,7 +6897,7 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+37.23%
 \end_layout
 
 \end_inset
@@ -6698,7 +6935,7 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+35.72%
 \end_layout
 
 \end_inset
@@ -6736,7 +6973,7 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+16.32%
 \end_layout
 
 \end_inset
@@ -6774,7 +7011,7 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+4.35%
 \end_layout
 
 \end_inset
@@ -6812,7 +7049,7 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+12.50%
 \end_layout
 
 \end_inset
@@ -6850,7 +7087,7 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+28.08%
 \end_layout
 
 \end_inset
@@ -6888,7 +7125,7 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+17.49%
 \end_layout
 
 \end_inset
@@ -6926,7 +7163,7 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+16.25%
 \end_layout
 
 \end_inset
@@ -6964,7 +7201,7 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+23.29%
 \end_layout
 
 \end_inset
@@ -7002,7 +7239,7 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+5.31%
 \end_layout
 
 \end_inset
@@ -7040,7 +7277,7 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+25.97%
 \end_layout
 
 \end_inset
@@ -7078,7 +7315,7 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+28.52%
 \end_layout
 
 \end_inset
@@ -7116,7 +7353,7 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+44.95%
 \end_layout
 
 \end_inset
@@ -7154,7 +7391,7 @@ Spiral
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+15.49%
 \end_layout
 
 \end_inset
@@ -7192,7 +7429,7 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+5.43%
 \end_layout
 
 \end_inset
@@ -7230,7 +7467,7 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+7.59%
 \end_layout
 
 \end_inset
@@ -7268,7 +7505,7 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+4.37%
 \end_layout
 
 \end_inset
@@ -7306,7 +7543,7 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+3.79%
 \end_layout
 
 \end_inset
@@ -7344,7 +7581,7 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+2.34%
 \end_layout
 
 \end_inset
@@ -7382,7 +7619,7 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+11.90%
 \end_layout
 
 \end_inset
@@ -7423,6 +7660,8 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+19.03%
 \end_layout
 
 \end_inset
@@ -7432,6 +7671,8 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+18.93%
 \end_layout
 
 \end_inset
@@ -8772,117 +9013,6 @@ C.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "interval0"
-literal "false"
-
-\end_inset
-
-E.
- Hansen and G.W.
- Walster.Global Optimization using Interval Analy-sis.Marcel Dekker Inc., New
- York, 2004.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "interval1"
-literal "false"
-
-\end_inset
-
-M.
- Markót, J.
- Fernández, L.
- Casado et al, New interval methods for constrained global optimization,
- Mathematical Programming 
-\series bold
-106
-\series default
-, pp.
- 287-318, 2006.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "interval2"
-literal "false"
-
-\end_inset
-
-A.
- Žilinskas, J.
- Žilinskas, Interval Arithmetic Based Optimization in Nonlinear Regression,
- Informatica 
-\series bold
-21
-\series default
-, pp.
- 149-158, 2010.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "interval_app1"
-literal "false"
-
-\end_inset
-
-C.A.
- Schnepper, M.A.
- Stadtherr, Robust process simulation using interval methods, Computers
- & Chemical Engineering 
-\series bold
-20
-\series default
-, pp.
- 187-199, 1996.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "interval_app2"
-literal "false"
-
-\end_inset
-
-C.
- Carreras, I.
- D.
- Walker, Interval methods for fault-tree analysis in robotics, IEEE Transactions
- on Reliability 
-\series bold
-50
-\series default
-, pp.
- 3-11, 2001.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "interval_app3"
-literal "false"
-
-\end_inset
-
-A.
- Serguieva, J.
- Hunte, Fuzzy interval methods in investment risk appraisal, Fuzzy Sets
- and Systems 
-\series bold
-142
-\series default
-, pp.
- 443-466, 2004.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
 key "kaelo"
 literal "true"
 
@@ -8897,24 +9027,6 @@ P.
 \series default
 , pp.
  60-76, 2007.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "Tsoulos1"
-literal "false"
-
-\end_inset
-
-I.G.
- Tsoulos, Modifications of real code genetic algorithm for global optimization,
- Applied Mathematics and Computation 
-\series bold
-203
-\series default
-, pp.
- 598-607, 2008.
 \end_layout
 
 \begin_layout Bibliography
