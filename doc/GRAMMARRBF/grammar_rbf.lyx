@@ -3264,7 +3264,7 @@ https://archive.ics.uci.edu/ml/index.php
 
 \end_inset
 
-(accessed on 5 January 2023)
+(accessed on 9 September 2023)
 \end_layout
 
 \begin_layout Enumerate
@@ -3279,7 +3279,7 @@ https://sci2s.ugr.es/keel/datasets.php
 
 \end_inset
 
-(accessed on 5 January 2023)
+(accessed on 9 September 2023)
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Keel"
@@ -3302,7 +3302,7 @@ ftp://lib.stat.cmu.edu/datasets/index.html
 
 \end_inset
 
-(accessed on 5 January 2023).
+(accessed on 9 September 2023).
  
 \end_layout
 
@@ -3311,11 +3311,7 @@ Experimental datasets
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-(OK)
-\series default
-The classification problems used here are:
+The classification datasets have as follows:
 \end_layout
 
 \begin_layout Enumerate
@@ -3323,7 +3319,7 @@ The classification problems used here are:
 \series bold
 Appendictis
 \series default
- dataset, a medical dataset suggested in 
+ dataset, a medical dataset proposed in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "appendicitis"
@@ -3347,7 +3343,7 @@ literal "false"
 
 \end_inset
 
-, an economic dataset.
+, an dataset related to economic data.
 \end_layout
 
 \begin_layout Enumerate
@@ -3363,7 +3359,7 @@ literal "false"
 
 \end_inset
 
-, used for prediction of psychological states.
+, which used to predict psychological states.
  
 \end_layout
 
@@ -3372,7 +3368,7 @@ literal "false"
 \series bold
 Cleveland
 \series default
- dataset, related to heart diseases 
+ dataset, which is a medical datatset related to heart diseases 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "cleveland1,cleveland2"
@@ -3396,7 +3392,7 @@ literal "false"
 
 \end_inset
 
-, which is a medical dataset.
+, a medical dataset.
 \end_layout
 
 \begin_layout Enumerate
@@ -3428,7 +3424,7 @@ literal "false"
 
 \end_inset
 
-, a medical dataset.
+, a medical dataset related to heart diseases.
 \end_layout
 
 \begin_layout Enumerate
@@ -3444,7 +3440,7 @@ literal "false"
 
 \end_inset
 
-.
+, related to Congressional voting records.
 \end_layout
 
 \begin_layout Enumerate
@@ -3452,7 +3448,7 @@ literal "false"
 \series bold
 Ionosphere
 \series default
- dataset a dataset found the Johns Hopkins database 
+ dataset, used for classification of radar returns from the ionosphere 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ion1,ion2"
@@ -3476,7 +3472,7 @@ literal "false"
 
 \end_inset
 
-, a medical dataset about liver disorders.
+, a medical dataset.
 \end_layout
 
 \begin_layout Enumerate
@@ -3492,7 +3488,7 @@ literal "false"
 
 \end_inset
 
-, which is a dataset about breast cancer.
+, used to identify breast tumors.
 \end_layout
 
 \begin_layout Enumerate
@@ -3500,7 +3496,7 @@ literal "false"
 \series bold
 Parkinsons
 \series default
- dataset, a medical dataset about the Parkinson's Disease (PD)
+ dataset, a medical dataset related to the Parkinson's Disease
 \begin_inset CommandInset citation
 LatexCommand cite
 key "parkinsons"
@@ -3540,7 +3536,7 @@ literal "false"
 
 \end_inset
 
-, a dataset about climate.
+, a dataset related to climate measurements.
 \end_layout
 
 \begin_layout Enumerate
@@ -3548,10 +3544,9 @@ literal "false"
 \series bold
 Spiral
 \series default
- dataset: The spiral artificial dataset contains 1000 two-dimensional examples
- that belong to two classes (500 examples each).
- The number of the features is 2.
- The data in the first class are created using the following formula: 
+ dataset, an artificial dataset with 2 features and two classes.
+ The patterns for the first class are produced according to the equation:
+ 
 \begin_inset Formula $x_{1}=0.5t\cos\left(0.08t\right),\ x_{2}=0.5t\cos\left(0.08t+\frac{\pi}{2}\right)$
 \end_inset
 
@@ -3569,7 +3564,7 @@ Spiral
 \series bold
 Regions2
 \series default
- dataset, described in 
+ dataset 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "regions"
@@ -3594,7 +3589,7 @@ literal "false"
 
 \end_inset
 
-, which is related to heart diseases.
+, a medical dataset about heart diseases.
  
 \end_layout
 
@@ -3611,7 +3606,7 @@ literal "false"
 
 \end_inset
 
-, which is related to image processing.
+, an image processing dataset.
 \end_layout
 
 \begin_layout Enumerate
@@ -3627,7 +3622,7 @@ literal "false"
 
 \end_inset
 
-, which is related to breast tumors.
+, used to identify breast tumors.
  
 \end_layout
 
@@ -3636,11 +3631,7 @@ literal "false"
 \series bold
 Wine
 \series default
- dataset.
- The wine recognition dataset contains data from wine chemical analysis.
- It contains 178 examples of 13 features each that are classified into three
- classes.
- It has been examinated in many published works 
+ dataset, used to classify wines 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "wine1,wine2"
@@ -3656,8 +3647,7 @@ literal "false"
 \series bold
 Eeg
 \series default
- dataset.
- As an real word example, consider an EEG dataset described in 
+ dataset, a medical dataset about EEG measurements
 \begin_inset CommandInset citation
 LatexCommand cite
 key "eeg"
@@ -3665,9 +3655,8 @@ literal "true"
 
 \end_inset
 
- is used here.
- The datasets derived from the dataset are denoted as Z_F_S, ZONF_S and
-  ZO_NF_S.
+ .
+ The datasets used are denoted as Z_F_S, ZONF_S and  ZO_NF_S.
 \end_layout
 
 \begin_layout Enumerate
@@ -3683,11 +3672,11 @@ literal "false"
 
 \end_inset
 
-, used for classification of animals.
+, used to classify animals.
 \end_layout
 
 \begin_layout Standard
-The regression datasets are:
+The following regression datasets were used in the experiments:
 \end_layout
 
 \begin_layout Enumerate
@@ -3712,7 +3701,7 @@ literal "false"
 \series bold
 Airfoil 
 \series default
-dataset, a dataset from NASA related to aerodynamic and acoustic tests 
+dataset, a dataset derived from NASA 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "airfoil"
@@ -3728,7 +3717,7 @@ literal "false"
 \series bold
 Baseball
 \series default
- dataset, a dataset used to predict the points scored by baseball players.
+ dataset, a dataset used in baseball games.
 \end_layout
 
 \begin_layout Enumerate
@@ -3744,7 +3733,7 @@ literal "false"
 
 \end_inset
 
- and is used to estimate the points scored per minute in a basketball game.
+, used to predict the points in a basketball game.
 \end_layout
 
 \begin_layout Enumerate
@@ -3752,8 +3741,7 @@ literal "false"
 \series bold
 BL
 \series default
- dataset, this dataset is related to an experiment on the affects of machine
- adjustments on the time to count bolts.
+ dataset, an electrical engineering dataset.
 \end_layout
 
 \begin_layout Enumerate
@@ -3778,8 +3766,7 @@ literal "false"
 \series bold
 Dee
 \series default
- dataset, used to predict the daily average price of the electricity energy
- in Spain.
+ dataset, used to predict the energy consumption.
 \end_layout
 
 \begin_layout Enumerate
@@ -3804,7 +3791,7 @@ FA
 \series bold
 Housing
 \series default
- dataset, described in 
+ dataset, provided in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key23"
@@ -3820,7 +3807,7 @@ literal "true"
 \series bold
 MB
 \series default
- dataset, a statistics dataset 
+ dataset 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key21"
@@ -3844,7 +3831,7 @@ MORTGAGE
 \series bold
 NT
 \series default
- dataset, derived from 
+ dataset
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ntdataset"
@@ -3861,7 +3848,7 @@ literal "false"
 \series bold
 PY
 \series default
- dataset (Pyrimidines problem)
+ dataset
 \begin_inset CommandInset citation
 LatexCommand cite
 key "pydataset"
@@ -3878,7 +3865,7 @@ literal "false"
 \series bold
 Quake
 \series default
- dataset, which contains data from earthquakes 
+ dataset, used to predictearthquakes 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "quake"
@@ -3895,7 +3882,7 @@ literal "false"
 \series bold
 Treasure
 \series default
- dataset, which contains economic data.
+ dataset, which contains data about the economy.
 \end_layout
 
 \begin_layout Enumerate
@@ -3903,7 +3890,7 @@ Treasure
 \series bold
 Wankara
 \series default
- dataset, that is about weather measurement
+ dataset, a dataset used for climate measurements.
 \end_layout
 
 \begin_layout Subsection
@@ -3911,8 +3898,8 @@ Experimental results
 \end_layout
 
 \begin_layout Standard
-The RBF network for the tests was coded in ANSI C++ with the help of the
- freely available Armadillo library 
+The used RBF network was coded in ANSI C++ using the freely available Armadillo
+ library 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Armadillo"
@@ -3921,26 +3908,31 @@ literal "false"
 \end_inset
 
 .
- In addition, in order to have greater reliability in the experimental results,
- a 10-fold validation technique was used.
- All the experiments were executed 30 times with different seeds for the
- random generator each time and the average was measured.
- For the classification datasets, the average classification error was reported
- and for the regression datasets the mean test error.
- The machine used for the experiments was an AMD Ryzen 5950X with 128GB
- of RAM.
- The used operating system was Debian Linux.
- In order to accelerate the training process, the OpenMP library was incorporate
-d 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "openmp"
-literal "false"
+ The optimization methods used was also freely available from the OPTIMUS
+ computing environment, downloaded from 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://github.com/itsoulos/OPTIMUS/
+\end_layout
 
 \end_inset
 
-.
- The experimental settings are listed in the Table 
+(accessed on 9 September 2023).
+ To validate the results the 10 - fold validation technique was used in
+ all datasets.
+ The experiments were conducted 30 times for every dataset using different
+ seed for the random generator each time.
+ In the conducted experiments the drand48() random function of the C - programmi
+ng language was employeed.
+ The average classification error is reported for the case of classification
+ datasets and the average mean test error for the regression datasets.
+ The machine used in the experiments was an an AMD Ryzen 5950X with 128GB
+ of RAM, running the Debian Linux operating system.
+ All the values for the parameters of the used algorithms are shown in Table
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Experimental-parameters"
@@ -3951,8 +3943,8 @@ noprefix "false"
 \end_inset
 
 .
- The experimental results for the classification datasets are listed in
- Table 
+ The results obtained for the classification datasets are shown in Table
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Experiments-for-classification"
@@ -3962,7 +3954,7 @@ noprefix "false"
 
 \end_inset
 
- and for the regression datasets in Table 
+ and for the regression datasets are listd in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:experiments-regression"
@@ -3973,19 +3965,15 @@ noprefix "false"
 \end_inset
 
 .
- For the experimental tables the following are applied:
+ 
+\end_layout
+
+\begin_layout Standard
+The following applies to the results tables:
 \end_layout
 
 \begin_layout Enumerate
-The column NN-PROP indicates the application of the Rprop method 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "rpropnn"
-literal "false"
-
-\end_inset
-
- in an artificial neural network 
+The column NN-PROP represent an artificial neural network 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn1,nn2"
@@ -3993,75 +3981,90 @@ literal "false"
 
 \end_inset
 
- with 10 hidden nodes.
- The RPROP method is coded in the FCNN software package 
+ with 10 hidden nodes trained with the Rprop method 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "fcn"
+key "rpropnn"
 literal "false"
 
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Enumerate
-The column RBF-KMEANS denotes the classic training method for RBF networks
- by estimating centers and variances through K-Means and the output weights
- by solving a linear system of equations.
+The column RBF-KMEANS represents the original two -phase training method
+ for RBF networks, where in the first phase the centers and variances are
+ estimated through the K-Means algorithm and in the second phase the output
+ weights are calculated by solving a linear system of equations.
 \end_layout
 
 \begin_layout Enumerate
-In both tables an extra line has been added, in which the mean error for
- each method is shown.
- This row is denoted by the name AVERAGE.
- This line also shows the number of times the corresponding method achieved
- the best result.
- This number is shown in parentheses.
-\end_layout
-
-\begin_layout Standard
-As one can see from the experimental results, the proposed method significantly
- outperforms the other techniques in the majority of cases in terms of the
- average error in the test set.
- Moreover, the difference from the established method of training RBF networks
- is of the order of 40% and in some cases this percentage can be doubled.
- The statistical difference of the proposed technique against the rest is
- also shown in graphs 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:class_error"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:graph_regression"
-plural "false"
-caps "false"
-noprefix "false"
+The column GENRBF stands for the RBF training method introduced in 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbf_gen1"
+literal "false"
 
 \end_inset
 
 .
- However, the proposed technique is significantly slower than the original
- training technique, as it is a two-stage technique.
- In the first stage, an optimal interval of values for the network parameters
- is created with a modified PSO method, and in the second stage, the network
- is trained using a genetic algorithm.
- Of course, this extra time can be significantly reduced by incorporating
- parallel techniques, as was done experimentally using the OpenMP library.
- 
+\end_layout
+
+\begin_layout Enumerate
+The column PROPOSED represents the results obtained by the proposed method.
+\end_layout
+
+\begin_layout Enumerate
+An extra line was also added in the experimental tables under the title
+ AVERAGE.
+ This line represents the average classification or regression error for
+ all datasets.
 \end_layout
 
 \begin_layout Standard
-An additional experiment was performed with different values for the parameter
- 
+On average the proposed technique appears to be 30-40% more accurate than
+ the immediate best.
+ In many cases this percentage exceeds 70%.
+ Moreover, in the vast majority of problems the proposed technique significantly
+ outperforms the next best available method in terms of test error.
+ However, the proposed technique consists of two stages and in each of them
+ a genetic algorithm should be executed.
+ This means that it is significantly slower in computing time compared to
+ the rest of the techniques and of course it needs more computing resources.
+ Of course, since we are talking about Genetic Algorithms, the training
+ time required could be significantly reduced by using parallel techniques
+ that take advantage of modern parallel computing structures such as the
+ MPI interface 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "openmpi"
+literal "false"
+
+\end_inset
+
+ or the OpenMP library 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "openmp"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(STATISTICS ALEXANDROS HERE)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(OK)An additional experiment was performed with different values for the
+ parameter 
 \begin_inset Formula $F$
 \end_inset
 
@@ -4076,17 +4079,7 @@ noprefix "false"
 
 \end_inset
 
- for the classification datasets and in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:expsFRegression"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- for the regression datasets.
+ for the classification datasets.
  And for this critical parameter, no large deviations appear in the results
  of the proposed method.
  This further enhances the robustness and reliability of the proposed technique.
@@ -4102,9 +4095,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-The used values for the experimental parameters.
- The first column denotes the name of the parameter and the second the used
- value.
+The values used for the experimental parameters.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Experimental-parameters"
@@ -4122,7 +4113,7 @@ name "tab:Experimental-parameters"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="11" columns="2">
+<lyxtabular version="3" rows="9" columns="2">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -4224,52 +4215,6 @@ VALUE
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $c_{1}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1.0
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $c_{2}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1.0
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 \begin_inset Formula $F$
 \end_inset
 
@@ -4282,7 +4227,7 @@ VALUE
 \begin_inset Text
 
 \begin_layout Plain Layout
-5.0
+10.0
 \end_layout
 
 \end_inset
@@ -6645,7 +6590,7 @@ AVERAGE
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -7717,6 +7662,31 @@ name "sec:Conclusions"
 \end_layout
 
 \begin_layout Standard
+A two-step method was presented in the present work to train RBF neural
+ networks.
+ In the first stage of the application, using Grammatical Evolution, the
+ field of values of the neural network parameters is partitioned, so as
+ to find a promising range that may contain low values of the training error.
+ In the second stage, the neural network parameters are trained within the
+ best range of values found in the first stage.
+ The training of the parameters of the second phase is carried out using
+ a Genetic Algorithm.
+ The proposed method was applied on a wide series of well -known datasets
+ from the relevant literature and was tested against a series of machine
+ learning models.
+ From the comparison of the results and their statistical processing, it
+ was clearly seen that the proposed technique outperforms the others with
+ which the comparison was made, both in classification datasets and regression
+ datasets.Future improvements of the proposed method may include:
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(OK)
+\end_layout
+
+\begin_layout Standard
 1) na efarmostei ayti i texniki kai se alla texnita neuronika diktya
 \end_layout
 
@@ -7740,7 +7710,7 @@ name "sec:Conclusions"
 \end_layout
 
 \begin_layout Author Contributions
-II.G.T., A.T.
+I.G.T., A.T.
  and E.K.
  conceived the idea and methodology and supervised the technical part regarding
  the software.
@@ -9720,42 +9690,6 @@ C.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "openmp"
-literal "false"
-
-\end_inset
-
-R.
- Chandra, L.
- Dagum, D.
- Kohr, D.
- Maydan,J.
- McDonald and R.
- Menon, Parallel Programming in OpenMP, Morgan Kaufmann Publishers Inc.,
- 2001.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "rpropnn"
-literal "false"
-
-\end_inset
-
-M.
- Riedmiller and H.
- Braun, A Direct Adaptive Method for Faster Backpropagation Learning: The
- RPROP algorithm, Proc.
- of the IEEE Intl.
- Conf.
- on Neural Networks, San Francisco, CA, pp.
- 586–591, 1993.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
 key "nn1"
 literal "true"
 
@@ -9787,43 +9721,74 @@ G.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "fcn"
-literal "true"
+key "rpropnn"
+literal "false"
 
 \end_inset
 
-Grzegorz Klima, Fast Compressed Neural Networks, available from 
-\begin_inset Flex URL
-status collapsed
-
-\begin_layout Plain Layout
-
-http://fcnn.sourceforge.net/
-\end_layout
-
-\end_inset
-
-.
+M.
+ Riedmiller and H.
+ Braun, A Direct Adaptive Method for Faster Backpropagation Learning: The
+ RPROP algorithm, Proc.
+ of the IEEE Intl.
+ Conf.
+ on Neural Networks, San Francisco, CA, pp.
+ 586–591, 1993.
 \end_layout
 
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "dePaper"
+key "rbf_gen1"
 literal "false"
 
 \end_inset
 
 S.
- Das, P.
- N.
- Suganthan, Differential Evolution: A Survey of the State-of-the-Art, IEEE
- Transactions on Evolutionary Computation 
+ Ding, L.
+ Xu, C.
+ Su et al, An optimizing method of RBF neural network based on genetic algorithm.
+ Neural Comput & Applic 21, pp.
+ 333–336, 2012.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "openmpi"
+literal "false"
+
+\end_inset
+
+W.
+ Gropp, E.
+ Lusk, N.
+ Doss, A.
+ Skjellum, A high-performance, portable implementation of the MPI message
+ passing interface standard, Parallel Computing 
 \series bold
-15
+22
 \series default
 , pp.
- 4-31, 2011.
+ 789-828, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "openmp"
+literal "false"
+
+\end_inset
+
+R.
+ Chandra, L.
+ Dagum, D.
+ Kohr, D.
+ Maydan,J.
+ McDonald and R.
+ Menon, Parallel Programming in OpenMP, Morgan Kaufmann Publishers Inc.,
+ 2001.
 \end_layout
 
 \begin_layout Standard
