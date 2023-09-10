@@ -41,7 +41,8 @@ public:
     void    nextGeneration();
     void    Solve();
     void getBest(IntervalData &x,Interval &y);
-       Data getBestPoint();
+    Data getBestPoint();
+    void localSearch(int pos);
     ~GrammarGenetic();
 };
 

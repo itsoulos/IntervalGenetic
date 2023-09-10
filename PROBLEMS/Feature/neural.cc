@@ -147,7 +147,7 @@ double Neural::train2()
 	}
 	setLeftMargin(lmargin);
 	setRightMargin(rmargin);
-	/*
+	
 	GenSolve(this,weight,v,1,0);
 	for(int i=0;i<weight.size();i++)
 	{
@@ -155,8 +155,8 @@ double Neural::train2()
 		rmargin[i]= 5.0*fabs(weight[i]);
 		
 	}
-	v=tolmin(weight,Info);*/
-
+	v=tolmin(weight,Info);
+/*
 	LBFGSBParam<Scalar> param;
 	param.max_linesearch=2000;
     LBFGSBSolver<Scalar> solver(param);
@@ -184,7 +184,7 @@ double Neural::train2()
     std::cout << "f(x) = " << fx << std::endl;
     std::cout << "grad = " << solver.final_grad().transpose() << std::endl;
     std::cout << "projected grad norm = " << solver.final_grad_norm() << std::endl;
-
+*/
 	return v;
 }
 

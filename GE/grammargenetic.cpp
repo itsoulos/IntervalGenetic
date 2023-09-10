@@ -65,7 +65,6 @@ Interval  GrammarGenetic::fitness(IDATA &genome)
 
 
     string st = program->printRandomProgram(genome,redo);
-
       double miny=1e+100,maxy=1e+100;
     if(!program->evalProgram(st,oldMargin,newMargin))
         return Interval(miny,maxy);
@@ -189,12 +188,20 @@ void    GrammarGenetic::nextGeneration()
     printf("Generation=%4d Best Value=[%20.10lg,%20.10lg]\n",
            generation,fitnessArray[0].leftValue(),
             fitnessArray[0].rightValue());
-//    if(generation%5==0)
+   //if(generation%5==0)
     {
         IntervalData xpoint;
         Interval ypoint;
         getBest(xpoint,ypoint);
         problem->setMargins(xpoint);
+    }
+    if(generation%20==0)
+    {
+        int count = 20;
+
+        for(int i=0;i<count;i++)
+            localSearch(rand() % chromosome.size());
+        select();
     }
 }
 
@@ -244,6 +251,42 @@ void GrammarGenetic::getBest(IntervalData &x,Interval &y)
     string st = program->printRandomProgram(chromosome[0],redo);
     program->evalProgram(st,oldMargin,x);
     y=fitnessArray[0];
+}
+
+void    GrammarGenetic::localSearch(int pos)
+{
+    int genome_size  = chromosome[0].size();
+    vector<int> g;
+    g.resize(genome_size);
+    for(int i=0;i<genome_size;i++) g[i]=chromosome[pos][i];
+    int genome_count = chromosome.size();
+
+    for(int iters=1;iters<=100;iters++)
+    {
+        int gpos=rand() % genome_count;
+        int cutpoint=rand() % genome_size;
+        for(int j=0;j<cutpoint;j++) g[j]=chromosome[pos][j];
+        for(int j=cutpoint;j<genome_size;j++) g[j]=chromosome[gpos][j];
+                Interval fx=fitness(g);
+                if(problem->lowerValue(fx,fitnessArray[pos]))
+        {
+            printf("NEW MIN[%4d]=[%10.4lg,%10.4lg]\n",pos,fx.leftValue(),fx.rightValue());
+            for(int j=0;j<genome_size;j++) chromosome[pos][j]=g[j];
+            fitnessArray[pos]=fx;
+        }
+        else
+        {
+            for(int j=0;j<cutpoint;j++) g[j]=chromosome[gpos][j];
+            for(int j=cutpoint;j<genome_size;j++) g[j]=chromosome[pos][j];
+                    fx=fitness(g);
+                    if(problem->lowerValue(fx,fitnessArray[pos]))
+            {
+            printf("NEW MIN[%4d]=[%10.4lg,%10.4lg]\n",pos,fx.leftValue(),fx.rightValue());
+                for(int j=0;j<genome_size;j++) chromosome[pos][j]=g[j];
+                fitnessArray[pos]=fx;
+            }
+        }
+    }
 }
 
 GrammarGenetic::~GrammarGenetic()
