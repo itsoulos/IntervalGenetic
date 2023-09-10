@@ -99,6 +99,29 @@ void   Interval::divideRight()
     }
 }
 
+void    Interval::shrinkLeft()
+{
+    double d = _right-_left;
+    _left+=d/2;
+}
+
+void    Interval::shrinkRight()
+{
+    double d = _right-_left;
+    _right-=d/2;
+}
+
+void    Interval::expandLeft()
+{
+    double d = _right-_left;
+    _left-=d/2;
+}
+void    Interval::expandRight()
+{
+
+    double d = _right-_left;
+    _right+=d/2;
+}
 Interval::~Interval()
 {
 

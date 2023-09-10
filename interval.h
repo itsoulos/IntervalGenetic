@@ -17,6 +17,10 @@ public:
     double rightValue() const;
     double width() const;
     void    divideLeft();
+    void    expandLeft();
+    void    expandRight();
+    void    shrinkLeft();
+    void    shrinkRight();
     void    divideRight();
     friend std::ostream& operator<<(std::ostream& out, const Interval &f1);
     friend Interval operator+(const Interval& a, const Interval& b);

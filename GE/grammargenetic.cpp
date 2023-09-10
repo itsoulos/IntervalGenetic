@@ -1,5 +1,4 @@
 #include "GE/grammargenetic.h"
-# define MAX_RULE 255
 
 GrammarGenetic::GrammarGenetic(int count,int size,IntervalProblem *p)
 {
@@ -9,6 +8,8 @@ GrammarGenetic::GrammarGenetic(int count,int size,IntervalProblem *p)
     mutation_rate  = 0.05;
     gcount = count;
     gsize = size;
+    MAX_RULE = 255;
+        MAX_RULE = 3 * p->getDimension()/2;
     chromosome.resize(count);
     children.resize(count);
     for(int i=0;i<count;i++)
@@ -188,7 +189,7 @@ void    GrammarGenetic::nextGeneration()
     printf("Generation=%4d Best Value=[%20.10lg,%20.10lg]\n",
            generation,fitnessArray[0].leftValue(),
             fitnessArray[0].rightValue());
-   //if(generation%5==0)
+   if(generation%5==0)
     {
         IntervalData xpoint;
         Interval ypoint;

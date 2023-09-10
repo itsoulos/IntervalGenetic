@@ -151,7 +151,7 @@ void	Cprogram::makeRules()
 	rule[r]->addSymbol(&XXlist);
 	XXlist.addRule(rule[r]);
 
-    for(int i=0;i<2;i++)
+    for(int i=0;i<3;i++)
 	{
 		r=newRule();
 		rule[r]->addSymbol(&Digit[i]);
@@ -188,11 +188,23 @@ bool Cprogram::evalProgram(string expr,
         if(!ok) return false;
         if(left==1)
         {
-            newMargin[index-1].divideLeft();
+            newMargin[index-1].shrinkLeft();
         }
         else
+        if(left==2)
+        {
+            newMargin[index-1].expandLeft();
+        }
+
         if(right==1)
-            newMargin[index-1].divideRight();
+        {
+            newMargin[index-1].shrinkRight();
+        }
+        else
+        if(right==2)
+        {
+            newMargin[index-1].expandRight();
+        }
     }
     return true;
 }

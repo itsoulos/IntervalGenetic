@@ -29,7 +29,7 @@ private:
     int gcount;
     int gsize;
     Data drandDat;
-
+    int MAX_RULE;
 public:
     GrammarGenetic(int count,int size,IntervalProblem *p);
     void    setSelectionRate(double r);
