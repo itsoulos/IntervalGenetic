@@ -1,0 +1,1534 @@
+%% LyX 2.3.7 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[journal,article,submit,pdftex,moreauthors]{mdpi}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+
+\Title{Adapt the parameters of RBF networks using Grammatical Evolution}
+
+\TitleCitation{Adapt the parameters of RBF networks using Grammatical Evolution}
+
+\newcommand{\orcidauthorA}{0000-0000-0000-000X}
+
+
+\newcommand{\orcidauthorB}{0000-0000-0000-000X}
+
+
+\Author{Ioannis G. Tsoulos$^{1,\dagger,\ddagger,*}$, Alexandros Tzallas$^{2}$,
+Evangelos Karvounis$^{3}$}
+
+\AuthorNames{Ioannis G. Tsoulos, Alexandros Tzallas, Evangelos Karvounis }
+
+\AuthorCitation{Tsoulos, I.G.; Tzallas A; Karvounis E}
+
+
+\address{$^{1}$\quad{}Department of Informatics and Telecommunications,
+University of Ioannina, Greece; itsoulos@uoi.gr\\
+$^{2}$\quad{}Department of Informatics and Telecommunications, University
+of Ioannina, Greece; tzallas@uoi.gr\\
+$^{3}\quad$Department of Informatics and Telecommunications, University
+of Ioannina, Greece; ekarvounis@uoi.gr}
+
+
+\corres{Correspondence: itsoulos@uoi.gr;}
+
+
+\firstnote{Current address: Department of Informatics and Telecommunications,
+University of Ioannina, Greece.}
+
+
+\secondnote{These authors contributed equally to this work.}
+
+
+\abstract{RBF networks are used in a variety of real-world applications such
+as medical data or signal processing problems. The success of these
+parametric models lies in the successful adaptation of their parameters
+using efficient computational techniques. In the current work, a method
+of adjusting the parameters of these networks using Grammatical Evolution
+is presented. Grammatical Evolution will be used to successfully discover
+the most promising range of parameter values and then the training
+of the parameter set will be achieved using a Genetic Algorithm. The
+new method was applied to a wide range of data fitting and classification
+problems, and the results were more than promising.}
+
+
+\keyword{Neural networks; Genetic algorithms; Genetic programming; Grammatical
+evolution}
+
+\DeclareTextSymbolDefault{\textquotedbl}{T1}
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+\floatstyle{ruled}
+\newfloat{algorithm}{tbp}{loa}
+\providecommand{\algorithmname}{Algorithm}
+\floatname{algorithm}{\protect\algorithmname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\newenvironment{lyxcode}
+	{\par\begin{list}{}{
+		\setlength{\rightmargin}{\leftmargin}
+		\setlength{\listparindent}{0pt}% needed for AMS classes
+		\raggedright
+		\setlength{\itemsep}{0pt}
+		\setlength{\parsep}{0pt}
+		\normalfont\ttfamily}%
+	 \item[]}
+	{\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+%  LaTeX support: latex@mdpi.com 
+%  For support, please attach all files needed for compiling as well as the log file, and specify your operating system, LaTeX version, and LaTeX editor.
+
+%=================================================================
+
+
+% For posting an early version of this manuscript as a preprint, you may use "preprints" as the journal and change "submit" to "accept". The document class line would be, e.g., \documentclass[preprints,article,accept,moreauthors,pdftex]{mdpi}. This is especially recommended for submission to arXiv, where line numbers should be removed before posting. For preprints.org, the editorial staff will make this change immediately prior to posting.
+
+%--------------------
+% Class Options:
+%--------------------
+%----------
+% journal
+%----------
+% Choose between the following MDPI journals:
+% acoustics, actuators, addictions, admsci, adolescents, aerospace, agriculture, agriengineering, agronomy, ai, algorithms, allergies, alloys, analytica, animals, antibiotics, antibodies, antioxidants, applbiosci, appliedchem, appliedmath, applmech, applmicrobiol, applnano, applsci, aquacj, architecture, arts, asc, asi, astronomy, atmosphere, atoms, audiolres, automation, axioms, bacteria, batteries, bdcc, behavsci, beverages, biochem, bioengineering, biologics, biology, biomass, biomechanics, biomed, biomedicines, biomedinformatics, biomimetics, biomolecules, biophysica, biosensors, biotech, birds, bloods, blsf, brainsci, breath, buildings, businesses, cancers, carbon, cardiogenetics, catalysts, cells, ceramics, challenges, chemengineering, chemistry, chemosensors, chemproc, children, chips, cimb, civileng, cleantechnol, climate, clinpract, clockssleep, cmd, coasts, coatings, colloids, colorants, commodities, compounds, computation, computers, condensedmatter, conservation, constrmater, cosmetics, covid, crops, cryptography, crystals, csmf, ctn, curroncol, currophthalmol, cyber, dairy, data, dentistry, dermato, dermatopathology, designs, diabetology, diagnostics, dietetics, digital, disabilities, diseases, diversity, dna, drones, dynamics, earth, ebj, ecologies, econometrics, economies, education, ejihpe, electricity, electrochem, electronicmat, electronics, encyclopedia, endocrines, energies, eng, engproc, ent, entomology, entropy, environments, environsciproc, epidemiologia, epigenomes, est, fermentation, fibers, fintech, fire, fishes, fluids, foods, forecasting, forensicsci, forests, foundations, fractalfract, fuels, futureinternet, futureparasites, futurepharmacol, futurephys, futuretransp, galaxies, games, gases, gastroent, gastrointestdisord, gels, genealogy, genes, geographies, geohazards, geomatics, geosciences, geotechnics, geriatrics, hazardousmatters, healthcare, hearts, hemato, heritage, highthroughput, histories, horticulturae, humanities, humans, hydrobiology, hydrogen, hydrology, hygiene, idr, ijerph, ijfs, ijgi, ijms, ijns, ijtm, ijtpp, immuno, informatics, information, infrastructures, inorganics, insects, instruments, inventions, iot, j, jal, jcdd, jcm, jcp, jcs, jdb, jeta, jfb, jfmk, jimaging, jintelligence, jlpea, jmmp, jmp, jmse, jne, jnt, jof, joitmc, jor, journalmedia, jox, jpm, jrfm, jsan, jtaer, jzbg, kidney, kidneydial, knowledge, land, languages, laws, life, liquids, literature, livers, logics, logistics, lubricants, lymphatics, machines, macromol, magnetism, magnetochemistry, make, marinedrugs, materials, materproc, mathematics, mca, measurements, medicina, medicines, medsci, membranes, merits, metabolites, metals, meteorology, methane, metrology, micro, microarrays, microbiolres, micromachines, microorganisms, microplastics, minerals, mining, modelling, molbank, molecules, mps, msf, mti, muscles, nanoenergyadv, nanomanufacturing, nanomaterials, ncrna, network, neuroglia, neurolint, neurosci, nitrogen, notspecified, nri, nursrep, nutraceuticals, nutrients, obesities, oceans, ohbm, onco, oncopathology, optics, oral, organics, organoids, osteology, oxygen, parasites, parasitologia, particles, pathogens, pathophysiology, pediatrrep, pharmaceuticals, pharmaceutics, pharmacoepidemiology, pharmacy, philosophies, photochem, photonics, phycology, physchem, physics, physiologia, plants, plasma, pollutants, polymers, polysaccharides, poultry, powders, preprints, proceedings, processes, prosthesis, proteomes, psf, psych, psychiatryint, psychoactives, publications, quantumrep, quaternary, qubs, radiation, reactions, recycling, regeneration, religions, remotesensing, reports, reprodmed, resources, rheumato, risks, robotics, ruminants, safety, sci, scipharm, seeds, sensors, separations, sexes, signals, sinusitis, skins, smartcities, sna, societies, socsci, software, soilsystems, solar, solids, sports, standards, stats, stresses, surfaces, surgeries, suschem, sustainability, symmetry, synbio, systems, taxonomy, technologies, telecom, test, textiles, thalassrep, thermo, tomography, tourismhosp, toxics, toxins, transplantology, transportation, traumacare, traumas, tropicalmed, universe, urbansci, uro, vaccines, vehicles, venereology, vetsci, vibration, viruses, vision, waste, water, wem, wevj, wind, women, world, youth, zoonoticdis 
+
+%---------
+% article
+%---------
+% The default type of manuscript is "article", but can be replaced by: 
+% abstract, addendum, article, book, bookreview, briefreport, casereport, comment, commentary, communication, conferenceproceedings, correction, conferencereport, entry, expressionofconcern, extendedabstract, datadescriptor, editorial, essay, erratum, hypothesis, interestingimage, obituary, opinion, projectreport, reply, retraction, review, perspective, protocol, shortnote, studyprotocol, systematicreview, supfile, technicalnote, viewpoint, guidelines, registeredreport, tutorial
+% supfile = supplementary materials
+
+%----------
+% submit
+%----------
+% The class option "submit" will be changed to "accept" by the Editorial Office when the paper is accepted. This will only make changes to the frontpage (e.g., the logo of the journal will get visible), the headings, and the copyright information. Also, line numbering will be removed. Journal info and pagination for accepted papers will also be assigned by the Editorial Office.
+
+%------------------
+% moreauthors
+%------------------
+% If there is only one author the class option oneauthor should be used. Otherwise use the class option moreauthors.
+
+%---------
+% pdftex
+%---------
+% The option pdftex is for use with pdfLaTeX. If eps figures are used, remove the option pdftex and use LaTeX and dvi2pdf.
+
+%=================================================================
+% MDPI internal commands
+\firstpage{1} 
+ 
+\setcounter{page}{\@firstpage} 
+
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2022}
+\copyrightyear{2022}
+%\externaleditor{Academic Editor: Firstname Lastname} % For journal Automation, please change Academic Editor to "Communicated by"
+\datereceived{} 
+\dateaccepted{} 
+\datepublished{} 
+%\datecorrected{} % Corrected papers include a "Corrected: XXX" date in the original paper.
+%\dateretracted{} % Corrected papers include a "Retracted: XXX" date in the original paper.
+\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+%------------------------------------------------------------------
+% The following line should be uncommented if the LaTeX file is uploaded to arXiv.org
+%\pdfoutput=1
+
+%=================================================================
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, lineno, float, amsmath, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, cleveref, amsthm, hyphenat, natbib, hyperref, footmisc, url, geometry, newfloat, caption
+
+%=================================================================
+%% Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
+%% For proofs, please use the proof environment (the amsthm package is loaded by the MDPI class).
+
+%=================================================================
+% The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
+%\PACS{J0101}
+%\MSC{}
+%\JEL{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Diversity
+%\LSID{\url{http://}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Applied Sciences:
+%\featuredapplication{Authors are encouraged to provide a concise description of the specific application or a potential application of the work. This section is not mandatory.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Data:
+%\dataset{DOI number or link to the deposited data set in cases where the data set is published or set to be published separately. If the data set is submitted and will be published as a supplement to this paper in the journal Data, this field will be filled by the editors of the journal. In this case, please make sure to submit the data set as a supplement when entering your manuscript into our manuscript editorial system.}
+
+%\datasetlicense{license under which the data set is made available (CC0, CC-BY, CC-BY-SA, CC-BY-NC, etc.)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Toxins
+%\keycontribution{The breakthroughs or highlights of the manuscript. Authors can write one or two sentences to describe the most important part of the paper.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Encyclopedia
+%\encyclopediadef{Instead of the abstract}
+%\entrylink{The Link to this entry published on the encyclopedia platform.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatother
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+Many practical problems of the modern world can be thought of either
+as data fitting problems, as for example, problem from physics \citep{physics_ml1,physics_ml2},
+chemistry \citep{chemistry_ml1,chemistry_ml2}, economics \citep{econ_ml1,econ_ml2},
+medicine \citep{med_ml1,med_ml2}, etc. A machine learning tool, commonly
+used to handle these problems, is the Radial Basis Function (RBF)
+artificial neural network \citep{rbf1,rbf2}. Usually, an RBF network
+is expressed using the following equation:\textbf{
+\begin{equation}
+y\left(\overrightarrow{x}\right)=\sum_{i=1}^{k}w_{i}\phi\left(\left\Vert \overrightarrow{x}-\overrightarrow{c_{i}}\right\Vert \right)\label{eq:firstrbf}
+\end{equation}
+}where the symbols in the equation are defined as follows:
+\begin{enumerate}
+\item The vector $\overrightarrow{x}$ is the input pattern from the objective
+problem. For the rest of this paper the notation $d$ will be used
+to represent the number of elements in $\overrightarrow{x}$.
+\item The parameter $k$ denotes the number of weights used to train the
+RBF network and the associated vector of weights is denotes as $\overrightarrow{w}$.
+\item The vectors $\overrightarrow{c_{i}},\ i=1,..,k$ stand for the so
+- called centers.
+\item The outcome of the equations $y\left(\overrightarrow{x}\right)$ stands
+for the estimated value of the network for the input pattern $\overrightarrow{x}$.
+\end{enumerate}
+The function $\phi(x)$ usually is a Gaussian function given by:\textbf{
+\begin{equation}
+\phi(x)=\exp\left(-\frac{\left(x-c\right)^{2}}{\sigma^{2}}\right)
+\end{equation}
+}The RBF networks were used in many cases, such as problems from physics
+\citep{rbfphysics1,rbfphysics2,rbfphysics3,rbfphysics4}, solving
+differential equations \citep{rbfde1,rbfde2,rbfde3}, robotics \citep{rbfrobotics1,rbfrobotics2},\textbf{
+}face recognition \citep{rbfface1}, digital communications \citep{rbfnetwork1,rbfnetwork2},
+chemistry problems \citep{rbfchemistry1,rbfchemistry2},\textbf{ }economic
+problems \citep{rbfecon0,rbfecon1,rbfecon2}, network security problems
+\citep{rbf_dos1,rbf_dos2} etc. Also, recently a variety of papers
+have appeared proposing novel initialization techniques for the network
+parameters\textbf{ }\citep{rbfinit1,rbfinit2,rbfinit3}. Also, Benoudjit
+et al \citep{rbfkernel} discuss the effect of kernel widths on RBF
+networks. Moreover, Neruda et al \citep{rbflearn} presents a comparison
+of some learning methods for RBF networks. Additionally, a variety
+of pruning techniques\textbf{ }\citep{rbfprun1,rbfprun2,rbfprun3}
+have been proposed to reduce the number of required parameters of
+the RBF networks.\textbf{ }Due to the widespread usage of RBF networks
+but also because considerable computing time is often required for
+their effective training, in recent years a series of techniques have
+been proposed \citep{rbfpar1,rbfpar2} for the exploitation of parallel
+computing units to adjust the parameters of neural networks.
+
+The current work proposes a two phase method for the effective adjustment
+of the parameters of RBF networks in order to minimize the so -called
+training error given by:
+\begin{equation}
+E(y(x,g))=\sum_{i=1}^{m}\left(y\left(x_{i},g\right)-t_{i}\right)^{2}\label{eq:eqrbf}
+\end{equation}
+Where the parameter $m$ denotes the number of input patterns, the
+$t_{i}$ values represent the expected output for the input pattern
+$x_{i}$. The vector $g$ represents the parameter set of the RBF
+network. During the first phase, an attempt is made to bound the parameter
+values to intervals in which the training error of equation \ref{eq:eqrbf}
+is likely to be significantly reduced. The identification of the most
+promising intervals for the parameters is performed using a technique
+that utilizes Grammatical Evolution\citep{ge1}. First, an estimate
+of an interval of values for the network parameters is made using
+the Kmeans algorithm \citep{kmeans}. Then, with the help of Grammatical
+Evolution, a series of division rules are applied to the initial interval
+of values in order to find a range of values that significantly reduces
+the training error. During the second phase, the parameters of the
+RBF network can be trained within the optimal range found in the first
+phase using some global optimization method \citep{rbfSA,rbfPSO}.
+In the proposed approach, the widely used method of genetic algorithm
+\citep{ga1,ga2,ga3} was used for the second phase of the process.
+
+The rest of this paper is divided in the following sections: in section
+\ref{sec:Method-description} the proposed method is fully described,
+in section \ref{sec:Experiments} the datasets used in the experiments
+are listed as well as the experimental results and finally in section
+\ref{sec:Conclusions} some conclusions are provided.
+
+\section{Method description\label{sec:Method-description}}
+
+This section begins with a detailed description of the Grammatical
+Evolution technique and the grammar that will be used to generate
+partition rules for the parameter set of RBFs. Subsequently, the first
+phase of the proposed methodology will be extensively analyzed and
+then the second phase, where a Genetic Algorithm will be applied to
+the outcome of the first phase.
+
+\subsection{Grammatical Evolution }
+
+Grammatical evolution is a genetic algorithm where the chromosomes
+stand for the production rules of any given BNF (Backus--Naur form)
+grammar\citep{bnf1}. Grammatical Evolution has been used successfully
+in a variety of cases, such as function approximation\citep{ge_program1,ge_program2},
+solution of trigonometric equations \citep{ge_trig}, automatic music
+composition of music \citep{ge_music},\textbf{ }neural network construction
+\citep{ge_nn,ge_nn2}, creating numeric constraints\citep{ge_constant}\textbf{,
+}video games \citep{ge_pacman,ge_supermario},\textbf{ }estimation
+of energy demand\citep{ge_energy},\textbf{ }combinatorial optimization
+\citep{ge_comb}, cryptography \citep{ge_crypt} etc. The BNF grammar
+can be used to describe the syntax of programming languages and usually
+it is defined as the set \textbf{$G=\left(N,T,S,P\right)$} where
+\begin{itemize}
+\item \textbf{$N$ }is the set of the so - called non-terminal symbols.
+Every non - terminal symbol is associated with a series of production
+rules used to produce terminal symbols.
+\item \textbf{$T$ }is the set of terminal symbols.\textbf{ }
+\item $S$ is a the start symbol of the grammar and $S\in N$.
+\item \textbf{$P$ }is a set of production rules, used to produce terminal
+symbols from non - terminal symbols. These rules are in the form \textbf{$A\rightarrow a$
+}or\textbf{ $A\rightarrow aB,\ A,B\in N,\ a\in T$.}
+\end{itemize}
+The algorithm starts from the symbol $S$ and gradually creates terminal
+symbols by replacing non-terminal symbols with the right hand of the
+selected production rule. The rule is selected through the following
+procedure:
+\begin{itemize}
+\item Read the next element V from the current chromosome.
+\item The production rule is selected as: Rule = V mod R, where R is the
+total number of production rules for the current non -- terminal
+symbol. 
+\end{itemize}
+The BNF grammar used in this work is presented in Figure \ref{fig:BNF-grammar-of}.
+The symbols enclosed in \textless\textgreater{} denote the non-terminal
+symbols of the grammar. The numbers in parentheses in the right part
+of the grammar indicate production rule sequence numbers. The number
+n is the total number of parameters of the problem. In the case of
+this paper it is the total number of parameters of the RBF network.
+For the current work, the number $n$ can be computed using the following
+formula:
+\begin{equation}
+n=(d+2)\times k
+\end{equation}
+The number $n$ is computed as follows:
+\begin{enumerate}
+\item For every center $\overrightarrow{c_{i}},\ i=1,..,k$ there are $d$
+variables. Hence, the total number of parameters required by the centers
+are $d\times k$.
+\item Every Gaussian unit required an additional parameter $\sigma_{i},\ i=1,..,k$,
+which means $k$ more parameters.
+\item The weight vector $\overrightarrow{w}$ used in the output has $k$
+parameters.
+\end{enumerate}
+As an example of production considered the chromosome $x=\left[9,8,6,4,15,9,16,23,8\right]$
+and $d=2,\ k=2,\ n=8$ . The steps to produce the final program $p_{\mbox{test}}=(x7,0,1),(x1,1,0)$
+are outlined in Table \ref{tab:table_with_steps}. Every partition
+program consists of a series of partition rules. Each partition rule
+contains three elements: 
+\begin{enumerate}
+\item The variable for which its original interval will be partitioned,
+for example $x_{7}$.
+\item An integer number with values 0 and 1 at the left end of the value
+interval. If this value is 1, then the left end of the corresponding
+variable's value field will be divided by two, otherwise no change
+will be made.
+\item An integer number with values 0 and 1 at the right end of the range
+of values of the variable. If this value is 1, then the right end
+of the corresponding variable's value field will be divided by two,
+otherwise no change will be made.
+\end{enumerate}
+Hence, for the example program $p_{\mbox{test}}$ the two partition
+rules will divide the right end of the variable $x_{7}$ and the left
+end of the variable $x_{1}$.
+
+\begin{figure}[H]
+\caption{BNF grammar used in the current work.\label{fig:BNF-grammar-of}}
+
+\begin{lyxcode}
+S::=\textless expr\textgreater ~~~(0)~
+
+\textless expr\textgreater ~::=~~(\textless xlist\textgreater ~,~\textless digit\textgreater ,\textless digit\textgreater )~~(0)~~~~~~~~~~~~~
+
+~~~~~~~~~~~\textbar\textless expr\textgreater ,\textless expr\textgreater ~~~~~~~~~~~~~~~~(1)
+
+\textless xlist\textgreater ::=x1~~~~(0)~~~~~~~~~~~~~~
+
+~~~~~~~~~~~\textbar ~x2~(1)~~~~~~~~~~~~~~
+
+~~~~~~~~~~~………~~~~~~~~~~~~~
+
+~~~~~~~~~~~\textbar ~xn~(n)
+
+\textless digit\textgreater ~~::=~0~(0)~~~~~~~~~~~~~
+
+~~~~~~~~~~~\textbar ~1~(1)~
+\end{lyxcode}
+\end{figure}
+\begin{table}[H]
+\caption{Steps to produce a valid expression from the BNF grammar.\label{tab:table_with_steps}}
+
+\centering{}%
+\begin{tabular}{|c|c|c|}
+\hline 
+Expression & Chromosome & Operation\tabularnewline
+\hline 
+\hline 
+ & 9,8,6,4,15,9,16,23,8 & 9 mod 2=1\tabularnewline
+\hline 
+\textless expr\textgreater ,\textless expr\textgreater{} & 8,6,4,15,9,16,23,8 & 8 mod 2=0\tabularnewline
+\hline 
+(\textless xlist\textgreater ,\textless digit\textgreater ,\textless digit\textgreater ),\textless expr\textgreater{} & 6,4,15,9,16,23,8 & 6 mod 8=6\tabularnewline
+\hline 
+(x7,\textless digit\textgreater ,\textless digit\textgreater ),\textless expr\textgreater{} & 4,15,9,16,23,8 & 4 \% 2=0\tabularnewline
+\hline 
+(x7,0,\textless digit\textgreater ),\textless expr\textgreater{} & 15,9,16,23,8 & 15\%2=1\tabularnewline
+\hline 
+(x7,0,1),\textless expr\textgreater{} & 9,16,23,8 & 9 \%2 =1\tabularnewline
+\hline 
+(x7,0,1),(\textless xlist\textgreater ,\textless digit\textgreater ,\textless digit\textgreater ) & 16,23,8 & 16\%8=0\tabularnewline
+\hline 
+(x7,0,1),(x1,\textless digit\textgreater ,\textless digit\textgreater ) & 23,8 & 23\%2=1\tabularnewline
+\hline 
+(x7,0,1),(x1,1,\textless digit\textgreater ) & 8 & 8\%2=0\tabularnewline
+\hline 
+(x7,0,1),(x1,1,0) &  & \tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+\subsection{The first phase of the proposed algorithm\label{subsec:The-first-phase}}
+
+The first step of the first phase of the proposed method is to initialize
+the bounds of the RBF network. For this initialization, the K-Means
+algorithm \citep{kmeans} technique is used, which is also used for
+the traditional RBF network training technique. A description of this
+algorithm in a series of steps is shown in Algorithm \ref{alg:The-K-Means-algorithm.}.
+
+\begin{algorithm}[H]
+\caption{The K-Means algorithm.\label{alg:The-K-Means-algorithm.}}
+
+\begin{enumerate}
+\item \textbf{Repeat}
+\begin{enumerate}
+\item Set $S_{j}=\left\{ \right\} ,\ j=1..k$
+\item \textbf{For} every pattern $x_{i},\ i=1,...,m$ \textbf{do}
+\begin{enumerate}
+\item \textbf{Set} $j^{*}=\min_{i=1}^{k}\left\{ D\left(x_{i},c_{j}\right)\right\} $.
+\item \textbf{Set} $S_{j^{*}}=S_{j^{*}}\cup\left\{ x_{i}\right\} $.
+\end{enumerate}
+\item \textbf{EndFor}
+\item \textbf{For} every center $c_{j},\ j=1..k$ \textbf{do}
+\begin{enumerate}
+\item \textbf{Set} as $M_{j}$ the number of points in $S_{j}$
+\item \textbf{Compute }$c_{j}$ as
+\[
+c_{j}=\frac{1}{M_{j}}\sum_{i=1}^{M_{j}}x_{i}
+\]
+\end{enumerate}
+\item \textbf{EndFor}
+\end{enumerate}
+\item \textbf{Calculate} the quantities $s_{j}$ as 
+\[
+\sigma_{j}^{2}=\frac{\sum_{i=1}^{M_{j}}\left(x_{i}-c_{j}\right)^{2}}{M_{j}}
+\]
+\item \textbf{Stop }the algorithm, if there is no change in centers $c_{j}$.
+\end{enumerate}
+\end{algorithm}
+Having calculated the centers $c_{i}$ and the corresponding variances
+$\sigma_{i}$, the algorithm continues to compute the vectors $\overrightarrow{L},\ \overrightarrow{R}$
+with dimension $n$, that will be used as the initial bounds of the
+parameters. The above vectors are calculated through the procedure
+of the algorithm \ref{alg:initialValues}.
+
+\begin{algorithm}[H]
+\caption{Algorithm to locate the vectors $\protect\overrightarrow{L},\ \protect\overrightarrow{R}$
+\label{alg:initialValues}}
+
+\begin{enumerate}
+\item \textbf{Set} m=0
+\item \textbf{Set} $F>1$, the scaling factor.
+\item \textbf{Set} $B>0$, the initial upper bound for the weight vector
+$\overrightarrow{w}$.
+\item \textbf{For} $i=1..k$ \textbf{do}
+\begin{enumerate}
+\item \textbf{For} $j=1..d$ \textbf{do}
+\begin{enumerate}
+\item \textbf{Set} $L_{m}$=$-F\times c_{ij}$, $R_{m}$=$F\times c_{ij}$
+\item \textbf{Set} $m=m+1$
+\end{enumerate}
+\item \textbf{EndFor}
+\item \textbf{Set} $L_{m}=-F\times\sigma_{i}$, $R_{m}=F\times\sigma_{i}$
+\item \textbf{Set} $m=m+1$
+\end{enumerate}
+\item \textbf{EndFor}
+\item \textbf{For} $j=1,...,k$ \textbf{do}
+\begin{enumerate}
+\item \textbf{Set} $L_{m}=-B,\ R_{m}=B$
+\item \textbf{Set} $m=m+1$
+\end{enumerate}
+\item \textbf{EndFor}
+\end{enumerate}
+\end{algorithm}
+The bounds for the first $(d+1)\times k$ variables of any given RBF
+network are considered as a multiple of the quantity $F$ with the
+values calculated by the K-Means algorithm. The positive constant
+$B$ is used to initialize the intervals for the weight $\overrightarrow{w}$.
+Afterwards, the following genetic algorithm is executed to locate
+the most promising vectors $\overrightarrow{L},\ \overrightarrow{R}$
+for the RBF parameters:
+\begin{enumerate}
+\item \textbf{Set} $N_{c}$ as the number of chromosomes for the Grammatical
+Evolution.
+\item \textbf{Set} as $k$ the number of weights of the RBF network.
+\item \textbf{Set} $N_{g}$ the maximum number of allowed generations.
+\item \textbf{Set} as $p_{s}$ the selection rate of the algorithm, with
+$p_{s}\le1$.
+\item \textbf{Set} as $p_{m}$ the mutation rate, with $p_{m}\le1$.
+\item \textbf{Set} $N_{s}$as the number of randomly created RBF networks,
+used in the fitness calculation.
+\item \textbf{Initialize} randomly the $N_{c}$ chromosomes as sets of random
+numbers.
+\item \textbf{Set} $f^{*}=\left[\infty,\infty\right]$, the fitness of the
+best chromosome. The fitness function $f_{g}$ of any given chromosome
+$g$ is considered as an interval \textbf{$f_{g}=\left[f_{g,\mbox{low}},f_{g,\mbox{upper}}\right]$}
+\item \textbf{Set} iter=0.
+\item \textbf{For} $i=1,\ldots,N_{c}$ \textbf{do\label{enu:For--do}}
+\begin{enumerate}
+\item \textbf{Create }the partition program $p_{i}$ using the grammar of
+Figure \ref{fig:BNF-grammar-of} for the chromosome $cr_{i}$.
+\item \textbf{Produce }the bounds $\left[\vec{L_{p_{i}}},\overrightarrow{R_{p_{i}}}\right]$
+for the partition program $p_{i}$.
+\item \textbf{Set} $E_{\mbox{min}}=\infty,\ E_{\mbox{max}}=-\infty$
+\item \textbf{For} $j=1,\ldots,N_{S}$ \textbf{do}
+\begin{enumerate}
+\item \textbf{Create} randomly a set of parameters $g_{j}\in$$\left[\vec{L_{p_{i}}},\overrightarrow{R_{p_{i}}}\right]$
+\item \textbf{Calculate} the error $E_{g_{j}}=\sum_{j=1}^{M}\left(y\left(x_{j},g_{j}\right)-t_{j}\right)^{2}$
+\item \textbf{If} $E_{g_{j}}\le E_{\mbox{min}}$ \textbf{then} $E_{\mbox{min}}=E_{g_{j}}$
+\item \textbf{If} $E_{g_{j}}\ge E_{\mbox{max}}$ \textbf{then} $E_{\mbox{max}}=E_{g_{j}}$
+\end{enumerate}
+\item \textbf{EndFor}
+\item \textbf{Set} the fitness$f_{i}=\left[E_{\mbox{min}},E_{\mbox{max}}\right]$
+\end{enumerate}
+\item \textbf{EndFor}
+\item \textbf{Apply} the selection procedure: Initially, the chromosomes
+of the population are sorted according to their fitness values. In
+order to compare two fitness values $f_{a}=\left[a_{1},a_{2}\right]$
+and $f_{b}=\left[b_{1},b_{2}\right]$ the $L^{*}$ operator is used:
+\begin{eqnarray}
+L^{*}\left(f_{a},f_{b}\right) & = & \begin{cases}
+\mbox{TRUE}, & a_{1}<b_{1},\mbox{OR\ \ensuremath{\left(a_{1}=b_{1}\ \mbox{AND}\ a_{2}<b_{2}\right)}}\\
+\mbox{FALSE}, & \mbox{\mbox{OTHERWISE}}
+\end{cases}\label{eq:eql}
+\end{eqnarray}
+Hence, the fitness value $f_{a}$ is considered smaller than $f_{b}$
+if $L^{*}\left(f_{a},f_{b}\right)=\mbox{TRUE}$. The first $\left(1-p_{s}\right)\times N_{c}$
+chromosomes with smaller fitness values are transferred intact to
+the next generation. The remaining chromosomes are replaced by offspring
+created in the crossover procedure. During the selection process for
+each offspring, two parents are selected from the population using
+the tournament selection. 
+\item \textbf{Apply} the crossover procedure. The crossover procedure will
+create new\textbf{ $p_{s}\times N_{c}$ }chromosomes.\textbf{ }For
+each new offspring two parents are selected from the population using
+the tournament selection.\textbf{ }For each pair $(z,w)$ of selected
+parents, two new chromosomes $\tilde{z}$ and $\tilde{w}$ are produced
+using the one - point crossover, shown in Figure \ref{fig:onepoint}.
+\item \textbf{Apply} the mutation procedure. For each element of every chromosome,
+a random number $r\in\left[0,1\right]$ is drawn. The corresponding
+element is altered randomly if $r\le p_{m}$.
+\item \textbf{Set} iter=iter+1
+\item \textbf{If} $\mbox{iter\ensuremath{\le N_{g}} }$goto step \ref{enu:For--do}.
+\end{enumerate}
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.5]{onepoint_crossover}
+\par\end{centering}
+\caption{One point crossover, used in the Grammatical Evolution.\label{fig:onepoint}}
+\end{figure}
+
+
+\subsection{The second phase of the proposed algorithm}
+
+The second phase utilizes a genetic algorithm, to optimize the parameters
+of the RBF network within the best interval returned by the first
+phase of the method. The layout of each chromosome is shown in Figure
+\ref{fig:The-layout-of}.
+
+\begin{figure}[H]
+\caption{The layout of chromosomes in the second phase of the proposed algorithm.\label{fig:The-layout-of}}
+
+$ $
+\centering{}{\footnotesize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+{\footnotesize{}$c_{11}$} & {\footnotesize{}$c_{12}$} & {\footnotesize{}...} & {\footnotesize{}$c_{1d}$} & {\footnotesize{}$\sigma_{1}$} & {\footnotesize{}$c_{21}$} & {\footnotesize{}$c_{22}$} & {\footnotesize{}...} & {\footnotesize{}$c_{2d}$} & {\footnotesize{}$\sigma_{2}$} & {\footnotesize{}...} & {\footnotesize{}$c_{k1}$} & {\footnotesize{}$c_{k2}$} & {\footnotesize{}...} & {\footnotesize{}$c_{kd}$} & {\footnotesize{}$\sigma_{k}$} & {\footnotesize{}$w_{1}$} & {\footnotesize{}$w_{2}$} & {\footnotesize{}$\ldots$} & {\footnotesize{}$w_{k}$}\tabularnewline
+\hline 
+\end{tabular}{\footnotesize\par}
+\end{figure}
+
+\begin{enumerate}
+\item \textbf{Initialization Step}
+\begin{enumerate}
+\item \textbf{Set} $N_{c}$ as the number of chromosomes.
+\item \textbf{Set} $N_{g}$ the maximum number of allowed generations.
+\item \textbf{Set} $k$ the weight number of the RBF network.
+\item \textbf{Get} the best interval $S$ from the first step of subsection
+\ref{subsec:The-first-phase}.
+\item \textbf{Initialize} randomly the $N_{C}$ chromosomes in in $S$. 
+\item \textbf{Set} as $p_{s}$ the selection rate of the algorithm, with
+$p_{s}\le1$.
+\item \textbf{Set} as $p_{m}$ the mutation rate, with $p_{m}\le1$.
+\item \textbf{Set} iter=0.
+\end{enumerate}
+\item \textbf{Fitness calculation Step \label{enu:Fitness-calculation-Step}}
+\begin{enumerate}
+\item \textbf{For} $i=1,\ldots,N_{g}$ \textbf{do}
+\begin{enumerate}
+\item \textbf{Calculate} the fitness $f_{i}$ of chromosome $g_{i}$ as
+$f_{i}=\sum_{j=1}^{m}\left(y\left(x_{j},g_{i}\right)-t_{j}\right)^{2}$
+\end{enumerate}
+\item \textbf{EndFor}
+\end{enumerate}
+\item \textbf{Genetic operations step}
+\begin{enumerate}
+\item \textbf{Selection procedure.} The chromosomes are sorted according
+to their fitness values. The $\left(1-p_{s}\right)\times N_{c}$ chromosomes
+with the lowest fitness values are transferred intact to the next
+generation. The remaining chromosomes are substituted by offspings
+created in the crossover procedure. During the selection process for
+each offspring, two parents are selected from the population using
+the tournament selection. 
+\item \textbf{Crossover procedure}: For every pair $(z,w)$ of selected
+parents two additional chromosomes $\tilde{z}$ and $\tilde{w}$ are
+produced using the following equations:
+\begin{eqnarray}
+\tilde{z_{i}} & = & a_{i}z_{i}+\left(1-a_{i}\right)w_{i}\nonumber \\
+\tilde{w_{i}} & = & a_{i}w_{i}+\left(1-a_{i}\right)z_{i}\label{eq:crossover_ali-1}
+\end{eqnarray}
+The value $a_{i}$ is considered as a random number with the property
+$a_{i}\in[-0.5,1.5]$ \citep{kaelo}. 
+\item \textbf{Mutation procedure}:\textbf{ }For each element of every chromosome,
+a random number $r\in\left[0,1\right]$ is drawn. The corresponding
+element is altered randomly if $r\le p_{m}$.
+\end{enumerate}
+\item \textbf{Termination Check Step}
+\begin{enumerate}
+\item \textbf{Set} $iter=iter+1$ 
+\item \textbf{If} $\mbox{iter\ensuremath{\le N_{g}} }$goto step \ref{enu:Fitness-calculation-Step}.
+\end{enumerate}
+%
+\end{enumerate}
+
+\section{Experiments\label{sec:Experiments}}
+
+The suggested method was tested on a series of classification and
+regression problems from the relevant literature and was compared
+against some other well -known machine learning models. The following
+databases were used to obtain the datasets:
+\begin{enumerate}
+\item The UCI dataset repository, \url{https://archive.ics.uci.edu/ml/index.php}(accessed
+on 9 September 2023)
+\item The Keel repository, \url{https://sci2s.ugr.es/keel/datasets.php}(accessed
+on 9 September 2023)\citep{Keel}.
+\item The Statlib URL \url{ftp://lib.stat.cmu.edu/datasets/index.html }(accessed
+on 9 September 2023). 
+\end{enumerate}
+
+\subsection{Experimental datasets }
+
+The classification datasets have as follows:
+\begin{enumerate}
+\item \textbf{Appendictis} dataset, a medical dataset proposed in \citep{appendicitis}.
+\item \textbf{Australian} dataset \citep{australian}, an dataset related
+to economic data.
+\item \textbf{Balance} dataset \citep{balance}, which used to predict psychological
+states. 
+\item \textbf{Cleveland} dataset, which is a medical dataset related to
+heart diseases \citep{cleveland1,cleveland2}.
+\item \textbf{Dermatology} dataset \citep{dermatology}, a medical dataset.
+\item \textbf{Hayes roth} dataset\citep{hayesroth}.
+\item \textbf{Heart} dataset \citep{heart}, a medical dataset related to
+heart diseases.
+\item \textbf{HouseVotes} dataset \citep{housevotes}, related to Congressional
+voting records.
+\item \textbf{Ionosphere} dataset, used for classification of radar returns
+from the ionosphere \citep{ion1,ion2}.
+\item \textbf{Liverdisorder} dataset \citep{liver}, a medical dataset.
+\item \textbf{Mammographic} dataset \citep{mammographic}, used to identify
+breast tumors.
+\item \textbf{Parkinsons} dataset, a medical dataset related to the Parkinson's
+Disease\citep{parkinsons}.
+\item \textbf{Pima} dataset, a medical dataset\citep{pima}.
+\item \textbf{Popfailures} dataset \citep{popfailures}, a dataset related
+to climate measurements.
+\item \textbf{Spiral} dataset, an artificial dataset with 2 features and
+two classes. The patterns for the first class are produced according
+to the equation: $x_{1}=0.5t\cos\left(0.08t\right),\ x_{2}=0.5t\cos\left(0.08t+\frac{\pi}{2}\right)$
+and the second class data using\textbf{: $x_{1}=0.5t\cos\left(0.08t+\pi\right),\ x_{2}=0.5t\cos\left(0.08t+\frac{3\pi}{2}\right)$}
+\item \textbf{Regions2} dataset \citep{regions}. 
+\item \textbf{Saheart} dataset \citep{saheart}, a medical dataset about
+heart diseases. 
+\item \textbf{Segment} dataset \citep{segment}, an image processing dataset.
+\item \textbf{Wdbc} dataset \citep{wdbc}, used to identify breast tumors. 
+\item \textbf{Wine} dataset, used to classify wines \citep{wine1,wine2}.
+\item \textbf{Eeg} dataset, a medical dataset about EEG measurements\citep{eeg}
+. The datasets used are denoted as Z\_F\_S, ZONF\_S and  ZO\_NF\_S.
+\item \textbf{Zoo} dataset \citep{zoo}, used to classify animals.
+\end{enumerate}
+The following regression datasets were used in the experiments:
+\begin{enumerate}
+\item \textbf{Abalone} dataset \citep{abalone}. 
+\item \textbf{Airfoil }dataset, a dataset derived from NASA \citep{airfoil}.
+\item \textbf{Baseball} dataset, a dataset used in baseball games.
+\item \textbf{BK} dataset \citep{Stat}, used to predict the points in a
+basketball game.
+\item \textbf{BL} dataset, an electrical engineering dataset.
+\item \textbf{Concrete} dataset, related to civil engineering\citep{concrete}. 
+\item \textbf{Dee} dataset, used to predict the energy consumption.
+\item \textbf{Diabetes} dataset, a medical dataset.
+\item \textbf{FA} dataset, related to fat measurements. 
+\item \textbf{Housing} dataset, provided in \citep{key23}.
+\item \textbf{MB} dataset \citep{key21}.
+\item \textbf{MORTGAGE} dataset, which contains economic data.
+\item \textbf{NT} dataset\citep{ntdataset}. 
+\item \textbf{PY} dataset\citep{pydataset}. 
+\item \textbf{Quake} dataset, used to predict earthquakes \citep{quake}. 
+\item \textbf{Treasure} dataset, which contains data about the economy.
+\item \textbf{Wankara} dataset, a dataset used for climate measurements.
+\end{enumerate}
+
+\subsection{Experimental results}
+
+The used RBF network was coded in ANSI C++ using the freely available
+Armadillo library \citep{Armadillo}. The optimization methods used
+were also freely available from the OPTIMUS computing environment,
+downloaded from \url{https://github.com/itsoulos/OPTIMUS/}(accessed
+on 9 September 2023). To validate the results, the 10 - fold validation
+technique was used in all datasets. The experiments were conducted
+30 times for every dataset using a different seed for the random generator
+each time. In the conducted experiments, the drand48() random function
+of the C - programming language was employed. The average classification
+error is reported for the case of classification datasets and the
+average mean test error for the regression datasets. The machine used
+in the experiments was an AMD Ryzen 5950X with 128GB of RAM, running
+the Debian Linux operating system. All the values for the parameters
+of the used algorithms are shown in Table \ref{tab:Experimental-parameters}.
+The results obtained for the classification datasets are shown in
+Table \ref{tab:Experiments-for-classification} and for the regression
+datasets are listed in Table \ref{tab:experiments-regression}. 
+
+The following applies to the results tables:
+\begin{enumerate}
+\item The column NN-PROP represents an artificial neural network \citep{nn1,nn2}
+with 10 hidden nodes trained with the Rprop method \citep{rpropnn}.
+\item The column RBF-KMEANS represents the original two -phase training
+method for RBF networks, where in the first phase the centers and
+variances are estimated through the K-Means algorithm and in the second
+phase the output weights are calculated by solving a linear system
+of equations.
+\item The column GENRBF stands for the RBF training method introduced in
+\citep{rbf_gen1}.
+\item The column PROPOSED represents the results obtained by the proposed
+method.
+\item An extra line was also added to the experimental tables under the
+title AVERAGE. This line represents the average classification or
+regression error for all datasets.
+\end{enumerate}
+\begin{table}[H]
+\caption{The values used for the experimental parameters.\label{tab:Experimental-parameters}}
+
+\centering{}%
+\begin{tabular}{|c|c|}
+\hline 
+\textbf{PARAMETER} & \textbf{VALUE}\tabularnewline
+\hline 
+$N_{c}$ & 200\tabularnewline
+\hline 
+$N_{g}$ & 100\tabularnewline
+\hline 
+$N_{s}$ & 50\tabularnewline
+\hline 
+$F$ & 10.0\tabularnewline
+\hline 
+$B$ & 100.0\tabularnewline
+\hline 
+$k$ & 10\tabularnewline
+\hline 
+$p_{s}$ & 0.90\tabularnewline
+\hline 
+$p_{m}$ & 0.05\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\caption{Experimental results for the classification datasets. The first column
+is the name of the used dataset.\label{tab:Experiments-for-classification}}
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+\textbf{DATASET} & \textbf{NN-RPROP} & \textbf{RBF-KMEANS} & \textbf{GENRBF} & \textbf{PROPOSED}\tabularnewline
+\hline 
+\hline 
+Appendicitis & 16.30\% & 12.23\% & 16.83\% & 15.77\%\tabularnewline
+\hline 
+Australian & 36.12\% & 34.89\% & 41.79\% & 22.40\%\tabularnewline
+\hline 
+Balance & 8.81\% & 33.42\% & 38.02\% & 15.62\%\tabularnewline
+\hline 
+Cleveland & 61.41\% & 67.10\% & 67.47\% & 50.37\%\tabularnewline
+\hline 
+Dermatology & 15.12\% & 62.34\% & 61.46\% & 35.73\%\tabularnewline
+\hline 
+Hayes Roth & 37.46\% & 64.36\% & 63.46\% & 35.33\%\tabularnewline
+\hline 
+Heart & 30.51\% & 31.20\% & 28.44\% & 15.91\%\tabularnewline
+\hline 
+HouseVotes & 6.04\% & 6.13\% & 11.99\% & 3.33\%\tabularnewline
+\hline 
+Ionosphere & 13.65\% & 16.22\% & 19.83\% & 9.30\%\tabularnewline
+\hline 
+Liverdisorder & 40.26\% & 30.84\% & 36.97\% & 28.44\%\tabularnewline
+\hline 
+Mammographic & 18.46\% & 21.38\% & 30.41\% & 17.72\%\tabularnewline
+\hline 
+Parkinsons & 22.28\% & 17.41\% & 33.81\% & 14.53\%\tabularnewline
+\hline 
+Pima & 34.27\% & 25.78\% & 27.83\% & 23.33\%\tabularnewline
+\hline 
+Popfailures & 4.81\% & 7.04\% & 7.08\% & 4.68\%\tabularnewline
+\hline 
+Regions2 & 27.53\% & 38.29\% & 39.98\% & 25.18\%\tabularnewline
+\hline 
+Saheart & 34.90\% & 32.19\% & 33.90\% & 29.46\%\tabularnewline
+\hline 
+Segment & 52.14\% & 59.68\% & 54.25\% & 49.22\%\tabularnewline
+\hline 
+Spiral & 46.59\% & 44.87\% & 50.02\% & 23.58\%\tabularnewline
+\hline 
+Wdbc & 21.57\% & 7.27\% & 8.82\% & 5.20\%\tabularnewline
+\hline 
+Wine & 30.73\% & 31.41\% & 31.47\% & 5.63\%\tabularnewline
+\hline 
+Z\_F\_S & 29.28\% & 13.16\% & 23.37\% & 3.90\%\tabularnewline
+\hline 
+ZO\_NF\_S & 6.43\% & 9.02\% & 22.18\% & 3.99\%\tabularnewline
+\hline 
+ZONF\_S & 27.27\% & 4.03\% & 17.41\% & 1.67\%\tabularnewline
+\hline 
+ZOO & 15.47\% & 21.93\% & 33.50\% & 9.33\%\tabularnewline
+\hline 
+\textbf{AVERAGE} & \textbf{26.56\%} & \textbf{28.84\%} & \textbf{33.35\%} & \textbf{18.73\%}\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\caption{Experimental results for the regression datasets. The first column
+is the name of the used regression dataset.\label{tab:experiments-regression}}
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+\textbf{DATASET} & \textbf{NN-RPROP} & \textbf{RBF-KMEANS} & \textbf{GENRBF} & \textbf{PROPOSED}\tabularnewline
+\hline 
+ABALONE & 4.55 & 7.37 & 9.98 & 5.16\tabularnewline
+\hline 
+AIRFOIL & 0.002 & 0.27 & 0.121 & 0.004\tabularnewline
+\hline 
+BASEBALL & 92.05 & 93.02 & 98.91 & 81.26\tabularnewline
+\hline 
+BK & 1.60 & 0.02 & 0.023 & 0.025\tabularnewline
+\hline 
+BL & 4.38 & 0.013 & 0.005 & 0.0004\tabularnewline
+\hline 
+CONCRETE & 0.009 & 0.011 & 0.015 & 0.006\tabularnewline
+\hline 
+DEE & 0.608 & 0.17 & 0.25 & 0.16\tabularnewline
+\hline 
+DIABETES & 1.11 & 0.49 & 2.92 & 1.74\tabularnewline
+\hline 
+HOUSING & 74.38 & 57.68 & 95.69 & 21.11\tabularnewline
+\hline 
+FA & 0.14 & 0.015 & 0.15 & 0.033\tabularnewline
+\hline 
+MB & 0.55 & 2.16 & 0.41 & 0.19\tabularnewline
+\hline 
+MORTGAGE & 9.19 & 1.45 & 1.92 & 0.014\tabularnewline
+\hline 
+NT & 0.04 & 8.14 & 0.02 & 0.007\tabularnewline
+\hline 
+PY & 0.039 & 0.012 & 0.029 & 0.019\tabularnewline
+\hline 
+QUAKE & 0.041 & 0.07 & 0.79 & 0.034\tabularnewline
+\hline 
+TREASURY & 10.88 & 2.02 & 1.89 & 0.098\tabularnewline
+\hline 
+WANKARA & 0.0003 & 0.001 & 0.002 & 0.003\tabularnewline
+\hline 
+\textbf{AVERAGE} & \textbf{11.71} & \textbf{10.17} & \textbf{12.54} & \textbf{6.46}\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+On average, the proposed technique appears to be 30-40\% more accurate
+than the immediate best. In many cases, this percentage exceeds 70\%.
+Moreover, in the vast majority of problems, the proposed technique
+significantly outperforms the next best available method in terms
+of test error. However, the proposed technique consists of two stages
+and in each of them a genetic algorithm should be executed. This means
+that it is significantly slower in computing time compared to the
+rest of the techniques and, of course, it needs more computing resources.
+Of course, since we are talking about Genetic Algorithms, the training
+time required could be significantly reduced by using parallel techniques
+that take advantage of modern parallel computing structures such as
+the MPI interface \citep{openmpi} or the OpenMP library \citep{openmp}.
+The superiority of the proposed technique is also reinforced by the
+statistical tests carried out on the experimental results and presented
+in figures \ref{fig:statClass} and \ref{fig:statRegression}.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.4]{stat_class_genrbf}
+\par\end{centering}
+\caption{Scatter plot representation and the two-sample paired (Wilcoxon) signed-rank
+test results of the comparison for each of the three (3) classification
+methods (NN-RPROP, RBF-KMEAN, GENRBF) with the PROPOSED method regarding
+the classification error in twenty-four (24) different public available
+classification datasets. The stars only intend to flag significance
+levels for the two most used groups. A p-value of less than 0.001
+is flagged with three stars ({*}{*}{*}). A p-value of less than 0.0001
+is flagged with four stars ({*}{*}{*}{*}).\label{fig:statClass}}
+
+\end{figure}
+ 
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.4]{stat_regression_genrbf}
+\par\end{centering}
+\caption{Scatter plot representation and the Wilcoxon signed-rank test results
+of the comparison for each of the three (3) regression methods (NN-RPROP,
+RBF-KMEAN, GENRBF) with the PROPOSED method regarding the regression
+error in seventeen (17) different publicly available regression datasets.
+Star links join significantly different values; one star ({*}) stand
+p\textless 0.05 and four stars ({*}{*}{*}{*}) stand for p\textless 0.0001.
+\label{fig:statRegression}}
+
+\end{figure}
+
+In addition, an additional set of experiments was performed on the
+classification data in which the critical parameter $F$ took the
+values 3, 5 and 10. The aim of this set of experiments was to establish
+the sensitivity of the proposed technique to changes in its parameters.
+The experimental results are presented in the table \ref{tab:expsFClass}
+and a statistical test on the results is presented in figure \ref{fig:statfparam}.
+The results and the statistics test indicate that there is no significant
+difference in the efficiency of the method for different values of
+the critical parameter $F$.
+
+\begin{table}[H]
+\caption{Experimental results with the proposed method and using different
+values for the parameter $F$ on the classification datasets.\label{tab:expsFClass}}
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|}
+\hline 
+\textbf{DATASET} & \textbf{$F=3$} & \textbf{$F=5$} & \textbf{$F=10$}\tabularnewline
+\hline 
+Appendicitis & 15.57\% & 16.60\% & 15.77\%\tabularnewline
+\hline 
+Australian & 24.29\% & 23.94\% & 22.40\%\tabularnewline
+\hline 
+Balance & 17.22\% & 15.39\% & 15.62\%\tabularnewline
+\hline 
+Cleveland & 52.09\% & 51.65\% & 50.37\%\tabularnewline
+\hline 
+Dermatology & 37.23\% & 36.81\% & 35.73\%\tabularnewline
+\hline 
+Hayes Roth & 35.72\% & 32.31\% & 35.33\%\tabularnewline
+\hline 
+Heart & 16.32\% & 15.54\% & 15.91\%\tabularnewline
+\hline 
+HouseVotes & 4.35\% & 3.90\% & 3.33\%\tabularnewline
+\hline 
+Ionosphere & 12.50\% & 11.44\% & 9.30\%\tabularnewline
+\hline 
+Liverdisorder & 28.08\% & 28.19\% & 28.44\%\tabularnewline
+\hline 
+Mammographic & 17.49\% & 17.15\% & 17.72\%\tabularnewline
+\hline 
+Parkinsons & 16.25\% & 15.17\% & 14.53\%\tabularnewline
+\hline 
+Pima & 23.29\% & 23.97\% & 23.33\%\tabularnewline
+\hline 
+Popfailures & 5.31\% & 5.86\% & 4.68\%\tabularnewline
+\hline 
+Regions2 & 25.97\% & 26.29\% & 25.18\%\tabularnewline
+\hline 
+Saheart & 28.52\% & 28.59\% & 29.46\%\tabularnewline
+\hline 
+Segment & 44.95\% & 48.77\% & 49.22\%\tabularnewline
+\hline 
+Spiral & 15.49\% & 18.19\% & 23.58\%\tabularnewline
+\hline 
+Wdbc & 5.43\% & 5.01\% & 5.20\%\tabularnewline
+\hline 
+Wine & 7.59\% & 8.39\% & 5.63\%\tabularnewline
+\hline 
+Z\_F\_S & 4.37\% & 4.26\% & 3.90\%\tabularnewline
+\hline 
+ZO\_NF\_S & 3.79\% & 4.21\% & 3.99\%\tabularnewline
+\hline 
+ZONF\_S & 2.34\% & 2.26\% & 1.67\%\tabularnewline
+\hline 
+ZOO & 11.90\% & 10.50\% & 9.33\%\tabularnewline
+\hline 
+\textbf{AVERAGE} & \textbf{19.03\%} & \textbf{18.93\%} & \textbf{18.73\%}\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.4]{stat_fparam_genrbf}
+\par\end{centering}
+\caption{A Friedman test was conducted to determine whether different values
+of the critical parameter F had a difference or not in the classification
+error of the proposed method in twenty-four (24) other publicly available
+classification datasets. The analysis results for three different
+values of the critical parameter F (F=3, F=5, F=10) indicated no significant
+difference.\label{fig:statfparam}}
+
+\end{figure}
+
+
+\section{Conclusions\label{sec:Conclusions}}
+
+A two-step method was presented in the present work to train RBF neural
+networks. In the first stage of the application, using Grammatical
+Evolution, the field of values of the neural network parameters is
+partitioned, so as to find a promising range that may contain low
+values of the training error. In the second stage, the neural network
+parameters are trained within the best range of values found in the
+first stage. The training of the parameters of the second phase is
+carried out using a Genetic Algorithm. The proposed method was applied
+on a wide series of well -known datasets from the relevant literature
+and was tested against a series of machine learning models. From the
+comparison of the results and their statistical processing, it was
+clearly seen that the proposed technique outperforms the others with
+which the comparison was made, both in classification datasets and
+regression datasets. Future improvements to the proposed method may
+include:
+\begin{enumerate}
+\item Application of the proposed method to other types of artificial neural
+networks.
+\item Implementation of crossover and mutation techniques that focus more
+on the existing interval construction technique for the model parameters.
+\item Incorporation of parallel programming techniques to speed up the method.
+\end{enumerate}
+\vspace{6pt}
+
+
+\authorcontributions{I.G.T., A.T. and E.K. conceived the idea and methodology and supervised
+the technical part regarding the software. I.G.T. conducted the experiments,
+employing several datasets, and provided the comparative experiments.
+A.T. performed the statistical analysis. E.K. and all other authors
+prepared the manuscript. E.K. and I.G.T. organized the research team
+and A.T. supervised the project. All authors have read and agreed
+to the published version of the manuscript.}
+
+\funding{This research received no external funding.}
+
+\institutionalreview{Not applicable.}
+
+\informedconsent{Not applicable. }
+
+\institutionalreview{Not applicable.}
+
+\acknowledgments{The experiments of this research work were performed at the high
+performance computing system established at Knowledge and Intelligent
+Computing Laboratory, Department of Informatics and Telecommunications,
+University of Ioannina, acquired with the project “Educational Laboratory
+equipment of TEI of Epirus” with MIS 5007094 funded by the Operational
+Programme “Epirus” 2014--2020, by ERDF and national funds.}
+
+\conflictsofinterest{The authors declare no conflict of interest.}
+
+\sampleavailability{Not applicable.}
+
+\appendixtitles{no}
+
+\appendixstart{}
+
+\begin{adjustwidth}{-\extralength}{0cm}{}
+
+
+\reftitle{References}
+\begin{thebibliography}{999}
+\bibitem{physics_ml1} M. Mjahed, The use of clustering techniques
+for the classification of high energy physics data, Nuclear Instruments
+and Methods in Physics Research Section A: Accelerators, Spectrometers,
+Detectors and Associated Equipment \textbf{559}, pp. 199-202, 2006.
+
+\bibitem{physics_ml2}M Andrews, M Paulini, S Gleyzer, B Poczos, End-to-End
+Event Classification of High-Energy Physics Data, Journal of Physics:
+Conference Series \textbf{1085}, 2018.
+
+\bibitem{chemistry_ml1}P. He, C.J. Xu, Y.Z. Liang, K.T. Fang, Improving
+the classification accuracy in chemistry via boosting technique, Chemometrics
+and Intelligent Laboratory Systems 70, pp. 39-46, 2004.
+
+\bibitem{chemistry_ml2}J.A. Aguiar, M.L. Gong, T.Tasdizen, Crystallographic
+prediction from diffraction and chemistry data for higher throughput
+classification using machine learning, Computational Materials Science
+\textbf{173}, 109409, 2020.
+
+\bibitem{econ_ml1}I. Kaastra, M. Boyd, Designing a neural network
+for forecasting financial and economic time series, Neurocomputing
+\textbf{10}, pp. 215-236, 1996.
+
+\bibitem{econ_ml2}R. Hafezi, J. Shahrabi, E. Hadavandi, A bat-neural
+network multi-agent system (BNNMAS) for stock price prediction: Case
+study of DAX stock price, Applied Soft Computing \textbf{29}, pp.
+196-210, 2015.
+
+\bibitem{med_ml1}S.S. Yadav, S.M. Jadhav, Deep convolutional neural
+network based medical image classification for disease diagnosis.
+J Big Data \textbf{6}, 113, 2019.
+
+\bibitem{med_ml2}L. Qing, W. Linhong , D. Xuehai, A Novel Neural
+Network-Based Method for Medical Text Classification, Future Internet
+\textbf{11}, 255, 2019. 
+
+\bibitem{rbf1}J. Park and I. W. Sandberg, Universal Approximation
+Using Radial-Basis-Function Networks, Neural Computation \textbf{3},
+pp. 246-257, 1991.
+
+\bibitem{rbf2}G.A. Montazer, D. Giveki, M. Karami, H. Rastegar, Radial
+basis function neural networks: A review. Comput. Rev. J \textbf{1},
+pp. 52-74, 2018.
+
+\bibitem{rbfphysics1}P. Teng, Machine-learning quantum mechanics:
+Solving quantum mechanics problems using radial basis function networks,
+Phys. Rev. E \textbf{98}, 033305, 2018.
+
+\bibitem{rbfphysics2}R. Jovanović, A. Sretenovic, Ensemble of radial
+basis neural networks with K-means clustering for heating energy consumption
+prediction, FME Transactions \textbf{45}, pp. 51-57, 2017.
+
+\bibitem{rbfphysics3}V.I. Gorbachenko, M.V. Zhukov, Solving boundary
+value problems of mathematical physics using radial basis function
+networks. Comput. Math. and Math. Phys. \textbf{57}, pp. 145--155,
+2017.
+
+\bibitem{rbfphysics4}J. Määttä, V. Bazaliy, J. Kimari, F. Djurabekova,
+K. Nordlund, T. Roos, Gradient-based training and pruning of radial
+basis function networks with an application in materials physics,
+Neural Networks \textbf{133}, pp. 123-131, 2021.
+
+\bibitem{rbfde1}Nam Mai-Duy, Thanh Tran-Cong, Numerical solution
+of differential equations using multiquadric radial basis function
+networks, Neural Networks 14, pp. 185-199, 2001.
+
+\bibitem{rbfde2}N. Mai‐Duy, Solving high order ordinary differential
+equations with radial basis function networks. Int. J. Numer. Meth.
+Engng. \textbf{62}, pp. 824-852, 2005.
+
+\bibitem{rbfde3}S.A. Sarra, Adaptive radial basis function methods
+for time dependent partial differential equations, Applied Numerical
+Mathematics \textbf{54}, pp. 79-94, 2005.
+
+\bibitem{rbfrobotics1}R. -J. Lian, Adaptive Self-Organizing Fuzzy
+Sliding-Mode Radial Basis-Function Neural-Network Controller for Robotic
+Systems, IEEE Transactions on Industrial Electronics \textbf{61},
+pp. 1493-1503, 2014.
+
+\bibitem{rbfrobotics2}M. Vijay, D. Jena, Backstepping terminal sliding
+mode control of robot manipulator using radial basis functional neural
+networks. Computers \& Electrical Engineering \textbf{67}, pp. 690-707,
+2018.
+
+\bibitem{rbfface1}M.J. Er, S. Wu, J. Lu, H.L. Toh, Face recognition
+with radial basis function (RBF) neural networks, IEEE Transactions
+on Neural Networks \textbf{13}, pp. 697-710, 2002.
+
+\bibitem{rbfnetwork1}C. Laoudias, P. Kemppi and C. G. Panayiotou,
+Localization Using Radial Basis Function Networks and Signal Strength
+Fingerprints in WLAN, GLOBECOM 2009 - 2009 IEEE Global Telecommunications
+Conference, Honolulu, HI, 2009, pp. 1-6, 2009.
+
+\bibitem{rbfnetwork2}M. Azarbad, S. Hakimi, A. Ebrahimzadeh, Automatic
+recognition of digital communication signal, International journal
+of energy, information and communications \textbf{3}, pp. 21-33, 2012.
+
+\bibitem{rbfchemistry1}D.L. Yu, J.B. Gomm, D. Williams, Sensor fault
+diagnosis in a chemical process via RBF neural networks, Control Engineering
+Practice \textbf{7}, pp. 49-55, 1999.
+
+\bibitem{rbfchemistry2}V. Shankar, G.B. Wright, A.L. Fogelson, R.M.
+Kirby, A radial basis function (RBF) finite difference method for
+the simulation of reaction--diffusion equations on stationary platelets
+within the augmented forcing method, Int. J. Numer. Meth. Fluids \textbf{75},
+pp. 1-22, 2014.
+
+\bibitem{rbfecon0}W. Shen, X. Guo, C. Wu, D. Wu, Forecasting stock
+indices using radial basis function neural networks optimized by artificial
+fish swarm algorithm, Knowledge-Based Systems 24, pp. 378-385, 2011.
+
+\bibitem{rbfecon1}J. A. Momoh, S. S. Reddy, Combined Economic and
+Emission Dispatch using Radial Basis Function, 2014 IEEE PES General
+Meeting \textbar{} Conference \& Exposition, National Harbor, MD,
+pp. 1-5, 2014.
+
+\bibitem{rbfecon2}P. Sohrabi, B. Jodeiri Shokri, H. Dehghani, Predicting
+coal price using time series methods and combination of radial basis
+function (RBF) neural network with time series. Miner Econ 2021.
+
+\bibitem{rbf_dos1}U. Ravale, N. Marathe, P. Padiya, Feature Selection
+Based Hybrid Anomaly Intrusion Detection System Using K Means and
+RBF Kernel Function, Procedia Computer Science \textbf{45}, pp. 428-435,
+2015.
+
+\bibitem{rbf_dos2}M. Lopez-Martin, A. Sanchez-Esguevillas, J. I.
+Arribas, B. Carro, Network Intrusion Detection Based on Extended RBF
+Neural Network With Offline Reinforcement Learning, IEEE Access \textbf{9},
+pp. 153153-153170, 2021.
+
+\bibitem{rbfinit1}L.I. Kuncheva, Initializing of an RBF network by
+a genetic algorithm, Neurocomputing \textbf{14}, pp. 273-288, 1997.
+
+\bibitem{rbfinit2}F. Ros, M. Pintore, A. Deman, J.R. Chrétien, Automatical
+initialization of RBF neural networks, Chemometrics and Intelligent
+Laboratory Systems \textbf{87}, pp. 26-32, 2007.
+
+\bibitem{rbfinit3}D. Wang, X.J. Zeng, J.A. Keane, A clustering algorithm
+for radial basis function neural network initialization, Neurocomputing
+\textbf{77}, pp. 144-155, 2012.
+
+\bibitem{rbfkernel}N. Benoudjit, M. Verleysen, On the Kernel Widths
+in Radial-Basis Function Networks, Neural Processing Letters \textbf{18},
+pp. 139--154, 2003.
+
+\bibitem{rbflearn}R. Neruda, P. Kudova, Learning methods for radial
+basis function networks, Future Generation Computer Systems \textbf{21},
+pp. 1131--1142, 2005.
+
+\bibitem{rbfprun1}E. Ricci, R. Perfetti, Improved pruning strategy
+for radial basis function networks with dynamic decay adjustment,
+Neurocomputing \textbf{69}, pp. 1728-1732, 2006.
+
+\bibitem{rbfprun3}Guang-Bin Huang, P. Saratchandran and N. Sundararajan,
+A generalized growing and pruning RBF (GGAP-RBF) neural network for
+function approximation, IEEE Transactions on Neural Networks \textbf{16},
+pp. 57-67, 2005.
+
+\bibitem{rbfprun2}M. Bortman and M. Aladjem, A Growing and Pruning
+Method for Radial Basis Function Networks, IEEE Transactions on Neural
+Networks \textbf{20}, pp. 1039-1045, 2009.
+
+\bibitem{rbfpar1}R. Yokota, L.A. Barba, M. G. Knepley, PetRBF ---
+A parallel O(N) algorithm for radial basis function interpolation
+with Gaussians, Computer Methods in Applied Mechanics and Engineering
+\textbf{199}, pp. 1793-1804, 2010.
+
+\bibitem{rbfpar2}C. Lu, N. Ma, Z. Wang, Fault detection for hydraulic
+pump based on chaotic parallel RBF network, EURASIP J. Adv. Signal
+Process. \textbf{2011}, 49, 2011.
+
+\bibitem{ge1}M. O’Neill, C. Ryan, Grammatical evolution, IEEE Trans.
+Evol. Comput. \textbf{5,}pp. 349--358, 2001.
+
+\bibitem{kmeans}J. MacQueen, Some methods for classification and
+analysis of multivariate observations, in: Proceedings of the fifth
+Berkeley symposium on mathematical statistics and probability, Vol.
+1, No. 14, pp. 281-297, 1967. 
+
+\bibitem{rbfSA}H.Q. Wang, D.S. Huang, B. Wang, Optimisation of radial
+basis function classifiers using simulated annealing algorithm for
+cancer classification. electronics letters \textbf{41}, pp. 630-632,
+2005.
+
+\bibitem{rbfPSO}V. Fathi, G.A. Montazer, An improvement in RBF learning
+algorithm based on PSO for real time applications, Neurocomputing
+\textbf{111}, pp. 169-176, 2013.
+
+\bibitem{ga1}D. Goldberg, Genetic Algorithms in Search, Optimization
+and Machine Learning, Addison-Wesley Publishing Company, Reading,
+Massachussets, 1989.
+
+\bibitem{ga2}Z. Michaelewicz, Genetic Algorithms + Data Structures
+= Evolution Programs. Springer - Verlag, Berlin, 1996.
+
+\bibitem{ga3}S.A. Grady, M.Y. Hussaini, M.M. Abdullah, Placement
+of wind turbines using genetic algorithms, Renewable Energy \textbf{30},
+pp. 259-270, 2005.
+
+\bibitem{bnf1}J. W. Backus. The Syntax and Semantics of the Proposed
+International Algebraic Language of the Zurich ACM-GAMM Conference.
+Proceedings of the International Conference on Information Processing,
+UNESCO, 1959, pp.125-132.
+
+\bibitem{ge_program1}C. Ryan, J. Collins, M. O’Neill, Grammatical
+evolution: Evolving programs for an arbitrary language. In: Banzhaf,
+W., Poli, R., Schoenauer, M., Fogarty, T.C. (eds) Genetic Programming.
+EuroGP 1998. Lecture Notes in Computer Science, vol 1391. Springer,
+Berlin, Heidelberg, 1998.
+
+\bibitem{ge_program2}M. O’Neill, M., C. Ryan, Evolving Multi-line
+Compilable C Programs. In: Poli, R., Nordin, P., Langdon, W.B., Fogarty,
+T.C. (eds) Genetic Programming. EuroGP 1999. Lecture Notes in Computer
+Science, vol 1598. Springer, Berlin, Heidelberg, 1999.
+
+\bibitem{ge_trig}C. Ryan, M. O’Neill, J.J. Collins, Grammatical evolution:
+Solving trigonometric identities, proceedings of Mendel. Vol. 98.
+1998.
+
+\bibitem{ge_music}A.O. Puente, R. S. Alfonso, M. A. Moreno, Automatic
+composition of music by means of grammatical evolution, In: APL '02:
+Proceedings of the 2002 conference on APL: array processing languages:
+lore, problems, and applications July 2002 Pages 148--155. 
+
+\bibitem{ge_nn}Lídio Mauro Limade Campo, R. Célio Limã Oliveira,Mauro
+Roisenberg, Optimization of neural networks through grammatical evolution
+and a genetic algorithm, Expert Systems with Applications \textbf{56},
+pp. 368-384, 2016.
+
+\bibitem{ge_nn2}K. Soltanian, A. Ebnenasir, M. Afsharchi, Modular
+Grammatical Evolution for the Generation of Artificial Neural Networks,
+Evolutionary Computation \textbf{30}, pp 291--327, 2022.
+
+\bibitem{ge_constant}I. Dempsey, M.O' Neill, A. Brabazon, Constant
+creation in grammatical evolution, International Journal of Innovative
+Computing and Applications \textbf{1} , pp 23--38, 2007.
+
+\bibitem{ge_pacman}E. Galván-López, J.M. Swafford, M. O’Neill, A.
+Brabazon, Evolving a Ms. PacMan Controller Using Grammatical Evolution.
+In: , et al. Applications of Evolutionary Computation. EvoApplications
+2010. Lecture Notes in Computer Science, vol 6024. Springer, Berlin,
+Heidelberg, 2010.
+
+\bibitem{ge_supermario}N. Shaker, M. Nicolau, G. N. Yannakakis, J.
+Togelius, M. O'Neill, Evolving levels for Super Mario Bros using grammatical
+evolution, 2012 IEEE Conference on Computational Intelligence and
+Games (CIG), 2012, pp. 304-31.
+
+\bibitem{ge_energy}D. Martínez-Rodríguez, J. M. Colmenar, J. I. Hidalgo,
+R.J. Villanueva Micó, S. Salcedo-Sanz, Particle swarm grammatical
+evolution for energy demand estimation, Energy Science and Engineering
+\textbf{8}, pp. 1068-1079, 2020.
+
+\bibitem{ge_comb}N. R. Sabar, M. Ayob, G. Kendall, R. Qu, Grammatical
+Evolution Hyper-Heuristic for Combinatorial Optimization Problems,
+IEEE Transactions on Evolutionary Computation \textbf{17}, pp. 840-861,
+2013.
+
+\bibitem{ge_crypt}C. Ryan, M. Kshirsagar, G. Vaidya, G. et al. Design
+of a cryptographically secure pseudo random number generator with
+grammatical evolution. Sci Rep \textbf{12}, 8602, 2022.
+
+\bibitem{kaelo}P. Kaelo, M.M. Ali, Integrated crossover rules in
+real coded genetic algorithms, European Journal of Operational Research
+\textbf{176}, pp. 60-76, 2007.
+
+\bibitem{Keel}J. Alcalá-Fdez, A. Fernandez, J. Luengo, J. Derrac,
+S. García, L. Sánchez, F. Herrera. KEEL Data-Mining Software Tool:
+Data Set Repository, Integration of Algorithms and Experimental Analysis
+Framework. Journal of Multiple-Valued Logic and Soft Computing 17,
+pp. 255-287, 2011.
+
+\bibitem{appendicitis}Weiss, Sholom M. and Kulikowski, Casimir A.,
+Computer Systems That Learn: Classification and Prediction Methods
+from Statistics, Neural Nets, Machine Learning, and Expert Systems,
+Morgan Kaufmann Publishers Inc, 1991.
+
+\bibitem{australian}J.R. Quinlan, Simplifying Decision Trees. International
+Journal of Man-Machine Studies \textbf{27}, pp. 221-234, 1987. 
+
+\bibitem{balance}T. Shultz, D. Mareschal, W. Schmidt, Modeling Cognitive
+Development on Balance Scale Phenomena, Machine Learning \textbf{16},
+pp. 59-88, 1994.
+
+\bibitem{cleveland1}Z.H. Zhou,Y. Jiang, NeC4.5: neural ensemble based
+C4.5,\textquotedbl{} in IEEE Transactions on Knowledge and Data Engineering
+\textbf{16}, pp. 770-773, 2004.
+
+\bibitem{cleveland2}R. Setiono , W.K. Leow, FERNN: An Algorithm for
+Fast Extraction of Rules from Neural Networks, Applied Intelligence
+\textbf{12}, pp. 15-25, 2000.
+
+\bibitem{dermatology}G. Demiroz, H.A. Govenir, N. Ilter, Learning
+Differential Diagnosis of Eryhemato-Squamous Diseases using Voting
+Feature Intervals, Artificial Intelligence in Medicine. \textbf{13},
+pp. 147--165, 1998.
+
+\bibitem{hayesroth}B. Hayes-Roth, B., F. Hayes-Roth. Concept learning
+and the recognition and classification of exemplars. Journal of Verbal
+Learning and Verbal Behavior \textbf{16}, pp. 321-338, 1977.
+
+\bibitem{heart}I. Kononenko, E. Šimec, M. Robnik-Šikonja, Overcoming
+the Myopia of Inductive Learning Algorithms with RELIEFF, Applied
+Intelligence \textbf{7}, pp. 39--55, 1997
+
+\bibitem{housevotes}R.M. French, N. Chater, Using noise to compute
+error surfaces in connectionist networks: a novel means of reducing
+catastrophic forgetting, Neural Comput. \textbf{14}, pp. 1755-1769,
+2002.
+
+\bibitem{ion1}J.G. Dy , C.E. Brodley, Feature Selection for Unsupervised
+Learning, The Journal of Machine Learning Research \textbf{5}, pp
+845--889, 2004.
+
+\bibitem{ion2}S. J. Perantonis, V. Virvilis, Input Feature Extraction
+for Multilayered Perceptrons Using Supervised Principal Component
+Analysis, Neural Processing Letters \textbf{10}, pp 243--252, 1999.
+
+\bibitem{liver} J. Garcke, M. Griebel, Classification with sparse
+grids using simplicial basis functions, Intell. Data Anal. \textbf{6},
+pp. 483-502, 2002.
+
+\bibitem{mammographic}M. Elter, R. Schulz-Wendtland, T. Wittenberg,
+The prediction of breast cancer biopsy outcomes using two CAD approaches
+that both emphasize an intelligible decision process, Med Phys. \textbf{34},
+pp. 4164-72, 2007.
+
+\bibitem{parkinsons}Little MA, McSharry PE, Hunter EJ, Spielman J,
+Ramig LO. Suitability of dysphonia measurements for telemonitoring
+of Parkinson's disease. IEEE Trans Biomed Eng. 2009;56(4):1015. doi:10.1109/TBME.2008.2005954
+
+\bibitem{pima}J.W. Smith, J.E. Everhart, W.C. Dickson, W.C. Knowler,
+R.S. Johannes, Using the ADAP learning algorithm to forecast the onset
+of diabetes mellitus, In: Proceedings of the Symposium on Computer
+Applications and Medical Care IEEE Computer Society Press, pp.261-265,
+1988.
+
+\bibitem{popfailures}D.D. Lucas, R. Klein, J. Tannahill, D. Ivanova,
+S. Brandon, D. Domyancic, Y. Zhang, Failure analysis of parameter-induced
+simulation crashes in climate models, Geoscientific Model Development
+\textbf{6}, pp. 1157-1171, 2013.
+
+\bibitem{regions}Giannakeas, N., Tsipouras, M.G., Tzallas, A.T.,
+Kyriakidi, K., Tsianou, Z.E., Manousou, P., Hall, A., Karvounis, E.C.,
+Tsianos, V., Tsianos, E. A clustering based method for collagen proportional
+area extraction in liver biopsy images (2015) Proceedings of the Annual
+International Conference of the IEEE Engineering in Medicine and Biology
+Society, EMBS, 2015-November, art. no. 7319047, pp. 3097-3100. 
+
+\bibitem{saheart}T. Hastie, R. Tibshirani, Non-parametric logistic
+and proportional odds regression, JRSS-C (Applied Statistics) \textbf{36},
+pp. 260--276, 1987.
+
+\bibitem{segment}M. Dash, H. Liu, P. Scheuermann, K. L. Tan, Fast
+hierarchical clustering and its validation, Data \& Knowledge Engineering
+\textbf{44}, pp 109--138, 2003.
+
+\bibitem{wdbc}W.H. Wolberg, O.L. Mangasarian, Multisurface method
+of pattern separation for medical diagnosis applied to breast cytology,
+Proc Natl Acad Sci U S A. \textbf{87}, pp. 9193--9196, 1990.
+
+\bibitem{wine1}M. Raymer, T.E. Doom, L.A. Kuhn, W.F. Punch, Knowledge
+discovery in medical and biological datasets using a hybrid Bayes
+classifier/evolutionary algorithm. IEEE transactions on systems, man,
+and cybernetics. Part B, Cybernetics : a publication of the IEEE Systems,
+Man, and Cybernetics Society, \textbf{33} , pp. 802-813, 2003.
+
+\bibitem{wine2}P. Zhong, M. Fukushima, Regularized nonsmooth Newton
+method for multi-class support vector machines, Optimization Methods
+and Software \textbf{22}, pp. 225-236, 2007.
+
+\bibitem{eeg}R.G. Andrzejak, K. Lehnertz, F. Mormann, C. Rieke, P.
+David, and C. E. Elger, Indications of nonlinear deterministic and
+finite-dimensional structures in time series of brain electrical activity:
+Dependence on recording region and brain state, Phys. Rev. E \textbf{64},
+pp. 1-8, 2001.
+
+\bibitem{zoo}M. Koivisto, K. Sood, Exact Bayesian Structure Discovery
+in Bayesian Networks, The Journal of Machine Learning Research\textbf{
+5}, pp. 549--573, 2004.
+
+\bibitem{abalone}W. J Nash, T.L. Sellers, S.R. Talbot, A.J. Cawthor,
+W.B. Ford, The Population Biology of Abalone (\_Haliotis\_ species)
+in Tasmania. I. Blacklip Abalone (\_H. rubra\_) from the North Coast
+and Islands of Bass Strait, Sea Fisheries Division, Technical Report
+No. 48 (ISSN 1034-3288), 1994.
+
+\bibitem{airfoil}T.F. Brooks, D.S. Pope, and A.M. Marcolini. Airfoil
+self-noise and prediction. Technical report, NASA RP-1218, July 1989. 
+
+\bibitem{Stat}J.S. Simonoff, Smooting Methods in Statistics, Springer
+- Verlag, 1996.
+
+\bibitem{concrete}I.Cheng Yeh, Modeling of strength of high performance
+concrete using artificial neural networks, Cement and Concrete Research.
+\textbf{28}, pp. 1797-1808, 1998. 
+
+\bibitem{key23}D. Harrison and D.L. Rubinfeld, Hedonic prices and
+the demand for clean ai, J. Environ. Economics \& Management \textbf{5},
+pp. 81-102, 1978.
+
+\bibitem{key21}J.S. Simonoff, Smooting Methods in Statistics, Springer
+- Verlag, 1996.
+
+\bibitem{ntdataset}Mackowiak, P.A., Wasserman, S.S., Levine, M.M.,
+1992. A critical appraisal of 98.6 degrees f, the upper limit of the
+normal body temperature, and other legacies of Carl Reinhold August
+Wunderlich. J. Amer. Med. Assoc. 268, 1578--1580
+
+\bibitem{pydataset}R.D. King, S. Muggleton, R. Lewis, M.J.E. Sternberg,
+Proc. Nat. Acad. Sci. USA \textbf{89}, pp. 11322--11326, 1992. 
+
+\bibitem{quake}M. Sikora, L. Wrobel, Application of rule induction
+algorithms for analysis of data collected by seismic hazard monitoring
+systems in coal mines, Archives of Mining Sciences \textbf{55}, pp.
+91-114, 2010.
+
+\bibitem{Armadillo}C. Sanderson, R. Curtin, Armadillo: a template-based
+C++ library for linear algebra, Journal of Open Source Software \textbf{1},
+pp. 26, 2016. 
+
+\bibitem{nn1}C. Bishop, Neural Networks for Pattern Recognition,
+Oxford University Press, 1995.
+
+\bibitem{nn2}G. Cybenko, Approximation by superpositions of a sigmoidal
+function, Mathematics of Control Signals and Systems \textbf{2}, pp.
+303-314, 1989.
+
+\bibitem{rpropnn}M. Riedmiller and H. Braun, A Direct Adaptive Method
+for Faster Backpropagation Learning: The RPROP algorithm, Proc. of
+the IEEE Intl. Conf. on Neural Networks, San Francisco, CA, pp. 586--591,
+1993.
+
+\bibitem{rbf_gen1}S. Ding, L. Xu, C. Su et al, An optimizing method
+of RBF neural network based on genetic algorithm. Neural Comput \&
+Applic 21, pp. 333--336, 2012.
+
+\bibitem{openmpi}W. Gropp, E. Lusk, N. Doss, A. Skjellum, A high-performance,
+portable implementation of the MPI message passing interface standard,
+Parallel Computing \textbf{22}, pp. 789-828, 1996.
+
+\bibitem{openmp}R. Chandra, L. Dagum, D. Kohr, D. Maydan,J. McDonald
+and R. Menon, Parallel Programming in OpenMP, Morgan Kaufmann Publishers
+Inc., 2001.
+
+\end{thebibliography}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% for journal Sci
+%\reviewreports{\\
+%Reviewer 1 comments and authors' response\\
+%Reviewer 2 comments and authors' response\\
+%Reviewer 3 comments and authors' response
+%}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{adjustwidth}{}
+\end{document}

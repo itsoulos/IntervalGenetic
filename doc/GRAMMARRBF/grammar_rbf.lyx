@@ -352,7 +352,7 @@ Introduction
 
 \begin_layout Standard
 Many practical problems of the modern world can be thought of either as
- data fitting problems, as for example problem from physics 
+ data fitting problems, as for example, problem from physics 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "physics_ml1,physics_ml2"
@@ -551,8 +551,8 @@ literal "false"
 \end_inset
 
  etc.
- Also, recently a variety of papers have been appeared proposing novell
- initialization techniques for the network parameters
+ Also, recently a variety of papers have appeared proposing novel initialization
+ techniques for the network parameters
 \series bold
  
 \series default
@@ -573,8 +573,8 @@ literal "false"
 
 \end_inset
 
- discuss the the effect of kernel widths in RBF networks.
- Moreover, Neruda et all 
+ discuss the effect of kernel widths on RBF networks.
+ Moreover, Neruda et al 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbflearn"
@@ -582,7 +582,7 @@ literal "false"
 
 \end_inset
 
- presents a comparison of some learning method for RBF networks.
+ presents a comparison of some learning methods for RBF networks.
  Additionally, a variety of pruning techniques
 \series bold
  
@@ -601,7 +601,7 @@ literal "false"
 \series bold
  
 \series default
-Due to the widespread usages of RBF networks but also because considerable
+Due to the widespread usage of RBF networks but also because considerable
  computing time is often required for their effective training, in recent
  years a series of techniques have been proposed 
 \begin_inset CommandInset citation
@@ -644,7 +644,7 @@ Where the parameter
 \end_inset
 
  represents the parameter set of the RBF network.
- During the first phase an attempt is made to bound the parameter values
+ During the first phase, an attempt is made to bound the parameter values
  to intervals in which the training error of equation 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -677,7 +677,7 @@ literal "false"
 
 .
  Then, with the help of Grammatical Evolution, a series of division rules
- are applied to the initial interval of values in order to find an range
+ are applied to the initial interval of values in order to find a range
  of values that significantly reduces the training error.
  During the second phase, the parameters of the RBF network can be trained
  within the optimal range found in the first phase using some global optimizatio
@@ -754,7 +754,7 @@ This section begins with a detailed description of the Grammatical Evolution
  for the parameter set of RBFs.
  Subsequently, the first phase of the proposed methodology will be extensively
  analyzed and then the second phase, where a Genetic Algorithm will be applied
- to outcome of the first phase.
+ to the outcome of the first phase.
 \end_layout
 
 \begin_layout Subsection
@@ -762,7 +762,7 @@ Grammatical Evolution
 \end_layout
 
 \begin_layout Standard
-Grammatical evolution is a genetic algorithm where the chromosomes stands
+Grammatical evolution is a genetic algorithm where the chromosomes stand
  for the production rules of any given BNF (Backus–Naur form) grammar
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -772,8 +772,8 @@ literal "false"
 \end_inset
 
 .
- Grammatical Evolution has been used sucessfully in a variety of cases such
- as function approximation
+ Grammatical Evolution has been used successfully in a variety of cases,
+ such as function approximation
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ge_program1,ge_program2"
@@ -809,7 +809,7 @@ literal "false"
 
 \end_inset
 
-, creating numeric constrants
+, creating numeric constraints
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ge_constant"
@@ -863,7 +863,7 @@ literal "false"
 
  etc.
  The BNF grammar can be used to describe the syntax of programming languages
- and usually it is defined as set 
+ and usually it is defined as the set 
 \series bold
 
 \begin_inset Formula $G=\left(N,T,S,P\right)$
@@ -970,10 +970,11 @@ reference "fig:BNF-grammar-of"
 .
  The symbols enclosed in <> denote the non-terminal symbols of the grammar.
  The numbers in parentheses in the right part of the grammar indicate production
- rule sequence number.
- The number n is the total number of parameters of the problem, in the case
- of this paper it is the total number of parameters of the RBF network.
- For the current work the number 
+ rule sequence numbers.
+ The number n is the total number of parameters of the problem.
+ In the case of this paper it is the total number of parameters of the RBF
+ network.
+ For the current work, the number 
 \begin_inset Formula $n$
 \end_inset
 
@@ -1026,7 +1027,7 @@ The weight vector
 \begin_inset Formula $\overrightarrow{w}$
 \end_inset
 
- used in the outout has 
+ used in the output has 
 \begin_inset Formula $k$
 \end_inset
 
@@ -1034,7 +1035,7 @@ The weight vector
 \end_layout
 
 \begin_layout Standard
-As an example of production considere the chromosome 
+As an example of production considered the chromosome 
 \begin_inset Formula $x=\left[9,8,6,4,15,9,16,23,8\right]$
 \end_inset
 
@@ -1072,13 +1073,13 @@ The variable for which its original interval will be partitioned, for example
 \end_layout
 
 \begin_layout Enumerate
-An integer number with values 0 and 1 for the left end of the value interval.
+An integer number with values 0 and 1 at the left end of the value interval.
  If this value is 1, then the left end of the corresponding variable's value
  field will be divided by two, otherwise no change will be made.
 \end_layout
 
 \begin_layout Enumerate
-An integer number with values 0 and 1 for the right end of range of values
+An integer number with values 0 and 1 at the right end of the range of values
  of the variable.
  If this value is 1, then the right end of the corresponding variable's
  value field will be divided by two, otherwise no change will be made.
@@ -1541,7 +1542,7 @@ name "subsec:The-first-phase"
 \end_layout
 
 \begin_layout Standard
-The first step of the first phase of the proposed method is to initalize
+The first step of the first phase of the proposed method is to initialize
  the bounds of the RBF network.
  For this initialization, the K-Means algorithm 
 \begin_inset CommandInset citation
@@ -1777,7 +1778,8 @@ Having calculated the centers
 \end_inset
 
 , that will be used as the initial bounds of the parameters.
- The above vectors are calculated through the procedure of algorithm 
+ The above vectors are calculated through the procedure of the algorithm
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:initialValues"
@@ -2356,7 +2358,7 @@ EndFor
 \series bold
 Apply
 \series default
- the selection procedure: Initially, the chromomes of the population are
+ the selection procedure: Initially, the chromosomes of the population are
  sorted according to their fitness values.
  In order to compare two fitness values 
 \begin_inset Formula $f_{a}=\left[a_{1},a_{2}\right]$
@@ -2400,9 +2402,9 @@ Hence, the fitness value
 
  chromosomes with smaller fitness values are transferred intact to the next
  generation.
- The remain chromosomes are replaced by offspring created in the crossover
+ The remaining chromosomes are replaced by offspring created in the crossover
  procedure.
- During the selection process for each offspring two parents are selected
+ During the selection process for each offspring, two parents are selected
  from the population using the tournament selection.
  
 \end_layout
@@ -2413,15 +2415,15 @@ Hence, the fitness value
 Apply
 \series default
  the crossover procedure.
- The crossover procedure will create 
+ The crossover procedure will create new
 \series bold
-
+ 
 \begin_inset Formula $p_{s}\times N_{c}$
 \end_inset
 
  
 \series default
-new chromosomes.
+chromosomes.
 
 \series bold
  
@@ -2555,7 +2557,7 @@ The second phase of the proposed algorithm
 The second phase utilizes a genetic algorithm, to optimize the parameters
  of the RBF network within the best interval returned by the first phase
  of the method.
- The layout of each chromosome is show in Figure 
+ The layout of each chromosome is shown in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:The-layout-of"
@@ -2980,7 +2982,7 @@ noprefix "false"
 \series bold
 Initialize
 \series default
- nandomly the 
+ randomly the 
 \begin_inset Formula $N_{C}$
 \end_inset
 
@@ -3110,9 +3112,9 @@ Selection procedure.
 
  chromosomes with the lowest fitness values are transferred intact to the
  next generation.
- The remain chromosomes are substituted by offspings created in the crossover
+ The remaining chromosomes are substituted by offspings created in the crossover
  procedure.
- During the selection process for each offspring two parents are selected
+ During the selection process for each offspring, two parents are selected
  from the population using the tournament selection.
  
 \end_layout
@@ -3247,8 +3249,8 @@ name "sec:Experiments"
 
 \begin_layout Standard
 The suggested method was tested on a series of classification and regression
- problems from the relevant literature was compared against some other well
- -known machine learning models.
+ problems from the relevant literature and was compared against some other
+ well -known machine learning models.
  The following databases were used to obtain the datasets:
 \end_layout
 
@@ -3368,7 +3370,7 @@ literal "false"
 \series bold
 Cleveland
 \series default
- dataset, which is a medical datatset related to heart diseases 
+ dataset, which is a medical dataset related to heart diseases 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "cleveland1,cleveland2"
@@ -3400,7 +3402,7 @@ literal "false"
 \series bold
 Hayes roth
 \series default
- datase
+ dataset
 \begin_inset CommandInset citation
 LatexCommand cite
 key "hayesroth"
@@ -3865,7 +3867,7 @@ literal "false"
 \series bold
 Quake
 \series default
- dataset, used to predictearthquakes 
+ dataset, used to predict earthquakes 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "quake"
@@ -3908,7 +3910,7 @@ literal "false"
 \end_inset
 
 .
- The optimization methods used was also freely available from the OPTIMUS
+ The optimization methods used were also freely available from the OPTIMUS
  computing environment, downloaded from 
 \begin_inset Flex URL
 status collapsed
@@ -3921,16 +3923,16 @@ https://github.com/itsoulos/OPTIMUS/
 \end_inset
 
 (accessed on 9 September 2023).
- To validate the results the 10 - fold validation technique was used in
+ To validate the results, the 10 - fold validation technique was used in
  all datasets.
- The experiments were conducted 30 times for every dataset using different
+ The experiments were conducted 30 times for every dataset using a different
  seed for the random generator each time.
- In the conducted experiments the drand48() random function of the C - programmi
-ng language was employeed.
+ In the conducted experiments, the drand48() random function of the C -
+ programming language was employed.
  The average classification error is reported for the case of classification
  datasets and the average mean test error for the regression datasets.
- The machine used in the experiments was an an AMD Ryzen 5950X with 128GB
- of RAM, running the Debian Linux operating system.
+ The machine used in the experiments was an AMD Ryzen 5950X with 128GB of
+ RAM, running the Debian Linux operating system.
  All the values for the parameters of the used algorithms are shown in Table
  
 \begin_inset CommandInset ref
@@ -3954,7 +3956,7 @@ noprefix "false"
 
 \end_inset
 
- and for the regression datasets are listd in Table 
+ and for the regression datasets are listed in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:experiments-regression"
@@ -3973,7 +3975,7 @@ The following applies to the results tables:
 \end_layout
 
 \begin_layout Enumerate
-The column NN-PROP represent an artificial neural network 
+The column NN-PROP represents an artificial neural network 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn1,nn2"
@@ -4016,80 +4018,18 @@ The column PROPOSED represents the results obtained by the proposed method.
 \end_layout
 
 \begin_layout Enumerate
-An extra line was also added in the experimental tables under the title
+An extra line was also added to the experimental tables under the title
  AVERAGE.
  This line represents the average classification or regression error for
  all datasets.
 \end_layout
 
 \begin_layout Standard
-On average the proposed technique appears to be 30-40% more accurate than
- the immediate best.
- In many cases this percentage exceeds 70%.
- Moreover, in the vast majority of problems the proposed technique significantly
- outperforms the next best available method in terms of test error.
- However, the proposed technique consists of two stages and in each of them
- a genetic algorithm should be executed.
- This means that it is significantly slower in computing time compared to
- the rest of the techniques and of course it needs more computing resources.
- Of course, since we are talking about Genetic Algorithms, the training
- time required could be significantly reduced by using parallel techniques
- that take advantage of modern parallel computing structures such as the
- MPI interface 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "openmpi"
-literal "false"
-
-\end_inset
-
- or the OpenMP library 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "openmp"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-(STATISTICS ALEXANDROS HERE)
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-(OK)An additional experiment was performed with different values for the
- parameter 
-\begin_inset Formula $F$
-\end_inset
-
-.
- The experimental results for this experiment are shown in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:expsFClass"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- for the classification datasets.
- And for this critical parameter, no large deviations appear in the results
- of the proposed method.
- This further enhances the robustness and reliability of the proposed technique.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -4339,9 +4279,10 @@ VALUE
 
 \begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -5625,10 +5566,14 @@ AVERAGE
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6583,6 +6528,203 @@ AVERAGE
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+On average, the proposed technique appears to be 30-40% more accurate than
+ the immediate best.
+ In many cases, this percentage exceeds 70%.
+ Moreover, in the vast majority of problems, the proposed technique significantl
+y outperforms the next best available method in terms of test error.
+ However, the proposed technique consists of two stages and in each of them
+ a genetic algorithm should be executed.
+ This means that it is significantly slower in computing time compared to
+ the rest of the techniques and, of course, it needs more computing resources.
+ Of course, since we are talking about Genetic Algorithms, the training
+ time required could be significantly reduced by using parallel techniques
+ that take advantage of modern parallel computing structures such as the
+ MPI interface 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "openmpi"
+literal "false"
+
+\end_inset
+
+ or the OpenMP library 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "openmp"
+literal "false"
+
+\end_inset
+
+.
+ The superiority of the proposed technique is also reinforced by the statistical
+ tests carried out on the experimental results and presented in figures
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statClass"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statRegression"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename stat_class_genrbf.eps
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Scatter plot representation and the two-sample paired (Wilcoxon) signed-rank
+ test results of the comparison for each of the three (3) classification
+ methods (NN-RPROP, RBF-KMEAN, GENRBF) with the PROPOSED method regarding
+ the classification error in twenty-four (24) different public available
+ classification datasets.
+ The stars only intend to flag significance levels for the two most used
+ groups.
+ A p-value of less than 0.001 is flagged with three stars (***).
+ A p-value of less than 0.0001 is flagged with four stars (****).
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statClass"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename stat_regression_genrbf.eps
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Scatter plot representation and the Wilcoxon signed-rank test results of
+ the comparison for each of the three (3) regression methods (NN-RPROP,
+ RBF-KMEAN, GENRBF) with the PROPOSED method regarding the regression error
+ in seventeen (17) different publicly available regression datasets.
+ Star links join significantly different values; one star (*) stand p<0.05
+ and four stars (****) stand for p<0.0001.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statRegression"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In addition, an additional set of experiments was performed on the classificatio
+n data in which the critical parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ took the values 3, 5 and 10.
+ The aim of this set of experiments was to establish the sensitivity of
+ the proposed technique to changes in its parameters.
+ The experimental results are presented in the table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expsFClass"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and a statistical test on the results is presented in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statfparam"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The results and the statistics test indicate that there is no significant
+ difference in the efficiency of the method for different values of the
+ critical parameter 
+\begin_inset Formula $F$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -7648,6 +7790,54 @@ AVERAGE
 \end_inset
 
 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename stat_fparam_genrbf.eps
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A Friedman test was conducted to determine whether different values of the
+ critical parameter F had a difference or not in the classification error
+ of the proposed method in twenty-four (24) other publicly available classificat
+ion datasets.
+ The analysis results for three different values of the critical parameter
+ F (F=3, F=5, F=10) indicated no significant difference.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statfparam"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -7677,29 +7867,21 @@ A two-step method was presented in the present work to train RBF neural
  From the comparison of the results and their statistical processing, it
  was clearly seen that the proposed technique outperforms the others with
  which the comparison was made, both in classification datasets and regression
- datasets.Future improvements of the proposed method may include:
+ datasets.
+ Future improvements to the proposed method may include:
 \end_layout
 
-\begin_layout Standard
-
-\series bold
-(OK)
+\begin_layout Enumerate
+Application of the proposed method to other types of artificial neural networks.
 \end_layout
 
-\begin_layout Standard
-1) na efarmostei ayti i texniki kai se alla texnita neuronika diktya
+\begin_layout Enumerate
+Implementation of crossover and mutation techniques that focus more on the
+ existing interval construction technique for the model parameters.
 \end_layout
 
-\begin_layout Standard
-2) na ginoyn texnikes mutation kai crossover poy na einai pio konta stin
- methodo kai oxi oi genikes texnikes tis grammatical evolution
-\end_layout
-
-\begin_layout Standard
-3) na ginei xrisi parallilon texnikon gia beltiosi tis taxytitas, giati
- einai methodos dyo stadion.
- Auto einai eukolo na ginei mias kai exoume genetikous algorithmous pou
- apo tin fysi tous mporoyn na ginoun parallila
+\begin_layout Enumerate
+Incorporation of parallel programming techniques to speed up the method.
 \end_layout
 
 \begin_layout Standard
