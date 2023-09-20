@@ -363,161 +363,12 @@ Artificial neural networks are widely established models of computational
 Neural networks; Genetic algorithms; Grammatical Evolution
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-clearpage
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Introduction
 \end_layout
 
-\begin_layout Standard
-The introduction should briefly place the study in a broad context and highlight
- why it is important.
- It should define the purpose of the work and its significance.
- The current state of the research field should be reviewed carefully and
- key publications cited.
- Please highlight controversial and diverging hypotheses when necessary.
- Finally, briefly mention the main aim of the work and highlight the principal
- conclusions.
- As far as possible, please keep the introduction comprehensible to scientists
- outside your particular field of research.
- Citing a journal paper 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "ref-journal"
-literal "false"
-
-\end_inset
-
-.
- Now citing a book reference 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "ref-book1,ref-book2"
-literal "false"
-
-\end_inset
-
- or other reference types 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "ref-unpublish,ref-communication,ref-proceeding"
-literal "false"
-
-\end_inset
-
-.
- Please use the command 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-citep{ref-thesis,ref-url}
-\end_layout
-
-\end_inset
-
- for the following MDPI journals, which use author–date citation: Administrative
- Sciences, Arts, Econometrics, Economies, Genealogy, Histories, Humanities,
- IJFS, Journal of Intelligence, Journalism and Media, JRFM, Languages, Laws,
- Religions, Risks, Social Sciences.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-You can let LyX automatically generate 
-\family typewriter
-
-\backslash
-citep{}
-\family default
- commands by selecting 
-\family sans
-plainnat
-\family default
- in 
-\family sans
-Document
-\family default
-\SpecialChar menuseparator
-
-\family sans
-Settings
-\family default
-\SpecialChar menuseparator
-
-\family sans
-Bibliography
-\family default
-\SpecialChar menuseparator
-
-\family sans
-Default BibTeX style
-\family default
- instead of 
-\family sans
-plain
-\family default
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
-Materials and Methods
-\end_layout
-
-\begin_layout Standard
-Materials and Methods should be described with sufficient details to allow
- others to replicate and build on published results.
- Please note that publication of your manuscript implicates that you must
- make all materials, data, computer code, and protocols associated with
- the publication available to readers.
- Please disclose at the submission stage any restrictions on the availability
- of materials or information.
- New methods and protocols should be described in detail while well-established
- methods can be briefly described and appropriately cited.
-\end_layout
-
-\begin_layout Standard
-Research manuscripts reporting large datasets that are deposited in a publicly
- avail-able database should specify where the data have been deposited and
- provide the relevant accession numbers.
- If the accession numbers have not yet been obtained at the time of submission,
- please state that they will be provided during review.
- They must be provided prior to publication.
-\end_layout
-
-\begin_layout Standard
-Interventionary studies involving animals or humans, and other studies require
- ethical approval must list the authority that provided approval and the
- corresponding ethical approval code.
- 
-\end_layout
-
-\begin_layout Quote
-This is an example of a quote.
- 
+Method description
 \end_layout
 
 \begin_layout Section
@@ -525,172 +376,720 @@ Results
 \end_layout
 
 \begin_layout Standard
-This section may be divided by subheadings.
- It should provide a concise and precise description of the experimental
- results, their interpretation as well as the experimental conclusions that
- can be drawn.
- 
-\end_layout
-
-\begin_layout Subsection
-Subsection
-\end_layout
-
-\begin_layout Subsubsection
-Subsubsection
-\end_layout
-
-\begin_layout Standard
-Bulleted lists look like this: 
-\end_layout
-
-\begin_layout Itemize
-First bullet; 
-\end_layout
-
-\begin_layout Itemize
-Second bullet; 
-\end_layout
-
-\begin_layout Itemize
-Third bullet.
- 
-\end_layout
-
-\begin_layout Standard
-Numbered lists can be added as follows: 
+The effectivness of the proposed method was evaluated on a series of classificat
+ion and regression datasets, used in the relevant literature.
+ These datasets can be download from the following online databases:
 \end_layout
 
 \begin_layout Enumerate
-First item; 
-\end_layout
-
-\begin_layout Enumerate
-Second item; 
-\end_layout
-
-\begin_layout Enumerate
-Third item.
- 
-\end_layout
-
-\begin_layout Standard
-The text continues here.
-\end_layout
-
-\begin_layout Subsection
-Figures, Tables and Schemes
-\end_layout
-
-\begin_layout Standard
-All figures and tables should be cited in the main text as Figure
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, Table
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, Table
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab2"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, etc.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename Definitions/logo-mdpi.pdf
-	width 10.5cm
-
-\end_inset
-
- 
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-This is a figure.
- Schemes follow the same formatting.
- If there are multiple panels, they should be listed as: (
-\series bold
-a
-\series default
-) Description of what is contained in the first panel.
- (
-\series bold
-b
-\series default
-) Description of what is contained in the second panel.
- Figures should be placed in the main text near to the first time they are
- cited.
- A caption on a single line should be centered.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig1"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
+UCI dataset repository, 
+\begin_inset Flex URL
 status collapsed
 
 \begin_layout Plain Layout
 
-
-\backslash
-unskip 
+https://archive.ics.uci.edu/ml/index.php
 \end_layout
 
 \end_inset
 
 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "UCL"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Keel repository, 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://sci2s.ugr.es/keel/datasets.php
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Keel"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The Statlib URL 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+ftp://lib.stat.cmu.edu/datasets/index.html 
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Experimental datasets 
+\end_layout
+
+\begin_layout Standard
+The classification datasets used in this paper are the following:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Appendictis
+\series default
+ a medical purpose dataset, suggested in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "appendicitis"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Australian
+\series default
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "australian"
+literal "false"
+
+\end_inset
+
+, a dataset related to credit card transactions.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Balance
+\series default
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "balance"
+literal "false"
+
+\end_inset
+
+, related to psychological states.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Cleveland
+\series default
+ dataset, which is a medical dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cleveland1,cleveland2"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Dermatology
+\series default
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "dermatology"
+literal "false"
+
+\end_inset
+
+, a medical dataset related to erythemato-squamous diseases.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Heart
+\series default
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "heart"
+literal "false"
+
+\end_inset
+
+, a medical dataset related to heart diseases.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Hayes roth
+\series default
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "hayesroth"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+HouseVotes
+\series default
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "housevotes"
+literal "false"
+
+\end_inset
+
+, related to votes in the U.S.
+ House of Representatives Congressmen.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Ionosphere
+\series default
+ dataset, used for classification of radar returns from the ionosphere 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ion1,ion2"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Liverdisorder
+\series default
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "liver"
+literal "false"
+
+\end_inset
+
+, a medical dataset related to liver disorders.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Mammographic
+\series default
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "mammographic"
+literal "false"
+
+\end_inset
+
+, used to identify breast tumors.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Parkinsons
+\series default
+ dataset, a medical dataset related to Parkinson's disease (PD)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "parkinsons"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Pima
+\series default
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "pima"
+literal "false"
+
+\end_inset
+
+, used to detect the presence of diabetes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Popfailures
+\series default
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "popfailures"
+literal "false"
+
+\end_inset
+
+, a dataset related to climate measurements.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Regions2
+\series default
+ dataset, medical dataset related to hepatitis C 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "regions"
+literal "true"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Saheart
+\series default
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "saheart"
+literal "false"
+
+\end_inset
+
+, a medical dataset related to heart diseases.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Segment
+\series default
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "segment"
+literal "false"
+
+\end_inset
+
+, an image processing dataset.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Wdbc
+\series default
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wdbc"
+literal "false"
+
+\end_inset
+
+, a medical dataset related to breast tumors.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Wine
+\series default
+ dataset, used to detect the origin of wines 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wine1,wine2"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Eeg
+\series default
+ datasets, a medical dataset related to EEG measurements 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "eeg"
+literal "true"
+
+\end_inset
+
+.
+ There are 3 different cases from this dataset used here denoted as Z_F_S,
+ ZO_NF_S, ZONF_S.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Zoo
+\series default
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "zoo"
+literal "false"
+
+\end_inset
+
+, used to classify animals.
+\end_layout
+
+\begin_layout Standard
+The description of the used regression datasets has as follows:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Abalone
+\series default
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "abalone"
+literal "false"
+
+\end_inset
+
+, used to to predict the age of abalone from physical measurements.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Airfoil 
+\series default
+dataset, derived from NASA 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "airfoil"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Baseball
+\series default
+ dataset, used to estimate the salary of baseball players.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+BK
+\series default
+ dataset
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Stat"
+literal "false"
+
+\end_inset
+
+, used to predict the points scored in a basketball game.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+BL
+\series default
+ dataset, an electrical engineering dataset.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Concrete
+\series default
+ dataset
+\begin_inset CommandInset citation
+LatexCommand cite
+key "concrete"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Dee
+\series default
+ dataset, used to predict the price of electricity.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Diabetes
+\series default
+ dataset, a medical dataset.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Housing
+\series default
+ dataset, provided in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key23"
+literal "true"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+FA
+\series default
+ dataset, used to predict the fit body fat.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+MB
+\series default
+ dataset, available from from Smoothing Methods in Statistics 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key21"
+literal "true"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+MORTGAGE
+\series default
+ dataset, related to Economic data from USA.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+PY 
+\series default
+dataset, (Pyrimidines problem)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "pydataset"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Quake
+\series default
+ dataset, used to predict the strength of a earthquakes.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Treasure
+\series default
+ dataset, related to Economic data from USA.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Wankara
+\series default
+ dataset, a dataset related to weather.
+\end_layout
+
+\begin_layout Subsection
+Experimental results
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+The method is compared against three other methods:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+A genetic algorithm with the same parameters that are shown in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Experimental-parameters."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Also, after the termination of the genetic algorithm the local search procedure
+ of BFGS is applied to the best chromosome of the population, in order to
+ enhance the quality of the solution.
+ The column GENETIC in the experimental tables denotes the results from
+ the application of this method.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+The Adam stochastic optimization method 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Adam"
+literal "false"
+
+\end_inset
+
+ as implemented in OptimLib, freely available from 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/kthohr/optim
+\end_layout
+
+\end_inset
+
+.
+ The results for this method are listed in the column ADAM in the relevant
+ tables.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+The Rprop method 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rpropnn"
+literal "false"
+
+\end_inset
+
+ .
+ The results for this method are listed in the column RPROP in the relevant
+ tables.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+The NEAT method (NeuroEvolution of Augmenting Topologies ) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "neat"
+literal "false"
+
+\end_inset
+
+ as implemented in EvolutionNet package freely available from 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/BiagioFesta/EvolutionNet
+\end_layout
+
+\end_inset
+
+.
+ The maximum number of generations is the same as in the case of the Genetic
+ algorithm.
 \end_layout
 
 \begin_layout Standard
@@ -704,219 +1103,14 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-This is a table caption.
- Tables should be placed in the main text near to the first time they are
-\begin_inset space ~
-\end_inset
-
-cited.
+Experiments for classification datasets
 \begin_inset CommandInset label
 LatexCommand label
-name "tab1"
+name "tab:Experiments-for-classification"
 
 \end_inset
 
 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="3">
-<features booktabs="true" tabularvalignment="middle" tabularwidth="100text%">
-<column alignment="center" valignment="top" width="33text%">
-<column alignment="center" valignment="top" width="33text%">
-<column alignment="center" valignment="top" width="33text%">
-<row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Title 1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Title 2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Title 3
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Entry 1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Entry 2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\begin_inset script superscript
-
-\begin_layout Plain Layout
-1
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\size footnotesize
-\begin_inset script superscript
-
-\begin_layout Plain Layout
-
-\size footnotesize
-1
-\end_layout
-
-\end_inset
-
-Tables may have a footer.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The text continues here (Figure
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig2"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- and Table
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab2"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Example of a figure that spans the whole page width.
- The same concept works for tables, too.
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Begin Whole Page
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Keep empty!
 \end_layout
 
 \end_inset
@@ -926,622 +1120,1478 @@ Keep empty!
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Graphics
-	filename Definitions/logo-mdpi.pdf
-	width 15cm
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout End Whole Page
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Keep empty!
-\end_layout
-
-\end_inset
-
-
-\begin_inset VSpace -3pt
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-This is a wide figure.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig2"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-unskip 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-This is a wide table.
-\begin_inset CommandInset label
-LatexCommand label
-name "tab2"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Begin Whole Page
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Please, do not add text to entries with green labels!
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Tabular
-<lyxtabular version="3" rows="13" columns="4">
-<features booktabs="true" tabularvalignment="middle" tabularwidth="100line%">
-<column alignment="center" valignment="top" width="0pt" special=">{\centering}p{0.2\linewidth}">
-<column alignment="center" valignment="top" width="25line%">
-<column alignment="center" valignment="top" width="25line%">
-<column alignment="center" valignment="top" width="25line%">
+<lyxtabular version="3" rows="26" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DATASET
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+GENETIC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ADAM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RPROP
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+NEAT
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PROPOSED
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Appendicitis
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18.10%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16.50%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16.30%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17.20%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17.00%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Australian
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32.21%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+35.65%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+36.12%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+31.98%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+24.55%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Balance
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.97%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7.87%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.81%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23.14%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16.71%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cleveland
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+51.60%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+67.55%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+61.41%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+53.44%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+47.91%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dermatology
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30.58%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+26.14%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15.12%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32.43%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.93%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hayes Roth
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+56.18%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+59.70%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+37.46%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+50.15%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32.21%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Heart
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+28.34%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+38.53%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30.51%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+39.27%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17.40%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+HouseVotes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.62%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7.48%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.04%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10.89%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.48%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ionosphere
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15.14%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16.64%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13.65%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.67%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7.14%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Liverdisorder
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+31.11%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+41.53%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40.26%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30.67%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+28.90%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Lymography
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23.26%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29.26%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+24.67%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+33.70%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17.86%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mammographic
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.88%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+46.25%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18.46%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+22.85%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17.32%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Parkinsons
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18.05%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+24.06%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+22.28%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18.56%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14.35%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pima
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32.19%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+34.85%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+34.27%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+34.51%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+25.58%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Popfailures
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.94%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.18%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.81%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7.05%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.58%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Regions2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29.39%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29.85%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+27.53%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+33.23%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+28.32%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Saheart
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+34.86%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+34.04%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+34.90%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+34.51%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+27.43%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Segment
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+57.72%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+49.75%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+52.14%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+66.72%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.68%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Wdbc
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.56%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+35.35%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+21.57%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12.88%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.23%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Wine
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.20%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29.40%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30.73%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+25.43%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.35%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Z_F_S
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10.73%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+47.81%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29.28%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+38.41%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.56%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ZO_NF_S
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.41%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+47.43%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.43%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+43.75%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.60%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ZONF_S
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.60%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11.99%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+27.27%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.44%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.21%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ZOO
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16.67%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14.13%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15.47%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.27%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.10%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \series bold
-Title 1
+AVERAGE
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \series bold
-Title 2
+23.60%
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \series bold
-Title 3
+31.54%
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \series bold
-Title 4
+25.65%
 \end_layout
 
 \end_inset
 </cell>
-</row>
-<row>
-<cell multirow="3" alignment="center" valignment="middle" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Entry 1
-\begin_inset script superscript
 
-\begin_layout Plain Layout
-*
-\end_layout
-
-\end_inset
-
-
+\series bold
+29.42%
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Entry 2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="3" alignment="center" valignment="middle" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Entry 3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Entry 4
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
+\series bold
+16.23%
 \end_layout
 
 \end_inset
@@ -1554,302 +2604,9 @@ Data
 
 \end_layout
 
-\begin_layout End Whole Page
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Keep empty!
-\end_layout
-
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
-\noindent
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-{
-\backslash
-footnotesize{
-\end_layout
-
-\end_inset
-
-
-\begin_inset script superscript
-
-\begin_layout Plain Layout
-*
-\end_layout
-
-\end_inset
-
- Tables may have a footer.
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\begin_inset Float listing
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Title of the listing
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset CommandInset line
-LatexCommand rule
-width "100col%"
-height "1pt"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align left
-Text of the listing.
- In font size footnotesize, small, or normalsize.
- Preferred format: left aligned and single spaced.
- Preferred border format: top border line and bottom border line.
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset CommandInset line
-LatexCommand rule
-width "100col%"
-height "1pt"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Text.
-\end_layout
-
-\begin_layout Standard
-Text.
-\end_layout
-
-\begin_layout Subsection
-Formatting of Mathematical Components
-\end_layout
-
-\begin_layout Standard
-This is the example 1 of equation: 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{linenomath}
-\end_layout
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{equation}
-a=1,
-\end{equation}
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{linenomath}
-\end_layout
-
-\end_inset
-
-the text following an equation need not be a new paragraph.
- Please punctuate equations as regular text.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-If the documentclass option "submit" is chosen, please insert a blank line
- before and after any math environment (equation and eqnarray environments).
- This ensures correct linenumbering.
- The blank line should be removed when the documentclass option is changed
- to "accept" because the text following an equation should not be a new
- paragraph.
-\end_layout
-
-\begin_layout Plain Layout
-In LyX, in order to insert a blank line before and after an equation, check
- 
-\begin_inset Quotes eld
-\end_inset
-
-
-\family sans
-Mark end of paragraphs
-\family default
-
-\begin_inset Quotes erd
-\end_inset
-
- in 
-\family sans
-Tools
-\family default
-\SpecialChar menuseparator
-
-\family sans
-Preferences
-\family default
-\SpecialChar menuseparator
-
-\family sans
-Display
-\family default
- and verify that the pilcrow mark ¶ is present at the end of the line preceding
- the equation and at the end of the equation itself.
- If not, place the cursor there and hit the Enter key.
- To remove the pilcrow mark, place the cursor at the start of the next line
- and hit the Backspace key.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-This is the example 2 of equation: 
-\end_layout
-
-\begin_layout Begin Whole Page
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Keep empty!
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-a=b+c+d+e+f+g+h+i+j+k+l+m+n+o+p+q+r+s+t+u+v+w+x+y+z
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout End Whole Page
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Keep empty!
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Example of a page in landscape format (with table and table footnote).
-\begin_inset Newline newline
-\end_inset
-
-Dissolve the outer note inset to activate.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Start Landscape
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Keep empty!
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Float table
 placement H
 wide false
@@ -1860,10 +2617,10 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-This is a very wide table.
+Experiments for regression datasets.
 \begin_inset CommandInset label
 LatexCommand label
-name "tab3"
+name "tab:exp2"
 
 \end_inset
 
@@ -1876,139 +2633,1031 @@ name "tab3"
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="4">
-<features booktabs="true" tabularvalignment="middle" tabularwidth="100line%">
-<column alignment="center" valignment="top" width="20line%">
-<column alignment="center" valignment="top" width="20line%">
-<column alignment="center" valignment="top" width="20line%">
-<column alignment="center" valignment="top" width="20line%">
+<lyxtabular version="3" rows="18" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\series bold
-Title 1
+DATASET
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\series bold
-Title 2
+GENETIC
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\series bold
-Title 3
+ADAM
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+RPROP
+\end_layout
 
-\series bold
-Title 4
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+NEAT
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PROPOSED
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Entry 1
+ABALONE
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Data
+7.17
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Data
+4.30
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-This cell has some longer content that runs over two lines.
+4.55
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9.88
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.48
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Entry 2
+AIRFOIL
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Data
+0.003
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Data
+0.005
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Data
-\begin_inset script superscript
-
-\begin_layout Plain Layout
-1
+0.002
 \end_layout
 
 \end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
+\begin_layout Plain Layout
+0.067
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.002
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+BASEBALL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+103.60
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+77.90
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+92.05
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100.39
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+51.39
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+BK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.027
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.03
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.599
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.02
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+BL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.74
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.28
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.38
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.05
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.002
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CONCRETE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0099
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.078
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0086
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.081
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.004
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DEE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.013
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.63
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.608
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.512
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.23
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DIABETES
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.86
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.03
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.11
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.41
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+HOUSING
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+43.26
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+80.20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+74.38
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+56.49
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+24.55
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FA
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.95
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.11
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.19
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.01
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MB
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.39
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.06
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.055
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.061
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.048
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MORTGAGE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.41
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9.24
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9.19
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+14.11
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.65
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PY
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.41
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.09
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.039
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.075
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.025
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+QUAKE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.040
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.06
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.041
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.298
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.038
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TREASURY
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.929
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11.16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10.88
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15.52
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.84
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+WANKARA
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.012
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.02
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0003
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.005
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0002
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+AVERAGE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+12.30
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+11.70
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+12.44
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+12.70
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+5.17
 \end_layout
 
 \end_inset
@@ -2021,151 +3670,9 @@ Data
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{adjustwidth}{+
-\backslash
-extralength}{0cm}
-\end_layout
-
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
-\noindent
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-{
-\backslash
-footnotesize 
-\end_layout
-
-\end_inset
-
-
-\begin_inset script superscript
-
-\begin_layout Plain Layout
-1
-\end_layout
-
-\end_inset
-
- This is a table footnote.
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{adjustwidth}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Finish Landscape
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Keep empty!
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Please punctuate equations as regular text.
- Theorem-type environments (including propositions, lemmas, corollaries
- etc.) can be formatted as follows:
-\end_layout
-
-\begin_layout Theorem
-Example text of a theorem.
-\end_layout
-
-\begin_layout Standard
-The text continues here.
- Proofs must be formatted as follows:
-\end_layout
-
-\begin_layout Proof
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-Proof of Theorem 1
-\end_layout
-
-\end_inset
-
- Text of the proof.
- Note that the phrase 
-\begin_inset Quotes eld
-\end_inset
-
-of Theorem 1
-\begin_inset Quotes erd
-\end_inset
-
- is optional if it is clear which theorem is being referred to.
-\end_layout
-
-\begin_layout Standard
-The text continues here.
-\end_layout
-
-\begin_layout Section
-Discussion
-\end_layout
-
-\begin_layout Standard
-Authors should discuss the results and how they can be interpreted from
- the perspective of previous studies and of the working hypotheses.
- The findings and their implications should be discussed in the broadest
- context possible.
- Future research directions may also be highlighted.
 \end_layout
 
 \begin_layout Section
@@ -2173,508 +3680,69 @@ Conclusions
 \end_layout
 
 \begin_layout Standard
-This section is not mandatory, but can be added to the manuscript if the
- discussion is unusually long or complex.
-\end_layout
-
-\begin_layout Section
-Patents
-\end_layout
-
-\begin_layout Standard
-This section is not mandatory, but may be added if there are patents resulting
- from the work reported in this manuscript.
-\end_layout
-
-\begin_layout Standard
 \begin_inset VSpace 6pt
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Optional — Dissolve the outer note inset to activate
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Supplementary
-The following are available online at 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-linksupplementary{s1}
-\end_layout
-
-\end_inset
-
-, Figure S1: title, Table S1: title, Video S1: title.
- 
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Only for the journal Methods and Protocols:
-\end_layout
-
-\begin_layout Plain Layout
-If you wish to submit a video article, please do so with any other supplementary
- material.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Supplementary
-The following are available at 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-linksupplementary{s1}
-\end_layout
-
-\end_inset
-
-, Figure S1: title, Table S1: title, Video S1: title.
- A supporting video article is available at doi: link.
- 
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Author Contributions
-For research articles with several authors, a short paragraph specifying
- their individual contributions must be provided.
- The following statements should be used 
-\begin_inset Quotes eld
-\end_inset
-
-Conceptualization, X.X.
- and Y.Y.; methodology, X.X.; software, X.X.; validation, X.X., Y.Y.
- and Z.Z.; formal analysis, X.X.; investigation, X.X.; resources, X.X.; data curation,
- X.X.; writing—original draft preparation, X.X.; writing—review and editing,
- X.X.; visualization, X.X.; supervision, X.X.; project administration, X.X.; funding
- acquisition, Y.Y.
+I.G.T., A.T.
+ and E.K.
+ conceived the idea and methodology and supervised the technical part regarding
+ the software.
+ I.G.T.
+ conducted the experiments, employing several datasets, and provided the
+ comparative experiments.
+ A.T.
+ performed the statistical analysis.
+ E.K.
+ and all other authors prepared the manuscript.
+ E.K.
+ and I.G.T.
+ organized the research team and A.T.
+ supervised the project.
  All authors have read and agreed to the published version of the manuscript.
-\begin_inset Quotes erd
-\end_inset
-
-, please turn to the 
-\begin_inset CommandInset href
-LatexCommand href
-name "CRediT taxonomy"
-target "http://img.mdpi.org/data/contributor-role-instruction.pdf"
-literal "false"
-
-\end_inset
-
-for the term explanation.
- Authorship must be limited to those who have contributed substantially
- to the work
-\begin_inset space ~
-\end_inset
-
-reported.
 \end_layout
 
 \begin_layout Funding
-Please add: 
-\begin_inset Quotes eld
-\end_inset
-
-This research received no external funding
-\begin_inset Quotes erd
-\end_inset
-
- or 
-\begin_inset Quotes eld
-\end_inset
-
-This research was funded by NAME OF FUNDER grant number XXX.
-\begin_inset Quotes erd
-\end_inset
-
- and and 
-\begin_inset Quotes eld
-\end_inset
-
-The APC was funded by XXX
-\begin_inset Quotes erd
-\end_inset
-
-.
- Check carefully that the details given are accurate and use the standard
- spelling of funding agency names at 
-\begin_inset Flex URL
-status collapsed
-
-\begin_layout Plain Layout
-
-https://search.crossref.org/funding
-\end_layout
-
-\end_inset
-
-, any errors may affect your future funding.
+This research received no external funding.
 \end_layout
 
 \begin_layout Institutional Review
-In this section, you should add the Institutional Review Board Statement
- and approval number, if relevant to your study.
- You might choose to exclude this statement if the study did not require
- ethical approval.
- Please note that the Editorial Office might ask you for further information.
- Please add “The study was conducted in accordance with the Declaration
- of Helsinki, and approved by the Institutional Review Board (or Ethics
- Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).”
- for studies involving humans.
- OR “The animal study protocol was approved by the Institutional Review
- Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and
- date of approval).” for studies involving animals.
- OR “Ethical review and approval were waived for this study due to REASON
- (please provide a detailed justification).” OR “Not applicable” for studies
- not involving humans or animals.
+Not applicable.
 \end_layout
 
 \begin_layout Informed Consent
-Any research article describing a study involving humans should contain
- this statement.
- Please add 
-\begin_inset Quotes eld
-\end_inset
-
-Informed consent was obtained from all subjects involved in the study.
-\begin_inset Quotes erd
-\end_inset
-
- OR 
-\begin_inset Quotes eld
-\end_inset
-
-Patient consent was waived due to REASON (please provide a detailed justificatio
-n).
-\begin_inset Quotes erd
-\end_inset
-
- OR 
-\begin_inset Quotes eld
-\end_inset
-
-Not applicable
-\begin_inset Quotes erd
-\end_inset
-
- for studies not involving humans.
- You might also choose to exclude this statement if the study did not involve
- humans.
+Not applicable.
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-As LyX does not allow multiple paragraphs in command type environments,
- the following ERT is used to introduce a blank line in the LaTeX output.
 \end_layout
 
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-Written informed consent for publication must be obtained from participating
- patients who can be identified (including by the patients themselves).
- Please state 
-\begin_inset Quotes eld
-\end_inset
-
-Written informed consent has been obtained from the patient(s) to publish
- this paper
-\begin_inset Quotes erd
-\end_inset
-
- if applicable.
-\end_layout
-
-\begin_layout Data Availability
-We encourage all authors of articles published in MDPI journals to share
- their research data.
- In this section, please provide details regarding where data supporting
- reported results can be found, including links to publicly archived datasets
- analyzed or generated during the study.
- Where no new data were created, or where data is unavailable due to privacy
- or ethical re-strictions, a statement is still required.
- Suggested Data Availability Statements are available in section “MDPI Research
- Data Policies” at 
-\begin_inset Flex URL
-status collapsed
-
-\begin_layout Plain Layout
-
-https://www.mdpi.com/ethics
-\end_layout
-
-\end_inset
-
-.
+\begin_layout Informed Consent
+Not applicable.
  
 \end_layout
 
 \begin_layout Acknowledgments
-In this section you can acknowledge any support given which is not covered
- by the author contribution or funding sections.
- This may include administrative and technical support, or donations in
- kind (e.g., materials used for experiments).
+This research has been financed by the European Union : Next Generation
+ EU through the Program Greece 2.0 National Recovery and Resilience Plan
+ , under the call RESEARCH – CREATE – INNOVATE, project name “iCREW: Intelligent
+ small craft simulator for advanced crew training using Virtual Reality
+ techniques" (project code:TAEDK-06195  
 \end_layout
 
 \begin_layout Conflicts of Interest
-Declare conflicts of interest or state 
-\begin_inset Quotes eld
-\end_inset
-
 The authors declare no conflict of interest.
-\begin_inset Quotes erd
-\end_inset
-
- Authors must identify and declare any personal circumstances or interest
- that may be perceived as inappropriately influencing the representation
- or interpretation of reported research results.
- Any role of the funders in the design of the study; in the collection,
- analyses or interpretation of data; in the writing of the manuscript; or
- in the decision to publish the results must be declared in this section.
- If there is no role, please state 
-\begin_inset Quotes eld
-\end_inset
-
-The funders had no role in the design of the study; in the collection, analyses,
- or interpretation of data; in the writing of the manuscript; or in the
- decision to publish the
-\begin_inset space ~
-\end_inset
-
-results
-\begin_inset Quotes erd
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Sample Availability
-Samples of the compounds ...
- are available from the authors.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Optional
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Only for journal Encyclopedia
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Entry Link
-The Link to this entry published on the encyclopedia platform.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Abbreviations
-The following abbreviations are used in this manuscript:
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Optional
-\end_layout
-
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-noindent
-\end_layout
-
-\end_inset
-
-
-\begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="2">
-<features tabularvalignment="middle">
-<column alignment="none" valignment="top" special="@{}l">
-<column alignment="left" valignment="top">
-<row>
-<cell alignment="none" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-MDPI
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Multidisciplinary Digital Publishing Institute
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="none" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-DOAJ
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Directory of open access journals
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="none" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TLA
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Three letter acronym
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="none" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-LD
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Linear dichroism
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
+Not applicable.
 \end_layout
 
 \begin_layout Appendix Titles
 no
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Optional
@@ -2684,7 +3752,7 @@ Optional
 
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Leave argument 
@@ -2744,7 +3812,7 @@ yes
 
 \begin_layout Start of Appendix
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Keep empty!
@@ -2755,292 +3823,12 @@ Keep empty!
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Begin Whole Page
 \start_of_appendix
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Keep empty if Appendix Titles is 
-\begin_inset Quotes eld
-\end_inset
-
-no
-\begin_inset Quotes erd
-\end_inset
-
- (but retain this note)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Keep empty if Appendix Titles is 
-\begin_inset Quotes eld
-\end_inset
-
-no
-\begin_inset Quotes erd
-\end_inset
-
- (but retain this note)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The appendix is an optional section that can contain details and data supplement
-al to the main text—for example, explanations of experimental details that
- would disrupt the flow of the main text but nonetheless remain crucial
- to understanding and reproducing the research shown; figures of replicates
- for experiments of which representative data are shown in the main text
- can be added here if brief, or as Supplementary Data.
- Mathematical proofs of results not central to the paper can be added as
- an appendix.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-This is a table caption.
- 
-\begin_inset CommandInset label
-LatexCommand label
-name "tab5"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="5">
-<features booktabs="true" tabularvalignment="middle" tabularwidth="100text%">
-<column alignment="center" valignment="top" width="0pt">
-<column alignment="center" valignment="top" width="0pt">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Title 1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Title 2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Title 3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Entry 1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Entry 2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Data
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Keep empty if Appendix Titles is 
-\begin_inset Quotes eld
-\end_inset
-
-no
-\begin_inset Quotes erd
-\end_inset
-
- (but retain this note)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-All appendix sections must be cited in the main text.
- In the appendices, Figures, Tables, etc.
- should be labeled, starting with 
-\begin_inset Quotes eld
-\end_inset
-
-A
-\begin_inset Quotes erd
-\end_inset
-
-—e.g., Figure A1, Figure A2, etc.
-\end_layout
-
-\begin_layout Begin Whole Page
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
 Keep empty!
 \end_layout
 
@@ -3051,7 +3839,7 @@ Keep empty!
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Note Note
@@ -3088,448 +3876,743 @@ Keep empty!
 References
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Please provide either the correct journal abbreviation (e.g.
- according to the “List of Title Word Abbreviations” http://www.issn.org/services/
-online-services/access-to-the-ltwa/) or the full name of the journal.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Citations and References in Supplementary files are permitted provided that
- they also appear in the reference list here.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-References, variant A: external bibliography
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout External Bibliography
-yes
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Insert you external bibtex file into the BibTeX inset below but keep empty
- the Style field.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset CommandInset bibtex
-LatexCommand bibtex
-btprint "btPrintCited"
-bibfiles "your_external_BibTeX_file"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-References, variant B: internal bibliography
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Bibliography
-\labelwidthstring 999
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "Author1(year)"
-key "ref-journal"
+key "UCL"
 literal "false"
 
 \end_inset
 
- Author
-\begin_inset space ~
+M.
+ Kelly, R.
+ Longjohn, K.
+ Nottingham, The UCI Machine Learning Repository.
+ 2023.
+ Available online: https://archive.ics.uci.edu (accessed on 20 September 2023).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Keel"
+literal "false"
+
 \end_inset
 
-1, T.
- The title of the cited article.
+J.
+ Alcalá-Fdez, A.
+ Fernandez, J.
+ Luengo, J.
+ Derrac, S.
+ García, L.
+ Sánchez, F.
+ Herrera.
+ KEEL Data-Mining Software Tool: Data Set Repository, Integration of Algorithms
+ and Experimental Analysis Framework.
+ Journal of Multiple-Valued Logic and Soft Computing 17, pp.
+ 255-287, 2011.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "appendicitis"
+literal "false"
+
+\end_inset
+
+Weiss, Sholom M.
+ and Kulikowski, Casimir A., Computer Systems That Learn: Classification
+ and Prediction Methods from Statistics, Neural Nets, Machine Learning,
+ and Expert Systems, Morgan Kaufmann Publishers Inc, 1991.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "australian"
+literal "false"
+
+\end_inset
+
+J.R.
+ Quinlan, Simplifying Decision Trees.
+ International Journal of Man-Machine Studies 
+\series bold
+27
+\series default
+, pp.
+ 221-234, 1987.
  
-\emph on
-Journal Abbreviation
-\emph default
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "balance"
+literal "false"
+
+\end_inset
+
+T.
+ Shultz, D.
+ Mareschal, W.
+ Schmidt, Modeling Cognitive Development on Balance Scale Phenomena, Machine
+ Learning 
+\series bold
+16
+\series default
+, pp.
+ 59-88, 1994.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "cleveland1"
+literal "false"
+
+\end_inset
+
+Z.H.
+ Zhou,Y.
+ Jiang, NeC4.5: neural ensemble based C4.5," in IEEE Transactions on Knowledge
+ and Data Engineering 
+\series bold
+16
+\series default
+, pp.
+ 770-773, 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "cleveland2"
+literal "false"
+
+\end_inset
+
+R.
+ Setiono , W.K.
+ Leow, FERNN: An Algorithm for Fast Extraction of Rules from Neural Networks,
+ Applied Intelligence 
+\series bold
+12
+\series default
+, pp.
+ 15-25, 2000.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "dermatology"
+literal "false"
+
+\end_inset
+
+G.
+ Demiroz, H.A.
+ Govenir, N.
+ Ilter, Learning Differential Diagnosis of Eryhemato-Squamous Diseases using
+ Voting Feature Intervals, Artificial Intelligence in Medicine.
  
 \series bold
-2008
+13
 \series default
-, 
-\emph on
+, pp.
+ 147–165, 1998.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "heart"
+literal "false"
+
+\end_inset
+
+I.
+ Kononenko, E.
+ Šimec, M.
+ Robnik-Šikonja, Overcoming the Myopia of Inductive Learning Algorithms
+ with RELIEFF, Applied Intelligence 
+\series bold
+7
+\series default
+, pp.
+ 39–55, 1997
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "hayesroth"
+literal "false"
+
+\end_inset
+
+B.
+ Hayes-Roth, B., F.
+ Hayes-Roth.
+ Concept learning and the recognition and classification of exemplars.
+ Journal of Verbal Learning and Verbal Behavior 
+\series bold
+16
+\series default
+, pp.
+ 321-338, 1977.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "housevotes"
+literal "false"
+
+\end_inset
+
+R.M.
+ French, N.
+ Chater, Using noise to compute error surfaces in connectionist networks:
+ a novel means of reducing catastrophic forgetting, Neural Comput.
+ 
+\series bold
+14
+\series default
+, pp.
+ 1755-1769, 2002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ion1"
+literal "false"
+
+\end_inset
+
+J.G.
+ Dy , C.E.
+ Brodley, Feature Selection for Unsupervised Learning, The Journal of Machine
+ Learning Research 
+\series bold
+5
+\series default
+, pp 845–889, 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ion2"
+literal "false"
+
+\end_inset
+
+S.
+ J.
+ Perantonis, V.
+ Virvilis, Input Feature Extraction for Multilayered Perceptrons Using Supervise
+d Principal Component Analysis, Neural Processing Letters 
+\series bold
 10
-\emph default
-, 142–149.
-\end_layout
-
-\begin_layout Bibliography
-\labelwidthstring 999
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "Author2(year)"
-key "ref-book1"
-literal "false"
-
-\end_inset
-
- Author
-\begin_inset space ~
-\end_inset
-
-2, L.
- The title of the cited contribution.
- In 
-\emph on
-The Book Title
-\emph default
-; Editor1, F., Editor2, A., Eds.; Publishing House: City, Country, 2007; pp.
- 32–58.
-\end_layout
-
-\begin_layout Bibliography
-\labelwidthstring 999
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "Author3(year)"
-key "ref-book2"
-literal "false"
-
-\end_inset
-
- Author 1, A.; Author 2, B.
- 
-\shape italic
-Book Title
-\shape default
-, 3rd ed.; Publisher: Publisher Location, Country, 2008; pp.
- 154–196.
-\end_layout
-
-\begin_layout Bibliography
-\labelwidthstring 999
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "Author4(year)"
-key "ref-unpublish"
-literal "false"
-
-\end_inset
-
- Author 1, A.B.; Author 2, C.
- Title of Unpublished Work.
- 
-\shape italic
-Abbreviated Journal Name
-\shape default
- year, 
-\shape italic
-phrase indicating stage of publication (submitted; accepted; in press)
-\shape default
-.
-\end_layout
-
-\begin_layout Bibliography
-\labelwidthstring 999
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "Author5(year)"
-key "ref-communication"
-literal "false"
-
-\end_inset
-
- Author 1, A.B.
- (University, City, State, Country); Author 2, C.
- (Institute, City, State, Country).
- Personal communication, 2012.
-\end_layout
-
-\begin_layout Bibliography
-\labelwidthstring 999
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "Author6(year)"
-key "ref-proceeding"
-literal "false"
-
-\end_inset
-
- Author 1, A.B.; Author 2, C.D.; Author 3, E.F.
- Title of presentation.
- In Proceedings of the Name of the Conference, Location of Conference, Country,
- Date of Conference (Day Month Year); Abstract Number (optional), Pagination
- (optional).
-\end_layout
-
-\begin_layout Bibliography
-\labelwidthstring 999
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "Author7(year)"
-key "ref-thesis"
-literal "false"
-
-\end_inset
-
- Author 1, A.B.
- Title of Thesis.
- Level of Thesis, Degree-Granting University, Location of University, Date
- of Completion.
-\end_layout
-
-\begin_layout Bibliography
-\labelwidthstring 999
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "Author8(year)"
-key "ref-url"
-literal "false"
-
-\end_inset
-
- Title of Site.
- Available online: URL (accessed on Day Month Year).
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-If authors have biography, please use the format below
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section*
-Short Biography of Authors
-\end_layout
-
-\begin_layout Biography
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-
-Definitions/author
-\end_layout
-
-\end_inset
-
-
-\series bold
-Firstname Lastname
 \series default
- Biography of first author
+, pp 243–252, 1999.
 \end_layout
 
-\begin_layout Biography
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-
-Definitions/author
-\end_layout
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "liver"
+literal "false"
 
 \end_inset
 
-
+ J.
+ Garcke, M.
+ Griebel, Classification with sparse grids using simplicial basis functions,
+ Intell.
+ Data Anal.
+ 
 \series bold
-Firstname Lastname
+6
 \series default
- Biography of second author
+, pp.
+ 483-502, 2002.
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-For the MDPI journals use author-date citation, please follow the formatting
- guidelines on http://www.mdpi.com/authors/references
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-To cite two works by the same author: 
-\backslash
-citeauthor{ref-journal-1a} (
-\backslash
-citeyear{ref-journal-1a}, 
-\backslash
-citeyear{ref-journal-1b}).
- This produces: Whittaker (1967, 1975).
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-To cite two works by the same author with specific pages: 
-\backslash
-citeauthor{ref-journal-3a} (
-\backslash
-citeyear{ref-journal-3a}, p.
- 328; 
-\backslash
-citeyear{ref-journal-3b}, p.475).
- This produces: Wong (1999, p.
- 328; 2000, p.
- 475).
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-To obtain 
-\backslash
-citeauthor{} in LyX you have to choose 
-\begin_inset Quotes eld
-\end_inset
-
-Author1
-\begin_inset Quotes erd
-\end_inset
-
- (or 
-\begin_inset Quotes eld
-\end_inset
-
-Author2
-\begin_inset Quotes erd
-\end_inset
-
-, or \SpecialChar ldots
-) in 
-\family sans
-Insert\SpecialChar menuseparator
-Citation\SpecialChar menuseparator
-Citation style
-\family default
-, as demonstrated in this citation inset: 
-\begin_inset CommandInset citation
-LatexCommand citeauthor
-key "ref-journal"
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "mammographic"
 literal "false"
 
 \end_inset
 
- (either left- or right-click it).
+M.
+ Elter, R.
+ Schulz-Wendtland, T.
+ Wittenberg, The prediction of breast cancer biopsy outcomes using two CAD
+ approaches that both emphasize an intelligible decision process, Med Phys.
+ 
+\series bold
+34
+\series default
+, pp.
+ 4164-72, 2007.
 \end_layout
 
-\begin_layout Plain Layout
-To obtain 
-\backslash
-citeyear{} in LyX you have to choose 
-\begin_inset Quotes eld
-\end_inset
-
-year
-\begin_inset Quotes erd
-\end_inset
-
- in 
-\family sans
-Insert\SpecialChar menuseparator
-Citation\SpecialChar menuseparator
-Citation style
-\family default
-, as demonstrated in this citation inset: 
-\begin_inset CommandInset citation
-LatexCommand citeyear
-key "ref-journal"
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "parkinsons"
 literal "false"
 
 \end_inset
 
- (either left- or right-click it).
+M.A.
+ Little, P.E.
+ McSharry, E.J.
+ Hunter, J.
+ Spielman, L.O.
+ Ramig, Suitability of dysphonia measurements for telemonitoring of Parkinson's
+ disease.
+ IEEE Trans Biomed Eng.
+ 
+\series bold
+56
+\series default
+, pp.
+ 1015-1022, 2009.
 \end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "pima"
+literal "false"
 
 \end_inset
 
+J.W.
+ Smith, J.E.
+ Everhart, W.C.
+ Dickson, W.C.
+ Knowler, R.S.
+ Johannes, Using the ADAP learning algorithm to forecast the onset of diabetes
+ mellitus, In: Proceedings of the Symposium on Computer Applications and
+ Medical Care IEEE Computer Society Press, pp.261-265, 1988.
+\end_layout
 
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "popfailures"
+literal "false"
+
+\end_inset
+
+D.D.
+ Lucas, R.
+ Klein, J.
+ Tannahill, D.
+ Ivanova, S.
+ Brandon, D.
+ Domyancic, Y.
+ Zhang, Failure analysis of parameter-induced simulation crashes in climate
+ models, Geoscientific Model Development 
+\series bold
+6
+\series default
+, pp.
+ 1157-1171, 2013.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "regions"
+literal "false"
+
+\end_inset
+
+N.
+ Giannakeas, M.G.
+ Tsipouras, A.T.
+ Tzallas, K.
+ Kyriakidi, Z.E.
+ Tsianou, P.
+ Manousou, A.
+ Hall, E.C.
+ Karvounis, V.
+ Tsianos, E.
+ Tsianos, A clustering based method for collagen proportional area extraction
+ in liver biopsy images (2015) Proceedings of the Annual International Conferenc
+e of the IEEE Engineering in Medicine and Biology Society, EMBS, 2015-November,
+ art.
+ no.
+ 7319047, pp.
+ 3097-3100.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "saheart"
+literal "false"
+
+\end_inset
+
+T.
+ Hastie, R.
+ Tibshirani, Non-parametric logistic and proportional odds regression, JRSS-C
+ (Applied Statistics) 
+\series bold
+36
+\series default
+, pp.
+ 260–276, 1987.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "segment"
+literal "false"
+
+\end_inset
+
+M.
+ Dash, H.
+ Liu, P.
+ Scheuermann, K.
+ L.
+ Tan, Fast hierarchical clustering and its validation, Data & Knowledge
+ Engineering 
+\series bold
+44
+\series default
+, pp 109–138, 2003.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "wdbc"
+literal "false"
+
+\end_inset
+
+W.H.
+ Wolberg, O.L.
+ Mangasarian, Multisurface method of pattern separation for medical diagnosis
+ applied to breast cytology, Proc Natl Acad Sci U S A.
+ 
+\series bold
+87
+\series default
+, pp.
+ 9193–9196, 1990.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "wine1"
+literal "false"
+
+\end_inset
+
+M.
+ Raymer, T.E.
+ Doom, L.A.
+ Kuhn, W.F.
+ Punch, Knowledge discovery in medical and biological datasets using a hybrid
+ Bayes classifier/evolutionary algorithm.
+ IEEE transactions on systems, man, and cybernetics.
+ Part B, Cybernetics : a publication of the IEEE Systems, Man, and Cybernetics
+ Society, 
+\series bold
+33
+\series default
+ , pp.
+ 802-813, 2003.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "wine2"
+literal "false"
+
+\end_inset
+
+P.
+ Zhong, M.
+ Fukushima, Regularized nonsmooth Newton method for multi-class support
+ vector machines, Optimization Methods and Software 
+\series bold
+22
+\series default
+, pp.
+ 225-236, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "eeg"
+literal "true"
+
+\end_inset
+
+R.G.
+ Andrzejak, K.
+ Lehnertz, F.
+ Mormann, C.
+ Rieke, P.
+ David, and C.
+ E.
+ Elger, Indications of nonlinear deterministic and finite-dimensional structures
+ in time series of brain electrical activity: Dependence on recording region
+ and brain state, Phys.
+ Rev.
+ E 
+\series bold
+64
+\series default
+, pp.
+ 1-8, 2001.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "zoo"
+literal "false"
+
+\end_inset
+
+M.
+ Koivisto, K.
+ Sood, Exact Bayesian Structure Discovery in Bayesian Networks, The Journal
+ of Machine Learning Research
+\series bold
+ 5
+\series default
+, pp.
+ 549–573, 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-20"
+literal "true"
+
+\end_inset
+
+R.G.
+ Andrzejak, K.
+ Lehnertz, F.
+ Mormann, C.
+ Rieke, P.
+ David, and C.
+ E.
+ Elger, Indications of nonlinear deterministic and finite-dimensional structures
+ in time series of brain electrical activity: Dependence on recording region
+ and brain state, Phys.
+ Rev.
+ E 
+\series bold
+64
+\series default
+, pp.
+ 1-8, 2001.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "abalone"
+literal "false"
+
+\end_inset
+
+W.
+ J Nash, T.L.
+ Sellers, S.R.
+ Talbot, A.J.
+ Cawthor, W.B.
+ Ford, The Population Biology of Abalone (_Haliotis_ species) in Tasmania.
+ I.
+ Blacklip Abalone (_H.
+ rubra_) from the North Coast and Islands of Bass Strait, Sea Fisheries
+ Division, Technical Report No.
+ 48 (ISSN 1034-3288), 1994.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "airfoil"
+literal "false"
+
+\end_inset
+
+T.F.
+ Brooks, D.S.
+ Pope, A.M.
+ Marcolini, Airfoil self-noise and prediction.
+ Technical report, NASA RP-1218, July 1989.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Stat"
+literal "false"
+
+\end_inset
+
+J.S.
+ Simonoff, Smooting Methods in Statistics, Springer - Verlag, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "concrete"
+literal "false"
+
+\end_inset
+
+I.Cheng Yeh, Modeling of strength of high performance concrete using artificial
+ neural networks, Cement and Concrete Research.
+ 
+\series bold
+28
+\series default
+, pp.
+ 1797-1808, 1998.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key23"
+literal "true"
+
+\end_inset
+
+D.
+ Harrison and D.L.
+ Rubinfeld, Hedonic prices and the demand for clean ai, J.
+ Environ.
+ Economics & Management 
+\series bold
+5
+\series default
+, pp.
+ 81-102, 1978.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key21"
+literal "true"
+
+\end_inset
+
+J.S.
+ Simonoff, Smooting Methods in Statistics, Springer - Verlag, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "pydataset"
+literal "false"
+
+\end_inset
+
+R.D.
+ King, S.
+ Muggleton, R.
+ Lewis, M.J.E.
+ Sternberg, Proc.
+ Nat.
+ Acad.
+ Sci.
+ USA 
+\series bold
+89
+\series default
+, pp.
+ 11322–11326, 1992.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Adam"
+literal "false"
+
+\end_inset
+
+D.
+ P.
+ Kingma, J.
+ L.
+ Ba, ADAM: a method for stochastic optimization, in: Proceedings of the
+ 3rd International Conference on Learning Representations (ICLR 2015), pp.
+ 1–15, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rpropnn"
+literal "false"
+
+\end_inset
+
+M.
+ Riedmiller and H.
+ Braun, A Direct Adaptive Method for Faster Backpropagation Learning: The
+ RPROP algorithm, Proc.
+ of the IEEE Intl.
+ Conf.
+ on Neural Networks, San Francisco, CA, pp.
+ 586–591, 1993.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "neat"
+literal "false"
+
+\end_inset
+
+K.
+ O.
+ Stanley, R.
+ Miikkulainen, Evolving Neural Networks through Augmenting Topologies, Evolution
+ary Computation 
+\series bold
+10
+\series default
+, pp.
+ 99-127, 2002.
 \end_layout
 
 \begin_layout Standard
