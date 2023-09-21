@@ -368,11 +368,9 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-(OK)
-\series default
-Artificial Neural networks (ANNs) are programming tools 
+Artificial neural networks (ANNs) are widespread machine learning models,
+ which base their dynamics on a series of parameters which are also called
+ computational units or weights in the relevant literature
 \begin_inset CommandInset citation
 LatexCommand cite
 key "nn1,nn2"
@@ -380,10 +378,9 @@ literal "true"
 
 \end_inset
 
- based on a series of parameters that are commonly called weights or processing
- units.
- They have been used in a variety of problems from different scientific
- areas, such as physics 
+.
+ Neural networks are widely used in a variety of scientific applications
+ such as problems from physics 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "nnphysics1,nnphysics2,nnphysics3"
@@ -391,7 +388,7 @@ literal "false"
 
 \end_inset
 
-, solving of differential equations 
+, solutions of differential equations 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "nnde1,nnde2"
@@ -399,7 +396,7 @@ literal "false"
 
 \end_inset
 
-, agriculture 
+, agriculture problems 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "nnagr1,nnagr2"
@@ -407,7 +404,7 @@ literal "false"
 
 \end_inset
 
-, chemistry 
+, chemistry problems 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "nnchem1,nnchem2,nnchem3"
@@ -415,7 +412,7 @@ literal "false"
 
 \end_inset
 
-, economics 
+, problems that appear in the area of economic sciences 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "nnecon1,nnecon2,nncecon3"
@@ -423,7 +420,7 @@ literal "false"
 
 \end_inset
 
-, medicine 
+, problems related to medicine 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "nnmed1,nnmed2"
@@ -432,27 +429,26 @@ literal "false"
 \end_inset
 
  etc.
- A common way to express a neural network is a function 
+ Commonly, the neural networks are expressed as a function 
 \begin_inset Formula $N(\overrightarrow{x},\overrightarrow{w})$
 \end_inset
 
-, with 
+, with the assumption that the vector 
 \begin_inset Formula $\overrightarrow{x}$
 \end_inset
 
- the input vector (commonly called pattern) and 
+ stands for the input vector to the neural network and the vector 
 \begin_inset Formula $\overrightarrow{w}$
 \end_inset
 
- the weight vector.
- A method that trains a neural network should be used to estimate the vector
- 
+ is the parameter vector, that should be estimated.
+ The first vector is called pattern in the bibliograpjy and the second one
+ weight vector.
+ Techniques that adjust the parameter vector 
 \begin_inset Formula $\overrightarrow{w}$
 \end_inset
 
- for a certain problem.
- The training procedure can also be formulated as an optimization problem,
- where the target is to minimize the so-called error function:
+ minimize the so-called training error, defined as:
 \begin_inset Formula 
 \begin{equation}
 E\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=\sum_{i=1}^{M}\left(N\left(\overrightarrow{x}_{i},\overrightarrow{w}\right)-y_{i}\right)^{2}\label{eq:eq1}
@@ -474,20 +470,17 @@ noprefix "false"
 \begin_inset Formula $\left(\overrightarrow{x_{i}},y_{i}\right),\ i=1,...,M$
 \end_inset
 
- is the dataset used to train the neural network, with 
+ is denoted as the train set of the neural network.
+ The 
 \begin_inset Formula $y_{i}$
 \end_inset
 
- being the actual output for the point 
+ are considered the target outputs for the 
 \begin_inset Formula $\overrightarrow{x_{i}}$
 \end_inset
 
- .
- The neural network 
-\begin_inset Formula $N(\overrightarrow{x},\overrightarrow{w})$
-\end_inset
-
- can be modeled as a summation of processing units as proposed in 
+ points .
+ As proposed in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "nnc"
@@ -495,7 +488,7 @@ literal "false"
 
 \end_inset
 
-:
+, neural networks can be expressed as the following summation:
 \begin_inset Formula 
 \begin{equation}
 N\left(\overrightarrow{x},\overrightarrow{w}\right)=\sum_{i=1}^{H}w_{(d+2)i-(d+1)}\sigma\left(\sum_{j=1}^{d}x_{j}w_{(d+2)i-(d+1)+j}+w_{(d+2)i}\right)\label{eq:nn}
@@ -503,24 +496,24 @@ N\left(\overrightarrow{x},\overrightarrow{w}\right)=\sum_{i=1}^{H}w_{(d+2)i-(d+1
 
 \end_inset
 
-with 
+The number of processing units is denoted by 
 \begin_inset Formula $H$
 \end_inset
 
- is the number of processing units of the neural network and 
+ and the value 
 \begin_inset Formula $d$
 \end_inset
 
- is the dimension of vector 
+ stands for the dimension of input vector 
 \begin_inset Formula $\overrightarrow{x}$
 \end_inset
 
 .
  The function
-\begin_inset Formula $\sigma(x)$
+\begin_inset Formula $\ \sigma(x)$
 \end_inset
 
- is the sigmoid function defined as: 
+ denotes the well - known sigmoid function expressed as: 
 \begin_inset Formula 
 \begin{equation}
 \sigma(x)=\frac{1}{1+\exp(-x)}\label{eq:sig}
@@ -528,30 +521,184 @@ with
 
 \end_inset
 
-From the equation 
+The training of neural networks have been performed by a variety of numerical
+ methods in recent bibliography such as: the Back Propagation method 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bpnn,bpnn2"
+literal "false"
+
+\end_inset
+
+, the RPROP method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rpropnn-1,rpropnn2,rpropnn3"
+literal "false"
+
+\end_inset
+
+, the Adam optimizer 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Adam,AdamNN"
+literal "false"
+
+\end_inset
+
+ etc.
+ Furthermore, more advanced optimization methods have been incrorporated
+ to optimize the parameter vector of neural networks by minimizing equation
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:nn"
+reference "eq:eq1"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
- one can obtain that the dimension of the weight vector 
-\begin_inset Formula $w$
+ such as Quasi Newton methods 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "quasinn,quasinn2"
+literal "false"
+
 \end_inset
 
- is computed as: 
-\begin_inset Formula $n=(d+2)H$
+,
+\series bold
+ 
+\series default
+the Tabu Search method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "tabunn"
+literal "false"
+
+\end_inset
+
+, 
+\series bold
+Simulated Annealing 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nn_ann1,nn_ann2"
+literal "false"
+
+\end_inset
+
+, Genetic Algorithms 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "geneticnn,geneticnn2"
+literal "false"
+
+\end_inset
+
+, Particle Swarm Optimization 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "psonn,psonn2"
+literal "false"
+
+\end_inset
+
+ Differential Evolution 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_de1,weight_de2"
+literal "false"
+
+\end_inset
+
+, Ant Colony Optimization 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_aco"
+literal "false"
+
+\end_inset
+
+ etc.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Also, various researchers have worked on the initialization of the weights
+ of the neural networks such as initialization using decision trees 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_init1"
+literal "false"
+
+\end_inset
+
+, an initialization method based on the Cauchy's inequality 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_init2"
+literal "false"
+
+\end_inset
+
+, a method based on discriminant learning 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_init3"
+literal "false"
+
+\end_inset
+
+ etc.
+ Another topic that attracted the interest of many researchers is the weight
+ decaying, which is a regularization method that adapts the weights of the
+ network aiming to avoid the overfitting problem.
+ Several papers have appeared in this area such as method with positive
+ correlation 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_decay1"
+literal "true"
+
+\end_inset
+
+, the SarProp algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_decay2"
+literal "false"
+
+\end_inset
+
+, incorporation of pruning techniques 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_decay3"
+literal "false"
+
+\end_inset
+
+ etc.
+ Also, more advanced and more recent techniques from the area of computational
+ intelligence have been proposed for neural network training such as the,
+ Furthermore, due to development of GPU units a lot of works have been published
+ that take advantage of these processing units 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_gpu1,weight_gpu2"
+literal "false"
+
 \end_inset
 
 .
- 
-\begin_inset space ~
-\end_inset
+\end_layout
 
-
+\begin_layout Standard
+The rest of this article is organized as follows: 
 \end_layout
 
 \begin_layout Section
@@ -1272,15 +1419,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Enumerate
-The Adam optimization method 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Adam"
-literal "false"
-
-\end_inset
-
- used to train a neural network with 
+The Adam optimization method used to train a neural network with 
 \begin_inset Formula $H$
 \end_inset
 
@@ -1289,15 +1428,7 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Rprop method 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "rpropnn"
-literal "false"
-
-\end_inset
-
- used to train a neural network with 
+The RPROP method used to train a neural network with 
 \begin_inset Formula $H$
 \end_inset
 
@@ -4357,16 +4488,6 @@ References
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "key-1"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
 key "nn1"
 literal "true"
 
@@ -4701,6 +4822,249 @@ I.G.
 \series default
 , pp.
  269-277, 2008.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "bpnn"
+literal "false"
+
+\end_inset
+
+D.E.
+ Rumelhart, G.E.
+ Hinton and R.J.
+ Williams, Learning representations by back-propagating errors, Nature 
+\series bold
+323
+\series default
+, pp.
+ 533 - 536 , 1986.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "bpnn2"
+literal "false"
+
+\end_inset
+
+T.
+ Chen and S.
+ Zhong, Privacy-Preserving Backpropagation Neural Network Learning, IEEE
+ Transactions on Neural Networks 
+\series bold
+20
+\series default
+, , pp.
+ 1554-1564, 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rpropnn-1"
+literal "false"
+
+\end_inset
+
+M.
+ Riedmiller and H.
+ Braun, A Direct Adaptive Method for Faster Backpropagation Learning: The
+ RPROP algorithm, Proc.
+ of the IEEE Intl.
+ Conf.
+ on Neural Networks, San Francisco, CA, pp.
+ 586–591, 1993.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rpropnn3"
+literal "false"
+
+\end_inset
+
+T.
+ Pajchrowski, K.
+ Zawirski and K.
+ Nowopolski, Neural Speed Controller Trained Online by Means of Modified
+ RPROP Algorithm, IEEE Transactions on Industrial Informatics 
+\series bold
+11
+\series default
+, pp.
+ 560-568, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rpropnn2"
+literal "false"
+
+\end_inset
+
+Rinda Parama Satya Hermanto, Suharjito, Diana, Ariadi Nugroho, Waiting-Time
+ Estimation in Bank Customer Queues using RPROP Neural Networks, Procedia
+ Computer Science 
+\series bold
+ 135
+\series default
+, pp.
+ 35-42, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Adam"
+literal "false"
+
+\end_inset
+
+D.
+ P.
+ Kingma, J.
+ L.
+ Ba, ADAM: a method for stochastic optimization, in: Proceedings of the
+ 3rd International Conference on Learning Representations (ICLR 2015), pp.
+ 1–15, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "AdamNN"
+literal "false"
+
+\end_inset
+
+Y.
+ Xue, Y.
+ Tong, F.
+ Neri, An ensemble of differential evolution and Adam for training feed-forward
+ neural networks.
+ Information Sciences 
+\series bold
+608
+\series default
+, pp.
+ 453-471, 2022.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "quasinn"
+literal "false"
+
+\end_inset
+
+B.
+ Robitaille and B.
+ Marcos and M.
+ Veillette and G.
+ Payre, Modified quasi-Newton methods for training neural networks, Computers
+ & Chemical Engineering 
+\series bold
+20
+\series default
+, pp.
+ 1133-1140, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "quasinn2"
+literal "false"
+
+\end_inset
+
+Q.
+ Liu, J.
+ Liu, R.
+ Sang, J.
+ Li, T.
+ Zhang and Q.
+ Zhang, Fast Neural Network Training on FPGA Using Quasi-Newton Optimization
+ Method,IEEE Transactions on Very Large Scale Integration (VLSI) Systems
+ 
+\series bold
+26
+\series default
+, pp.
+ 1575-1579, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tabunn"
+literal "false"
+
+\end_inset
+
+R.S.
+ Sexton, B.
+ Alidaee, R.E.
+ Dorsey, J.D.
+ Johnson, Global optimization for artificial neural networks: A tabu search
+ application.
+ European Journal of Operational Research 
+\series bold
+106
+\series default
+, pp.
+ 570-584, 1998.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_ann1"
+literal "false"
+
+\end_inset
+
+A.
+ Yamazaki, M.
+ C.
+ P.
+ de Souto,T.
+ B.
+ Ludermir, Optimization of neural network weights and architectures for
+ odor recognition using simulated annealing, In: Proceedings of the 2002
+ International Joint Conference on Neural Networks.
+ IJCNN'02 
+\series bold
+1
+\series default
+, pp.
+ 547-552 , 2002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_ann2"
+literal "false"
+
+\end_inset
+
+Y.
+ Da, G.
+ Xiurun, An improved PSO-based ANN with simulated annealing technique, Neurocomp
+uting 
+\series bold
+63
+\series default
+, pp.
+ 527-533, 2005.
 \end_layout
 
 \begin_layout Bibliography
@@ -5385,41 +5749,6 @@ R.D.
 , pp.
  11322–11326, 1992.
  
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "Adam"
-literal "false"
-
-\end_inset
-
-D.
- P.
- Kingma, J.
- L.
- Ba, ADAM: a method for stochastic optimization, in: Proceedings of the
- 3rd International Conference on Learning Representations (ICLR 2015), pp.
- 1–15, 2015.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "rpropnn"
-literal "false"
-
-\end_inset
-
-M.
- Riedmiller and H.
- Braun, A Direct Adaptive Method for Faster Backpropagation Learning: The
- RPROP algorithm, Proc.
- of the IEEE Intl.
- Conf.
- on Neural Networks, San Francisco, CA, pp.
- 586–591, 1993.
 \end_layout
 
 \begin_layout Bibliography
