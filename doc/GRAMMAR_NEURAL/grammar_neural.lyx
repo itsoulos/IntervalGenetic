@@ -587,9 +587,7 @@ literal "false"
 
 \end_inset
 
-, 
-\series bold
-Genetic Algorithms 
+, Genetic Algorithms 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "geneticnn,geneticnn2"
@@ -605,7 +603,11 @@ literal "false"
 
 \end_inset
 
- Differential Evolution 
+,
+\series bold
+ 
+\series default
+Differential Evolution 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "weight_de1,weight_de2"
@@ -626,10 +628,41 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
+Also, recently a series of hybrid optimization methods have been proposed
+ to tackle the minimization of the training error, such as a method that
+ combines PSO and genetic algorithms 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nnhybrid1,nnhybrid2"
+literal "false"
 
-\series bold
-Also, various researchers have worked on the initialization of the weights
- of the neural networks such as initialization using decision trees 
+\end_inset
+
+, incorporation of a particle swarm optimization algorithm and gravitational
+ search algorithm 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nnhybrid3"
+literal "false"
+
+\end_inset
+
+, a combination of a genetic algorithm and controlled gradient method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nnhybrid4"
+literal "false"
+
+\end_inset
+
+ etc.
+\end_layout
+
+\begin_layout Standard
+In addition, an important topic for artificial neural networks such as parameter
+ initialization has been studied by several researchers in recent years.
+ In this area appeared papers such as initialization with decision trees
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "weight_init1"
@@ -637,7 +670,7 @@ literal "false"
 
 \end_inset
 
-, an initialization method based on the Cauchy's inequality 
+, incorporation of the Cauchy's inequality 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "weight_init2"
@@ -645,7 +678,7 @@ literal "false"
 
 \end_inset
 
-, a method based on discriminant learning 
+, discriminant learning 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "weight_init3"
@@ -654,11 +687,11 @@ literal "false"
 \end_inset
 
  etc.
- Another topic that attracted the interest of many researchers is the weight
- decaying, which is a regularization method that adapts the weights of the
- network aiming to avoid the overfitting problem.
- Several papers have appeared in this area such as method with positive
- correlation 
+ Also, another interesting topic in the area of neural networks is the weight
+ decaying, where some regularization is applied to the parameters of the
+ neural network to avoid the overfitting problem.
+ For this topic several reasearch papers have been suggested such as a method
+ that incorporates positive correlation 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "weight_decay1"
@@ -674,7 +707,7 @@ literal "false"
 
 \end_inset
 
-, incorporation of pruning techniques 
+, usage of pruning techniques 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "weight_decay3"
@@ -683,30 +716,118 @@ literal "false"
 \end_inset
 
  etc.
- Also, more advanced and more recent techniques from the area of computational
- intelligence have been proposed for neural network training such as the,
- Furthermore, due to development of GPU units a lot of works have been published
- that take advantage of these processing units 
+\end_layout
+
+\begin_layout Standard
+This paper proposes a two-stage method for efficient training of the parameters
+ of artificial neural networks.
+ In the first stage, a value interval is constructed for the parameters
+ of the neural network through Grammatical Evolution 
 \begin_inset CommandInset citation
-LatexCommand cite
-key "weight_gpu1,weight_gpu2"
+LatexCommand citep
+key "ge1"
 literal "false"
 
 \end_inset
 
 .
+ In the first stage of this work, after an initial estimate of the interval
+ for the parameters of the neural network is made, a series of rules for
+ partitioning and expanding the initial value interval are applied with
+ the usage of Grammatical Evolution, until a promising value interval is
+ found.
+ In the second stage of the method, a genetic algorithm is applied to train
+ the parameters of the artificial neural network.
+ Training is performed within the optimal interval of values found in the
+ first stage of the method.
 \end_layout
 
 \begin_layout Standard
-The rest of this article is organized as follows: 
+The rest of this article is organized as follows: in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Method-description"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ the steps of the proposed method are outlined in detail, in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Experiments"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ the datasets used in the conducted experiments as well the experimental
+ results are presented and finally in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Conclusions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ some conclusions are presented.
 \end_layout
 
 \begin_layout Section
 Method description
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Method-description"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(what shows this section)
+\end_layout
+
+\begin_layout Subsection
+Grammatical evolution 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(description of the proposed language)
+\end_layout
+
+\begin_layout Subsection
+The first phase of the proposed method 
+\end_layout
+
+\begin_layout Subsection
+The second phase of the proposed method
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(describe the proposed genetic algorith, with the proposed termination rule
+ and the application of BFGS)
 \end_layout
 
 \begin_layout Section
-Results
+Experiments 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Experiments"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4285,7 +4406,14 @@ AVERAGE
 \end_layout
 
 \begin_layout Section
-Conclusions
+Conclusions 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Conclusions"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5065,6 +5193,360 @@ uting
 \series default
 , pp.
  527-533, 2005.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "geneticnn"
+literal "false"
+
+\end_inset
+
+F.
+ H.
+ F.
+ Leung, H.
+ K.
+ Lam, S.
+ H.
+ Ling and P.
+ K.
+ S.
+ Tam, Tuning of the structure and parameters of a neural network using an
+ improved genetic algorithm, IEEE Transactions on Neural Networks 
+\series bold
+14
+\series default
+, pp.
+ 79-88, 2003
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "geneticnn2"
+literal "false"
+
+\end_inset
+
+X.
+ Yao, Evolving artificial neural networks, Proceedings of the IEEE, 87(9),
+ pp.
+ 1423-1447, 1999.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "psonn"
+literal "false"
+
+\end_inset
+
+C.
+ Zhang, H.
+ Shao and Y.
+ Li, Particle swarm optimisation for evolving artificial neural network,
+ IEEE International Conference on Systems, Man, and Cybernetics, , pp.
+ 2487-2490, 2000.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "psonn2"
+literal "false"
+
+\end_inset
+
+Jianbo Yu, Shijin Wang, Lifeng Xi, Evolving artificial neural networks using
+ an improved PSO and DPSO 
+\series bold
+71
+\series default
+, pp.
+ 1054-1060, 2008.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_de1"
+literal "false"
+
+\end_inset
+
+J.
+ lonen, J.K.
+ Kamarainen, J.
+ Lampinen, Differential Evolution Training Algorithm for Feed-Forward Neural
+ Networks, Neural Processing Letters 
+\series bold
+17
+\series default
+, pp.
+ 93–105, 2003.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_de2"
+literal "false"
+
+\end_inset
+
+M.
+ Baioletti, G.
+ Di Bari, A.
+ Milani, V.
+ Poggioni, Differential Evolution for Neural Networks Optimization, Mathematics
+ 
+\series bold
+8
+\series default
+, 2020.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_aco"
+literal "false"
+
+\end_inset
+
+K.M.
+ Salama, A.M.
+ Abdelbar, Learning neural network structures with ant colony algorithms,
+ Swarm Intell 
+\series bold
+9
+\series default
+, pp.
+ 229–265, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnhybrid1"
+literal "false"
+
+\end_inset
+
+J.R.
+ Zhang, J.
+ Zhang, T.M.
+ Lok, M.R.
+ Lyu, A hybrid particle swarm optimization–back-propagation algorithm for
+ feedforward neural network training, Applied Mathematics and Computation
+ 
+\series bold
+185
+\series default
+, pp.
+ 1026-1037, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnhybrid2"
+literal "false"
+
+\end_inset
+
+S.
+ Mishra, S.
+ K.
+ Patra, Short Term Load Forecasting Using Neural Network Trained with Genetic
+ Algorithm & Particle Swarm Optimization, In: 2008 First International Conferenc
+e on Emerging Trends in Engineering and Technology, Nagpur, India, 2008,
+ pp.
+ 606-611, doi: 10.1109/ICETET.2008.94.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnhybrid3"
+literal "false"
+
+\end_inset
+
+S.
+ Mirjalili, S.Z.
+ Mohd Hashim, H.
+ Moradian Sardroudi, Training feedforward neural networks using hybrid particle
+ swarm optimization and gravitational search algorithm, Applied Mathematics
+ and Computation 
+\series bold
+218
+\series default
+, pp.
+ 11125-11137, 2012.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnhybrid4"
+literal "false"
+
+\end_inset
+
+A.
+ Kobrunov, I.
+ Priezzhev, Hybrid combination genetic algorithm and controlled gradient
+ method to train a neural network, Geophysics 
+\series bold
+81
+\series default
+, pp,35–43, 2016.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_init1"
+literal "false"
+
+\end_inset
+
+I.
+ Ivanova, M.
+ Kubat, Initialization of neural networks by means of decision trees, Knowledge-
+Based Systems 
+\series bold
+8
+\series default
+, pp.
+ 333-344, 1995.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_init2"
+literal "false"
+
+\end_inset
+
+J.Y.F.
+ Yam, T.W.S.
+ Chow, A weight initialization method for improving training speed in feedforwar
+d neural network, Neurocomputing 
+\series bold
+30
+\series default
+, pp.
+ 219-232, 2000.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_init3"
+literal "false"
+
+\end_inset
+
+K.
+ Chumachenko, A.
+ Iosifidis, M.
+ Gabbouj, Feedforward neural networks initialization based on discriminant
+ learning, Neural Networks 
+\series bold
+146
+\series default
+, pp.
+ 220-229, 2022.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_decay1"
+literal "true"
+
+\end_inset
+
+M.D.
+ Shahjahan, M.
+ Kazuyuki, Neural network training algorithm with possitive correlation,
+ IEEE Trans.
+ Inf & Syst.
+ 
+\series bold
+88
+\series default
+, pp.
+ 2399-2409, 2005.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_decay2"
+literal "true"
+
+\end_inset
+
+N.K.
+ Treadgold, T.D.
+ Gedeon, Simulated annealing and weight decay in adaptive learning: the
+ SARPROP algorithm, IEEE Trans.
+ on Neural Networks 
+\series bold
+9
+\series default
+, pp.
+ 662-668, 1998.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_decay3"
+literal "true"
+
+\end_inset
+
+C.S.
+ Leung, K.W.
+ Wong, P.F.
+ Sum, L.W.
+ Chan, A pruning method for the recursive least squared algorithm, Neural
+ networks 
+\series bold
+14
+\series default
+, pp.
+ 147-174, 2001.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge1"
+literal "true"
+
+\end_inset
+
+M.
+ O’Neill, C.
+ Ryan, Grammatical evolution, IEEE Trans.
+ Evol.
+ Comput.
+ 
+\series bold
+5,
+\series default
+pp.
+ 349–358, 2001.
 \end_layout
 
 \begin_layout Bibliography
