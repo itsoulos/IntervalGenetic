@@ -1726,7 +1726,7 @@ Set
 \begin_inset Formula $N_{s}$
 \end_inset
 
-as the number of randomly created neural networks, that will be used in
+ as the number of randomly created neural networks, that will be used in
  the fitness calculation.
 \end_layout
 
@@ -1739,7 +1739,19 @@ Initialize
 \begin_inset Formula $N_{c}$
 \end_inset
 
- chromosomes as sets of random numbers.
+ chromosomes.
+ Every chromosome is a set of integer numbers used to produce valid programs
+ through Grammatical Evolution and the associated grammar of Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:BNF-grammar-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -1751,8 +1763,8 @@ Set
 \begin_inset Formula $f^{*}=\left[\infty,\infty\right]$
 \end_inset
 
-, the fitness of the best chromosome.
- The fitness function 
+, the best discovered fitness.
+ For this algorithm, we consider the fitness function 
 \begin_inset Formula $f_{g}$
 \end_inset
 
@@ -1760,7 +1772,7 @@ Set
 \begin_inset Formula $g$
 \end_inset
 
- is considered as an interval 
+ as an interval 
 \series bold
 
 \begin_inset Formula $f_{g}=\left[f_{g,\mbox{low}},f_{g,\mbox{upper}}\right]$
@@ -1775,6 +1787,7 @@ Set
 Set
 \series default
  iter=0.
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -1804,7 +1817,11 @@ name "enu:For--do"
 \series bold
 Create 
 \series default
-the partition program 
+for the chromosome 
+\begin_inset Formula $c_{i}$
+\end_inset
+
+ the corresponding program 
 \begin_inset Formula $p_{i}$
 \end_inset
 
@@ -1818,27 +1835,28 @@ noprefix "false"
 
 \end_inset
 
- for the chromosome 
-\begin_inset Formula $cr_{i}$
-\end_inset
-
 .
 \end_layout
 
 \begin_layout Enumerate
 
 \series bold
-Produce 
+Apply 
 \series default
-the bounds 
-\begin_inset Formula $\left[\vec{L_{p_{i}}},\overrightarrow{R_{p_{i}}}\right]$
-\end_inset
-
- for the partition program 
+the program 
 \begin_inset Formula $p_{i}$
 \end_inset
 
+ to 
+\begin_inset Formula $I_{N}$
+\end_inset
+
+ in order to produce the bounds 
+\begin_inset Formula $\left[\vec{L_{p_{i}}},\overrightarrow{R_{p_{i}}}\right]$
+\end_inset
+
 .
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -1873,7 +1891,7 @@ do
 \series bold
 Create
 \series default
- randomly a set of parameters 
+ randomly 
 \begin_inset Formula $g_{j}\in$
 \end_inset
 
@@ -1881,7 +1899,7 @@ Create
 \begin_inset Formula $\left[\vec{L_{p_{i}}},\overrightarrow{R_{p_{i}}}\right]$
 \end_inset
 
-
+ as a set for the parameters of neural network.
 \end_layout
 
 \begin_layout Enumerate
@@ -1889,8 +1907,8 @@ Create
 \series bold
 Calculate
 \series default
- the error 
-\begin_inset Formula $E_{g_{j}}=\sum_{j=1}^{M}\left(y\left(x_{j},g_{j}\right)-t_{j}\right)^{2}$
+ the associated training error 
+\begin_inset Formula $E_{g_{j}}=\sum_{k=1}^{M}\left(N\left(\overrightarrow{x}_{k},\overrightarrow{g_{j}}\right)-y_{k}\right)^{2}$
 \end_inset
 
 
@@ -1948,18 +1966,22 @@ EndFor
 \series bold
 Set
 \series default
- the fitness
+ 
 \begin_inset Formula $f_{i}=\left[E_{\mbox{min}},E_{\mbox{max}}\right]$
 \end_inset
 
+ as the fitness value for the chromosome 
+\begin_inset Formula $c_{i}$
+\end_inset
 
+.
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
 
 \series bold
-EndFor
+EndFor 
 \end_layout
 
 \begin_layout Enumerate
@@ -1967,9 +1989,16 @@ EndFor
 \series bold
 Apply
 \series default
- the selection procedure: Initially, the chromosomes of the population are
- sorted according to their fitness values.
- In order to compare two fitness values 
+ the selection procedure.
+ Firstly, the chromosomes are sorted with correspondance to their fitness
+ values.
+ Since fitness is considered an interval, a fitness comparison function
+ is required.
+ For this reason the operator 
+\begin_inset Formula $L^{*}\left(f_{a},f_{b}\right)$
+\end_inset
+
+ to comparete two fitness values 
 \begin_inset Formula $f_{a}=\left[a_{1},a_{2}\right]$
 \end_inset
 
@@ -1977,11 +2006,7 @@ Apply
 \begin_inset Formula $f_{b}=\left[b_{1},b_{2}\right]$
 \end_inset
 
- the 
-\begin_inset Formula $L^{*}$
-\end_inset
-
- operator is used:
+ as follows:
 \begin_inset Formula 
 \begin{eqnarray}
 L^{*}\left(f_{a},f_{b}\right) & = & \begin{cases}
@@ -1992,7 +2017,7 @@ L^{*}\left(f_{a},f_{b}\right) & = & \begin{cases}
 
 \end_inset
 
-Hence, the fitness value 
+In practice this means that the fitness value 
 \begin_inset Formula $f_{a}$
 \end_inset
 
@@ -2009,12 +2034,12 @@ Hence, the fitness value
 \begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
 \end_inset
 
- chromosomes with smaller fitness values are transferred intact to the next
- generation.
- The remaining chromosomes are replaced by offspring created in the crossover
- procedure.
- During the selection process for each offspring, two parents are selected
- from the population using the tournament selection.
+ chromosomes with the lowest fitness values are copied to the next generation.
+ The remaining chromosomes are substituted by chromosomes produced by the
+ crossover procedure.
+ During the selection process, for every new offspring, two chromosomes
+ are selected as parents from the population using well - known procedure
+ of tournament selection.
  
 \end_layout
 
@@ -2024,21 +2049,6 @@ Hence, the fitness value
 Apply
 \series default
  the crossover procedure.
- The crossover procedure will create new
-\series bold
- 
-\begin_inset Formula $p_{s}\times N_{c}$
-\end_inset
-
- 
-\series default
-chromosomes.
-
-\series bold
- 
-\series default
-For each new offspring two parents are selected from the population using
- the tournament selection.
 
 \series bold
  
@@ -2047,7 +2057,7 @@ For each pair
 \begin_inset Formula $(z,w)$
 \end_inset
 
- of selected parents, two new chromosomes 
+ of parents, two new chromosomes 
 \begin_inset Formula $\tilde{z}$
 \end_inset
 
@@ -2055,7 +2065,8 @@ For each pair
 \begin_inset Formula $\tilde{w}$
 \end_inset
 
- are produced using the one - point crossover, shown in Figure 
+ are created using the one - point crossover, graphically shown in Figure
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:onepoint"
@@ -2074,13 +2085,9 @@ noprefix "false"
 Apply
 \series default
  the mutation procedure.
- For each element of every chromosome, a random number 
-\begin_inset Formula $r\in\left[0,1\right]$
-\end_inset
-
- is drawn.
- The corresponding element is altered randomly if 
-\begin_inset Formula $r\le p_{m}$
+ For each element of every chromosome alter the corresponding element with
+ probability 
+\begin_inset Formula $p_{m}$
 \end_inset
 
 .
@@ -2121,7 +2128,7 @@ noprefix "false"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2138,7 +2145,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-One point crossover, used in the Grammatical Evolution.
+The one point crossover, used in the Grammatical Evolution.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:onepoint"
@@ -3271,7 +3278,7 @@ An extra line was also added to the experimental tables under the title
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3295,7 +3302,7 @@ name "tab:Experimental-parameters."
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="8" columns="2">
+<lyxtabular version="3" rows="7" columns="2">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -3314,29 +3321,6 @@ PARAMETER
 
 \begin_layout Plain Layout
 VALUE
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $K$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-20
 \end_layout
 
 \end_inset
@@ -3439,7 +3423,7 @@ VALUE
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $P_{s}$
+\begin_inset Formula $p_{s}$
 \end_inset
 
 
@@ -3462,7 +3446,7 @@ VALUE
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $P_{m}$
+\begin_inset Formula $p_{m}$
 \end_inset
 
 
