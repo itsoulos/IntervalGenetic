@@ -1617,184 +1617,36 @@ name "subsec:The-first-phase"
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-(CONSTRUCT THE INITIAL SET OF INTERVALS USING a few steps of a genetic algorithm
-)
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-(DEFINE ALSO THE OPERATOR USED IN THE GENETIC ALGORITHMS)
-\end_layout
-
-\begin_layout Standard
-The sigmoid function 
-\begin_inset Formula $\sigma(x)$
-\end_inset
-
- is defined as: 
+Before starting the process of creating partitioning rules and expanding
+ the value interval of the neural network weights, an initial estimate of
+ this interval should be made.
+ In the present work, only a few steps of a genetic algorithm are applied
+ to make an initial estimate of the value interval.
+ At the end of the genetic the chromosome with the best value is the 
 \begin_inset Formula 
 \begin{equation}
-\sigma(x)=\frac{1}{1+\exp(-x)}
+\mbox{IX}=\left(\mbox{IX}_{1},\mbox{IX}_{2},\ldots,\mbox{IX}_{n}\right)
 \end{equation}
 
 \end_inset
 
-If the absolute value of x is too large, then the sigmoid function tends
- to be zero or one and hence the neural network error can be trapped in
- some local minima and the neural network can lsot its learning capabilities.
- In order to measure the above effect we can define the bound quantity 
-\begin_inset Formula $B\left(N\left(\overrightarrow{x},\overrightarrow{w}\right),F\right)$
-\end_inset
-
- as shown in the Algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:CalculationBound"
-plural "false"
-caps "false"
-noprefix "false"
+So, the initial interval set for the parameters of the neural network is
+ calculated as
+\begin_inset Formula 
+\begin{equation}
+I_{N}=\left\{ \left[-\mbox{IX}_{1},\mbox{IX}_{1}\right],\left\{ -\mbox{IX}_{2},\mbox{IX}_{2}\right\} ,\ldots,\left[-\mbox{IX}_{n},\mbox{IX}_{n}\right]\right\} 
+\end{equation}
 
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Calculation of the bounding quantity for neural network 
-\begin_inset Formula $N(x,w)$
+The first phase of the proposed technique will accept the set 
+\begin_inset Formula $I_{N}$
 \end_inset
 
-.
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:CalculationBound"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- 
-\begin_inset Formula $b=0$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-For
-\series default
- 
-\begin_inset Formula $i=1..K$
-\end_inset
-
- 
-\series bold
-Do
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-
-\series bold
-For
-\series default
- 
-\begin_inset Formula $j=1..M$
-\end_inset
-
- (number of patterns) 
-\series bold
-Do
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- 
-\begin_inset Formula $v=\sum_{kT=1}^{d}w_{(d+2)i-(d+i)+k}x_{jk}+w_{(d+2)i}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-If
-\series default
- 
-\begin_inset Formula $\left|v\right|>F$
-\end_inset
-
- 
-\series bold
-set
-\series default
- 
-\begin_inset Formula $b=b+1$
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-
-\series bold
-EndFor
-\end_layout
-
-\end_deeper
-\begin_layout Enumerate
-
-\series bold
-EndFor
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Return
-\series default
- 
-\begin_inset Formula $\frac{b}{K\star M}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+ as input and seek to compute a new set by reducing the training error of
+ the artificial neural network.
+ The first step is mainly a genetic algorithm and the corresponding steps
+ have as follows:
 \end_layout
 
 \begin_layout Enumerate
@@ -1863,8 +1715,6 @@ Set
 \end_inset
 
 .
-\series bold
-(OK)
 \end_layout
 
 \begin_layout Enumerate
@@ -1876,7 +1726,10 @@ Set
 \begin_inset Formula $N_{s}$
 \end_inset
 
-as the number of randomly created RBF networks, used in the fitness calculation.
+as the number of randomly created neural networks, that will be used in
+ the fitness calculation.
+\series bold
+(OK)
 \end_layout
 
 \begin_layout Enumerate
