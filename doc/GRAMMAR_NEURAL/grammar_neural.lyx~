@@ -3278,7 +3278,7 @@ An extra line was also added to the experimental tables under the title
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6053,7 +6053,39 @@ AVERAGE
 
 \end_inset
 
+In general, the proposed technique outperforms the rest of the techniques
+ in the experiments.
+ In fact, in many cases, the test error is reduced by more than 70%.
+ However, since the proposed technique consists exclusively of a series
+ of genetic algorithms, it can be significantly accelerated by the use of
+ parallel computing techniques, since one of the main characteristics of
+ genetic algorithms is their ease of parallelization 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "genpar1,genpar2"
+literal "false"
 
+\end_inset
+
+.
+ Programmin techniques that can be used to parallelize the method could
+ be the MPI programming interface 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "openmpi"
+literal "false"
+
+\end_inset
+
+ or the OpenMP programming library 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "openmp"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -6071,6 +6103,18 @@ name "sec:Conclusions"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+(easy to apply method)
+\end_layout
+
+\begin_layout Standard
+(need for a better initialization procedure before first phase)
+\end_layout
+
+\begin_layout Standard
+(need for parallel techniques)
 \end_layout
 
 \begin_layout Standard
@@ -8250,6 +8294,83 @@ ary Computation
 \series default
 , pp.
  99-127, 2002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "genpar1"
+literal "false"
+
+\end_inset
+
+E.
+ Cantu-Paz, D.E.
+ Goldberg, Efficient parallel genetic algorithms: theory and practice, Computer
+ methods in applied mechanics and engineering 
+\series bold
+186
+\series default
+, pp.
+ 221-238, 2000.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "genpar2"
+literal "false"
+
+\end_inset
+
+T.
+ Harada, E.
+ Alba, Parallel genetic algorithms: a useful survey, ACM Computing Surveys
+ (CSUR) 
+\series bold
+53
+\series default
+, pp.
+ 1-39, 2022.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "openmpi"
+literal "false"
+
+\end_inset
+
+W.
+ Gropp, E.
+ Lusk, N.
+ Doss, A.
+ Skjellum, A high-performance, portable implementation of the MPI message
+ passing interface standard, Parallel Computing 
+\series bold
+22
+\series default
+, pp.
+ 789-828, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "openmp"
+literal "false"
+
+\end_inset
+
+R.
+ Chandra, L.
+ Dagum, D.
+ Kohr, D.
+ Maydan,J.
+ McDonald and R.
+ Menon, Parallel Programming in OpenMP, Morgan Kaufmann Publishers Inc.,
+ 2001.
 \end_layout
 
 \begin_layout Standard
