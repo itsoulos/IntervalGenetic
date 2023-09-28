@@ -240,7 +240,10 @@ int threads=24;
         vector<int> pgenome;
         pgenome.resize(x.size()/features);
 		for(int j=0;j<pgenome.size();j++)
-            pgenome[j]=x[i*genome.size()/features+j];
+		{
+			
+            		pgenome[j]=genome[i*genome.size()/features+j];
+		}
 		int redo=0;
 		pstring[i]=program[0].printRandomProgram(pgenome,redo);
 	}
@@ -352,7 +355,7 @@ double	funmin(vector<double> &x)
   for(int i=0;i<getdimension();i++) {
 	  genome[i]=(int)fabs(x[i]);
 	  if(genome[i]<0) genome[i]=0;
-	  if(genome[i]>255) genome[i]=255;
+//	  if(genome[i]>255) genome[i]=255;
   }
   double f=program[thread()].fitness(genome);
   return -f;

@@ -151,7 +151,7 @@ void	Cprogram::makeRules()
 	rule[r]->addSymbol(&XXlist);
 	XXlist.addRule(rule[r]);
 
-    for(int i=0;i<3;i++)
+    for(int i=0;i<7;i++)
 	{
 		r=newRule();
 		rule[r]->addSymbol(&Digit[i]);
@@ -159,6 +159,12 @@ void	Cprogram::makeRules()
 	}
 
 }
+# define SHRINK 1
+# define EXPAND 2
+# define SHRINK_EXPAND 3
+# define EXPAND_SHRINK 4
+# define SHRINK_SHRINK 5
+# define EXPAND_EXPAND 6
 
 /** oldmargin einai to arxiko dianysma baron
  *  kai newMargin einai to neo dianysma baron **/
@@ -186,25 +192,76 @@ bool Cprogram::evalProgram(string expr,
         if(!ok) return false;
         int right = values[2].toInt(&ok);
         if(!ok) return false;
-        if(left==1)
+        if(left==SHRINK)
         {
             newMargin[index-1].shrinkLeft();
         }
         else
-        if(left==2)
+        if(left==EXPAND)
         {
             newMargin[index-1].expandLeft();
         }
+	else
+	if(left==SHRINK_EXPAND)
+	{
+            newMargin[index-1].shrinkLeft();
+            newMargin[index-1].expandLeft();
+	}	
+	else
+	if(left==EXPAND_SHRINK)
+	{
+            newMargin[index-1].expandLeft();
+            newMargin[index-1].shrinkLeft();
+	}	
+	else
+	if(left==SHRINK_SHRINK)
+	{
+            newMargin[index-1].shrinkLeft();
+            newMargin[index-1].shrinkLeft();
+	}
+	else
+	if(left==EXPAND_EXPAND)
+	{
+            newMargin[index-1].expandLeft();
+            newMargin[index-1].expandLeft();
+	}	
 
-        if(right==1)
+        if(right==SHRINK)
         {
             newMargin[index-1].shrinkRight();
         }
         else
-        if(right==2)
+        if(right==EXPAND)
         {
             newMargin[index-1].expandRight();
         }
+	else
+	if(right==SHRINK_EXPAND)
+	{
+            newMargin[index-1].shrinkRight();
+            newMargin[index-1].expandRight();
+	}
+	else
+	if(right==EXPAND_SHRINK)
+	{
+            newMargin[index-1].expandRight();
+            newMargin[index-1].shrinkRight();
+	}
+	else
+	if(right==EXPAND_EXPAND)
+	{
+            newMargin[index-1].expandRight();
+            newMargin[index-1].expandRight();
+	}
+	else
+	if(right==SHRINK_SHRINK)
+	{
+            newMargin[index-1].shrinkRight();
+            newMargin[index-1].shrinkRight();
+	}
+	//only for GE?
+	    if(newMargin[index-1].leftValue()<0) 
+		    newMargin[index-1]=Interval(0,newMargin[index-1].rightValue());
     }
     return true;
 }
