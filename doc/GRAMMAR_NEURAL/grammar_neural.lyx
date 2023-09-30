@@ -3278,7 +3278,7 @@ An extra line was also added to the experimental tables under the title
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6088,12 +6088,6 @@ literal "false"
 .
 \end_layout
 
-\begin_layout Standard
-
-\series bold
-(STATISTICS ALEXANDROS)
-\end_layout
-
 \begin_layout Section
 Conclusions 
 \begin_inset CommandInset label
@@ -6106,15 +6100,45 @@ name "sec:Conclusions"
 \end_layout
 
 \begin_layout Standard
-(easy to apply method)
+This paper proposed a two-step technique to efficiently find a reliable
+ interval of values for the parameters of artificial neural networks.
+ In the first stage with partitioning techniques and using Grammatical Evolution
+, a range of parameter values was searched and in the second stage a genetic
+ algorithm trained the artificial neural network within the optimal range
+ of values of the first stage.
+ The proposed technique is highly general and has been successfully applied
+ to both data fitting and classification problems.
+ In both cases, the experimental results demonstrate its superiority over
+ other techniques appearing in the relevant literature on the training of
+ artificial neural networks.
+ In fact, in many cases in the performed experiments, the proposed method
+ outperforms others that were tested in percentages that exceed 70%.
+ In the future, a series of actions can be carried out to improve the results
+ and speed up the proposed method, such as:
 \end_layout
 
-\begin_layout Standard
-(need for a better initialization procedure before first phase)
+\begin_layout Enumerate
+There is a need for more efficient techniques for initializing the value
+ space for artificial neural network parameters.
+ In the present work, the optimal result from the execution of a limited
+ number of steps by a genetic algorithm was used as an initial estimate
+ of the value interval.
 \end_layout
 
-\begin_layout Standard
-(need for parallel techniques)
+\begin_layout Enumerate
+In the present work, the same techniques as in any whole-chromosome genetic
+ algorithm were used to perform the crossover and mutation operations.
+ Research could be done at this point to find more focused crossover and
+ mutation techniques for this particular problem.
+\end_layout
+
+\begin_layout Enumerate
+The present technique consists of two phases, in each of which a problem-adapted
+ genetic algorithm is executed.
+ This means that significant computational time is required to complete
+ the algorithm.
+ However, since genetic algorithms are inherently parallelizable, modern
+ parallel programming techniques could be used here.
 \end_layout
 
 \begin_layout Standard
@@ -7248,16 +7272,6 @@ M.
 \series default
 pp.
  349–358, 2001.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-1"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Bibliography
