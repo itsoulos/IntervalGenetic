@@ -349,10 +349,10 @@ Artificial neural networks are widely established models of computational
  of values for the parameters of the artificial neural network.
  This paper proposes an innovative technique of generating a promising range
  of values for the parameters of the artificial neural network.
- Finding the value field is performed by a series of rules for partitioning
- the original set of values or expanding it, which rules are generated using
+ Finding the value field is done by a series of rules for partitioning the
+ original set of values or expanding it, which rules are generated using
  Grammatical Evolution.
- After finding a promising interval of values any optimization technique
+ After finding a promising interval of values, any optimization technique
  such as a genetic algorithm can be used to train the artificial neural
  network on that interval of values.
  The new technique was tested on a wide range of problems from the relevant
@@ -379,7 +379,7 @@ literal "true"
 \end_inset
 
 .
- Neural networks are widely used in a variety of scientific applications
+ Neural networks are widely used in a variety of scientific applications,
  such as problems from physics 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -441,8 +441,8 @@ literal "false"
 \begin_inset Formula $\overrightarrow{w}$
 \end_inset
 
- is the parameter vector, that should be estimated.
- The first vector is called pattern in the bibliograpjy and the second one
+ is the parameter vector that should be estimated.
+ The first vector is called pattern in the bibliography and the second one
  weight vector.
  Techniques that adjust the parameter vector 
 \begin_inset Formula $\overrightarrow{w}$
@@ -530,8 +530,8 @@ n=\left(d+2\right)H
 
 \end_inset
 
-The training of neural networks have been performed by a variety of numerical
- methods in recent bibliography such as: the Back Propagation method 
+The training of neural networks has been performed by a variety of numerical
+ methods in recent bibliography, such as: the Back Propagation method 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "bpnn,bpnn2"
@@ -556,7 +556,7 @@ literal "false"
 \end_inset
 
  etc.
- Furthermore, more advanced optimization methods have been incrorporated
+ Furthermore, more advanced optimization methods have been incorporated
  to optimize the parameter vector of neural networks by minimizing equation
  
 \begin_inset CommandInset ref
@@ -696,11 +696,11 @@ literal "false"
 \end_inset
 
  etc.
- Also, another interesting topic in the area of neural networks is the weight
+ Also, another interesting topic in the area of neural networks is weight
  decaying, where some regularization is applied to the parameters of the
  neural network to avoid the overfitting problem.
- For this topic several reasearch papers have been suggested such as a method
- that incorporates positive correlation 
+ For this topic, several research papers have been suggested, such as a
+ method that incorporates positive correlation 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "weight_decay1"
@@ -798,8 +798,8 @@ name "sec:Method-description"
 \end_layout
 
 \begin_layout Standard
-In this section of detailed description of the Grammatical Evolution technique
- is provided accompanyied with the proposed language that creates intervals
+In this section a detailed description of the Grammatical Evolution technique
+ is provided, accompanied by the proposed language that creates intervals
  for the parameters of the neural networks.
 
 \series bold
@@ -809,9 +809,9 @@ Subsequently
 \series bold
 ,
 \series default
- the first phase of the proposed technique is described and finally the
+ the first phase of the proposed technique is described and finally, the
  second phase with the application of a Genetic Algorithm to the outcome
- of the first phase is thorougly analyzed.
+ of the first phase, is thoroughly analyzed.
 \end_layout
 
 \begin_layout Subsection
@@ -820,7 +820,7 @@ Grammatical evolution
 
 \begin_layout Standard
 Grammatical evolution is an evolutionary process, where the chromosomes
- represents production rules of some provided BNF (Backus–Naur form) grammar
+ represent production rules of some provided BNF (Backus–Naur form) grammar
 \begin_inset CommandInset citation
 LatexCommand cite
 key "bnf1"
@@ -833,7 +833,7 @@ literal "false"
  
 \series default
 evolutionary process can evolve programs in the underlying language.
- Grammatical Evolution has been used successfully in a many real world problems,
+ Grammatical Evolution has been used successfully in many real world problems,
  such as function approximation
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -973,7 +973,7 @@ is the set of terminal symbols.
 \begin_inset Formula $P$
 \end_inset
 
- is the set of production rules, to create terminal symbols nonn - terminal
+ is the set of production rules, to create terminal symbols non - terminal
  symbols.
  These rules are in the form 
 \begin_inset Formula $A\rightarrow a$
@@ -987,7 +987,7 @@ is the set of terminal symbols.
 \end_layout
 
 \begin_layout Standard
-The algorithm inituates from the symbol 
+The algorithm initiates from the symbol 
 \begin_inset Formula $S$
 \end_inset
 
@@ -1044,7 +1044,7 @@ BNF grammar used in the current work.
 \begin_inset Formula $n$
 \end_inset
 
- stands for the number of total parameters in the neural netwok.
+ stands for the number of total parameters in the neural network.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:BNF-grammar-of"
@@ -1119,9 +1119,9 @@ The symbols in <> represent the non-terminal symbols of the grammar.
  In the proposed language described by the grammar of the scheme, three
  distinct operations can be applied to parameters of the artificial neural
  network either on the left end of the parameter's value range (described
- by <lcommand>) or on the right end of the value range (described by from
- the <rcommand> symbol).
- These command are
+ by <lcommand>) or on the right end of the value range (described by the
+ <rcommand> symbol).
+ These commands are
 \end_layout
 
 \begin_layout Enumerate
@@ -1131,14 +1131,14 @@ NOTHING.
 
 \begin_layout Enumerate
 EXPAND.
- With this command the corresponding end of the value field is extended
+ With this command, the corresponding end of the value field is extended
  by 50% of the width of the field.
 \end_layout
 
 \begin_layout Enumerate
 DIVIDE.
- With this command the corresponding end of the value field is shrinked
- by 50% of the width of the field.
+ With this command, the corresponding end of the value field is shrunk by
+ 50% of the width of the field.
 \end_layout
 
 \begin_layout Standard
@@ -1622,7 +1622,8 @@ Before starting the process of creating partitioning rules and expanding
  this interval should be made.
  In the present work, only a few steps of a genetic algorithm are applied
  to make an initial estimate of the value interval.
- At the end of the genetic the chromosome with the best value is the 
+ At the end of the genetic algorithm, the chromosome with the best value
+ is the 
 \begin_inset Formula 
 \begin{equation}
 \mbox{IX}=\left(\mbox{IX}_{1},\mbox{IX}_{2},\ldots,\mbox{IX}_{n}\right)
@@ -1646,7 +1647,7 @@ The first phase of the proposed technique will accept the set
  as input and seek to compute a new set by reducing the training error of
  the artificial neural network.
  The first step is mainly a genetic algorithm and the corresponding steps
- have as follows:
+ are as follows:
 \end_layout
 
 \begin_layout Enumerate
@@ -1990,7 +1991,7 @@ EndFor
 Apply
 \series default
  the selection procedure.
- Firstly, the chromosomes are sorted with correspondance to their fitness
+ Firstly, the chromosomes are sorted with correspondence to their fitness
  values.
  Since fitness is considered an interval, a fitness comparison function
  is required.
@@ -1998,7 +1999,7 @@ Apply
 \begin_inset Formula $L^{*}\left(f_{a},f_{b}\right)$
 \end_inset
 
- to comparete two fitness values 
+ to compare two fitness values 
 \begin_inset Formula $f_{a}=\left[a_{1},a_{2}\right]$
 \end_inset
 
@@ -2362,7 +2363,7 @@ Genetic operations step
 Selection procedure.
 
 \series default
- Initally, the chromosomes are sorted according to their fitness values.
+ Initially, the chromosomes are sorted according to their fitness values.
  The first 
 \begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
 \end_inset
@@ -2511,9 +2512,9 @@ name "sec:Experiments"
 \end_layout
 
 \begin_layout Standard
-The effectivness of the proposed method was evaluated on a series of classificat
-ion and regression datasets, used in the relevant literature.
- These datasets can be download from the following online databases:
+The effectiveness of the proposed method was evaluated on a series of classifica
+tion and regression datasets, used in the relevant literature.
+ These datasets can be downloaded from the following online databases:
 \end_layout
 
 \begin_layout Enumerate
@@ -3145,8 +3146,8 @@ https://github.com/itsoulos/OPTIMUS/
 \end_inset
 
 (accessed on 9 September 2023).
- The results were validated using the the 10 - fold validation technique
- in all datasets.
+ The results were validated using the 10 - fold validation technique in
+ all datasets.
  The experiments were executed 30 times for each dataset
 \series bold
  
@@ -3160,7 +3161,11 @@ The average classification error is reported for the case of classification
  datasets and the average mean test error for the regression datasets.
  The machine used in the experiments was an AMD Ryzen 5950X with 128GB of
  RAM, running the Debian Linux operating system.
- The experimental settings are listed in Table 
+ The experimental settings are listed in the
+\size tiny
+ 
+\size default
+Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Experimental-parameters."
@@ -3220,7 +3225,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Enumerate
-The Adam optimization method used to train a neural network with 
+The Adam optimization method is used to train a neural network with 
 \begin_inset Formula $H$
 \end_inset
 
@@ -3229,7 +3234,7 @@ The Adam optimization method used to train a neural network with
 \end_layout
 
 \begin_layout Enumerate
-The RPROP method used to train a neural network with 
+The RPROP method is used to train a neural network with 
 \begin_inset Formula $H$
 \end_inset
 
@@ -3253,7 +3258,7 @@ literal "false"
 
 \begin_layout Enumerate
 The proposed method (denoted as PROPOSED) was used with the experimental
- settings are shown in Table 
+ settings and are shown in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Experimental-parameters."
@@ -6056,6 +6061,28 @@ AVERAGE
 In general, the proposed technique outperforms the rest of the techniques
  in the experiments.
  In fact, in many cases, the test error is reduced by more than 70%.
+ The numerical superiority of the proposed technique over the others in
+ the performed experiments is presented graphically and in the figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ScatterClass"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ScatterRegression"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, where Wilcoxon signed-rank tests were performed on the executed experiments.
  However, since the proposed technique consists exclusively of a series
  of genetic algorithms, it can be significantly accelerated by the use of
  parallel computing techniques, since one of the main characteristics of
@@ -6088,6 +6115,108 @@ literal "false"
 .
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename class_grammar_neural.eps
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Scatter plot representation and the two-sample paired (Wilcoxon) signed-rank
+ test results of the comparison for each of the four (4) classification
+ methods (GENETIC, ADAM, RPROP, and NEAT) with the PROPOSED method regarding
+ the classification error in twenty-four (24) different public available
+ classification datasets.
+ The stars only intend to flag significance levels for the two most used
+ groups.
+ A p-value of less than 0.0001 is flagged with four stars (****).
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ScatterClass"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename regression_grammar_neural.eps
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Scatter plot representation and the Wilcoxon signed-rank test results of
+ the comparison for each of the four (4) regression methods (GENETIC, ADAM,
+ RPROP, and NEAT) with the PROPOSED method regarding the regression error
+ in sixteen (16) different publicly available regression datasets.
+ Star links join significantly different values; one star (*) stands for
+ p<0.001, and four stars (*** ) stand for p<0.0001.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ScatterRegression"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Conclusions 
 \begin_inset CommandInset label
@@ -6103,7 +6232,7 @@ name "sec:Conclusions"
 This paper proposed a two-step technique to efficiently find a reliable
  interval of values for the parameters of artificial neural networks.
  In the first stage with partitioning techniques and using Grammatical Evolution
-, a range of parameter values was searched and in the second stage a genetic
+, a range of parameter values was searched and, in the second stage, a genetic
  algorithm trained the artificial neural network within the optimal range
  of values of the first stage.
  The proposed technique is highly general and has been successfully applied
@@ -6139,10 +6268,6 @@ The present technique consists of two phases, in each of which a problem-adapted
  the algorithm.
  However, since genetic algorithms are inherently parallelizable, modern
  parallel programming techniques could be used here.
-\end_layout
-
-\begin_layout Standard
-(need for parallel techniques)
 \end_layout
 
 \begin_layout Standard
