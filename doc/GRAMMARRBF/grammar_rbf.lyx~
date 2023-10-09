@@ -329,8 +329,8 @@ These authors contributed equally to this work.
 \end_layout
 
 \begin_layout Abstract
-RBF networks are used in a variety of real-world applications such as medical
- data or signal processing problems.
+Radial Basis Function networks are used in a variety of real-world applications
+ such as medical data or signal processing problems.
  The success of these parametric models lies in the successful adaptation
  of their parameters using efficient computational techniques.
  In the current work, a method of adjusting the parameters of these networks
@@ -415,7 +415,7 @@ The vector
 \begin_inset Formula $\overrightarrow{x}$
 \end_inset
 
- is the input pattern from the objective problem.
+ is the input pattern from dataset of the problem.
  For the rest of this paper the notation 
 \begin_inset Formula $d$
 \end_inset
@@ -645,7 +645,7 @@ Where the parameter
 
  represents the parameter set of the RBF network.
  During the first phase, an attempt is made to bound the parameter values
- to intervals in which the training error of equation 
+ to intervals in which the training error of equation (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:eqrbf"
@@ -655,7 +655,7 @@ noprefix "false"
 
 \end_inset
 
- is likely to be significantly reduced.
+) is likely to be significantly reduced.
  The identification of the most promising intervals for the parameters is
  performed using a technique that utilizes Grammatical Evolution
 \begin_inset CommandInset citation
@@ -1106,13 +1106,14 @@ Hence, for the example program
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-BNF grammar used in the current work.
+The BNF grammar used in the current work, to produce intervals for the RBF
+ parameters.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:BNF-grammar-of"
@@ -1170,7 +1171,7 @@ S::=<expr>   (0)
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -4282,7 +4283,7 @@ VALUE
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -4290,6 +4291,8 @@ status collapsed
 \begin_layout Plain Layout
 Experimental results for the classification datasets.
  The first column is the name of the used dataset.
+ Every number in cells denotes average classification error as measured
+ on the test set.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Experiments-for-classification"
@@ -5573,7 +5576,7 @@ AVERAGE
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -5581,6 +5584,8 @@ status collapsed
 \begin_layout Plain Layout
 Experimental results for the regression datasets.
  The first column is the name of the used regression dataset.
+ Also, the numbers in cells denote average regression error on the test
+ set.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:experiments-regression"
@@ -6707,7 +6712,7 @@ noprefix "false"
 
 \end_inset
 
- and a statistical test on the results is presented in  figure 
+ and a statistical test on the results is presented in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:statfparam"
@@ -7868,7 +7873,7 @@ A two-step method was presented in the present work to train RBF neural
  was clearly seen that the proposed technique outperforms the others with
  which the comparison was made, both in classification datasets and regression
  datasets.
- Future improvements of the proposed method may include:
+ Future improvements to the proposed method may include:
 \end_layout
 
 \begin_layout Enumerate
