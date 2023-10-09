@@ -330,16 +330,20 @@ These authors contributed equally to this work.
 
 \begin_layout Abstract
 Radial Basis Function networks are used in a variety of real-world applications
- such as medical data or signal processing problems.
- The success of these parametric models lies in the successful adaptation
- of their parameters using efficient computational techniques.
- In the current work, a method of adjusting the parameters of these networks
- using Grammatical Evolution is presented.
- Grammatical Evolution will be used to successfully discover the most promising
- range of parameter values and then the training of the parameter set will
- be achieved using a Genetic Algorithm.
- The new method was applied to a wide range of data fitting and classification
- problems, and the results were more than promising.
+ such as medical data or signal processing problems.The success of these
+ machine learning models lies in efficiently finding values for the model
+ parameters.
+ In this work, a new method of finding these values is formulated which
+ is divided into two phases.
+ In the first phase, with the use of Grammatical Evolution, an attempt is
+ made to find value intervals for the model parameters using partition rules.
+ In the second phase of the proposed method, an intelligent optimization
+ algorithm such as a genetic algorithm, locates the optimal values of the
+ parameters within the best value interval which is the output of the first
+ phase.
+ The proposed technique has been applied to a wide range of classification
+ or data fitting problems and there has been a significant reduction in
+ error exceeding 40% on most datasets.
 \end_layout
 
 \begin_layout Keywords
@@ -616,12 +620,10 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-The current work proposes a two phase method for the effective adjustment
- of the parameters of RBF networks in order to minimize the so -called training
- error given by:
+The training error of an RBF network is given by:
 \begin_inset Formula 
 \begin{equation}
-E(y(x,g))=\sum_{i=1}^{m}\left(y\left(x_{i},g\right)-t_{i}\right)^{2}\label{eq:eqrbf}
+E(y(x,g))=\sum_{i=1}^{m}\left(y\left(\overrightarrow{x}_{i},\overrightarrow{g}\right)-t_{i}\right)^{2}\label{eq:eqrbf}
 \end{equation}
 
 \end_inset
@@ -635,17 +637,46 @@ Where the parameter
 \end_inset
 
  values represent the expected output for the input pattern 
-\begin_inset Formula $x_{i}$
+\begin_inset Formula $\overrightarrow{x}_{i}$
 \end_inset
 
 .
  The vector 
-\begin_inset Formula $g$
+\begin_inset Formula $\overrightarrow{g}$
 \end_inset
 
  represents the parameter set of the RBF network.
- During the first phase, an attempt is made to bound the parameter values
- to intervals in which the training error of equation (
+\end_layout
+
+\begin_layout Standard
+A common method of calculating the parameters in these neural networks uses
+ a technique to calculate the centers of the functions 
+\begin_inset Formula $\phi(x)$
+\end_inset
+
+ and then the weight vector 
+\begin_inset Formula $\overrightarrow{w}$
+\end_inset
+
+ is calculated as a solution of a linear system of equations.
+ Typically, the method used to calculate the centers is the well - known
+ k-means method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "kmeans"
+literal "false"
+
+\end_inset
+
+.
+ In many cases this way of estimating the parameters of the neural network
+ leads to over-fitting of the model so that it cannot generalize satisfactorily
+ to unknown data.
+ Furthermore, since there is no range of values for the parameters, there
+ is the possibility that they will take extremely large or extremely small
+ values, with the result that any generalizability of the model is lost.
+ This work suggests a two phase method to minimize the error of equation
+ (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:eqrbf"
@@ -655,7 +686,10 @@ noprefix "false"
 
 \end_inset
 
-) is likely to be significantly reduced.
+).
+ During the first phase, an attempt is made to bound the parameter values
+ to intervals in which the training error is likely to be significantly
+ reduced.
  The identification of the most promising intervals for the parameters is
  performed using a technique that utilizes Grammatical Evolution
 \begin_inset CommandInset citation
@@ -665,20 +699,16 @@ literal "false"
 
 \end_inset
 
-.
- First, an estimate of an interval of values for the network parameters
- is made using the Kmeans algorithm 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "kmeans"
-literal "false"
-
-\end_inset
-
-.
- Then, with the help of Grammatical Evolution, a series of division rules
- are applied to the initial interval of values in order to find a range
- of values that significantly reduces the training error.
+, that collects information from the training data.
+ The first phase attempts to create a small interval of values for the neural
+ network parameters by applying a series of of division rules, with the
+ assistance of the Grammatical Evolution.
+ The determination of the value interval is done in such a way that it is
+ faster and more efficient to train the parameters of the neural network
+ with some optimization method during the second phase of the method.
+ In general, if the value intervals for the parameters from the first phase
+ are small in range, the second phase of the technique is expected to be
+ significantly accelerated as well.
  During the second phase, the parameters of the RBF network can be trained
  within the optimal range found in the first phase using some global optimizatio
 n method 
@@ -8793,6 +8823,24 @@ C.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "kmeans"
+literal "false"
+
+\end_inset
+
+J.
+ MacQueen, Some methods for classification and analysis of multivariate
+ observations, in: Proceedings of the fifth Berkeley symposium on mathematical
+ statistics and probability, Vol.
+ 1, No.
+ 14, pp.
+ 281-297, 1967.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "ge1"
 literal "true"
 
@@ -8809,24 +8857,6 @@ M.
 \series default
 pp.
  349–358, 2001.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "kmeans"
-literal "false"
-
-\end_inset
-
-J.
- MacQueen, Some methods for classification and analysis of multivariate
- observations, in: Proceedings of the fifth Berkeley symposium on mathematical
- statistics and probability, Vol.
- 1, No.
- 14, pp.
- 281-297, 1967.
- 
 \end_layout
 
 \begin_layout Bibliography
