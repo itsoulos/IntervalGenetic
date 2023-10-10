@@ -471,7 +471,7 @@ The function
 
  usually is a Gaussian function given by:
 \series bold
-
+ 
 \begin_inset Formula 
 \begin{equation}
 \phi(x)=\exp\left(-\frac{\left(x-c\right)^{2}}{\sigma^{2}}\right)
@@ -481,6 +481,39 @@ The function
 
 
 \series default
+In the same direction of research, other researchers propose to handle problems
+ of categorization or data fitting, techniques such as Support Vector Machines
+ (SVM) 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "svm,svm2"
+literal "false"
+
+\end_inset
+
+, decision trees 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "dt1,dt2"
+literal "false"
+
+\end_inset
+
+ etc.
+ Also, Wang et al suggested an auto - encoder reduction method, applied
+ on a series of large datasets
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nn_autoencoder"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
 The RBF networks were used in many cases, such as problems from physics
  
 \begin_inset CommandInset citation
@@ -9094,6 +9127,100 @@ G.A.
 \series default
 , pp.
  52-74, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "svm"
+literal "false"
+
+\end_inset
+
+A.
+ Iranmehr, H.
+ Masnadi-Shirazi, N.
+ Vasconcelos, Cost-sensitive support vector machines, Neurocomputing 
+\series bold
+343
+\series default
+, pp.
+ 50-64, 2019.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "svm2"
+literal "false"
+
+\end_inset
+
+J.
+ Cervantes, F.G.
+ Lamont, L.R.
+ Mazahua, A.
+ Lopez, A comprehensive survey on support vector machine classification:
+ Applications, challenges and trends, Neurocomputing 
+\series bold
+408
+\series default
+, pp.
+ 189-215, 2020.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "dt1"
+literal "false"
+
+\end_inset
+
+S.B.
+ Kotsiantis, Decision trees: a recent overview, Artif Intell Rev 
+\series bold
+39
+\series default
+, pp.
+ 261–283, 2013.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "dt2"
+literal "false"
+
+\end_inset
+
+D.
+ Bertsimas, J.
+ Dunn, Optimal classification trees, Mach Learn 
+\series bold
+106
+\series default
+, pp.
+ 1039–1082, 2017.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_autoencoder"
+literal "false"
+
+\end_inset
+
+Y.
+ Wang, H.
+ Yao, S.
+ Zhao, Auto-encoder based dimensionality reduction, Neurocomputing 
+\series bold
+184
+\series default
+, pp.
+ 232-242, 2016.
 \end_layout
 
 \begin_layout Bibliography
