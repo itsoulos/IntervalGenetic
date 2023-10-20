@@ -1036,7 +1036,39 @@ reference "fig:BNF-grammar-of"
  The symbols enclosed in <> denote the non-terminal symbols of the grammar.
  The numbers in parentheses in the right part of the grammar indicate production
  rule sequence numbers.
- The number n is the total number of parameters of the problem.
+ Every RBF network with 
+\begin_inset Formula $k$
+\end_inset
+
+ weights is constructed by the following series of parameters:
+\end_layout
+
+\begin_layout Enumerate
+A series of vectors 
+\begin_inset Formula $c_{i},\ i=1,\ldots,k$
+\end_inset
+
+ called centers.
+\end_layout
+
+\begin_layout Enumerate
+For every Gaussian unit an additional parameter 
+\begin_inset Formula $\sigma_{i}$
+\end_inset
+
+ is required
+\end_layout
+
+\begin_layout Enumerate
+The output weight vector 
+\begin_inset Formula $\overrightarrow{w}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The number n is the total number of parameters of the problem.
  In the case of this paper it is the total number of parameters of the RBF
  network.
  For the current work, the number 
@@ -1055,7 +1087,7 @@ The number
 \begin_inset Formula $n$
 \end_inset
 
- is computed as follows:
+ in the corresponding grammar is computed as follows:
 \end_layout
 
 \begin_layout Enumerate
@@ -1608,8 +1640,8 @@ name "subsec:The-first-phase"
 \end_layout
 
 \begin_layout Standard
-The first step of the first phase of the proposed method is to initialize
- the bounds of the RBF network.
+The purpose of the first phase is to initalize the bounds of the RBF network
+ and discover a promising interval for the corresponding values.
  For this initialization, the K-Means algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -7546,21 +7578,10 @@ literal "false"
 
 .
  The superiority of the proposed technique is also reinforced by the statistical
- tests carried out on the experimental results and presented in figures
- 
+ tests carried out on the experimental results and presented in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:statClass"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:statRegression"
 plural "false"
 caps "false"
 noprefix "false"
@@ -7575,7 +7596,7 @@ noprefix "false"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -7593,14 +7614,14 @@ status collapsed
 
 \begin_layout Plain Layout
 Scatter plot representation and the two-sample paired (Wilcoxon) signed-rank
- test results of the comparison for each of the three (3) classification
- methods (NN-RPROP, RBF-KMEAN, GENRBF) with the PROPOSED method regarding
- the classification error in twenty-four (24) different public available
- classification datasets.
+ test results of the comparison for each of the five (5) classification
+ methods (RPROP, ADAM, NEAT, RBF-KMEANS, and GENRBF) with the PROPOSED method
+ regarding the classification error in twenty-four (24) different public
+ available classification datasets.
  The stars only intend to flag significance levels for the two most used
  groups.
- A p-value of less than 0.001 is flagged with three stars (***).
- A p-value of less than 0.0001 is flagged with four stars (****).
+ A p-value of less than 0.001 is flagged with three stars (**).
+ A p-value of less than 0.0001 is flagged with four stars (***).
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:statClass"
@@ -7622,55 +7643,6 @@ name "fig:statClass"
 \end_inset
 
  
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename stat_regression_genrbf.eps
-	scale 40
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Scatter plot representation and the Wilcoxon signed-rank test results of
- the comparison for each of the three (3) regression methods (NN-RPROP,
- RBF-KMEAN, GENRBF) with the PROPOSED method regarding the regression error
- in seventeen (17) different publicly available regression datasets.
- Star links join significantly different values; one star (*) stand p<0.05
- and four stars (****) stand for p<0.0001.
- 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:statRegression"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -8779,7 +8751,7 @@ AVERAGE
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -8837,11 +8809,12 @@ name "sec:Conclusions"
 \end_layout
 
 \begin_layout Standard
-A two-step method was presented in the present work to train RBF neural
- networks.
+In the present work, an innovative two-stage technique was proposed for
+ efficient training of RBF artificial neural networks.
  In the first stage of the application, using Grammatical Evolution, the
- field of values of the neural network parameters is partitioned, so as
- to find a promising range that may contain low values of the training error.
+ interval of values of the neural network parameters is partitioned, so
+ as to find a promising range that may contain low values of the training
+ error.
  In the second stage, the neural network parameters are trained within the
  best range of values found in the first stage.
  The training of the parameters of the second phase is carried out using
@@ -8849,11 +8822,20 @@ A two-step method was presented in the present work to train RBF neural
  The proposed method was applied on a wide series of well -known datasets
  from the relevant literature and was tested against a series of machine
  learning models.
- From the comparison of the results and their statistical processing, it
- was clearly seen that the proposed technique outperforms the others with
- which the comparison was made, both in classification datasets and regression
- datasets.
- Future improvements to the proposed method may include:
+ The new training technique was compared with the traditional method of
+ training RBF networks but also with other training techniques of machine
+ learning models and from the experimental results its superiority is evident
+ in percentages that exceed 40%.
+ However, since the proposed technique consists of two genetic algorithms
+ executed sequentially, the execution time required is longer compared to
+ other techniques especially for datasets with many patterns.
+ An immediate solution to reduce the execution time of the method would
+ be the use of parallel computing techniques, since genetic algorithms can
+ by nature be directly parallelized.
+\end_layout
+
+\begin_layout Standard
+Future improvements to the proposed method may include:
 \end_layout
 
 \begin_layout Enumerate
@@ -8861,8 +8843,27 @@ Application of the proposed method to other types of artificial neural networks.
 \end_layout
 
 \begin_layout Enumerate
+Use of intelligent learning techniques in place of the K-Means technique
+ to initialize the neural network parameters.
+\end_layout
+
+\begin_layout Enumerate
+Using techniques to dynamically determine the number of necessary parameters
+ of the neural network.
+ For the time being, the number of parameters is considered constant, but
+ this has the consequence of observing over-training phenomena in various
+ data sets.
+\end_layout
+
+\begin_layout Enumerate
 Implementation of crossover and mutation techniques that focus more on the
  existing interval construction technique for the model parameters.
+\end_layout
+
+\begin_layout Enumerate
+Use of efficient termination techniques for Genetic Algorithms, for the
+ most efficient termination of techniques without wasting computing time
+ on unnecessary iterations.
 \end_layout
 
 \begin_layout Enumerate
