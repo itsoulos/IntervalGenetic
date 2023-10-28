@@ -711,6 +711,22 @@ literal "false"
  the parameters of the artificial neural network.
  Training is performed within the optimal interval of values found in the
  first stage of the method.
+ The proposed method utilizes a genetic algorithm in the second stage to
+ train the neural network, but any other optimization method can be used
+ instead of genetic algorithms.
+ However, genetic algorithms are used because they are easily adaptable
+ to many optimization problems, they are fault tolerant and because they
+ can be easily parallelized using modern computing techniques.
+\end_layout
+
+\begin_layout Standard
+The proposed method seeks in its first stage to find, using an evolutionary
+ rule technique, a range of values for the parameters of the artificial
+ neural networks.
+ This interval should on the one hand be small enough to speed up the method
+ of the second stage that will be used to train the model and on the other
+ hand the artificial neural network should have satisfactory generalization
+ abilities within the interval of values of the first stage.
 \end_layout
 
 \begin_layout Standard
@@ -6051,8 +6067,221 @@ AVERAGE
 In general, the proposed technique outperforms the rest of the techniques
  in the experiments.
  In fact, in many cases, the test error is reduced by more than 70%.
- The numerical superiority of the proposed technique over the others in
- the performed experiments is presented graphically and in the figures 
+ Also, more experiments were conducted using the number of processing nodes
+ (
+\begin_inset Formula $H$
+\end_inset
+
+) as well the number of generations (
+\begin_inset Formula $N_{t}$
+\end_inset
+
+), to determine the stability of the proposed technique.
+ The average classification error for the classification datasets using
+ different values for the 
+\begin_inset Formula $H$
+\end_inset
+
+ parameter is shown graphically in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:experimentsH"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Furthermore, the average classification error of the proposed method for
+ different number of maximum generations 
+\begin_inset Formula $N_{t}$
+\end_inset
+
+ is shown graphically in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:experiments_nt"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The proposed technique does not show significant changes in its behavior
+ as the critical parameters change and therefore its stability to changes
+ is evident.
+ Also, the average execution time for different values of the 
+\begin_inset Formula $N_{t}$
+\end_inset
+
+ parameter is outlined in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:experiments_time"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Judging from the above experiments, it can be said that the choice of values
+ for the critical parameters h and d is a compromise between performance
+ and speed for the proposed technique.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename average_error_h.eps
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average classification error using the proposed method and different values
+ for the number of hidden nodes 
+\begin_inset Formula $H$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:experimentsH"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename average_error_gens.eps
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average classification error of the proposed method using different values
+ for the maximum number of allowed generations 
+\begin_inset Formula $N_{t}$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:experiments_nt"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename average_execution_time.eps
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average execution time of the proposed method, using different values of
+ the 
+\begin_inset Formula $N_{t}$
+\end_inset
+
+ parameter.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:experiments_time"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The numerical superiority of the proposed technique over the others in the
+ performed experiments is presented graphically and in the figures 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:ScatterClass"
@@ -6110,7 +6339,7 @@ literal "false"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -6165,7 +6394,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename regression_grammar_neural.eps
+	filename regression_grammar_neural_new.png
 	scale 50
 
 \end_inset

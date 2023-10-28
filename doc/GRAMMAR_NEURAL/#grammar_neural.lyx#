@@ -712,11 +712,9 @@ literal "false"
  Training is performed within the optimal interval of values found in the
  first stage of the method.
  The proposed method utilizes a genetic algorithm in the second stage to
- train the neural network, but any other optimization method can be used
- instead of genetic algorithms.
- However, genetic algorithms are used because they are easily adaptable
- to many optimization problems, they are fault tolerant and because they
- can be easily parallelized using modern computing techniques.
+ train the neural 
+\series bold
+(explain the usage of Genetic algorithm)
 \end_layout
 
 \begin_layout Standard
@@ -6112,31 +6110,6 @@ noprefix "false"
  The proposed technique does not show significant changes in its behavior
  as the critical parameters change and therefore its stability to changes
  is evident.
- Also, the average execution time for different values of the 
-\begin_inset Formula $N_{t}$
-\end_inset
-
- parameter is outlined in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:experiments_time"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- Judging from the above experiments, it can be said that the choice of values
- for the critical parameters 
-\begin_inset Formula $H$
-\end_inset
-
- and 
-\begin_inset Formula $N_{t}$
-\end_inset
-
- is a compromise between performance and speed for the proposed technique.
 \end_layout
 
 \begin_layout Standard
@@ -6218,54 +6191,6 @@ Average classification error of the proposed method using different values
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:experiments_nt"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename average_execution_time.eps
-	scale 40
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Average execution time of the proposed method, using different values of
- the 
-\begin_inset Formula $N_{t}$
-\end_inset
-
- parameter.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:experiments_time"
 
 \end_inset
 

@@ -1,7 +1,8 @@
 %% LyX 2.3.7 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[journal,article,submit,pdftex,moreauthors]{mdpi}
+\documentclass[journal,article,submit,pdftex,moreauthors]{Definitions/mdpi}
 \usepackage[utf8]{inputenc}
+\usepackage{array}
 \usepackage{float}
 \usepackage{url}
 \usepackage{amsmath}
@@ -11,17 +12,11 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
 
-\Title{Constructing the bounds for neural network training using Grammatical
+\Title{Constructing the Bounds for Neural network training using Grammatical
 Evolution}
 
 \TitleCitation{Constructing the bounds for neural network training using Grammatical
 Evolution}
-
-\newcommand{\orcidauthorA}{0000-0000-0000-000X}
-
-
-\newcommand{\orcidauthorB}{0000-0000-0000-000X}
-
 
 \Author{Ioannis G. Tsoulos$^{1,\dagger,*}$, Alexandros Tzallas$^{2,\dagger}$,
 Evangelos Karvounis $^{3}$}
@@ -44,9 +39,6 @@ of Ioannina, Greece; ekarvounis@uoi.gr}
 
 \firstnote{Current address: Department of Informatics and Telecommunications,
 University of Ioannina, Greece.}
-
-
-\secondnote{These authors contributed equally to this work.}
 
 
 \abstract{Artificial neural networks are widely established models of computational
@@ -214,9 +206,9 @@ the relevant literature and the results were extremely promising.}
 
 Artificial neural networks (ANNs) are widespread machine learning
 models, which base their dynamics on a series of parameters which
-are also called computational units or weights in the relevant literature\citep{nn1,nn2}.
-Neural networks are widely used in a variety of scientific applications,
-such as problems from physics \citep{nnphysics1,nnphysics2,nnphysics3},
+are also called computational units or weights in the relevant literature
+\citep{nn1,nn2}. Neural networks are widely used in a variety of
+scientific applications, such as problems from physics \citep{nnphysics1,nnphysics2,nnphysics3},
 solutions of differential equations \citep{nnde1,nnde2}, agriculture
 problems \citep{nnagr1,nnagr2}, chemistry problems \citep{nnchem1,nnchem2,nnchem3},
 problems that appear in the area of economic sciences \citep{nnecon1,nnecon2,nncecon3},
@@ -253,15 +245,15 @@ n=\left(d+2\right)H
 \end{equation}
 The training of neural networks has been performed by a variety of
 numerical methods in recent bibliography, such as: the Back Propagation
-method \citep{bpnn,bpnn2}, the RPROP method \citep{rpropnn-1,rpropnn2,rpropnn3},
-the Adam optimizer \citep{Adam,AdamNN} etc. Furthermore, more advanced
-optimization methods have been incorporated to optimize the parameter
-vector of neural networks by minimizing equation \ref{eq:eq1} such
-as Quasi Newton methods \citep{quasinn,quasinn2},\textbf{ }the Tabu
-Search method \citep{tabunn}, Simulated Annealing \citep{nn_ann1,nn_ann2},
-Genetic Algorithms \citep{geneticnn,geneticnn2}, Particle Swarm Optimization
-\citep{psonn,psonn2},\textbf{ }Differential Evolution \citep{weight_de1,weight_de2},
-Ant Colony Optimization \citep{weight_aco} etc. 
+method \citep{bpnn}, the RPROP method \citep{rpropnn-1}, the Adam
+optimizer \citep{Adam} etc. Furthermore, more advanced optimization
+methods have been incorporated to optimize the parameter vector of
+neural networks by minimizing equation \ref{eq:eq1} such as Quasi
+Newton methods \citep{quasinn},\textbf{ }the Tabu Search method \citep{tabunn},
+Simulated Annealing \citep{nn_ann1}, genetic Algorithms \citep{geneticnn},
+Particle Swarm Optimization (PSO) \citep{psonn},\textbf{ }Differential
+Evolution \citep{weight_de1}, Ant Colony Optimization \citep{weight_aco}
+etc. 
 
 Also, recently a series of hybrid optimization methods have been proposed
 to tackle the minimization of the training error, such as a method
@@ -294,6 +286,20 @@ Evolution, until a promising value interval is found. In the second
 stage of the method, a genetic algorithm is applied to train the parameters
 of the artificial neural network. Training is performed within the
 optimal interval of values found in the first stage of the method.
+The proposed method utilizes a genetic algorithm in the second stage
+to train the neural network, but any other optimization method can
+be used instead of genetic algorithms. However, genetic algorithms
+are used because they are easily adaptable to many optimization problems,
+they are fault tolerant and because they can be easily parallelized
+using modern computing techniques.
+
+The proposed method seeks in its first stage to find, using an evolutionary
+rule technique, a range of values for the parameters of the artificial
+neural networks. This interval should on the one hand be small enough
+to speed up the method of the second stage that will be used to train
+the model and on the other hand the artificial neural network should
+have satisfactory generalization abilities within the interval of
+values of the first stage.
 
 The rest of this article is organized as follows: in section \ref{sec:Method-description}
 the steps of the proposed method are outlined in detail, in section
@@ -307,20 +313,20 @@ In this section a detailed description of the Grammatical Evolution
 technique is provided, accompanied by the proposed language that creates
 intervals for the parameters of the neural networks.\textbf{ }Subsequently\textbf{,}
 the first phase of the proposed technique is described and finally,
-the second phase with the application of a Genetic Algorithm to the
+the second phase with the application of a genetic algorithm to the
 outcome of the first phase, is thoroughly analyzed.
 
 \subsection{Grammatical evolution }
 
 Grammatical evolution is an evolutionary process, where the chromosomes
 represent production rules of some provided BNF (Backus--Naur form)
-grammar\citep{bnf1} and this\textbf{ }evolutionary process can evolve
+grammar \citep{bnf1} and this\textbf{ }evolutionary process can evolve
 programs in the underlying language. Grammatical Evolution has been
 used successfully in many real world problems, such as function approximation\citep{ge_program1,ge_program2},
 solution of trigonometric equations \citep{ge_trig}, automatic music
 composition \citep{ge_music}, neural network construction \citep{ge_nn,ge_nn2},
-creating numeric constraints\citep{ge_constant}, video games \citep{ge_pacman,ge_supermario},
-estimation of energy demand\citep{ge_energy}, combinatorial optimization
+creating numeric constraints \citep{ge_constant}, video games \citep{ge_pacman,ge_supermario},
+estimation of energy demand \citep{ge_energy}, combinatorial optimization
 \citep{ge_comb}, cryptography \citep{ge_crypt}, evolution of decision
 trees \citep{ge_decision}, automatic design of analog electronic
 circuits \citep{ge_analog} etc\textbf{. }Any BNF grammar can be described
@@ -347,9 +353,6 @@ non -- terminal symbol.
 The grammar used in the current work is shown in Figure \ref{fig:BNF-grammar-of}.
 
 \begin{figure}[H]
-\caption{BNF grammar used in the current work. The value $n$ stands for the
-number of total parameters in the neural network.\label{fig:BNF-grammar-of}}
-
 \begin{lyxcode}
 S::=\textless expr\textgreater ~~~(0)~
 
@@ -377,6 +380,8 @@ S::=\textless expr\textgreater ~~~(0)~
 
 ~~~~~~~~~~~\textbar ~~~~~~~~DIVIDE~~(2)
 \end{lyxcode}
+\caption{BNF grammar used in the current work. The value $n$ stands for the
+number of total parameters in the neural network.\label{fig:BNF-grammar-of}}
 \end{figure}
 The symbols in \textless\textgreater{} represent the non-terminal
 symbols of the grammar. The numbers in parentheses in the right part
@@ -416,29 +421,19 @@ p_{\mbox{test}}=(x7,\mbox{EXPAND},\mbox{NOTHING}),(x1,\mbox{DIVIDE},\mbox{EXPAND
 \caption{Steps to produce a valid expression from the BNF grammar.\label{tab:table_with_steps}}
 
 \centering{}%
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{>{\centering}p{0.35\paperwidth}>{\centering}p{0.15\paperwidth}>{\centering}p{0.15\paperwidth}}
 \hline 
 Expression & Chromosome & Operation\tabularnewline
 \hline 
-\hline 
  & 9,8,6,4,15,9,16,23,8 & 9 mod 2=1\tabularnewline
-\hline 
 {\footnotesize{}\textless expr\textgreater ,\textless expr\textgreater} & 8,6,4,15,9,16,23,8 & 8 mod 2=0\tabularnewline
-\hline 
 {\footnotesize{}(\textless xlist\textgreater ,\textless lcommand\textgreater ,\textless rcommand\textgreater ),\textless expr\textgreater} & 6,4,15,9,16,23,8 & 6 mod 8=6\tabularnewline
-\hline 
-{\footnotesize{}(x7,\textless lcommand\textgreater ,\textless rcommand\textgreater ),\textless expr\textgreater} & 4,15,9,16,23,8 & 4 \% 3=1\tabularnewline
-\hline 
-{\footnotesize{}(x7,EXPAND,\textless rcommand\textgreater ),\textless expr\textgreater} & 15,9,16,23,8 & 15\%3=0\tabularnewline
-\hline 
-{\footnotesize{}(x7,EXPAND,NOTHING),\textless expr\textgreater} & 9,16,23,8 & 9 \%2 =1\tabularnewline
-\hline 
-{\footnotesize{}(x7,EXPAND,NOTHING),(\textless xlist\textgreater ,\textless lcommand\textgreater ,\textless rcommand\textgreater )} & 16,23,8 & 16\%8=0\tabularnewline
-\hline 
-{\footnotesize{}(x7,EXPAND,NOTHING),(x1,\textless lcommand\textgreater ,\textless rcommand\textgreater )} & 23,8 & 23\%3=2\tabularnewline
-\hline 
-{\footnotesize{}(x7,EXPAND,NOTHING),(x1,DIVIDE,\textless rcommand\textgreater )} & 8 & 8\%3=2\tabularnewline
-\hline 
+{\footnotesize{}(x7,\textless lcommand\textgreater ,\textless rcommand\textgreater ),\textless expr\textgreater} & 4,15,9,16,23,8 & 4 mod 3=1\tabularnewline
+{\footnotesize{}(x7,EXPAND,\textless rcommand\textgreater ),\textless expr\textgreater} & 15,9,16,23,8 & 15 mod 3=0\tabularnewline
+{\footnotesize{}(x7,EXPAND,NOTHING),\textless expr\textgreater} & 9,16,23,8 & 9 mod 2 =1\tabularnewline
+{\footnotesize{}(x7,EXPAND,NOTHING),(\textless xlist\textgreater ,\textless lcommand\textgreater ,\textless rcommand\textgreater )} & 16,23,8 & 16 mod 8=0\tabularnewline
+{\footnotesize{}(x7,EXPAND,NOTHING),(x1,\textless lcommand\textgreater ,\textless rcommand\textgreater )} & 23,8 & 23 mod 3=2\tabularnewline
+{\footnotesize{}(x7,EXPAND,NOTHING),(x1,DIVIDE,\textless rcommand\textgreater )} & 8 & 8 mod 3=2\tabularnewline
 {\footnotesize{}(x7,EXPAND,NOTHING),(x1,DIVIDE,EXPAND)} &  & \tabularnewline
 \hline 
 \end{tabular}
@@ -460,12 +455,12 @@ of a genetic algorithm are applied to make an initial estimate of
 the value interval. At the end of the genetic algorithm, the chromosome
 with the best value is the 
 \begin{equation}
-\mbox{IX}=\left(\mbox{IX}_{1},\mbox{IX}_{2},\ldots,\mbox{IX}_{n}\right)
+IX=\left(IX_{1},IX_{2},\ldots,IX_{n}\right)
 \end{equation}
 So, the initial interval set for the parameters of the neural network
 is calculated as
 \begin{equation}
-I_{N}=\left\{ \left[-\mbox{IX}_{1},\mbox{IX}_{1}\right],\left\{ -\mbox{IX}_{2},\mbox{IX}_{2}\right\} ,\ldots,\left[-\mbox{IX}_{n},\mbox{IX}_{n}\right]\right\} 
+I_{N}=\left\{ \left[-IX_{1},IX_{1}\right],\left\{ -IX_{2},IX_{2}\right\} ,\ldots,\left[-IX_{n},IX_{n}\right]\right\} 
 \end{equation}
 The first phase of the proposed technique will accept the set $I_{N}$
 as input and seek to compute a new set by reducing the training error
@@ -607,7 +602,7 @@ The effectiveness of the proposed method was evaluated on a series
 of classification and regression datasets, used in the relevant literature.
 These datasets can be downloaded from the following online databases:
 \begin{enumerate}
-\item UCI dataset repository, \url{https://archive.ics.uci.edu/ml/index.php}\citep{UCL}
+\item UCI dataset repository, \url{https://archive.ics.uci.edu/ml/index.php}\citep{UCL}.
 \item Keel repository, \url{https://sci2s.ugr.es/keel/datasets.php}\citep{Keel}.
 \item The Statlib URL \url{ftp://lib.stat.cmu.edu/datasets/index.html }.
 \end{enumerate}
@@ -661,10 +656,10 @@ age of abalone from physical measurements.
 \item \textbf{Airfoil }dataset, derived from NASA \citep{airfoil}. 
 \item \textbf{Baseball} dataset, used to estimate the salary of baseball
 players.
-\item \textbf{BK} dataset\citep{Stat}, used to predict the points scored
+\item \textbf{BK} dataset \citep{Stat}, used to predict the points scored
 in a basketball game. 
 \item \textbf{BL} dataset, an electrical engineering dataset.
-\item \textbf{Concrete} dataset\citep{concrete}. 
+\item \textbf{Concrete} dataset \citep{concrete}. 
 \item \textbf{Dee} dataset, used to predict the price of electricity.
 \item \textbf{Diabetes} dataset, a medical dataset.
 \item \textbf{Housing} dataset, provided in \citep{key23}.
@@ -672,7 +667,7 @@ in a basketball game.
 \item \textbf{MB} dataset, available from from Smoothing Methods in Statistics
 \citep{key21}. 
 \item \textbf{MORTGAGE} dataset, related to Economic data from USA.
-\item \textbf{PY }dataset, (Pyrimidines problem)\citep{pydataset}.
+\item \textbf{PY }dataset, (Pyrimidines problem) \citep{pydataset}.
 \item \textbf{Quake} dataset, used to predict the strength of a earthquakes. 
 \item \textbf{Treasure} dataset, related to Economic data from USA.
 \item \textbf{Wankara} dataset, a dataset related to weather.
@@ -708,7 +703,7 @@ nodes. The corresponding results are denoted by RPROP in the relevant
 tables.
 \item The NEAT method (NeuroEvolution of Augmenting Topologies ) \citep{neat},
 where the maximum number of allowed generations is the same as in
-the case of the Genetic algorithm. 
+the case of the genetic algorithm. 
 \item The proposed method (denoted as PROPOSED) was used with the experimental
 settings and are shown in Table \ref{tab:Experimental-parameters.}.
 \item An extra line was also added to the experimental tables under the
@@ -719,148 +714,143 @@ regression error for all datasets.
 \caption{Experimental parameters.\label{tab:Experimental-parameters.}}
 
 \centering{}%
-\begin{tabular}{|c|c|}
+\begin{tabular}{>{\centering}p{0.3\paperwidth}>{\centering}p{0.3\paperwidth}}
 \hline 
 PARAMETER & VALUE\tabularnewline
 \hline 
-\hline 
 $H$ & 10\tabularnewline
-\hline 
 $N_{C}$ & 200\tabularnewline
-\hline 
 $N_{S}$ & 50\tabularnewline
-\hline 
 $N_{t}$ & 200\tabularnewline
-\hline 
 $p_{s}$ & 0.10\tabularnewline
-\hline 
 $p_{m}$ & 0.01\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
 \begin{table}[H]
-\caption{Experiments for classification datasets\label{tab:Experiments-for-classification}}
+\caption{Experimental results for classification datasets. The values in cells
+indicate averare classification error as measured on test set.\label{tab:Experiments-for-classification}}
 
 \centering{}%
-\begin{tabular}{|c|c|c|c|c|c|}
+\begin{tabular}{>{\centering}p{0.1\paperwidth}>{\centering}p{0.1\paperwidth}>{\centering}p{0.1\paperwidth}>{\centering}p{0.1\paperwidth}>{\centering}p{0.1\paperwidth}c}
 \hline 
-DATASET & GENETIC & ADAM & RPROP & NEAT & PROPOSED\tabularnewline
-\hline 
+\textbf{DATASET} & \textbf{GENETIC} & \textbf{ADAM} & \textbf{RPROP} & \textbf{NEAT} & \textbf{PROPOSED}\tabularnewline
 \hline 
 Appendicitis & 18.10\% & 16.50\% & 16.30\% & 17.20\% & 17.00\%\tabularnewline
-\hline 
 Australian & 32.21\% & 35.65\% & 36.12\% & 31.98\% & 24.55\%\tabularnewline
-\hline 
 Balance & 8.97\% & 7.87\% & 8.81\% & 23.14\% & 16.71\%\tabularnewline
-\hline 
 Cleveland & 51.60\% & 67.55\% & 61.41\% & 53.44\% & 47.91\%\tabularnewline
-\hline 
 Dermatology & 30.58\% & 26.14\% & 15.12\% & 32.43\% & 8.93\%\tabularnewline
-\hline 
 Hayes Roth & 56.18\% & 59.70\% & 37.46\% & 50.15\% & 32.21\%\tabularnewline
-\hline 
 Heart & 28.34\% & 38.53\% & 30.51\% & 39.27\% & 17.40\%\tabularnewline
-\hline 
 HouseVotes & 6.62\% & 7.48\% & 6.04\% & 10.89\% & 3.48\%\tabularnewline
-\hline 
 Ionosphere & 15.14\% & 16.64\% & 13.65\% & 19.67\% & 7.14\%\tabularnewline
-\hline 
 Liverdisorder & 31.11\% & 41.53\% & 40.26\% & 30.67\% & 28.90\%\tabularnewline
-\hline 
 Lymography & 23.26\% & 29.26\% & 24.67\% & 33.70\% & 17.86\%\tabularnewline
-\hline 
 Mammographic & 19.88\% & 46.25\% & 18.46\% & 22.85\% & 17.32\%\tabularnewline
-\hline 
 Parkinsons & 18.05\% & 24.06\% & 22.28\% & 18.56\% & 14.35\%\tabularnewline
-\hline 
 Pima & 32.19\% & 34.85\% & 34.27\% & 34.51\% & 25.58\%\tabularnewline
-\hline 
 Popfailures & 5.94\% & 5.18\% & 4.81\% & 7.05\% & 4.58\%\tabularnewline
-\hline 
 Regions2 & 29.39\% & 29.85\% & 27.53\% & 33.23\% & 28.32\%\tabularnewline
-\hline 
 Saheart & 34.86\% & 34.04\% & 34.90\% & 34.51\% & 27.43\%\tabularnewline
-\hline 
 Segment & 57.72\% & 49.75\% & 52.14\% & 66.72\% & 20.68\%\tabularnewline
-\hline 
 Wdbc & 8.56\% & 35.35\% & 21.57\% & 12.88\% & 5.23\%\tabularnewline
-\hline 
 Wine & 19.20\% & 29.40\% & 30.73\% & 25.43\% & 5.35\%\tabularnewline
-\hline 
 Z\_F\_S & 10.73\% & 47.81\% & 29.28\% & 38.41\% & 6.56\%\tabularnewline
-\hline 
 ZO\_NF\_S & 8.41\% & 47.43\% & 6.43\% & 43.75\% & 3.60\%\tabularnewline
-\hline 
 ZONF\_S & 2.60\% & 11.99\% & 27.27\% & 5.44\% & 2.21\%\tabularnewline
-\hline 
 ZOO & 16.67\% & 14.13\% & 15.47\% & 20.27\% & 6.10\%\tabularnewline
-\hline 
 \textbf{AVERAGE} & \textbf{23.60\%} & \textbf{31.54\%} & \textbf{25.65\%} & \textbf{29.42\%} & \textbf{16.23\%}\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
 \begin{table}[H]
-\caption{Experiments for regression datasets.\label{tab:exp2}}
+\caption{Experimental results for regression datasets. The values indicate
+average regression error as measured on test set.\label{tab:exp2}}
 
 \centering{}%
-\begin{tabular}{|c|c|c|c|c|c|}
+\begin{tabular}{>{\centering}p{0.1\paperwidth}>{\centering}p{0.1\paperwidth}>{\centering}p{0.1\paperwidth}>{\centering}p{0.1\paperwidth}>{\centering}p{0.1\paperwidth}c}
 \hline 
-DATASET & GENETIC & ADAM & RPROP & NEAT & PROPOSED\tabularnewline
-\hline 
+\textbf{DATASET} & \textbf{GENETIC} & \textbf{ADAM} & \textbf{RPROP} & \textbf{NEAT} & \textbf{PROPOSED}\tabularnewline
 \hline 
 ABALONE & 7.17 & 4.30 & 4.55 & 9.88 & 4.48\tabularnewline
-\hline 
 AIRFOIL & 0.003 & 0.005 & 0.002 & 0.067 & 0.002\tabularnewline
-\hline 
 BASEBALL & 103.60 & 77.90 & 92.05 & 100.39 & 51.39\tabularnewline
-\hline 
 BK & 0.027 & 0.03 & 1.599 & 0.15 & 0.02\tabularnewline
-\hline 
 BL & 5.74 & 0.28 & 4.38 & 0.05 & 0.002\tabularnewline
-\hline 
 CONCRETE & 0.0099 & 0.078 & 0.0086 & 0.081 & 0.004\tabularnewline
-\hline 
 DEE & 1.013 & 0.63 & 0.608 & 1.512 & 0.23\tabularnewline
-\hline 
 DIABETES & 19.86 & 3.03 & 1.11 & 4.25 & 0.41\tabularnewline
-\hline 
 HOUSING & 43.26 & 80.20 & 74.38 & 56.49 & 24.55\tabularnewline
-\hline 
 FA & 1.95 & 0.11 & 0.14 & 0.19 & 0.01\tabularnewline
-\hline 
 MB & 3.39 & 0.06 & 0.055 & 0.061 & 0.048\tabularnewline
-\hline 
 MORTGAGE & 2.41 & 9.24 & 9.19 & 14.11 & 0.65\tabularnewline
-\hline 
 PY & 5.41 & 0.09 & 0.039 & 0.075 & 0.025\tabularnewline
-\hline 
 QUAKE & 0.040 & 0.06 & 0.041 & 0.298 & 0.038\tabularnewline
-\hline 
 TREASURY & 2.929 & 11.16 & 10.88 & 15.52 & 0.84\tabularnewline
-\hline 
 WANKARA & 0.012 & 0.02 & 0.0003 & 0.005 & 0.0002\tabularnewline
-\hline 
 \textbf{AVERAGE} & \textbf{12.30} & \textbf{11.70} & \textbf{12.44} & \textbf{12.70} & \textbf{5.17}\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
 In general, the proposed technique outperforms the rest of the techniques
 in the experiments. In fact, in many cases, the test error is reduced
-by more than 70\%. The numerical superiority of the proposed technique
-over the others in the performed experiments is presented graphically
-and in the figures \ref{fig:ScatterClass} and \ref{fig:ScatterRegression},
-where Wilcoxon signed-rank tests were performed on the executed experiments.
-However, since the proposed technique consists exclusively of a series
-of genetic algorithms, it can be significantly accelerated by the
-use of parallel computing techniques, since one of the main characteristics
-of genetic algorithms is their ease of parallelization \citep{genpar1,genpar2}.
+by more than 70\%. Also, more experiments were conducted using the
+number of processing nodes ($H$) as well the number of generations
+($N_{t}$), to determine the stability of the proposed technique.
+The average classification error for the classification datasets using
+different values for the $H$ parameter is shown graphically in Figure
+\ref{fig:experimentsH}. Furthermore, the average classification error
+of the proposed method for different number of maximum generations
+$N_{t}$ is shown graphically in Figure \ref{fig:experiments_nt}.
+The proposed technique does not show significant changes in its behavior
+as the critical parameters change and therefore its stability to changes
+is evident. Also, the average execution time for different values
+of the $N_{t}$ parameter is outlined in Figure \ref{fig:experiments_time}.
+Judging from the above experiments, it can be said that the choice
+of values for the critical parameters $H$ and $N_{t}$ is a compromise
+between performance and speed for the proposed technique.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.4]{average_error_h}
+\par\end{centering}
+\caption{Average classification error using the proposed method and different
+values for the number of hidden nodes $H$.\label{fig:experimentsH}}
+
+\end{figure}
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.4]{average_error_gens}
+\par\end{centering}
+\caption{Average classification error of the proposed method using different
+values for the maximum number of allowed generations $N_{t}$.\label{fig:experiments_nt}}
+
+\end{figure}
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.4]{average_execution_time}
+\par\end{centering}
+\caption{Average execution time of the proposed method, using different values
+of the $N_{t}$ parameter.\label{fig:experiments_time}}
+
+\end{figure}
+
+The numerical superiority of the proposed technique over the others
+in the performed experiments is presented graphically and in the figures
+\ref{fig:ScatterClass} and \ref{fig:ScatterRegression}, where Wilcoxon
+signed-rank tests were performed on the executed experiments. However,
+since the proposed technique consists exclusively of a series of genetic
+algorithms, it can be significantly accelerated by the use of parallel
+computing techniques, since one of the main characteristics of genetic
+algorithms is their ease of parallelization \citep{genpar1,genpar2}.
 Programming techniques that can be used to parallelize the method
 could be the MPI programming interface \citep{openmpi} or the OpenMP
 programming library \citep{openmp}.
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[scale=0.5]{class_grammar_neural}
+\includegraphics[scale=0.5]{class_grammar_neural_new}
 \par\end{centering}
 \caption{Scatter plot representation and the two-sample paired (Wilcoxon) signed-rank
 test results of the comparison for each of the four (4) classification
@@ -873,7 +863,7 @@ is flagged with four stars ({*}{*}{*}{*}).\label{fig:ScatterClass}}
 \end{figure}
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[scale=0.5]{regression_grammar_neural}
+\includegraphics[scale=0.5]{regression_grammar_neural_new}
 \par\end{centering}
 \caption{Scatter plot representation and the Wilcoxon signed-rank test results
 of the comparison for each of the four (4) regression methods (GENETIC,
@@ -1041,41 +1031,18 @@ construction and training using grammatical evolution, Neurocomputing
 representations by back-propagating errors, Nature \textbf{323}, pp.
 533 - 536 , 1986.
 
-\bibitem{bpnn2}T. Chen and S. Zhong, Privacy-Preserving Backpropagation
-Neural Network Learning, IEEE Transactions on Neural Networks \textbf{20},
-, pp. 1554-1564, 2009.
-
 \bibitem{rpropnn-1}M. Riedmiller and H. Braun, A Direct Adaptive
 Method for Faster Backpropagation Learning: The RPROP algorithm, Proc.
 of the IEEE Intl. Conf. on Neural Networks, San Francisco, CA, pp.
 586--591, 1993.
 
-\bibitem{rpropnn3}T. Pajchrowski, K. Zawirski and K. Nowopolski,
-Neural Speed Controller Trained Online by Means of Modified RPROP
-Algorithm, IEEE Transactions on Industrial Informatics \textbf{11},
-pp. 560-568, 2015.
-
-\bibitem{rpropnn2}Rinda Parama Satya Hermanto, Suharjito, Diana,
-Ariadi Nugroho, Waiting-Time Estimation in Bank Customer Queues using
-RPROP Neural Networks, Procedia Computer Science \textbf{ 135}, pp.
-35-42, 2018.
-
 \bibitem{Adam}D. P. Kingma, J. L. Ba, ADAM: a method for stochastic
 optimization, in: Proceedings of the 3rd International Conference
 on Learning Representations (ICLR 2015), pp. 1--15, 2015.
 
-\bibitem{AdamNN}Y. Xue, Y. Tong, F. Neri, An ensemble of differential
-evolution and Adam for training feed-forward neural networks. Information
-Sciences \textbf{608}, pp. 453-471, 2022.
-
 \bibitem{quasinn}B. Robitaille and B. Marcos and M. Veillette and
 G. Payre, Modified quasi-Newton methods for training neural networks,
 Computers \& Chemical Engineering \textbf{20}, pp. 1133-1140, 1996.
-
-\bibitem{quasinn2}Q. Liu, J. Liu, R. Sang, J. Li, T. Zhang and Q.
-Zhang, Fast Neural Network Training on FPGA Using Quasi-Newton Optimization
-Method,IEEE Transactions on Very Large Scale Integration (VLSI) Systems
-\textbf{26}, pp. 1575-1579, 2018.
 
 \bibitem{tabunn}R.S. Sexton, B. Alidaee, R.E. Dorsey, J.D. Johnson,
 Global optimization for artificial neural networks: A tabu search
@@ -1088,33 +1055,18 @@ simulated annealing, In: Proceedings of the 2002 International Joint
 Conference on Neural Networks. IJCNN'02 \textbf{1}, pp. 547-552 ,
 2002.
 
-\bibitem{nn_ann2}Y. Da, G. Xiurun, An improved PSO-based ANN with
-simulated annealing technique, Neurocomputing \textbf{63}, pp. 527-533,
-2005.
-
 \bibitem{geneticnn}F. H. F. Leung, H. K. Lam, S. H. Ling and P. K.
 S. Tam, Tuning of the structure and parameters of a neural network
 using an improved genetic algorithm, IEEE Transactions on Neural Networks
 \textbf{14}, pp. 79-88, 2003
 
-\bibitem{geneticnn2}X. Yao, Evolving artificial neural networks,
-Proceedings of the IEEE, 87(9), pp. 1423-1447, 1999.
-
 \bibitem{psonn}C. Zhang, H. Shao and Y. Li, Particle swarm optimisation
 for evolving artificial neural network, IEEE International Conference
 on Systems, Man, and Cybernetics, , pp. 2487-2490, 2000.
 
-\bibitem{psonn2}Jianbo Yu, Shijin Wang, Lifeng Xi, Evolving artificial
-neural networks using an improved PSO and DPSO \textbf{71}, pp. 1054-1060,
-2008.
-
 \bibitem{weight_de1}J. lonen, J.K. Kamarainen, J. Lampinen, Differential
 Evolution Training Algorithm for Feed-Forward Neural Networks, Neural
 Processing Letters \textbf{17}, pp. 93--105, 2003.
-
-\bibitem{weight_de2}M. Baioletti, G. Di Bari, A. Milani, V. Poggioni,
-Differential Evolution for Neural Networks Optimization, Mathematics
-\textbf{8}, 2020.
 
 \bibitem{weight_aco}K.M. Salama, A.M. Abdelbar, Learning neural network
 structures with ant colony algorithms, Swarm Intell \textbf{9}, pp.
