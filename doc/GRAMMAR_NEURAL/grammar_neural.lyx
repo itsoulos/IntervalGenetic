@@ -2149,6 +2149,17 @@ name "fig:onepoint"
 The second phase of the proposed method
 \end_layout
 
+\begin_layout Standard
+The result of the first phase of the proposed method is an interval of values
+ for the parameters of the artificial neural network.
+ This interval of values can be used to minimize the error function of the
+ network with the parameters taking values exclusively in the above interval
+ of values.
+ Any optimization method can be used for this purpose, but in this work
+ it was chosen to use a genetic algorithm and the steps of which are given
+ below.
+\end_layout
+
 \begin_layout Enumerate
 
 \series bold
@@ -3462,7 +3473,7 @@ VALUE
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3471,6 +3482,7 @@ status collapsed
 Experimental results for classification datasets.
  The values in cells indicate averare classification error as measured on
  test set.
+ The numbers in parentheses denote the standard deviation.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Experiments-for-classification"
@@ -3578,7 +3590,7 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
-18.10%
+18.10% (6.32)
 \end_layout
 
 \end_inset
@@ -3587,7 +3599,7 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
-16.50%
+16.50% (7.73)
 \end_layout
 
 \end_inset
@@ -3596,7 +3608,7 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
-16.30%
+16.30% (5.27)
 \end_layout
 
 \end_inset
@@ -3605,7 +3617,7 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
-17.20%
+17.20% (4.12)
 \end_layout
 
 \end_inset
@@ -3614,7 +3626,7 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
-17.00%
+17.00% (6.23)
 \end_layout
 
 \end_inset
@@ -3634,7 +3646,7 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
-32.21%
+32.21% (5.99)
 \end_layout
 
 \end_inset
@@ -3643,7 +3655,7 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
-35.65%
+35.65% (5.83)
 \end_layout
 
 \end_inset
@@ -3652,7 +3664,7 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
-36.12%
+36.12% (5.52)
 \end_layout
 
 \end_inset
@@ -3661,7 +3673,7 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
-31.98%
+31.98% (6.03)
 \end_layout
 
 \end_inset
@@ -3670,7 +3682,7 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
-24.55%
+24.55% (4.64)
 \end_layout
 
 \end_inset
@@ -3690,7 +3702,7 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
-8.97%
+8.97% (2.64)
 \end_layout
 
 \end_inset
@@ -3699,7 +3711,7 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
-7.87%
+7.87% (3.09)
 \end_layout
 
 \end_inset
@@ -3708,7 +3720,7 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
-8.81%
+8.81% (2.36)
 \end_layout
 
 \end_inset
@@ -3717,7 +3729,7 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
-23.14%
+23.14% (4.16)
 \end_layout
 
 \end_inset
@@ -3726,7 +3738,7 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
-16.71%
+16.71% (3.98)
 \end_layout
 
 \end_inset
@@ -3746,7 +3758,7 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
-51.60%
+51.60% (6.39)
 \end_layout
 
 \end_inset
@@ -3755,7 +3767,7 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
-67.55%
+67.55% (6.98)
 \end_layout
 
 \end_inset
@@ -3764,7 +3776,7 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
-61.41%
+61.41% (9.10)
 \end_layout
 
 \end_inset
@@ -3773,7 +3785,7 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
-53.44%
+53.44% (7.26)
 \end_layout
 
 \end_inset
@@ -3782,7 +3794,7 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
-47.91%
+47.91% (4.78)
 \end_layout
 
 \end_inset
@@ -3802,7 +3814,7 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
-30.58%
+30.58% (4.75)
 \end_layout
 
 \end_inset
@@ -3811,7 +3823,7 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
-26.14%
+26.14% (3.11)
 \end_layout
 
 \end_inset
@@ -3820,7 +3832,7 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
-15.12%
+15.12% (2.40)
 \end_layout
 
 \end_inset
@@ -3829,7 +3841,7 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
-32.43%
+32.43% (4.74)
 \end_layout
 
 \end_inset
@@ -3838,7 +3850,7 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
-8.93%
+8.93% (2.36)
 \end_layout
 
 \end_inset
@@ -3858,7 +3870,7 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
-56.18%
+56.18% (6.97)
 \end_layout
 
 \end_inset
@@ -3867,7 +3879,7 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
-59.70%
+59.70% (5.41)
 \end_layout
 
 \end_inset
@@ -3876,7 +3888,7 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
-37.46%
+37.46% (4.41)
 \end_layout
 
 \end_inset
@@ -3885,7 +3897,7 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
-50.15%
+50.15% (4.43)
 \end_layout
 
 \end_inset
@@ -3894,7 +3906,7 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
-32.21%
+32.21% (2.58)
 \end_layout
 
 \end_inset
@@ -3914,7 +3926,7 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
-28.34%
+28.34% (4.78)
 \end_layout
 
 \end_inset
@@ -3923,7 +3935,7 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
-38.53%
+38.53% (4.45)
 \end_layout
 
 \end_inset
@@ -3932,7 +3944,7 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
-30.51%
+30.51% (3.63)
 \end_layout
 
 \end_inset
@@ -3941,7 +3953,7 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
-39.27%
+39.27% (4.14)
 \end_layout
 
 \end_inset
@@ -3950,7 +3962,7 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
-17.40%
+17.40% (2.52)
 \end_layout
 
 \end_inset
@@ -3970,7 +3982,7 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
-6.62%
+6.62% (2.11)
 \end_layout
 
 \end_inset
@@ -3979,7 +3991,7 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
-7.48%
+7.48% (1.81)
 \end_layout
 
 \end_inset
@@ -3988,7 +4000,7 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
-6.04%
+6.04% (1.17)
 \end_layout
 
 \end_inset
@@ -3997,7 +4009,7 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
-10.89%
+10.89% (2.30)
 \end_layout
 
 \end_inset
@@ -4006,7 +4018,7 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
-3.48%
+3.48% (1.43)
 \end_layout
 
 \end_inset
@@ -4026,7 +4038,7 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
-15.14%
+15.14% (2.57)
 \end_layout
 
 \end_inset
@@ -4035,7 +4047,7 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
-16.64%
+16.64% (3.20)
 \end_layout
 
 \end_inset
@@ -4044,7 +4056,7 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
-13.65%
+13.65% (2.45)
 \end_layout
 
 \end_inset
@@ -4053,7 +4065,7 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
-19.67%
+19.67% (4.28)
 \end_layout
 
 \end_inset
@@ -4062,7 +4074,7 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
-7.14%
+7.14% (1.10)
 \end_layout
 
 \end_inset
@@ -4082,7 +4094,7 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
-31.11%
+31.11% (4.59)
 \end_layout
 
 \end_inset
@@ -4091,7 +4103,7 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
-41.53%
+41.53% (4.74)
 \end_layout
 
 \end_inset
@@ -4100,7 +4112,7 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
-40.26%
+40.26% (3.99)
 \end_layout
 
 \end_inset
@@ -4109,7 +4121,7 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
-30.67%
+30.67% (3.12)
 \end_layout
 
 \end_inset
@@ -4118,7 +4130,7 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
-28.90%
+28.90% (2.91)
 \end_layout
 
 \end_inset
@@ -4138,7 +4150,7 @@ Lymography
 \begin_inset Text
 
 \begin_layout Plain Layout
-23.26%
+23.26% (3.84)
 \end_layout
 
 \end_inset
@@ -4147,7 +4159,7 @@ Lymography
 \begin_inset Text
 
 \begin_layout Plain Layout
-29.26%
+29.26% (4.72)
 \end_layout
 
 \end_inset
@@ -4156,7 +4168,7 @@ Lymography
 \begin_inset Text
 
 \begin_layout Plain Layout
-24.67%
+24.67% (3.48)
 \end_layout
 
 \end_inset
@@ -4165,7 +4177,7 @@ Lymography
 \begin_inset Text
 
 \begin_layout Plain Layout
-33.70%
+33.70% (4.17)
 \end_layout
 
 \end_inset
@@ -4174,7 +4186,7 @@ Lymography
 \begin_inset Text
 
 \begin_layout Plain Layout
-17.86%
+17.86% (2.42)
 \end_layout
 
 \end_inset
@@ -4194,7 +4206,7 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
-19.88%
+19.88% (2.79)
 \end_layout
 
 \end_inset
@@ -4203,7 +4215,7 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
-46.25%
+46.25% (2.66)
 \end_layout
 
 \end_inset
@@ -4212,7 +4224,7 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
-18.46%
+18.46% (2.34)
 \end_layout
 
 \end_inset
@@ -4221,7 +4233,7 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
-22.85%
+22.85% (3.27)
 \end_layout
 
 \end_inset
@@ -4230,7 +4242,7 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
-17.32%
+17.32% (1.79)
 \end_layout
 
 \end_inset
@@ -4250,7 +4262,7 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
-18.05%
+18.05% (3.16)
 \end_layout
 
 \end_inset
@@ -4259,7 +4271,7 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
-24.06%
+24.06% (3.28)
 \end_layout
 
 \end_inset
@@ -4268,7 +4280,7 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
-22.28%
+22.28% (2.79)
 \end_layout
 
 \end_inset
@@ -4277,7 +4289,7 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
-18.56%
+18.56% (1.87)
 \end_layout
 
 \end_inset
@@ -4286,7 +4298,7 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
-14.35%
+14.35% (1.79)
 \end_layout
 
 \end_inset
@@ -4306,7 +4318,7 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
-32.19%
+32.19% (4.82)
 \end_layout
 
 \end_inset
@@ -4315,7 +4327,7 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
-34.85%
+34.85% (4.26)
 \end_layout
 
 \end_inset
@@ -4324,7 +4336,7 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
-34.27%
+34.27% (4.24)
 \end_layout
 
 \end_inset
@@ -4333,7 +4345,7 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
-34.51%
+34.51% (4.67)
 \end_layout
 
 \end_inset
@@ -4342,7 +4354,7 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
-25.58%
+25.58% (2.55)
 \end_layout
 
 \end_inset
@@ -4362,7 +4374,7 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
-5.94%
+5.94% (1.71)
 \end_layout
 
 \end_inset
@@ -4371,7 +4383,7 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
-5.18%
+5.18% (1.79)
 \end_layout
 
 \end_inset
@@ -4380,7 +4392,7 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.81%
+4.81% (1.81)
 \end_layout
 
 \end_inset
@@ -4389,7 +4401,7 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
-7.05%
+7.05% (2.87)
 \end_layout
 
 \end_inset
@@ -4398,7 +4410,7 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.58%
+4.58% (1.32)
 \end_layout
 
 \end_inset
@@ -4418,7 +4430,7 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
-29.39%
+29.39% (3.88)
 \end_layout
 
 \end_inset
@@ -4427,7 +4439,7 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
-29.85%
+29.85% (3.95)
 \end_layout
 
 \end_inset
@@ -4436,7 +4448,7 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
-27.53%
+27.53% (3.23)
 \end_layout
 
 \end_inset
@@ -4445,7 +4457,7 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
-33.23%
+33.23% (4.41)
 \end_layout
 
 \end_inset
@@ -4454,7 +4466,7 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
-28.32%
+28.32% (3.59)
 \end_layout
 
 \end_inset
@@ -4474,7 +4486,7 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
-34.86%
+34.86% (4.90)
 \end_layout
 
 \end_inset
@@ -4483,7 +4495,7 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
-34.04%
+34.04% (4.74)
 \end_layout
 
 \end_inset
@@ -4492,7 +4504,7 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
-34.90%
+34.90% (4.75)
 \end_layout
 
 \end_inset
@@ -4501,7 +4513,7 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
-34.51%
+34.51% (5.57)
 \end_layout
 
 \end_inset
@@ -4510,7 +4522,7 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
-27.43%
+27.43% (3.88)
 \end_layout
 
 \end_inset
@@ -4530,7 +4542,7 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
-57.72%
+57.72% (2.71)
 \end_layout
 
 \end_inset
@@ -4539,7 +4551,7 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
-49.75%
+49.75% (3.01)
 \end_layout
 
 \end_inset
@@ -4548,7 +4560,7 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
-52.14%
+52.14% (4.85)
 \end_layout
 
 \end_inset
@@ -4557,7 +4569,7 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
-66.72%
+66.72% (4.74)
 \end_layout
 
 \end_inset
@@ -4566,7 +4578,7 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
-20.68%
+20.68% (2.17)
 \end_layout
 
 \end_inset
@@ -4586,7 +4598,7 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
-8.56%
+8.56% (2.90)
 \end_layout
 
 \end_inset
@@ -4595,7 +4607,7 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
-35.35%
+35.35% (5.06)
 \end_layout
 
 \end_inset
@@ -4604,7 +4616,7 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
-21.57%
+21.57% (4.55)
 \end_layout
 
 \end_inset
@@ -4613,7 +4625,7 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
-12.88%
+12.88% (3.48)
 \end_layout
 
 \end_inset
@@ -4622,7 +4634,7 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
-5.23%
+5.23% (1.66)
 \end_layout
 
 \end_inset
@@ -4642,7 +4654,7 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
-19.20%
+19.20 (2.66)
 \end_layout
 
 \end_inset
@@ -4651,7 +4663,7 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
-29.40%
+29.40% (3.37)
 \end_layout
 
 \end_inset
@@ -4660,7 +4672,7 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
-30.73%
+30.73% (3.78)
 \end_layout
 
 \end_inset
@@ -4669,7 +4681,7 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
-25.43%
+25.43% (3.19)
 \end_layout
 
 \end_inset
@@ -4678,7 +4690,7 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
-5.35%
+5.35% (1.74)
 \end_layout
 
 \end_inset
@@ -4698,7 +4710,7 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-10.73%
+10.73% (2.80)
 \end_layout
 
 \end_inset
@@ -4707,7 +4719,7 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-47.81%
+47.81% (5.75)
 \end_layout
 
 \end_inset
@@ -4716,7 +4728,7 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-29.28%
+29.28% (4.81)
 \end_layout
 
 \end_inset
@@ -4725,7 +4737,7 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-38.41%
+38.41% (6.18)
 \end_layout
 
 \end_inset
@@ -4734,7 +4746,7 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-6.56%
+6.56% (1.45)
 \end_layout
 
 \end_inset
@@ -4754,7 +4766,7 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-8.41%
+8.41% (2.35)
 \end_layout
 
 \end_inset
@@ -4763,7 +4775,7 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-47.43%
+47.43% (5.79)
 \end_layout
 
 \end_inset
@@ -4772,7 +4784,7 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-6.43%
+6.43% (2.35)
 \end_layout
 
 \end_inset
@@ -4781,7 +4793,7 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-43.75%
+43.75% (6.98)
 \end_layout
 
 \end_inset
@@ -4790,7 +4802,7 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-3.60%
+3.60% (1.05)
 \end_layout
 
 \end_inset
@@ -4810,7 +4822,7 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-2.60%
+2.60% (0.33)
 \end_layout
 
 \end_inset
@@ -4819,7 +4831,7 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-11.99%
+11.99% (1.19)
 \end_layout
 
 \end_inset
@@ -4828,7 +4840,7 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-27.27%
+27.27% (1.58)
 \end_layout
 
 \end_inset
@@ -4837,7 +4849,7 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-5.44%
+5.44% (1.11)
 \end_layout
 
 \end_inset
@@ -4846,7 +4858,7 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-2.21%
+2.21% (0.54)
 \end_layout
 
 \end_inset
@@ -4866,7 +4878,7 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
-16.67%
+16.67% (3.28)
 \end_layout
 
 \end_inset
@@ -4875,7 +4887,7 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
-14.13%
+14.13% (2.52)
 \end_layout
 
 \end_inset
@@ -4884,7 +4896,7 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
-15.47%
+15.47% (3.10)
 \end_layout
 
 \end_inset
@@ -4893,7 +4905,7 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
-20.27%
+20.27% (6.47)
 \end_layout
 
 \end_inset
@@ -4902,7 +4914,7 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
-6.10%
+6.10% (1.67)
 \end_layout
 
 \end_inset
@@ -4990,7 +5002,7 @@ AVERAGE
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -4998,6 +5010,7 @@ status collapsed
 \begin_layout Plain Layout
 Experimental results for regression datasets.
  The values indicate average regression error as measured on test set.
+ The numbers in parentheses denote the standard deviation.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:exp2"
@@ -5105,7 +5118,7 @@ ABALONE
 \begin_inset Text
 
 \begin_layout Plain Layout
-7.17
+7.17 (1.11)
 \end_layout
 
 \end_inset
@@ -5114,7 +5127,7 @@ ABALONE
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.30
+4.30 (0.55)
 \end_layout
 
 \end_inset
@@ -5123,7 +5136,7 @@ ABALONE
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.55
+4.55 (0.75)
 \end_layout
 
 \end_inset
@@ -5132,7 +5145,7 @@ ABALONE
 \begin_inset Text
 
 \begin_layout Plain Layout
-9.88
+9.88 (1.61)
 \end_layout
 
 \end_inset
@@ -5141,7 +5154,7 @@ ABALONE
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.48
+4.48 (0.52)
 \end_layout
 
 \end_inset
@@ -5161,7 +5174,7 @@ AIRFOIL
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.003
+0.003 (0.002)
 \end_layout
 
 \end_inset
@@ -5170,7 +5183,7 @@ AIRFOIL
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.005
+0.005 (0.003)
 \end_layout
 
 \end_inset
@@ -5179,7 +5192,7 @@ AIRFOIL
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.002
+0.002 (0.001)
 \end_layout
 
 \end_inset
@@ -5188,7 +5201,7 @@ AIRFOIL
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.067
+0.067 (0.002)
 \end_layout
 
 \end_inset
@@ -5197,7 +5210,7 @@ AIRFOIL
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.002
+0.002 (0.001)
 \end_layout
 
 \end_inset
@@ -5217,7 +5230,7 @@ BASEBALL
 \begin_inset Text
 
 \begin_layout Plain Layout
-103.60
+103.60 (15.85)
 \end_layout
 
 \end_inset
@@ -5226,7 +5239,7 @@ BASEBALL
 \begin_inset Text
 
 \begin_layout Plain Layout
-77.90
+77.90 (16.59)
 \end_layout
 
 \end_inset
@@ -5235,7 +5248,7 @@ BASEBALL
 \begin_inset Text
 
 \begin_layout Plain Layout
-92.05
+92.05 (23.51)
 \end_layout
 
 \end_inset
@@ -5244,7 +5257,7 @@ BASEBALL
 \begin_inset Text
 
 \begin_layout Plain Layout
-100.39
+100.39 (22.54)
 \end_layout
 
 \end_inset
@@ -5253,7 +5266,7 @@ BASEBALL
 \begin_inset Text
 
 \begin_layout Plain Layout
-51.39
+51.39 (10.13)
 \end_layout
 
 \end_inset
@@ -5273,7 +5286,7 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.027
+0.027 (0.009)
 \end_layout
 
 \end_inset
@@ -5282,7 +5295,7 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.03
+0.03 (0.004)
 \end_layout
 
 \end_inset
@@ -5291,7 +5304,7 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.599
+1.599 (0.15)
 \end_layout
 
 \end_inset
@@ -5300,7 +5313,7 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.15
+0.15 (0.02)
 \end_layout
 
 \end_inset
@@ -5309,7 +5322,7 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.02
+0.02 (0.005)
 \end_layout
 
 \end_inset
@@ -5329,7 +5342,7 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
-5.74
+5.74 (1.64)
 \end_layout
 
 \end_inset
@@ -5338,7 +5351,7 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.28
+0.28 (0.11)
 \end_layout
 
 \end_inset
@@ -5347,7 +5360,7 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.38
+4.38 (0.19)
 \end_layout
 
 \end_inset
@@ -5356,7 +5369,7 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.05
+0.05 (0.02)
 \end_layout
 
 \end_inset
@@ -5365,7 +5378,7 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.002
+0.002 (0.001)
 \end_layout
 
 \end_inset
@@ -5385,7 +5398,7 @@ CONCRETE
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.0099
+0.0099 ( 0.001)
 \end_layout
 
 \end_inset
@@ -5394,7 +5407,7 @@ CONCRETE
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.078
+0.078 (0.013)
 \end_layout
 
 \end_inset
@@ -5403,7 +5416,7 @@ CONCRETE
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.0086
+0.0086 (0.001)
 \end_layout
 
 \end_inset
@@ -5412,7 +5425,7 @@ CONCRETE
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.081
+0.081 (0.004)
 \end_layout
 
 \end_inset
@@ -5421,7 +5434,7 @@ CONCRETE
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.004
+0.004 (0.0006)
 \end_layout
 
 \end_inset
@@ -5441,7 +5454,7 @@ DEE
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.013
+1.013 (0.21)
 \end_layout
 
 \end_inset
@@ -5450,7 +5463,7 @@ DEE
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.63
+0.63 (0.08)
 \end_layout
 
 \end_inset
@@ -5459,7 +5472,7 @@ DEE
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.608
+0.608 (0.07)
 \end_layout
 
 \end_inset
@@ -5468,7 +5481,7 @@ DEE
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.512
+1.512 (0.79)
 \end_layout
 
 \end_inset
@@ -5477,7 +5490,7 @@ DEE
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.23
+0.23 (0.05)
 \end_layout
 
 \end_inset
@@ -5497,7 +5510,7 @@ DIABETES
 \begin_inset Text
 
 \begin_layout Plain Layout
-19.86
+19.86 (5.57)
 \end_layout
 
 \end_inset
@@ -5506,7 +5519,7 @@ DIABETES
 \begin_inset Text
 
 \begin_layout Plain Layout
-3.03
+3.03 (0.35)
 \end_layout
 
 \end_inset
@@ -5515,7 +5528,7 @@ DIABETES
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.11
+1.11 (0.57)
 \end_layout
 
 \end_inset
@@ -5524,7 +5537,7 @@ DIABETES
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.25
+4.25 (1.92)
 \end_layout
 
 \end_inset
@@ -5533,7 +5546,7 @@ DIABETES
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.41
+0.41 (0.08)
 \end_layout
 
 \end_inset
@@ -5553,7 +5566,7 @@ HOUSING
 \begin_inset Text
 
 \begin_layout Plain Layout
-43.26
+43.26 (5.84)
 \end_layout
 
 \end_inset
@@ -5562,7 +5575,7 @@ HOUSING
 \begin_inset Text
 
 \begin_layout Plain Layout
-80.20
+80.20 (8.82)
 \end_layout
 
 \end_inset
@@ -5571,7 +5584,7 @@ HOUSING
 \begin_inset Text
 
 \begin_layout Plain Layout
-74.38
+74.38 (6.85)
 \end_layout
 
 \end_inset
@@ -5580,7 +5593,7 @@ HOUSING
 \begin_inset Text
 
 \begin_layout Plain Layout
-56.49
+56.49 (5.65)
 \end_layout
 
 \end_inset
@@ -5589,7 +5602,7 @@ HOUSING
 \begin_inset Text
 
 \begin_layout Plain Layout
-24.55
+24.55 (4.48)
 \end_layout
 
 \end_inset
@@ -5609,7 +5622,7 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.95
+1.95 (0.44)
 \end_layout
 
 \end_inset
@@ -5618,7 +5631,7 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.11
+0.11 (0.021)
 \end_layout
 
 \end_inset
@@ -5627,7 +5640,7 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.14
+0.14 (0.01)
 \end_layout
 
 \end_inset
@@ -5636,7 +5649,7 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.19
+0.19 (0.014)
 \end_layout
 
 \end_inset
@@ -5645,7 +5658,7 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.01
+0.01 (0.005)
 \end_layout
 
 \end_inset
@@ -5665,7 +5678,7 @@ MB
 \begin_inset Text
 
 \begin_layout Plain Layout
-3.39
+3.39 (0.40)
 \end_layout
 
 \end_inset
@@ -5674,7 +5687,7 @@ MB
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.06
+0.06 (0.03)
 \end_layout
 
 \end_inset
@@ -5683,7 +5696,7 @@ MB
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.055
+0.055 (0.03)
 \end_layout
 
 \end_inset
@@ -5692,7 +5705,7 @@ MB
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.061
+0.061 (0.03)
 \end_layout
 
 \end_inset
@@ -5701,7 +5714,7 @@ MB
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.048
+0.048 (0.03)
 \end_layout
 
 \end_inset
@@ -5721,7 +5734,7 @@ MORTGAGE
 \begin_inset Text
 
 \begin_layout Plain Layout
-2.41
+2.41 (0.26)
 \end_layout
 
 \end_inset
@@ -5730,7 +5743,7 @@ MORTGAGE
 \begin_inset Text
 
 \begin_layout Plain Layout
-9.24
+9.24 (1.24)
 \end_layout
 
 \end_inset
@@ -5739,7 +5752,7 @@ MORTGAGE
 \begin_inset Text
 
 \begin_layout Plain Layout
-9.19
+9.19 (1.62)
 \end_layout
 
 \end_inset
@@ -5748,7 +5761,7 @@ MORTGAGE
 \begin_inset Text
 
 \begin_layout Plain Layout
-14.11
+14.11 (3.34)
 \end_layout
 
 \end_inset
@@ -5757,7 +5770,7 @@ MORTGAGE
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.65
+0.65 (0.16)
 \end_layout
 
 \end_inset
@@ -5777,7 +5790,7 @@ PY
 \begin_inset Text
 
 \begin_layout Plain Layout
-5.41
+5.41 (0.63)
 \end_layout
 
 \end_inset
@@ -5786,7 +5799,7 @@ PY
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.09
+0.09 (0.013)
 \end_layout
 
 \end_inset
@@ -5795,7 +5808,7 @@ PY
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.039
+0.039 (0.019)
 \end_layout
 
 \end_inset
@@ -5804,7 +5817,7 @@ PY
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.075
+0.075 (0.022)
 \end_layout
 
 \end_inset
@@ -5813,7 +5826,7 @@ PY
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.025
+0.025 (0.012)
 \end_layout
 
 \end_inset
@@ -5833,7 +5846,7 @@ QUAKE
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.040
+0.040 (0.004)
 \end_layout
 
 \end_inset
@@ -5842,7 +5855,7 @@ QUAKE
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.06
+0.06 (0.017)
 \end_layout
 
 \end_inset
@@ -5851,7 +5864,7 @@ QUAKE
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.041
+0.041 (0.006)
 \end_layout
 
 \end_inset
@@ -5860,7 +5873,7 @@ QUAKE
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.298
+0.298 (0.13)
 \end_layout
 
 \end_inset
@@ -5869,7 +5882,7 @@ QUAKE
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.038
+0.038(0.005)
 \end_layout
 
 \end_inset
@@ -5889,7 +5902,7 @@ TREASURY
 \begin_inset Text
 
 \begin_layout Plain Layout
-2.929
+2.929 (0.69)
 \end_layout
 
 \end_inset
@@ -5898,7 +5911,7 @@ TREASURY
 \begin_inset Text
 
 \begin_layout Plain Layout
-11.16
+11.16(1.37)
 \end_layout
 
 \end_inset
@@ -5907,7 +5920,7 @@ TREASURY
 \begin_inset Text
 
 \begin_layout Plain Layout
-10.88
+10.88 (1.26)
 \end_layout
 
 \end_inset
@@ -5916,7 +5929,7 @@ TREASURY
 \begin_inset Text
 
 \begin_layout Plain Layout
-15.52
+15.52 (2.52)
 \end_layout
 
 \end_inset
@@ -5925,7 +5938,7 @@ TREASURY
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.84
+0.84 (0.29)
 \end_layout
 
 \end_inset
@@ -5945,7 +5958,7 @@ WANKARA
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.012
+0.012 ( 0.005)
 \end_layout
 
 \end_inset
@@ -5954,7 +5967,7 @@ WANKARA
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.02
+0.02 (0.005)
 \end_layout
 
 \end_inset
@@ -5963,7 +5976,7 @@ WANKARA
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.0003
+0.0003 (0.001)
 \end_layout
 
 \end_inset
@@ -5972,7 +5985,7 @@ WANKARA
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.005
+0.005 (0.001)
 \end_layout
 
 \end_inset
@@ -5981,7 +5994,7 @@ WANKARA
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.0002
+0.0002 (0.0001)
 \end_layout
 
 \end_inset
@@ -6240,7 +6253,7 @@ name "fig:experiments_nt"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center

@@ -540,6 +540,14 @@ alter the corresponding element with probability $p_{m}$.
 
 
 \subsection{The second phase of the proposed method}
+
+The result of the first phase of the proposed method is an interval
+of values for the parameters of the artificial neural network. This
+interval of values can be used to minimize the error function of the
+network with the parameters taking values exclusively in the above
+interval of values. Any optimization method can be used for this purpose,
+but in this work it was chosen to use a genetic algorithm and the
+steps of which are given below.
 \begin{enumerate}
 \item \textbf{Initialization Step}
 \begin{enumerate}
@@ -729,66 +737,68 @@ $p_{m}$ & 0.01\tabularnewline
 \end{table}
 \begin{table}[H]
 \caption{Experimental results for classification datasets. The values in cells
-indicate averare classification error as measured on test set.\label{tab:Experiments-for-classification}}
+indicate averare classification error as measured on test set. The
+numbers in parentheses denote the standard deviation.\label{tab:Experiments-for-classification}}
 
 \centering{}%
 \begin{tabular}{>{\centering}p{0.1\paperwidth}>{\centering}p{0.1\paperwidth}>{\centering}p{0.1\paperwidth}>{\centering}p{0.1\paperwidth}>{\centering}p{0.1\paperwidth}c}
 \hline 
 \textbf{DATASET} & \textbf{GENETIC} & \textbf{ADAM} & \textbf{RPROP} & \textbf{NEAT} & \textbf{PROPOSED}\tabularnewline
 \hline 
-Appendicitis & 18.10\% & 16.50\% & 16.30\% & 17.20\% & 17.00\%\tabularnewline
-Australian & 32.21\% & 35.65\% & 36.12\% & 31.98\% & 24.55\%\tabularnewline
-Balance & 8.97\% & 7.87\% & 8.81\% & 23.14\% & 16.71\%\tabularnewline
-Cleveland & 51.60\% & 67.55\% & 61.41\% & 53.44\% & 47.91\%\tabularnewline
-Dermatology & 30.58\% & 26.14\% & 15.12\% & 32.43\% & 8.93\%\tabularnewline
-Hayes Roth & 56.18\% & 59.70\% & 37.46\% & 50.15\% & 32.21\%\tabularnewline
-Heart & 28.34\% & 38.53\% & 30.51\% & 39.27\% & 17.40\%\tabularnewline
-HouseVotes & 6.62\% & 7.48\% & 6.04\% & 10.89\% & 3.48\%\tabularnewline
-Ionosphere & 15.14\% & 16.64\% & 13.65\% & 19.67\% & 7.14\%\tabularnewline
-Liverdisorder & 31.11\% & 41.53\% & 40.26\% & 30.67\% & 28.90\%\tabularnewline
-Lymography & 23.26\% & 29.26\% & 24.67\% & 33.70\% & 17.86\%\tabularnewline
-Mammographic & 19.88\% & 46.25\% & 18.46\% & 22.85\% & 17.32\%\tabularnewline
-Parkinsons & 18.05\% & 24.06\% & 22.28\% & 18.56\% & 14.35\%\tabularnewline
-Pima & 32.19\% & 34.85\% & 34.27\% & 34.51\% & 25.58\%\tabularnewline
-Popfailures & 5.94\% & 5.18\% & 4.81\% & 7.05\% & 4.58\%\tabularnewline
-Regions2 & 29.39\% & 29.85\% & 27.53\% & 33.23\% & 28.32\%\tabularnewline
-Saheart & 34.86\% & 34.04\% & 34.90\% & 34.51\% & 27.43\%\tabularnewline
-Segment & 57.72\% & 49.75\% & 52.14\% & 66.72\% & 20.68\%\tabularnewline
-Wdbc & 8.56\% & 35.35\% & 21.57\% & 12.88\% & 5.23\%\tabularnewline
-Wine & 19.20\% & 29.40\% & 30.73\% & 25.43\% & 5.35\%\tabularnewline
-Z\_F\_S & 10.73\% & 47.81\% & 29.28\% & 38.41\% & 6.56\%\tabularnewline
-ZO\_NF\_S & 8.41\% & 47.43\% & 6.43\% & 43.75\% & 3.60\%\tabularnewline
-ZONF\_S & 2.60\% & 11.99\% & 27.27\% & 5.44\% & 2.21\%\tabularnewline
-ZOO & 16.67\% & 14.13\% & 15.47\% & 20.27\% & 6.10\%\tabularnewline
+Appendicitis & 18.10\% (6.32) & 16.50\% (7.73) & 16.30\% (5.27) & 17.20\% (4.12) & 17.00\% (6.23)\tabularnewline
+Australian & 32.21\% (5.99) & 35.65\% (5.83) & 36.12\% (5.52) & 31.98\% (6.03) & 24.55\% (4.64)\tabularnewline
+Balance & 8.97\% (2.64) & 7.87\% (3.09) & 8.81\% (2.36) & 23.14\% (4.16) & 16.71\% (3.98)\tabularnewline
+Cleveland & 51.60\% (6.39) & 67.55\% (6.98) & 61.41\% (9.10) & 53.44\% (7.26) & 47.91\% (4.78)\tabularnewline
+Dermatology & 30.58\% (4.75) & 26.14\% (3.11) & 15.12\% (2.40) & 32.43\% (4.74) & 8.93\% (2.36)\tabularnewline
+Hayes Roth & 56.18\% (6.97) & 59.70\% (5.41) & 37.46\% (4.41) & 50.15\% (4.43) & 32.21\% (2.58)\tabularnewline
+Heart & 28.34\% (4.78) & 38.53\% (4.45) & 30.51\% (3.63) & 39.27\% (4.14) & 17.40\% (2.52)\tabularnewline
+HouseVotes & 6.62\% (2.11) & 7.48\% (1.81) & 6.04\% (1.17) & 10.89\% (2.30) & 3.48\% (1.43)\tabularnewline
+Ionosphere & 15.14\% (2.57) & 16.64\% (3.20) & 13.65\% (2.45) & 19.67\% (4.28) & 7.14\% (1.10)\tabularnewline
+Liverdisorder & 31.11\% (4.59) & 41.53\% (4.74) & 40.26\% (3.99) & 30.67\% (3.12) & 28.90\% (2.91)\tabularnewline
+Lymography & 23.26\% (3.84) & 29.26\% (4.72) & 24.67\% (3.48) & 33.70\% (4.17) & 17.86\% (2.42)\tabularnewline
+Mammographic & 19.88\% (2.79) & 46.25\% (2.66) & 18.46\% (2.34) & 22.85\% (3.27) & 17.32\% (1.79)\tabularnewline
+Parkinsons & 18.05\% (3.16) & 24.06\% (3.28) & 22.28\% (2.79) & 18.56\% (1.87) & 14.35\% (1.79)\tabularnewline
+Pima & 32.19\% (4.82) & 34.85\% (4.26) & 34.27\% (4.24) & 34.51\% (4.67) & 25.58\% (2.55)\tabularnewline
+Popfailures & 5.94\% (1.71) & 5.18\% (1.79) & 4.81\% (1.81) & 7.05\% (2.87) & 4.58\% (1.32)\tabularnewline
+Regions2 & 29.39\% (3.88) & 29.85\% (3.95) & 27.53\% (3.23) & 33.23\% (4.41) & 28.32\% (3.59)\tabularnewline
+Saheart & 34.86\% (4.90) & 34.04\% (4.74) & 34.90\% (4.75) & 34.51\% (5.57) & 27.43\% (3.88)\tabularnewline
+Segment & 57.72\% (2.71) & 49.75\% (3.01) & 52.14\% (4.85) & 66.72\% (4.74) & 20.68\% (2.17)\tabularnewline
+Wdbc & 8.56\% (2.90) & 35.35\% (5.06) & 21.57\% (4.55) & 12.88\% (3.48) & 5.23\% (1.66)\tabularnewline
+Wine & 19.20 (2.66) & 29.40\% (3.37) & 30.73\% (3.78) & 25.43\% (3.19) & 5.35\% (1.74)\tabularnewline
+Z\_F\_S & 10.73\% (2.80) & 47.81\% (5.75) & 29.28\% (4.81) & 38.41\% (6.18) & 6.56\% (1.45)\tabularnewline
+ZO\_NF\_S & 8.41\% (2.35) & 47.43\% (5.79) & 6.43\% (2.35) & 43.75\% (6.98) & 3.60\% (1.05)\tabularnewline
+ZONF\_S & 2.60\% (0.33) & 11.99\% (1.19) & 27.27\% (1.58) & 5.44\% (1.11) & 2.21\% (0.54)\tabularnewline
+ZOO & 16.67\% (3.28) & 14.13\% (2.52) & 15.47\% (3.10) & 20.27\% (6.47) & 6.10\% (1.67)\tabularnewline
 \textbf{AVERAGE} & \textbf{23.60\%} & \textbf{31.54\%} & \textbf{25.65\%} & \textbf{29.42\%} & \textbf{16.23\%}\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
 \begin{table}[H]
 \caption{Experimental results for regression datasets. The values indicate
-average regression error as measured on test set.\label{tab:exp2}}
+average regression error as measured on test set. The numbers in parentheses
+denote the standard deviation.\label{tab:exp2}}
 
 \centering{}%
 \begin{tabular}{>{\centering}p{0.1\paperwidth}>{\centering}p{0.1\paperwidth}>{\centering}p{0.1\paperwidth}>{\centering}p{0.1\paperwidth}>{\centering}p{0.1\paperwidth}c}
 \hline 
 \textbf{DATASET} & \textbf{GENETIC} & \textbf{ADAM} & \textbf{RPROP} & \textbf{NEAT} & \textbf{PROPOSED}\tabularnewline
 \hline 
-ABALONE & 7.17 & 4.30 & 4.55 & 9.88 & 4.48\tabularnewline
-AIRFOIL & 0.003 & 0.005 & 0.002 & 0.067 & 0.002\tabularnewline
-BASEBALL & 103.60 & 77.90 & 92.05 & 100.39 & 51.39\tabularnewline
-BK & 0.027 & 0.03 & 1.599 & 0.15 & 0.02\tabularnewline
-BL & 5.74 & 0.28 & 4.38 & 0.05 & 0.002\tabularnewline
-CONCRETE & 0.0099 & 0.078 & 0.0086 & 0.081 & 0.004\tabularnewline
-DEE & 1.013 & 0.63 & 0.608 & 1.512 & 0.23\tabularnewline
-DIABETES & 19.86 & 3.03 & 1.11 & 4.25 & 0.41\tabularnewline
-HOUSING & 43.26 & 80.20 & 74.38 & 56.49 & 24.55\tabularnewline
-FA & 1.95 & 0.11 & 0.14 & 0.19 & 0.01\tabularnewline
-MB & 3.39 & 0.06 & 0.055 & 0.061 & 0.048\tabularnewline
-MORTGAGE & 2.41 & 9.24 & 9.19 & 14.11 & 0.65\tabularnewline
-PY & 5.41 & 0.09 & 0.039 & 0.075 & 0.025\tabularnewline
-QUAKE & 0.040 & 0.06 & 0.041 & 0.298 & 0.038\tabularnewline
-TREASURY & 2.929 & 11.16 & 10.88 & 15.52 & 0.84\tabularnewline
-WANKARA & 0.012 & 0.02 & 0.0003 & 0.005 & 0.0002\tabularnewline
+ABALONE & 7.17 (1.11) & 4.30 (0.55) & 4.55 (0.75) & 9.88 (1.61) & 4.48 (0.52)\tabularnewline
+AIRFOIL & 0.003 (0.002) & 0.005 (0.003) & 0.002 (0.001) & 0.067 (0.002) & 0.002 (0.001)\tabularnewline
+BASEBALL & 103.60 (15.85) & 77.90 (16.59) & 92.05 (23.51) & 100.39 (22.54) & 51.39 (10.13)\tabularnewline
+BK & 0.027 (0.009) & 0.03 (0.004) & 1.599 (0.15) & 0.15 (0.02) & 0.02 (0.005)\tabularnewline
+BL & 5.74 (1.64) & 0.28 (0.11) & 4.38 (0.19) & 0.05 (0.02) & 0.002 (0.001)\tabularnewline
+CONCRETE & 0.0099 ( 0.001) & 0.078 (0.013) & 0.0086 (0.001) & 0.081 (0.004) & 0.004 (0.0006)\tabularnewline
+DEE & 1.013 (0.21) & 0.63 (0.08) & 0.608 (0.07) & 1.512 (0.79) & 0.23 (0.05)\tabularnewline
+DIABETES & 19.86 (5.57) & 3.03 (0.35) & 1.11 (0.57) & 4.25 (1.92) & 0.41 (0.08)\tabularnewline
+HOUSING & 43.26 (5.84) & 80.20 (8.82) & 74.38 (6.85) & 56.49 (5.65) & 24.55 (4.48)\tabularnewline
+FA & 1.95 (0.44) & 0.11 (0.021) & 0.14 (0.01) & 0.19 (0.014) & 0.01 (0.005)\tabularnewline
+MB & 3.39 (0.40) & 0.06 (0.03) & 0.055 (0.03) & 0.061 (0.03) & 0.048 (0.03)\tabularnewline
+MORTGAGE & 2.41 (0.26) & 9.24 (1.24) & 9.19 (1.62) & 14.11 (3.34) & 0.65 (0.16)\tabularnewline
+PY & 5.41 (0.63) & 0.09 (0.013) & 0.039 (0.019) & 0.075 (0.022) & 0.025 (0.012)\tabularnewline
+QUAKE & 0.040 (0.004) & 0.06 (0.017) & 0.041 (0.006) & 0.298 (0.13) & 0.038(0.005)\tabularnewline
+TREASURY & 2.929 (0.69) & 11.16(1.37) & 10.88 (1.26) & 15.52 (2.52) & 0.84 (0.29)\tabularnewline
+WANKARA & 0.012 ( 0.005) & 0.02 (0.005) & 0.0003 (0.001) & 0.005 (0.001) & 0.0002 (0.0001)\tabularnewline
 \textbf{AVERAGE} & \textbf{12.30} & \textbf{11.70} & \textbf{12.44} & \textbf{12.70} & \textbf{5.17}\tabularnewline
 \hline 
 \end{tabular}

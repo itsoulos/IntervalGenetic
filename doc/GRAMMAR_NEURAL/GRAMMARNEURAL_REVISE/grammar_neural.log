@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2023.10.5)  28 OCT 2023 09:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2023.10.5)  29 OCT 2023 15:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1549,7 +1549,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [5]
-Overfull \hbox (5.17792pt too wide) in paragraph at lines 562--564
+Overfull \hbox (5.17792pt too wide) in paragraph at lines 570--572
 []\T1/ppl/b/n/10 (-20) Calculate \T1/ppl/m/n/10 (-20) the fit-ness $\OML/zplm/m
 /it/10 f[]$ \T1/ppl/m/n/10 (-20) of chro-mo-some $\OML/zplm/m/it/10 g[]$ \T1/pp
 l/m/n/10 (-20) as $\OML/zplm/m/it/10 f[] \OT1/zplm/m/n/10 = [][][][][]$ 
@@ -1564,98 +1564,88 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [6 <./onepoint_crossover-eps-converted-to.pdf>]
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 629--629
-[]\T1/ppl/m/n/10 (-20) 10.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 631--631
-[]\T1/ppl/m/n/10 (-20) 11.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 633--633
-[]\T1/ppl/m/n/10 (-20) 12.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 635--635
-[]\T1/ppl/m/n/10 (-20) 13.  
- []
-
-
 Overfull \hbox (2.49998pt too wide) in paragraph at lines 637--637
-[]\T1/ppl/m/n/10 (-20) 14.  
+[]\T1/ppl/m/n/10 (-20) 10.  
  []
 
 
 Overfull \hbox (2.49998pt too wide) in paragraph at lines 639--639
-[]\T1/ppl/m/n/10 (-20) 15.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 641--641
-[]\T1/ppl/m/n/10 (-20) 16.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 643--643
-[]\T1/ppl/m/n/10 (-20) 17.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 644--644
-[]\T1/ppl/m/n/10 (-20) 18.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 646--646
-[]\T1/ppl/m/n/10 (-20) 19.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 647--647
-[]\T1/ppl/m/n/10 (-20) 20.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 650--650
-[]\T1/ppl/m/n/10 (-20) 21.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 666--666
-[]\T1/ppl/m/n/10 (-20) 10.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 667--667
 []\T1/ppl/m/n/10 (-20) 11.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 669--669
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 641--641
 []\T1/ppl/m/n/10 (-20) 12.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 670--670
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 643--643
 []\T1/ppl/m/n/10 (-20) 13.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 671--671
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 645--645
 []\T1/ppl/m/n/10 (-20) 14.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 672--672
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 647--647
 []\T1/ppl/m/n/10 (-20) 15.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 673--673
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 649--649
 []\T1/ppl/m/n/10 (-20) 16.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 651--651
+[]\T1/ppl/m/n/10 (-20) 17.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 652--652
+[]\T1/ppl/m/n/10 (-20) 18.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 654--654
+[]\T1/ppl/m/n/10 (-20) 19.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 655--655
+[]\T1/ppl/m/n/10 (-20) 20.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 658--658
+[]\T1/ppl/m/n/10 (-20) 21.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 674--674
+[]\T1/ppl/m/n/10 (-20) 10.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 675--675
+[]\T1/ppl/m/n/10 (-20) 11.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 677--677
+[]\T1/ppl/m/n/10 (-20) 12.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 678--678
+[]\T1/ppl/m/n/10 (-20) 13.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 679--679
+[]\T1/ppl/m/n/10 (-20) 14.  
  []
 
 
@@ -1667,17 +1657,27 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [7]
-Overfull \hbox (10.08954pt too wide) in paragraph at lines 750--750
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 680--680
+[]\T1/ppl/m/n/10 (-20) 15.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 681--681
+[]\T1/ppl/m/n/10 (-20) 16.  
+ []
+
+
+Overfull \hbox (10.08954pt too wide) in paragraph at lines 759--759
  []|\T1/ppl/m/n/10 (-20) Mammographic| 
  []
 
 
-Overfull \hbox (33.06668pt too wide) in paragraph at lines 735--766
+Overfull \hbox (33.9767pt too wide) in paragraph at lines 744--775
  [][] 
  []
 
 
-Overfull \hbox (33.06668pt too wide) in paragraph at lines 772--795
+Overfull \hbox (40.57681pt too wide) in paragraph at lines 782--805
  [][] 
  []
 
@@ -1707,13 +1707,13 @@ Package epstopdf Info: Source file: <average_error_h.eps>
 (epstopdf)                    size: 20271 bytes
 (epstopdf)             Command: <repstopdf --outfile=average_error_h-eps-conver
 ted-to.pdf average_error_h.eps>
-(epstopdf)             \includegraphics on input line 816.
+(epstopdf)             \includegraphics on input line 826.
 Package epstopdf Info: Output file is already uptodate.
 <average_error_h-eps-converted-to.pdf, id=430, 790.955pt x 445.665pt>
 File: average_error_h-eps-converted-to.pdf Graphic file (type pdf)
 <use average_error_h-eps-converted-to.pdf>
 Package pdftex.def Info: average_error_h-eps-converted-to.pdf  used on input li
-ne 816.
+ne 826.
 (pdftex.def)             Requested size: 316.3764pt x 178.26283pt.
 Package epstopdf Info: Source file: <average_error_gens.eps>
 (epstopdf)                    date: 2023-10-28 08:15:08
@@ -1723,13 +1723,13 @@ Package epstopdf Info: Source file: <average_error_gens.eps>
 (epstopdf)                    size: 22135 bytes
 (epstopdf)             Command: <repstopdf --outfile=average_error_gens-eps-con
 verted-to.pdf average_error_gens.eps>
-(epstopdf)             \includegraphics on input line 824.
+(epstopdf)             \includegraphics on input line 834.
 Package epstopdf Info: Output file is already uptodate.
 <average_error_gens-eps-converted-to.pdf, id=431, 790.955pt x 445.665pt>
 File: average_error_gens-eps-converted-to.pdf Graphic file (type pdf)
 <use average_error_gens-eps-converted-to.pdf>
 Package pdftex.def Info: average_error_gens-eps-converted-to.pdf  used on input
- line 824.
+ line 834.
 (pdftex.def)             Requested size: 316.3764pt x 178.26283pt.
 Package epstopdf Info: Source file: <average_execution_time.eps>
 (epstopdf)                    date: 2023-10-28 08:15:28
@@ -1740,13 +1740,13 @@ f>
 (epstopdf)                    size: 19172 bytes
 (epstopdf)             Command: <repstopdf --outfile=average_execution_time-eps
 -converted-to.pdf average_execution_time.eps>
-(epstopdf)             \includegraphics on input line 832.
+(epstopdf)             \includegraphics on input line 842.
 Package epstopdf Info: Output file is already uptodate.
 <average_execution_time-eps-converted-to.pdf, id=432, 790.955pt x 445.665pt>
 File: average_execution_time-eps-converted-to.pdf Graphic file (type pdf)
 <use average_execution_time-eps-converted-to.pdf>
 Package pdftex.def Info: average_execution_time-eps-converted-to.pdf  used on i
-nput line 832.
+nput line 842.
 (pdftex.def)             Requested size: 316.3764pt x 178.26283pt.
 
 
@@ -1762,16 +1762,16 @@ d-to.pdf>]
 <class_grammar_neural_new.png, id=450, 719.8092pt x 655.4889pt>
 File: class_grammar_neural_new.png Graphic file (type png)
 <use class_grammar_neural_new.png>
-Package pdftex.def Info: class_grammar_neural_new.png  used on input line 853.
+Package pdftex.def Info: class_grammar_neural_new.png  used on input line 863.
 (pdftex.def)             Requested size: 359.90372pt x 327.74365pt.
 <regression_grammar_neural_new.png, id=452, 806.0514pt x 627.3036pt>
 File: regression_grammar_neural_new.png Graphic file (type png)
 <use regression_grammar_neural_new.png>
 Package pdftex.def Info: regression_grammar_neural_new.png  used on input line 
-866.
+876.
 (pdftex.def)             Requested size: 403.02472pt x 313.65103pt.
 
-Overfull \hbox (8.6695pt too wide) in paragraph at lines 866--867
+Overfull \hbox (8.6695pt too wide) in paragraph at lines 876--877
  [][] 
  []
 
@@ -1848,11 +1848,11 @@ Package rerunfilecheck Info: File `grammar_neural.out' has not changed.
 (rerunfilecheck)             Checksum: FC760DF8998D9A96A256BFEE5618AB6D;1582.
  ) 
 Here is how much of TeX's memory you used:
- 34176 strings out of 477619
- 635410 string characters out of 5829986
- 1912759 words of memory out of 5000000
+ 34179 strings out of 477619
+ 635437 string characters out of 5829986
+ 1913759 words of memory out of 5000000
  53359 multiletter control sequences out of 15000+600000
- 588966 words of font info for 445 fonts, out of 8000000 for 9000
+ 589125 words of font info for 447 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  123i,18n,121p,4345b,1008s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/sheridan/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.
@@ -1867,7 +1867,7 @@ texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist
 pe1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/pala
 tino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a
 .pfb>
-Output written on grammar_neural.pdf (17 pages, 691344 bytes).
+Output written on grammar_neural.pdf (17 pages, 692612 bytes).
 PDF statistics:
  657 PDF objects out of 1000 (max. 8388607)
  538 compressed objects within 6 object streams
