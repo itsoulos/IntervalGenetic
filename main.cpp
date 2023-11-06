@@ -299,19 +299,19 @@ int main(int argc,char **argv)
         bestMargin = p.getMargins();
         Problem np(&p,bestMargin);
 
-        /*DoublePop pop(chromosomes,&np);
+        DoublePop pop(chromosomes,&np);
         pop.setSelectionRate(selection_rate);
         pop.setMutationRate(mutation_rate);
         pop.setMaxGenerations(20);
         pop.Solve();
         Data bestx = pop.getBestGenome();
-*/
+
         printf("Phase 1 margins....\n");
         bestMargin = p.getMargins();
         for(int i=0;i<bestMargin.size();i++)
         {
-        //    bestMargin[i]=Interval(-1.0*fabs(bestx[i]),
-          //                          1.0*fabs(bestx[i]));
+            bestMargin[i]=Interval(-1.0*fabs(bestx[i]),
+                                   1.0*fabs(bestx[i]));
             printf("Margin[%d]=%lf,%lf\n",i,bestMargin[i].leftValue(),
                    bestMargin[i].rightValue());
         }
