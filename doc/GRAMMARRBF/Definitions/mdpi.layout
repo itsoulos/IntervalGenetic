@@ -636,12 +636,6 @@ Style Conflicts_of_Interest
   LabelString	"Conflicts of Interest: "
 End
 
-Style Sample_Availability
-  CopyStyle	Supplementary
-  LatexName	sampleavailability
-  LabelString	"Sample Availability: "
-End
-
 Style Entry_Link
   CopyStyle	Supplementary
   LatexName	entrylink

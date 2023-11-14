@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%	MDPI class for LaTeX files	 25 March 2022
+%%%%	MDPI class for LaTeX files	 30 October 2023
 %% %%	For any information please send an e-mail to:
 %% %%		latex@mdpi.com
 %% %%
@@ -21,7 +21,7 @@
 
 %% IDENTIFICATION
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{Definitions/mdpi}[25/03/2022 MDPI paper class]
+\ProvidesClass{Definitions/mdpi}[30/10/2023 MDPI paper class]
 
  %% PRELIMINARY DECLARATIONS
 \LoadClass[10pt,a4paper]{article}
@@ -33,10 +33,10 @@
 \RequirePackage{graphicx,epstopdf}
 \RequirePackage{lastpage}
 \RequirePackage{ifthen}
-\RequirePackage[right]{lineno}
 \RequirePackage{float}
 \RequirePackage{amsmath}
 \RequirePackage{amssymb} % For math environment bold format
+\RequirePackage[right]{lineno}
 \RequirePackage{setspace}
 \RequirePackage{enumitem}
 \RequirePackage{mathpazo}
@@ -104,6 +104,7 @@
 \DeclareOption{interestingimages}{\gdef\@arttype{Interesting Images}}
 \DeclareOption{letter}{\gdef\@arttype{Letter}}
 \DeclareOption{meetingreport}{\gdef\@arttype{Meeting Report}}
+\DeclareOption{monograph}{\gdef\@arttype{Monograph}}
 \DeclareOption{newbookreceived}{\gdef\@arttype{New Book Received}}
 \DeclareOption{obituary}{\gdef\@arttype{Obituary}}
 \DeclareOption{opinion}{\gdef\@arttype{Opinion}}
@@ -247,6 +248,7 @@
 		\OR \equal{\@journal}{econometrics}
 		\OR \equal{\@journal}{economies}
 		\OR \equal{\@journal}{genealogy}
+		\OR \equal{\@journal}{histories}
 		\OR \equal{\@journal}{humanities}
 		\OR \equal{\@journal}{ijfs}
 		\OR \equal{\@journal}{jintelligence}
@@ -254,11 +256,10 @@
 		\OR \equal{\@journal}{jrfm}
 		\OR \equal{\@journal}{languages}
 		\OR \equal{\@journal}{laws}
+		\OR \equal{\@journal}{literature}
 		\OR \equal{\@journal}{religions}
 		\OR \equal{\@journal}{risks}
 		\OR \equal{\@journal}{socsci}
-		\OR \equal{\@journal}{literature}
-		\OR \equal{\@journal}{histories}
 		}
 }
 
@@ -306,8 +307,10 @@
 \definecolor{bluecite}{HTML}{0875b7}
 
 % After TeXLive 2021, \AddToHook{begindocument} is needed to make sure that hyperref is loaded last. \ifdef{\AddToHook{begindocument}}{ is needed for backwards-compatibility because \AddToHook{begindocument} did not yet exist in 2020.
+% After TeXLive 2022, \AddToHook{begindocument/before}{} is needed and  \DeclareHookRule{begindocument}{hyperref}{before}{mdpi} needs to be added because of the new version of hyperref.
 \newcommand{\hyperrefpackage}{
-\ifthenelse{\equal{\@arttype}{Book}}{
+\ifthenelse{\equal{\@arttype}{Book} 
+	\OR \equal{\@arttype}{Monograph}}{
 	\RequirePackage[unicode=true,
 	bookmarksopen={true},
 	pdffitwindow=true, 
@@ -317,7 +320,8 @@
 	urlcolor=black, 
 	hyperfootnotes=false, 
 	pdfstartview={FitH},
-	pdfpagemode=UseNone]{hyperref}
+	pdfpagemode=UseNone,
+	pdfpagelabels]{hyperref}
 	}{
 	\ifthenelse{\equal{\@journal}{laws}}{
 	\RequirePackage[unicode=true,
@@ -343,9 +347,11 @@
 	pdfpagemode= UseNone]{hyperref}
 	} 
 }
+\RequirePackage{cleveref}
 }
 \ifdef{\AddToHook}{
-	\AddToHook{begindocument}{ 
+\DeclareHookRule{begindocument}{hyperref}{before}{mdpi}
+	\AddToHook{begindocument/before}{ 
 		\hyperrefpackage
 		}
 	}{
@@ -526,6 +532,8 @@
 \newcommand{\LSID}[1]{\gdef\@LSID{#1}}
 \def\@datereceived{}
 \newcommand{\datereceived}[1]{\gdef\@datereceived{#1}} 
+\def\@daterevised{}
+\newcommand{\daterevised}[1]{\gdef\@daterevised{#1}} 
 \def\@dateaccepted{}
 \newcommand{\dateaccepted}[1]{\gdef\@dateaccepted{#1}} 
 \newcommand{\datepublished}[1]{\gdef\@datepublished{#1}} 
@@ -583,6 +591,11 @@
 \newcommand{\reftitle}[1]{\gdef\@reftitle{#1}}
 \def\@longauthorlist{}
 \newcommand{\longauthorlist}[1]{\gdef\@longauthorlist{#1}}
+\def\@encyclopediadef{}
+\newcommand{\encyclopediadef}[1]{\gdef\@encyclopediadef{#1}}
+\def\@addhighlights{}
+\newcommand{\addhighlights}[1]{\gdef\@addhighlights{#1}}
+
 
 %% ORCID
 % Make Orcid icon
@@ -603,7 +616,8 @@
 %%%% Header and footer on first page
 %% The plain page style needs to be redefined because with \maketitle in the article class, LaTeX applies the the plain page style automatically to the first page.
 \ifthenelse{\equal{\@journal}{preprints} %
-		\OR \equal{\@arttype}{Book}}{%
+		\OR \equal{\@arttype}{Book}
+		\OR \equal{\@arttype}{Monograph}}{%
 	\fancypagestyle{plain}{%
 		\fancyhf{}
 		\ifthenelse{\equal{\@arttype}{Book}}{
@@ -618,7 +632,7 @@
 			\fancyhead[R]{
 				\footnotesize %
 				S\thepage{} of S\pageref*{LastPage}%
-				\\\rule{\textwidth}{0.4pt}%
+				\\\rule{\fulllength}{0.4pt}%
 				}%
 			\fancyhead[L]{
 				\footnotesize %
@@ -636,7 +650,7 @@
 					. {\changeurlcolor{black}%
         					\url{https://doi.org/\@doinum}}%
 					}%
-					\\\vspace{-2pt}\rule{\textwidth}{0.4pt}%
+					\\\vspace{-2pt}\rule{\fulllength}{0.4pt}%
 				}%
 			}%
 		}{
@@ -671,7 +685,8 @@
 
 %%%% Maketitle part 1: Logo, Arttype, Title, Author
 \renewcommand{\@maketitle}{
-	\ifthenelse{\equal{\@arttype}{Book}}{}{
+	\ifthenelse{\equal{\@arttype}{Book}
+		\OR \equal{\@arttype}{Monograph}}{}{
 		\ifthenelse{\equal{\@leftcolumnsplit}{\@empty}}{% Default option for the left column
 			\marginnote[\contentleftcolumn]{}[\MyLen] % Bottom aligned
 			}{%
@@ -690,26 +705,23 @@
 		\fontsize{10}{10}\selectfont
 		\noindent\boldmath\bfseries{\@Author}
 		}{%
-		\ifthenelse{\equal{\@arttype}{Book}}{}{%
+		\ifthenelse{\equal{\@arttype}{Book}
+			\OR \equal{\@arttype}{Monograph}}{}{%
 			\vspace*{-1.75cm}
 		}
 		{%0
 		\ifthenelse{\equal{\@journal}{preprints}
-			\OR \equal{\@arttype}{Book}}{}{%
+			\OR \equal{\@arttype}{Book}
+			\OR \equal{\@arttype}{Monograph}}{}{%
 				\ifthenelse{\equal{\@status}{submit}}{%	
 					\hfill \href{https://www.mdpi.com}{%
-					\includegraphics[height=1cm]{Definitions/logo-mdpi.eps}}%
+					\includegraphics[height=1cm]{Definitions/logo-mdpi.pdf}}%
 					}{
 					\href{https://www.mdpi.com/journal/\@journal}{
-					\includegraphics[height=1.2cm]{Definitions/\@journal-logo.eps}}%
+					\includegraphics[height=1.2cm]{Definitions/\@journal-logo.pdf}}%
 					\hfill
-%					\ifthenelse{\equal{\@journal}{proceedings}}{
-%						\href{https://www.mdpi.com/journal/\@journal}{
-%						\includegraphics[height=1.2cm]{Definitions/logo-conference.eps}
-%						\hfill}
-%						}{}
 					\ifthenelse{\equal{\@journal}{scipharm}}{%
-						\href{https://www.mdpi.com}{\includegraphics[height=1cm]{Definitions/logo-mdpi-scipharm.eps}}%
+						\href{https://www.mdpi.com}{\includegraphics[height=1cm]{Definitions/logo-mdpi-scipharm.pdf}}%
 						}{%
 						\href{https://www.mdpi.com}{\includegraphics[height=1cm]{Definitions/logo-mdpi.pdf}}%
 						}%
@@ -723,7 +735,8 @@
 		{%1
     		\vspace{14pt}
     		\fontsize{10}{10}\selectfont
-		\ifthenelse{\equal{\@arttype}{Book}}{}{
+		\ifthenelse{\equal{\@arttype}{Book}
+			\OR \equal{\@arttype}{Monograph}}{}{
 			\textit{\@arttype}%
 			}%	
  	   	\par%
@@ -754,7 +767,8 @@
 		\end{flushleft}%
 		}{%
 	}%
-	\ifthenelse{\equal{\@arttype}{Book}}{}{%
+	\ifthenelse{\equal{\@arttype}{Book}
+		\OR \equal{\@arttype}{Monograph}}{}{%
 		\ifthenelse{\equal{\@longauthorlist}{\@empty}}{%
 			\end{adjustwidth}%
 			}{%
@@ -764,6 +778,7 @@
 			}{
 			\marginnote[\contentleftcolumn]{}% Alignment with the affiliations
 		}
+	\ifthenelse{\equal{\@arttype}{Monograph}}{\vspace{-2cm}}{}	
 	}
 
 %%%% Commands for hanging indent
@@ -825,6 +840,10 @@
 			Published: \@datepublished\\\vspace{-12pt}
 			}{%
 			Received: \@datereceived\\
+			\ifthenelse{\equal{\@daterevised}{\@empty}}{%
+				}{%
+				Revised: \@daterevised\\%
+				}
 			Accepted: \@dateaccepted\\
 			Published: \@datepublished
 			\ifthenelse{\equal{\@datecorrected}{\@empty}}{%
@@ -839,13 +858,7 @@
 	}
 }
 
-% Part 4: Publisher's note
-\newcommand{\leftcolPublishersNote}{
-	\leftcolFont
-	\textbf{Publisher's Note:} MDPI stays neutral with regard to jurisdictional claims in published maps and institutional affil-\linebreak iations.
-}
-
-% Part 5: Copyright
+% Part 4: Copyright
 \newcommand{\leftcolumnCright}{
 	\leftcolFont
 	\cright
@@ -857,11 +870,10 @@
 	\leftcolUpdateCitation\vspace{-2pt} %1
 	\leftcolExternalEditor %2
 	\leftcolDates\vspace{-2pt} %3
-	\leftcolPublishersNote %4
 	\ifthenelse{\equal{\@status}{submit}}{%
 		\vspace{-8pt}
 		}{}
-	\vspace{6pt}\leftcolumnCright %5
+	\vspace{6pt}\leftcolumnCright %4
 }
 }
 
@@ -889,52 +901,38 @@
 	\leftcolUpdateCitation\vspace{-2pt} %1
 	\leftcolExternalEditor %2
 	\leftcolDates\vspace{-2pt} %3
-	\leftcolPublishersNote %4
 }
 		
 \newcommand{\OptionOneB}{
-	\leftcolumnCright %5
+	\leftcolumnCright %4
 }
 
 % Split option 2	
 \newcommand{\OptionTwoA}{
 	\leftcolUpdateCitation\vspace{-2pt} %1
-	\leftcolExternalEditor %2
-	\leftcolDates %3
-}
-		
-\newcommand{\OptionTwoB}{
-	\leftcolPublishersNote %4
-	\vspace{6pt}\leftcolumnCright %5
-}
-
-% Split option 3	
-\newcommand{\OptionThreeA}{
-	\leftcolUpdateCitation\vspace{-2pt} %1
 	\leftcolExternalEditor\vspace{-10pt} %2
 }
 
-\newcommand{\OptionThreeB}{
+\newcommand{\OptionTwoB}{
 	\leftcolDates\vspace{-2pt} %3
-	\leftcolPublishersNote %4
-	\vspace{6pt}\leftcolumnCright %5
+	\vspace{6pt}\leftcolumnCright %4
 }
 
-% Split option 4
-\newcommand{\OptionFourA}{
+% Split option 3
+\newcommand{\OptionThreeA}{
 	\leftcolUpdateCitation %1
 }
 
-\newcommand{\OptionFourB}{
+\newcommand{\OptionThreeB}{
 	\leftcolExternalEditor %2
 	\leftcolDates\vspace{-2pt} %3
-	\leftcolPublishersNote %4
-	\vspace{6pt}\leftcolumnCright %5
+	\vspace{6pt}\leftcolumnCright %4
 }
 
 %%%% Maketitle part 2
 \newcommand{\maketitlen}{ 
-	\ifthenelse{\equal{\@arttype}{Book}}{\vspace{12pt}}{%
+	\ifthenelse{\equal{\@arttype}{Book}
+	\OR \equal{\@arttype}{Monograph}}{\vspace{12pt}}{%
 	\begin{flushleft}
 	\begin{spacing}{1.35}
 	\hyphenpenalty=10000
@@ -954,47 +952,47 @@
 	}%
 	{%
 	\ifthenelse{\equal{\@conference}{\@empty}}{}{%
-	\hang$\dagger$ \tabto{\dist} This paper is an extended version of our paper published in\space \@conference.}
+	\hang$^{\dagger}$ \tabto{\dist} This paper is an extended version of our paper published in\space \@conference.}
 	\par
 	}%
 	{%
 	\ifthenelse{\equal{\@firstnote}{\@empty}}{}{%
-	\hang\ifthenelse{\equal{\@conference}{\@empty}}{$\dagger$}{$\ddagger$} \tabto{\dist} \@firstnote}	
+	\hang\ifthenelse{\equal{\@conference}{\@empty}}{$^\dagger$}{$^\ddagger$} \tabto{\dist} \@firstnote}	
 	\par
 	}%
 	{%
 	\ifthenelse{\equal{\@secondnote}{\@empty}}{}{%
-	\hang \ifthenelse{\equal{\@conference}{\@empty}}{$\ddagger$}{\S} \tabto{\dist} \@secondnote}
+	\hang \ifthenelse{\equal{\@conference}{\@empty}}{$^{\ddagger}$}{$^{\S}$} \tabto{\dist} \@secondnote}
 	\par
 	}%
 	{%
 	\ifthenelse{\equal{\@thirdnote}{\@empty}}{}{%
-	\hang \ifthenelse{\equal{\@conference}{\@empty}}{\S}{$\|$} \tabto{\dist} \@thirdnote}
+	\hang \ifthenelse{\equal{\@conference}{\@empty}}{$^{\S}$}{$^{\|}$} \tabto{\dist} \@thirdnote}
 	\par
 	}%
 	{%
 	\ifthenelse{\equal{\@fourthnote}{\@empty}}{}{%
-	\hang \ifthenelse{\equal{\@conference}{\@empty}}{$\|$}{\P} \tabto{\dist} \@fourthnote}
+	\hang \ifthenelse{\equal{\@conference}{\@empty}}{$^{\|}$}{$^\P$} \tabto{\dist} \@fourthnote}
 	\par
 	}%
 	{%
 	\ifthenelse{\equal{\@fifthnote}{\@empty}}{}{%
-	\hang \ifthenelse{\equal{\@conference}{\@empty}}{\P}{**} \tabto{\dist} \@fifthnote}
+	\hang \ifthenelse{\equal{\@conference}{\@empty}}{$^{\P}$}{**} \tabto{\dist} \@fifthnote}
 	\par
 	}%
 	{%
 	\ifthenelse{\equal{\@sixthnote}{\@empty}}{}{%
-	\hang \ifthenelse{\equal{\@conference}{\@empty}}{**}{$\dagger\dagger$} \tabto{\dist} \@sixthnote}
+	\hang \ifthenelse{\equal{\@conference}{\@empty}}{**}{$^{\dagger\dagger}$} \tabto{\dist} \@sixthnote}
 	\par
 	}%
 	{%
 	\ifthenelse{\equal{\@seventhnote}{\@empty}}{}{%
-	\hang \ifthenelse{\equal{\@conference}{\@empty}}{$\dagger\dagger$}{$\ddagger\ddagger$} \tabto{\dist} \@seventhnote}
+	\hang \ifthenelse{\equal{\@conference}{\@empty}}{$^{\dagger\dagger}$}{$^{\ddagger\ddagger}$} \tabto{\dist} \@seventhnote}
 	\par
 	}%
 	{%
 	\ifthenelse{\equal{\@eighthnote}{\@empty}}{}{%
-	\hang \ifthenelse{\equal{\@conference}{\@empty}}{$\ddagger\ddagger$}{***} \tabto{\dist} \@eighthnote}
+	\hang \ifthenelse{\equal{\@conference}{\@empty}}{$^{\ddagger\ddagger}$}{***} \tabto{\dist} \@eighthnote}
 	\par
 	}%
 	{%
@@ -1025,17 +1023,21 @@
 	\vspace{12pt}
 	\par
 }
+\ifthenelse{\equal{\@addhighlights}{\@empty}}{}{
+	\noindent\textbf{Highlights:\\\vspace{-12pt}}\addhighlights % redefined in .tex to use itemize
+	\vspace{12pt}
+	\par
+}
 \ifthenelse{\equal{\@abstract}{\@empty}}{}{
- 	\ifthenelse{\equal{\@journal}{encyclopedia}}{
-    		\noindent\textbf{Definition:\space}\@abstract
- 		\vspace{12pt}
- 		\par
-      		}{
- 		\noindent\textbf{Abstract:\space}\@abstract
- 		\vspace{12pt}
- 		\par
- 	}
- }
+	\noindent\textbf{Abstract:\space}\@abstract
+	\vspace{12pt}
+	\par
+}
+\ifthenelse{\equal{\@encyclopediadef}{\@empty}}{}{
+	\noindent\textbf{Definition:\space}\@encyclopediadef
+	\vspace{12pt}
+	\par
+}
 %10
 % For journal Data:
 \ifthenelse{\equal{\@dataset}{\@empty}}{}{
@@ -1087,7 +1089,8 @@
 }
 %14
 \vspace{4pt}
-\ifthenelse{\equal{\@arttype}{Book}}{}{\hrule}
+\ifthenelse{\equal{\@arttype}{Book}
+\OR \equal{\@arttype}{Monograph}}{}{\hrule}
 \vspace{12pt}
 \normalsize
 }
@@ -1136,8 +1139,13 @@
 %%%% Section headings
 \setcounter{secnumdepth}{4} % Default: 3 in the article class. To get paragraphs numbered and counted, increase the default value of secnumdepth to 4
 
-\titleformat {\section} [block] {\raggedright \fontsize{10}{10}\selectfont\bfseries} {\thesection.\space} {0pt} {}
-\titlespacing {\section} {0pt} {12pt} {3pt}
+\ifthenelse{\equal{\@arttype}{Monograph}}{
+	\titleformat {\section} [block] {\raggedright \fontsize{18}{18}\selectfont\bfseries} {\thesection.\space} {0pt} {}
+	\titlespacing {\section} {0pt} {12pt} {8pt}
+	}{
+	\titleformat {\section} [block] {\raggedright \fontsize{10}{10}\selectfont\bfseries} {\thesection.\space} {0pt} {}
+	\titlespacing {\section} {0pt} {12pt} {3pt}
+}
 
 \titleformat {\subsection} [block] {\raggedright \fontsize{10}{10}\selectfont\itshape} {\thesubsection.\space} {0pt} {}
 \titlespacing {\subsection} {0pt} {12pt} {3pt}
@@ -1168,14 +1176,17 @@
 \newcommand{\dataavailability}[1]{
 \vspace{6pt}\noindent{\fontsize{9}{11.2}\selectfont\textbf{Data Availability Statement:} {#1}\par}}
 
+\newcommand{\publicinvolvement}[1]{% For journal Nursing Reports
+\vspace{6pt}\noindent{\fontsize{9}{11.2}\selectfont\textbf{Public Involvement Statement:} {#1}\par}}
+
+\newcommand{\guidelinesstandards}[1]{% For journal Nursing Reports
+\vspace{6pt}\noindent{\fontsize{9}{11.2}\selectfont\textbf{Guidelines and Standards Statement:} {#1}\par}}
+
 \newcommand{\acknowledgments}[1]{
 \vspace{6pt}\noindent{\fontsize{9}{11.2}\selectfont\textbf{Acknowledgments:} {#1}\par}}
 
 \newcommand{\conflictsofinterest}[1]{%
 \vspace{6pt}\noindent{\fontsize{9}{11.2}\selectfont\textbf{Conflicts of Interest:} {#1}\par}}
-
-\newcommand{\sampleavailability}[1]{%
-\vspace{6pt}\noindent{\fontsize{9}{11.2}\selectfont\textbf{Sample Availability:} {#1}\par}}
 
 \newcommand{\entrylink}[1]{% For journal Encyclopedia
 \vspace{6pt}\noindent{\fontsize{9}{11.2}\selectfont\textbf{Entry Link:} {#1}\par}}
@@ -1239,7 +1250,7 @@
 %
 \gdef\thesection{\@Alph\c@section}%
 \gdef\thesubsection{\@Alph\c@section.\@arabic\c@subsection}%
-%	
+
 \titleformat {\section} [block] {\raggedright\bfseries} {%
 	\ifthenelse{\equal{\@appendixtitles}{yes}}{%
 		\appendixname~\thesection.%
@@ -1307,16 +1318,17 @@
 \setlength{\fulllength}{21 cm - 1.27 cm - 1.27 cm}
 
 %%%% Layout
-\ifthenelse{\equal{\@arttype}{Book}}{%%
+\ifthenelse{\equal{\@arttype}{Book}
+\OR \equal{\@arttype}{Monograph}}{%%
 	\RequirePackage[left=2.05cm,
 					right=2.05cm,
 					top=1.8cm,
-					bottom=2.05cm,
+					bottom=0.75cm,
 					paperwidth=170mm,
 					paperheight=244mm,
 					footskip=20pt,
 					headsep=24pt,
-					includehead, 
+					%includehead, 
 					includefoot]{geometry}
 	}{
 	\RequirePackage[left=5.87cm, %1.27 cm + 0.51 cm + 4.1 cm = 5.87 cm (= 1.27 cm + marginparwidth + marginparsep)
@@ -1332,7 +1344,8 @@
 }
 
 \fancyheadoffset[L]{\extralength} % Header into the margin
-\ifthenelse{\equal{\@arttype}{Book}}{%
+\ifthenelse{\equal{\@arttype}{Book}
+\OR \equal{\@arttype}{Monograph}}{%
 	}{%
 	\fancyfootoffset[L]{\extralength}%
 } % Footer into the margin
@@ -1397,7 +1410,7 @@
 %% For text alignment in tables
 \renewcommand\tabularxcolumn[1]{m{#1}} % vertical centering
 \newcolumntype{C}{>{\centering\arraybackslash}X} % centered text in C columns
-
+\newcolumntype{L}{>{\raggedright\arraybackslash}X} % centered text in L columns
 
 %%%% Bullet lists
 \setitemize{topsep=3pt,parsep=0pt,itemsep=0pt,leftmargin=*,labelsep=5.5mm,align=parleft}
@@ -1434,7 +1447,8 @@
 \pagestyle{fancy}
 \lhead{
 	\ifthenelse{\equal{\@journal}{preprints}%
-	\OR \equal{\@arttype}{Book}}{%
+	\OR \equal{\@arttype}{Book}
+	\OR \equal{\@arttype}{Monograph}}{%
 		}{%
 		\fontsize{8}{8}\selectfont%
 		\ifthenelse{\equal{\@status}{submit}}{%
@@ -1461,7 +1475,8 @@
 	}
 	
 \rhead{%
-\ifthenelse{\equal{\@arttype}{Book}}{}{%
+\ifthenelse{\equal{\@arttype}{Book}
+\OR \equal{\@arttype}{Monograph}}{}{%
 	\ifthenelse{\equal{\@arttype}{Supfile}}{%
 		\fontsize{8}{8}\selectfont S\thepage{} of S\pageref*{LastPage}%
 		}{%
@@ -1476,7 +1491,9 @@
 }
 
 \cfoot{
-	\ifthenelse{\equal{\@arttype}{Book}}{%
+	\ifthenelse{\equal{\@arttype}{Book}
+	\OR \equal{\@arttype}{Monograph}
+	}{%
 		\fontsize{8}{8}\selectfont\thepage
 		}{%
 	}
@@ -1531,8 +1548,10 @@
 \renewcommand\@biblabel[1]{#1.\hfill}
 \def\thebibliography#1{
 \emergencystretch 2em
-\section*{\@reftitle}
-\addcontentsline{toc}{section}{References}
+\titleformat {\section} [block] {\raggedright \fontsize{10}{10}\selectfont\bfseries} {} {0pt} {}
+\ifthenelse{\equal{\@arttype}{Book} \OR \equal{\@arttype}{Monograph}}{}{%JD% to remove the sectin from the TOC in books
+	\section{\@reftitle}
+}
 \fontsize{9}{11}\selectfont
 \list{{\arabic{enumi}}}{\def\makelabel##1{\hss{##1}}
 \topsep=0\p@
@@ -1559,6 +1578,11 @@
 \let\endthebibliography=\endlist
 
 
+%%%% Publisher's note
+\newcommand{\PublishersNote}{
+\null\par\noindent\fontsize{9}{11}\selectfont\textbf{Disclaimer/Publisher's Note:} The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content.
+}
+
 %%%% Copyright info
 \newcommand{\cright}{%
         \ifthenelse{\equal{\@arttype}{Supfile}}{%
@@ -1581,7 +1605,7 @@
 			}{%
 			\href{https://creativecommons.org/}{%
 				\ifthenelse{\equal{\@journal}{ijtpp}}{%
-					\includegraphics[width=2 cm]{Definitions/logo-ccby-nc-nd.eps}%
+					\includegraphics[width=2 cm]{Definitions/logo-ccby-nc-nd.pdf}%
 					}{%
 					\includegraphics[width=2 cm]{Definitions/logo-ccby.pdf}
 					}

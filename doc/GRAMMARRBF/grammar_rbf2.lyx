@@ -231,40 +231,6 @@ Adapt the parameters of RBF networks using Grammatical Evolution
 Adapt the parameters of RBF networks using Grammatical Evolution
 \end_layout
 
-\begin_layout Author Orcid ID
-
-\begin_inset Argument 1
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-orcidauthorA
-\end_layout
-
-\end_inset
-
-0000-0000-0000-000X
-\end_layout
-
-\begin_layout Author Orcid ID
-
-\begin_inset Argument 1
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-orcidauthorB
-\end_layout
-
-\end_inset
-
-0000-0000-0000-000X
-\end_layout
-
 \begin_layout Author
 Ioannis G.
  Tsoulos
@@ -284,17 +250,7 @@ Ioannis G.
 
 \begin_layout Author Names for PDF
 Ioannis G.
- Tsoulos, Alexandros Tzallas, Evangelos Karvounis 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Authors, for metadata in PDF
-\end_layout
-
-\end_inset
-
-
+ Tsoulos, Alexandros Tzallas, Evangelos Karvounis
 \end_layout
 
 \begin_layout Author Names for Citation
@@ -469,7 +425,7 @@ The vectors
 \begin_inset Formula $\overrightarrow{c_{i}},\ i=1,..,k$
 \end_inset
 
- stand for the so - called centers.
+ stand for the centers of the model.
 \end_layout
 
 \begin_layout Enumerate
@@ -675,7 +631,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-The training error of an RBF network is given by:
+The parameters of the RBF network are modified in order to minimize the
+ following loss - function, called training error of the network:
 \begin_inset Formula 
 \begin{equation}
 E(y(x,g))=\sum_{i=1}^{m}\left(y\left(\overrightarrow{x}_{i},\overrightarrow{g}\right)-t_{i}\right)^{2}\label{eq:eqrbf}
@@ -809,17 +766,7 @@ noprefix "false"
 \end_inset
 
  the datasets used in the experiments are listed as well as the experimental
- results and finally in section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Conclusions"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- some conclusions are provided.
+ results and finally in section 4 some conclusions are provided.
 \end_layout
 
 \begin_layout Section
@@ -967,7 +914,7 @@ literal "false"
 
  
 \series default
-is the set of the so - called non-terminal symbols.
+is the set of the terminal symbols.
  Every non - terminal symbol is associated with a series of production rules
  used to produce terminal symbols.
 \end_layout
@@ -1045,10 +992,13 @@ The production rule is selected as: Rule = V mod R, where R is the total
 \end_layout
 
 \begin_layout Standard
-The BNF grammar used in this work is presented in Figure 
+The BNF grammar used in this work is presented in Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:BNF-grammar-of"
+reference "alg:The-BNF-grammar"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
@@ -1065,10 +1015,10 @@ reference "fig:BNF-grammar-of"
 
 \begin_layout Enumerate
 A series of vectors 
-\begin_inset Formula $c_{i},\ i=1,\ldots,k$
+\begin_inset Formula $\overrightarrow{c_{i}},\ i=1,\ldots,k$
 \end_inset
 
- called centers.
+ that stand for the centers of the model.
 \end_layout
 
 \begin_layout Enumerate
@@ -1128,7 +1078,7 @@ For every center
 \end_layout
 
 \begin_layout Enumerate
-Every Gaussian unit required an additional parameter 
+Every Gaussian unit require an additional parameter 
 \begin_inset Formula $\sigma_{i},\ i=1,..,k$
 \end_inset
 
@@ -1219,7 +1169,7 @@ Hence, for the example program
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
+\begin_inset Float algorithm
 placement H
 wide false
 sideways false
@@ -1231,9 +1181,12 @@ status open
 \begin_layout Plain Layout
 The BNF grammar used in the current work, to produce intervals for the RBF
  parameters.
+ By using this grammar in the first phase of the proposed procedure, the
+ optimal interval of values for the parameters of the neural network will
+ be identified.
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:BNF-grammar-of"
+name "alg:The-BNF-grammar"
 
 \end_inset
 
@@ -1284,6 +1237,9 @@ S::=<expr>   (0)
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 placement H
 wide false
@@ -1456,7 +1412,7 @@ Operation
 \begin_inset Text
 
 \begin_layout Plain Layout
-4 % 2=0
+4 mod 2=0
 \end_layout
 
 \end_inset
@@ -1485,7 +1441,7 @@ Operation
 \begin_inset Text
 
 \begin_layout Plain Layout
-15%2=1
+15 mod 2=1
 \end_layout
 
 \end_inset
@@ -1514,7 +1470,7 @@ Operation
 \begin_inset Text
 
 \begin_layout Plain Layout
-9 %2 =1
+9 mod 2 =1
 \end_layout
 
 \end_inset
@@ -1543,7 +1499,7 @@ Operation
 \begin_inset Text
 
 \begin_layout Plain Layout
-16%8=0
+16 mod 8=0
 \end_layout
 
 \end_inset
@@ -1572,7 +1528,7 @@ Operation
 \begin_inset Text
 
 \begin_layout Plain Layout
-23%2=1
+23 mod 2=1
 \end_layout
 
 \end_inset
@@ -1601,7 +1557,7 @@ Operation
 \begin_inset Text
 
 \begin_layout Plain Layout
-8%2=0
+8 mod 2=0
 \end_layout
 
 \end_inset
@@ -2328,7 +2284,7 @@ noprefix "false"
 \end_inset
 
  for the chromosome 
-\begin_inset Formula $cr_{i}$
+\begin_inset Formula $i$
 \end_inset
 
 .
@@ -2383,7 +2339,7 @@ do
 Create
 \series default
  randomly a set of parameters 
-\begin_inset Formula $g_{j}\in$
+\begin_inset Formula $\overrightarrow{g_{j}}\in$
 \end_inset
 
 
@@ -2399,7 +2355,7 @@ Create
 Calculate
 \series default
  the error 
-\begin_inset Formula $E_{g_{j}}=\sum_{j=1}^{M}\left(y\left(x_{j},g_{j}\right)-t_{j}\right)^{2}$
+\begin_inset Formula $E_{\overrightarrow{g_{j}}}=\sum_{k=1}^{M}\left(y\left(\overrightarrow{x_{k}},\overrightarrow{g_{j}}\right)-t_{k}\right)^{2}$
 \end_inset
 
 
@@ -2411,7 +2367,7 @@ Calculate
 If
 \series default
  
-\begin_inset Formula $E_{g_{j}}\le E_{\mbox{min}}$
+\begin_inset Formula $E_{\overrightarrow{g_{j}}}\le E_{\mbox{min}}$
 \end_inset
 
  
@@ -2419,7 +2375,7 @@ If
 then
 \series default
  
-\begin_inset Formula $E_{\mbox{min}}=E_{g_{j}}$
+\begin_inset Formula $E_{\mbox{min}}=E_{\overrightarrow{g_{j}}}$
 \end_inset
 
 
@@ -2431,7 +2387,7 @@ then
 If
 \series default
  
-\begin_inset Formula $E_{g_{j}}\ge E_{\mbox{max}}$
+\begin_inset Formula $E_{\overrightarrow{g_{j}}}\ge E_{\mbox{max}}$
 \end_inset
 
  
@@ -2439,7 +2395,7 @@ If
 then
 \series default
  
-\begin_inset Formula $E_{\mbox{max}}=E_{g_{j}}$
+\begin_inset Formula $E_{\mbox{max}}=E_{\overrightarrow{g_{j}}}$
 \end_inset
 
 
@@ -2630,7 +2586,7 @@ noprefix "false"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2693,7 +2649,7 @@ noprefix "false"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3196,7 +3152,7 @@ Calculate
 \end_inset
 
  as 
-\begin_inset Formula $f_{i}=\sum_{j=1}^{m}\left(y\left(x_{j},g_{i}\right)-t_{j}\right)^{2}$
+\begin_inset Formula $f_{i}=\sum_{j=1}^{m}\left(y\left(\overrightarrow{x_{j}},\overrightarrow{g_{i}}\right)-t_{j}\right)^{2}$
 \end_inset
 
 
@@ -3406,10 +3362,6 @@ name "fig:The-flowchart-of"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -3424,6 +3376,10 @@ name "sec:Experiments"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Experimental datasets
 \end_layout
 
 \begin_layout Standard
@@ -3478,7 +3434,7 @@ status open
 
 \begin_layout Plain Layout
 
-ftp://lib.stat.cmu.edu/datasets/index.html 
+http://lib.stat.cmu.edu/datasets/ 
 \end_layout
 
 \end_inset
@@ -3487,20 +3443,120 @@ ftp://lib.stat.cmu.edu/datasets/index.html
  
 \end_layout
 
-\begin_layout Subsection
-Experimental datasets 
+\begin_layout Standard
+The classification datasets are listed in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:The-classification-datasets"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and the regression datasets are listed in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:The-regression-datasets"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-The classification datasets have as follows:
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The classification datasets used in the experiments.
+ The column DATASET denotes the number of the dataset, the column CLASSES
+ stands for the number of classes in each dataset and the column REFERENCE
+ points to the bibliography where the use of the particular data set is
+ presented.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:The-classification-datasets"
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
 
-\series bold
-Appendictis
-\series default
- dataset, a medical dataset proposed in 
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="25" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DATASET
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CLASSES
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+REFERENCE
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+APPENDICITIS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "appendicitis"
@@ -3508,15 +3564,35 @@ literal "false"
 
 \end_inset
 
-.
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Australian
-\series default
- dataset 
+\begin_layout Plain Layout
+AUSTRALIAN
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "australian"
@@ -3524,15 +3600,35 @@ literal "false"
 
 \end_inset
 
-, an dataset related to economic data.
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Balance
-\series default
- dataset 
+\begin_layout Plain Layout
+BALANCE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "balance"
@@ -3540,16 +3636,35 @@ literal "false"
 
 \end_inset
 
-, which used to predict psychological states.
- 
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Cleveland
-\series default
- dataset, which is a medical dataset related to heart diseases 
+\begin_layout Plain Layout
+CLEVELAND
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "cleveland1,cleveland2"
@@ -3557,15 +3672,35 @@ literal "false"
 
 \end_inset
 
-.
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Dermatology
-\series default
- dataset 
+\begin_layout Plain Layout
+DERMATOLOGY
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "dermatology"
@@ -3573,15 +3708,35 @@ literal "false"
 
 \end_inset
 
-, a medical dataset.
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Hayes roth
-\series default
- dataset
+\begin_layout Plain Layout
+HAYES ROTH
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "hayesroth"
@@ -3589,15 +3744,35 @@ literal "false"
 
 \end_inset
 
-.
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Heart
-\series default
- dataset 
+\begin_layout Plain Layout
+HEART
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "heart"
@@ -3605,15 +3780,35 @@ literal "false"
 
 \end_inset
 
-, a medical dataset related to heart diseases.
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-HouseVotes
-\series default
- dataset 
+\begin_layout Plain Layout
+HOUSEVOTES
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "housevotes"
@@ -3621,15 +3816,35 @@ literal "false"
 
 \end_inset
 
-, related to Congressional voting records.
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Ionosphere
-\series default
- dataset, used for classification of radar returns from the ionosphere 
+\begin_layout Plain Layout
+IONOSPHERE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ion1,ion2"
@@ -3637,15 +3852,35 @@ literal "false"
 
 \end_inset
 
-.
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Liverdisorder
-\series default
- dataset 
+\begin_layout Plain Layout
+LIVERDISORDER
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "liver"
@@ -3653,15 +3888,35 @@ literal "false"
 
 \end_inset
 
-, a medical dataset.
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Mammographic
-\series default
- dataset 
+\begin_layout Plain Layout
+MAMMOGRAPHIC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "mammographic"
@@ -3669,15 +3924,35 @@ literal "false"
 
 \end_inset
 
-, used to identify breast tumors.
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Parkinsons
-\series default
- dataset, a medical dataset related to the Parkinson's Disease
+\begin_layout Plain Layout
+PARKINSONS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "parkinsons"
@@ -3685,15 +3960,35 @@ literal "false"
 
 \end_inset
 
-.
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Pima
-\series default
- dataset, a medical dataset
+\begin_layout Plain Layout
+PIMA
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "pima"
@@ -3701,15 +3996,35 @@ literal "false"
 
 \end_inset
 
-.
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Popfailures
-\series default
- dataset 
+\begin_layout Plain Layout
+POPFAILURES
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "popfailures"
@@ -3717,35 +4032,71 @@ literal "false"
 
 \end_inset
 
-, a dataset related to climate measurements.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Spiral
-\series default
- dataset, an artificial dataset with 2 features and two classes.
- The patterns for the first class are produced according to the equation:
- 
-\begin_inset Formula $x_{1}=0.5t\cos\left(0.08t\right),\ x_{2}=0.5t\cos\left(0.08t+\frac{\pi}{2}\right)$
-\end_inset
-
- and the second class data using
-\series bold
-: 
-\begin_inset Formula $x_{1}=0.5t\cos\left(0.08t+\pi\right),\ x_{2}=0.5t\cos\left(0.08t+\frac{3\pi}{2}\right)$
-\end_inset
-
 
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Regions2
-\series default
- dataset 
+\begin_layout Plain Layout
+SPIRAL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand citep
+key "spiral"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+REGIONS2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "regions"
@@ -3753,16 +4104,35 @@ literal "true"
 
 \end_inset
 
-.
- 
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Saheart
-\series default
- dataset 
+\begin_layout Plain Layout
+SAHEART
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "saheart"
@@ -3770,16 +4140,35 @@ literal "false"
 
 \end_inset
 
-, a medical dataset about heart diseases.
- 
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Segment
-\series default
- dataset 
+\begin_layout Plain Layout
+SEGMENT
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "segment"
@@ -3787,15 +4176,35 @@ literal "false"
 
 \end_inset
 
-, an image processing dataset.
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Wdbc
-\series default
- dataset 
+\begin_layout Plain Layout
+WDBC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "wdbc"
@@ -3803,16 +4212,35 @@ literal "false"
 
 \end_inset
 
-, used to identify breast tumors.
- 
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Wine
-\series default
- dataset, used to classify wines 
+\begin_layout Plain Layout
+WINE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "wine1,wine2"
@@ -3820,15 +4248,35 @@ literal "false"
 
 \end_inset
 
-.
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Eeg
-\series default
- dataset, a medical dataset about EEG measurements
+\begin_layout Plain Layout
+Z_F_S
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "eeg"
@@ -3836,16 +4284,107 @@ literal "true"
 
 \end_inset
 
- .
- The datasets used are denoted as Z_F_S, ZONF_S and  ZO_NF_S.
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Zoo
-\series default
- dataset 
+\begin_layout Plain Layout
+ZO_NF_S
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+key "eeg"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ZONF_S
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+key "eeg"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ZOO
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "zoo"
@@ -3853,19 +4392,91 @@ literal "false"
 
 \end_inset
 
-, used to classify animals.
+
 \end_layout
 
-\begin_layout Standard
-The following regression datasets were used in the experiments:
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
 
-\series bold
-Abalone
-\series default
- dataset 
+
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The regression datasets used in the experiments.
+ The column DATASET denotes the number of the dataset and the column REFERENCE
+ points to the bibliography or URL (KEEL or STATLIB) where the use of the
+ particular data set is presented.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:The-regression-datasets"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="18" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DATASET
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+REFERENCE
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ABALONE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "abalone"
@@ -3873,16 +4484,26 @@ literal "false"
 
 \end_inset
 
-.
- 
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Airfoil 
-\series default
-dataset, a dataset derived from NASA 
+\begin_layout Plain Layout
+AIRFOIL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "airfoil"
@@ -3890,23 +4511,46 @@ literal "false"
 
 \end_inset
 
-.
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Baseball
-\series default
- dataset, a dataset used in baseball games.
+\begin_layout Plain Layout
+BASEBALL
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
-\series bold
+\begin_layout Plain Layout
+STATLIB
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 BK
-\series default
- dataset 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Stat"
@@ -3914,23 +4558,46 @@ literal "false"
 
 \end_inset
 
-, used to predict the points in a basketball game.
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
+\begin_layout Plain Layout
 BL
-\series default
- dataset, an electrical engineering dataset.
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Concrete
-\series default
- dataset, related to civil engineering
+\begin_layout Plain Layout
+STATLIB
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CONCRETE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "concrete"
@@ -3938,41 +4605,86 @@ literal "false"
 
 \end_inset
 
-.
- 
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Dee
-\series default
- dataset, used to predict the energy consumption.
+\begin_layout Plain Layout
+DEE
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Diabetes
-\series default
- dataset, a medical dataset.
+\begin_layout Plain Layout
+KEEL
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
+\begin_layout Plain Layout
+DIABETES
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+KEEL
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 FA
-\series default
- dataset, related to fat measurements.
- 
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Housing
-\series default
- dataset, provided in 
+\begin_layout Plain Layout
+STATLIB
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+HOUSING
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key23"
@@ -3980,15 +4692,26 @@ literal "true"
 
 \end_inset
 
-.
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
+\begin_layout Plain Layout
 MB
-\series default
- dataset 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key21"
@@ -3996,23 +4719,46 @@ literal "true"
 
 \end_inset
 
-.
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
+\begin_layout Plain Layout
 MORTGAGE
-\series default
- dataset, which contains economic data.
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
-\series bold
+\begin_layout Plain Layout
+KEEL
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 NT
-\series default
- dataset
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ntdataset"
@@ -4020,16 +4766,26 @@ literal "false"
 
 \end_inset
 
-.
- 
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
+\begin_layout Plain Layout
 PY
-\series default
- dataset
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "pydataset"
@@ -4037,16 +4793,26 @@ literal "false"
 
 \end_inset
 
-.
- 
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Quake
-\series default
- dataset, used to predict earthquakes 
+\begin_layout Plain Layout
+QUAKE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
 key "quake"
@@ -4054,24 +4820,62 @@ literal "false"
 
 \end_inset
 
-.
- 
+
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Treasure
-\series default
- dataset, which contains data about the economy.
+\begin_layout Plain Layout
+TREASURY
 \end_layout
 
-\begin_layout Enumerate
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
 
-\series bold
-Wankara
-\series default
- dataset, a dataset used for climate measurements.
+\begin_layout Plain Layout
+KEEL
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+WANKARA
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+KEEL
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -4154,7 +4958,7 @@ The following applies to the results tables:
 \end_layout
 
 \begin_layout Enumerate
-The column PROP represents an artificial neural network 
+The column RPROP represents an artificial neural network 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn1,nn2"
@@ -4762,7 +5566,7 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
-23.14$
+23.14%
 \end_layout
 
 \end_inset
@@ -7656,10 +8460,6 @@ name "fig:statClass"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
  
@@ -7709,7 +8509,7 @@ noprefix "false"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -8808,10 +9608,6 @@ name "fig:statfparam"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -8819,13 +9615,6 @@ name "fig:statfparam"
 
 \begin_layout Section
 Conclusions
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Conclusions"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -8897,6 +9686,13 @@ Incorporation of parallel programming techniques to speed up the method.
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
 \begin_layout Author Contributions
 I.G.T., A.T.
  and E.K.
@@ -8926,35 +9722,110 @@ Not applicable.
 
 \begin_layout Informed Consent
 Not applicable.
- 
 \end_layout
 
-\begin_layout Institutional Review
+\begin_layout Data Availability
 Not applicable.
 \end_layout
 
 \begin_layout Acknowledgments
-The experiments of this research work were performed at the high performance
- computing system established at Knowledge and Intelligent Computing Laboratory,
- Department of Informatics and Telecommunications, University of Ioannina,
- acquired with the project “Educational Laboratory equipment of TEI of Epirus”
- with MIS 5007094 funded by the Operational Programme “Epirus” 2014–2020,
- by ERDF and national funds.
+This research has been financed by the European Union : Next Generation
+ EU through the Program Greece 2.0 National Recovery and Resilience Plan
+ , under the call RESEARCH – CREATE – INNOVATE, project name “iCREW: Intelligent
+ small craft simulator for advanced crew training using Virtual Reality
+ techniques" (project code:TAEDK-06195  ,
 \end_layout
 
 \begin_layout Conflicts of Interest
 The authors declare no conflict of interest.
 \end_layout
 
-\begin_layout Standard
-Not applicable.
-\end_layout
-
 \begin_layout Appendix Titles
 no
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Optional
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Leave argument 
+\begin_inset Quotes eld
+\end_inset
+
+no
+\begin_inset Quotes erd
+\end_inset
+
+ if all appendix headings stay EMPTY (then no dot is printed after 
+\begin_inset Quotes eld
+\end_inset
+
+Appendix A
+\begin_inset Quotes erd
+\end_inset
+
+).
+ If the appendix sections contain a heading then change the argument to
+ 
+\begin_inset Quotes eld
+\end_inset
+
+yes
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+Please, note that in LyX a trailing dot is always present and the name 
+\begin_inset Quotes eld
+\end_inset
+
+Appendix
+\begin_inset Quotes erd
+\end_inset
+
+ is missing.
+ Also make sure that no space follows the argument 
+\begin_inset Quotes eld
+\end_inset
+
+yes
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Start of Appendix
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Keep empty!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Begin Whole Page
+\start_of_appendix
 \begin_inset Note Note
 status open
 
@@ -8973,7 +9844,7 @@ status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Dissolve the outer note inset to print a list of endnotes
@@ -10606,6 +11477,26 @@ D.D.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "spiral"
+literal "false"
+
+\end_inset
+
+D.
+ Gavrilis, I.G.
+ Tsoulos, E.
+ Dermatas, Selecting and constructing features using grammatical evolution,
+ Pattern Recognition Letters 
+\series bold
+29
+\series default
+, pp.
+ 1358-1365, 2008.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "regions"
 literal "false"
 
@@ -11116,6 +12007,19 @@ R.
  McDonald and R.
  Menon, Parallel Programming in OpenMP, Morgan Kaufmann Publishers Inc.,
  2001.
+\end_layout
+
+\begin_layout End Whole Page
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Keep empty!
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

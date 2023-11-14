@@ -46,7 +46,7 @@
 % The option pdftex is for use with pdfLaTeX. If eps figures are used, remove the option pdftex and use LaTeX and dvi2pdf.
 
 %=================================================================
-% MDPI internal commands
+% MDPI internal commands - do not modify
 \firstpage{1} 
  
 \setcounter{page}{\@firstpage} 
@@ -54,12 +54,13 @@
 \pubvolume{1}
 \issuenum{1}
 \articlenumber{0}
-\pubyear{2022}
-\copyrightyear{2022}
+\pubyear{2023}
+\copyrightyear{2023}
 %\externaleditor{Academic Editor: Firstname Lastname} % For journal Automation, please change Academic Editor to "Communicated by"
-\datereceived{} 
-\dateaccepted{} 
-\datepublished{} 
+\datereceived{}
+\daterevised{ } % Comment out if no revised date
+\dateaccepted{}
+\datepublished{}
 %\datecorrected{} % Corrected papers include a "Corrected: XXX" date in the original paper.
 %\dateretracted{} % Corrected papers include a "Retracted: XXX" date in the original paper.
 \hreflink{https://doi.org/} % If needed use \linebreak
@@ -104,6 +105,25 @@
 % Only for the journal Encyclopedia
 %\encyclopediadef{Instead of the abstract}
 %\entrylink{The Link to this entry published on the encyclopedia platform.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Advances in Respiratory Medicine
+%\addhighlights{yes}
+%\renewcommand{\addhighlights}{%
+
+%\noindent This is an obligatory section in â€œAdvances in Respiratory Medicineâ€, whose goal is to increase the discoverability and readability of the article via search engines and other scholars. Highlights should not be a copy of the abstract, but a simple text allowing the reader to quickly and simplified find out what the article is about and what can be cited from it. Each of these parts should be devoted up to 2~bullet points.\vspace{3pt}\\
+%\textbf{What are the main findings?}
+% \begin{itemize}[labelsep=2.5mm,topsep=-3pt]
+% \item First bullet.
+% \item Second bullet.
+% \end{itemize}\vspace{3pt}
+%\textbf{What is the implication of the main finding?}
+% \begin{itemize}[labelsep=2.5mm,topsep=-3pt]
+% \item First bullet.
+% \item Second bullet.
+% \end{itemize}
+%}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end_preamble
 \options journal,article,submit,pdftex,moreauthors
@@ -8926,7 +8946,7 @@ The experiments of this research work were performed at the high performance
 The authors declare no conflict of interest.
 \end_layout
 
-\begin_layout Sample Availability
+\begin_layout Standard
 Not applicable.
 \end_layout
 
@@ -11111,72 +11131,9 @@ R.
  2001.
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end_layout
-
-\begin_layout Plain Layout
-
-%% for journal Sci
-\end_layout
-
-\begin_layout Plain Layout
-
-%
-\backslash
-reviewreports{
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-%Reviewer 1 comments and authors' response
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-%Reviewer 2 comments and authors' response
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-%Reviewer 3 comments and authors' response
-\end_layout
-
-\begin_layout Plain Layout
-
-%}
-\end_layout
-
-\begin_layout Plain Layout
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout End Whole Page
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Keep empty!

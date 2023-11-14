@@ -231,40 +231,6 @@ Adapt the parameters of RBF networks using Grammatical Evolution
 Adapt the parameters of RBF networks using Grammatical Evolution
 \end_layout
 
-\begin_layout Author Orcid ID
-
-\begin_inset Argument 1
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-orcidauthorA
-\end_layout
-
-\end_inset
-
-0000-0000-0000-000X
-\end_layout
-
-\begin_layout Author Orcid ID
-
-\begin_inset Argument 1
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-orcidauthorB
-\end_layout
-
-\end_inset
-
-0000-0000-0000-000X
-\end_layout
-
 \begin_layout Author
 Ioannis G.
  Tsoulos
@@ -284,17 +250,7 @@ Ioannis G.
 
 \begin_layout Author Names for PDF
 Ioannis G.
- Tsoulos, Alexandros Tzallas, Evangelos Karvounis 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Authors, for metadata in PDF
-\end_layout
-
-\end_inset
-
-
+ Tsoulos, Alexandros Tzallas, Evangelos Karvounis
 \end_layout
 
 \begin_layout Author Names for Citation
@@ -2630,7 +2586,7 @@ noprefix "false"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2693,7 +2649,7 @@ noprefix "false"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3403,10 +3359,6 @@ name "fig:The-flowchart-of"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -7656,10 +7608,6 @@ name "fig:statClass"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
  
@@ -8808,10 +8756,6 @@ name "fig:statfparam"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -8819,13 +8763,6 @@ name "fig:statfparam"
 
 \begin_layout Section
 Conclusions
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Conclusions"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -8897,6 +8834,13 @@ Incorporation of parallel programming techniques to speed up the method.
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
 \begin_layout Author Contributions
 I.G.T., A.T.
  and E.K.
@@ -8926,35 +8870,110 @@ Not applicable.
 
 \begin_layout Informed Consent
 Not applicable.
- 
 \end_layout
 
-\begin_layout Institutional Review
+\begin_layout Data Availability
 Not applicable.
 \end_layout
 
 \begin_layout Acknowledgments
-The experiments of this research work were performed at the high performance
- computing system established at Knowledge and Intelligent Computing Laboratory,
- Department of Informatics and Telecommunications, University of Ioannina,
- acquired with the project “Educational Laboratory equipment of TEI of Epirus”
- with MIS 5007094 funded by the Operational Programme “Epirus” 2014–2020,
- by ERDF and national funds.
+This research has been financed by the European Union : Next Generation
+ EU through the Program Greece 2.0 National Recovery and Resilience Plan
+ , under the call RESEARCH – CREATE – INNOVATE, project name “iCREW: Intelligent
+ small craft simulator for advanced crew training using Virtual Reality
+ techniques" (project code:TAEDK-06195  ,
 \end_layout
 
 \begin_layout Conflicts of Interest
 The authors declare no conflict of interest.
 \end_layout
 
-\begin_layout Standard
-Not applicable.
-\end_layout
-
 \begin_layout Appendix Titles
 no
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Optional
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Leave argument 
+\begin_inset Quotes eld
+\end_inset
+
+no
+\begin_inset Quotes erd
+\end_inset
+
+ if all appendix headings stay EMPTY (then no dot is printed after 
+\begin_inset Quotes eld
+\end_inset
+
+Appendix A
+\begin_inset Quotes erd
+\end_inset
+
+).
+ If the appendix sections contain a heading then change the argument to
+ 
+\begin_inset Quotes eld
+\end_inset
+
+yes
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+Please, note that in LyX a trailing dot is always present and the name 
+\begin_inset Quotes eld
+\end_inset
+
+Appendix
+\begin_inset Quotes erd
+\end_inset
+
+ is missing.
+ Also make sure that no space follows the argument 
+\begin_inset Quotes eld
+\end_inset
+
+yes
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Start of Appendix
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Keep empty!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Begin Whole Page
+\start_of_appendix
 \begin_inset Note Note
 status open
 
@@ -8973,7 +8992,7 @@ status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Dissolve the outer note inset to print a list of endnotes
@@ -11116,6 +11135,19 @@ R.
  McDonald and R.
  Menon, Parallel Programming in OpenMP, Morgan Kaufmann Publishers Inc.,
  2001.
+\end_layout
+
+\begin_layout End Whole Page
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Keep empty!
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
