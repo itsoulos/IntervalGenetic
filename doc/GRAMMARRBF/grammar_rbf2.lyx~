@@ -305,21 +305,23 @@ These authors contributed equally to this work.
 \end_layout
 
 \begin_layout Abstract
-Radial Basis Function networks are used in a variety of real-world applications
- such as medical data or signal processing problems.The success of these
- machine learning models lies in efficiently finding values for the model
- parameters.
- In this work, a new method of finding these values is formulated which
- is divided into two phases.
- In the first phase, with the use of Grammatical Evolution, an attempt is
- made to find value intervals for the model parameters using partition rules.
- In the second phase of the proposed method, an intelligent optimization
- algorithm such as a genetic algorithm, locates the optimal values of the
- parameters within the best value interval which is the output of the first
- phase.
- The proposed technique has been applied to a wide range of classification
- or data fitting problems and there has been a significant reduction in
- error exceeding 40% on most datasets.
+Radial basis function networks are widely used in a multitude of applications
+ in various scientific areas in both classification and data fitting problems.
+ These networks deal with the above problems by adjusting their parameters
+ with various optimization techniques.
+ However, an important issue to address is finding a satisfactory interval
+ of values for the network parameters before adjusting these parameters.
+ This paper proposes a two-stage technique, where in the first stage, using
+ Grammatical Evolution, rules are generated to create the optimal value
+ interval of the network parameters.
+ In the second stage of the technique, the parameters of the network are
+ fine-tuned with some robust global optimization method, such as a genetic
+ algorithm.
+ The proposed technique was tested on a number of problems from the recent
+ literature and found to reduce the classification or data fitting error
+ by over 40% on most datasets.
+ Furthermore, the method appears highly stable as increasing the number
+ of network parameters does not significantly affect its performance.
 \end_layout
 
 \begin_layout Keywords
@@ -366,7 +368,7 @@ literal "false"
 
 , etc.
  A machine learning tool, commonly used to handle these problems, is the
- Radial Basis Function (RBF) artificial neural network 
+ Radial Basis Function (RBF) network 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbf1,rbf2"
@@ -456,6 +458,34 @@ The function
 \end_inset
 
 
+\series default
+The main advantages of RBF networks are:
+\end_layout
+
+\begin_layout Enumerate
+They have simpler structure than other machine learning models such as multilaye
+r perceptron neural networks (MLPs)
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nnreview"
+literal "false"
+
+\end_inset
+
+, since they have only one processing layer and therefore have faster training
+ techniques and they have faster response times.
+\end_layout
+
+\begin_layout Enumerate
+They can approximate any continuous function 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbf_approx"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -699,7 +729,19 @@ noprefix "false"
 \end_inset
 
 ).
- During the first phase, an attempt is made to bound the parameter values
+ In the first phase an attempt is made to identify an optimal value interval
+ for the network parameters and in the second phase the network parameters
+ are trained within the optimal value interval identified in the first phase.
+\end_layout
+
+\begin_layout Standard
+The main contributions of the suggested approach are:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+During the first phase, an attempt is made to bound the parameter values
  to intervals in which the training error is likely to be significantly
  reduced.
  The identification of the most promising intervals for the parameters is
@@ -4958,7 +5000,7 @@ The following applies to the results tables:
 \end_layout
 
 \begin_layout Enumerate
-The column PROP represents an artificial neural network 
+The column RPROP represents an artificial neural network 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn1,nn2"
@@ -5036,7 +5078,7 @@ An extra line was also added to the experimental tables under the title
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -5289,7 +5331,7 @@ VALUE
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -7060,7 +7102,7 @@ AVERAGE
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -8377,7 +8419,78 @@ On average, the proposed technique appears to be 30-40% more accurate than
  In many cases, this percentage exceeds 70%.
  Moreover, in the vast majority of problems, the proposed technique significantl
 y outperforms the next best available method in terms of test error.
- However, the proposed technique consists of two stages and in each of them
+ In order to validate the results an additional experiment was executed
+ for the classification datasets, where the number of nodes increases from
+ 5 to 20 and the results are graphically outlined in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:nodesExperiment"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ From this experiment, one can draw two conclusions: firstly, the proposed
+ technique has a significant advantage over the others to a large extent
+ in terms of average classification error, and secondly, the proposed method
+ is shown to be robust and not significantly dependent on the increase of
+ processing nodes , since 5–10 processing nodes are enough to achieve low
+ classification errors.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename nodes_plot.eps
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average classification error for all classification datasets.
+ The number of nodes increases from 5 to 20 and three models were used:
+ the ADAM optimizer to optimize a neural network, the original RBF training
+ method of two phases and the proposed method.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:nodesExperiment"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+However, the proposed technique consists of two stages and in each of them
  a genetic algorithm should be executed.
  This means that it is significantly slower in computing time compared to
  the rest of the techniques and, of course, it needs more computing resources.
@@ -8420,7 +8533,7 @@ noprefix "false"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -8509,7 +8622,7 @@ noprefix "false"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -10069,6 +10182,51 @@ G.A.
 \series default
 , pp.
  52-74, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnreview"
+literal "false"
+
+\end_inset
+
+O.I.
+ Abiodun, A.
+ Jantan, A.
+ E.
+ Omolara, K.V.
+ Dada, N.
+ A.
+ Mohamed, H.
+ Arshad, State-of-the-art in artificial neural network applications: A survey,
+ Heliyon 
+\series bold
+4
+\series default
+, e00938, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbf_approx"
+literal "false"
+
+\end_inset
+
+Y.
+ Liao, S.
+ C.
+ Fang, and H.
+ L.
+ W.
+ Nuttle, “Relaxed conditions for radial-basis function networks to be universal
+ approximators,” Neural Networks, vol.
+ 16, no.
+ 7, pp.
+ 1019–1028, 2003
 \end_layout
 
 \begin_layout Bibliography
