@@ -334,7 +334,7 @@ Introduction
 
 \begin_layout Standard
 Many practical problems of the modern world can be thought of either as
- data fitting problems, as for example, problem from physics 
+ data fitting problems, as for example, problems from physics 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "physics_ml1,physics_ml2"
@@ -397,8 +397,8 @@ The vector
 \begin_inset Formula $\overrightarrow{x}$
 \end_inset
 
- is the input pattern from dataset describing the problem.
- For the rest of this paper the notation 
+ is the input pattern from the dataset describing the problem.
+ For the rest of this paper, the notation 
 \begin_inset Formula $d$
 \end_inset
 
@@ -415,7 +415,7 @@ The parameter
 \end_inset
 
  denotes the number of weights used to train the RBF network and the associated
- vector of weights is denotes as 
+ vector of weights is denoted as 
 \begin_inset Formula $\overrightarrow{w}$
 \end_inset
 
@@ -463,8 +463,8 @@ The main advantages of RBF networks are:
 \end_layout
 
 \begin_layout Enumerate
-They have simpler structure than other machine learning models such as multilaye
-r perceptron neural networks (MLPs)
+They have a simpler structure than other machine learning models such as
+ multilayer perceptron neural networks (MLPs)
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nnreview"
@@ -629,7 +629,7 @@ literal "false"
 
 \begin_layout Standard
 In the same direction of research, other researchers propose to handle problems
- of categorization or data fitting, techniques such as Support Vector Machines
+ of classification or data fitting, techniques such as Support Vector Machines
  (SVM) 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -657,7 +657,53 @@ literal "false"
 \end_inset
 
 .
- 
+ This problem has also been tackled by various researchers during the past
+ years, such as the work of Agarwal and Bhanot 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbftune"
+literal "false"
+
+\end_inset
+
+ proposed to adapt the RBF parameters, the usage of the ABC algorithm
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfABC"
+literal "false"
+
+\end_inset
+
+, the incorporation of the Firefly algorithm
+\begin_inset CommandInset citation
+LatexCommand citep
+key "fireflyCancer"
+literal "false"
+
+\end_inset
+
+.
+ Furthermore, Gyamfi et al 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfSeq"
+literal "false"
+
+\end_inset
+
+ recently proposed a differential RBF network that incorporates partial
+ differential equations, aiming to make the network more robust in the presence
+ of noise data.
+ Also, Li et al 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "mlHier"
+literal "false"
+
+\end_inset
+
+ proposed a multivariate ensembles-based hierarchical linkage strategy (ME-HL)
+ for system reliability evaluation of aeroengine cooling blades.
 \end_layout
 
 \begin_layout Standard
@@ -711,7 +757,7 @@ literal "false"
 \end_inset
 
 .
- In many cases this way of estimating the parameters of the neural network
+ In many cases, this way of estimating the parameters of the neural network
  leads to over-fitting of the model so that it cannot generalize satisfactorily
  to unknown data.
  Furthermore, since there is no range of values for the parameters, there
@@ -729,17 +775,8 @@ noprefix "false"
 \end_inset
 
 ).
- In the first phase an attempt is made to identify an optimal value interval
- for the network parameters and in the second phase the network parameters
- are trained within the optimal value interval identified in the first phase.
- The main contributions of the suggested approach are:
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-During the first phase, an attempt is made to bound the parameter values
- to intervals in which the training error is likely to be significantly
+ During the first phase, an attempt is made to bound the parameter values
+ to intervals at which the training error is likely to be significantly
  reduced.
  The identification of the most promising intervals for the parameters is
  performed using a technique that utilizes Grammatical Evolution
@@ -751,15 +788,6 @@ literal "false"
 \end_inset
 
 , that collects information from the training data.
- The first phase attempts to create a small interval of values for the neural
- network parameters by applying a series of of division rules, with the
- assistance of the Grammatical Evolution.
- The determination of the value interval is done in such a way that it is
- faster and more efficient to train the parameters of the neural network
- with some optimization method during the second phase of the method.
- In general, if the value intervals for the parameters from the first phase
- are small in range, the second phase of the technique is expected to be
- significantly accelerated as well.
  During the second phase, the parameters of the RBF network can be trained
  within the optimal range found in the first phase using some global optimizatio
 n method 
@@ -780,6 +808,31 @@ literal "false"
 \end_inset
 
  was used for the second phase of the process.
+ The main contributions of the suggested approach are:
+\end_layout
+
+\begin_layout Enumerate
+The first phase procedure seeks to identify a range of values for the network
+ parameters while also reducing the error of the network on the training
+ data set.
+\end_layout
+
+\begin_layout Enumerate
+The rules Grammatical Evolution uses in the first phase are simple and can
+ be generalized to any data set for data classification or fitting.
+\end_layout
+
+\begin_layout Enumerate
+The determination of the value interval is done in such a way that it is
+ faster and more efficient to train the parameters of the neural network
+ with some optimization method during the second phase of the method.
+ 
+\end_layout
+
+\begin_layout Enumerate
+After identifying a promising value interval from the first phase, any global
+ optimization method can be used on that value interval to effectively minimize
+ the network training error.
 \end_layout
 
 \begin_layout Standard
@@ -833,8 +886,34 @@ Grammatical Evolution
 \end_layout
 
 \begin_layout Standard
-Grammatical evolution is a genetic algorithm where the chromosomes stand
- for the production rules of any given BNF (Backus–Naur form) grammar
+Grammatical evolution is a special case of genetic algorithm.
+ Genetic Algorithms, suggested by John Holland 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Holland1"
+literal "false"
+
+\end_inset
+
+ are inspired by biology and the algorithm starts by creating an initial
+ population of the so -called chromosomes that stand for potential solutions
+ to the objective problem.
+ These chromosomes are gradually altered using the genetic operators of
+ selection, crossover and mutation
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Stender"
+literal "false"
+
+\end_inset
+
+.
+
+\series bold
+ 
+\series default
+The chromosomes in the Grammatical Evolution represent production rules
+ of any given BNF (Backus–Naur form) grammar
 \begin_inset CommandInset citation
 LatexCommand cite
 key "bnf1"
@@ -976,7 +1055,7 @@ is the set of terminal symbols.
 \begin_inset Formula $S$
 \end_inset
 
- is a the start symbol of the grammar and 
+ is the start symbol of grammar and 
 \begin_inset Formula $S\in N$
 \end_inset
 
@@ -1065,7 +1144,7 @@ For every Gaussian unit an additional parameter
 \begin_inset Formula $\sigma_{i}$
 \end_inset
 
- is required
+ is required.
 \end_layout
 
 \begin_layout Enumerate
@@ -1078,8 +1157,8 @@ The output weight vector
 
 \begin_layout Standard
 The number n is the total number of parameters of the problem.
- In the case of this paper it is the total number of parameters of the RBF
- network.
+ In the case of this paper, it is the total number of parameters of the
+ RBF network.
  For the current work, the number 
 \begin_inset Formula $n$
 \end_inset
@@ -1109,7 +1188,7 @@ For every center
 \end_inset
 
  variables.
- Hence, the total number of parameters required by the centers are 
+ Hence, the total number of parameters required by the centers is 
 \begin_inset Formula $d\times k$
 \end_inset
 
@@ -1117,7 +1196,7 @@ For every center
 \end_layout
 
 \begin_layout Enumerate
-Every Gaussian unit require an additional parameter 
+Every Gaussian unit requires an additional parameter: 
 \begin_inset Formula $\sigma_{i},\ i=1,..,k$
 \end_inset
 
@@ -1141,7 +1220,7 @@ The weight vector
 \end_layout
 
 \begin_layout Standard
-As an example of production considered the chromosome 
+As an example of production, consider the chromosome 
 \begin_inset Formula $x=\left[9,8,6,4,15,9,16,23,8\right]$
 \end_inset
 
@@ -1655,7 +1734,7 @@ name "subsec:The-first-phase"
 \end_layout
 
 \begin_layout Standard
-The purpose of the first phase is to initalize the bounds of the RBF network
+The purpose of the first phase is to initialize the bounds of the RBF network
  and discover a promising interval for the corresponding values.
  For this initialization, the K-Means algorithm 
 \begin_inset CommandInset citation
@@ -8416,8 +8495,8 @@ On average, the proposed technique appears to be 30-40% more accurate than
  In many cases, this percentage exceeds 70%.
  Moreover, in the vast majority of problems, the proposed technique significantl
 y outperforms the next best available method in terms of test error.
- In order to validate the results an additional experiment was executed
- for the classification datasets, where the number of nodes increases from
+ In order to validate the results, an additional experiment was executed
+ on the classification datasets, where the number of nodes increases from
  5 to 20 and the results are graphically outlined in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -8491,10 +8570,76 @@ However, the proposed technique consists of two stages and in each of them
  a genetic algorithm should be executed.
  This means that it is significantly slower in computing time compared to
  the rest of the techniques and, of course, it needs more computing resources.
- Of course, since we are talking about Genetic Algorithms, the training
- time required could be significantly reduced by using parallel techniques
- that take advantage of modern parallel computing structures such as the
- MPI interface 
+ This is graphically shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:timeExperiment"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, where the average execution time for the method ADAM and the proposed
+ method is shown for the classification datasets, when the number of processing
+ nodes increases from 5 to 20.
+ As expected, the proposed technique requires significantly more time than
+ a traditional neural network training technique such as ADAM, since it
+ consists of two sequential genetic algorithms.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename time_plot.eps
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average execution time for the ADAM method used to train a neural network
+ and the proposed technique.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:timeExperiment"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Of course, since we are talking about Genetic Algorithms, the training time
+ required could be significantly reduced by using parallel techniques that
+ take advantage of modern parallel computing structures such as the MPI
+ interface 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "openmpi"
@@ -9843,7 +9988,7 @@ This research has been financed by the European Union : Next Generation
  EU through the Program Greece 2.0 National Recovery and Resilience Plan
  , under the call RESEARCH – CREATE – INNOVATE, project name “iCREW: Intelligent
  small craft simulator for advanced crew training using Virtual Reality
- techniques" (project code:TAEDK-06195  ,
+ techniques" (project code:TAEDK-06195)
 \end_layout
 
 \begin_layout Conflicts of Interest
@@ -10901,6 +11046,108 @@ Y.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "rbftune"
+literal "false"
+
+\end_inset
+
+V.
+ Agarwal, S.
+ Bhanot, Radial basis function neural network-based face recognition using
+ firefly algorithm, Neural Comput & Applic 
+\series bold
+30
+\series default
+, pp.
+ 2643–2660, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfABC"
+literal "false"
+
+\end_inset
+
+S.
+ Jiang et al., Prediction of Ecological Pressure on Resource-Based Cities
+ Based on an RBF Neural Network Optimized by an Improved ABC Algorithm,
+ IEEE Access.
+
+\series bold
+ 7
+\series default
+, pp.
+ 47423-47436, 2019.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "fireflyCancer"
+literal "false"
+
+\end_inset
+
+I.U.
+ Khan,N.
+ Aslam, R.
+ Alshehri, S.
+ Alzahrani, M.
+ Alghamdi, A.
+ Almalki, M.
+ Balabeed, Cervical Cancer Diagnosis Model Using Extreme Gradient Boosting
+ and Bioinspired Firefly Optimization, Scientific Programming 
+\series bold
+2021
+\series default
+, Article ID 5540024, 2021.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbfSeq"
+literal "false"
+
+\end_inset
+
+K.S.
+ Gyamfi, J.
+ Brusey, E.
+ Gaura, Differential radial basis function network for sequence modelling,
+ Expert Systems with Applications 
+\series bold
+189
+\series default
+, 115982, 2022.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "mlHier"
+literal "false"
+
+\end_inset
+
+X.Q.
+ Li , L.K.
+ Song, Y.S.
+ Choy, G.C.
+ Bai, Multivariate ensembles-based hierarchical linkage strategy for system
+ reliability evaluation of aeroengine cooling blades, Aerospace Science
+ and Technology 
+\series bold
+138
+\series default
+, 108325, 2023.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "kmeans"
 literal "false"
 
@@ -11021,6 +11268,34 @@ S.A.
 \series default
 , pp.
  259-270, 2005.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Holland1"
+literal "false"
+
+\end_inset
+
+J.H.
+ Holland, Genetic algorithms.
+ Scientific american 267, pp.
+ 66-73, 1992.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Stender"
+literal "false"
+
+\end_inset
+
+J.
+ Stender, Parallel Genetic Algorithms:Theory & Applications.
+ Edition: IOS Press, 1993.
+ 
 \end_layout
 
 \begin_layout Bibliography
