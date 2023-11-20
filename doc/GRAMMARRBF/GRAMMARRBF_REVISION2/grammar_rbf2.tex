@@ -211,20 +211,22 @@ evolution}
 \section{Introduction}
 
 Many practical problems of the modern world can be thought of either
-as data fitting problems, as for example, problems from physics \citep{physics_ml1,physics_ml2},
-chemistry \citep{chemistry_ml1,chemistry_ml2}, economics \citep{econ_ml1,econ_ml2},
-medicine \citep{med_ml1,med_ml2}, etc. A machine learning tool, commonly
-used to handle these problems, is the Radial Basis Function (RBF)
-network \citep{rbf1,rbf2}. Usually, an RBF network is expressed using
-the following equation:\textbf{
+as data fitting problems, as for example, problems that appears in
+physics \citep{physics_ml1,physics_ml2}, problems related to chemistry
+\citep{chemistry_ml1,chemistry_ml2}, economic problms \citep{econ_ml1,econ_ml2},
+medicine problems \citep{med_ml1,med_ml2}, etc. A commonly used machine
+learning tool to tackle such problems, is the Radial Basis Function
+(RBF) network \citep{rbf1,rbf2}. Usually, an RBF network is expressed
+using the following equation:\textbf{
 \begin{equation}
 y\left(\overrightarrow{x}\right)=\sum_{i=1}^{k}w_{i}\phi\left(\left\Vert \overrightarrow{x}-\overrightarrow{c_{i}}\right\Vert \right)\label{eq:firstrbf}
 \end{equation}
 }where the symbols in the equation are defined as follows:
 \begin{enumerate}
-\item The vector $\overrightarrow{x}$ is the input pattern from the dataset
-describing the problem. For the rest of this paper, the notation $d$
-will be used to represent the number of elements in $\overrightarrow{x}$.
+\item The element $\overrightarrow{x}$ stands for the input pattern from
+the dataset describing the problem. For the rest of this paper, the
+notation $d$ will be used to represent the number of elements in
+$\overrightarrow{x}$.
 \item The parameter $k$ denotes the number of weights used to train the
 RBF network and the associated vector of weights is denoted as $\overrightarrow{w}$.
 \item The vectors $\overrightarrow{c_{i}},\ i=1,..,k$ stand for the centers
@@ -232,7 +234,8 @@ of the model.
 \item The outcome of the equations $y\left(\overrightarrow{x}\right)$ stands
 for the estimated value of the network for the input pattern $\overrightarrow{x}$.
 \end{enumerate}
-The function $\phi(x)$ usually is a Gaussian function given by:\textbf{
+The $\phi(x)$ function, in most cases represent the Gaussian function
+given by:\textbf{ 
 \begin{equation}
 \phi(x)=\exp\left(-\frac{\left(x-c\right)^{2}}{\sigma^{2}}\right)
 \end{equation}
@@ -286,9 +289,9 @@ the following loss - function, called training error of the network:
 E(y(x,g))=\sum_{i=1}^{m}\left(y\left(\overrightarrow{x}_{i},\overrightarrow{g}\right)-t_{i}\right)^{2}\label{eq:eqrbf}
 \end{equation}
 Where the parameter $m$ denotes the number of input patterns, the
-$t_{i}$ values represent the expected output for the input pattern
-$\overrightarrow{x}_{i}$. The vector $\overrightarrow{g}$ represents
-the parameter set of the RBF network.
+$t_{i}$ represent the expected output for pattern $\overrightarrow{x}_{i}$.
+The vector $\overrightarrow{g}$ represents the parameter set of the
+RBF network.
 
 A common method of calculating the parameters in these neural networks
 uses a technique to calculate the centers of the functions $\phi(x)$
@@ -336,7 +339,7 @@ are listed as well as the experimental results and finally in section
 
 \section{Method description\label{sec:Method-description}}
 
-This section begins with a detailed description of the Grammatical
+This section starts with a detailed description of the Grammatical
 Evolution technique and the grammar that will be used to generate
 partition rules for the parameter set of RBFs. Subsequently, the first
 phase of the proposed methodology will be extensively analyzed and
@@ -361,32 +364,32 @@ creating numeric constraints\citep{ge_constant}\textbf{, }video games
 \citep{ge_pacman,ge_supermario},\textbf{ }estimation of energy demand\citep{ge_energy},\textbf{
 }combinatorial optimization \citep{ge_comb}, cryptography \citep{ge_crypt}
 etc. The BNF grammar can be used to describe the syntax of programming
-languages and usually it is defined as the set \textbf{$G=\left(N,T,S,P\right)$}
+languages and usually it is defined as \textbf{$G=\left(N,T,S,P\right)$}
 where
 \begin{itemize}
-\item \textbf{$N$ }is the set of the terminal symbols. Every non - terminal
-symbol is associated with a series of production rules used to produce
-terminal symbols.
-\item \textbf{$T$ }is the set of terminal symbols.\textbf{ }
-\item $S$ is the start symbol of grammar and $S\in N$.
-\item \textbf{$P$ }is a set of production rules, used to produce terminal
-symbols from non - terminal symbols. These rules are in the form \textbf{$A\rightarrow a$
-}or\textbf{ $A\rightarrow aB,\ A,B\in N,\ a\in T$.}
+\item \textbf{$N$ }is a set that defines the non - terminal symbols of
+the grammar. Each non - terminal symbol is associated with a set of
+production rules. The application of these production rules produces
+series of terminal symbols.
+\item \textbf{$T$ }stands for the set of terminal symbols.\textbf{ }
+\item $S$ is the start symbol that initiates the production rules with
+the property $S\in N$.
+\item \textbf{$P$ }defines the set of production rules. These are rules
+are following the following notations: \textbf{$A\rightarrow a$ }or\textbf{
+$A\rightarrow aB,\ A,B\in N,\ a\in T$.}
 \end{itemize}
-The algorithm starts from the symbol $S$ and gradually creates terminal
-symbols by replacing non-terminal symbols with the right hand of the
-selected production rule. The rule is selected through the following
-procedure:
+The algorithm begins using the symbol $S$ and gradually creates terminal
+symbols with the assistance of the production rules. The production
+rules are selected through the following procedure:
 \begin{itemize}
-\item Read the next element V from the current chromosome.
-\item The production rule is selected as: Rule = V mod R, where R is the
-total number of production rules for the current non -- terminal
-symbol. 
+\item Read the next element V from the chromosome that is being processed.
+\item Get the rule: Rule = V mod R, where R is the total number of production
+rules for the current non -- terminal symbol. 
 \end{itemize}
 The BNF grammar used in this work is presented in Algorithm \ref{alg:The-BNF-grammar}.
 The symbols enclosed in \textless\textgreater{} denote the non-terminal
-symbols of the grammar. The numbers in parentheses in the right part
-of the grammar indicate production rule sequence numbers. Every RBF
+symbols. The numbers in parentheses in the right part of the grammar
+stand for the sequence numbers of each production rule. Every RBF
 network with $k$ weights is constructed by the following series of
 parameters:
 \begin{enumerate}
@@ -437,8 +440,7 @@ end of the variable $x_{1}$.
 \caption{The BNF grammar used in the current work, to produce intervals for
 the RBF parameters. By using this grammar in the first phase of the
 proposed procedure, the optimal interval of values for the parameters
-of the neural network will be identified.
-	\label{alg:The-BNF-grammar}}
+of the neural network will be identified.\label{alg:The-BNF-grammar}}
 
 \begin{lyxcode}
 S::=\textless expr\textgreater ~~~(0)~
@@ -496,12 +498,12 @@ Expression & Chromosome & Operation\tabularnewline
 
 \subsection{The first phase of the proposed algorithm\label{subsec:The-first-phase}}
 
-The purpose of the first phase is to initialize the bounds of the
-RBF network and discover a promising interval for the corresponding
-values. For this initialization, the K-Means algorithm \citep{kmeans}
-technique is used, which is also used for the traditional RBF network
-training technique. A description of this algorithm in a series of
-steps is shown in Algorithm \ref{alg:The-K-Means-algorithm.}.
+The purpose of this phase is to initialize the bounds of the RBF model
+and discover a promising interval for the corresponding values. For
+this initialization, the K-Means algorithm \citep{kmeans} technique
+is used, which is also used for the traditional RBF network training
+technique. A description of this algorithm in a series of steps is
+shown in Algorithm \ref{alg:The-K-Means-algorithm.}.
 
 \begin{algorithm}[H]
 \caption{The K-Means algorithm.\label{alg:The-K-Means-algorithm.}}
@@ -530,7 +532,7 @@ c_{j}=\frac{1}{M_{j}}\sum_{i=1}^{M_{j}}x_{i}
 \[
 \sigma_{j}^{2}=\frac{\sum_{i=1}^{M_{j}}\left(x_{i}-c_{j}\right)^{2}}{M_{j}}
 \]
-\item \textbf{Stop }the algorithm, if there is no change in centers $c_{j}$.
+\item \textbf{Stop }the algorithm, if centers $c_{j}$ do not change anymore.
 \end{enumerate}
 \end{algorithm}
 Having calculated the centers $c_{i}$ and the corresponding variances
@@ -569,32 +571,30 @@ $\overrightarrow{w}$.
 \end{enumerate}
 \end{algorithm}
 The bounds for the first $(d+1)\times k$ variables of any given RBF
-network are considered as a multiple of the quantity $F$ with the
-values calculated by the K-Means algorithm. The positive constant
-$B$ is used to initialize the intervals for the weight $\overrightarrow{w}$.
-Afterwards, the following genetic algorithm is executed to locate
-the most promising vectors $\overrightarrow{L},\ \overrightarrow{R}$
-for the RBF parameters:
+network is computed as a multiple of the quantity $F$ with the values
+calculated by the K-Means algorithm. The value $B$ can be utilized
+to initialize the bounds for the weight $\overrightarrow{w}$. Afterwards,
+the following genetic algorithm is executed to locate the most promising
+vectors $\overrightarrow{L},\ \overrightarrow{R}$ for the RBF parameters:
 \begin{enumerate}
-\item \textbf{Set} $N_{c}$ as the number of chromosomes for the Grammatical
-Evolution.
-\item \textbf{Set} as $k$ the number of weights of the RBF network.
-\item \textbf{Set} $N_{g}$ the maximum number of allowed generations.
-\item \textbf{Set} as $p_{s}$ the selection rate of the algorithm, with
-$p_{s}\le1$.
-\item \textbf{Set} as $p_{m}$ the mutation rate, with $p_{m}\le1$.
-\item \textbf{Set} $N_{s}$as the number of randomly created RBF networks,
-used in the fitness calculation.
-\item \textbf{Initialize} randomly the $N_{c}$ chromosomes as sets of random
-numbers.
+\item \textbf{Define }as\textbf{ }$N_{c}$ the number of chromosomes that
+will participate in the the Grammatical Evolution procedure.
+\item \textbf{Define }as $k$ the number of processing nodes of the used
+RBF model.
+\item \textbf{Define} as $N_{g}$ the number of allowed generations.
+\item \textbf{Define }as $p_{s}$ the used selection rate, with $p_{s}\le1$.
+\item \textbf{Define }as $p_{m}$ the used mutation rate, with $p_{m}\le1$.
+\item \textbf{Define }as\textbf{ }$N_{s}$as the total number of RBF networks
+that will be created randomly in every fitness calculation.
+\item \textbf{Initialize} $N_{c}$ chromosomes as sets of random numbers.
 \item \textbf{Set} $f^{*}=\left[\infty,\infty\right]$, the fitness of the
-best chromosome. The fitness function $f_{g}$ of any given chromosome
+best chromosome. The fitness function $f_{g}$ of any provided chromosome
 $g$ is considered as an interval \textbf{$f_{g}=\left[f_{g,\mbox{low}},f_{g,\mbox{upper}}\right]$}
 \item \textbf{Set} iter=0.
 \item \textbf{For} $i=1,\ldots,N_{c}$ \textbf{do\label{enu:For--do}}
 \begin{enumerate}
-\item \textbf{Create }the partition program $p_{i}$ using the grammar of
-Algorithm \ref{alg:The-BNF-grammar} for the chromosome $i$.
+\item \textbf{Produce }the partition program $p_{i}$ using the grammar
+of Figure \ref{alg:The-BNF-grammar} for the chromosome $i$.
 \item \textbf{Produce }the bounds $\left[\vec{L_{p_{i}}},\overrightarrow{R_{p_{i}}}\right]$
 for the partition program $p_{i}$.
 \item \textbf{Set} $E_{\mbox{min}}=\infty,\ E_{\mbox{max}}=-\infty$
@@ -611,32 +611,31 @@ $E_{\mbox{max}}=E_{\overrightarrow{g_{j}}}$
 \item \textbf{Set} the fitness$f_{i}=\left[E_{\mbox{min}},E_{\mbox{max}}\right]$
 \end{enumerate}
 \item \textbf{EndFor}
-\item \textbf{Apply} the selection procedure: Initially, the chromosomes
-of the population are sorted according to their fitness values. In
-order to compare two fitness values $f_{a}=\left[a_{1},a_{2}\right]$
-and $f_{b}=\left[b_{1},b_{2}\right]$ the $L^{*}$ operator is used:
+\item \textbf{Perform} the procedure of selection: Initially, the chromosomes
+of the population are sorted according to their fitness values. Since
+the fitness values are intervals, the $L^{*}$ operator is defined
+as:
 \begin{eqnarray}
 L^{*}\left(f_{a},f_{b}\right) & = & \begin{cases}
 \mbox{TRUE}, & a_{1}<b_{1},\mbox{OR\ \ensuremath{\left(a_{1}=b_{1}\ \mbox{AND}\ a_{2}<b_{2}\right)}}\\
 \mbox{FALSE}, & \mbox{\mbox{OTHERWISE}}
 \end{cases}\label{eq:eql}
 \end{eqnarray}
-Hence, the fitness value $f_{a}$ is considered smaller than $f_{b}$
-if $L^{*}\left(f_{a},f_{b}\right)=\mbox{TRUE}$. The first $\left(1-p_{s}\right)\times N_{c}$
-chromosomes with smaller fitness values are transferred intact to
-the next generation. The remaining chromosomes are replaced by offspring
-created in the crossover procedure. During the selection process for
-each offspring, two parents are selected from the population using
-the tournament selection. 
-\item \textbf{Apply} the crossover procedure. The crossover procedure will
-create new\textbf{ $p_{s}\times N_{c}$ }chromosomes.\textbf{ }For
-each new offspring two parents are selected from the population using
-the tournament selection.\textbf{ }For each pair $(z,w)$ of selected
-parents, two new chromosomes $\tilde{z}$ and $\tilde{w}$ are produced
-using the one - point crossover, shown in Figure \ref{fig:onepoint}.
-\item \textbf{Apply} the mutation procedure. For each element of every chromosome,
-a random number $r\in\left[0,1\right]$ is drawn. The corresponding
-element is altered randomly if $r\le p_{m}$.
+As a consuquence\textbf{, }the fitness value $f_{a}$ is considered
+smaller than $f_{b}$ if $L^{*}\left(f_{a},f_{b}\right)=\mbox{TRUE}$.
+The first $\left(1-p_{s}\right)\times N_{c}$ chromosomes with smaller
+fitness values are copied without changes to the next generation of
+the algorithm. The rest of chromosomes are replaced by chromosomes
+created in the crossover procedure.
+\item \textbf{Perform} the crossover procedure. The crossover procedure
+will create new\textbf{ $p_{s}\times N_{c}$ }chromosomes. For every
+pair of created offsprings two parents $(z,w)$ are selected from
+the curent population using the tournament selection. These parent
+will produce the offsprings $\tilde{z}$ and $\tilde{w}$ using the
+one - point crossover, shown in Figure \ref{fig:onepoint}.
+\item \textbf{Perform} the mutation procedure. In this process a random
+number $r\in\left[0,1\right]$ is drawn for every element of each
+chromosome. The corresponding element is changed randomly if $r\le p_{m}$.
 \item \textbf{Set} iter=iter+1
 \item \textbf{If} $\mbox{iter\ensuremath{\le N_{g}} }$goto step \ref{enu:For--do}.
 \end{enumerate}
@@ -644,16 +643,17 @@ element is altered randomly if $r\le p_{m}$.
 \begin{centering}
 \includegraphics[scale=0.5]{onepoint_crossover}
 \par\end{centering}
-\caption{One point crossover, used in the Grammatical Evolution.\label{fig:onepoint}}
+\caption{An example of the one point crossover procedure, as used in the Grammatical
+Evolution.\label{fig:onepoint}}
 \end{figure}
 
 
 \subsection{The second phase of the proposed algorithm}
 
 The second phase utilizes a genetic algorithm, to optimize the parameters
-of the RBF network within the best interval returned by the first
-phase of the method. The layout of each chromosome is shown in Figure
-\ref{fig:The-layout-of}.
+of the RBF network. The optimization of the parameters uses as bounds
+the best interval produced in the first phase of the method. The layout
+of each chromosome is shown in Figure \ref{fig:The-layout-of}.
 
 \begin{figure}[H]
 \caption{The layout of chromosomes in the second phase of the proposed algorithm.\label{fig:The-layout-of}}
@@ -670,47 +670,47 @@ $ $
 \begin{enumerate}
 \item \textbf{Initialization Step}
 \begin{enumerate}
-\item \textbf{Set} $N_{c}$ as the number of chromosomes.
-\item \textbf{Set} $N_{g}$ the maximum number of allowed generations.
-\item \textbf{Set} $k$ the weight number of the RBF network.
-\item \textbf{Get} the best interval $S=\left[L_{\mbox{best}},R_{\mbox{best}}\right]$
-from the first step of subsection \ref{subsec:The-first-phase}.
-\item \textbf{Initialize} randomly the $N_{C}$ chromosomes in in $S$. 
-\item \textbf{Set} as $p_{s}$ the selection rate of the algorithm, with
-$p_{s}\le1$.
-\item \textbf{Set} as $p_{m}$ the mutation rate, with $p_{m}\le1$.
+\item \textbf{Define }as $N_{c}$ as the number of chromosomes.
+\item \textbf{Define }as $N_{g}$ the total number of generations.
+\item \textbf{Define }as $k$ the number of processing nodes of the used
+RBF model.
+\item \textbf{Define }as $S=\left[L_{\mbox{best}},R_{\mbox{best}}\right]$
+the best located interval of the first stage of the algorithm, of
+subsection \ref{subsec:The-first-phase}.
+\item \textbf{Produce} $N_{C}$ random chromosomes in $S$. 
+\item \textbf{Define }as $p_{s}$ the used selection rate, with $p_{s}\le1$.
+\item \textbf{Define }as $p_{m}$ the used mutation rate, with $p_{m}\le1$.
 \item \textbf{Set} iter=0.
 \end{enumerate}
 \item \textbf{Fitness calculation Step \label{enu:Fitness-calculation-Step}}
 \begin{enumerate}
 \item \textbf{For} $i=1,\ldots,N_{g}$ \textbf{do}
 \begin{enumerate}
-\item \textbf{Calculate} the fitness $f_{i}$ of chromosome $g_{i}$ as
-$f_{i}=\sum_{j=1}^{m}\left(y\left(\overrightarrow{x_{j}},\overrightarrow{g_{i}}\right)-t_{j}\right)^{2}$
+\item \textbf{Compute} the fitness $f_{i}$ of each chromosome $g_{i}$
+as $f_{i}=\sum_{j=1}^{m}\left(y\left(\overrightarrow{x_{j}},\overrightarrow{g_{i}}\right)-t_{j}\right)^{2}$
 \end{enumerate}
 \item \textbf{EndFor}
 \end{enumerate}
 \item \textbf{Genetic operations step}
 \begin{enumerate}
-\item \textbf{Selection procedure.} The chromosomes are sorted according
-to their fitness values. The $\left(1-p_{s}\right)\times N_{c}$ chromosomes
-with the lowest fitness values are transferred intact to the next
-generation. The remaining chromosomes are substituted by offspings
-created in the crossover procedure. During the selection process for
-each offspring, two parents are selected from the population using
-the tournament selection. 
-\item \textbf{Crossover procedure}: For every pair $(z,w)$ of selected
-parents two additional chromosomes $\tilde{z}$ and $\tilde{w}$ are
-produced using the following equations:
+\item \textbf{Selection procedure.} Firstly, sort the chromosomes according
+to their fitness values. The first $\left(1-p_{s}\right)\times N_{c}$
+chromosomes having the lowest fitness values are copied without changes
+to the next generation. The rest of chromosomes are replaced by chromosomes
+created in the crossover procedure.
+\item \textbf{Crossover procedure}: For every pair of created offsprings
+two parents $(z,w)$ are selected from the curent population using
+the tournament selection. These parent will produce the offsprings
+$\tilde{z}$ and $\tilde{w}$ according to the equations:
 \begin{eqnarray}
 \tilde{z_{i}} & = & a_{i}z_{i}+\left(1-a_{i}\right)w_{i}\nonumber \\
 \tilde{w_{i}} & = & a_{i}w_{i}+\left(1-a_{i}\right)z_{i}\label{eq:crossover_ali-1}
 \end{eqnarray}
-The value $a_{i}$ is considered as a random number with the property
-$a_{i}\in[-0.5,1.5]$ \citep{kaelo}. 
-\item \textbf{Mutation procedure}:\textbf{ }For each element of every chromosome,
-a random number $r\in\left[0,1\right]$ is drawn. The corresponding
-element is altered randomly if $r\le p_{m}$.
+The value $a_{i}$ is a random number, where $a_{i}\in[-0.5,1.5]$
+\citep{kaelo}. 
+\item \textbf{Perform} the mutation procedure. In this process a random
+number $r\in\left[0,1\right]$ is drawn for every element of each
+chromosome. The corresponding element is changed randomly if $r\le p_{m}$.
 \end{enumerate}
 \item \textbf{Termination Check Step}
 \begin{enumerate}
@@ -719,8 +719,8 @@ element is altered randomly if $r\le p_{m}$.
 \end{enumerate}
 %
 \end{enumerate}
-The steps of the proposed algorithm are also outlined graphically
-in Figure \ref{fig:The-flowchart-of} using a flowchart.
+The steps of the current algorithm are also outlined graphically in
+Figure \ref{fig:The-flowchart-of} using a flowchart.
 
 \begin{figure}[H]
 \begin{centering}
@@ -734,10 +734,10 @@ in Figure \ref{fig:The-flowchart-of} using a flowchart.
 
 \subsection{Experimental datasets}
 
-The suggested method was tested on a series of classification and
-regression problems from the relevant literature and was compared
-against some other well -known machine learning models. The following
-databases were used to obtain the datasets:
+The proposed method was tested on a wide set of classification and
+regression problems found in the relevant literature. The method was
+compared against some other well -known machine learning models. The
+following databases were used to obtain the datasets:
 \begin{enumerate}
 \item The UCI dataset repository, \url{https://archive.ics.uci.edu/ml/index.php}(accessed
 on 9 September 2023)
@@ -863,44 +863,45 @@ WANKARA & KEEL\tabularnewline
 
 \subsection{Experimental results}
 
-The used RBF network was coded in ANSI C++ using the freely available
-Armadillo library \citep{Armadillo}. The optimization methods used
-were also freely available from the OPTIMUS computing environment,
-downloaded from \url{https://github.com/itsoulos/OPTIMUS/}(accessed
-on 9 September 2023). To validate the results, the 10 - fold validation
-technique was used in all datasets. The experiments were conducted
-30 times for every dataset using a different seed for the random generator
+The RBF model used in the experiments was implemented in ANSI C++
+with the assistance of the open source Armadillo library \citep{Armadillo}.
+The optimization methods used were also freely available from the
+OPTIMUS software, downloaded from \url{https://github.com/itsoulos/OPTIMUS/}(accessed
+on 9 September 2023). The proposed method was validated using the
+10 - fold validation technique for all datasets. Also, all the experiments
+were executed 30 times with different seed number for the random generator
 each time. In the conducted experiments, the drand48() random function
-of the C - programming language was employed. The average classification
-error is reported for the case of classification datasets and the
-average mean test error for the regression datasets. The machine used
-in the experiments was an AMD Ryzen 5950X with 128GB of RAM, running
-the Debian Linux operating system. All the values for the parameters
-of the used algorithms are shown in Table \ref{tab:Experimental-parameters}.
+of the C - programming language was employed. For the classification
+datasets the average classification error was measured and and the
+average mean test error for the regression datasets. The experiments
+were conducted on an AMD Ryzen 5950X with 128GB of RAM, running the
+Debian Linux operating system. All the values for the parameters of
+the used algorithms are shown in Table \ref{tab:Experimental-parameters}.
 The results obtained for the classification datasets are shown in
 Table \ref{tab:Experiments-for-classification} and for the regression
 datasets are listed in Table \ref{tab:experiments-regression}. 
 
 The following applies to the results tables:
 \begin{enumerate}
-\item The column RPROP represents an artificial neural network \citep{nn1,nn2}
-with 10 hidden nodes trained with the Rprop method \citep{rpropnn}.
-\item The column ADAM denotes the incorporation of the Adam optimizer \citep{Adam,AdamNN}
-to train an artificial neural network with 10 hidden nodes.
+\item The column RPROP represents an artificial neural network \citep{nn1,nn2}.
+This neural network has 10 processing nodes and was trained using
+the Rprop method \citep{rpropnn}.
+\item The column denoted as ADAM stands for an artificial neural network
+with 10 hidden nodes trained by the Adam optimizer \citep{Adam,AdamNN}.
 \item The column NEAT (NeuroEvolution of Augmenting Topologies ) \citep{neat}
 denotes the application of the NEAT method for neural network training.
-\item The column RBF-KMEANS represents the original two -phase training
-method for RBF networks, where in the first phase the centers and
-variances are estimated through the K-Means algorithm and in the second
+\item The RBF-KMEANS column denotes the original two - phase training method
+for RBF networks. During the first phase the centers and variances
+are estimated through the K-Means algorithm and during the second
 phase the output weights are calculated by solving a linear system
 of equations.
 \item The column GENRBF stands for the RBF training method introduced in
 \citep{rbf_gen1}.
 \item The column PROPOSED represents the results obtained by the proposed
 method.
-\item An extra line was also added to the experimental tables under the
-title AVERAGE. This line represents the average classification or
-regression error for all datasets.
+\item For both tables, an additional line was added under the title AVERAGE.
+This line indicates the average classification or regression error
+for all datasets.
 \end{enumerate}
 \begin{table}[H]
 \caption{The values used for the experimental parameters.\label{tab:Experimental-parameters}}
@@ -931,8 +932,8 @@ $p_{m}$ & 0.05\tabularnewline
 
 \begin{table}[H]
 \caption{Experimental results for the classification datasets. The first column
-is the name of the used dataset. Every number in cells denotes average
-classification error as measured on the test set.\label{tab:Experiments-for-classification}}
+denotes the name of the dataset. Every number in cells denote average
+classification error as calculated on the test set.\label{tab:Experiments-for-classification}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -995,7 +996,7 @@ ZOO & 15.47\% & 14.13\% & 20.27\% & 21.93\% & 33.50\% & 9.33\%\tabularnewline
 
 \begin{table}[H]
 \caption{Experimental results for the regression datasets. The first column
-is the name of the used regression dataset. Also, the numbers in cells
+is the name of the regression dataset. Also, the numbers in cells
 denote average regression error on the test set.\label{tab:experiments-regression}}
 
 \centering{}%
@@ -1198,7 +1199,7 @@ difference.\label{fig:statfparam}}
 
 \section{Conclusions}
 
-In the present work, an innovative two-stage technique was proposed
+In the current work, an innovative two-stage technique was proposed
 for efficient training of RBF artificial neural networks. In the first
 stage of the application, using Grammatical Evolution, the interval
 of values of the neural network parameters is partitioned, so as to
@@ -1241,12 +1242,10 @@ time on unnecessary iterations.
 $ $
 
 \authorcontributions{I.G.T., A.T. and E.K. conceived the idea and methodology and supervised
-the technical part regarding the software. I.G.T. conducted the experiments,
-employing several datasets, and provided the comparative experiments.
-A.T. performed the statistical analysis. E.K. and all other authors
-prepared the manuscript. E.K. and I.G.T. organized the research team
-and A.T. supervised the project. All authors have read and agreed
-to the published version of the manuscript.}
+the technical part regarding the software. I.G.T. executed the experiments,
+employing several datasets. A.T. performed the statistical analysis
+and all authors prepared the manuscript. All authors have read and
+agreed to the published version of the manuscript.}
 
 \funding{This research received no external funding.}
 

@@ -2211,17 +2211,17 @@ The bounds for the first
 \begin_inset Formula $(d+1)\times k$
 \end_inset
 
- variables of any given RBF network are considered as a multiple of the
- quantity 
+ variables of any given RBF network is computed as a multiple of the quantity
+ 
 \begin_inset Formula $F$
 \end_inset
 
  with the values calculated by the K-Means algorithm.
- The positive constant 
+ The value 
 \begin_inset Formula $B$
 \end_inset
 
- is used to initialize the intervals for the weight 
+ can be utilized to initialize the bounds for the weight 
 \begin_inset Formula $\overrightarrow{w}$
 \end_inset
 
@@ -2237,49 +2237,54 @@ The bounds for the first
 \begin_layout Enumerate
 
 \series bold
-Set
+Define 
 \series default
+as
+\series bold
  
+\series default
+
 \begin_inset Formula $N_{c}$
 \end_inset
 
- as the number of chromosomes for the Grammatical Evolution.
+ the number of chromosomes that will participate in the the Grammatical
+ Evolution procedure.
 \end_layout
 
 \begin_layout Enumerate
 
 \series bold
-Set
+Define 
 \series default
- as 
+as 
 \begin_inset Formula $k$
 \end_inset
 
- the number of weights of the RBF network.
+ the number of processing nodes of the used RBF model.
 \end_layout
 
 \begin_layout Enumerate
 
 \series bold
-Set
+Define
 \series default
- 
+ as 
 \begin_inset Formula $N_{g}$
 \end_inset
 
- the maximum number of allowed generations.
+ the number of allowed generations.
 \end_layout
 
 \begin_layout Enumerate
 
 \series bold
-Set
+Define 
 \series default
- as 
+as 
 \begin_inset Formula $p_{s}$
 \end_inset
 
- the selection rate of the algorithm, with 
+ the used selection rate, with 
 \begin_inset Formula $p_{s}\le1$
 \end_inset
 
@@ -2289,13 +2294,13 @@ Set
 \begin_layout Enumerate
 
 \series bold
-Set
+Define 
 \series default
- as 
+as 
 \begin_inset Formula $p_{m}$
 \end_inset
 
- the mutation rate, with 
+ the used mutation rate, with 
 \begin_inset Formula $p_{m}\le1$
 \end_inset
 
@@ -2305,13 +2310,18 @@ Set
 \begin_layout Enumerate
 
 \series bold
-Set
+Define 
 \series default
+as
+\series bold
  
+\series default
+
 \begin_inset Formula $N_{s}$
 \end_inset
 
-as the number of randomly created RBF networks, used in the fitness calculation.
+as the total number of RBF networks that will be created randomly in every
+ fitness calculation.
 \end_layout
 
 \begin_layout Enumerate
@@ -2319,7 +2329,7 @@ as the number of randomly created RBF networks, used in the fitness calculation.
 \series bold
 Initialize
 \series default
- randomly the 
+ 
 \begin_inset Formula $N_{c}$
 \end_inset
 
@@ -2340,7 +2350,7 @@ Set
 \begin_inset Formula $f_{g}$
 \end_inset
 
- of any given chromosome 
+ of any provided chromosome 
 \begin_inset Formula $g$
 \end_inset
 
@@ -2386,7 +2396,7 @@ name "enu:For--do"
 \begin_layout Enumerate
 
 \series bold
-Create 
+Produce 
 \series default
 the partition program 
 \begin_inset Formula $p_{i}$
@@ -2549,23 +2559,15 @@ EndFor
 \begin_layout Enumerate
 
 \series bold
-Apply
+Perform
 \series default
- the selection procedure: Initially, the chromosomes of the population are
- sorted according to their fitness values.
- In order to compare two fitness values 
-\begin_inset Formula $f_{a}=\left[a_{1},a_{2}\right]$
-\end_inset
-
- and 
-\begin_inset Formula $f_{b}=\left[b_{1},b_{2}\right]$
-\end_inset
-
- the 
+ the procedure of selection: Initially, the chromosomes of the population
+ are sorted according to their fitness values.
+ Since the fitness values are intervals, the 
 \begin_inset Formula $L^{*}$
 \end_inset
 
- operator is used:
+ operator is defined as:
 \begin_inset Formula 
 \begin{eqnarray}
 L^{*}\left(f_{a},f_{b}\right) & = & \begin{cases}
@@ -2576,7 +2578,11 @@ L^{*}\left(f_{a},f_{b}\right) & = & \begin{cases}
 
 \end_inset
 
-Hence, the fitness value 
+As a consuquence
+\series bold
+, 
+\series default
+the fitness value 
 \begin_inset Formula $f_{a}$
 \end_inset
 
@@ -2593,19 +2599,16 @@ Hence, the fitness value
 \begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
 \end_inset
 
- chromosomes with smaller fitness values are transferred intact to the next
- generation.
- The remaining chromosomes are replaced by offspring created in the crossover
+ chromosomes with smaller fitness values are copied without changes to the
+ next generation of the algorithm.
+ The rest of chromosomes are replaced by chromosomes created in the crossover
  procedure.
- During the selection process for each offspring, two parents are selected
- from the population using the tournament selection.
- 
 \end_layout
 
 \begin_layout Enumerate
 
 \series bold
-Apply
+Perform
 \series default
  the crossover procedure.
  The crossover procedure will create new
@@ -2617,21 +2620,12 @@ Apply
  
 \series default
 chromosomes.
-
-\series bold
- 
-\series default
-For each new offspring two parents are selected from the population using
- the tournament selection.
-
-\series bold
- 
-\series default
-For each pair 
+ For every pair of created offsprings two parents 
 \begin_inset Formula $(z,w)$
 \end_inset
 
- of selected parents, two new chromosomes 
+ are selected from the curent population using the tournament selection.
+ These parent will produce the offsprings 
 \begin_inset Formula $\tilde{z}$
 \end_inset
 
@@ -2639,7 +2633,7 @@ For each pair
 \begin_inset Formula $\tilde{w}$
 \end_inset
 
- are produced using the one - point crossover, shown in Figure 
+ using the one - point crossover, shown in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:onepoint"
@@ -2655,15 +2649,15 @@ noprefix "false"
 \begin_layout Enumerate
 
 \series bold
-Apply
+Perform
 \series default
  the mutation procedure.
- For each element of every chromosome, a random number 
+ In this process a random number 
 \begin_inset Formula $r\in\left[0,1\right]$
 \end_inset
 
- is drawn.
- The corresponding element is altered randomly if 
+ is drawn for every element of each chromosome.
+ The corresponding element is changed randomly if 
 \begin_inset Formula $r\le p_{m}$
 \end_inset
 
@@ -2722,7 +2716,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-One point crossover, used in the Grammatical Evolution.
+An example of the one point crossover procedure, as used in the Grammatical
+ Evolution.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:onepoint"
@@ -2748,8 +2743,9 @@ The second phase of the proposed algorithm
 
 \begin_layout Standard
 The second phase utilizes a genetic algorithm, to optimize the parameters
- of the RBF network within the best interval returned by the first phase
- of the method.
+ of the RBF network.
+ The optimization of the parameters uses as bounds the best interval produced
+ in the first phase of the method.
  The layout of each chromosome is shown in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3115,9 +3111,9 @@ Initialization Step
 \begin_layout Enumerate
 
 \series bold
-Set
+Define 
 \series default
- 
+as 
 \begin_inset Formula $N_{c}$
 \end_inset
 
@@ -3127,37 +3123,38 @@ Set
 \begin_layout Enumerate
 
 \series bold
-Set
+Define 
 \series default
- 
+as 
 \begin_inset Formula $N_{g}$
 \end_inset
 
- the maximum number of allowed generations.
+ the total number of generations.
 \end_layout
 
 \begin_layout Enumerate
 
 \series bold
-Set
+Define 
 \series default
- 
+as 
 \begin_inset Formula $k$
 \end_inset
 
- the weight number of the RBF network.
+ the number of processing nodes of the used RBF model.
 \end_layout
 
 \begin_layout Enumerate
 
 \series bold
-Get
+Define 
 \series default
- the best interval 
+as 
 \begin_inset Formula $S=\left[L_{\mbox{best}},R_{\mbox{best}}\right]$
 \end_inset
 
- from the first step of subsection 
+ the best located interval of the first stage of the algorithm, of subsection
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:The-first-phase"
@@ -3173,13 +3170,13 @@ noprefix "false"
 \begin_layout Enumerate
 
 \series bold
-Initialize
+Produce
 \series default
- randomly the 
+ 
 \begin_inset Formula $N_{C}$
 \end_inset
 
- chromosomes in in 
+ random chromosomes in 
 \begin_inset Formula $S$
 \end_inset
 
@@ -3190,13 +3187,13 @@ Initialize
 \begin_layout Enumerate
 
 \series bold
-Set
+Define 
 \series default
- as 
+as 
 \begin_inset Formula $p_{s}$
 \end_inset
 
- the selection rate of the algorithm, with 
+ the used selection rate, with 
 \begin_inset Formula $p_{s}\le1$
 \end_inset
 
@@ -3206,13 +3203,13 @@ Set
 \begin_layout Enumerate
 
 \series bold
-Set
+Define 
 \series default
- as 
+as 
 \begin_inset Formula $p_{m}$
 \end_inset
 
- the mutation rate, with 
+ the used mutation rate, with 
 \begin_inset Formula $p_{m}\le1$
 \end_inset
 
@@ -3260,13 +3257,13 @@ do
 \begin_layout Enumerate
 
 \series bold
-Calculate
+Compute
 \series default
  the fitness 
 \begin_inset Formula $f_{i}$
 \end_inset
 
- of chromosome 
+ of each chromosome 
 \begin_inset Formula $g_{i}$
 \end_inset
 
@@ -3298,18 +3295,15 @@ Genetic operations step
 Selection procedure.
 
 \series default
- The chromosomes are sorted according to their fitness values.
- The 
+ Firstly, sort the chromosomes according to their fitness values.
+ The first 
 \begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
 \end_inset
 
- chromosomes with the lowest fitness values are transferred intact to the
- next generation.
- The remaining chromosomes are substituted by offspings created in the crossover
+ chromosomes having the lowest fitness values are copied without changes
+ to the next generation.
+ The rest of chromosomes are replaced by chromosomes created in the crossover
  procedure.
- During the selection process for each offspring, two parents are selected
- from the population using the tournament selection.
- 
 \end_layout
 
 \begin_layout Enumerate
@@ -3317,11 +3311,12 @@ Selection procedure.
 \series bold
 Crossover procedure
 \series default
-: For every pair 
+: For every pair of created offsprings two parents 
 \begin_inset Formula $(z,w)$
 \end_inset
 
- of selected parents two additional chromosomes 
+ are selected from the curent population using the tournament selection.
+ These parent will produce the offsprings 
 \begin_inset Formula $\tilde{z}$
 \end_inset
 
@@ -3329,7 +3324,7 @@ Crossover procedure
 \begin_inset Formula $\tilde{w}$
 \end_inset
 
- are produced using the following equations:
+ according to the equations:
 \begin_inset Formula 
 \begin{eqnarray}
 \tilde{z_{i}} & = & a_{i}z_{i}+\left(1-a_{i}\right)w_{i}\nonumber \\
@@ -3342,7 +3337,7 @@ The value
 \begin_inset Formula $a_{i}$
 \end_inset
 
- is considered as a random number with the property 
+ is a random number, where 
 \begin_inset Formula $a_{i}\in[-0.5,1.5]$
 \end_inset
 
@@ -3361,18 +3356,15 @@ literal "true"
 \begin_layout Enumerate
 
 \series bold
-Mutation procedure
+Perform
 \series default
-:
-\series bold
- 
-\series default
-For each element of every chromosome, a random number 
+ the mutation procedure.
+ In this process a random number 
 \begin_inset Formula $r\in\left[0,1\right]$
 \end_inset
 
- is drawn.
- The corresponding element is altered randomly if 
+ is drawn for every element of each chromosome.
+ The corresponding element is changed randomly if 
 \begin_inset Formula $r\le p_{m}$
 \end_inset
 
@@ -3430,7 +3422,7 @@ noprefix "false"
 
 \end_deeper
 \begin_layout Standard
-The steps of the proposed algorithm are also outlined graphically in Figure
+The steps of the current algorithm are also outlined graphically in Figure
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3502,9 +3494,10 @@ Experimental datasets
 \end_layout
 
 \begin_layout Standard
-The suggested method was tested on a series of classification and regression
- problems from the relevant literature and was compared against some other
- well -known machine learning models.
+The proposed method was tested on a wide set of classification and regression
+ problems found in the relevant literature.
+ The method was compared against some other well -known machine learning
+ models.
  The following databases were used to obtain the datasets:
 \end_layout
 
@@ -5002,8 +4995,8 @@ Experimental results
 \end_layout
 
 \begin_layout Standard
-The used RBF network was coded in ANSI C++ using the freely available Armadillo
- library 
+The RBF model used in the experiments was implemented in ANSI C++ with the
+ assistance of the open source Armadillo library 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Armadillo"
@@ -5013,7 +5006,7 @@ literal "false"
 
 .
  The optimization methods used were also freely available from the OPTIMUS
- computing environment, downloaded from 
+ software, downloaded from 
 \begin_inset Flex URL
 status collapsed
 
@@ -5025,16 +5018,16 @@ https://github.com/itsoulos/OPTIMUS/
 \end_inset
 
 (accessed on 9 September 2023).
- To validate the results, the 10 - fold validation technique was used in
- all datasets.
- The experiments were conducted 30 times for every dataset using a different
- seed for the random generator each time.
+ The proposed method was validated using the 10 - fold validation technique
+ for all datasets.
+ Also, all the experiments were executed 30 times with different seed number
+ for the random generator each time.
  In the conducted experiments, the drand48() random function of the C -
  programming language was employed.
- The average classification error is reported for the case of classification
- datasets and the average mean test error for the regression datasets.
- The machine used in the experiments was an AMD Ryzen 5950X with 128GB of
- RAM, running the Debian Linux operating system.
+ For the classification datasets the average classification error was measured
+ and and the average mean test error for the regression datasets.
+ The experiments were conducted on an AMD Ryzen 5950X with 128GB of RAM,
+ running the Debian Linux operating system.
  All the values for the parameters of the used algorithms are shown in Table
  
 \begin_inset CommandInset ref
@@ -5085,7 +5078,9 @@ literal "false"
 
 \end_inset
 
- with 10 hidden nodes trained with the Rprop method 
+.
+ This neural network has 10 processing nodes and was trained using the Rprop
+ method 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "rpropnn"
@@ -5097,7 +5092,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The column ADAM denotes the incorporation of the Adam optimizer 
+The column denoted as ADAM stands for an artificial neural network with
+ 10 hidden nodes trained by the Adam optimizer 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Adam,AdamNN"
@@ -5105,7 +5101,7 @@ literal "false"
 
 \end_inset
 
- to train an artificial neural network with 10 hidden nodes.
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -5121,10 +5117,11 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The column RBF-KMEANS represents the original two -phase training method
- for RBF networks, where in the first phase the centers and variances are
- estimated through the K-Means algorithm and in the second phase the output
- weights are calculated by solving a linear system of equations.
+The RBF-KMEANS column denotes the original two - phase training method for
+ RBF networks.
+ During the first phase the centers and variances are estimated through
+ the K-Means algorithm and during the second phase the output weights are
+ calculated by solving a linear system of equations.
 \end_layout
 
 \begin_layout Enumerate
@@ -5144,9 +5141,8 @@ The column PROPOSED represents the results obtained by the proposed method.
 \end_layout
 
 \begin_layout Enumerate
-An extra line was also added to the experimental tables under the title
- AVERAGE.
- This line represents the average classification or regression error for
+For both tables, an additional line was added under the title AVERAGE.
+ This line indicates the average classification or regression error for
  all datasets.
 \end_layout
 
@@ -5415,8 +5411,8 @@ status collapsed
 
 \begin_layout Plain Layout
 Experimental results for the classification datasets.
- The first column is the name of the used dataset.
- Every number in cells denotes average classification error as measured
+ The first column denotes the name of the dataset.
+ Every number in cells denote average classification error as calculated
  on the test set.
 \begin_inset CommandInset label
 LatexCommand label
@@ -7186,7 +7182,7 @@ status collapsed
 
 \begin_layout Plain Layout
 Experimental results for the regression datasets.
- The first column is the name of the used regression dataset.
+ The first column is the name of the regression dataset.
  Also, the numbers in cells denote average regression error on the test
  set.
 \begin_inset CommandInset label
@@ -8522,7 +8518,7 @@ noprefix "false"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -9874,7 +9870,7 @@ Conclusions
 \end_layout
 
 \begin_layout Standard
-In the present work, an innovative two-stage technique was proposed for
+In the current work, an innovative two-stage technique was proposed for
  efficient training of RBF artificial neural networks.
  In the first stage of the application, using Grammatical Evolution, the
  interval of values of the neural network parameters is partitioned, so
@@ -9955,17 +9951,10 @@ I.G.T., A.T.
  conceived the idea and methodology and supervised the technical part regarding
  the software.
  I.G.T.
- conducted the experiments, employing several datasets, and provided the
- comparative experiments.
+ executed the experiments, employing several datasets.
  A.T.
- performed the statistical analysis.
- E.K.
- and all other authors prepared the manuscript.
- E.K.
- and I.G.T.
- organized the research team and A.T.
- supervised the project.
- All authors have read and agreed to the published version of the manuscript.
+ performed the statistical analysis and all authors prepared the manuscript.
+  All authors have read and agreed to the published version of the manuscript.
 \end_layout
 
 \begin_layout Funding

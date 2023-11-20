@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2023.11.16)  18 NOV 2023 18:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2023.11.16)  20 NOV 2023 20:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1452,9 +1452,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [3]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 441.
+put line 443.
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 4
-43.
+45.
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
@@ -1504,22 +1504,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [6]
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 631--631
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 630--630
 []\T1/ppl/m/n/10 (-20) 13.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 637--637
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 636--636
 []\T1/ppl/m/n/10 (-20) 14.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 640--640
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 639--639
 []\T1/ppl/m/n/10 (-20) 15.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 641--641
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 640--640
 []\T1/ppl/m/n/10 (-20) 16.  
  []
 
@@ -1531,16 +1531,16 @@ Package epstopdf Info: Source file: <onepoint_crossover.eps>
 (epstopdf)                    size: 23537 bytes
 (epstopdf)             Command: <repstopdf --outfile=onepoint_crossover-eps-con
 verted-to.pdf onepoint_crossover.eps>
-(epstopdf)             \includegraphics on input line 645.
+(epstopdf)             \includegraphics on input line 644.
 Package epstopdf Info: Output file is already uptodate.
 <onepoint_crossover-eps-converted-to.pdf, id=321, 817.0525pt x 271.0125pt>
 File: onepoint_crossover-eps-converted-to.pdf Graphic file (type pdf)
 <use onepoint_crossover-eps-converted-to.pdf>
 Package pdftex.def Info: onepoint_crossover-eps-converted-to.pdf  used on input
- line 645.
+ line 644.
 (pdftex.def)             Requested size: 408.52525pt x 135.5059pt.
 
-Overfull \hbox (14.17003pt too wide) in paragraph at lines 645--646
+Overfull \hbox (14.17003pt too wide) in paragraph at lines 644--645
  [][] 
  []
 
@@ -1558,12 +1558,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [7 <./onepoint_crossover-eps-converted-to.pdf>]
+Overfull \hbox (18.01874pt too wide) in paragraph at lines 689--691
+[]\T1/ppl/b/n/10 (-20) Compute \T1/ppl/m/n/10 (-20) the fit-ness $\OML/zplm/m/i
+t/10 f[]$ \T1/ppl/m/n/10 (-20) of each chro-mo-some $\OML/zplm/m/it/10 g[]$ \T1
+/ppl/m/n/10 (-20) as $\OML/zplm/m/it/10 f[] \OT1/zplm/m/n/10 = [][][][][]$ 
+ []
+
 <flow.png, id=352, 562.1pt x 935.495pt>
 File: flow.png Graphic file (type png)
 <use flow.png>
 Package pdftex.def Info: flow.png  used on input line 727.
 (pdftex.def)             Requested size: 252.94266pt x 420.96886pt.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.18796pt, for example:
@@ -1582,11 +1587,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [9 <./flow.png>]
-Overfull \hbox (17.84805pt too wide) in paragraph at lines 866--883
-\T1/ppl/m/n/10 (-20) com-put-ing en-vi-ron-ment, down-loaded from [][]$https : 
-/ / github . com / itsoulos / OPTIMUS/$[][](accessed
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.18796pt, for example:
@@ -1596,7 +1596,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [10]
-Overfull \hbox (32.1426pt too wide) in paragraph at lines 938--994
+Overfull \hbox (32.1426pt too wide) in paragraph at lines 939--995
  [][] 
  []
 
@@ -1609,7 +1609,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [11]
-Overfull \hbox (16.3625pt too wide) in paragraph at lines 1002--1043
+Overfull \hbox (16.3625pt too wide) in paragraph at lines 1003--1044
  [][] 
  []
 
@@ -1630,13 +1630,13 @@ Package epstopdf Info: Source file: <nodes_plot.eps>
 (epstopdf)                    size: 30228 bytes
 (epstopdf)             Command: <repstopdf --outfile=nodes_plot-eps-converted-t
 o.pdf nodes_plot.eps>
-(epstopdf)             \includegraphics on input line 1062.
+(epstopdf)             \includegraphics on input line 1063.
 Package epstopdf Info: Output file is already uptodate.
-<nodes_plot-eps-converted-to.pdf, id=502, 455.7025pt x 255.95625pt>
+<nodes_plot-eps-converted-to.pdf, id=504, 455.7025pt x 255.95625pt>
 File: nodes_plot-eps-converted-to.pdf Graphic file (type pdf)
 <use nodes_plot-eps-converted-to.pdf>
 Package pdftex.def Info: nodes_plot-eps-converted-to.pdf  used on input line 10
-62.
+63.
 (pdftex.def)             Requested size: 273.4236pt x 153.57492pt.
 Package epstopdf Info: Source file: <time_plot.eps>
 (epstopdf)                    date: 2023-11-18 15:41:36
@@ -1646,13 +1646,13 @@ Package epstopdf Info: Source file: <time_plot.eps>
 (epstopdf)                    size: 24229 bytes
 (epstopdf)             Command: <repstopdf --outfile=time_plot-eps-converted-to
 .pdf time_plot.eps>
-(epstopdf)             \includegraphics on input line 1085.
+(epstopdf)             \includegraphics on input line 1086.
 Package epstopdf Info: Output file is already uptodate.
-<time_plot-eps-converted-to.pdf, id=504, 455.7025pt x 255.95625pt>
+<time_plot-eps-converted-to.pdf, id=506, 455.7025pt x 255.95625pt>
 File: time_plot-eps-converted-to.pdf Graphic file (type pdf)
 <use time_plot-eps-converted-to.pdf>
 Package pdftex.def Info: time_plot-eps-converted-to.pdf  used on input line 108
-5.
+6.
 (pdftex.def)             Requested size: 273.4236pt x 153.57492pt.
 Package epstopdf Info: Source file: <stat_class_genrbf.eps>
 (epstopdf)                    date: 2023-10-20 07:05:05
@@ -1662,13 +1662,13 @@ Package epstopdf Info: Source file: <stat_class_genrbf.eps>
 (epstopdf)                    size: 55453 bytes
 (epstopdf)             Command: <repstopdf --outfile=stat_class_genrbf-eps-conv
 erted-to.pdf stat_class_genrbf.eps>
-(epstopdf)             \includegraphics on input line 1102.
+(epstopdf)             \includegraphics on input line 1103.
 Package epstopdf Info: Output file is already uptodate.
-<stat_class_genrbf-eps-converted-to.pdf, id=508, 719.68875pt x 711.65875pt>
+<stat_class_genrbf-eps-converted-to.pdf, id=510, 719.68875pt x 711.65875pt>
 File: stat_class_genrbf-eps-converted-to.pdf Graphic file (type pdf)
 <use stat_class_genrbf-eps-converted-to.pdf>
 Package pdftex.def Info: stat_class_genrbf-eps-converted-to.pdf  used on input 
-line 1102.
+line 1103.
 (pdftex.def)             Requested size: 287.87039pt x 284.65845pt.
 
 
@@ -1681,13 +1681,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [13 <./nodes_plot-eps-converted-to.pdf> <./time_plot-eps-converted-to.pdf>]
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 1127.
+(Font)              scaled to size 9.37807pt on input line 1128.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 1127.
+(Font)              scaled to size 7.29405pt on input line 1128.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 1127.
+(Font)              scaled to size 9.37807pt on input line 1128.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 1127.
+(Font)              scaled to size 7.29405pt on input line 1128.
 Package epstopdf Info: Source file: <stat_fparam_genrbf.eps>
 (epstopdf)                    date: 2023-09-16 12:59:00
 (epstopdf)                    size: 167942 bytes
@@ -1696,13 +1696,13 @@ Package epstopdf Info: Source file: <stat_fparam_genrbf.eps>
 (epstopdf)                    size: 50802 bytes
 (epstopdf)             Command: <repstopdf --outfile=stat_fparam_genrbf-eps-con
 verted-to.pdf stat_fparam_genrbf.eps>
-(epstopdf)             \includegraphics on input line 1188.
+(epstopdf)             \includegraphics on input line 1189.
 Package epstopdf Info: Output file is already uptodate.
-<stat_fparam_genrbf-eps-converted-to.pdf, id=525, 890.32625pt x 568.1225pt>
+<stat_fparam_genrbf-eps-converted-to.pdf, id=527, 890.32625pt x 568.1225pt>
 File: stat_fparam_genrbf-eps-converted-to.pdf Graphic file (type pdf)
 <use stat_fparam_genrbf-eps-converted-to.pdf>
 Package pdftex.def Info: stat_fparam_genrbf-eps-converted-to.pdf  used on input
- line 1188.
+ line 1189.
 (pdftex.def)             Requested size: 356.12419pt x 227.24496pt.
 
 
@@ -1778,11 +1778,11 @@ Package rerunfilecheck Info: File `grammar_rbf2.out' has not changed.
 (rerunfilecheck)             Checksum: 26676ED23DEED25B2556FE7F9F331D61;1584.
  ) 
 Here is how much of TeX's memory you used:
- 34414 strings out of 476812
- 638803 string characters out of 5807285
- 1965791 words of memory out of 5000000
+ 34411 strings out of 476812
+ 638779 string characters out of 5807285
+ 1966791 words of memory out of 5000000
  54338 multiletter control sequences out of 15000+600000
- 634693 words of font info for 460 fonts, out of 8000000 for 9000
+ 634460 words of font info for 458 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  123i,19n,121p,4343b,1110s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/sheridan/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.
@@ -1797,10 +1797,10 @@ texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist
 pe1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/pala
 tino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a
 .pfb>
-Output written on grammar_rbf2.pdf (20 pages, 508320 bytes).
+Output written on grammar_rbf2.pdf (20 pages, 508548 bytes).
 PDF statistics:
- 721 PDF objects out of 1000 (max. 8388607)
- 619 compressed objects within 7 object streams
+ 723 PDF objects out of 1000 (max. 8388607)
+ 621 compressed objects within 7 object streams
  281 named destinations out of 1000 (max. 500000)
  95872 words of extra memory for PDF output out of 106986 (max. 10000000)
 
