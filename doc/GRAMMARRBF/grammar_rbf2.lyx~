@@ -334,7 +334,8 @@ Introduction
 
 \begin_layout Standard
 Many practical problems of the modern world can be thought of either as
- data fitting problems, as for example, problems from physics 
+ data fitting problems, as for example, problems that appears in physics
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "physics_ml1,physics_ml2"
@@ -342,7 +343,7 @@ literal "false"
 
 \end_inset
 
-, chemistry 
+, problems related to chemistry 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "chemistry_ml1,chemistry_ml2"
@@ -350,7 +351,7 @@ literal "false"
 
 \end_inset
 
-, economics 
+, economic problms 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "econ_ml1,econ_ml2"
@@ -358,7 +359,7 @@ literal "false"
 
 \end_inset
 
-, medicine 
+, medicine problems 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "med_ml1,med_ml2"
@@ -367,8 +368,8 @@ literal "false"
 \end_inset
 
 , etc.
- A machine learning tool, commonly used to handle these problems, is the
- Radial Basis Function (RBF) network 
+ A commonly used machine learning tool to tackle such problems, is the Radial
+ Basis Function (RBF) network 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbf1,rbf2"
@@ -393,11 +394,11 @@ where the symbols in the equation are defined as follows:
 \end_layout
 
 \begin_layout Enumerate
-The vector 
+The element 
 \begin_inset Formula $\overrightarrow{x}$
 \end_inset
 
- is the input pattern from the dataset describing the problem.
+ stands for the input pattern from the dataset describing the problem.
  For the rest of this paper, the notation 
 \begin_inset Formula $d$
 \end_inset
@@ -443,11 +444,11 @@ The outcome of the equations
 \end_layout
 
 \begin_layout Standard
-The function 
+The 
 \begin_inset Formula $\phi(x)$
 \end_inset
 
- usually is a Gaussian function given by:
+ function, in most cases represent the Gaussian function given by:
 \series bold
  
 \begin_inset Formula 
@@ -724,7 +725,7 @@ Where the parameter
 \begin_inset Formula $t_{i}$
 \end_inset
 
- values represent the expected output for the input pattern 
+ represent the expected output for pattern 
 \begin_inset Formula $\overrightarrow{x}_{i}$
 \end_inset
 
@@ -873,7 +874,7 @@ name "sec:Method-description"
 \end_layout
 
 \begin_layout Standard
-This section begins with a detailed description of the Grammatical Evolution
+This section starts with a detailed description of the Grammatical Evolution
  technique and the grammar that will be used to generate partition rules
  for the parameter set of RBFs.
  Subsequently, the first phase of the proposed methodology will be extensively
@@ -1013,7 +1014,7 @@ literal "false"
 
  etc.
  The BNF grammar can be used to describe the syntax of programming languages
- and usually it is defined as the set 
+ and usually it is defined as 
 \series bold
 
 \begin_inset Formula $G=\left(N,T,S,P\right)$
@@ -1032,9 +1033,9 @@ literal "false"
 
  
 \series default
-is the set of the terminal symbols.
- Every non - terminal symbol is associated with a series of production rules
- used to produce terminal symbols.
+is a set that defines the non - terminal symbols of the grammar.
+ Each non - terminal symbol is associated with a set of production rules.
+ The application of these production rules produces series of terminal symbols.
 \end_layout
 
 \begin_layout Itemize
@@ -1045,7 +1046,7 @@ is the set of the terminal symbols.
 
  
 \series default
-is the set of terminal symbols.
+stands for the set of terminal symbols.
 
 \series bold
  
@@ -1055,7 +1056,8 @@ is the set of terminal symbols.
 \begin_inset Formula $S$
 \end_inset
 
- is the start symbol of grammar and 
+ is the start symbol that initiates the production rules with the property
+ 
 \begin_inset Formula $S\in N$
 \end_inset
 
@@ -1070,9 +1072,8 @@ is the set of terminal symbols.
 
  
 \series default
-is a set of production rules, used to produce terminal symbols from non
- - terminal symbols.
- These rules are in the form 
+defines the set of production rules.
+ These are rules are following the following notations: 
 \series bold
 
 \begin_inset Formula $A\rightarrow a$
@@ -1090,22 +1091,22 @@ or
 \end_layout
 
 \begin_layout Standard
-The algorithm starts from the symbol 
+The algorithm begins using the symbol 
 \begin_inset Formula $S$
 \end_inset
 
- and gradually creates terminal symbols by replacing non-terminal symbols
- with the right hand of the selected production rule.
- The rule is selected through the following procedure:
+ and gradually creates terminal symbols with the assistance of the production
+ rules.
+ The production rules are selected through the following procedure:
 \end_layout
 
 \begin_layout Itemize
-Read the next element V from the current chromosome.
+Read the next element V from the chromosome that is being processed.
 \end_layout
 
 \begin_layout Itemize
-The production rule is selected as: Rule = V mod R, where R is the total
- number of production rules for the current non – terminal symbol.
+Get the rule: Rule = V mod R, where R is the total number of production
+ rules for the current non – terminal symbol.
  
 \end_layout
 
@@ -1121,9 +1122,9 @@ noprefix "false"
 \end_inset
 
 .
- The symbols enclosed in <> denote the non-terminal symbols of the grammar.
- The numbers in parentheses in the right part of the grammar indicate production
- rule sequence numbers.
+ The symbols enclosed in <> denote the non-terminal symbols.
+ The numbers in parentheses in the right part of the grammar stand for the
+ sequence numbers of each production rule.
  Every RBF network with 
 \begin_inset Formula $k$
 \end_inset
@@ -1734,8 +1735,8 @@ name "subsec:The-first-phase"
 \end_layout
 
 \begin_layout Standard
-The purpose of the first phase is to initialize the bounds of the RBF network
- and discover a promising interval for the corresponding values.
+The purpose of this phase is to initialize the bounds of the RBF model and
+ discover a promising interval for the corresponding values.
  For this initialization, the K-Means algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1765,7 +1766,7 @@ noprefix "false"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1944,11 +1945,11 @@ Calculate
 \series bold
 Stop 
 \series default
-the algorithm, if there is no change in centers 
+the algorithm, if centers 
 \begin_inset Formula $c_{j}$
 \end_inset
 
-.
+ do not change anymore.
 \end_layout
 
 \end_inset
@@ -8581,7 +8582,7 @@ noprefix "false"
 \end_inset
 
 , where the average execution time for the method ADAM and the proposed
- method is shown for the classification datasets when the number of processing
+ method is shown for the classification datasets, when the number of processing
  nodes increases from 5 to 20.
  As expected, the proposed technique requires significantly more time than
  a traditional neural network training technique such as ADAM, since it
