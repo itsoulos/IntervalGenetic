@@ -45,18 +45,18 @@ University of Ioannina, Greece.}
 applications in various scientific areas in both classification and
 data fitting problems. These networks deal with the above problems
 by adjusting their parameters with various optimization techniques.
-However, an important issue to address is finding a satisfactory interval
-of values for the network parameters before adjusting these parameters.
-This paper proposes a two-stage technique, where in the first stage,
-using Grammatical Evolution, rules are generated to create the optimal
-value interval of the network parameters. In the second stage of the
-technique, the parameters of the network are fine-tuned with some
-robust global optimization method, such as a genetic algorithm. The
-proposed technique was tested on a number of problems from the recent
-literature and found to reduce the classification or data fitting
-error by over 40\% on most datasets. Furthermore, the method appears
-highly stable as increasing the number of network parameters does
-not significantly affect its performance.}
+However, an important issue to address is to locate a satisfactory
+interval for the parameters of the network before adjusting these
+parameters. This paper proposes a a method of two stages, where in
+the first stage with the incorporation of Grammatical Evolution, rules
+are generated to create the optimal value interval of the network
+parameters. During the second stage of the technique, the mentioned
+parameters are fine-tuned with a genetic algorithm. The current work
+was tested on a number of datasets from the recent literature and
+found to reduce the classification or data fitting error by over 40\%
+on most datasets. In addition, the proposed method appears in the
+experiments to be robust, as the fluctuation of the number of network
+parameters does not significantly affect its performance.}
 
 
 \keyword{Neural networks; Genetic algorithms; Genetic programming; Grammatical
@@ -215,15 +215,15 @@ as data fitting problems, as for example, problems that appears in
 physics \citep{physics_ml1,physics_ml2}, problems related to chemistry
 \citep{chemistry_ml1,chemistry_ml2}, economic problms \citep{econ_ml1,econ_ml2},
 medicine problems \citep{med_ml1,med_ml2}, etc. A commonly used machine
-learning tool to tackle such problems, is the Radial Basis Function
-(RBF) network \citep{rbf1,rbf2}. Usually, an RBF network is expressed
-using the following equation:\textbf{
+learning tool to handle problems of this nature, is the Radial Basis
+Function (RBF) network \citep{rbf1,rbf2}. Usually, an RBF network
+is expressed using the following equation:\textbf{
 \begin{equation}
 y\left(\overrightarrow{x}\right)=\sum_{i=1}^{k}w_{i}\phi\left(\left\Vert \overrightarrow{x}-\overrightarrow{c_{i}}\right\Vert \right)\label{eq:firstrbf}
 \end{equation}
 }where the symbols in the equation are defined as follows:
 \begin{enumerate}
-\item The element $\overrightarrow{x}$ stands for the input pattern from
+\item The element $\overrightarrow{x}$ represents the input pattern from
 the dataset describing the problem. For the rest of this paper, the
 notation $d$ will be used to represent the number of elements in
 $\overrightarrow{x}$.
@@ -231,8 +231,8 @@ $\overrightarrow{x}$.
 RBF network and the associated vector of weights is denoted as $\overrightarrow{w}$.
 \item The vectors $\overrightarrow{c_{i}},\ i=1,..,k$ stand for the centers
 of the model.
-\item The outcome of the equations $y\left(\overrightarrow{x}\right)$ stands
-for the estimated value of the network for the input pattern $\overrightarrow{x}$.
+\item The value $y\left(\overrightarrow{x}\right)$ represents the value
+of the network for the given pattern $\overrightarrow{x}$.
 \end{enumerate}
 The $\phi(x)$ function, in most cases represent the Gaussian function
 given by:\textbf{ 
@@ -241,40 +241,39 @@ given by:\textbf{
 \end{equation}
 }The main advantages of RBF networks are:
 \begin{enumerate}
-\item They have a simpler structure than other machine learning models such
-as multilayer perceptron neural networks (MLPs)\citep{nnreview},
+\item They have a simpler structure than other models used in machine learning,
+such as multilayer perceptron neural networks (MLPs)\citep{nnreview},
 since they have only one processing layer and therefore have faster
 training techniques and they have faster response times.
-\item They can approximate any continuous function \citep{rbf_approx}.
+\item They can be used to efficiently approximate any continuous function
+\citep{rbf_approx}.
 \end{enumerate}
-The RBF networks were used in many cases, such as problems from physics
-\citep{rbfphysics1,rbfphysics2,rbfphysics3,rbfphysics4}, solving
-differential equations \citep{rbfde1,rbfde2,rbfde3}, robotics \citep{rbfrobotics1,rbfrobotics2},\textbf{
-}face recognition \citep{rbfface1}, digital communications \citep{rbfnetwork1,rbfnetwork2},
-chemistry problems \citep{rbfchemistry1,rbfchemistry2},\textbf{ }economic
-problems \citep{rbfecon0,rbfecon1,rbfecon2}, network security problems
-\citep{rbf_dos1,rbf_dos2} etc. Also, recently a variety of papers
-have appeared proposing novel initialization techniques for the network
-parameters\textbf{ }\citep{rbfinit1,rbfinit2,rbfinit3}. Also, Benoudjit
-et al \citep{rbfkernel} discuss the effect of kernel widths on RBF
-networks. Moreover, Neruda et al \citep{rbflearn} presents a comparison
-of some learning methods for RBF networks. Additionally, a variety
-of pruning techniques\textbf{ }\citep{rbfprun1,rbfprun2,rbfprun3}
-have been proposed to reduce the number of required parameters of
-the RBF networks.\textbf{ }Due to the widespread usage of RBF networks
-but also because considerable computing time is often required for
-their effective training, in recent years a series of techniques have
-been proposed \citep{rbfpar1,rbfpar2} for the exploitation of parallel
-computing units to adjust the parameters of neural networks.
+The RBF networks were applied in a variety of problems, such as problems
+from physics \citep{rbfphysics1,rbfphysics2,rbfphysics3,rbfphysics4},
+solving differential equations \citep{rbfde1,rbfde2,rbfde3}, robotics
+\citep{rbfrobotics1,rbfrobotics2},\textbf{ }face recognition \citep{rbfface1},
+digital communications \citep{rbfnetwork1,rbfnetwork2}, chemistry
+problems \citep{rbfchemistry1,rbfchemistry2},\textbf{ }economic problems
+\citep{rbfecon0,rbfecon1,rbfecon2}, network security problems \citep{rbf_dos1,rbf_dos2}
+etc. Also, recently a variety of papers have appeared proposing novel
+initialization techniques for the network parameters\textbf{ }\citep{rbfinit1,rbfinit2,rbfinit3}.
+Also, Benoudjit et al \citep{rbfkernel} discuss the effect of kernel
+widths on RBF networks. Moreover, Neruda et al \citep{rbflearn} presents
+a comparison of some learning methods for RBF networks. Additionally,
+a variety of pruning techniques\textbf{ }\citep{rbfprun1,rbfprun2,rbfprun3}
+have been suggested in the literature for decreasing the number parameters.\textbf{
+}Due to the widespread usage of RBF networks but also because considerable
+computing time is often required for their effective training, in
+recent years a series of techniques have been published \citep{rbfpar1,rbfpar2}
+for the exploitation of parallel computing units to adjust the parameters.
 
-In the same direction of research, other researchers propose to handle
-problems of classification or data fitting, techniques such as Support
-Vector Machines (SVM) \citep{svm,svm2}, decision trees \citep{dt1,dt2}
-etc. Also, Wang et al suggested an auto - encoder reduction method,
-applied on a series of large datasets\citep{nn_autoencoder}. This
-problem has also been tackled by various researchers during the past
-years, such as the work of Agarwal and Bhanot \citep{rbftune} proposed
-to adapt the RBF parameters, the usage of the ABC algorithm\citep{rbfABC},
+In the same direction of research, other machine learning models have
+been proposed, such as Support Vector Machines (SVM) \citep{svm,svm2},
+decision trees \citep{dt1,dt2} etc. Also, Wang et al suggested an
+auto - encoder reduction method, applied on a series of large datasets\citep{nn_autoencoder}.
+Various methods have been proposed in the same direction, such as
+the work of Agarwal and Bhanot \citep{rbftune} proposed to adapt
+the RBF parameters, the usage of the ABC algorithm\citep{rbfABC},
 the incorporation of the Firefly algorithm\citep{fireflyCancer}.
 Furthermore, Gyamfi et al \citep{rbfSeq} recently proposed a differential
 RBF network that incorporates partial differential equations, aiming
@@ -288,110 +287,109 @@ the following loss - function, called training error of the network:
 \begin{equation}
 E(y(x,g))=\sum_{i=1}^{m}\left(y\left(\overrightarrow{x}_{i},\overrightarrow{g}\right)-t_{i}\right)^{2}\label{eq:eqrbf}
 \end{equation}
-Where the parameter $m$ denotes the number of input patterns, the
-$t_{i}$ represent the expected output for pattern $\overrightarrow{x}_{i}$.
+Where the parameter $m$ denotes the number of patterns, the $t_{i}$
+represent the expected output for pattern $\overrightarrow{x}_{i}$.
 The vector $\overrightarrow{g}$ represents the parameter set of the
-RBF network.
+network.
 
 A common method of calculating the parameters in these neural networks
 uses a technique to calculate the centers of the functions $\phi(x)$
-and then the weight vector $\overrightarrow{w}$ is calculated as
-a solution of a linear system of equations. Typically, the method
+and then the vector of weights $\overrightarrow{w}$ is calculated
+as a solution of a linear system of equations. Typically, the method
 used to calculate the centers is the well - known k-means method \citep{kmeans}.
-In many cases, this way of estimating the parameters of the neural
-network leads to over-fitting of the model so that it cannot generalize
-satisfactorily to unknown data. Furthermore, since there is no range
-of values for the parameters, there is the possibility that they will
-take extremely large or extremely small values, with the result that
-any generalizability of the model is lost. This work suggests a two
-phase method to minimize the error of equation (\ref{eq:eqrbf}).
-During the first phase, an attempt is made to bound the parameter
-values to intervals at which the training error is likely to be significantly
-reduced. The identification of the most promising intervals for the
-parameters is performed using a technique that utilizes Grammatical
-Evolution\citep{ge1}, that collects information from the training
-data. During the second phase, the parameters of the RBF network can
-be trained within the optimal range found in the first phase using
-some global optimization method \citep{rbfSA,rbfPSO}. In the proposed
-approach, the widely used method of genetic algorithm \citep{ga1,ga2,ga3}
-was used for the second phase of the process. The main contributions
-of the suggested approach are:
+In many cases, this way of estimating the parameters leads to over-fitting
+of the model so that it cannot generalize satisfactorily to unknown
+data. Furthermore, since there is no range of values for the parameters,
+there is the possibility that they will take extremely large or extremely
+small values, with the result that any generalizability of the model
+is lost. This work suggests a two phase method to minimize the error
+of equation (\ref{eq:eqrbf}). During the first phase, an attempt
+is made to bound the parameter values to intervals at which the training
+error is likely to be significantly reduced. The identification of
+the most promising intervals for the parameters is performed using
+a technique that utilizes Grammatical Evolution\citep{ge1}, that
+collects information from the training data. During the second phase,
+the parameters can be trained inside the best located range of the
+first phase using some global optimization method \citep{rbfSA,rbfPSO}.
+In the proposed approach, the widely used method of genetic algorithm
+\citep{ga1,ga2,ga3} was used for the second phase of the process.
+The main contributions of the suggested approach are:
 \begin{enumerate}
-\item The first phase procedure seeks to identify a range of values for
-the network parameters while also reducing the error of the network
-on the training data set.
+\item The first phase procedure seeks to locate a range of values for the
+parameters, while also reducing the error of the network on the training
+data set.
 \item The rules Grammatical Evolution uses in the first phase are simple
 and can be generalized to any data set for data classification or
 fitting.
 \item The determination of the value interval is done in such a way that
-it is faster and more efficient to train the parameters of the neural
-network with some optimization method during the second phase of the
-method. 
+it is faster and more efficient to train the parameters with some
+optimization method during the second phase. 
 \item After identifying a promising value interval from the first phase,
 any global optimization method can be used on that value interval
 to effectively minimize the network training error.
 \end{enumerate}
 The rest of this paper is divided in the following sections: in section
 \ref{sec:Method-description} the proposed method is fully described,
-in section \ref{sec:Experiments} the datasets used in the experiments
-are listed as well as the experimental results and finally in section
-4 some conclusions are provided.
+the section \ref{sec:Experiments} presents the used datasets and
+the conducted experiments and finally in section 4 some a discussion
+on the conducted experiments is made.
 
 \section{Method description\label{sec:Method-description}}
 
-This section starts with a detailed description of the Grammatical
+This section starts with an exteended presentation of the Grammatical
 Evolution technique and the grammar that will be used to generate
-partition rules for the parameter set of RBFs. Subsequently, the first
+partition rules for the parameter set of RBFs. Afterwards, the first
 phase of the proposed methodology will be extensively analyzed and
 then the second phase, where a Genetic Algorithm will be applied to
 the outcome of the first phase.
 
 \subsection{Grammatical Evolution }
 
-Grammatical evolution is a special case of genetic algorithm. Genetic
-Algorithms, suggested by John Holland \citep{Holland1} are inspired
-by biology and the algorithm starts by creating an initial population
-of the so -called chromosomes that stand for potential solutions to
-the objective problem. These chromosomes are gradually altered using
-the genetic operators of selection, crossover and mutation\citep{Stender}.\textbf{
-}The chromosomes in the Grammatical Evolution represent production
-rules of any given BNF (Backus--Naur form) grammar\citep{bnf1}.
-Grammatical Evolution has been used successfully in a variety of cases,
-such as function approximation\citep{ge_program1,ge_program2}, solution
-of trigonometric equations \citep{ge_trig}, automatic music composition
-of music \citep{ge_music},\textbf{ }neural network construction \citep{ge_nn,ge_nn2},
-creating numeric constraints\citep{ge_constant}\textbf{, }video games
-\citep{ge_pacman,ge_supermario},\textbf{ }estimation of energy demand\citep{ge_energy},\textbf{
-}combinatorial optimization \citep{ge_comb}, cryptography \citep{ge_crypt}
-etc. The BNF grammar can be used to describe the syntax of programming
-languages and usually it is defined as \textbf{$G=\left(N,T,S,P\right)$}
-where
+Grammatical evolution is a Genetic algorithm, where the chromosomes
+are integer numbers. Genetic Algorithms was initially proposed by
+John Holland \citep{Holland1} are biologicaly inspired algorithms.
+The algorithm starts by formin a population of potential solutions
+to an optimization problem. These solutions are called chromosomes
+and they are gradually altered using the genetic operators of selection,
+crossover and mutation\citep{Stender}.\textbf{ }The chromosomes in
+the Grammatical Evolution stand for series of production rules of
+any given BNF (Backus--Naur form) grammar\citep{bnf1}. Grammatical
+Evolution has been applied with success in a variety of cases, such
+as function approximation\citep{ge_program1,ge_program2}, solving
+equations related to trigonometry \citep{ge_trig}, automatic composition
+of music\citep{ge_music},\textbf{ }construction of neural networks
+\citep{ge_nn,ge_nn2}, producing numeric constraints\citep{ge_constant}\textbf{,
+}video games \citep{ge_pacman,ge_supermario},\textbf{ }estimation
+of energy demand\citep{ge_energy},\textbf{ }combinatorial optimization
+\citep{ge_comb}, cryptography \citep{ge_crypt} etc. The BNF grammar
+can be used to describe the syntax of programming languages and usually
+it is defined as \textbf{$G=\left(N,T,S,P\right)$} where
 \begin{itemize}
-\item \textbf{$N$ }is a set that defines the non - terminal symbols of
-the grammar. Each non - terminal symbol is associated with a set of
-production rules. The application of these production rules produces
-series of terminal symbols.
+\item \textbf{$N$ }is a set of the non - terminal symbols. A series of
+production rules is associated with every non - terminal symbol. The
+application of these production rules produces series of terminal
+symbols.
 \item \textbf{$T$ }stands for the set of terminal symbols.\textbf{ }
-\item $S$ is the start symbol that initiates the production rules with
-the property $S\in N$.
+\item $S$ denotes the start symbol of the grammar and $S\in N$.
 \item \textbf{$P$ }defines the set of production rules. These are rules
 are following the following notations: \textbf{$A\rightarrow a$ }or\textbf{
 $A\rightarrow aB,\ A,B\in N,\ a\in T$.}
 \end{itemize}
-The algorithm begins using the symbol $S$ and gradually creates terminal
-symbols with the assistance of the production rules. The production
-rules are selected through the following procedure:
+The algorithm begins using the symbol $S$ and gradually creates series
+of terminal symbols with the assistance of the production rules. The
+production rules are selected through the following procedure:
 \begin{itemize}
-\item Read the next element V from the chromosome that is being processed.
-\item Get the rule: Rule = V mod R, where R is the total number of production
-rules for the current non -- terminal symbol. 
+\item Denote with V the next element form the current chromosome.
+\item The next production rule is calculated as: Rule = V mod R. The number
+R stands for the total number of production rules for non -- terminal
+symbol which is currently under processing.
 \end{itemize}
-The BNF grammar used in this work is presented in Algorithm \ref{alg:The-BNF-grammar}.
-The symbols enclosed in \textless\textgreater{} denote the non-terminal
-symbols. The numbers in parentheses in the right part of the grammar
-stand for the sequence numbers of each production rule. Every RBF
-network with $k$ weights is constructed by the following series of
-parameters:
+The Algorithm \ref{alg:The-BNF-grammar} shows the BNF grammar used
+by the proposed method. Each non - terminal symbol of the grammar
+is enclosed in \textless\textgreater{} symbol. The numbers that
+are enclosed in parentheses represent for the sequence numbers of
+production rules for every non - terminal symbol. Every RBF network
+with $k$ weights is constructed by the following series of parameters:
 \begin{enumerate}
 \item A series of vectors $\overrightarrow{c_{i}},\ i=1,\ldots,k$ that
 stand for the centers of the model.
@@ -407,26 +405,25 @@ n=(d+2)\times k
 \end{equation}
 The number $n$ in the corresponding grammar is computed as follows:
 \begin{enumerate}
-\item For every center $\overrightarrow{c_{i}},\ i=1,..,k$ there are $d$
-variables. Hence, the total number of parameters required by the centers
-is $d\times k$.
+\item For each center $\overrightarrow{c_{i}},\ i=1,..,k$ there are $d$
+variables. As a consequence, every center required $d\times k$ parameters.
 \item Every Gaussian unit requires an additional parameter: $\sigma_{i},\ i=1,..,k$,
 which means $k$ more parameters.
 \item The weight vector $\overrightarrow{w}$ used in the output has $k$
 parameters.
 \end{enumerate}
-As an example of production, consider the chromosome $x=\left[9,8,6,4,15,9,16,23,8\right]$
-and $d=2,\ k=2,\ n=8$ . The steps to produce the final program $p_{\mbox{test}}=(x7,0,1),(x1,1,0)$
-are outlined in Table \ref{tab:table_with_steps}. Every partition
-program consists of a series of partition rules. Each partition rule
-contains three elements: 
+As an example of production, the chromosome $x=\left[9,8,6,4,15,9,16,23,8\right]$
+is considered where $d=2,\ k=2,\ n=8$ . The steps to produce the
+final program $p_{\mbox{test}}=(x7,0,1),(x1,1,0)$ are outlined in
+Table \ref{tab:table_with_steps}. Every partition program consists
+of a series of partition rules. Each partition rule contains three
+elements: 
 \begin{enumerate}
 \item The variable for which its original interval will be partitioned,
 for example $x_{7}$.
-\item An integer number with values 0 and 1 at the left end of the value
-interval. If this value is 1, then the left end of the corresponding
-variable's value field will be divided by two, otherwise no change
-will be made.
+\item An integer number with values 0 and 1 at the left margin of the interval.
+If this value is 1, then the left margin of the corresponding variable's
+value field will be divided by two, otherwise no change will be made.
 \item An integer number with values 0 and 1 at the right end of the range
 of values of the variable. If this value is 1, then the right end
 of the corresponding variable's value field will be divided by two,
@@ -437,10 +434,10 @@ rules will divide the right end of the variable $x_{7}$ and the left
 end of the variable $x_{1}$.
 
 \begin{algorithm}[H]
-\caption{The BNF grammar used in the current work, to produce intervals for
-the RBF parameters. By using this grammar in the first phase of the
-proposed procedure, the optimal interval of values for the parameters
-of the neural network will be identified.\label{alg:The-BNF-grammar}}
+\caption{The BNF grammar used in the proposed method, to produce intervals
+for the RBF parameters. By using this grammar in the first phase of
+the current work, the optimal interval of values for the parameters
+will be identified.\label{alg:The-BNF-grammar}}
 
 \begin{lyxcode}
 S::=\textless expr\textgreater ~~~(0)~
@@ -464,7 +461,8 @@ S::=\textless expr\textgreater ~~~(0)~
 \end{algorithm}
 
 \begin{table}[H]
-\caption{Steps to produce a valid expression from the BNF grammar.\label{tab:table_with_steps}}
+\caption{The series of steps used to computer a valid expression from the BNF
+grammar for a given chromosome.\label{tab:table_with_steps}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|}
@@ -511,16 +509,16 @@ shown in Algorithm \ref{alg:The-K-Means-algorithm.}.
 \begin{enumerate}
 \item \textbf{Repeat}
 \begin{enumerate}
-\item Set $S_{j}=\left\{ \right\} ,\ j=1..k$
+\item \textbf{Define} $S_{j}=\left\{ \right\} ,\ j=1..k$
 \item \textbf{For} every pattern $x_{i},\ i=1,...,m$ \textbf{do}
 \begin{enumerate}
-\item \textbf{Set} $j^{*}=\min_{i=1}^{k}\left\{ D\left(x_{i},c_{j}\right)\right\} $.
-\item \textbf{Set} $S_{j^{*}}=S_{j^{*}}\cup\left\{ x_{i}\right\} $.
+\item \textbf{Compute} $j^{*}=\min_{i=1}^{k}\left\{ D\left(x_{i},c_{j}\right)\right\} $.
+\item \textbf{Compute} $S_{j^{*}}=S_{j^{*}}\cup\left\{ x_{i}\right\} $.
 \end{enumerate}
 \item \textbf{EndFor}
 \item \textbf{For} every center $c_{j},\ j=1..k$ \textbf{do}
 \begin{enumerate}
-\item \textbf{Set} as $M_{j}$ the number of points in $S_{j}$
+\item \textbf{Denote} as $M_{j}$ the number of points in set $S_{j}$
 \item \textbf{Compute }$c_{j}$ as
 \[
 c_{j}=\frac{1}{M_{j}}\sum_{i=1}^{M_{j}}x_{i}
@@ -528,7 +526,7 @@ c_{j}=\frac{1}{M_{j}}\sum_{i=1}^{M_{j}}x_{i}
 \end{enumerate}
 \item \textbf{EndFor}
 \end{enumerate}
-\item \textbf{Calculate} the quantities $s_{j}$ as 
+\item \textbf{Compute} the quantities $s_{j}$ as 
 \[
 \sigma_{j}^{2}=\frac{\sum_{i=1}^{M_{j}}\left(x_{i}-c_{j}\right)^{2}}{M_{j}}
 \]
@@ -542,40 +540,41 @@ parameters. The above vectors are calculated through the procedure
 of the algorithm \ref{alg:initialValues}.
 
 \begin{algorithm}[H]
-\caption{Algorithm to locate the vectors $\protect\overrightarrow{L},\ \protect\overrightarrow{R}$
+\caption{The proposed algorithm used to locate the vectors $\protect\overrightarrow{L},\ \protect\overrightarrow{R}$
 \label{alg:initialValues}}
 
 \begin{enumerate}
 \item \textbf{Set} m=0
-\item \textbf{Set} $F>1$, the scaling factor.
-\item \textbf{Set} $B>0$, the initial upper bound for the weight vector
+\item \textbf{Define} $F>1$, the scaling factor.
+\item \textbf{Define} $B>0$, the initial upper bound for the weight vector
 $\overrightarrow{w}$.
 \item \textbf{For} $i=1..k$ \textbf{do}
 \begin{enumerate}
 \item \textbf{For} $j=1..d$ \textbf{do}
 \begin{enumerate}
-\item \textbf{Set} $L_{m}$=$-F\times c_{ij}$, $R_{m}$=$F\times c_{ij}$
-\item \textbf{Set} $m=m+1$
+\item \textbf{Compute} $L_{m}$=$-F\times c_{ij}$, $R_{m}$=$F\times c_{ij}$
+\item \textbf{Compute} $m=m+1$
 \end{enumerate}
 \item \textbf{EndFor}
-\item \textbf{Set} $L_{m}=-F\times\sigma_{i}$, $R_{m}=F\times\sigma_{i}$
-\item \textbf{Set} $m=m+1$
+\item \textbf{Compute} $L_{m}=-F\times\sigma_{i}$, $R_{m}=F\times\sigma_{i}$
+\item \textbf{Compute} $m=m+1$
 \end{enumerate}
 \item \textbf{EndFor}
 \item \textbf{For} $j=1,...,k$ \textbf{do}
 \begin{enumerate}
-\item \textbf{Set} $L_{m}=-B,\ R_{m}=B$
-\item \textbf{Set} $m=m+1$
+\item \textbf{Compute} $L_{m}=-B,\ R_{m}=B$
+\item \textbf{Compute} $m=m+1$
 \end{enumerate}
 \item \textbf{EndFor}
 \end{enumerate}
 \end{algorithm}
-The bounds for the first $(d+1)\times k$ variables of any given RBF
-network is computed as a multiple of the quantity $F$ with the values
-calculated by the K-Means algorithm. The value $B$ can be utilized
-to initialize the bounds for the weight $\overrightarrow{w}$. Afterwards,
-the following genetic algorithm is executed to locate the most promising
-vectors $\overrightarrow{L},\ \overrightarrow{R}$ for the RBF parameters:
+The range of values for the first $(d+1)\times k$ parameters is estimated
+by multiplying the parameter $F$ by the values already estimated
+by the K-Means algorithm. The bounds of the weight vector $\overrightarrow{w}$
+are initialized using the value $B$. Subsequently, genetic algorithm
+described here is performed to estimate the most a promising range
+$\left[\overrightarrow{L},\overrightarrow{R}\right]$ for the RBF
+parameters:
 \begin{enumerate}
 \item \textbf{Define }as\textbf{ }$N_{c}$ the number of chromosomes that
 will participate in the the Grammatical Evolution procedure.
@@ -693,15 +692,15 @@ as $f_{i}=\sum_{j=1}^{m}\left(y\left(\overrightarrow{x_{j}},\overrightarrow{g_{i
 \end{enumerate}
 \item \textbf{Genetic operations step}
 \begin{enumerate}
-\item \textbf{Selection procedure.} Firstly, sort the chromosomes according
-to their fitness values. The first $\left(1-p_{s}\right)\times N_{c}$
-chromosomes having the lowest fitness values are copied without changes
-to the next generation. The rest of chromosomes are replaced by chromosomes
-created in the crossover procedure.
-\item \textbf{Crossover procedure}: For every pair of created offsprings
-two parents $(z,w)$ are selected from the curent population using
-the tournament selection. These parent will produce the offsprings
-$\tilde{z}$ and $\tilde{w}$ according to the equations:
+\item \textbf{Selection procedure.} Initially, the population is sorted
+according to the fitness values. The first $\left(1-p_{s}\right)\times N_{c}$
+chromosomes with the lowest fitness values remain intact. The rest
+of chromosomes are replaced by offsprings that will be produced during
+the crossover procedure.
+\item \textbf{Crossover procedure}: For every two new offispirings $\left(\widetilde{z},\widetilde{w}\right)$,
+there are two parents $(z,w)$ that are selected from the curent population
+with the selection procedure of tournament selection. The offsprings
+are prdocuced through the following:
 \begin{eqnarray}
 \tilde{z_{i}} & = & a_{i}z_{i}+\left(1-a_{i}\right)w_{i}\nonumber \\
 \tilde{w_{i}} & = & a_{i}w_{i}+\left(1-a_{i}\right)z_{i}\label{eq:crossover_ali-1}
@@ -740,11 +739,11 @@ compared against some other well -known machine learning models. The
 following databases were used to obtain the datasets:
 \begin{enumerate}
 \item The UCI dataset repository, \url{https://archive.ics.uci.edu/ml/index.php}(accessed
-on 9 September 2023)
+on 5 December 2023)
 \item The Keel repository, \url{https://sci2s.ugr.es/keel/datasets.php}(accessed
-on 9 September 2023)\citep{Keel}.
+on 5 December 2023)\citep{Keel}.
 \item The Statlib URL \url{http://lib.stat.cmu.edu/datasets/ }(accessed
-on 9 September 2023). 
+on 5 December 2023). 
 \end{enumerate}
 The classification datasets are listed in Table \ref{tab:The-classification-datasets}
 and the regression datasets are listed in Table \ref{tab:The-regression-datasets}.
@@ -866,42 +865,38 @@ WANKARA & KEEL\tabularnewline
 The RBF model used in the experiments was implemented in ANSI C++
 with the assistance of the open source Armadillo library \citep{Armadillo}.
 The optimization methods used were also freely available from the
-OPTIMUS software, downloaded from \url{https://github.com/itsoulos/OPTIMUS/}(accessed
-on 9 September 2023). The proposed method was validated using the
-10 - fold validation technique for all datasets. Also, all the experiments
-were executed 30 times with different seed number for the random generator
-each time. In the conducted experiments, the drand48() random function
-of the C - programming language was employed. For the classification
-datasets the average classification error was measured and and the
-average mean test error for the regression datasets. The experiments
-were conducted on an AMD Ryzen 5950X with 128GB of RAM, running the
-Debian Linux operating system. All the values for the parameters of
-the used algorithms are shown in Table \ref{tab:Experimental-parameters}.
-The results obtained for the classification datasets are shown in
-Table \ref{tab:Experiments-for-classification} and for the regression
-datasets are listed in Table \ref{tab:experiments-regression}. 
-
-The following applies to the results tables:
+OPTIMUS software, available from \url{https://github.com/itsoulos/OPTIMUS/}(accessed
+on 5 December 2023). For validation purposed, the 10 - fold validation
+technique was used for all datasets and for all methods that participate
+in the experiments. Also, all the experiments were conducted 30 times
+and the seed number of the random generator was different in each
+execution. The average classification error is reported for the classification
+datasets and the average mean test error for the regression datasets.
+The machine used in the experiments was an AMD Ryzen 5950X with 128GB
+of RAM and the operating system was Debian Linux The values of the
+parameters used in the experiments are shown in Table \ref{tab:Experimental-parameters}.
+The experimental results for the classification datasets are outlined
+in Table \ref{tab:Experiments-for-classification} and for the regression
+datasets are listed in Table \ref{tab:experiments-regression}. For
+the tables with the experimental results, the following applies:
 \begin{enumerate}
 \item The column RPROP represents an artificial neural network \citep{nn1,nn2}.
 This neural network has 10 processing nodes and was trained using
 the Rprop method \citep{rpropnn}.
-\item The column denoted as ADAM stands for an artificial neural network
-with 10 hidden nodes trained by the Adam optimizer \citep{Adam,AdamNN}.
+\item The column denoted as ADAM stands the application of the Adam optimizer
+\citep{Adam,AdamNN} to train an artificial neural network with 10
+hidden nodes .
 \item The column NEAT (NeuroEvolution of Augmenting Topologies ) \citep{neat}
 denotes the application of the NEAT method for neural network training.
 \item The RBF-KMEANS column denotes the original two - phase training method
-for RBF networks. During the first phase the centers and variances
-are estimated through the K-Means algorithm and during the second
-phase the output weights are calculated by solving a linear system
-of equations.
+for RBF networks.
 \item The column GENRBF stands for the RBF training method introduced in
 \citep{rbf_gen1}.
-\item The column PROPOSED represents the results obtained by the proposed
+\item The column PROPOSED stands for the results obtained using the proposed
 method.
-\item For both tables, an additional line was added under the title AVERAGE.
-This line indicates the average classification or regression error
-for all datasets.
+\item In the experimental tables an additional row was added with the title
+AVERAGE. This row contains the average classification or regression
+error for all datasets.
 \end{enumerate}
 \begin{table}[H]
 \caption{The values used for the experimental parameters.\label{tab:Experimental-parameters}}
@@ -931,9 +926,10 @@ $p_{m}$ & 0.05\tabularnewline
 \end{table}
 
 \begin{table}[H]
-\caption{Experimental results for the classification datasets. The first column
-denotes the name of the dataset. Every number in cells denote average
-classification error as calculated on the test set.\label{tab:Experiments-for-classification}}
+\caption{The first column denotes the name of the classification dataset and
+the the numbers in cells represent classification error for every
+method used in the experiments. The last row stands for the average
+classification error for all datasets.\label{tab:Experiments-for-classification}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -995,9 +991,10 @@ ZOO & 15.47\% & 14.13\% & 20.27\% & 21.93\% & 33.50\% & 9.33\%\tabularnewline
 \end{table}
 
 \begin{table}[H]
-\caption{Experimental results for the regression datasets. The first column
-is the name of the regression dataset. Also, the numbers in cells
-denote average regression error on the test set.\label{tab:experiments-regression}}
+\caption{The first column denotes the name of the regression dataset and the
+the numbers in cells represent regression error for every method used
+in the experiments. The last row stands for the average regression
+error for all datasets.\label{tab:experiments-regression}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1043,24 +1040,23 @@ WANKARA & 0.0003 & 0.02 & 0.005 & 0.001 & 0.002 & 0.003\tabularnewline
 \end{tabular}
 \end{table}
 
-On average, the proposed technique appears to be 30-40\% more accurate
-than the immediate best. In many cases, this percentage exceeds 70\%.
-Moreover, in the vast majority of problems, the proposed technique
-significantly outperforms the next best available method in terms
-of test error. In order to validate the results, an additional experiment
-was executed on the classification datasets, where the number of nodes
-increases from 5 to 20 and the results are graphically outlined in
-Figure \ref{fig:nodesExperiment}. From this experiment, one can draw
-two conclusions: firstly, the proposed technique has a significant
-advantage over the others to a large extent in terms of average classification
-error, and secondly, the proposed method is shown to be robust and
-not significantly dependent on the increase of processing nodes ,
-since 5--10 processing nodes are enough to achieve low classification
-errors.
+On average, the current work appears to be 30-40\% more accurate than
+the immediate best. In many cases, this percentage exceeds 70\%. Moreover,
+in the vast majority of problems, the proposed technique significantly
+outperforms the next best available method in terms of test error.
+In order to validate the results, an additional experiment was executed
+on the classification datasets, where the number of nodes increases
+from 5 to 20 and the results are graphically outlined in Figure \ref{fig:nodesExperiment}.
+From this experiment, one can draw two conclusions: firstly, the proposed
+technique has a significant advantage over the others to a large extent
+in terms of average classification error, and secondly, the proposed
+method is shown to be robust and not significantly dependent on the
+increase of processing nodes , since 5--10 processing nodes are enough
+to achieve low classification errors.
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[scale=0.6]{nodes_plot}
+\includegraphics[scale=0.8]{nodes_plot}
 \par\end{centering}
 \caption{Average classification error for all classification datasets. The
 number of nodes increases from 5 to 20 and three models were used:
@@ -1076,16 +1072,15 @@ the techniques and, of course, it needs more computing resources.
 This is graphically shown in Figure \ref{fig:timeExperiment}, where
 the average execution time for the method ADAM and the proposed method
 is shown for the classification datasets, when the number of processing
-nodes increases from 5 to 20. As expected, the proposed technique
-requires significantly more time than a traditional neural network
-training technique such as ADAM, since it consists of two sequential
-genetic algorithms.
+nodes increases from 5 to 20. As expected, the current work requires
+significantly more time than a simple optimization technique such
+as ADAM, since it consists of two sequential genetic algorithms.
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[scale=0.6]{time_plot}
+\includegraphics[scale=0.8]{time_plot}
 \par\end{centering}
-\caption{Average execution time for the ADAM method used to train a neural
+\caption{Average execution time for the ADAM optimizer used to train a neural
 network and the proposed technique.\label{fig:timeExperiment}}
 
 \end{figure}
@@ -1095,7 +1090,7 @@ time required could be significantly reduced by using parallel techniques
 that take advantage of modern parallel computing structures such as
 the MPI interface \citep{openmpi} or the OpenMP library \citep{openmp}.
 The superiority of the proposed technique is also reinforced by the
-statistical tests carried out on the experimental results and presented
+statistical tests carried out on the experimental results and outlined
 in figure \ref{fig:statClass}.
 
 \begin{figure}[H]
@@ -1104,28 +1099,29 @@ in figure \ref{fig:statClass}.
 \par\end{centering}
 \caption{Scatter plot representation and the two-sample paired (Wilcoxon) signed-rank
 test results of the comparison for each of the five (5) classification
-methods (RPROP, ADAM, NEAT, RBF-KMEANS, and GENRBF) with the PROPOSED
-method regarding the classification error in twenty-four (24) different
-public available classification datasets. The stars only intend to
-flag significance levels for the two most used groups. A p-value of
-less than 0.001 is flagged with three stars ({*}{*}). A p-value of
-less than 0.0001 is flagged with four stars ({*}{*}{*}).\label{fig:statClass}}
+methods (RPROP, ADAM, NEAT, RBF-KMEANS, and GENRBF) agains the PROPOSED
+method regarding the error on the twenty-four (24) classification
+datasets. The stars only intend to flag significance levels for the
+two most used groups. A p-value of less than 0.001 is flagged with
+three stars ({*}{*}). A p-value of less than 0.0001 is flagged with
+four stars ({*}{*}{*}).\label{fig:statClass}}
 \end{figure}
  
 
-In addition, an additional set of experiments was performed on the
-classification data in which the critical parameter $F$ took the
-values 3, 5 and 10. The aim of this set of experiments was to establish
-the sensitivity of the proposed technique to changes in its parameters.
-The experimental results are presented in the table \ref{tab:expsFClass}
-and a statistical test on the results is presented in figure \ref{fig:statfparam}.
-The results and the statistics test indicate that there is no significant
-difference in the efficiency of the method for different values of
-the critical parameter $F$.
+In addition, an additional set of experiments was executed on the
+classification data. In this set of experiments the critical parameter
+$F$ took the values 3, 5 and 10. The aim of this set of experiments
+was to establish the sensitivity of the proposed method to changes
+in its parameters. The experimental results are presented in the table
+\ref{tab:expsFClass} and a statistical test on the results is presented
+in figure \ref{fig:statfparam}. The results and the statistics test
+indicate that there is no significant difference in the efficiency
+of the method for different values of the critical parameter $F$.
 
 \begin{table}[H]
-\caption{Experimental results with the proposed method and using different
-values for the parameter $F$ on the classification datasets.\label{tab:expsFClass}}
+\caption{The following table presents experimental results from the use of
+the proposed technique in classification problems and for different
+values of the critical parameter $F$.\label{tab:expsFClass}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|}
@@ -1188,7 +1184,7 @@ ZOO & 11.90\% & 10.50\% & 9.33\%\tabularnewline
 \begin{centering}
 \includegraphics[scale=0.4]{stat_fparam_genrbf}
 \par\end{centering}
-\caption{A Friedman test was conducted to determine whether different values
+\caption{A Friedman test was conducted to find out whether different values
 of the critical parameter F had a difference or not in the classification
 error of the proposed method in twenty-four (24) other publicly available
 classification datasets. The analysis results for three different
@@ -1211,19 +1207,19 @@ Algorithm. The proposed method was applied on a wide series of well
 -known datasets from the relevant literature and was tested against
 a series of machine learning models. The new training technique was
 compared with the traditional method of training RBF networks but
-also with other training techniques of machine learning models and
-from the experimental results its superiority is evident in percentages
-that exceed 40\%. However, since the proposed technique consists of
-two genetic algorithms executed sequentially, the execution time required
-is longer compared to other techniques especially for datasets with
-many patterns. An immediate solution to reduce the execution time
-of the method would be the use of parallel computing techniques, since
-genetic algorithms can by nature be directly parallelized.
+also with other machine learning models and from the experimental
+results its superiority is evident in percentages that exceed 40\%.
+However, since the proposed technique include two genetic algorithms
+that are executed sequentially, the execution time required is longer
+compared to other techniques especially for datasets with many patterns.
+An immediate solution to increase the speed of the method would be
+the use of parallel computing techniques, since genetic algorithms
+can by nature be directly parallelized.
 
 Future improvements to the proposed method may include:
 \begin{enumerate}
-\item Application of the proposed method to other types of artificial neural
-networks.
+\item The proposed method can be applied to other variants of artificial
+neural networks.
 \item Use of intelligent learning techniques in place of the K-Means technique
 to initialize the neural network parameters.
 \item Using techniques to dynamically determine the number of necessary
@@ -1235,7 +1231,8 @@ on the existing interval construction technique for the model parameters.
 \item Use of efficient termination techniques for Genetic Algorithms, for
 the most efficient termination of techniques without wasting computing
 time on unnecessary iterations.
-\item Incorporation of parallel programming techniques to speed up the method.
+\item Usage of techniques that are based on parallel programming to increase
+the speed of the method.
 \end{enumerate}
 \vspace{6pt}
 
