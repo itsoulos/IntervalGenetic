@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = Feature1.0.0
-DISTDIR = /home/sheridan/Desktop/ERGASIES/IntervalGenetic/PROBLEMS/Feature/.tmp/Feature1.0.0
+DISTDIR = /home/sheridan/TEST/IntervalGenetic/PROBLEMS/Feature/.tmp/Feature1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1 -shared -Wl,-soname,libFeature.so.1
 LIBS          = $(SUBLIBS) -larmadillo /usr/lib/x86_64-linux-gnu/libQt5Network.so /usr/lib/x86_64-linux-gnu/libQt5Core.so -lpthread   
@@ -68,6 +68,7 @@ SOURCES       = feature.cpp \
 		neural.cc \
 		gensolver.cc \
 		nnprogram.cc \
+		gpopulation.cc \
 		knn.cc \
 		rbf_model.cc \
 		interval.cpp \
@@ -89,6 +90,7 @@ OBJECTS       = feature.o \
 		neural.o \
 		gensolver.o \
 		nnprogram.o \
+		gpopulation.o \
 		knn.o \
 		rbf_model.o \
 		interval.o \
@@ -191,6 +193,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		grand.h \
 		fptypes.hh \
 		fpconfig.hh \
+		gpopulation.h \
 		fparser.hh \
 		cprogram.h \
 		kmeans.h \
@@ -230,6 +233,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		neural.cc \
 		gensolver.cc \
 		nnprogram.cc \
+		gpopulation.cc \
 		knn.cc \
 		rbf_model.cc \
 		interval.cpp \
@@ -451,8 +455,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents feature.h feature_global.h doublestack.h interval.h symbol.h rule.h interval.h tolmin.h program.h grand.h fptypes.hh fpconfig.hh fparser.hh cprogram.h kmeans.h LBFGSB.h matrix_functions.h mapper.h model.h problem.h neural.h gensolver.h nnprogram.h knn.h LBFGS.h LBFGSpp/BFGSMat.h LBFGSpp/BKLDLT.h LBFGSpp/Cauchy.h LBFGSpp/LineSearchBacktracking.h LBFGSpp/LineSearchBracketing.h LBFGSpp/LineSearchMoreThuente.h LBFGSpp/LineSearchNocedalWright.h LBFGSpp/Param.h LBFGSpp/SubspaceMin.h rbf_model.h Rbf.h $(DISTDIR)/
-	$(COPY_FILE) --parents feature.cpp doublestack.cc symbol.cc rule.cc program.cc fpoptimizer.cc fparser.cc cprogram.cc kmeans.cc matrix_functions.cc mapper.cc model.cc problem.cc neural.cc gensolver.cc nnprogram.cc knn.cc rbf_model.cc interval.cpp Rbf.cc tolmin.cc $(DISTDIR)/
+	$(COPY_FILE) --parents feature.h feature_global.h doublestack.h interval.h symbol.h rule.h interval.h tolmin.h program.h grand.h fptypes.hh fpconfig.hh gpopulation.h fparser.hh cprogram.h kmeans.h LBFGSB.h matrix_functions.h mapper.h model.h problem.h neural.h gensolver.h nnprogram.h knn.h LBFGS.h LBFGSpp/BFGSMat.h LBFGSpp/BKLDLT.h LBFGSpp/Cauchy.h LBFGSpp/LineSearchBacktracking.h LBFGSpp/LineSearchBracketing.h LBFGSpp/LineSearchMoreThuente.h LBFGSpp/LineSearchNocedalWright.h LBFGSpp/Param.h LBFGSpp/SubspaceMin.h rbf_model.h Rbf.h $(DISTDIR)/
+	$(COPY_FILE) --parents feature.cpp doublestack.cc symbol.cc rule.cc program.cc fpoptimizer.cc fparser.cc cprogram.cc kmeans.cc matrix_functions.cc mapper.cc model.cc problem.cc neural.cc gensolver.cc nnprogram.cc gpopulation.cc knn.cc rbf_model.cc interval.cpp Rbf.cc tolmin.cc $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -622,6 +626,13 @@ nnprogram.o: nnprogram.cc nnprogram.h \
 		kmeans.h \
 		knn.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o nnprogram.o nnprogram.cc
+
+gpopulation.o: gpopulation.cc gpopulation.h \
+		program.h \
+		symbol.h \
+		rule.h \
+		doublestack.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gpopulation.o gpopulation.cc
 
 knn.o: knn.cc knn.h \
 		model.h \

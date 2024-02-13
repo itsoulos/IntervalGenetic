@@ -233,7 +233,7 @@ IntervalData runDoubleInterval(DllProblem *p,Data &bestp)
     {
         gen.nextGeneration();
         gen.getBest(bestx,besty);
-	if(debug && g %2==0)
+	if(debug )
         {
             cout<<"g="<<g<<" BESTY "<<besty<<endl;
             if(g%20==0)    p->printData(bestx);
@@ -296,9 +296,10 @@ int main(int argc,char **argv)
     else
     if(intervalMethod=="grammar")
     {
+	    /*
         bestMargin = p.getMargins();
         Problem np(&p,bestMargin);
-
+	
         DoublePop pop(chromosomes,&np);
         pop.setSelectionRate(selection_rate);
         pop.setMutationRate(mutation_rate);
@@ -310,12 +311,16 @@ int main(int argc,char **argv)
         bestMargin = p.getMargins();
         for(int i=0;i<bestMargin.size();i++)
         {
-            bestMargin[i]=Interval(-1.0*fabs(bestx[i]),
+            //bestMargin[i]=Interval(-1.0*fabs(bestx[i]),
+              //                     1.0*fabs(bestx[i]));
+	      //FOR GE ONLY
+            bestMargin[i]=Interval(0,
                                    1.0*fabs(bestx[i]));
             printf("Margin[%d]=%lf,%lf\n",i,bestMargin[i].leftValue(),
                    bestMargin[i].rightValue());
         }
         p.setMargins(bestMargin);
+	*/
         bestMargin=runGrammarInterval(&p,bestgeneticx);
     }
 
@@ -366,7 +371,7 @@ int main(int argc,char **argv)
             DoublePop pop(chromosomes,&np);
             pop.setSelectionRate(selection_rate);
             pop.setMutationRate(mutation_rate);
-            if(intervalMethod!="none") pop.setBest(bestgeneticx,0.0);
+        //    if(intervalMethod!="none") pop.setBest(bestgeneticx,0.0);
             pop.Solve();
             bestx=pop.getBestGenome();
             besty=pop.getBestFitness();
@@ -385,7 +390,7 @@ int main(int argc,char **argv)
             if(intervalMethod=="none")
                  bestx=np.getUniformRandomPoint();
             else bestx=bestgeneticx;
-           // np.done(bestx);
+            np.done(bestx);
         }
 
        QJsonObject result=p.done(bestx);

@@ -19,7 +19,7 @@ IntervalGenetic::IntervalGenetic(IntervalProblem *p,int gcount)
     fitnessArray.resize(count);
     chromosome.resize(count);
     children.resize(count);
-    setSamples(100);
+    setSamples(200);
     for(int i=0;i<count;i++)
     {
         chromosome[i].resize(problem[omp_get_thread_num()]->getDimension());
@@ -52,7 +52,7 @@ IntervalGenetic::IntervalGenetic(QString filename,QJsonObject settings,int gcoun
     generation=0;
     setSelectionRate(0.1);
     setMutationRate(0.05);
-    nsamples=100;
+    nsamples=200;
     drandDat.resize(nsamples+nsamples*problem[omp_get_thread_num()]->getDimension());
     for (unsigned i = 0; i < drandDat.size();i++) {
         drandDat[i]=randGen.generateDouble();
@@ -394,13 +394,11 @@ void   IntervalGenetic::nextGeneration()
     if(generation) mutate();
     ++generation;
     calcFitnessArray();
-    selection();
- crossover();
 
     if(generation%10==0)
     {
 
-        int count=8;
+        int count=10;
 
 
         omp_set_nested(0);
@@ -413,12 +411,14 @@ void   IntervalGenetic::nextGeneration()
            localSearch(chromosome[randPos],fitnessArray[randPos]);
 
         }
- IntervalData mx=getMaximumInterval();
+	
+ //IntervalData mx=getMaximumInterval();
   
- for(int j=0;j<omp_get_max_threads();j++)
-       problem[j]->setMargins(mx);
+ //for(int j=0;j<omp_get_max_threads();j++)
+   //    problem[j]->setMargins(mx);
     }
- selection();
+    selection();
+ crossover();
 }
 
 
@@ -445,7 +445,7 @@ void    IntervalGenetic::localSearch(IntervalData &x,Interval &value)
     Interval fL=Interval(0,0);
     Interval fR=Interval(0,0);
 
-    for(int k=1;k<=2;k++)
+    for(int k=1;k<=10;k++)
     {
         bool minFound=false;
     for(int i=0;i<x.size();i++)
@@ -460,7 +460,7 @@ void    IntervalGenetic::localSearch(IntervalData &x,Interval &value)
 
            value=fL;
            minFound=true;
-         break;
+        // break;
        }
        else
        {
@@ -475,7 +475,7 @@ void    IntervalGenetic::localSearch(IntervalData &x,Interval &value)
 
            value=fR;
            minFound=true;
-         break;
+        // break;
 
        }
        else
@@ -483,8 +483,9 @@ void    IntervalGenetic::localSearch(IntervalData &x,Interval &value)
            x[ipos]=temp;
        }
     }
-//    cout<<"ITERATION "<<k<<" NEW VALUE "<<value<<endl;
-    break;
+    if(k==10)
+    cout<<"ITERATION "<<k<<" NEW VALUE "<<value<<endl;
+ //   break;
  //  if (minFound) break;
     }
 

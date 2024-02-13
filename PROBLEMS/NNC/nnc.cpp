@@ -7,10 +7,14 @@
 # include <gpopulation.h>
 extern "C"
 {
+	int double2int(double x)
+	{
+		return (int)(fabs(ceil(x)));
+	}
     //parameters
     const int maxthreads=64;
     double leftMargin=0.0;
-    double rightMargin=2047.0;
+   double rightMargin=16;//512;
     QString trainfile="";
     QString testfile="";
     QString urlpath="http://itsoulos.teiep.gr/genclass/";
@@ -19,7 +23,7 @@ extern "C"
     //end of parameters
     //names: leftmargin, rightmargin, trainfile, testfile, chromosomesize
 
-    int populationCount=0;
+    int populationCount=50;
     int dimension=1;
     vector<Data> trainx;
     Data trainy;
@@ -146,6 +150,7 @@ extern "C"
        // program[i].getModel()->setNumOfWeights(weights);
         }
         populationCount=chromosomeSize;
+	printf("pop = %d \n",populationCount);
     }
 
     int	getdimension()
@@ -176,7 +181,13 @@ extern "C"
       setlocale(LC_ALL,"C");
       vector<int>  genome;
       genome.resize(getdimension());
-      for(int i=0;i<getdimension();i++) genome[i]=(int)fabs(x[i]);
+      {
+      for(int i=0;i<getdimension();i++) 
+      {
+	      genome[i]=double2int(x[i]);
+	      //(int)fabs(x[i]);
+      }
+      }
 	program[thread()].neuralparser->sigcount=0;
 	program[thread()].neuralparser->violcount=0;
       double f=program[thread()].fitness(genome);
@@ -208,14 +219,15 @@ extern "C"
         vector<int> genome;
 	genome.resize(getdimension());
         for(int i=0;i<getdimension();i++)
-            genome[i]=(int)fabs(x[i]);
+            genome[i]=double2int(x[i]);//(int)fabs(x[i]);
 
+	
 	GPopulation pop(500,getdimension(),genome,&program[thread()]);
 	for(int i=1;i<=200;i++)
 	{
 		pop.nextGeneration();
 		double f = pop.getBestFitness();
-		fprintf(stderr,"nnc[%d]=%lf\n",i,f);
+		//fprintf(stderr,"nnc[%d]=%lf\n",i,f);
 	}
 	genome= pop.getBestGenome();
 	

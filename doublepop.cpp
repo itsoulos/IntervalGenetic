@@ -11,7 +11,7 @@
 # define MAXTHREADS 12
 int have_finished=0;
 #pragma omp threadprivate(have_finished)
-int iprint=0;
+int iprint=1;
 #pragma omp threadprivate(iprint)
 
 
@@ -473,14 +473,14 @@ void	DoublePop::Solve()
 
 		double diff1=fabs(fitness_array[0]-fitness_array[genome_count-1]);
 		double diff2=fabs(1.0-fitness_array[0]/fitness_array[genome_count-i-1]);
-        if(iprint)
+        if(iprint &&i%20==0)
 		printf("GENERATION:%4d\tVALUE=%15.8lg\tVARIANCE=%8.5lg\tSTOPAT=%8.5lg\n",
 				i,fitness_array[0],variance,stopat);
 		
 		if(fabs(fitness_array[0])<1e-10) break;
-		if(diff1<1e-8 && i>=20) break;
-		if(diff2<1e-8 && i>=20) break;
-		if(variance<=stopat && i>=20) break;
+//		if(diff1<1e-8 && i>=20) break;
+//		if(diff2<1e-8 && i>=20) break;
+//		if(variance<=stopat && i>=20) break;
 	}
 	LocalSearch(problem,genome[0],fitness_array[0]);
 	have_finished=1;

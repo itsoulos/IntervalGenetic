@@ -305,23 +305,21 @@ These authors contributed equally to this work.
 \end_layout
 
 \begin_layout Abstract
-Radial basis function networks are widely used in a multitude of applications
- in various scientific areas in both classification and data fitting problems.
- These networks deal with the above problems by adjusting their parameters
- with various optimization techniques.
- However, an important issue to address is to locate a satisfactory interval
- for the parameters of the network before adjusting these parameters.
- This paper proposes a a method of two stages, where in the first stage
- with the incorporation of Grammatical Evolution, rules are generated to
- create the optimal value interval of the network parameters.
- During the second stage of the technique, the mentioned parameters are
- fine-tuned with a genetic algorithm.
- The current work was tested on a number of datasets from the recent literature
- and found to reduce the classification or data fitting error by over 40%
- on most datasets.
- In addition, the proposed method appears in the experiments to be robust,
- as the fluctuation of the number of network parameters does not significantly
- affect its performance.
+Radial Basis Function networks are used in a variety of real-world applications
+ such as medical data or signal processing problems.The success of these
+ machine learning models lies in efficiently finding values for the model
+ parameters.
+ In this work, a new method of finding these values is formulated which
+ is divided into two phases.
+ In the first phase, with the use of Grammatical Evolution, an attempt is
+ made to find value intervals for the model parameters using partition rules.
+ In the second phase of the proposed method, an intelligent optimization
+ algorithm such as a genetic algorithm, locates the optimal values of the
+ parameters within the best value interval which is the output of the first
+ phase.
+ The proposed technique has been applied to a wide range of classification
+ or data fitting problems and there has been a significant reduction in
+ error exceeding 40% on most datasets.
 \end_layout
 
 \begin_layout Keywords
@@ -334,8 +332,7 @@ Introduction
 
 \begin_layout Standard
 Many practical problems of the modern world can be thought of either as
- data fitting problems, as for example, problems that appears in physics
- 
+ data fitting problems, as for example, problem from physics 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "physics_ml1,physics_ml2"
@@ -343,7 +340,7 @@ literal "false"
 
 \end_inset
 
-, problems related to chemistry 
+, chemistry 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "chemistry_ml1,chemistry_ml2"
@@ -351,7 +348,7 @@ literal "false"
 
 \end_inset
 
-, economic problms 
+, economics 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "econ_ml1,econ_ml2"
@@ -359,7 +356,7 @@ literal "false"
 
 \end_inset
 
-, medicine problems 
+, medicine 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "med_ml1,med_ml2"
@@ -368,8 +365,8 @@ literal "false"
 \end_inset
 
 , etc.
- A commonly used machine learning tool to handle problems of this nature,
- is the Radial Basis Function (RBF) network 
+ A machine learning tool, commonly used to handle these problems, is the
+ Radial Basis Function (RBF) artificial neural network 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbf1,rbf2"
@@ -394,12 +391,12 @@ where the symbols in the equation are defined as follows:
 \end_layout
 
 \begin_layout Enumerate
-The element 
+The vector 
 \begin_inset Formula $\overrightarrow{x}$
 \end_inset
 
- represents the input pattern from the dataset describing the problem.
- For the rest of this paper, the notation 
+ is the input pattern from dataset describing the problem.
+ For the rest of this paper the notation 
 \begin_inset Formula $d$
 \end_inset
 
@@ -416,7 +413,7 @@ The parameter
 \end_inset
 
  denotes the number of weights used to train the RBF network and the associated
- vector of weights is denoted as 
+ vector of weights is denotes as 
 \begin_inset Formula $\overrightarrow{w}$
 \end_inset
 
@@ -432,11 +429,11 @@ The vectors
 \end_layout
 
 \begin_layout Enumerate
-The value 
+The outcome of the equations 
 \begin_inset Formula $y\left(\overrightarrow{x}\right)$
 \end_inset
 
- represents the value of the network for the given pattern 
+ stands for the estimated value of the network for the input pattern 
 \begin_inset Formula $\overrightarrow{x}$
 \end_inset
 
@@ -444,11 +441,11 @@ The value
 \end_layout
 
 \begin_layout Standard
-The 
+The function 
 \begin_inset Formula $\phi(x)$
 \end_inset
 
- function, in most cases represent the Gaussian function given by:
+ usually is a Gaussian function given by:
 \series bold
  
 \begin_inset Formula 
@@ -459,39 +456,11 @@ The
 \end_inset
 
 
-\series default
-The main advantages of RBF networks are:
-\end_layout
-
-\begin_layout Enumerate
-They have a simpler structure than other models used in machine learning,
- such as multilayer perceptron neural networks (MLPs)
-\begin_inset CommandInset citation
-LatexCommand citep
-key "nnreview"
-literal "false"
-
-\end_inset
-
-, since they have only one processing layer and therefore have faster training
- techniques and they have faster response times.
-\end_layout
-
-\begin_layout Enumerate
-They can be used to efficiently approximate any continuous function 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "rbf_approx"
-literal "false"
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Standard
-The RBF networks were applied in a variety of problems, such as problems
- from physics 
+The RBF networks were used in many cases, such as problems from physics
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbfphysics1,rbfphysics2,rbfphysics3,rbfphysics4"
@@ -608,14 +577,15 @@ literal "false"
 
 \end_inset
 
- have been suggested in the literature for decreasing the number parameters.
+ have been proposed to reduce the number of required parameters of the RBF
+ networks.
 
 \series bold
  
 \series default
 Due to the widespread usage of RBF networks but also because considerable
  computing time is often required for their effective training, in recent
- years a series of techniques have been published 
+ years a series of techniques have been proposed 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "rbfpar1,rbfpar2"
@@ -623,12 +593,14 @@ literal "false"
 
 \end_inset
 
- for the exploitation of parallel computing units to adjust the parameters.
+ for the exploitation of parallel computing units to adjust the parameters
+ of neural networks.
 \end_layout
 
 \begin_layout Standard
-In the same direction of research, other machine learning models have been
- proposed, such as Support Vector Machines (SVM) 
+In the same direction of research, other researchers propose to handle problems
+ of categorization or data fitting, techniques such as Support Vector Machines
+ (SVM) 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "svm,svm2"
@@ -655,53 +627,7 @@ literal "false"
 \end_inset
 
 .
- Various methods have been proposed in the same direction, such as the work
- of Agarwal and Bhanot 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "rbftune"
-literal "false"
-
-\end_inset
-
- proposed to adapt the RBF parameters, the usage of the ABC algorithm
-\begin_inset CommandInset citation
-LatexCommand citep
-key "rbfABC"
-literal "false"
-
-\end_inset
-
-, the incorporation of the Firefly algorithm
-\begin_inset CommandInset citation
-LatexCommand citep
-key "fireflyCancer"
-literal "false"
-
-\end_inset
-
-.
- Furthermore, Gyamfi et al 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "rbfSeq"
-literal "false"
-
-\end_inset
-
- recently proposed a differential RBF network that incorporates partial
- differential equations, aiming to make the network more robust in the presence
- of noise data.
- Also, Li et al 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "mlHier"
-literal "false"
-
-\end_inset
-
- proposed a multivariate ensembles-based hierarchical linkage strategy (ME-HL)
- for system reliability evaluation of aeroengine cooling blades.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -718,11 +644,11 @@ Where the parameter
 \begin_inset Formula $m$
 \end_inset
 
- denotes the number of patterns, the 
+ denotes the number of input patterns, the 
 \begin_inset Formula $t_{i}$
 \end_inset
 
- represent the expected output for pattern 
+ values represent the expected output for the input pattern 
 \begin_inset Formula $\overrightarrow{x}_{i}$
 \end_inset
 
@@ -731,7 +657,7 @@ Where the parameter
 \begin_inset Formula $\overrightarrow{g}$
 \end_inset
 
- represents the parameter set of the network.
+ represents the parameter set of the RBF network.
 \end_layout
 
 \begin_layout Standard
@@ -740,7 +666,7 @@ A common method of calculating the parameters in these neural networks uses
 \begin_inset Formula $\phi(x)$
 \end_inset
 
- and then the vector of weights 
+ and then the weight vector 
 \begin_inset Formula $\overrightarrow{w}$
 \end_inset
 
@@ -755,8 +681,9 @@ literal "false"
 \end_inset
 
 .
- In many cases, this way of estimating the parameters leads to over-fitting
- of the model so that it cannot generalize satisfactorily to unknown data.
+ In many cases this way of estimating the parameters of the neural network
+ leads to over-fitting of the model so that it cannot generalize satisfactorily
+ to unknown data.
  Furthermore, since there is no range of values for the parameters, there
  is the possibility that they will take extremely large or extremely small
  values, with the result that any generalizability of the model is lost.
@@ -773,7 +700,7 @@ noprefix "false"
 
 ).
  During the first phase, an attempt is made to bound the parameter values
- to intervals at which the training error is likely to be significantly
+ to intervals in which the training error is likely to be significantly
  reduced.
  The identification of the most promising intervals for the parameters is
  performed using a technique that utilizes Grammatical Evolution
@@ -785,9 +712,18 @@ literal "false"
 \end_inset
 
 , that collects information from the training data.
- During the second phase, the parameters can be trained inside the best
- located range of the first phase using some global optimization method
- 
+ The first phase attempts to create a small interval of values for the neural
+ network parameters by applying a series of of division rules, with the
+ assistance of the Grammatical Evolution.
+ The determination of the value interval is done in such a way that it is
+ faster and more efficient to train the parameters of the neural network
+ with some optimization method during the second phase of the method.
+ In general, if the value intervals for the parameters from the first phase
+ are small in range, the second phase of the technique is expected to be
+ significantly accelerated as well.
+ During the second phase, the parameters of the RBF network can be trained
+ within the optimal range found in the first phase using some global optimizatio
+n method 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbfSA,rbfPSO"
@@ -805,30 +741,6 @@ literal "false"
 \end_inset
 
  was used for the second phase of the process.
- The main contributions of the suggested approach are:
-\end_layout
-
-\begin_layout Enumerate
-The first phase procedure seeks to locate a range of values for the parameters,
- while also reducing the error of the network on the training data set.
-\end_layout
-
-\begin_layout Enumerate
-The rules Grammatical Evolution uses in the first phase are simple and can
- be generalized to any data set for data classification or fitting.
-\end_layout
-
-\begin_layout Enumerate
-The determination of the value interval is done in such a way that it is
- faster and more efficient to train the parameters with some optimization
- method during the second phase.
- 
-\end_layout
-
-\begin_layout Enumerate
-After identifying a promising value interval from the first phase, any global
- optimization method can be used on that value interval to effectively minimize
- the network training error.
 \end_layout
 
 \begin_layout Standard
@@ -843,7 +755,7 @@ noprefix "false"
 
 \end_inset
 
- the proposed method is fully described, the section 
+ the proposed method is fully described, in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Experiments"
@@ -853,8 +765,8 @@ noprefix "false"
 
 \end_inset
 
- presents the used datasets and the conducted experiments and finally in
- section 4 some a discussion on the conducted experiments is made.
+ the datasets used in the experiments are listed as well as the experimental
+ results and finally in section 4 some conclusions are provided.
 \end_layout
 
 \begin_layout Section
@@ -869,10 +781,10 @@ name "sec:Method-description"
 \end_layout
 
 \begin_layout Standard
-This section starts with an exteended presentation of the Grammatical Evolution
+This section begins with a detailed description of the Grammatical Evolution
  technique and the grammar that will be used to generate partition rules
  for the parameter set of RBFs.
- Afterwards, the first phase of the proposed methodology will be extensively
+ Subsequently, the first phase of the proposed methodology will be extensively
  analyzed and then the second phase, where a Genetic Algorithm will be applied
  to the outcome of the first phase.
 \end_layout
@@ -882,35 +794,8 @@ Grammatical Evolution
 \end_layout
 
 \begin_layout Standard
-Grammatical evolution is a Genetic algorithm, where the chromosomes are
- integer numbers.
- Genetic Algorithms was initially proposed by John Holland 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Holland1"
-literal "false"
-
-\end_inset
-
- are biologicaly inspired algorithms.
- The algorithm starts by formin a population of potential solutions to an
- optimization problem.
- These solutions are called chromosomes and they are gradually altered using
- the genetic operators of selection, crossover and mutation
-\begin_inset CommandInset citation
-LatexCommand citep
-key "Stender"
-literal "false"
-
-\end_inset
-
-.
-
-\series bold
- 
-\series default
-The chromosomes in the Grammatical Evolution stand for series of production
- rules of any given BNF (Backus–Naur form) grammar
+Grammatical evolution is a genetic algorithm where the chromosomes stand
+ for the production rules of any given BNF (Backus–Naur form) grammar
 \begin_inset CommandInset citation
 LatexCommand cite
 key "bnf1"
@@ -919,7 +804,7 @@ literal "false"
 \end_inset
 
 .
- Grammatical Evolution has been applied with success in a variety of cases,
+ Grammatical Evolution has been used successfully in a variety of cases,
  such as function approximation
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -928,7 +813,7 @@ literal "false"
 
 \end_inset
 
-, solving equations related to trigonometry 
+, solution of trigonometric equations 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ge_trig"
@@ -936,7 +821,7 @@ literal "false"
 
 \end_inset
 
-, automatic composition of music
+, automatic music composition of music 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ge_music"
@@ -948,7 +833,7 @@ literal "false"
 \series bold
  
 \series default
-construction of neural networks 
+neural network construction 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ge_nn,ge_nn2"
@@ -956,7 +841,7 @@ literal "false"
 
 \end_inset
 
-, producing numeric constraints
+, creating numeric constraints
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ge_constant"
@@ -1010,7 +895,7 @@ literal "false"
 
  etc.
  The BNF grammar can be used to describe the syntax of programming languages
- and usually it is defined as 
+ and usually it is defined as the set 
 \series bold
 
 \begin_inset Formula $G=\left(N,T,S,P\right)$
@@ -1029,9 +914,9 @@ literal "false"
 
  
 \series default
-is a set of the non - terminal symbols.
- A series of production rules is associated with every non - terminal symbol.
- The application of these production rules produces series of terminal symbols.
+is the set of the terminal symbols.
+ Every non - terminal symbol is associated with a series of production rules
+ used to produce terminal symbols.
 \end_layout
 
 \begin_layout Itemize
@@ -1042,7 +927,7 @@ is a set of the non - terminal symbols.
 
  
 \series default
-stands for the set of terminal symbols.
+is the set of terminal symbols.
 
 \series bold
  
@@ -1052,7 +937,7 @@ stands for the set of terminal symbols.
 \begin_inset Formula $S$
 \end_inset
 
- denotes the start symbol of the grammar and 
+ is a the start symbol of the grammar and 
 \begin_inset Formula $S\in N$
 \end_inset
 
@@ -1067,8 +952,9 @@ stands for the set of terminal symbols.
 
  
 \series default
-defines the set of production rules.
- These are rules are following the following notations: 
+is a set of production rules, used to produce terminal symbols from non
+ - terminal symbols.
+ These rules are in the form 
 \series bold
 
 \begin_inset Formula $A\rightarrow a$
@@ -1086,27 +972,27 @@ or
 \end_layout
 
 \begin_layout Standard
-The algorithm begins using the symbol 
+The algorithm starts from the symbol 
 \begin_inset Formula $S$
 \end_inset
 
- and gradually creates series of terminal symbols with the assistance of
- the production rules.
- The production rules are selected through the following procedure:
+ and gradually creates terminal symbols by replacing non-terminal symbols
+ with the right hand of the selected production rule.
+ The rule is selected through the following procedure:
 \end_layout
 
 \begin_layout Itemize
-Denote with V the next element form the current chromosome.
+Read the next element V from the current chromosome.
 \end_layout
 
 \begin_layout Itemize
-The next production rule is calculated as: Rule = V mod R.
- The number R stands for the total number of production rules for non –
- terminal symbol which is currently under processing.
+The production rule is selected as: Rule = V mod R, where R is the total
+ number of production rules for the current non – terminal symbol.
+ 
 \end_layout
 
 \begin_layout Standard
-The Algorithm 
+The BNF grammar used in this work is presented in Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:The-BNF-grammar"
@@ -1116,10 +1002,10 @@ noprefix "false"
 
 \end_inset
 
- shows the BNF grammar used by the proposed method.
- Each non - terminal symbol of the grammar is enclosed in <> symbol.
- The numbers that are enclosed in parentheses represent for the sequence
- numbers of production rules for every non - terminal symbol.
+.
+ The symbols enclosed in <> denote the non-terminal symbols of the grammar.
+ The numbers in parentheses in the right part of the grammar indicate production
+ rule sequence numbers.
  Every RBF network with 
 \begin_inset Formula $k$
 \end_inset
@@ -1140,7 +1026,7 @@ For every Gaussian unit an additional parameter
 \begin_inset Formula $\sigma_{i}$
 \end_inset
 
- is required.
+ is required
 \end_layout
 
 \begin_layout Enumerate
@@ -1153,8 +1039,8 @@ The output weight vector
 
 \begin_layout Standard
 The number n is the total number of parameters of the problem.
- In the case of this paper, it is the total number of parameters of the
- RBF network.
+ In the case of this paper it is the total number of parameters of the RBF
+ network.
  For the current work, the number 
 \begin_inset Formula $n$
 \end_inset
@@ -1175,7 +1061,7 @@ The number
 \end_layout
 
 \begin_layout Enumerate
-For each center 
+For every center 
 \begin_inset Formula $\overrightarrow{c_{i}},\ i=1,..,k$
 \end_inset
 
@@ -1184,15 +1070,15 @@ For each center
 \end_inset
 
  variables.
- As a consequence, every center required 
+ Hence, the total number of parameters required by the centers are 
 \begin_inset Formula $d\times k$
 \end_inset
 
- parameters.
+.
 \end_layout
 
 \begin_layout Enumerate
-Every Gaussian unit requires an additional parameter: 
+Every Gaussian unit require an additional parameter 
 \begin_inset Formula $\sigma_{i},\ i=1,..,k$
 \end_inset
 
@@ -1216,11 +1102,11 @@ The weight vector
 \end_layout
 
 \begin_layout Standard
-As an example of production, the chromosome 
+As an example of production considered the chromosome 
 \begin_inset Formula $x=\left[9,8,6,4,15,9,16,23,8\right]$
 \end_inset
 
- is considered where 
+ and 
 \begin_inset Formula $d=2,\ k=2,\ n=8$
 \end_inset
 
@@ -1254,9 +1140,9 @@ The variable for which its original interval will be partitioned, for example
 \end_layout
 
 \begin_layout Enumerate
-An integer number with values 0 and 1 at the left margin of the interval.
- If this value is 1, then the left margin of the corresponding variable's
- value field will be divided by two, otherwise no change will be made.
+An integer number with values 0 and 1 at the left end of the value interval.
+ If this value is 1, then the left end of the corresponding variable's value
+ field will be divided by two, otherwise no change will be made.
 \end_layout
 
 \begin_layout Enumerate
@@ -1293,10 +1179,11 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-The BNF grammar used in the proposed method, to produce intervals for the
- RBF parameters.
- By using this grammar in the first phase of the current work, the optimal
- interval of values for the parameters will be identified.
+The BNF grammar used in the current work, to produce intervals for the RBF
+ parameters.
+ By using this grammar in the first phase of the proposed procedure, the
+ optimal interval of values for the parameters of the neural network will
+ be identified.
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:The-BNF-grammar"
@@ -1363,8 +1250,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-The series of steps used to computer a valid expression from the BNF grammar
- for a given chromosome.
+Steps to produce a valid expression from the BNF grammar.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:table_with_steps"
@@ -1730,8 +1616,8 @@ name "subsec:The-first-phase"
 \end_layout
 
 \begin_layout Standard
-The purpose of this phase is to initialize the bounds of the RBF model and
- discover a promising interval for the corresponding values.
+The purpose of the first phase is to initalize the bounds of the RBF network
+ and discover a promising interval for the corresponding values.
  For this initialization, the K-Means algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1790,11 +1676,7 @@ Repeat
 
 \begin_deeper
 \begin_layout Enumerate
-
-\series bold
-Define
-\series default
- 
+Set 
 \begin_inset Formula $S_{j}=\left\{ \right\} ,\ j=1..k$
 \end_inset
 
@@ -1819,7 +1701,7 @@ do
 \begin_layout Enumerate
 
 \series bold
-Compute
+Set
 \series default
  
 \begin_inset Formula $j^{*}=\min_{i=1}^{k}\left\{ D\left(x_{i},c_{j}\right)\right\} $
@@ -1831,7 +1713,7 @@ Compute
 \begin_layout Enumerate
 
 \series bold
-Compute
+Set
 \series default
  
 \begin_inset Formula $S_{j^{*}}=S_{j^{*}}\cup\left\{ x_{i}\right\} $
@@ -1865,13 +1747,13 @@ do
 \begin_layout Enumerate
 
 \series bold
-Denote
+Set
 \series default
  as 
 \begin_inset Formula $M_{j}$
 \end_inset
 
- the number of points in set 
+ the number of points in 
 \begin_inset Formula $S_{j}$
 \end_inset
 
@@ -1922,7 +1804,7 @@ EndFor
 \begin_layout Enumerate
 
 \series bold
-Compute
+Calculate
 \series default
  the quantities 
 \begin_inset Formula $s_{j}$
@@ -1944,11 +1826,11 @@ Compute
 \series bold
 Stop 
 \series default
-the algorithm, if centers 
+the algorithm, if there is no change in centers 
 \begin_inset Formula $c_{j}$
 \end_inset
 
- do not change anymore.
+.
 \end_layout
 
 \end_inset
@@ -1995,7 +1877,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-The proposed algorithm used to locate the vectors 
+Algorithm to locate the vectors 
 \begin_inset Formula $\overrightarrow{L},\ \overrightarrow{R}$
 \end_inset
 
@@ -2025,7 +1907,7 @@ Set
 \begin_layout Enumerate
 
 \series bold
-Define
+Set
 \series default
  
 \begin_inset Formula $F>1$
@@ -2037,7 +1919,7 @@ Define
 \begin_layout Enumerate
 
 \series bold
-Define
+Set
 \series default
  
 \begin_inset Formula $B>0$
@@ -2083,7 +1965,7 @@ do
 \begin_layout Enumerate
 
 \series bold
-Compute
+Set
 \series default
  
 \begin_inset Formula $L_{m}$
@@ -2107,7 +1989,7 @@ Compute
 \begin_layout Enumerate
 
 \series bold
-Compute
+Set
 \series default
  
 \begin_inset Formula $m=m+1$
@@ -2126,7 +2008,7 @@ EndFor
 \begin_layout Enumerate
 
 \series bold
-Compute
+Set
 \series default
  
 \begin_inset Formula $L_{m}=-F\times\sigma_{i}$
@@ -2142,7 +2024,7 @@ Compute
 \begin_layout Enumerate
 
 \series bold
-Compute
+Set
 \series default
  
 \begin_inset Formula $m=m+1$
@@ -2176,7 +2058,7 @@ do
 \begin_layout Enumerate
 
 \series bold
-Compute
+Set
 \series default
  
 \begin_inset Formula $L_{m}=-B,\ R_{m}=B$
@@ -2188,7 +2070,7 @@ Compute
 \begin_layout Enumerate
 
 \series bold
-Compute
+Set
 \series default
  
 \begin_inset Formula $m=m+1$
@@ -2206,27 +2088,28 @@ EndFor
 
 \end_inset
 
-The range of values for the first 
+The bounds for the first 
 \begin_inset Formula $(d+1)\times k$
 \end_inset
 
- parameters is estimated by multiplying the parameter 
+ variables of any given RBF network are considered as a multiple of the
+ quantity 
 \begin_inset Formula $F$
 \end_inset
 
- by the values already estimated by the K-Means algorithm.
- The bounds of the weight vector 
-\begin_inset Formula $\overrightarrow{w}$
-\end_inset
-
- are initialized using the value 
+ with the values calculated by the K-Means algorithm.
+ The positive constant 
 \begin_inset Formula $B$
 \end_inset
 
+ is used to initialize the intervals for the weight 
+\begin_inset Formula $\overrightarrow{w}$
+\end_inset
+
 .
- Subsequently, genetic algorithm described here is performed to estimate
- the most a promising range 
-\begin_inset Formula $\left[\overrightarrow{L},\overrightarrow{R}\right]$
+ Afterwards, the following genetic algorithm is executed to locate the most
+ promising vectors 
+\begin_inset Formula $\overrightarrow{L},\ \overrightarrow{R}$
 \end_inset
 
  for the RBF parameters:
@@ -2235,54 +2118,49 @@ The range of values for the first
 \begin_layout Enumerate
 
 \series bold
-Define 
+Set
 \series default
-as
-\series bold
  
-\series default
-
 \begin_inset Formula $N_{c}$
 \end_inset
 
- the number of chromosomes that will participate in the the Grammatical
- Evolution procedure.
+ as the number of chromosomes for the Grammatical Evolution.
 \end_layout
 
 \begin_layout Enumerate
 
 \series bold
-Define 
+Set
 \series default
-as 
+ as 
 \begin_inset Formula $k$
 \end_inset
 
- the number of processing nodes of the used RBF model.
+ the number of weights of the RBF network.
 \end_layout
 
 \begin_layout Enumerate
 
 \series bold
-Define
+Set
 \series default
- as 
+ 
 \begin_inset Formula $N_{g}$
 \end_inset
 
- the number of allowed generations.
+ the maximum number of allowed generations.
 \end_layout
 
 \begin_layout Enumerate
 
 \series bold
-Define 
+Set
 \series default
-as 
+ as 
 \begin_inset Formula $p_{s}$
 \end_inset
 
- the used selection rate, with 
+ the selection rate of the algorithm, with 
 \begin_inset Formula $p_{s}\le1$
 \end_inset
 
@@ -2292,13 +2170,13 @@ as
 \begin_layout Enumerate
 
 \series bold
-Define 
+Set
 \series default
-as 
+ as 
 \begin_inset Formula $p_{m}$
 \end_inset
 
- the used mutation rate, with 
+ the mutation rate, with 
 \begin_inset Formula $p_{m}\le1$
 \end_inset
 
@@ -2308,18 +2186,13 @@ as
 \begin_layout Enumerate
 
 \series bold
-Define 
+Set
 \series default
-as
-\series bold
  
-\series default
-
 \begin_inset Formula $N_{s}$
 \end_inset
 
-as the total number of RBF networks that will be created randomly in every
- fitness calculation.
+as the number of randomly created RBF networks, used in the fitness calculation.
 \end_layout
 
 \begin_layout Enumerate
@@ -2327,7 +2200,7 @@ as the total number of RBF networks that will be created randomly in every
 \series bold
 Initialize
 \series default
- 
+ randomly the 
 \begin_inset Formula $N_{c}$
 \end_inset
 
@@ -2348,7 +2221,7 @@ Set
 \begin_inset Formula $f_{g}$
 \end_inset
 
- of any provided chromosome 
+ of any given chromosome 
 \begin_inset Formula $g$
 \end_inset
 
@@ -2394,7 +2267,7 @@ name "enu:For--do"
 \begin_layout Enumerate
 
 \series bold
-Produce 
+Create 
 \series default
 the partition program 
 \begin_inset Formula $p_{i}$
@@ -2403,7 +2276,7 @@ the partition program
  using the grammar of Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:The-BNF-grammar"
+reference "fig:BNF-grammar-of"
 plural "false"
 caps "false"
 noprefix "false"
@@ -2557,15 +2430,23 @@ EndFor
 \begin_layout Enumerate
 
 \series bold
-Perform
+Apply
 \series default
- the procedure of selection: Initially, the chromosomes of the population
- are sorted according to their fitness values.
- Since the fitness values are intervals, the 
+ the selection procedure: Initially, the chromosomes of the population are
+ sorted according to their fitness values.
+ In order to compare two fitness values 
+\begin_inset Formula $f_{a}=\left[a_{1},a_{2}\right]$
+\end_inset
+
+ and 
+\begin_inset Formula $f_{b}=\left[b_{1},b_{2}\right]$
+\end_inset
+
+ the 
 \begin_inset Formula $L^{*}$
 \end_inset
 
- operator is defined as:
+ operator is used:
 \begin_inset Formula 
 \begin{eqnarray}
 L^{*}\left(f_{a},f_{b}\right) & = & \begin{cases}
@@ -2576,11 +2457,7 @@ L^{*}\left(f_{a},f_{b}\right) & = & \begin{cases}
 
 \end_inset
 
-As a consuquence
-\series bold
-, 
-\series default
-the fitness value 
+Hence, the fitness value 
 \begin_inset Formula $f_{a}$
 \end_inset
 
@@ -2597,16 +2474,19 @@ the fitness value
 \begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
 \end_inset
 
- chromosomes with smaller fitness values are copied without changes to the
- next generation of the algorithm.
- The rest of chromosomes are replaced by chromosomes created in the crossover
+ chromosomes with smaller fitness values are transferred intact to the next
+ generation.
+ The remaining chromosomes are replaced by offspring created in the crossover
  procedure.
+ During the selection process for each offspring, two parents are selected
+ from the population using the tournament selection.
+ 
 \end_layout
 
 \begin_layout Enumerate
 
 \series bold
-Perform
+Apply
 \series default
  the crossover procedure.
  The crossover procedure will create new
@@ -2618,12 +2498,21 @@ Perform
  
 \series default
 chromosomes.
- For every pair of created offsprings two parents 
+
+\series bold
+ 
+\series default
+For each new offspring two parents are selected from the population using
+ the tournament selection.
+
+\series bold
+ 
+\series default
+For each pair 
 \begin_inset Formula $(z,w)$
 \end_inset
 
- are selected from the curent population using the tournament selection.
- These parent will produce the offsprings 
+ of selected parents, two new chromosomes 
 \begin_inset Formula $\tilde{z}$
 \end_inset
 
@@ -2631,7 +2520,7 @@ chromosomes.
 \begin_inset Formula $\tilde{w}$
 \end_inset
 
- using the one - point crossover, shown in Figure 
+ are produced using the one - point crossover, shown in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:onepoint"
@@ -2647,15 +2536,15 @@ noprefix "false"
 \begin_layout Enumerate
 
 \series bold
-Perform
+Apply
 \series default
  the mutation procedure.
- In this process a random number 
+ For each element of every chromosome, a random number 
 \begin_inset Formula $r\in\left[0,1\right]$
 \end_inset
 
- is drawn for every element of each chromosome.
- The corresponding element is changed randomly if 
+ is drawn.
+ The corresponding element is altered randomly if 
 \begin_inset Formula $r\le p_{m}$
 \end_inset
 
@@ -2714,8 +2603,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-An example of the one point crossover procedure, as used in the Grammatical
- Evolution.
+One point crossover, used in the Grammatical Evolution.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:onepoint"
@@ -2741,9 +2629,8 @@ The second phase of the proposed algorithm
 
 \begin_layout Standard
 The second phase utilizes a genetic algorithm, to optimize the parameters
- of the RBF network.
- The optimization of the parameters uses as bounds the best interval produced
- in the first phase of the method.
+ of the RBF network within the best interval returned by the first phase
+ of the method.
  The layout of each chromosome is shown in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3109,9 +2996,9 @@ Initialization Step
 \begin_layout Enumerate
 
 \series bold
-Define 
+Set
 \series default
-as 
+ 
 \begin_inset Formula $N_{c}$
 \end_inset
 
@@ -3121,38 +3008,37 @@ as
 \begin_layout Enumerate
 
 \series bold
-Define 
+Set
 \series default
-as 
+ 
 \begin_inset Formula $N_{g}$
 \end_inset
 
- the total number of generations.
+ the maximum number of allowed generations.
 \end_layout
 
 \begin_layout Enumerate
 
 \series bold
-Define 
+Set
 \series default
-as 
+ 
 \begin_inset Formula $k$
 \end_inset
 
- the number of processing nodes of the used RBF model.
+ the weight number of the RBF network.
 \end_layout
 
 \begin_layout Enumerate
 
 \series bold
-Define 
+Get
 \series default
-as 
+ the best interval 
 \begin_inset Formula $S=\left[L_{\mbox{best}},R_{\mbox{best}}\right]$
 \end_inset
 
- the best located interval of the first stage of the algorithm, of subsection
- 
+ from the first step of subsection 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:The-first-phase"
@@ -3168,13 +3054,13 @@ noprefix "false"
 \begin_layout Enumerate
 
 \series bold
-Produce
+Initialize
 \series default
- 
+ randomly the 
 \begin_inset Formula $N_{C}$
 \end_inset
 
- random chromosomes in 
+ chromosomes in in 
 \begin_inset Formula $S$
 \end_inset
 
@@ -3185,13 +3071,13 @@ Produce
 \begin_layout Enumerate
 
 \series bold
-Define 
+Set
 \series default
-as 
+ as 
 \begin_inset Formula $p_{s}$
 \end_inset
 
- the used selection rate, with 
+ the selection rate of the algorithm, with 
 \begin_inset Formula $p_{s}\le1$
 \end_inset
 
@@ -3201,13 +3087,13 @@ as
 \begin_layout Enumerate
 
 \series bold
-Define 
+Set
 \series default
-as 
+ as 
 \begin_inset Formula $p_{m}$
 \end_inset
 
- the used mutation rate, with 
+ the mutation rate, with 
 \begin_inset Formula $p_{m}\le1$
 \end_inset
 
@@ -3255,13 +3141,13 @@ do
 \begin_layout Enumerate
 
 \series bold
-Compute
+Calculate
 \series default
  the fitness 
 \begin_inset Formula $f_{i}$
 \end_inset
 
- of each chromosome 
+ of chromosome 
 \begin_inset Formula $g_{i}$
 \end_inset
 
@@ -3293,14 +3179,18 @@ Genetic operations step
 Selection procedure.
 
 \series default
- Initially, the population is sorted according to the fitness values.
- The first 
+ The chromosomes are sorted according to their fitness values.
+ The 
 \begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
 \end_inset
 
- chromosomes with the lowest fitness values remain intact.
- The rest of chromosomes are replaced by offsprings that will be produced
- during the crossover procedure.
+ chromosomes with the lowest fitness values are transferred intact to the
+ next generation.
+ The remaining chromosomes are substituted by offspings created in the crossover
+ procedure.
+ During the selection process for each offspring, two parents are selected
+ from the population using the tournament selection.
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -3308,17 +3198,19 @@ Selection procedure.
 \series bold
 Crossover procedure
 \series default
-: For every two new offispirings 
-\begin_inset Formula $\left(\widetilde{z},\widetilde{w}\right)$
-\end_inset
-
-, there are two parents 
+: For every pair 
 \begin_inset Formula $(z,w)$
 \end_inset
 
- that are selected from the curent population with the selection procedure
- of tournament selection.
- The offsprings are prdocuced through the following:
+ of selected parents two additional chromosomes 
+\begin_inset Formula $\tilde{z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{w}$
+\end_inset
+
+ are produced using the following equations:
 \begin_inset Formula 
 \begin{eqnarray}
 \tilde{z_{i}} & = & a_{i}z_{i}+\left(1-a_{i}\right)w_{i}\nonumber \\
@@ -3331,7 +3223,7 @@ The value
 \begin_inset Formula $a_{i}$
 \end_inset
 
- is a random number, where 
+ is considered as a random number with the property 
 \begin_inset Formula $a_{i}\in[-0.5,1.5]$
 \end_inset
 
@@ -3350,15 +3242,18 @@ literal "true"
 \begin_layout Enumerate
 
 \series bold
-Perform
+Mutation procedure
 \series default
- the mutation procedure.
- In this process a random number 
+:
+\series bold
+ 
+\series default
+For each element of every chromosome, a random number 
 \begin_inset Formula $r\in\left[0,1\right]$
 \end_inset
 
- is drawn for every element of each chromosome.
- The corresponding element is changed randomly if 
+ is drawn.
+ The corresponding element is altered randomly if 
 \begin_inset Formula $r\le p_{m}$
 \end_inset
 
@@ -3416,7 +3311,7 @@ noprefix "false"
 
 \end_deeper
 \begin_layout Standard
-The steps of the current algorithm are also outlined graphically in Figure
+The steps of the proposed algorithm are also outlined graphically in Figure
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3435,7 +3330,7 @@ noprefix "false"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3488,10 +3383,9 @@ Experimental datasets
 \end_layout
 
 \begin_layout Standard
-The proposed method was tested on a wide set of classification and regression
- problems found in the relevant literature.
- The method was compared against some other well -known machine learning
- models.
+The suggested method was tested on a series of classification and regression
+ problems from the relevant literature and was compared against some other
+ well -known machine learning models.
  The following databases were used to obtain the datasets:
 \end_layout
 
@@ -3507,7 +3401,7 @@ https://archive.ics.uci.edu/ml/index.php
 
 \end_inset
 
-(accessed on 5 December 2023)
+(accessed on 9 September 2023)
 \end_layout
 
 \begin_layout Enumerate
@@ -3522,7 +3416,7 @@ https://sci2s.ugr.es/keel/datasets.php
 
 \end_inset
 
-(accessed on 5 December 2023)
+(accessed on 9 September 2023)
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Keel"
@@ -3545,7 +3439,7 @@ http://lib.stat.cmu.edu/datasets/
 
 \end_inset
 
-(accessed on 5 December 2023).
+(accessed on 9 September 2023).
  
 \end_layout
 
@@ -4989,8 +4883,8 @@ Experimental results
 \end_layout
 
 \begin_layout Standard
-The RBF model used in the experiments was implemented in ANSI C++ with the
- assistance of the open source Armadillo library 
+The used RBF network was coded in ANSI C++ using the freely available Armadillo
+ library 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Armadillo"
@@ -5000,7 +4894,7 @@ literal "false"
 
 .
  The optimization methods used were also freely available from the OPTIMUS
- software, available from 
+ computing environment, downloaded from 
 \begin_inset Flex URL
 status collapsed
 
@@ -5011,16 +4905,19 @@ https://github.com/itsoulos/OPTIMUS/
 
 \end_inset
 
-(accessed on 5 December 2023).
- For validation purposed, the 10 - fold validation technique was used for
- all datasets and for all methods that participate in the experiments.
- Also, all the experiments were conducted 30 times and the seed number of
- the random generator was different in each execution.
- The average classification error is reported for the classification datasets
- and the average mean test error for the regression datasets.
+(accessed on 9 September 2023).
+ To validate the results, the 10 - fold validation technique was used in
+ all datasets.
+ The experiments were conducted 30 times for every dataset using a different
+ seed for the random generator each time.
+ In the conducted experiments, the drand48() random function of the C -
+ programming language was employed.
+ The average classification error is reported for the case of classification
+ datasets and the average mean test error for the regression datasets.
  The machine used in the experiments was an AMD Ryzen 5950X with 128GB of
- RAM and the operating system was Debian Linux The values of the parameters
- used in the experiments are shown in Table 
+ RAM, running the Debian Linux operating system.
+ All the values for the parameters of the used algorithms are shown in Table
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Experimental-parameters"
@@ -5031,8 +4928,8 @@ noprefix "false"
 \end_inset
 
 .
- The experimental results for the classification datasets are outlined in
- Table 
+ The results obtained for the classification datasets are shown in Table
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Experiments-for-classification"
@@ -5053,11 +4950,15 @@ noprefix "false"
 \end_inset
 
 .
- For the tables with the experimental results, the following applies:
+ 
+\end_layout
+
+\begin_layout Standard
+The following applies to the results tables:
 \end_layout
 
 \begin_layout Enumerate
-The column RPROP represents an artificial neural network 
+The column PROP represents an artificial neural network 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn1,nn2"
@@ -5065,9 +4966,7 @@ literal "false"
 
 \end_inset
 
-.
- This neural network has 10 processing nodes and was trained using the Rprop
- method 
+ with 10 hidden nodes trained with the Rprop method 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "rpropnn"
@@ -5079,8 +4978,7 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The column denoted as ADAM stands the application of the Adam optimizer
- 
+The column ADAM denotes the incorporation of the Adam optimizer 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Adam,AdamNN"
@@ -5088,7 +4986,7 @@ literal "false"
 
 \end_inset
 
- to train an artificial neural network with 10 hidden nodes .
+ to train an artificial neural network with 10 hidden nodes.
 \end_layout
 
 \begin_layout Enumerate
@@ -5104,8 +5002,10 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The RBF-KMEANS column denotes the original two - phase training method for
- RBF networks.
+The column RBF-KMEANS represents the original two -phase training method
+ for RBF networks, where in the first phase the centers and variances are
+ estimated through the K-Means algorithm and in the second phase the output
+ weights are calculated by solving a linear system of equations.
 \end_layout
 
 \begin_layout Enumerate
@@ -5121,13 +5021,14 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The column PROPOSED stands for the results obtained using the proposed method.
+The column PROPOSED represents the results obtained by the proposed method.
 \end_layout
 
 \begin_layout Enumerate
-In the experimental tables an additional row was added with the title AVERAGE.
- This row contains the average classification or regression error for all
- datasets.
+An extra line was also added to the experimental tables under the title
+ AVERAGE.
+ This line represents the average classification or regression error for
+ all datasets.
 \end_layout
 
 \begin_layout Standard
@@ -5135,7 +5036,7 @@ In the experimental tables an additional row was added with the title AVERAGE.
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -5388,16 +5289,16 @@ VALUE
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-The first column denotes the name of the classification dataset and the
- the numbers in cells represent classification error for every method used
- in the experiments.
- The last row stands for the average classification error for all datasets.
+Experimental results for the classification datasets.
+ The first column is the name of the used dataset.
+ Every number in cells denotes average classification error as measured
+ on the test set.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Experiments-for-classification"
@@ -7159,16 +7060,16 @@ AVERAGE
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-The first column denotes the name of the regression dataset and the the
- numbers in cells represent regression error for every method used in the
- experiments.
- The last row stands for the average regression error for all datasets.
+Experimental results for the regression datasets.
+ The first column is the name of the used regression dataset.
+ Also, the numbers in cells denote average regression error on the test
+ set.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:experiments-regression"
@@ -8471,156 +8372,19 @@ AVERAGE
 \end_layout
 
 \begin_layout Standard
-On average, the current work appears to be 30-40% more accurate than the
- immediate best.
+On average, the proposed technique appears to be 30-40% more accurate than
+ the immediate best.
  In many cases, this percentage exceeds 70%.
  Moreover, in the vast majority of problems, the proposed technique significantl
 y outperforms the next best available method in terms of test error.
- In order to validate the results, an additional experiment was executed
- on the classification datasets, where the number of nodes increases from
- 5 to 20 and the results are graphically outlined in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:nodesExperiment"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- From this experiment, one can draw two conclusions: firstly, the proposed
- technique has a significant advantage over the others to a large extent
- in terms of average classification error, and secondly, the proposed method
- is shown to be robust and not significantly dependent on the increase of
- processing nodes , since 5–10 processing nodes are enough to achieve low
- classification errors.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename nodes_plot.eps
-	scale 80
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Average classification error for all classification datasets.
- The number of nodes increases from 5 to 20 and three models were used:
- the ADAM optimizer to optimize a neural network, the original RBF training
- method of two phases and the proposed method.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:nodesExperiment"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-However, the proposed technique consists of two stages and in each of them
+ However, the proposed technique consists of two stages and in each of them
  a genetic algorithm should be executed.
  This means that it is significantly slower in computing time compared to
  the rest of the techniques and, of course, it needs more computing resources.
- This is graphically shown in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:timeExperiment"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, where the average execution time for the method ADAM and the proposed
- method is shown for the classification datasets, when the number of processing
- nodes increases from 5 to 20.
- As expected, the current work requires significantly more time than a simple
- optimization technique such as ADAM, since it consists of two sequential
- genetic algorithms.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename time_plot.eps
-	scale 60
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Average execution time for the ADAM optimizer used to train a neural network
- and the proposed technique.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:timeExperiment"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Of course, since we are talking about Genetic Algorithms, the training time
- required could be significantly reduced by using parallel techniques that
- take advantage of modern parallel computing structures such as the MPI
- interface 
+ Of course, since we are talking about Genetic Algorithms, the training
+ time required could be significantly reduced by using parallel techniques
+ that take advantage of modern parallel computing structures such as the
+ MPI interface 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "openmpi"
@@ -8638,7 +8402,7 @@ literal "false"
 
 .
  The superiority of the proposed technique is also reinforced by the statistical
- tests carried out on the experimental results and outlined in figure 
+ tests carried out on the experimental results and presented in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:statClass"
@@ -8656,7 +8420,7 @@ noprefix "false"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -8675,8 +8439,9 @@ status collapsed
 \begin_layout Plain Layout
 Scatter plot representation and the two-sample paired (Wilcoxon) signed-rank
  test results of the comparison for each of the five (5) classification
- methods (RPROP, ADAM, NEAT, RBF-KMEANS, and GENRBF) agains the PROPOSED
- method regarding the error on the twenty-four (24) classification datasets.
+ methods (RPROP, ADAM, NEAT, RBF-KMEANS, and GENRBF) with the PROPOSED method
+ regarding the classification error in twenty-four (24) different public
+ available classification datasets.
  The stars only intend to flag significance levels for the two most used
  groups.
  A p-value of less than 0.001 is flagged with three stars (**).
@@ -8701,15 +8466,14 @@ name "fig:statClass"
 \end_layout
 
 \begin_layout Standard
-In addition, an additional set of experiments was executed on the classification
- data.
- In this set of experiments the critical parameter 
+In addition, an additional set of experiments was performed on the classificatio
+n data in which the critical parameter 
 \begin_inset Formula $F$
 \end_inset
 
  took the values 3, 5 and 10.
  The aim of this set of experiments was to establish the sensitivity of
- the proposed method to changes in its parameters.
+ the proposed technique to changes in its parameters.
  The experimental results are presented in the table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -8745,19 +8509,18 @@ noprefix "false"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-The following table presents experimental results from the use of the proposed
- technique in classification problems and for different values of the critical
- parameter 
+Experimental results with the proposed method and using different values
+ for the parameter 
 \begin_inset Formula $F$
 \end_inset
 
-.
+ on the classification datasets.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:expsFClass"
@@ -9825,7 +9588,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-A Friedman test was conducted to find out whether different values of the
+A Friedman test was conducted to determine whether different values of the
  critical parameter F had a difference or not in the classification error
  of the proposed method in twenty-four (24) other publicly available classificat
 ion datasets.
@@ -9855,7 +9618,7 @@ Conclusions
 \end_layout
 
 \begin_layout Standard
-In the current work, an innovative two-stage technique was proposed for
+In the present work, an innovative two-stage technique was proposed for
  efficient training of RBF artificial neural networks.
  In the first stage of the application, using Grammatical Evolution, the
  interval of values of the neural network parameters is partitioned, so
@@ -9869,15 +9632,15 @@ In the current work, an innovative two-stage technique was proposed for
  from the relevant literature and was tested against a series of machine
  learning models.
  The new training technique was compared with the traditional method of
- training RBF networks but also with other machine learning models and from
- the experimental results its superiority is evident in percentages that
- exceed 40%.
- However, since the proposed technique include two genetic algorithms that
- are executed sequentially, the execution time required is longer compared
- to other techniques especially for datasets with many patterns.
- An immediate solution to increase the speed of the method would be the
- use of parallel computing techniques, since genetic algorithms can by nature
- be directly parallelized.
+ training RBF networks but also with other training techniques of machine
+ learning models and from the experimental results its superiority is evident
+ in percentages that exceed 40%.
+ However, since the proposed technique consists of two genetic algorithms
+ executed sequentially, the execution time required is longer compared to
+ other techniques especially for datasets with many patterns.
+ An immediate solution to reduce the execution time of the method would
+ be the use of parallel computing techniques, since genetic algorithms can
+ by nature be directly parallelized.
 \end_layout
 
 \begin_layout Standard
@@ -9885,8 +9648,7 @@ Future improvements to the proposed method may include:
 \end_layout
 
 \begin_layout Enumerate
-The proposed method can be applied to other variants of artificial neural
- networks.
+Application of the proposed method to other types of artificial neural networks.
 \end_layout
 
 \begin_layout Enumerate
@@ -9914,8 +9676,7 @@ Use of efficient termination techniques for Genetic Algorithms, for the
 \end_layout
 
 \begin_layout Enumerate
-Usage of techniques that are based on parallel programming to increase the
- speed of the method.
+Incorporation of parallel programming techniques to speed up the method.
 \end_layout
 
 \begin_layout Standard
@@ -9938,9 +9699,16 @@ I.G.T., A.T.
  conceived the idea and methodology and supervised the technical part regarding
  the software.
  I.G.T.
- executed the experiments, employing several datasets.
+ conducted the experiments, employing several datasets, and provided the
+ comparative experiments.
  A.T.
- performed the statistical analysis and all authors prepared the manuscript.
+ performed the statistical analysis.
+ E.K.
+ and all other authors prepared the manuscript.
+ E.K.
+ and I.G.T.
+ organized the research team and A.T.
+ supervised the project.
  All authors have read and agreed to the published version of the manuscript.
 \end_layout
 
@@ -9965,7 +9733,7 @@ This research has been financed by the European Union : Next Generation
  EU through the Program Greece 2.0 National Recovery and Resilience Plan
  , under the call RESEARCH – CREATE – INNOVATE, project name “iCREW: Intelligent
  small craft simulator for advanced crew training using Virtual Reality
- techniques" (project code:TAEDK-06195)
+ techniques" (project code:TAEDK-06195  ,
 \end_layout
 
 \begin_layout Conflicts of Interest
@@ -10301,51 +10069,6 @@ G.A.
 \series default
 , pp.
  52-74, 2018.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "nnreview"
-literal "false"
-
-\end_inset
-
-O.I.
- Abiodun, A.
- Jantan, A.
- E.
- Omolara, K.V.
- Dada, N.
- A.
- Mohamed, H.
- Arshad, State-of-the-art in artificial neural network applications: A survey,
- Heliyon 
-\series bold
-4
-\series default
-, e00938, 2018.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "rbf_approx"
-literal "false"
-
-\end_inset
-
-Y.
- Liao, S.
- C.
- Fang, and H.
- L.
- W.
- Nuttle, “Relaxed conditions for radial-basis function networks to be universal
- approximators,” Neural Networks, vol.
- 16, no.
- 7, pp.
- 1019–1028, 2003
 \end_layout
 
 \begin_layout Bibliography
@@ -11023,108 +10746,6 @@ Y.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "rbftune"
-literal "false"
-
-\end_inset
-
-V.
- Agarwal, S.
- Bhanot, Radial basis function neural network-based face recognition using
- firefly algorithm, Neural Comput & Applic 
-\series bold
-30
-\series default
-, pp.
- 2643–2660, 2018.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "rbfABC"
-literal "false"
-
-\end_inset
-
-S.
- Jiang et al., Prediction of Ecological Pressure on Resource-Based Cities
- Based on an RBF Neural Network Optimized by an Improved ABC Algorithm,
- IEEE Access.
-
-\series bold
- 7
-\series default
-, pp.
- 47423-47436, 2019.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "fireflyCancer"
-literal "false"
-
-\end_inset
-
-I.U.
- Khan,N.
- Aslam, R.
- Alshehri, S.
- Alzahrani, M.
- Alghamdi, A.
- Almalki, M.
- Balabeed, Cervical Cancer Diagnosis Model Using Extreme Gradient Boosting
- and Bioinspired Firefly Optimization, Scientific Programming 
-\series bold
-2021
-\series default
-, Article ID 5540024, 2021.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "rbfSeq"
-literal "false"
-
-\end_inset
-
-K.S.
- Gyamfi, J.
- Brusey, E.
- Gaura, Differential radial basis function network for sequence modelling,
- Expert Systems with Applications 
-\series bold
-189
-\series default
-, 115982, 2022.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "mlHier"
-literal "false"
-
-\end_inset
-
-X.Q.
- Li , L.K.
- Song, Y.S.
- Choy, G.C.
- Bai, Multivariate ensembles-based hierarchical linkage strategy for system
- reliability evaluation of aeroengine cooling blades, Aerospace Science
- and Technology 
-\series bold
-138
-\series default
-, 108325, 2023.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
 key "kmeans"
 literal "false"
 
@@ -11245,34 +10866,6 @@ S.A.
 \series default
 , pp.
  259-270, 2005.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "Holland1"
-literal "false"
-
-\end_inset
-
-J.H.
- Holland, Genetic algorithms.
- Scientific american 267, pp.
- 66-73, 1992.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "Stender"
-literal "false"
-
-\end_inset
-
-J.
- Stender, Parallel Genetic Algorithms:Theory & Applications.
- Edition: IOS Press, 1993.
- 
 \end_layout
 
 \begin_layout Bibliography

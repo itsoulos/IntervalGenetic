@@ -9,7 +9,7 @@ IntegerGenetic::IntegerGenetic(IntervalProblem *p,int count,int t)
     gcount=count;
     generation=0;
     threads=t;
-    nsamples=50;
+    nsamples=500;
     genome.resize(gcount);
     children.resize(gcount);
     setSelectionRate(0.1);
@@ -87,8 +87,8 @@ void  IntegerGenetic::calcFitnessArray()
 {
 //#pragma omp parallel for num_threads(threads) schedule(static)
 
-    omp_set_nested(0);
-#pragma omp parallel for schedule(dynamic)
+    //omp_set_nested(0);
+//#pragma omp parallel for schedule(dynamic)
     for(int i=0;i<gcount;i++)
     {
         fitnessArray[i]=fitness(genome[i]);
@@ -288,8 +288,8 @@ void IntegerGenetic::nextGeneration()
     ++generation;
     if(generation%20==0)
     {
-	    int count = 20;
-#pragma omp parallel for schedule(dynamic)
+	    int count = 50;
+//#pragma omp parallel for schedule(dynamic)
 	    for(int i=0;i<count;i++)
 		    localSearch(rand() % genome.size());
 	    selection();
@@ -352,7 +352,7 @@ void	IntegerGenetic::localSearch(int pos)
                 Interval fx=fitness(g);
                 if(problem->lowerValue(fx,fitnessArray[pos]))
 		{
-			//printf("NEW MIN[%4d]=[%10.4lg,%10.4lg]\n",pos,fx.leftValue(),fx.rightValue());
+			printf("NEW MIN[%4d]=[%10.4lg,%10.4lg]\n",pos,fx.leftValue(),fx.rightValue());
 			for(int j=0;j<genome_size;j++) genome[pos][j]=g[j];
 			fitnessArray[pos]=fx;
 		}
@@ -363,7 +363,7 @@ void	IntegerGenetic::localSearch(int pos)
                 	fx=fitness(g);
                 	if(problem->lowerValue(fx,fitnessArray[pos]))
 			{
-			//printf("NEW MIN[%4d]=[%10.4lg,%10.4lg]\n",pos,fx.leftValue(),fx.rightValue());
+			printf("NEW MIN[%4d]=[%10.4lg,%10.4lg]\n",pos,fx.leftValue(),fx.rightValue());
 				for(int j=0;j<genome_size;j++) genome[pos][j]=g[j];
 				fitnessArray[pos]=fx;
 			}

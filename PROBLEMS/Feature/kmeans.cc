@@ -48,12 +48,14 @@ void Kmeans(GRand *rnd,double * data_vectors, double * centers,
 	int iterations=0;
 	double var_diag=0;
 
+	//srand(1);
 
 	// Assign a random center to each example in the training set
 	for(i=0; i<K; i++)
 	{
 		do{
             random_centers[i]=(int)((m-1) * rnd->d());
+            //random_centers[i]=(int)((m-1) * rand()*1.0/RAND_MAX);
 		}while(random_centers[i]>m);
 		
 	}

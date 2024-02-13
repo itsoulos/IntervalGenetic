@@ -76,9 +76,9 @@ int	Mapper::map(Matrix x,Matrix &x1)
 		if(parser[i]->EvalError()) {
 			mapper_error=2;
 		delete[] xx;return 0;}
-		if(fabs(x1[i])>1e+2) {
+	/*	if(fabs(x1[i])>1e+2) {
 			mapper_error=3;
-			delete[] xx;return 0;}
+			delete[] xx;return 0;}*/
 	}
 	delete[] xx;
 	return 1;

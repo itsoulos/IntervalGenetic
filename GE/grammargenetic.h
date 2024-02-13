@@ -15,7 +15,7 @@ private:
     vector<IDATA> children;
     IntervalData fitnessArray;
     Cprogram *program;
-    const int nsamples=100;
+    const int nsamples=200;
     int     getParent();
     Interval fitness(IDATA &genome);
     double selection_rate;

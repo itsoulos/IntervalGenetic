@@ -40,6 +40,7 @@ SOURCES += feature.cpp \
     neural.cc \
     gensolver.cc \
     nnprogram.cc \
+    gpopulation.cc \
     knn.cc \
     rbf_model.cc \
     interval.cpp \
@@ -58,6 +59,7 @@ HEADERS += feature.h\
     grand.h \
     fptypes.hh \
     fpconfig.hh \
+    gpopulation.h \
     fparser.hh \
     cprogram.h \
     kmeans.h \

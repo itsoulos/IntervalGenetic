@@ -117,7 +117,7 @@ double v =0.0;
         }
 
         bool failed=false;
-        arma::vec Linear = train(x,failed);
+        Linear = train(x,failed);
         if(failed) return 1e+100;
         if(Linear.size()<=1) return 1e+100;
         for(unsigned i = 0; i < xpoint.size(); i++){
@@ -130,8 +130,8 @@ double v =0.0;
             double tempOut = arma::dot(neuronOuts,Linear);
             errorSum += ( tempOut - ypoint[i] ) * ( tempOut - ypoint[i] );
         }
-    /*
-        int icode=train_rbf(pattern_dimension,num_weights,noutput,xpoint.size(),
+   
+  /*      int icode=train_rbf(pattern_dimension,num_weights,noutput,xpoint.size(),
 			centers,variances,weights,input,Output);
 
 	v=funmin(weight);
@@ -139,8 +139,8 @@ double v =0.0;
 	{
 		if(isTrain2)
 	return	1e+8;
-	}
-    */
+	}*/
+   
     return errorSum;
 }
 
@@ -152,6 +152,28 @@ double Rbf::train2()
 
 double Rbf::output(Matrix x)
 {
+        vector<double> xp;
+        int nodes=num_weights;
+        xp.resize(pattern_dimension * num_weights+num_weights);
+        for(int i=0;i<nodes * pattern_dimension;i++)
+            xp[i]=centers[i];
+        for(int i=0;i<nodes;i++)
+        {
+            double sum=0.0;
+            for(int j=0;j<pattern_dimension;j++)
+                sum+=variances[i*pattern_dimension+j];
+
+            if(sum<0.01) sum = 0.01;
+            xp[nodes*pattern_dimension+i]=sum;
+        }
+            Data pattern = x;
+            arma::vec neuronOuts(nodes);
+        	bool failed=false;
+            for(unsigned j = 0; j < nodes;j++){
+                neuronOuts[j] = neuronOutput(xp,pattern,pattern.size(),j,failed);
+            }
+            double tempOut = arma::dot(neuronOuts,Linear);
+	    return tempOut;
 	int noutput=1;
 #ifdef CLASS
 	noutput=2;

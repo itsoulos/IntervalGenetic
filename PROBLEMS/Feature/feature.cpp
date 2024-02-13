@@ -1,5 +1,6 @@
 #include "feature.h"
 #include "nnprogram.h"
+# include "gpopulation.h"
 #    include <interval.h>
 # include <omp.h>
 # include <adept.h>
@@ -219,11 +220,20 @@ QJsonObject    done(Data &x)
         genome[i]=(int)fabs(x[i]);
     double ff;
     string lastExpr="";
+
+	GPopulation pop(500,getdimension(),genome,&program[thread()]);
+	for(int i=1;i<=200;i++)
+	{
+		pop.nextGeneration();
+		double f = pop.getBestFitness();
+		fprintf(stderr,"fc[%d]=%lf\n",i,f);
+	}
     for(int i=0;i<omp_get_num_threads();i++)
     {
          ff=program[i].fitness(genome);
          lastExpr=program[i].printF(genome);
     }
+	genome= pop.getBestGenome();
  double avg_test_error=0.0;
  double avg_class_error=0.0;
 
@@ -251,7 +261,7 @@ int threads=24;
 	vector<double> ctest;
 	cclass.resize(ntimes);
 	ctest.resize(ntimes);
-#pragma omp parallel for num_threads(threads)
+//#pragma omp parallel for num_threads(threads)
  for(int i=1;i<=ntimes;i++)
  {
 	 Mapper *myMapper=new Mapper(dimension,0.0);
@@ -261,7 +271,7 @@ Neural *neural = new Neural(myMapper,i);
  neural->setRand(program[0].getRand());
  neural->readPatterns(trainx,trainy);
  neural->setPatternDimension(features);
- neural->setNumOfWeights(20);
+ neural->setNumOfWeights(10);
  double ff=neural->train2();
  double testError=neural->testError(testx,testy);
  double classTestError=neural->classTestError(testx,testy);

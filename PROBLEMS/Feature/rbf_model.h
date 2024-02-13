@@ -11,6 +11,7 @@ class Rbf :public Model
         double *input,*centers,*variances,*weights;
 		vector<double> randNumber;
         vector<double> params;
+        arma::vec Linear;
 double *Output;
 	public:
 		Rbf(Mapper *m);

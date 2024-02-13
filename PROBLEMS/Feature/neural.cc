@@ -148,13 +148,13 @@ double Neural::train2()
 	setLeftMargin(lmargin);
 	setRightMargin(rmargin);
 	
-	GenSolve(this,weight,v,1,0);
+	/*GenSolve(this,weight,v,1,0);
 	for(int i=0;i<weight.size();i++)
 	{
 		lmargin[i]=-5.0*fabs(weight[i]);
 		rmargin[i]= 5.0*fabs(weight[i]);
 		
-	}
+	}*/
 	v=tolmin(weight,Info);
 /*
 	LBFGSBParam<Scalar> param;
