@@ -20,7 +20,7 @@ double *Output;
         arma::vec train( vector<double> &x,bool &failed );
 		virtual double train1();
 		virtual double train2();
-		virtual double output(Matrix x);
+		virtual double output(Matrix &x);
 		virtual void   getDeriv(Matrix x,Matrix &g);
 		~Rbf();
 };

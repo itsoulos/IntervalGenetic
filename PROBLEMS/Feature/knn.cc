@@ -115,7 +115,7 @@ double KNN::train2()
 	return train1();
 }
 
-double KNN::output(Matrix x)
+double KNN::output(Matrix &x)
 {
 }
 

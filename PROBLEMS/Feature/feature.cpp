@@ -226,14 +226,16 @@ QJsonObject    done(Data &x)
 	{
 		pop.nextGeneration();
 		double f = pop.getBestFitness();
-		fprintf(stderr,"fc[%d]=%lf\n",i,f);
+		printf("fc[%d]=%lf\n",i,f);
+		if(pop.shouldTerminate()) break;
 	}
+	genome= pop.getBestGenome();
     for(int i=0;i<omp_get_num_threads();i++)
     {
          ff=program[i].fitness(genome);
          lastExpr=program[i].printF(genome);
+	 printf("lastExpr = %s \n",lastExpr.c_str());
     }
-	genome= pop.getBestGenome();
  double avg_test_error=0.0;
  double avg_class_error=0.0;
 
@@ -256,7 +258,13 @@ int threads=24;
 		}
 		int redo=0;
 		pstring[i]=program[0].printRandomProgram(pgenome,redo);
+		printf("pstring[%d]=%s\n",i,pstring[i].c_str());
 	}
+	double etest,eclass;
+	program[0].getStatistics(genome,testx,testy,etest,eclass);
+	avg_test_error= etest;
+	avg_class_error = eclass;
+	/*
 	vector<double> cclass;
 	vector<double> ctest;
 	cclass.resize(ntimes);
@@ -264,10 +272,10 @@ int threads=24;
 //#pragma omp parallel for num_threads(threads)
  for(int i=1;i<=ntimes;i++)
  {
-	 Mapper *myMapper=new Mapper(dimension,0.0);
-	myMapper->setExpr(pstring);
-Neural *neural = new Neural(myMapper,i);
-//Rbf *neural = new Rbf(myMapper);
+	// Mapper *myMapper=new Mapper(dimension,0.0);
+	//myMapper->setExpr(pstring);
+//Neural *neural = new Neural(myMapper,i);
+Rbf *neural = (Rbf *)program[0].getModel();// new Rbf(program[0].getMapper());
  neural->setRand(program[0].getRand());
  neural->readPatterns(trainx,trainy);
  neural->setPatternDimension(features);
@@ -275,77 +283,20 @@ Neural *neural = new Neural(myMapper,i);
  double ff=neural->train2();
  double testError=neural->testError(testx,testy);
  double classTestError=neural->classTestError(testx,testy);
+ if(testError>1e+4) {ntimes--;continue;}
  cclass[i]=classTestError;
  ctest[i]=testError;
  printf("Starting thread %d  Values: %lf  %.2lf%% %lf \n",thread(),
 		ff,	 
 		 classTestError,testError);
-// if(testError>1e+4) {ntimes--;continue;}
-/*
-#pragma omp critical
- {
- double classTestError=neural->classTestError(testx,testy);
+
  avg_test_error+=testError;
  avg_class_error+=classTestError;
- }*/
- delete neural;
- delete myMapper;
- }
- for(int i=0;i<ntimes;i++)
- {
-	 avg_test_error+=ctest[i];
-	 avg_class_error+=cclass[i];
+ //delete neural;
+ //delete myMapper;
  }
  avg_test_error/=ntimes;
- avg_class_error/=ntimes;
- printf("Average test is %lf \n",avg_class_error);
-/*
-     QEventLoop loop;
-     QUrl serviceUrl = QUrl(urlpath+QString("upload_result.php"));
-     QString name=QString(trainfile).split(".").at(0);
-
-
-
-     char s1[100];
-     sprintf(s1,"%.6lf",-ff);
-     char s2[100];
-     sprintf(s2,"%.6lf",avg_class_error);
-
-     //Network send. It needs corrections. It hangs on loop exec
-     if(urlpath.startsWith("file://"))
-     {
-
-         QString filename=urlpath.mid(QString("file:/").size());
-         filename=filename+"/"+logfile;
-         QFile fp(filename);
-         fp.open(QIODevice::Append|QIODevice::Text);
-         QTextStream st(&fp);
-         st<<name<<"\t"<<features<<"\t"<<s1<<"\t"<<s2<<"\t"<<bestProgram.replace("\n",";")<<endl;
-         fp.close();
-     }
-     else
-     {
-     QByteArray postData;
-     postData.append(QString("name=")+name+QString("&"));
-     postData.append(QString("testerror=")+QString("")+s1+QString("&"));
-     postData.append(QString("classtesterror=")+QString("")+s2+QString("&"));
-     postData.append(QString("features=")+QString::number(features)+"&");
-     postData.append(QString("bestprogram=")+replacePlus(bestProgram));
-     QNetworkAccessManager *networkManager = new QNetworkAccessManager();
-     QObject::connect(networkManager, SIGNAL(finished(QNetworkReply*)),&loop,SLOT(quit()));
-     QNetworkRequest networkRequest(serviceUrl);
-     networkRequest.setHeader(QNetworkRequest::ContentTypeHeader,"application/x-www-form-urlencoded");
-     QNetworkReply *rep=networkManager->post(networkRequest,postData);
-     loop.exec();
-     QByteArray bts = rep->readAll();
-     QString str(bts);
-     rep->close();
-     delete rep;
-       qDebug()<<"Response from server was "<<str<<endl;
-     }
-
-
-	*/
+ avg_class_error/=ntimes;*/
     QJsonObject result;
     result["nodes"]=10;
     result["testError"]=avg_test_error;

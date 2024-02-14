@@ -12,7 +12,7 @@ class KNN :public Model
 		void	loadTest(char *filename,vector<Matrix> &testx,Matrix &testy);
 		virtual double train1();
 		virtual double train2();
-		virtual double output(Matrix x);
+		virtual double output(Matrix &x);
 		virtual void   getDeriv(Matrix x,Matrix &g);
 		double	KNNtestError(vector<Matrix> &testx,Matrix &testy,vector<Matrix> &distance);
 		~KNN();

@@ -100,6 +100,7 @@ double v =0.0;
         Kmeans(rnd,input,centers,variances,
 			xpoint.size(),pattern_dimension,num_weights);
 
+	
         int nodes=num_weights;
         double errorSum=0.0;
         vector<double> x;
@@ -130,8 +131,8 @@ double v =0.0;
             double tempOut = arma::dot(neuronOuts,Linear);
             errorSum += ( tempOut - ypoint[i] ) * ( tempOut - ypoint[i] );
         }
-   
-  /*      int icode=train_rbf(pattern_dimension,num_weights,noutput,xpoint.size(),
+  /* 
+        int icode=train_rbf(pattern_dimension,num_weights,noutput,xpoint.size(),
 			centers,variances,weights,input,Output);
 
 	v=funmin(weight);
@@ -139,8 +140,9 @@ double v =0.0;
 	{
 		if(isTrain2)
 	return	1e+8;
-	}*/
-   
+	}
+	return v;
+   */
     return errorSum;
 }
 
@@ -150,8 +152,9 @@ double Rbf::train2()
 	return train1();
 }
 
-double Rbf::output(Matrix x)
+double Rbf::output(Matrix &x)
 {
+	
         vector<double> xp;
         int nodes=num_weights;
         xp.resize(pattern_dimension * num_weights+num_weights);

@@ -137,6 +137,28 @@ double 	NNprogram::fitness(vector<int> &genome)
 }
 
 
+void	NNprogram::getStatistics(vector<int> &genome,vector<Matrix> &testx,Matrix &testy,double &test,double &eclass)
+{
+	fitness(genome);
+	int tries=30;
+	test = 0.0;
+	eclass  = 0.0;
+	for(int i=1;i<=tries;i++)
+	{
+    		rnd.seed(random_seed+i);
+    		model->setRand(&rnd);
+		double d0=model->train2();
+		double d1=model->testError(testx,testy);
+		double d2=model->classTestError(testx,testy);
+		if(d1>=1e+4) {tries--;continue;}
+		printf("MODEL[%d]=%lf %lf %lf \n",i,d0,d1,d2);
+		test+=d1;
+		eclass+=d2;
+	}
+	test/=tries;
+	eclass/=tries;
+}
+
 double 	NNprogram::fitness(vector<double> &genome)
 {
     double value=0.0;

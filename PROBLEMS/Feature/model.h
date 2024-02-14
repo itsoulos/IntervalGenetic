@@ -39,7 +39,7 @@ class Model :public Problem
 		 * */
 		virtual	double 	train1()=0;
 		virtual double	train2()=0;
-		virtual double	output(Matrix x)=0;
+		virtual double	output(Matrix &x)=0;
 		virtual void	getDeriv(Matrix x,Matrix &g)=0;
 		
 		virtual double	funmin(Matrix x);

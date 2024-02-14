@@ -523,6 +523,7 @@ feature.o: feature.cpp feature.h \
 		matrix_functions.h \
 		kmeans.h \
 		knn.h \
+		gpopulation.h \
 		interval.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o feature.o feature.cpp
 

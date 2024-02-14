@@ -40,6 +40,7 @@ class NNprogram	:public Program
         virtual double fitness(vector<double> &genome);
 		Model	*getModel();
 		Mapper	*getMapper();
+		void	getStatistics(vector<int> &genome,vector<Matrix> &testx,Matrix &testy,double &test,double &eclass);
 		~NNprogram();
 };
 # define __NNPROGRAM__H

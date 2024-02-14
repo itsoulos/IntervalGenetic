@@ -189,7 +189,7 @@ double Neural::train2()
 }
 
 
-double Neural::output(Matrix x)
+double Neural::output(Matrix &x)
 {
 	double arg=0.0,per=0.0;
 	int dimension = pattern_dimension;
