@@ -204,13 +204,11 @@ End
 \begin_body
 
 \begin_layout Title
-Bounding the limits of the Grammatical Evolution method with application
- to feature construction
+Applying bounding techniques on Grammatical Evolution
 \end_layout
 
 \begin_layout Title Citation
-Bounding the limits of the Grammatical Evolution method with application
- to feature construction
+Applying bounding techniques on Grammatical Evolution
 \end_layout
 
 \begin_layout Author
@@ -274,17 +272,16 @@ Correspondence: itsoulos@uoi.gr;
 \end_layout
 
 \begin_layout Abstract
-A multitude of real-world problems can usually be expressed as data classificati
-on or data fitting problems.
- A technique that has been experimentally found to achieve good recognition
- results in such problems is the technique of feature construction with
- the incorporation of Grammatical Evolution.
+The Grammatical Evolution technique has been successfully applied to a wide
+ range of problems in various scientific fields.
  However, in Grammatical Evolution, the chromosomes can initialized in wide
- value intervals, which can lead to a decrease in the efficiency of the
- feature construction technique.
- In this paper, a technique for discovering appopriate intervals for the
+ value intervals, which can lead to a decrease in the efficiency of underlying
+ technique.
+ In this paper, a technique for discovering appropriate intervals for the
  initialization of chromosomes is proposed using partition rules guided
  by a genetic algorithm.
+ This method have been applied to feature construction technique used in
+ a variety of scientific papers.
  After successfully finding a promising interval, the feature construction
  technique is applied and the chromosomes are initialized within that interval.
  This technique was applied to a number of known problems in the relevant
