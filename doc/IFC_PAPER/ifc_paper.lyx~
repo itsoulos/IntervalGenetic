@@ -293,27 +293,40 @@ Grammatical Evolution; Bounding techniques; Neural networks; Evolutionary
  techniques; Stochastic methods.
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-clearpage
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Introduction
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+One of the basic techniques included in the area of stochastic techniques
+ is Genetic Algorithms, initially proposed by John Holland 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Holland1"
+literal "false"
+
+\end_inset
+
+.
+ The operation of genetic algorithms is inspired by biology, and for this
+ reason, it utilizes the idea of evolution through genetic mutation, natural
+ selection, and crossover 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Stender,genetic1,genetic2"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
 Grammatical evolution is an evolutionary process, where the chromosomes
  represent production rules of some provided BNF (Backus–Naur form) grammar
  
@@ -324,11 +337,7 @@ literal "false"
 
 \end_inset
 
- and this
-\series bold
- 
-\series default
-evolutionary process can evolve programs in the underlying language.
+ and this evolutionary process can evolve programs in the underlying language.
  Grammatical Evolution has been used successfully in many real world problems,
  such as function approximation
 \begin_inset CommandInset citation
@@ -418,9 +427,42 @@ literal "false"
 
 \end_inset
 
- etc
-\series bold
-.
+ etc.
+\end_layout
+
+\begin_layout Standard
+The rest of this article is divided as follows: in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:The-proposed-method"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ the proposed method is outlined in detail, in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Experimental-results"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ the datasets used in the experimental results and the experimental results
+ are listed and finally in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Conclusions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ some conclusions and guidelines for future research are presented.
 \end_layout
 
 \begin_layout Section
@@ -4134,14 +4176,66 @@ Keep empty!
 References
 \end_layout
 
+\begin_layout Standard
+
+\end_layout
+
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "key-10"
+key "Holland1"
+literal "false"
 
 \end_inset
 
+J.H.
+ Holland, Genetic algorithms.
+ Scientific american 
+\series bold
+267
+\series default
+, pp.
+ 66-73, 1992.
+\end_layout
 
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Stender"
+literal "false"
+
+\end_inset
+
+J.
+ Stender, Parallel Genetic Algorithms:Theory & Applications.
+ Edition: IOS Press, 1993.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "genetic1"
+literal "true"
+
+\end_inset
+
+D.
+ Goldberg, Genetic Algorithms in Search, Optimization and Machine Learning,
+ Addison-Wesley Publishing Company, Reading, Massachussets, 1989.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "genetic2"
+literal "true"
+
+\end_inset
+
+Z.
+ Michaelewicz, Genetic Algorithms + Data Structures = Evolution Programs.
+ Springer - Verlag, Berlin, 1996.
 \end_layout
 
 \begin_layout Bibliography
