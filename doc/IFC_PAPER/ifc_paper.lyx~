@@ -298,10 +298,7 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-One of the basic techniques included in the area of stochastic techniques
- is Genetic Algorithms, initially proposed by John Holland 
+Genetic algorithms, initially suggested by John Holland
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Holland1"
@@ -309,10 +306,10 @@ literal "false"
 
 \end_inset
 
-.
- The operation of genetic algorithms is inspired by biology, and for this
- reason, it utilizes the idea of evolution through genetic mutation, natural
- selection, and crossover 
+ are a special case of evolutionary techniques, in which a group of candidate
+ solutions (called also chromosomes) of any optimization problem, are evolved
+ iteratively by applying procedures based on natural processes, such as
+ selection, crossover and mutation 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Stender,genetic1,genetic2"
@@ -321,15 +318,20 @@ literal "false"
 \end_inset
 
 .
- 
-\end_layout
+ Usually chromosomes are arrays of decimal numbers that represent some possible
+ solution to an optimization problem.
+ A special case of genetic algorithms is the Grammatical Evolution 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge1"
+literal "false"
 
-\begin_layout Standard
+\end_inset
 
-\series bold
-Grammatical evolution is an evolutionary process, where the chromosomes
- represent production rules of some provided BNF (Backus–Naur form) grammar
- 
+, where the chromosomes are series of integer numbers, is a special case
+ of genetic algorithms .
+ The chromosomes in Grammatical Evolution stand for production rules of
+ a given BNF grammar 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "bnf1"
@@ -337,12 +339,41 @@ literal "false"
 
 \end_inset
 
- and this evolutionary process can evolve programs in the underlying language.
- Grammatical Evolution has been used successfully in many real world problems,
- such as function approximation
+.
+ This process can be used to construct programs to the underlying language.
+ This method has been used in a variety of real world problems, such as
+ function approximation
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ge_program1,ge_program2"
+literal "false"
+
+\end_inset
+
+,
+\series bold
+ 
+\series default
+credit classification 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_credit"
+literal "false"
+
+\end_inset
+
+, intrusion detection in computer networks 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_intrusion"
+literal "false"
+
+\end_inset
+
+, monitoring of water quality 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_water"
 literal "false"
 
 \end_inset
@@ -363,7 +394,7 @@ literal "false"
 
 \end_inset
 
-, neural network construction 
+, construction of neural networks 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ge_nn,ge_nn2"
@@ -428,6 +459,75 @@ literal "false"
 \end_inset
 
  etc.
+\end_layout
+
+\begin_layout Standard
+Extensions of Grammatical Evolution ...
+ Structured Grammatical Evolution 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_structured1,ge_structured2"
+literal "false"
+
+\end_inset
+
+, Grammatical Swarm 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_swarm1,ge_swarm2"
+literal "false"
+
+\end_inset
+
+, Parallel Grammatical Evolution 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_par"
+literal "false"
+
+\end_inset
+
+, 
+\end_layout
+
+\begin_layout Standard
+Also, software has been developed such as GEVA 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_geva"
+literal "false"
+
+\end_inset
+
+, gramEvol 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_gramevol"
+literal "false"
+
+\end_inset
+
+, GeLab 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_gelab"
+literal "false"
+
+\end_inset
+
+, GenClass 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_genclass"
+literal "false"
+
+\end_inset
+
+, QFc etc.
+\end_layout
+
+\begin_layout Standard
+Refer to feature construction here 
 \end_layout
 
 \begin_layout Standard
@@ -4316,6 +4416,62 @@ M.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "ge_credit"
+literal "false"
+
+\end_inset
+
+A.
+ Brabazon, M.
+ O'Neill, Credit classification using grammatical evolution, Informatica
+ 
+\series bold
+30.3
+\series default
+, 2006.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_intrusion"
+literal "false"
+
+\end_inset
+
+S.
+ Şen, J.A.
+ Clark.
+ A grammatical evolution approach to intrusion detection on mobile ad hoc
+ networks, In: Proceedings of the second ACM conference on Wireless network
+ security, 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_water"
+literal "false"
+
+\end_inset
+
+L.
+ Chen, C.H.
+ Tan, S.J.
+ Kao, T.S.
+ Wang, Improvement of remote monitoring on water quality in a subtropical
+ reservoir by incorporating grammatical evolution with parallel genetic
+ algorithms into satellite imagery, Water Research 
+\series bold
+ 42
+\series default
+, pp.
+ 296-306, 2008.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "ge_trig"
 literal "false"
 
@@ -4552,6 +4708,192 @@ F.
 \series default
 , pp.
  1003-1018, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_structured1"
+literal "false"
+
+\end_inset
+
+N.
+ Lourenço, F.B.
+ Pereira, E, Costa, Unveiling the properties of structured grammatical evolution
+, Genetic Programming and Evolvable Machines 
+\series bold
+17
+\series default
+ , pp.
+ 251-289, 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_structured2"
+literal "false"
+
+\end_inset
+
+N.
+ Lourenço, F.
+ Assunção, F.B.
+ Pereira, E.
+ Costa, P.
+ Machado, Structured grammatical evolution: a dynamic approach, Handbook
+ of grammatical evolution, pp.
+ 137-161, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_swarm1"
+literal "false"
+
+\end_inset
+
+M.
+ O’Neill, A.
+ Brabazon, Grammatical swarm: The generation of programs by social programming.
+ Natural Computing 
+\series bold
+5
+\series default
+, pp.
+ 443-462, 2006.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_swarm2"
+literal "false"
+
+\end_inset
+
+E.
+ Ferrante, E.
+ Duéñez-Guzmán, A.E.
+ Turgut, T.
+ Wenseleers, GESwarm: Grammatical evolution for the automatic synthesis
+ of collective behaviors in swarm robotics.
+ In Proceedings of the 15th annual conference on Genetic and evolutionary
+ computation, pp.
+ 17-24, 2013.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_par"
+literal "false"
+
+\end_inset
+
+P.
+ Ošmera, Two level parallel grammatical evolution, Advances in Computational
+ Algorithms and Data Analysis pp.
+ 509-525, 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_geva"
+literal "false"
+
+\end_inset
+
+M.
+ O'Neill, E.
+ Hemberg, C.
+ Gilligan, E.
+ Bartley, J.
+ McDermott, A.
+ Brabazon, GEVA: grammatical evolution in Java.
+ ACM SIGEVOlution 
+\series bold
+3
+\series default
+, pp.
+ 17-22, 2008.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_gramevol"
+literal "false"
+
+\end_inset
+
+F.
+ Noorian, A.M.
+ de Silva, P.H.W.
+ Leong, gramEvol: Grammatical Evolution in R, Journal of Statistical Software
+ 
+\series bold
+71
+\series default
+, pp.
+ 1–26, 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_gelab"
+literal "false"
+
+\end_inset
+
+M.A.
+ Raja, C.
+ Ryan, GELAB - A Matlab Toolbox for Grammatical Evolution.
+ In: Yin, H., Camacho, D., Novais, P., Tallón-Ballesteros, A.
+ (eds) Intelligent Data Engineering and Automated Learning – IDEAL 2018.
+ IDEAL 2018.
+ Lecture Notes in Computer Science(), vol 11315, 2018.
+ Springer, Cham.
+ https://doi.org/10.1007/978-3-030-03496-2_22
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_genclass"
+literal "false"
+
+\end_inset
+
+N.Anastasopoulos, I.G.
+ Tsoulos, A.
+ Tzallas, GenClass: A parallel tool for data classification based on Grammatical
+ Evolution, SoftwareX 
+\series bold
+16
+\series default
+, 100830, 2021.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_qfc"
+literal "false"
+
+\end_inset
+
+I.G.
+ Tsoulos, QFC: A Parallel Software Tool for Feature Construction, Based
+ on Grammatical Evolution, Algorithms 
+\series bold
+15
+\series default
+, 295, 2022.
 \end_layout
 
 \begin_layout Bibliography
