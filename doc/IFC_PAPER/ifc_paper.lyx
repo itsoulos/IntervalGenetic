@@ -328,8 +328,7 @@ literal "false"
 
 \end_inset
 
-, where the chromosomes are series of integer numbers, is a special case
- of genetic algorithms .
+, where the chromosomes are series of integer numbers.
  The chromosomes in Grammatical Evolution stand for production rules of
  a given BNF grammar 
 \begin_inset CommandInset citation
@@ -462,8 +461,9 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Extensions of Grammatical Evolution ...
- Structured Grammatical Evolution 
+A number of extensions have been proposed in recent years by a number of
+ researchers on Grammatical Evolution, such as the Structured Grammatical
+ Evolution 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ge_structured1,ge_structured2"
@@ -471,7 +471,18 @@ literal "false"
 
 \end_inset
 
-, Grammatical Swarm 
+, which utilizes one-to-one mapping betweek the values of the chromosomes
+ and the non-terminal symbols of the grammar, incorporation of Particle
+ Swarm Optimization(PSO) 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "pso1"
+literal "false"
+
+\end_inset
+
+ to generate programs with grammatical evolution denoted as Grammatical
+ Swarm 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ge_swarm1,ge_swarm2"
@@ -479,19 +490,26 @@ literal "false"
 
 \end_inset
 
-, Parallel Grammatical Evolution 
+, application of parallel programming techniques to Grammatical Evolution
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "ge_par"
+key "ge_par1,ge_par2"
 literal "false"
 
 \end_inset
 
-, 
-\end_layout
 
-\begin_layout Standard
-Also, software has been developed such as GEVA 
+\series bold
+ 
+\series default
+etc.
+
+\series bold
+ 
+\series default
+Furthermore, a series of software has been developed for Grammatical Evolution,
+ such as the GEVA 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ge_geva"
@@ -499,7 +517,9 @@ literal "false"
 
 \end_inset
 
-, gramEvol 
+ which utilizes the Java programming language to implement various problems
+ for Grammatical Evolution and it provide also a simple GUI to control the
+ evolutionary process, the gramEvol software 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ge_gramevol"
@@ -507,7 +527,11 @@ literal "false"
 
 \end_inset
 
-, GeLab 
+ that provides a package in the R programming language, the
+\series bold
+ 
+\series default
+GeLab 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ge_gelab"
@@ -515,7 +539,11 @@ literal "false"
 
 \end_inset
 
-, GenClass 
+ that implements a Matlab toolbox for Grammatical Evolution,
+\series bold
+ 
+\series default
+the GenClass 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ge_genclass"
@@ -523,7 +551,12 @@ literal "false"
 
 \end_inset
 
-, QFc 
+ software used to create classification programs in a C - like language,
+ the
+\series bold
+ 
+\series default
+QFc software 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ge_qfc"
@@ -531,11 +564,82 @@ literal "false"
 
 \end_inset
 
- etc.
+ used to produce artificial features from the original ones for classification
+ and regression problems etc.
 \end_layout
 
 \begin_layout Standard
-Refer to feature construction here 
+An important issue of the Grammatical Evolution technique is that usually
+ the integer chromosomes take values in a large interval of values, e.g.
+ 
+\begin_inset Formula $\left[0\ldots255\right]$
+\end_inset
+
+ as a result of which there is a significant delay in finding the most suitable
+ programs as many of the values in the above interval are not used.
+ Furthermore, in many cases the performance of Grammatical Evolution is
+ not as expected and a large number of chromosomes and/or generations are
+ required in order to find the most suitable program.
+ The present work proposes a two-step technique to solve the above problem.
+ In the first step of the proposed technique, the value limits for the elements
+ of the chromosomes are estimated using a genetic algorithm and a similar
+ approach as in 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "tsoulos_dnc"
+literal "false"
+
+\end_inset
+
+, and in the second stage, the Grammatical Evolution chromosomes are initialized
+ within the best value interval of the first stage.
+ The proposed approach was tested in the feature construction procedure
+ initially suggested in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fc1"
+literal "true"
+
+\end_inset
+
+.
+ This approach of creating artificial features with Grammatical Evolution
+ has also been used in many cases, such as Spam Identification 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fc2"
+literal "true"
+
+\end_inset
+
+, Fetal heart classification 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fc3"
+literal "true"
+
+\end_inset
+
+,
+\series bold
+ 
+\series default
+signal processing of EEG signals 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "fc4,fc5"
+literal "true"
+
+\end_inset
+
+ etc.
+ The usage of the proposed interval technique in the construction of features
+ significantly increased the performance of the method both in classification
+ problems and in regression problems, as will be seen in the experiments
+ section.
+ However, the proposed interval technique is quite general and can be applied
+ to other problems dealt with by Grammatical Evolution.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -582,6 +686,104 @@ name "sec:The-proposed-method"
 \end_inset
 
  
+\end_layout
+
+\begin_layout Standard
+1) original method, grammar and scheme
+\begin_inset Newline newline
+\end_inset
+
+2) proposed method 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fc_schema.eps
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Schematic representation of the original feature construction technique
+ that utilizes Grammatical Evolution.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fcSchema"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename onepoint_crossover.eps
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+One point crossover method, used in the Grammatical Evolution procedure.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:One-point-crossover"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -4758,6 +4960,23 @@ N.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "pso1"
+literal "true"
+
+\end_inset
+
+Riccardo Poli, James Kennedy kennedy, Tim Blackwell, Particle swarm optimization
+ An Overview, Swarm Intelligence 
+\series bold
+1
+\series default
+, pp 33-57, 2007.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "ge_swarm1"
 literal "false"
 
@@ -4796,7 +5015,26 @@ E.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "ge_par"
+key "ge_par1"
+literal "false"
+
+\end_inset
+
+O.
+ Popelka, P.
+ Osmera, Parallel Grammatical Evolution for Circuit Optimization.
+ In: Hornby, G.S., Sekanina, L., Haddow, P.C.
+ (eds) Evolvable Systems: From Biology to Hardware.
+ ICES 2008.
+ Lecture Notes in Computer Science, vol 5216.
+ Springer, Berlin, Heidelberg.
+ https://doi.org/10.1007/978-3-540-85857-7_40
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_par2"
 literal "false"
 
 \end_inset
@@ -4902,6 +5140,121 @@ I.G.
 15
 \series default
 , 295, 2022.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tsoulos_dnc"
+literal "false"
+
+\end_inset
+
+N.
+ Anastasopoulos, I.G.
+ Tsoulos, E.
+ Karvounis, A.
+ Tzallas, Locate the Bounding Box of Neural Networks with Intervals, Neural
+ Process Lett 
+\series bold
+52
+\series default
+, pp.
+ 2241–2251, 2020.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "fc1"
+literal "true"
+
+\end_inset
+
+Dimitris Gavrilis, Ioannis G.
+ Tsoulos, Evangelos Dermatas, Selecting and constructing features using
+ grammatical evolution, Pattern Recognition Letters 
+\series bold
+29
+\series default
+,pp.
+ 1358-1365, 2008.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "fc2"
+literal "true"
+
+\end_inset
+
+Dimitris Gavrilis, Ioannis G.
+ Tsoulos, Evangelos Dermatas, Neural Recognition and Genetic Features Selection
+ for Robust Detection of E-Mail Spam, Advances in Artificial Intelligence
+ Volume 3955 of the series Lecture Notes in Computer Science pp 498-501,
+ 2006.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "fc3"
+literal "true"
+
+\end_inset
+
+George Georgoulas, Dimitris Gavrilis, Ioannis G.
+ Tsoulos, Chrysostomos Stylios, João Bernardes, Peter P.
+ Groumpos, Novel approach for fetal heart rate classification introducing
+ grammatical evolution, Biomedical Signal Processing and Control 
+\series bold
+2
+\series default
+,pp.
+ 69-79, 2007 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "fc4"
+literal "true"
+
+\end_inset
+
+Otis Smart, Ioannis G.
+ Tsoulos, Dimitris Gavrilis, George Georgoulas, Grammatical evolution for
+ features of epileptic oscillations in clinical intracranial electroencephalogra
+ms, Expert Systems with Applications 
+\series bold
+38
+\series default
+, pp.
+ 9991-9999, 2011 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "fc5"
+literal "false"
+
+\end_inset
+
+A.
+ T.
+ Tzallas, I.
+ Tsoulos, M.
+ G.
+ Tsipouras, N.
+ Giannakeas, I.
+ Androulidakis and E.
+ Zaitseva, Classification of EEG signals using feature creation produced
+ by grammatical evolution, In: 24th Telecommunications Forum (TELFOR), pp.
+ 1-4, 2016.
 \end_layout
 
 \begin_layout Bibliography
