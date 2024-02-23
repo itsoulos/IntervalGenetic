@@ -1834,8 +1834,6 @@ Genetic
 \end_inset
 
  is obtained.
-\series bold
-(STOP HERE)
 \end_layout
 
 \begin_layout Enumerate
@@ -1855,7 +1853,11 @@ the
 \end_layout
 
 \begin_layout Enumerate
-Apply a machine learning model to the new test set and report the corresponding
+
+\series bold
+Apply
+\series default
+ a machine learning model to the new test set and report the corresponding
  test error.
 \series bold
 .
@@ -1913,13 +1915,599 @@ name "fig:One-point-crossover"
 \end_layout
 
 \begin_layout Subsection
-The proposed modification
+The proposed method
 \end_layout
 
 \begin_layout Standard
+In the present technique, a procedure is conducted before the initialization
+ of the chromosomes of the algorithm described in subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:The-feature-construction"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ This process using a modified genetic algorithm aims to find the optimal
+ value interval for the chromosome elements.
+ In the proposed method the chromosomes are sets of intervals as well as
+ the fitness values.
+ Hence, a comparison operator should be used in order to compare intervals.
+ In order to compare the intervals 
+\begin_inset Formula $a=\left[a_{1},a_{2}\right]$
+\end_inset
+
+, 
+\begin_inset Formula $b=\left[b_{1},b_{2}\right]$
+\end_inset
+
+, the operator is 
+\begin_inset Formula $L^{*}(a,b)$
+\end_inset
+
+ used defined as:
+\begin_inset Formula 
+\begin{eqnarray}
+L^{*}(a,b) & = & \begin{cases}
+\mbox{TRUE}, & a_{1}<b_{1},\mbox{OR\ \ensuremath{\left(a_{1}=b_{1}\ \mbox{AND}\ a_{2}<b_{2}\right)}}\\
+\mbox{FALSE}, & \mbox{\mbox{OTHERWISE}}
+\end{cases}\label{eq:eql}
+\end{eqnarray}
+
+\end_inset
+
+The main steps of the proposed method are listed in Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:The-main-steps"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The main steps of the prodedure aim to discover the optimal value interval.
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:The-main-steps"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
 
 \series bold
-(.....)
+Initialization Step
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ as 
+\series bold
+
+\begin_inset Formula $I_{C}$
+\end_inset
+
+
+\series default
+ as the total number of chromosomes
+\series bold
+, 
+\series default
+as 
+\begin_inset Formula $I_{G}$
+\end_inset
+
+ the number of generations, 
+\series bold
+
+\begin_inset Formula $p_{s}$
+\end_inset
+
+
+\series default
+ as the selection rate
+\series bold
+, 
+\begin_inset Formula $p_{m}$
+\end_inset
+
+
+\series default
+ as the mutation rate.
+ and as 
+\begin_inset Formula $I_{M}$
+\end_inset
+
+ the initial margin.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Construct
+\series default
+ the initial set of margins 
+\begin_inset Formula 
+\begin{equation}
+N_{M}=\left[0,I_{M}\right]^{(n)}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $n$
+\end_inset
+
+ is the number of elements for the chromosomes of the Grammatical Evolution
+ procedure.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialize
+\series default
+ a genetic population of 
+\begin_inset Formula $I_{C}$
+\end_inset
+
+ chromosomes.
+ Every chromosome contains a set for intervals randomly initialized in 
+\begin_inset Formula $N_{M}$
+\end_inset
+
+.
+ An Example of chromosome with 
+\begin_inset Formula $n=5$
+\end_inset
+
+ can be the following: 
+\begin_inset Formula $\left[\left(0,12\right),\left(0,30\right),\left(0,21\right),\left(0,100\right),\left(0,192\right)\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ iter=0 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Evalutation Step
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+For 
+\begin_inset Formula $i=1\ldots I_{C}$
+\end_inset
+
+ do
+\series default
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Create 
+\series default
+
+\begin_inset Formula $N_{S}$
+\end_inset
+
+ random sets of intervals inside the range defined by chromosome 
+\begin_inset Formula $g_{i}$
+\end_inset
+
+
+\series bold
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Execute
+\series default
+ the procedure of subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:The-feature-construction"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, by initializing the chromosomes of the Grammatical Evolution procedure
+ inside set every random set.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Denote
+\series default
+ by 
+\begin_inset Formula $E_{\mbox{min}}\left(g_{i}\right)$
+\end_inset
+
+ the minimum train error obtained by the Feature Construction procedure.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Denote
+\series default
+ by 
+\begin_inset Formula $E_{\mbox{min}}\left(g_{i}\right)$
+\end_inset
+
+ the maximum train error obtained by the Feature Construction procedure.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $f_{i}=\left[E_{min}\left(g_{i}\right),E_{max}\left(g_{i}\right)\right]$
+\end_inset
+
+, as the fitness value of chromosome 
+\begin_inset Formula $g_{i}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Genetic step
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Perform
+\series default
+ the crossover procedure of algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Crossover-procedure-for"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Perform
+\series default
+ the mutation procedure of algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Mutation-procedure-for"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Termination Check Step
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $iter=iter+1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $iter>I_{G}$
+\end_inset
+
+ Then
+\series bold
+ Terminate
+\series default
+ and 
+\series bold
+report
+\series default
+ the chromosome 
+\begin_inset Formula $g_{\mbox{best}}$
+\end_inset
+
+ with the best fitness
+\series bold
+, else Goto
+\series default
+ Evaluation Step.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Endif
+\end_layout
+
+\end_deeper
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The steps of the crossover procedure used in the proposed method.
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Crossover-procedure-for"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The chromosomes are sorted with respect to their fitness values.
+\end_layout
+
+\begin_layout Enumerate
+The first 
+\begin_inset Formula $\left(1-p_{s}\right)\times I_{c}$
+\end_inset
+
+ chromosomes are copied intact to the next generation and the rest of the
+ population are replaced by offprings created.
+\end_layout
+
+\begin_layout Enumerate
+For every pair of offsprings, two chromosomes 
+\begin_inset Formula $z=\left(z_{1},z_{2},...,z_{n}\right),\ \ y=\left(y_{1},y_{2},...,y_{n}\right)$
+\end_inset
+
+ are selected by utilizing the procedure of tournament selection.
+ The offsprings 
+\begin_inset Formula $\tilde{z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{y}$
+\end_inset
+
+ are produced using the following operations: 
+\begin_inset Formula 
+\begin{eqnarray}
+\tilde{z_{i}} & = & a_{i}z_{i}+\left(1-a_{i}\right)y_{i}\nonumber \\
+\tilde{y_{i}} & = & a_{i}y_{i}+\left(1-a_{i}\right)z_{i}\label{eq:crossover_ali}
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ is a random number in 
+\begin_inset Formula $[-0.5,1.5]$
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "doublecrossover"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mutation procedure for the proposed algorithm.
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Mutation-procedure-for"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ each chromosome 
+\begin_inset Formula $g$
+\end_inset
+
+ 
+\series bold
+Do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ every element 
+\begin_inset Formula $g_{i},i=1..n$
+\end_inset
+
+ 
+\series bold
+Do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Draw
+\series default
+ a random number 
+\begin_inset Formula $r\in[0,1]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $r<p_{m}$
+\end_inset
+
+ then 
+\begin_inset Formula $g_{i}=\mbox{left}\left(g_{i}\right)+z\left(\mbox{right}\left(g_{i}\right)-\mbox{left}\left(g_{i}\right)\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $z$
+\end_inset
+
+ is a random number in 
+\begin_inset Formula $[0,1]$
+\end_inset
+
+.
+ The function left(x) reresents the lower value of the interval x and the
+ function right(x) represents the the upper value of the interval x.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2597,11 +3185,9 @@ Experimental results
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-The proposed method was coded in ANSI C++ and the optimization methods were
- obtained from the freely available from the OPTIMUS computing environment,
- downloaded from 
+All the methods used in the experiments were coded in ANSI C++ using the
+ freely available optimization package of OPTIMUS, that can be downloaded
+ from
 \begin_inset Flex URL
 status collapsed
 
@@ -2612,20 +3198,129 @@ https://github.com/itsoulos/OPTIMUS/
 
 \end_inset
 
-(accessed on 9 September 2023).
- The results were validated using the 10 - fold validation technique in
- all datasets.
- The experiments were executed 30 times for each dataset using a different
- seed for the random generator each time.
- The average classification error is reported for the case of classification
- datasets and the average mean test error for the regression datasets.
- The machine used in the experiments was an AMD Ryzen 5950X with 128GB of
- RAM, running the Debian Linux operating system.
+(accessed on 14 Februry 2024).
+ All the experiments were conducted 30 times with different initialization
+ for the random generator each time.
+ Also, the drand48() function of the C++ language was used to produce random
+ numbers.
+ To validate the experimental results the 10 - fold validation method was
+ utilized.
+
+\series bold
+ 
+\series default
+For the case of classification datasets the average classification error
+ as measured on the test set is reported.
+ The average regression error as measured on the test set is reported for
+ the case of regression datasets.
+ The values for the experimental parameters are shown in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:experValues"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The results for the classification datatasets are listed in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:tableClass"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and the results for the regression datasets ae shown in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:tabRegression"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The following applies to the tables with the experimental results:
+\end_layout
+
+\begin_layout Enumerate
+The column DATASET stands for the name used dataset.
+\end_layout
+
+\begin_layout Enumerate
+The column represents the results obtained by the training of an artificial
+ neural network with 
+\begin_inset Formula $H=10$
+\end_inset
+
+ processing nodes.
+ The neural network was trained using the BFGS optimization method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "powell"
+literal "false"
+
+\end_inset
+
+.
  
 \end_layout
 
-\begin_layout Standard
-Insert table with experimental settings.
+\begin_layout Enumerate
+The column RBF stands for the results obtained by an RBF network with 
+\begin_inset Formula $H=10$
+\end_inset
+
+ processing nodes.
+\end_layout
+
+\begin_layout Enumerate
+The column FC represents the results obtained by the Feature Construction
+ procedure of subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:The-feature-construction"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ without the proposed modification.
+\end_layout
+
+\begin_layout Enumerate
+The column IFC10 stands for the incorporation of the proposed technique
+ with the Feature Construction technique.
+ The parameter 
+\begin_inset Formula $I_{G}$
+\end_inset
+
+ was set to 10.
+\end_layout
+
+\begin_layout Enumerate
+The column IFC20 stands for the incorporation of the proposed technique
+ with the Feature Construction technique.
+ The parameter 
+\begin_inset Formula $I_{G}$
+\end_inset
+
+ was set to 20.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+In both tables, an additional row was added at the end showing the average
+ classification or regression error for all datasets and it is denoted by
+ the name AVERAGE.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2634,6 +3329,373 @@ placement H
 wide false
 sideways false
 status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+NAME
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PURPOSE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+VALUE
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{C}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of chromosomes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{G}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of generations
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+200
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $p_{s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Selection rate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $p_{m}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mutation rate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.05
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{f}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of features
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $H$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of hidden nodes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $I_{C}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of chromosomes (proposed method)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+200
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $I_{G}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of generations (proposed method)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $I_{M}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Initial right bound (proposed method)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1024
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The values for the parameters used in the conducted experiments.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:experValues"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -4441,7 +5503,7 @@ AVERAGE
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -5475,6 +6537,19 @@ name "sec:Conclusions"
 \end_layout
 
 \begin_layout Standard
+1)robust method
+\begin_inset Newline newline
+\end_inset
+
+2) can be used in other problems
+\begin_inset Newline newline
+\end_inset
+
+3) slow method.
+ must use parallel techniques
+\end_layout
+
+\begin_layout Standard
 \begin_inset VSpace 6pt
 \end_inset
 
@@ -6469,6 +7544,19 @@ H.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "doublecrossover"
+literal "false"
+
+\end_inset
+
+Z.
+ Michaelewicz, Genetic Algorithms + Data Structures = Evolution Programs.
+ Springer - Verlag, Berlin, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "UCL"
 literal "false"
 
@@ -7107,6 +8195,24 @@ D.
 \series default
 , pp.
  81-102, 1978.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "powell"
+literal "true"
+
+\end_inset
+
+M.J.D Powell, A Tolerant Algorithm for Linearly Constrained Optimization Calculati
+ons, Mathematical Programming 
+\series bold
+45
+\series default
+, pp.
+ 547-566, 1989.
+ 
 \end_layout
 
 \begin_layout End Whole Page
