@@ -330,7 +330,7 @@ literal "false"
 
 , where the chromosomes are series of integer numbers.
  The chromosomes in Grammatical Evolution stand for production rules of
- a given BNF grammar 
+ a given Backus–Naur form (BNF) grammar 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "bnf1"
@@ -702,7 +702,7 @@ name "subsec:Preliminaries"
 \begin_layout Standard
 The chromosomes in Grammatical evolution stand for production rules of the
  given BNF grammar.
- Any BNF grammar can be described as a set 
+ Any BNF grammar can be described as a tuple 
 \series bold
 
 \begin_inset Formula $G=\left(N,T,S,P\right)$
@@ -1308,7 +1308,7 @@ Operation
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $23\mod2=1$
+\begin_inset Formula $23\mod2=2$
 \end_inset
 
 
@@ -1501,7 +1501,7 @@ literal "false"
 
 \end_inset
 
- or an Radial Basis Function (RBF) network 
+ or a Radial Basis Function (RBF) network 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbf1,rbf2"
@@ -1642,7 +1642,7 @@ Genetic step
 
 \series bold
 For 
-\begin_inset Formula $i=1,\ldots,N_{g}$
+\begin_inset Formula $i=1,\ldots,N_{G}$
 \end_inset
 
  do
@@ -1698,6 +1698,11 @@ a machine learning model
 \end_inset
 
 .
+ The output value of this model is defined as 
+\begin_inset Formula $C(x)$
+\end_inset
+
+.
  The fitness 
 \begin_inset Formula $f_{i}$
 \end_inset
@@ -1710,7 +1715,15 @@ f_{i}=\sum_{j=1}^{M}\left(C\left(x_{g_{i},j}\right)-t_{j}\right)^{2}
 
 \end_inset
 
+This equation defined the training error of model 
+\begin_inset Formula $C$
+\end_inset
 
+ for the modified train set 
+\begin_inset Formula $\left(x_{g_{i},j},t_{j}\right),\ j=1,..M$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -1756,7 +1769,14 @@ Perform
 \series bold
  
 \series default
-For each pair of 
+The procedure of tournament selection has the following steps: A set of
+ 
+\begin_inset Formula $T_{s}>1$
+\end_inset
+
+ randomly selected chromosomes is created and the chromosome with the lowest
+ fitness value in this set is selected and the others are discarded.
+ For each pair of 
 \begin_inset Formula $(z,w)$
 \end_inset
 
@@ -1776,6 +1796,16 @@ reference "fig:One-point-crossover"
 plural "false"
 caps "false"
 noprefix "false"
+
+\end_inset
+
+.
+ This crossover method was used also in the original paper of the Grammatical
+ Evolution technique
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge1"
+literal "false"
 
 \end_inset
 
@@ -2018,11 +2048,11 @@ Set
 
 
 \series default
- as the total number of chromosomes
+ the total number of chromosomes
 \series bold
 , 
 \series default
-as 
+
 \begin_inset Formula $I_{G}$
 \end_inset
 
@@ -2034,7 +2064,7 @@ as
 
 
 \series default
- as the selection rate
+ the selection rate
 \series bold
 , 
 \begin_inset Formula $p_{m}$
@@ -2042,8 +2072,8 @@ as
 
 
 \series default
- as the mutation rate.
- and as 
+ the mutation rate.
+ Also define as 
 \begin_inset Formula $I_{M}$
 \end_inset
 
@@ -2055,7 +2085,11 @@ as
 \series bold
 Construct
 \series default
- the initial set of margins 
+ the initial set 
+\begin_inset Formula $N_{M}$
+\end_inset
+
+ of margins 
 \begin_inset Formula 
 \begin{equation}
 N_{M}=\left[0,I_{M}\right]^{(n)}
@@ -2182,7 +2216,7 @@ Denote
 Denote
 \series default
  by 
-\begin_inset Formula $E_{\mbox{min}}\left(g_{i}\right)$
+\begin_inset Formula $E_{\mbox{max}}\left(g_{i}\right)$
 \end_inset
 
  the maximum train error obtained by the Feature Construction procedure.
@@ -2351,7 +2385,7 @@ The first
 \end_inset
 
  chromosomes are copied intact to the next generation and the rest of the
- population are replaced by offprings created.
+ population are replaced by offsprings created.
 \end_layout
 
 \begin_layout Enumerate
@@ -2359,7 +2393,12 @@ For every pair of offsprings, two chromosomes
 \begin_inset Formula $z=\left(z_{1},z_{2},...,z_{n}\right),\ \ y=\left(y_{1},y_{2},...,y_{n}\right)$
 \end_inset
 
- are selected by utilizing the procedure of tournament selection.
+ are selected by utilizing the procedure of tournament selection with tournament
+ size 
+\begin_inset Formula $T_{s}$
+\end_inset
+
+.
  The offsprings 
 \begin_inset Formula $\tilde{z}$
 \end_inset
@@ -2385,7 +2424,12 @@ where
 \begin_inset Formula $[-0.5,1.5]$
 \end_inset
 
+.
+ This process and the range of 
+\begin_inset Formula $a_{i}$
+\end_inset
 
+ random values are suggested in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "doublecrossover"
@@ -2488,7 +2532,7 @@ If
 
 .
  The function left(x) represents the lower value of the interval x and the
- function right(x) represents the the upper value of the interval x.
+ function right(x) represents the upper value of the interval x.
 \end_layout
 
 \end_deeper
@@ -3199,11 +3243,15 @@ https://github.com/itsoulos/OPTIMUS/
 \end_inset
 
 ( accessed on 14 February 2024 ).
- All the experiments were conducted 30 times with different initialization
+ fo All the experiments were conducted 30 times with different initialization
  for the random generator each time.
  Also, the drand48() function of the C++ was used to produce random numbers.
  To validate the experimental results the 10 - fold validation method was
  utilized.
+ This method has been utilized in many research papers and it is considered
+ as a standard validation method.
+ In the event that small datasets are provided, other validation techniques
+ may be used, such as the leave - one out method.
 
 \series bold
  
@@ -3252,7 +3300,7 @@ The column DATASET stands for the name used dataset.
 \end_layout
 
 \begin_layout Enumerate
-The column represents the results obtained by the training of an artificial
+The column MLP represents the results obtained by the training of an artificial
  neural network with 
 \begin_inset Formula $H=10$
 \end_inset
@@ -3322,12 +3370,12 @@ The line AVERAGE denotes the average classification or regression error.
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="10" columns="3">
+<lyxtabular version="3" rows="11" columns="3">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -3484,6 +3532,38 @@ Mutation rate
 
 \begin_layout Plain Layout
 0.05
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T_{s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+tournament size
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
 \end_layout
 
 \end_inset
@@ -3689,7 +3769,7 @@ name "tab:experValues"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6742,13 +6822,14 @@ In the current work, an efficient technique was proposed to identify the
  bounding box of the values of chromosomes in Grammatical Evolution.
  The proposed method precedes Grammatical Evolution and aims to discover
  a promising value interval for the chromosome values and, in this way,
- will significantly reduce the computational time required afterward but
- at the same time make the research more efficient.
+ will significantly improve the efficiency of the Grammatical evolution
+ procedure by limiting the optimization to more narrow intervals for the
+ values of the chromosomes.
  The method was tested on the Feature Construction technique, which is guided
  by Grammatical Evolution.
  Experimental results and statistical comparison show a significant reduction
  in classification error and data fitting error using the proposed technique.
- In addition, from the statistical comparison of the results, it appeared
+ In addition, from the statistical comparison of the results, it appears
  that there is no direct effect of the number of generations of the genetic
  algorithm on the effectiveness of the method, which means that only a few
  generations are enough to effectively find the promising value interval.
@@ -7778,9 +7859,15 @@ literal "false"
 
 \end_inset
 
-Z.
- Michaelewicz, Genetic Algorithms + Data Structures = Evolution Programs.
- Springer - Verlag, Berlin, 1996.
+P.
+ Kaelo, M.M.
+ Ali, Integrated crossover rules in real coded genetic algorithms, European
+ Journal of Operational Research 
+\series bold
+176
+\series default
+, pp.
+ 60-76, 2007.
 \end_layout
 
 \begin_layout Bibliography
