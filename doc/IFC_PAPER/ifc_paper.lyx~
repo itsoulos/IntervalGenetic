@@ -318,9 +318,9 @@ literal "false"
 \end_inset
 
 .
- Usually chromosomes are arrays of decimal numbers that represent some possible
- solution to an optimization problem.
- A special case of genetic algorithms is the Grammatical Evolution 
+ Usually, chromosomes are arrays of decimal numbers that represent some
+ possible solution to an optimization problem.
+ A special case of genetic algorithms is Grammatical Evolution 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ge1"
@@ -471,7 +471,7 @@ literal "false"
 
 \end_inset
 
-, which utilizes one-to-one mapping betweek the values of the chromosomes
+, which utilizes one-to-one mapping between the values of the chromosomes
  and the non-terminal symbols of the grammar, incorporation of Particle
  Swarm Optimization(PSO) 
 \begin_inset CommandInset citation
@@ -518,8 +518,8 @@ literal "false"
 \end_inset
 
  which utilizes the Java programming language to implement various problems
- for Grammatical Evolution and it provide also a simple GUI to control the
- evolutionary process, the gramEvol software 
+ for Grammatical Evolution, and it provides also a simple GUI to control
+ the evolutionary process, the gramEvol software 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ge_gramevol"
@@ -576,10 +576,10 @@ An important issue of the Grammatical Evolution technique is that usually
 \end_inset
 
  as a result of which there is a significant delay in finding the most suitable
- programs as many of the values in the above interval are not used.
+ programs, as many of the values in the above interval are not used.
  Furthermore, in many cases the performance of Grammatical Evolution is
- not as expected and a large number of chromosomes and/or generations are
- required in order to find the most suitable program.
+ not as expected and a numerous chromosomes and/or generations are required
+ in order to find the most suitable program.
  The present work proposes a two-step technique to solve the above problem.
  In the first step of the proposed technique, the value limits for the elements
  of the chromosomes are estimated using a genetic algorithm and a similar
@@ -773,7 +773,7 @@ or
 
 \begin_layout Standard
 The original BNF grammar is extended by enumerating the production rules.
- As an example, considere the extended BNF grammar shown in
+ As an example, consider the extended BNF grammar shown in
 \series bold
  
 \series default
@@ -805,8 +805,8 @@ The constant N denotes the dimension of the input data.
  T
 \series default
 he Grammatical Evolution production procedure initiates from the start symbol
- of the grammar and iteratively creates a program, by replacing non - terminal
- symbols with the right hand of the selected production rule.
+ of the grammar and through a series of steps creates a program, by replacing
+ non - terminal symbols with the right hand of the selected production rule.
  Every rule is selected using the following two steps:
 \end_layout
 
@@ -821,7 +821,7 @@ The next rule is selected through the equation Rule = V mod NR, where NR
 \end_layout
 
 \begin_layout Standard
-As an example of production considere the chromosome:
+As an example of production consider the chromosome:
 \begin_inset Formula 
 \[
 x=\left[9,8,6,4,16,10,17,23,8,14\right]
@@ -1733,7 +1733,7 @@ Perform
 \series bold
  
 \series default
-The remaining chromsoomes will be replaced by offsprings created during
+The remaining chromosomes will be replaced by offsprings created during
  the crossover procedure.
  
 \end_layout
@@ -1749,7 +1749,7 @@ Perform
 \end_inset
 
  offsprings.
- Initially two disttinct chromosomes are slected for every pair of constructed
+ Initially two distinct chromosomes are selected for every pair of constructed
  offsprings.
  The selection is performed using the tournament selection.
 
@@ -1793,7 +1793,7 @@ Perform
 \end_inset
 
  is selected.
- The corrsesponding element is altered if 
+ The corresponding element is altered if 
 \begin_inset Formula $r\le p_{m}$
 \end_inset
 
@@ -1983,7 +1983,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-The main steps of the prodedure aim to discover the optimal value interval.
+The main steps of the procedure aim to discover the optimal value interval.
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:The-main-steps"
@@ -2109,7 +2109,7 @@ Set
 \begin_layout Enumerate
 
 \series bold
-Evalutation Step
+Evaluation Step
 \end_layout
 
 \begin_deeper
@@ -2487,7 +2487,7 @@ If
 \end_inset
 
 .
- The function left(x) reresents the lower value of the interval x and the
+ The function left(x) represents the lower value of the interval x and the
  function right(x) represents the the upper value of the interval x.
 \end_layout
 
@@ -2686,7 +2686,7 @@ literal "false"
 
 \end_inset
 
-, which is a medical dataset about dermatological diceases.
+, which is a medical dataset about dermatological deceases.
  
 \end_layout
 
@@ -2711,7 +2711,7 @@ literal "false"
 
 \end_inset
 
-, a medical dataset aboudheart diseases.
+, a medical dataset about heart diseases.
 \end_layout
 
 \begin_layout Enumerate
@@ -3013,7 +3013,7 @@ literal "false"
 
 \end_inset
 
-, related to animal classication.
+, related to animal classification.
 \end_layout
 
 \begin_layout Subsection
@@ -3021,7 +3021,7 @@ Regression datasets
 \end_layout
 
 \begin_layout Standard
-The regession datasets used in the conducted experiments are the following:
+The regression datasets used in the conducted experiments are the following:
 \end_layout
 
 \begin_layout Enumerate
@@ -3037,7 +3037,7 @@ literal "false"
 
 \end_inset
 
-, a dataset related to the prediciton of age of abalones.
+, a dataset related to the prediction of age of abalones.
 \end_layout
 
 \begin_layout Enumerate
@@ -3187,7 +3187,7 @@ Experimental results
 \begin_layout Standard
 All the methods used in the experiments were coded in ANSI C++ using the
  freely available optimization package of OPTIMUS, that can be downloaded
- from
+ from 
 \begin_inset Flex URL
 status collapsed
 
@@ -3198,18 +3198,17 @@ https://github.com/itsoulos/OPTIMUS/
 
 \end_inset
 
-(accessed on 14 Februry 2024).
+( accessed on 14 February 2024 ).
  All the experiments were conducted 30 times with different initialization
  for the random generator each time.
- Also, the drand48() function of the C++ language was used to produce random
- numbers.
+ Also, the drand48() function of the C++ was used to produce random numbers.
  To validate the experimental results the 10 - fold validation method was
  utilized.
 
 \series bold
  
 \series default
-For the case of classification datasets the average classification error
+For the case of classification datasets, the average classification error
  as measured on the test set is reported.
  The average regression error as measured on the test set is reported for
  the case of regression datasets.
@@ -3224,7 +3223,7 @@ noprefix "false"
 \end_inset
 
 .
- The results for the classification datatasets are listed in Table 
+ The results for the classification datasets are listed in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:tableClass"
@@ -3315,12 +3314,7 @@ The column IFC20 stands for the incorporation of the proposed technique
 \end_layout
 
 \begin_layout Enumerate
-
-\series bold
-In both tables, an additional row was added at the end showing the average
- classification or regression error for all datasets and it is denoted by
- the name AVERAGE.
- 
+The line AVERAGE denotes the average classification or regression error.
 \end_layout
 
 \begin_layout Standard
@@ -6522,7 +6516,214 @@ AVERAGE
 
 \end_inset
 
+From the experimental results and their careful study, one can deduce that
+ the original feature construction method significantly outperforms simple
+ machine learning techniques in terms of classification error or function
+ approximation error.
+ The feature construction method achieved low errors by creating only 2
+ artificial features from the existing ones and thus significantly reduced
+ the required information needed for successful classification or data fitting.
+ In addition, the proposed value interval generation technique (IFC10 or
+ IFC20) significantly improves the feature construction technique, both
+ on classification data and data fitting data.
+ Furthermore, a statistical comparison was performed using scatter plot
+ and the results are outlined in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ifc_scatter"
+plural "false"
+caps "false"
+noprefix "false"
 
+\end_inset
+
+ for the classification datasets and in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:scatter_regression"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for the regression datasets.
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ifc_scatter.eps
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparison of Classification Error Percentages for Different Machine Learning
+ Methods.
+ The scatter plot displays individual classification error measurements
+ for each method (MLP, RBF, FC, IFC10, IFC20) with lines indicating median
+ values.
+ Statistical significance is denoted by asterisks, with '' indicating p
+ < 0.0001, '*' indicating p < 0.001, '' p < 0.01, and 'ns' indicating no significan
+t difference.
+ The results show that FC significantly outperforms both MLP and RBF, IFC10
+ improves upon FC, and there is no significant difference between the IFC10
+ and IFC20 methods.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ifc_scatter"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The scatter plot (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ifc_scatter"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) effectively demonstrates the comparative performance of various classification
+ methods in terms of classification error percentage.
+ The methods evaluated are Multi-Layer Perceptron (MLP), Radial Basis Function
+ (RBF), the simple feature construction technique (FC), and two variants
+ of the proposed modification named IFC10 and IFC20 respectively.
+ The FC method shows a lower median classification error compared to both
+ MLP and RBF, with the differences being statistically significant (as indicated
+ by the asterisks).
+ This suggests that the FC method outperforms MLP and RBF in terms of classifica
+tion accuracy.
+ When comparing FC to IFC10, IFC10 displays a lower median classification
+ error, and the difference is statistically significant, suggesting that
+ IFC10 is an improvement over the standard FC method.
+ Between IFC10 and IFC20, the median classification errors are close, and
+ the lack of asterisks ('ns' for not significant) between these two methods
+ indicates that the difference in classification error is not statistically
+ significant.
+ This suggests that the critical parameter change from IFC10 to IFC20 does
+ not have a significant impact on classification accuracy.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ifc_regression.eps
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparative scatter plot of regression errors for machine learning methods:
+ Multi-Layer Perceptron (MLP), Radial Basis Function (RBF), FC and Interval
+ Feature Construction with parameters 10 (IFC10) and 20 (IFC20).
+ The data points represent individual measurements of regression error,
+ with lines indicating the median values.
+ Statistical significance is denoted by asterisks, with FC showing significantly
+ lower errors than MLP and RBF, IFC10 improving upon FC, and no significant
+ difference between IFC10 and IFC20.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:scatter_regression"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:scatter_regression"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ depicts a scatter plot that compares regression errors across the used
+ machine learning regression methods in the experiments.
+ From the plot, we can see that:
+\end_layout
+
+\begin_layout Itemize
+The FC method has a lower median regression error than both the MLP and
+ RBF methods.
+ This is statistically significant, as indicated by the asterisks (** for
+ p < 0.01 between FC and RBF, and *** for p < 0.001 between FC and MLP), suggestin
+g that FC is indeed a better method compared to MLP and RBF.
+ 
+\end_layout
+
+\begin_layout Itemize
+The IFC10 method shows a lower median regression error compared to the FC
+ method, with this difference being statistically significant (** for p
+ < 0.01).
+ This suggests that IFC10 is a better method compared to FC.
+ 
+\end_layout
+
+\begin_layout Itemize
+Between IFC10 and IFC20, the median regression error is similar, and the
+ difference is not statistically significant (ns for not significant).
+ This indicates that there is no significant difference in regression error
+ between IFC10 and IFC20 when the parameter is changed from 10 to 20.
 \end_layout
 
 \begin_layout Section
@@ -6537,16 +6738,44 @@ name "sec:Conclusions"
 \end_layout
 
 \begin_layout Standard
-1)robust method
-\begin_inset Newline newline
+In the current work, an efficient technique was proposed to identify the
+ bounding box of the values of chromosomes in Grammatical Evolution.
+ The proposed method precedes Grammatical Evolution and aims to discover
+ a promising value interval for the chromosome values and, in this way,
+ will significantly reduce the computational time required afterward but
+ at the same time make the research more efficient.
+ The method was tested on the Feature Construction technique, which is guided
+ by Grammatical Evolution.
+ Experimental results and statistical comparison show a significant reduction
+ in classification error and data fitting error using the proposed technique.
+ In addition, from the statistical comparison of the results, it appeared
+ that there is no direct effect of the number of generations of the genetic
+ algorithm on the effectiveness of the method, which means that only a few
+ generations are enough to effectively find the promising value interval.
+ Although the proposed technique was applied to the feature generation method,
+ it is quite general and in the future it will be able to be applied to
+ other application areas of Grammatical Evolution such as the construction
+ of artificial neural networks, the rule generation method, etc.
+ However, a major drawback of the present technique is that it requires
+ a significant amount of computing resources for its execution, but this
+ can be alleviated by using parallel computing techniques, such as the MPI
+ programming library 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "MPI"
+literal "false"
+
 \end_inset
 
-2) can be used in other problems
-\begin_inset Newline newline
+ or the OpenMP library 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "OpenMP"
+literal "false"
+
 \end_inset
 
-3) slow method.
- must use parallel techniques
+.
 \end_layout
 
 \begin_layout Standard
@@ -8213,6 +8442,38 @@ ons, Mathematical Programming
 , pp.
  547-566, 1989.
  
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "MPI"
+literal "false"
+
+\end_inset
+
+W.
+ Gropp, E.
+ Lusk, N.
+ Doss, A.
+ Skjellum, A high-performance, portable implementation of the MPI message
+ passing interface standard, Parallel Computing 22, pp.
+ 789-828, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "OpenMP"
+literal "false"
+
+\end_inset
+
+L.
+ Dagum, R.
+ Menon, OpenMP: an industry standard API for shared-memory programming,
+ IEEE Computational Science and Engineering 5, pp.
+ 46-55, 1998.
 \end_layout
 
 \begin_layout End Whole Page
