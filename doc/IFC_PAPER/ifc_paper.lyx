@@ -580,7 +580,17 @@ An important issue of the Grammatical Evolution technique is that usually
  Furthermore, in many cases the performance of Grammatical Evolution is
  not as expected and a numerous chromosomes and/or generations are required
  in order to find the most suitable program.
- The present work proposes a two-step technique to solve the above problem.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(ADD MOTIVATION HERE)
+\end_layout
+
+\begin_layout Standard
+The present work proposes a two-step technique to solve the above problem.
  In the first step of the proposed technique, the value limits for the elements
  of the chromosomes are estimated using a genetic algorithm and a similar
  approach as in 
@@ -2007,7 +2017,7 @@ noprefix "false"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2354,7 +2364,7 @@ Endif
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2450,7 +2460,7 @@ literal "false"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3306,7 +3316,8 @@ The column MLP represents the results obtained by the training of an artificial
 \end_inset
 
  processing nodes.
- The neural network was trained using the BFGS optimization method 
+ The neural network was trained using a genetic algorithm and the BFGS local
+ optimization method 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "powell"
@@ -3315,7 +3326,8 @@ literal "false"
 \end_inset
 
 .
- 
+ The parameters of the genetic algorithm are the same as in the case of
+ Feature Construction.
 \end_layout
 
 \begin_layout Enumerate
@@ -3769,7 +3781,7 @@ name "tab:experValues"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -5577,7 +5589,7 @@ AVERAGE
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard

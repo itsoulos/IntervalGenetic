@@ -1775,7 +1775,7 @@ The procedure of tournament selection has the following steps: A set of
 \end_inset
 
  randomly selected chromosomes is created and the chromosome with the lowest
- fitness value in this set is selected and the others are discarded.
+ fitness value in this set is selected as parent.
  For each pair of 
 \begin_inset Formula $(z,w)$
 \end_inset
@@ -2007,7 +2007,7 @@ noprefix "false"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2354,7 +2354,7 @@ Endif
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2450,7 +2450,7 @@ literal "false"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3306,7 +3306,8 @@ The column MLP represents the results obtained by the training of an artificial
 \end_inset
 
  processing nodes.
- The neural network was trained using the BFGS optimization method 
+ The neural network was trained using a genetic algorithm and the BFGS local
+ optimization method 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "powell"
@@ -3315,7 +3316,8 @@ literal "false"
 \end_inset
 
 .
- 
+ The parameters of the genetic algorithm are the same as in the case of
+ Feature Construction.
 \end_layout
 
 \begin_layout Enumerate
@@ -3769,7 +3771,7 @@ name "tab:experValues"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -5577,7 +5579,7 @@ AVERAGE
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
