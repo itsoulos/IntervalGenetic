@@ -4131,7 +4131,7 @@ The line AVERAGE denotes the average classification or regression error.
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4901,7 +4901,7 @@ CIRCULAR
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+34.07%
 \end_layout
 
 \end_inset
@@ -5123,7 +5123,7 @@ HABERMAN
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+24.04%
 \end_layout
 
 \end_inset
@@ -6150,7 +6150,7 @@ STUDENT
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+5.13%
 \end_layout
 
 \end_inset
@@ -6159,7 +6159,7 @@ STUDENT
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+12.50%
 \end_layout
 
 \end_inset
@@ -6224,7 +6224,7 @@ TRANSFUSION
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+25.68%
 \end_layout
 
 \end_inset
@@ -6233,7 +6233,7 @@ TRANSFUSION
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+24.87%
 \end_layout
 
 \end_inset
