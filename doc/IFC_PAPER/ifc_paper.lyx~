@@ -584,9 +584,12 @@ An important issue of the Grammatical Evolution technique is that usually
  not as expected and a numerous chromosomes and/or generations are required
  in order to find the most suitable program.
  The present work proposes a two-step technique to solve the above problem.
- In the first step of the proposed technique, the value limits for the elements
- of the chromosomes are estimated using a genetic algorithm and a similar
- approach as in 
+ 
+\series bold
+In the first step of the proposed technique, the value limits for the elements
+ of the chromosomes (define as genes here) 
+\series default
+are estimated using a genetic algorithm and a similar approach as in 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "tsoulos_dnc"
@@ -1840,6 +1843,77 @@ literal "false"
 \end_inset
 
 .
+ As an example consider the chromosome 
+\begin_inset Formula 
+\[
+x=\left[9,8,6,4,16,10,17,23,8,14\right]
+\]
+
+\end_inset
+
+show in the previous subsection and the chromosome
+\begin_inset Formula 
+\[
+y=[10,9,2,5,4,3,7,8,10,12]
+\]
+
+\end_inset
+
+The chromosome 
+\begin_inset Formula $x$
+\end_inset
+
+ produces the expression 
+\begin_inset Formula $f_{1}(x)=x_{2}+\cos\left(x_{3}\right)$
+\end_inset
+
+ and the chromosome 
+\begin_inset Formula $y$
+\end_inset
+
+ produces the expression 
+\begin_inset Formula $f_{2}(x)=\sin\left(x_{1}\right)$
+\end_inset
+
+ using the grammar of Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:BNF-grammar-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset Formula $N=3$
+\end_inset
+
+.
+ If the position 3 is selected as the cutting point for the one point crossover
+ procedure, then the offspring 
+\begin_inset Formula 
+\[
+z=\left[10,9,2,4,16,10,17,23,8,14\right]
+\]
+
+\end_inset
+
+and the valid expression 
+\begin_inset Formula $f_{3}\left(x\right)=\cos\left(x_{2}\right)$
+\end_inset
+
+ will be produded using the grammer of Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:BNF-grammar-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -2141,6 +2215,10 @@ Set
 \end_inset
 
  the initial margin.
+ This integer value determines the maximum value that the genes of the chromosom
+e can take.
+ Gradually the algorithm will generate tighter bounds for gene values.
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -2166,6 +2244,9 @@ where
 
  is the number of elements for the chromosomes of the Grammatical Evolution
  procedure.
+ This set defines for each gene the interval of values in which it can be
+ initialized.
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -2305,6 +2386,9 @@ Set
 \end_inset
 
 .
+ 
+\series bold
+(WHY?)
 \end_layout
 
 \end_deeper
@@ -2423,7 +2507,7 @@ Endif
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2468,7 +2552,7 @@ For every pair of offsprings, two chromosomes
 \end_inset
 
 .
- The offsprings 
+ For each value of the offsprings 
 \begin_inset Formula $\tilde{z}$
 \end_inset
 
@@ -2476,7 +2560,11 @@ For every pair of offsprings, two chromosomes
 \begin_inset Formula $\tilde{y}$
 \end_inset
 
- are produced using the following operations: 
+, with 
+\begin_inset Formula $i=1,\ldots,n$
+\end_inset
+
+, the following operation is executed 
 \begin_inset Formula 
 \begin{eqnarray}
 \tilde{z_{i}} & = & a_{i}z_{i}+\left(1-a_{i}\right)y_{i}\nonumber \\
@@ -2485,7 +2573,7 @@ For every pair of offsprings, two chromosomes
 
 \end_inset
 
-where 
+The value 
 \begin_inset Formula $a_{i}$
 \end_inset
 
@@ -8381,13 +8469,18 @@ status collapsed
 
 \begin_layout Plain Layout
 Comparative scatter plot of regression errors for machine learning methods:
- Multi-Layer Perceptron (MLP), Radial Basis Function (RBF), FC and Interval
- Feature Construction with parameters 10 (IFC10) and 20 (IFC20).
- The data points represent individual measurements of regression error,
- with lines indicating the median values.
- Statistical significance is denoted by asterisks, with FC showing significantly
- lower errors than MLP and RBF, IFC10 improving upon FC, and no significant
- difference between IFC10 and IFC20.
+ Multi-Layer Perceptron (MLP), Radial Basis Function (RBF), Feature Construction
+ (FC), and Interval Feature Construction with parameters 10 (IFC10) and
+ 20 (IFC20) on a logarithmic scale.
+ Individual data points represent separate measurements of regression error,
+ and horizontal lines denote the median values for each method.
+ Statistical significance between methods is indicated by asterisks, with
+ FC demonstrating significantly lower errors than MLP and RBF, and IFC10
+ showing improvement over FC, according to the Wilcoxon test.
+ No significant difference is observed between IFC10 and IFC20, suggesting
+ similar performance at different parameter settings.
+ The y-axis is presented on a logarithmic scale to clearly visualize the
+ range of error magnitudes across methods.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:scatter_regression"
@@ -8412,7 +8505,7 @@ name "fig:scatter_regression"
 \end_layout
 
 \begin_layout Standard
-The Figure 
+Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:scatter_regression"
@@ -8422,33 +8515,48 @@ noprefix "false"
 
 \end_inset
 
- depicts a scatter plot that compares regression errors across the used
- machine learning regression methods in the experiments.
- From the plot, we can see that:
+ presents a scatter plot that compares the regression errors among several
+ machine learning regression methods used in our experiments.
+ The plot illustrates the following points, with the inclusion of the Wilcoxon
+ signed-rank test to determine statistical significance:
 \end_layout
 
-\begin_layout Itemize
-The FC method has a lower median regression error than both the MLP and
- RBF methods.
- This is statistically significant, as indicated by the asterisks (** for
- p < 0.01 between FC and RBF, and *** for p < 0.001 between FC and MLP), suggestin
-g that FC is indeed a better method compared to MLP and RBF.
- 
+\begin_layout Standard
+The Feature Construction (FC) method exhibits a lower median regression
+ error compared to both the Multi-Layer Perceptron (MLP) and Radial Basis
+ Function (RBF) methods.
+ The statistical significance of these results is marked by asterisks on
+ the plot: * indicates a p-value less than 0.01 for the comparison between
+ FC and RBF, and ** indicates a p-value less than 0.001 for the comparison
+ between FC and MLP.
+ These results substantiate that the FC method significantly outperforms
+ both MLP and RBF in terms of median regression error.
 \end_layout
 
-\begin_layout Itemize
-The IFC10 method shows a lower median regression error compared to the FC
- method, with this difference being statistically significant (** for p
- < 0.01).
- This suggests that IFC10 is a better method compared to FC.
- 
+\begin_layout Standard
+When examining the Interval Feature Construction method with the parameter
+ set to 10 (IFC10), we observe a statistically significant reduction in
+ median regression error compared to the FC method, as indicated by ** for
+ a p-value less than 0.01.
+ This denotes a clear improvement with the use of the IFC10 method over
+ the standard FC approach.
 \end_layout
 
-\begin_layout Itemize
-Between IFC10 and IFC20, the median regression error is similar, and the
- difference is not statistically significant (ns for not significant).
- This indicates that there is no significant difference in regression error
- between IFC10 and IFC20 when the parameter is changed from 10 to 20.
+\begin_layout Standard
+A comparison between the IFC10 and Interval Feature Construction with the
+ parameter set to 20 (IFC20) reveals a non-significant difference in median
+ regression error, denoted by 'ns' on the plot.
+ This lack of significance suggests that varying the parameter from 10 to
+ 20 does not result in a statistically significant change in regression
+ error for the IFC method.
+\end_layout
+
+\begin_layout Standard
+In conclusion, the FC method demonstrates a significantly better performance
+ compared to traditional methods such as MLP and RBF.
+ The improvement provided by IFC10 over FC is significant, whereas the change
+ in parameters between IFC10 and IFC20 does not yield a significant difference,
+ indicating a plateau in performance gains between these parameter settings.
 \end_layout
 
 \begin_layout Standard
@@ -8473,10 +8581,6 @@ placement H
 wide false
 sideways false
 status collapsed
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -9731,14 +9835,22 @@ name "sec:Conclusions"
 \end_layout
 
 \begin_layout Standard
-In the current work, an efficient technique was proposed to identify the
- bounding box of the values of chromosomes in Grammatical Evolution.
- The proposed method precedes Grammatical Evolution and aims to discover
- a promising value interval for the chromosome values and, in this way,
- will significantly improve the efficiency of the Grammatical evolution
- procedure by limiting the optimization to more narrow intervals for the
- values of the chromosomes.
- The method was tested on the Feature Construction technique, which is guided
+In this paper, a first attempt was made to introduce the concept of intervals
+ in the technique of Grammatical Evolution.
+ With this technique, an attempt is made to find a value interval for the
+ chromosome values that will provide lower values in the objective function
+ to be minimized.
+ For this reason a Genetic Algorithm was introduced which is executed before
+ the main process of Grammatical Evolution and which gradually generates
+ the reliable value interval for the chromosome values.
+ The proposed method will significantly improve the efficiency of the Grammatica
+l evolution procedure by limiting the optimization to more narrow intervals
+ for the values of the chromosomes.
+ 
+\end_layout
+
+\begin_layout Standard
+The method was tested on the Feature Construction technique, which is guided
  by Grammatical Evolution.
  Experimental results and statistical comparison show a significant reduction
  in classification error and data fitting error using the proposed technique.
