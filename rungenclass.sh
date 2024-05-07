@@ -1,6 +1,5 @@
 #!/bin/bash
 DATAPATH=file:///home/sheridan/Desktop/ERGASIES/FeatureConstruction2/datasets/tenfolding/
-NODES=10
 GENS=500
 MARGIN=512
 ORIGINAL=1
