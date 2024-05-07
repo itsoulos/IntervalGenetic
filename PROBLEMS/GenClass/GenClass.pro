@@ -18,6 +18,7 @@ SOURCES += genclass.cpp \
     doublestack.cc \
     fparser.cc \
     fpoptimizer.cc \
+    gpopulation.cc \
     rule.cc \
     program.cc \
     cprogram.cc \
@@ -28,6 +29,7 @@ HEADERS += \
     interval.h \
     symbol.h \
     doublestack.h \
+    gpopulation.h \
     fparser.hh \
     fpconfig.hh \
     fptypes.hh \

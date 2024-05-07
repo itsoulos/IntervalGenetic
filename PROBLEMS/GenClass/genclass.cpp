@@ -17,6 +17,7 @@
 #include "classprogram.h"
 # include <qreplytimeout.h>
 # include "interval.h"
+# include "gpopulation.h"
 
 /*
  *  This problem file will be used as a fronted
@@ -44,7 +45,8 @@ typedef QVector<double> Data;
     //parameters
     const int maxthreads=64;
     double leftMargin=0.0;
-    double rightMargin=5012.0;
+    double rightMargin=256;
+    int isOriginal = 0;
     QString trainfile="";
     QString testfile="";
     QString urlpath="http://itsoulos.teiep.gr/genclass/";
@@ -91,6 +93,10 @@ QByteArray readLocalFile(QString file)
    fp.close();
    return st;
 }
+int thread()
+{
+    return omp_get_thread_num();
+}
 
 void    parseJson()
 {
@@ -122,6 +128,8 @@ void    init(QJsonObject obj)
     if(obj.contains("chromosomesize"))
         chromosomeSize=obj["chromosomesize"].toInt();
 
+    if(obj.contains("isOriginal"))
+	    isOriginal=obj["isOriginal"].toInt();
     QByteArray bts ;
     if(trainfile.startsWith("file://"))
     {
@@ -164,7 +172,7 @@ QJsonObject 	done(vector<double> &x)
     vector<int> genome;
     genome.resize(getdimension());
        for(int i=0;i<getdimension();i++)
-           genome[i]=(int)fabs(x[i]);
+           genome[i]=isOriginal?256:(int)fabs(x[i]);
        QByteArray bts ;
        if(testfile.startsWith("file://"))
            bts=readLocalFile(testfile);
@@ -183,6 +191,21 @@ QJsonObject 	done(vector<double> &x)
 			in>>testxdata[i][j];
 		in>>testydata[i];
 	}
+    double sum=0.0;
+    double ff;
+    string lastExpr="";
+
+	GPopulation pop(500,getdimension(),genome,&program[thread()]);
+	for(int i=1;i<=500;i++)
+	{
+		pop.nextGeneration();
+
+		double f = pop.getBestFitness();
+		//printf("genclass[%d]=%lf\n",i,f);
+		if(pop.shouldTerminate()) break;
+	}
+	genome= pop.getBestGenome();
+	
     double trainError=funmin(x);
     double testError=program[omp_get_thread_num()].getClassError(genome,testxdata,testydata);
     QJsonObject result;
