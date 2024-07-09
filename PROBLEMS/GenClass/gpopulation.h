@@ -18,8 +18,6 @@ class GPopulation
 		void	mutate();
 		void	calcFitnessArray();
 		int	elitism;
-		int 	sameValueCount;
-		double	sameValue;
 	public:
 		GPopulation(int gcount,int gsize,vector<int> &rm,Program *p);
 		void	setElitism(int s);
@@ -41,7 +39,6 @@ class GPopulation
 		void	setGenome(int pos,vector<int> &genome,double f,int k);
 		void	select();
 		void	localSearch(int x);
-		bool	shouldTerminate();
 		~GPopulation();
 		
 };

@@ -201,8 +201,9 @@ QJsonObject 	done(vector<double> &x)
 		pop.nextGeneration();
 
 		double f = pop.getBestFitness();
-		//printf("genclass[%d]=%lf\n",i,f);
-		if(pop.shouldTerminate()) break;
+        if(i%20==0)
+        printf("genclass[%d]=%lf\n",i,f);
+        //if(pop.shouldTerminate()) break;
 	}
 	genome= pop.getBestGenome();
 	

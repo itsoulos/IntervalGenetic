@@ -18,8 +18,6 @@ GPopulation::GPopulation(int gcount,int gsize,vector<int> &rm,Program *p)
 	generation     = 0;
 	program        = p;
 	rightMargin 	= rm;
-	sameValue = 1e+100;
-	sameValueCount=0;
 	for(int i=0;i<rm.size();i++)
 	{
 		if(rightMargin[i]==0) rightMargin[i]=1;
@@ -215,23 +213,12 @@ void	GPopulation::nextGeneration()
 	crossover();
 	mutate();
 	calcFitnessArray();
-    extern int localSearchGenerations,localSearchChromosomes;
+    /*extern int localSearchGenerations,localSearchChromosomes;
     if((generation+1)%100==0)
         for(int i=0;i<20;i++)
 		localSearch(rand() % genome_count);
-	
+*/	
 	++generation;
-	if(fabs(fitness_array[0]-sameValue)>1e-5)
-	{
-		sameValue = fitness_array[0];
-		sameValueCount=0;
-	}
-	else sameValueCount++;
-}
-
-bool	GPopulation::shouldTerminate()
-{
-	return generation>=200;// && (sameValueCount>=10 || fabs(fitness_array[0])<1e-7);
 }
 
 void	GPopulation::localSearch(int gpos)
