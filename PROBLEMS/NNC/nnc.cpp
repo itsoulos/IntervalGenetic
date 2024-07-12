@@ -219,7 +219,7 @@ extern "C"
         vector<int> genome;
 	genome.resize(getdimension());
         for(int i=0;i<getdimension();i++)
-            genome[i]=double2int(x[i]);//(int)fabs(x[i]);
+        genome[i]=255;//double2int(x[i]);//(int)fabs(x[i]);
 
 	
 	GPopulation pop(500,getdimension(),genome,&program[thread()]);
@@ -278,7 +278,10 @@ extern "C"
            tries++;
            if(tries>=200) break;
          }while(1);
-	  program[thread()].neuralparser->getWeights(w);
+      program[thread()].neuralparser->getWeights(w);
+        Converter con(w,w.size()/(dimension+2),dimension);
+         con.convert(genome);
+         ff=program[thread()].fitness(genome);
         avg_test+=program[thread()].getTestError();
         avg_class+=program[thread()].getClassTestError(genome);
 	}
