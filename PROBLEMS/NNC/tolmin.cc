@@ -2058,8 +2058,8 @@ double tolmin(Data  &x,MinInfo &Info)
 	long n=x.size();
 	long m=0;
 	long meq=0;
-	//double *a=new double[n*n];
-	double *a=new double[1*n];
+	double *a=new double[n*n];
+	//double *a=new double[1*n];
 	long ia=n;
 	double b[n];
 	double xl[n];
@@ -2085,8 +2085,8 @@ double tolmin(Data  &x,MinInfo &Info)
 			if(fabs(x[i])<1e-7) {xl[i]=xu[i]=0.0;}
 			else
 			{
-                xl[i]=  -5.0*fabs(x[i]);
-                xu[i]=  5.0*fabs(x[i]);
+           //     xl[i]=  -5.0*fabs(x[i]);
+         //       xu[i]=  5.0*fabs(x[i]);
 			}
 			
 		}

@@ -260,6 +260,8 @@ bool Cprogram::evalProgram(string expr,
             newMargin[index-1].shrinkRight();
 	}
 	//only for GE?
+	    if(newMargin[index-1].rightValue()<0)
+		    newMargin[index-1]=Interval(0,newMargin[index-1].leftValue());
 	    if(newMargin[index-1].leftValue()<0) 
 		    newMargin[index-1]=Interval(0,newMargin[index-1].rightValue());
     }

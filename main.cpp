@@ -296,14 +296,14 @@ int main(int argc,char **argv)
     else
     if(intervalMethod=="grammar")
     {
-	    /*
+	    
         bestMargin = p.getMargins();
         Problem np(&p,bestMargin);
 	
         DoublePop pop(chromosomes,&np);
         pop.setSelectionRate(selection_rate);
         pop.setMutationRate(mutation_rate);
-        pop.setMaxGenerations(20);
+        pop.setMaxGenerations(200);
         pop.Solve();
         Data bestx = pop.getBestGenome();
 
@@ -320,7 +320,7 @@ int main(int argc,char **argv)
                    bestMargin[i].rightValue());
         }
         p.setMargins(bestMargin);
-	*/
+	
         bestMargin=runGrammarInterval(&p,bestgeneticx);
     }
 
@@ -390,7 +390,7 @@ int main(int argc,char **argv)
             if(intervalMethod=="none")
                  bestx=np.getUniformRandomPoint();
             else bestx=bestgeneticx;
-            np.done(bestx);
+           // np.done(bestx);
         }
 
        QJsonObject result=p.done(bestx);

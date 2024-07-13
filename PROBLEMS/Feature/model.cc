@@ -134,14 +134,6 @@ void 	Model::readPatterns(char *filename)
 }
 
 static double sig(double x) {return 1.0/(1.0+exp(-x));}
-void	Model::transform(Matrix x,Matrix &x1)
-{
-	for(int  i=0;i<x.size();i++) 
-	//x1[i]=sig(x[i]);
-		//x1[i]=(x[i]-xmean[i])/(xstd[i]);
-	x1[i]=x[i];
-	//x1[i]=(x[i]-xmin[i])/(xmax[i]-xmin[i]);
-}
 
 void	Model::setNumOfWeights(int w)
 {
@@ -164,7 +156,7 @@ double	Model::valError()
 	return s;
 }
 
-double	Model::funmin(Matrix x)
+double	Model::funmin(Matrix &x)
 {
 	if(weight.size()!=x.size()) weight.resize(x.size());
 	for(int i=0;i<x.size();i++) weight[i] = x[i];
@@ -202,7 +194,7 @@ double	Model::funmin(Matrix x)
 	return s;
 }
 
-void  Model::granal(Matrix x,Matrix &g)
+void  Model::granal(Matrix &x,Matrix &g)
 {
 	if(weight.size()!=x.size())
 	weight.resize(x.size());

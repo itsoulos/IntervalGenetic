@@ -42,9 +42,8 @@ class Model :public Problem
 		virtual double	output(Matrix &x)=0;
 		virtual void	getDeriv(Matrix x,Matrix &g)=0;
 		
-		virtual double	funmin(Matrix x);
-		virtual void    granal(Matrix x,Matrix &g);
-		void	transform(Matrix x,Matrix &xx);
+		virtual double	funmin(Matrix &x);
+		virtual void    granal(Matrix &x,Matrix &g);
 		double  valError();
 		void	enableValidation();
 		double	testError(char *filename);

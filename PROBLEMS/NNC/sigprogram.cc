@@ -91,7 +91,15 @@ SigProgram::SigProgram(int d)
 
 	r=newRule();
 	rule[r]->addSymbol(&Digit0);
-	rule[r]->addSymbol(&DigitList);
+	rule[r]->addSymbol(&Digit0);
+	//rule[r]->addSymbol(&DigitList);
+	DigitList.addRule(rule[r]);
+
+	r=newRule();
+	rule[r]->addSymbol(&Digit0);
+	rule[r]->addSymbol(&Digit0);
+	rule[r]->addSymbol(&Digit0);
+	//rule[r]->addSymbol(&DigitList);
 	DigitList.addRule(rule[r]);
 
 	Out.set("OUT",0);

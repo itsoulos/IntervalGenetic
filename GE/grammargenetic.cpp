@@ -196,15 +196,15 @@ void    GrammarGenetic::nextGeneration()
         getBest(xpoint,ypoint);
         problem->setMargins(xpoint);
     }
-   /*
-    if(generation%20==0)
+   
+    if(generation%10==0)
     {
-        int count = 20;
+        int count = 10;
 
         for(int i=0;i<count;i++)
             localSearch(rand() % chromosome.size());
         select();
-    }*/
+    }
 }
 
 void    GrammarGenetic::Solve()

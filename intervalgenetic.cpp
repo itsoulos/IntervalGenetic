@@ -395,7 +395,7 @@ void   IntervalGenetic::nextGeneration()
     ++generation;
     calcFitnessArray();
 
-    if(generation%10==0)
+    if(generation%20==0)
     {
 
         int count=10;
@@ -445,9 +445,10 @@ void    IntervalGenetic::localSearch(IntervalData &x,Interval &value)
     Interval fL=Interval(0,0);
     Interval fR=Interval(0,0);
 
-    for(int k=1;k<=10;k++)
-    {
         bool minFound=false;
+    for(int k=1;k<=10 ;k++)
+    {
+	    minFound = false;
     for(int i=0;i<x.size();i++)
     {
        Interval temp=Interval(0,0);

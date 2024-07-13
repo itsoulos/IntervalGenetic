@@ -85,7 +85,7 @@ void	Problem::getRightMargin(Matrix &x2)
 	x2 = rmargin;
 }
 
-double	Problem::funmin(Matrix x)
+double	Problem::funmin(Matrix &x)
 {
 	return 0.0;
 }
@@ -218,7 +218,7 @@ void	Problem::bound(Matrix &x)
  *	Είναι η αντικειμενική παράγωγος του προβλήματος.
  *	Αν δεν επανοριστεί υπολογίζεται με αριθμητικό τρόπο.
  * */
-void	Problem::granal(Matrix x,Matrix &g)
+void	Problem::granal(Matrix &x,Matrix &g)
 {
 	const double eps=1e-6;
 	for(int i=0;i<g.size();i++) g[i]=0.0;

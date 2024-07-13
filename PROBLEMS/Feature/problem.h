@@ -8,8 +8,8 @@ using namespace std;
 typedef vector<double> Matrix;
 typedef vector<double> Data;
 class Problem;
-typedef double (Problem::*FUNCTION)(Matrix);
-typedef void   (Problem::*GRADIENT)(Matrix,Matrix &);
+typedef double (Problem::*FUNCTION)(Matrix&);
+typedef void   (Problem::*GRADIENT)(Matrix&,Matrix &);
 
 
 # define MARGINS_NONE	0
@@ -30,8 +30,8 @@ class Problem
 		void	setMargin(Matrix x1,Matrix x2);
 		void	setLeftMargin(Matrix x1);
 		void	setRightMargin(Matrix x2);
-		virtual double  funmin(Matrix);
-		virtual void   granal(Matrix x,Matrix &g);
+		virtual double  funmin(Matrix&);
+		virtual void   granal(Matrix &x,Matrix &g);
 		
 		int		getDimension() const;
 		void		getLeftMargin(Matrix &x1);

@@ -23,7 +23,7 @@ IntegerGenetic::IntegerGenetic(IntervalProblem *p,int count,int t)
         genome[i].resize( 2*maxDepth*problem->getDimension());
         for(int j=0;j<genome[i].size();j++) genome[i][j]=rand() %2;
         children[i].resize(genome[i].size());
-        fitnessArray[i]=fitness(genome[i]);
+    //    fitnessArray[i]=fitness(genome[i]);
     }
 
 }
@@ -89,9 +89,14 @@ void  IntegerGenetic::calcFitnessArray()
 
     //omp_set_nested(0);
 //#pragma omp parallel for schedule(dynamic)
+	double dmin=1e+100;
     for(int i=0;i<gcount;i++)
     {
         fitnessArray[i]=fitness(genome[i]);
+	if(fitnessArray[i].leftValue()<dmin)
+		dmin=fitnessArray[i].leftValue();
+	if(i%20==0)
+		printf("f[%d]=%10.5lg\n",i,dmin);
     }
 }
 
@@ -286,7 +291,8 @@ void IntegerGenetic::nextGeneration()
     selection();
     crossover();
     ++generation;
-    if(generation%20==0)
+    
+    if(generation%50==0)
     {
 	    int count = 50;
 //#pragma omp parallel for schedule(dynamic)
@@ -294,7 +300,7 @@ void IntegerGenetic::nextGeneration()
 		    localSearch(rand() % genome.size());
 	    selection();
     }
-    if(generation%20000==0)
+    if(generation%2000==0)
     {
         int icount=10;
         for(int i=0;i<icount;i++)

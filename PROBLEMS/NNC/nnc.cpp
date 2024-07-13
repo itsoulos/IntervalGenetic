@@ -219,7 +219,7 @@ extern "C"
         vector<int> genome;
 	genome.resize(getdimension());
         for(int i=0;i<getdimension();i++)
-        genome[i]=255;//double2int(x[i]);//(int)fabs(x[i]);
+        genome[i]=double2int(x[i]);//(int)fabs(x[i]);
 
 	
 	GPopulation pop(500,getdimension(),genome,&program[thread()]);
@@ -232,6 +232,9 @@ extern "C"
 	genome= pop.getBestGenome();
 	
      	double ff=program[thread()].fitness(genome);
+        double avg_test=program[thread()].getTestError();
+        double avg_class=program[thread()].getClassTestError(genome);
+	/*
  	int tries=0;
    	MinInfo Info1;
         Info1.iters=2001;
@@ -286,20 +289,21 @@ extern "C"
         avg_class+=program[thread()].getClassTestError(genome);
 	}
 	avg_test/=iters;
-	avg_class/=iters;
+	avg_class/=iters;*/
         QJsonObject result;
         result["nodes"]=10;
         result["testError"]=avg_test;
         result["classError"]=avg_class;
 	QString bestProgram=program[thread()].printProgram(genome).c_str();
 	printf("Train Error %10.5lf Test Error %10.5lf Class Error %10.5lf%%\n",
-			value,result["testError"].toDouble(),result["classError"].toDouble());
+			ff,result["testError"].toDouble(),result["classError"].toDouble());
         result["string"]=bestProgram;
+	/*
           value=program[thread()].getTrainError();
 	  Converter con(w,w.size()/(dimension+2),dimension);
           con.convert(genome);
      	ff=program[thread()].fitness(genome);
-
+		*/
 
 
         return result;
