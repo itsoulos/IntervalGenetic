@@ -217,7 +217,7 @@ QJsonObject    done(Data &x)
 	vector<int> genome;
 	genome.resize(getdimension());
     for(int i=0;i<getdimension();i++)
-        genome[i]=255;//(int)fabs(x[i]);
+        genome[i]=(int)fabs(x[i]);
     double ff;
     string lastExpr="";
 
@@ -227,7 +227,7 @@ QJsonObject    done(Data &x)
 		pop.nextGeneration();
 		double f = pop.getBestFitness();
 		if(i%20==0) printf("fc[%d]=%lf\n",i,f);
-		if(pop.shouldTerminate()) break;
+	//	if(pop.shouldTerminate()) break;
 	}
 	genome= pop.getBestGenome();
     for(int i=0;i<omp_get_num_threads();i++)

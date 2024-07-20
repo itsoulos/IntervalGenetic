@@ -34,6 +34,7 @@ SOURCES += \
     doublepop.cpp \
         getoptions.cpp \
     GE/grammargenetic.cpp \
+    GE/integeranneal.cpp \
     GE/symbol.cc \
     GE/doublestack.cc \
     GE/fparser.cc \
@@ -62,6 +63,7 @@ HEADERS += \
     doublepop.h \
     getoptions.h \
     GE/grammargenetic.h \
+    GE/integeranneal.h \
     GE/symbol.h \
     GE/doublestack.h\
     GE/fparser.hh \

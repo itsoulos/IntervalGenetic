@@ -1,4 +1,5 @@
 #include "GE/grammargenetic.h"
+# include "GE/integeranneal.h"
 
 GrammarGenetic::GrammarGenetic(int count,int size,IntervalProblem *p)
 {
@@ -91,8 +92,15 @@ Interval  GrammarGenetic::fitness(IDATA &genome)
 
 void    GrammarGenetic::calcFitnessArray()
 {
+	double dmin=1e+100;
     for(int i=0;i<gcount;i++)
+    {
         fitnessArray[i]=fitness(chromosome[i]);
+	if(fitnessArray[i].leftValue()<dmin)
+		dmin=fitnessArray[i].leftValue();
+	if(i%20==0)
+		printf("f[%d]=%10.5lg\n",i,dmin);
+    }
 }
 
 void    GrammarGenetic::select()
@@ -197,7 +205,7 @@ void    GrammarGenetic::nextGeneration()
         problem->setMargins(xpoint);
     }
    
-    if(generation%10==0)
+    if(generation%20==0)
     {
         int count = 10;
 
@@ -262,7 +270,14 @@ void    GrammarGenetic::localSearch(int pos)
     g.resize(genome_size);
     for(int i=0;i<genome_size;i++) g[i]=chromosome[pos][i];
     int genome_count = chromosome.size();
+        Interval f = fitnessArray[pos];
+        IntegerAnneal lt(problem,this);
+        lt.setPoint(g,fitnessArray[pos]);
+        lt.Solve();
+        lt.getPoint(g,fitnessArray[pos]);
+        for(int j=0;j<genome_size;j++) chromosome[pos][j]=g[j];
 
+return;	
     for(int iters=1;iters<=100;iters++)
     {
         int gpos=rand() % genome_count;

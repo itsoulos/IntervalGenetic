@@ -58,6 +58,7 @@ SOURCES       = boundedgradientdescent.cpp \
 		doublepop.cpp \
 		getoptions.cpp \
 		GE/grammargenetic.cpp \
+		GE/integeranneal.cpp \
 		GE/symbol.cc \
 		GE/doublestack.cc \
 		GE/fparser.cc \
@@ -79,6 +80,7 @@ OBJECTS       = boundedgradientdescent.o \
 		doublepop.o \
 		getoptions.o \
 		grammargenetic.o \
+		integeranneal.o \
 		symbol.o \
 		doublestack.o \
 		fparser.o \
@@ -185,6 +187,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		doublepop.h \
 		getoptions.h \
 		GE/grammargenetic.h \
+		GE/integeranneal.h \
 		GE/symbol.h \
 		GE/doublestack.h \
 		GE/fparser.hh \
@@ -205,6 +208,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		doublepop.cpp \
 		getoptions.cpp \
 		GE/grammargenetic.cpp \
+		GE/integeranneal.cpp \
 		GE/symbol.cc \
 		GE/doublestack.cc \
 		GE/fparser.cc \
@@ -419,8 +423,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents boundedgradientdescent.h constrainedadam.h dllproblem.h doublepop.h getoptions.h GE/grammargenetic.h GE/symbol.h GE/doublestack.h GE/fparser.hh GE/fpconfig.hh GE/fptypes.hh GE/program.h GE/rule.h GE/cprogram.h integergenetic.h interval.h intervalgenetic.h intervalproblem.h intervalpso.h tolmin.h problem.h $(DISTDIR)/
-	$(COPY_FILE) --parents boundedgradientdescent.cpp constrainedadam.cpp dllproblem.cpp doublepop.cpp getoptions.cpp GE/grammargenetic.cpp GE/symbol.cc GE/doublestack.cc GE/fparser.cc GE/fpoptimizer.cc GE/program.cc GE/rule.cc GE/cprogram.cc integergenetic.cpp interval.cpp intervalgenetic.cpp intervalproblem.cpp intervalpso.cpp main.cpp tolmin.cc problem.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents boundedgradientdescent.h constrainedadam.h dllproblem.h doublepop.h getoptions.h GE/grammargenetic.h GE/integeranneal.h GE/symbol.h GE/doublestack.h GE/fparser.hh GE/fpconfig.hh GE/fptypes.hh GE/program.h GE/rule.h GE/cprogram.h integergenetic.h interval.h intervalgenetic.h intervalproblem.h intervalpso.h tolmin.h problem.h $(DISTDIR)/
+	$(COPY_FILE) --parents boundedgradientdescent.cpp constrainedadam.cpp dllproblem.cpp doublepop.cpp getoptions.cpp GE/grammargenetic.cpp GE/integeranneal.cpp GE/symbol.cc GE/doublestack.cc GE/fparser.cc GE/fpoptimizer.cc GE/program.cc GE/rule.cc GE/cprogram.cc integergenetic.cpp interval.cpp intervalgenetic.cpp intervalproblem.cpp intervalpso.cpp main.cpp tolmin.cc problem.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -504,6 +508,13 @@ grammargenetic.o: GE/grammargenetic.cpp GE/grammargenetic.h \
 		GE/doublestack.h \
 		GE/fparser.hh
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o grammargenetic.o GE/grammargenetic.cpp
+
+integeranneal.o: GE/integeranneal.cpp GE/integeranneal.h \
+		GE/program.h \
+		GE/symbol.h \
+		GE/rule.h \
+		GE/doublestack.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o integeranneal.o GE/integeranneal.cpp
 
 symbol.o: GE/symbol.cc GE/symbol.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o symbol.o GE/symbol.cc

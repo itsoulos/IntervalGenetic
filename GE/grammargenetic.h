@@ -17,7 +17,6 @@ private:
     Cprogram *program;
     const int nsamples=200;
     int     getParent();
-    Interval fitness(IDATA &genome);
     double selection_rate;
     double mutation_rate;
     void calcFitnessArray();
@@ -32,6 +31,7 @@ private:
     int MAX_RULE;
 public:
     GrammarGenetic(int count,int size,IntervalProblem *p);
+    Interval fitness(IDATA &genome);
     void    setSelectionRate(double r);
     void    setMutationRate(double r);
     void    setMaxGenerations(int m);
