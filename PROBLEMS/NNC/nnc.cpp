@@ -227,7 +227,7 @@ extern "C"
 	{
 		pop.nextGeneration();
 		double f = pop.getBestFitness();
-		//fprintf(stderr,"nnc[%d]=%lf\n",i,f);
+        fprintf(stderr,"nnc[%d]=%lf\n",i,f);
 	}
 	genome= pop.getBestGenome();
 	

@@ -197,13 +197,13 @@ void    GrammarGenetic::nextGeneration()
     printf("Generation=%4d Best Value=[%20.10lg,%20.10lg]\n",
            generation,fitnessArray[0].leftValue(),
             fitnessArray[0].rightValue());
-   if(generation%5==0)
+   /*if(generation%5==0)
     {
         IntervalData xpoint;
         Interval ypoint;
         getBest(xpoint,ypoint);
         problem->setMargins(xpoint);
-    }
+    }*/
    
     if(generation%20==0)
     {
@@ -271,13 +271,13 @@ void    GrammarGenetic::localSearch(int pos)
     for(int i=0;i<genome_size;i++) g[i]=chromosome[pos][i];
     int genome_count = chromosome.size();
         Interval f = fitnessArray[pos];
-        IntegerAnneal lt(problem,this);
+       /* IntegerAnneal lt(problem,this);
         lt.setPoint(g,fitnessArray[pos]);
         lt.Solve();
         lt.getPoint(g,fitnessArray[pos]);
         for(int j=0;j<genome_size;j++) chromosome[pos][j]=g[j];
 
-return;	
+return;	*/
     for(int iters=1;iters<=100;iters++)
     {
         int gpos=rand() % genome_count;

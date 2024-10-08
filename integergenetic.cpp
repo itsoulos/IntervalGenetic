@@ -95,8 +95,8 @@ void  IntegerGenetic::calcFitnessArray()
         fitnessArray[i]=fitness(genome[i]);
 	if(fitnessArray[i].leftValue()<dmin)
 		dmin=fitnessArray[i].leftValue();
-	if(i%20==0)
-		printf("f[%d]=%10.5lg\n",i,dmin);
+//	if(i%20==0)
+        //printf("f[%d]=%10.5lg\n",i,dmin);
     }
 }
 
