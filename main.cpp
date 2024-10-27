@@ -275,6 +275,20 @@ IntervalData runPsoInterval(DllProblem *p,Data &bestp)
 
 int main(int argc,char **argv)
 {
+    double avgTrainError=0.0;
+    double avgTestError=0.0;
+    double avgClassError=0.0;
+    double minTrainError=0.0;
+    double minTestError=0.0;
+    double minClassError=0.0;
+    double avg_precision = 0.0;
+    double avg_recall  = 0.0;
+    double avg_fscore = 0.0;
+    const int outIters = 10;
+    int tries=30;
+
+    for(int ik=1;ik<=outIters;ik++)
+    {
     QCoreApplication app(argc,argv);
     parseCmdLine(app.arguments());
     if(filename=="") printParams();
@@ -282,7 +296,7 @@ int main(int argc,char **argv)
     QJsonObject neuralObject;
     DllProblem p(filename,params);
     p.setParameter("normalTrain",0);
-    srand(randomSeed);
+    srand(randomSeed+ik*10);
     Data bestgeneticx;
     bestgeneticx.resize(p.getDimension());
     IntervalData bestMargin=p.getMargins();
@@ -296,7 +310,8 @@ int main(int argc,char **argv)
     else
     if(intervalMethod=="grammar")
     {
-	    
+        p.setParameter("normalTrain",1);
+
         bestMargin = p.getMargins();
         Problem np(&p,bestMargin);
 	
@@ -311,11 +326,11 @@ int main(int argc,char **argv)
         bestMargin = p.getMargins();
         for(int i=0;i<bestMargin.size();i++)
         {
-            //bestMargin[i]=Interval(-1.0*fabs(bestx[i]),
-              //                     1.0*fabs(bestx[i]));
-	      //FOR GE ONLY
-            bestMargin[i]=Interval(0,
+            bestMargin[i]=Interval(-1.0*fabs(bestx[i]),
                                    1.0*fabs(bestx[i]));
+          /*
+            bestMargin[i]=Interval(0,
+                                   1.0*fabs(bestx[i]));*/
             printf("Margin[%d]=%lf,%lf\n",i,bestMargin[i].leftValue(),
                    bestMargin[i].rightValue());
         }
@@ -324,16 +339,7 @@ int main(int argc,char **argv)
         bestMargin=runGrammarInterval(&p,bestgeneticx);
     }
 
-    double avgTrainError=0.0;
-    double avgTestError=0.0;
-    double avgClassError=0.0;
-    double minTrainError=0.0;
-    double minTestError=0.0;
-    double minClassError=0.0;
-    double avg_precision = 0.0;
-    double avg_recall  = 0.0;
-    double avg_fscore = 0.0;
-    int tries=30;
+
     p.setParameter("normalTrain",1);
      Problem np(&p,bestMargin);
 
@@ -343,7 +349,7 @@ int main(int argc,char **argv)
         Data bestx;
         double besty=0;
         srand(randomSeed+i);
-	srand48(randomSeed+i);
+        srand48(randomSeed+i);
         if(localMethod=="gradient")
         {
             BoundedGradientDescent Optimizer(&np);
@@ -379,9 +385,9 @@ int main(int argc,char **argv)
         else
         if(localMethod=="bfgs")
         {
-		if(intervalMethod=="none")
+        //if(intervalMethod=="none")
              bestx=np.getUniformRandomPoint();
-		else bestx=bestgeneticx;
+        //else bestx=bestgeneticx;
             besty=tolmin(bestx,&np,bfgs_iterations);
         }
         else
@@ -418,14 +424,15 @@ int main(int argc,char **argv)
        }
  }
     }
+    }
 if(debug)
 {
-    printf("AVERAGE TRAIN ERROR: %20.10lg\n",avgTrainError/tries);
-    printf("AVERAGE TEST  ERROR: %20.10lg\n",avgTestError/tries);
-    printf("AVERAGE CLASS ERROR: %20.10lg%%\n",avgClassError/tries);
-    printf("AVERAGE PRECISION  : %20.10lg\n",avg_precision/tries);
-    printf("AVERAGE RECALL     : %20.10lg\n",avg_recall/tries);
-    printf("AVERAGE FSCORE     : %20.10lg\n",avg_fscore/tries);
+    printf("AVERAGE TRAIN ERROR: %20.10lg\n",avgTrainError/(outIters*tries));
+    printf("AVERAGE TEST  ERROR: %20.10lg\n",avgTestError/(outIters*tries));
+    printf("AVERAGE CLASS ERROR: %20.10lg%%\n",avgClassError/(outIters*tries));
+    printf("AVERAGE PRECISION  : %20.10lg\n",avg_precision/(outIters*tries));
+    printf("AVERAGE RECALL     : %20.10lg\n",avg_recall/(outIters*tries));
+    printf("AVERAGE FSCORE     : %20.10lg\n",avg_fscore/(outIters*tries));
     printf("==================================================\n");
     printf("MINIMUM TRAIN ERROR: %20.10lg\n",minTrainError);
     printf("MINIMUM TEST  ERROR: %20.10lg\n",minTestError);

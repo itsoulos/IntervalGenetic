@@ -10,7 +10,7 @@ GrammarGenetic::GrammarGenetic(int count,int size,IntervalProblem *p)
     gcount = count;
     gsize = size;
     MAX_RULE = 255;
-        MAX_RULE = 3 * p->getDimension()/2;
+    //MAX_RULE = 3 * p->getDimension()/2;
     chromosome.resize(count);
     children.resize(count);
     for(int i=0;i<count;i++)
@@ -98,8 +98,6 @@ void    GrammarGenetic::calcFitnessArray()
         fitnessArray[i]=fitness(chromosome[i]);
 	if(fitnessArray[i].leftValue()<dmin)
 		dmin=fitnessArray[i].leftValue();
-	if(i%20==0)
-		printf("f[%d]=%10.5lg\n",i,dmin);
     }
 }
 
@@ -204,7 +202,7 @@ void    GrammarGenetic::nextGeneration()
         getBest(xpoint,ypoint);
         problem->setMargins(xpoint);
     }*/
-   
+  /* 
     if(generation%20==0)
     {
         int count = 10;
@@ -212,7 +210,7 @@ void    GrammarGenetic::nextGeneration()
         for(int i=0;i<count;i++)
             localSearch(rand() % chromosome.size());
         select();
-    }
+    }*/
 }
 
 void    GrammarGenetic::Solve()

@@ -151,7 +151,7 @@ void	Cprogram::makeRules()
 	rule[r]->addSymbol(&XXlist);
 	XXlist.addRule(rule[r]);
 
-    for(int i=0;i<7;i++)
+    for(int i=0;i<3;i++)
 	{
 		r=newRule();
 		rule[r]->addSymbol(&Digit[i]);
