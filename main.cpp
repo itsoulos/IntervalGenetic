@@ -15,6 +15,7 @@
 #include "boundedgradientdescent.h"
 #include "tolmin.h"
 # include <GE/grammargenetic.h>
+# include <simanbounds.h>
 using namespace  std;
 
 #define GENETIC
@@ -66,7 +67,7 @@ QString checkInList(QStringList &lst,QString value)
 
 void parseCmdLine(QStringList args)
 {
-    intervalMethodList<<"double"<<"integer"<<"pso"<<"grammar"<<"none";
+    intervalMethodList<<"double"<<"integer"<<"pso"<<"grammar"<<"none"<<"siman";
     localMethodList<<"gradient"<<"adam"<<"bfgs"<<"genetic"<<"none";
 
     QString lastParam="";
@@ -307,6 +308,20 @@ int main(int argc,char **argv)
     else
     if(intervalMethod=="pso")
         bestMargin = runPsoInterval(&p,bestgeneticx);
+    else
+    if(intervalMethod=="siman")
+    {
+        SimanBounds bounds(&p);
+        bounds.Solve();
+        Data xl,xr;
+        xl.resize(p.getDimension());
+        xr.resize(p.getDimension());
+        bounds.getBounds(xl,xr);
+        for(int i=0;i<xl.size();i++)
+        {
+            bestMargin[i]=Interval(xl[i],xr[i]);
+        }
+    }
     else
     if(intervalMethod=="grammar")
     {
