@@ -1127,8 +1127,12 @@ QJsonObject    done(Data &x)
 		printf("%lf ",xt[j]);
 	}
        create_rbf(dimension,nodes,1,centers,variances,weights,xt,outv);
+       if(fabs(outv[0])>1e+4) continue;
         sum+=(testy[i]-outv[0])*(testy[i]-outv[0]);
+	if(sum>1e+5)
+	{
 	printf("(%lf -> %lf )\n",testy[i],outv[0]);
+	}
         classError+=fabs(testy[i]-nearestClass(outv[0]))>1e-7;
 
     }
@@ -1141,6 +1145,13 @@ QJsonObject    done(Data &x)
     T.resize(testx.size());
     O.resize(testx.size());
 
+    double maxy=testy[0],miny=testy[0];
+    for(int i=0;i<testx.size();i++)
+    {
+	    if(testy[i]>maxy) maxy = testy[i];
+	    if(testy[i]<miny) miny = testy[i];
+    }
+    sum = 0.0;
     for(unsigned int i=0;i<testx.size();i++)
     {
 	       Data pattern = testx[i];
@@ -1149,6 +1160,11 @@ QJsonObject    done(Data &x)
             neuronOuts[j] = neuronOutput(x,pattern,pattern.size(),j);
         }
         double tempOut = arma::dot(neuronOuts,Linear);
+	if(fabs(tempOut)>1e+5)
+	{
+		if(tempOut<miny) tempOut = miny;
+		if(tempOut>maxy) tempOut = maxy;
+	}
 
         per=tempOut-testy[i];
         T[i]=nearestClassIndex(testy[i]);
