@@ -50,6 +50,8 @@ class DoublePop
 		void	getMinimum(Data &x,double &y);
 		void	Solve();
         void    setMaxGenerations(int g);
+        void    localSearch(int pos);
+        int     selectWithTournament(int size);
 		~DoublePop();
 		
 };

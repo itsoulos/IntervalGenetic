@@ -285,7 +285,7 @@ int main(int argc,char **argv)
     double avg_precision = 0.0;
     double avg_recall  = 0.0;
     double avg_fscore = 0.0;
-    const int outIters = 10;
+    const int outIters = 1;
     int tries=30;
 
     for(int ik=1;ik<=outIters;ik++)
@@ -301,7 +301,6 @@ int main(int argc,char **argv)
     Data bestgeneticx;
     bestgeneticx.resize(p.getDimension());
     IntervalData bestMargin=p.getMargins();
-    qDebug()<<"Interval method "<<intervalMethod<<endl;
     if(intervalMethod=="integer") bestMargin=runIntegerInterval(&p,bestgeneticx);
     else
     if(intervalMethod=="double") bestMargin=runDoubleInterval(&p,bestgeneticx);

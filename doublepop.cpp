@@ -415,6 +415,65 @@ void	DoublePop::replaceWorst()
 	}
 }
 
+int     DoublePop::selectWithTournament(int size)
+{
+    double max= 1e+100;
+    int posMax= -1;
+    for(int i=0;i<size;i++)
+    {
+        int pos = rand() % genome_count;
+        if(fitness_array[pos]<max)
+        {
+            max = fitness_array[pos];
+            posMax = pos;
+        }
+    }
+    return posMax;
+}
+void    DoublePop::localSearch(int pos)
+{
+    vector<double> g;
+       g.resize(genome[0].size());
+
+           int randomA,randomB,randomC;
+           do
+           {
+               randomA =  selectWithTournament(8);
+               randomB =  selectWithTournament(8);
+               randomC = selectWithTournament(8);
+           }while(randomA == randomB || randomB == randomC ||
+                  randomC == randomA);
+           double CR= 0.9;
+           double F = 0.8;
+           int n = problem->getDimension();
+           int randomIndex = rand() % n;
+       for(int i=0;i<n;i++)
+       {
+           if(i==randomIndex || problem->randomDouble() <=CR)
+           {
+               double old_value = genome[pos][i];
+               F = -0.5 + 2.0 * rand()*1.0/RAND_MAX;
+               genome[pos][i]=genome[randomA][i]+abs(F*(genome[randomB][i]-genome[randomC][i]));
+               if(!problem->isPointIn(genome[pos]))
+               {
+                   genome[pos][i]=old_value;
+                   continue;
+               }
+
+               for(int j=0;j<n;j++) g[j]=genome[pos][j];
+               double trial_fitness=problem->funmin(g);
+               if(fabs(trial_fitness)<fabs(fitness_array[pos]))
+               {
+                  /* printf("DE[%d]=%20.10lg=>%20.10lg\n",pos,
+                          fitness_array[pos],
+                          trial_fitness);*/
+                   fitness_array[pos]=trial_fitness;
+
+               }
+               else	genome[pos][i]=old_value;
+           }
+       }
+}
 void	DoublePop::Solve()
 {
 	extern int maxGenerations;
@@ -478,9 +537,11 @@ void	DoublePop::Solve()
 				i,fitness_array[0],variance,stopat);
 		
 		if(fabs(fitness_array[0])<1e-10) break;
-//		if(diff1<1e-8 && i>=20) break;
-//		if(diff2<1e-8 && i>=20) break;
-//		if(variance<=stopat && i>=20) break;
+        if(i%10==0)
+        {
+            for(int k=0;k<20;k++)
+                localSearch(rand() % genome_count);
+        }
 	}
 	LocalSearch(problem,genome[0],fitness_array[0]);
 	have_finished=1;
