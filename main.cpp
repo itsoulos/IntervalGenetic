@@ -67,7 +67,7 @@ QString checkInList(QStringList &lst,QString value)
 
 void parseCmdLine(QStringList args)
 {
-    intervalMethodList<<"double"<<"integer"<<"pso"<<"grammar"<<"none"<<"siman";
+    intervalMethodList<<"double"<<"integer"<<"pso"<<"grammar"<<"none"<<"siman"<<"genetic";
     localMethodList<<"gradient"<<"adam"<<"bfgs"<<"genetic"<<"none";
 
     QString lastParam="";
@@ -322,6 +322,36 @@ int main(int argc,char **argv)
         }
     }
     else
+    if(intervalMethod == "genetic")
+    {
+        bestMargin = p.getMargins();
+        Problem np(&p,bestMargin);
+        intervalMethod="none";
+        p.setParameter("normalTrain",0);
+        DoublePop pop(chromosomes,&np);
+        pop.setLocalIterations(2000);
+        pop.setLocalChromosomes(0);
+        pop.setSelectionRate(selection_rate);
+        pop.setMutationRate(mutation_rate);
+        pop.setMaxGenerations(200);
+        pop.Solve();
+        Data bestx = pop.getBestGenome();
+
+        printf("Phase 1 margins....\n");
+        bestMargin = p.getMargins();
+        for(int i=0;i<bestMargin.size();i++)
+        {
+            bestMargin[i]=Interval(-2.0*fabs(bestx[i]),
+                                   2.0*fabs(bestx[i]));
+
+            printf("Margin[%d]=%lf,%lf\n",i,bestMargin[i].leftValue(),
+                   bestMargin[i].rightValue());
+        }
+        p.setMargins(bestMargin);
+        intervalMethod="genetic";
+
+    }
+    else
     if(intervalMethod=="grammar")
     {
         p.setParameter("normalTrain",1);
@@ -342,9 +372,7 @@ int main(int argc,char **argv)
         {
             bestMargin[i]=Interval(-1.0*fabs(bestx[i]),
                                    1.0*fabs(bestx[i]));
-          /*
-            bestMargin[i]=Interval(0,
-                                   1.0*fabs(bestx[i]));*/
+
             printf("Margin[%d]=%lf,%lf\n",i,bestMargin[i].leftValue(),
                    bestMargin[i].rightValue());
         }
@@ -388,6 +416,7 @@ int main(int argc,char **argv)
         else
         if(localMethod=="genetic")
         {
+
             DoublePop pop(chromosomes,&np);
             pop.setSelectionRate(selection_rate);
             pop.setMutationRate(mutation_rate);

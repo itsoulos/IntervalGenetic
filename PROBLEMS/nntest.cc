@@ -375,9 +375,6 @@ QJsonObject    done(Data &x)
     double sum=0.0;
     double per=0.0;
     double classError=0.0;
-    FILE *fp;
-    if(omp_get_thread_num()==0)
-	    fp=fopen("neural.plot","a");
     int fcount=0;
     for(int i=0;i<testx.size();i++)
     {
@@ -385,11 +382,7 @@ QJsonObject    done(Data &x)
         per=neuralOutput-testy[i];
         classError+=fabs(testy[i]-nearestClass(neuralOutput))>1e-7;
         sum+=per * per;
-	if(omp_get_thread_num()==0)
-		fprintf(fp,"%lf %lf %lf\n",testx[i][0],neuralOutput,testy[i]);
     }
-    if(omp_get_thread_num()==0)
-	    fclose(fp);
     QJsonObject result;
     result["nodes"]=nodes;
     result["testError"]=sum;

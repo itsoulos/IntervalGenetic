@@ -30,6 +30,7 @@ class DoublePop
 		void	getTournamentElement(Data &x);
 		void	tournament(Data &p1,Data &p2);
 		Problem	*problem;
+        int LI=10,LC=20;
 	public:
 		DoublePop(int gcount,Problem *p);
 		void	setElitism(int s);
@@ -52,6 +53,8 @@ class DoublePop
         void    setMaxGenerations(int g);
         void    localSearch(int pos);
         int     selectWithTournament(int size);
+        void    setLocalIterations(int iters);
+        void    setLocalChromosomes(int g);
 		~DoublePop();
 		
 };

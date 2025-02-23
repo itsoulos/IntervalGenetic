@@ -61,7 +61,9 @@ DoublePop::DoublePop(int gcount,Problem *p)
 		genome[i].resize(genome_size);
 		children[i].resize(genome_size);
 		if(intervalMethod=="none")
+		{
 			genome[i]=problem->getUniformRandomPoint();
+		}
 		else
 		{
         genome[i]=problem->getRandomPoint();}
@@ -77,6 +79,14 @@ DoublePop::DoublePop(int gcount,Problem *p)
     rmargin=problem->getRightMargin();
 }
 
+void    DoublePop::setLocalIterations(int iters)
+{
+    LI  = iters;
+}
+void    DoublePop::setLocalChromosomes(int g)
+{
+    LC= g;
+}
 void    DoublePop::setMaxGenerations(int g)
 {
     maxGenerations=g;
@@ -452,7 +462,8 @@ void    DoublePop::localSearch(int pos)
            if(i==randomIndex || problem->randomDouble() <=CR)
            {
                double old_value = genome[pos][i];
-               F = -0.5 + 2.0 * rand()*1.0/RAND_MAX;
+               //F = -0.5 + 2.0 * rand()*1.0/RAND_MAX;
+	       //F = 0.5+drand48()/2.0;
                genome[pos][i]=genome[randomA][i]+abs(F*(genome[randomB][i]-genome[randomC][i]));
                if(!problem->isPointIn(genome[pos]))
                {
@@ -537,12 +548,16 @@ void	DoublePop::Solve()
 				i,fitness_array[0],variance,stopat);
 		
 		if(fabs(fitness_array[0])<1e-10) break;
-        if(i%10==0)
+        if(i%LI==0)
         {
-            for(int k=0;k<20;k++)
-                localSearch(rand() % genome_count);
+            for(int k=0;k<LC;k++)
+	    {
+		    int pos = rand() % genome_count;
+               	    localSearch(pos);
+	    }
+	    select();
         }
-	}
+    }
 	LocalSearch(problem,genome[0],fitness_array[0]);
 	have_finished=1;
 	fitness_array[0]=problem->funmin(genome[0]);
