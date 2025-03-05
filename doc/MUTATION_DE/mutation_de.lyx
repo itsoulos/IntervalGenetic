@@ -518,91 +518,411 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Fert dataset,
+The Fert dataset, related to the detection of relations between sperm concentrat
+ion and demographic data.
 \end_layout
 
 \begin_layout Enumerate
-The Haberman dataset,
+The Haberman dataset, which is related to the detection of breast cancer.
 \end_layout
 
 \begin_layout Enumerate
-The Hayes roth dataset,
+The Hayes roth dataset 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "hayes-roth"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
-The Heart dataset,
+The Heart dataset, which is related to some heart diseases 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "heart"
+literal "false"
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Enumerate
-The HouseVotes dataset,
+The HouseVotes dataset, related to data from Congressional voting in USA
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "housevotes"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
-The Ionosphere dataset,
+The Ionosphere dataset, that contains measurements from the ionosphere 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ion1,ion2"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
-The Lymography dataset,
+The Liverdisorder dataset, which is a medical dataset 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "liver1,liver2"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
-The Mammographic dataset,
+The Lymography dataset 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "lymography"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
-The Parkinsons dataset,
+The Mammographic dataset, which is a medical dataset 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "mammographic"
+literal "false"
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Enumerate
-The Pima dataset,
+The Parkinsons dataset, that was used in the detection of Parkinson's disease
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "parkinsons1,parkinsons2"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
-The Popfailures dataset,
+The Pima dataset, a medical dataset related to the detection of diabetes's
+ disease 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "pima"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
-The Regions2 dataset,
+The Popfailures dataset, related to climate model simulations 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "popfailures"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
-The Saheart dataset,
+The Regions2 dataset, related to some diseases in liver 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "regions2"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
-The Segment dataset,
+The Saheart dataset, related to some heart diseases 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "saheart"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
-The Sonar dataset,
+The Segment dataset, related to image processing 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "segment"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
-The Spiral dataset,
+The Sonar dataset, used to discriminate sonar signals 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "sonar"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
-The StatHeart dataset,
+The Spiral dataset, which was created artificially.
+ 
 \end_layout
 
 \begin_layout Enumerate
-The Student dataset,
+The StatHeart dataset, a medical dataset regarding heart diseases.
 \end_layout
 
 \begin_layout Enumerate
-The WDBC dataset,
+The Student dataset, which is related to experiments conducted in schools
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "student"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
-The Wine dataset,
+The WDBC dataset, which is related to the detection of cancer 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "wdbc"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
-The EEG dataset,
+The Wine dataset, used to detection of the quality of wines 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "wine1,wine2"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
-The ZOO dataset,
+The EEG dataset, which contains various EEG measurements 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "eeg1,eeg2"
+literal "false"
+
+\end_inset
+
+.
+ From this dataset the following cases were utilized: Z_F_S, ZO_NF_S and
+ ZONF_S.
+\end_layout
+
+\begin_layout Enumerate
+The ZOO dataset, which is used for animal classification 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "zoo"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Also, the following regression datasets were incorporated in the conducted
+ experiments:
+\end_layout
+
+\begin_layout Enumerate
+The Abalone dataset, that was used to predict the age of abalones 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "abalone"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The Airfoil dataset, derived from NASA 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "airfoil"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+the Baseball dataset, used to predict the salary of baseball players.
+\end_layout
+
+\begin_layout Enumerate
+The BK dataset, related to basketball games 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "BK"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The BL dataset, related to some electricity experiments.
+\end_layout
+
+\begin_layout Enumerate
+The Concrete dataset, which is related to civil engineering 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "concrete"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The Dee dataset, which is related to the price of electricity.
+\end_layout
+
+\begin_layout Enumerate
+The Housing dataset, related to the price of houses 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "housing"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The Friedman dataset, used in various benchmarks 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "friedman"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The FY dataset, related to fruit flies.
+\end_layout
+
+\begin_layout Enumerate
+The HO dataset, obtained from the STATLIB repository.
+\end_layout
+
+\begin_layout Enumerate
+The Laser dataset, related to laser experiments.
+\end_layout
+
+\begin_layout Enumerate
+The LW dataset, related to the prediction of the weight of babes.
+\end_layout
+
+\begin_layout Enumerate
+The MB dataset, which was obtained from Smoothing Methods in Statistics.
+\end_layout
+
+\begin_layout Enumerate
+The Mortgage dataset, which is an economic dataset.
+\end_layout
+
+\begin_layout Enumerate
+The Plastic dataset, related to the pressure in plastics.
+\end_layout
+
+\begin_layout Enumerate
+The PY dataset 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "pydataset"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The PL dataset, obtained from the STATLIB repository.
+\end_layout
+
+\begin_layout Enumerate
+The Quake dataset, used to detect the strength of earthquakes.
+ 
+\end_layout
+
+\begin_layout Enumerate
+The SN dataset, which is related to trellising and pruning.
+\end_layout
+
+\begin_layout Enumerate
+The Stock dataset, used to estimate the price of stocks.
+\end_layout
+
+\begin_layout Enumerate
+The Treasury dataset, which is an economic dataset.
+\end_layout
+
+\begin_layout Enumerate
+The VE dataset, obtained from the STATLIB repository.
 \end_layout
 
 \begin_layout Subsection
@@ -610,11 +930,529 @@ Experimental results
 \end_layout
 
 \begin_layout Standard
+The code used in the conducted experiments was written in ANSI C++ and all
+ runs were performed 30 times using a different seed for the random number
+ generator each time.
+ The validation of the experiments were done using the well - known method
+ of 10 - fold cross validation.
+ For the case of classification datasets the average classification error
+ is reported in the experimental tables.
+ This error is calculated through the following equation:
+\begin_inset Formula 
+\begin{equation}
+E_{C}\left(N(w,x)\right)=100\times\frac{\sum_{i=1}^{K}\left(\mbox{class}\left(N\left(w,x_{i}\right)\right)-y_{i}\right)}{K}
+\end{equation}
+
+\end_inset
+
+where the set 
+\begin_inset Formula $T=\left\{ x_{i},y_{i}\right\} ,\ i=1,\ldots,K$
+\end_inset
+
+ denotes the test set of the objective problem.
+ For regression datasets the average regression error as calculated on the
+ test set is reported and it is denoted as:Also, the regression error is
+ defined as: 
+\begin_inset Formula 
+\begin{equation}
+E_{R}\left(N(w,x)\right)=\frac{\sum_{i=1}^{K}\left(N\left(w,x_{i}\right)-y_{i}\right)^{2}}{K}
+\end{equation}
+
+\end_inset
+
+The values for the parameters of the proposed method are shown in Table
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:settings"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ In the experimental tables the following notation is used:
+\end_layout
+
+\begin_layout Enumerate
+The column DATASET represents the objective problem.
+\end_layout
+
+\begin_layout Enumerate
+The column ADAM denotes the incorporation of the ADAM optimizer to train
+ a neural network with 
+\begin_inset Formula $H=10$
+\end_inset
+
+ processing nodes.
+\end_layout
+
+\begin_layout Enumerate
+The column BFGS represents the application of the BFGS optimizer to train
+ a neural network with 
+\begin_inset Formula $H=10$
+\end_inset
+
+ processing nodes.
+\end_layout
+
+\begin_layout Enumerate
+The column GENETIC denotes the usage of a Genetic Algorithm with the same
+ set of parameters as shown in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:settings"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to train an artificial neural network with 
+\begin_inset Formula $H=10$
+\end_inset
+
+ processing nodes.
+\end_layout
+
+\begin_layout Enumerate
+The column NEAT is used for the application of the NEAT method (NeuroEvolution
+ of Augmenting Topologies ) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "neat"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The row AVERAGE is used for the average classification or regression error
+ for all datasets.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 placement H
 wide false
 sideways false
-status open
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The values of the experimental parameters.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:settings"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="11" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PARAMETER
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MEANING
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+VALUE
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{g}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of generations allowed
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+200
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{c}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of chromosomes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{i}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of generations before the application of the operator
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{l}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of chromosome where the operator will be applied
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $F$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Differential Weight
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CR
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Crossover rate for Differential Evolution
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $p_{s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Selection rate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $p_{m}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mutation rate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.05
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $H$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of processing nodes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $a$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Margin factor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The experimental results for the classification datasets are shown in Table
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Experiments-for-classification"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and for the regression datasets in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:exp2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -660,7 +1498,7 @@ DATASET
 \begin_inset Text
 
 \begin_layout Plain Layout
-BFGS
+ADAM
 \end_layout
 
 \end_inset
@@ -669,7 +1507,7 @@ BFGS
 \begin_inset Text
 
 \begin_layout Plain Layout
-ADAM
+BFGS
 \end_layout
 
 \end_inset
@@ -716,7 +1554,7 @@ Alcohol
 \begin_inset Text
 
 \begin_layout Plain Layout
-41.50%
+57.78%
 \end_layout
 
 \end_inset
@@ -725,7 +1563,7 @@ Alcohol
 \begin_inset Text
 
 \begin_layout Plain Layout
-57.78%
+41.50%
 \end_layout
 
 \end_inset
@@ -772,7 +1610,7 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
-18.00%
+16.50%
 \end_layout
 
 \end_inset
@@ -781,7 +1619,7 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
-16.50%
+18.00%
 \end_layout
 
 \end_inset
@@ -828,7 +1666,7 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
-38.13%
+35.65%
 \end_layout
 
 \end_inset
@@ -837,7 +1675,7 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
-35.65%
+38.13%
 \end_layout
 
 \end_inset
@@ -884,7 +1722,7 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
-8.64%
+7.87%
 \end_layout
 
 \end_inset
@@ -893,7 +1731,7 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
-7.87%
+8.64%
 \end_layout
 
 \end_inset
@@ -940,7 +1778,7 @@ Circular
 \begin_inset Text
 
 \begin_layout Plain Layout
-6.08%
+19.95%
 \end_layout
 
 \end_inset
@@ -949,7 +1787,7 @@ Circular
 \begin_inset Text
 
 \begin_layout Plain Layout
-19.95%
+6.08%
 \end_layout
 
 \end_inset
@@ -996,7 +1834,7 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
-77.55%
+67.55%
 \end_layout
 
 \end_inset
@@ -1005,7 +1843,7 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
-67.55%
+77.55%
 \end_layout
 
 \end_inset
@@ -1052,7 +1890,7 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
-52.92%
+26.14%
 \end_layout
 
 \end_inset
@@ -1061,7 +1899,7 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
-26.14%
+52.92%
 \end_layout
 
 \end_inset
@@ -1108,7 +1946,7 @@ Ecoli
 \begin_inset Text
 
 \begin_layout Plain Layout
-69.52%
+64.43%
 \end_layout
 
 \end_inset
@@ -1117,7 +1955,7 @@ Ecoli
 \begin_inset Text
 
 \begin_layout Plain Layout
-64.43%
+69.52%
 \end_layout
 
 \end_inset
@@ -1164,7 +2002,7 @@ Fert
 \begin_inset Text
 
 \begin_layout Plain Layout
-23.20%
+23.98%
 \end_layout
 
 \end_inset
@@ -1173,7 +2011,7 @@ Fert
 \begin_inset Text
 
 \begin_layout Plain Layout
-23.98%
+23.20%
 \end_layout
 
 \end_inset
@@ -1220,7 +2058,7 @@ Haberman
 \begin_inset Text
 
 \begin_layout Plain Layout
-29.34%
+29.00%
 \end_layout
 
 \end_inset
@@ -1229,7 +2067,7 @@ Haberman
 \begin_inset Text
 
 \begin_layout Plain Layout
-29.00%
+29.34%
 \end_layout
 
 \end_inset
@@ -1276,7 +2114,7 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
-37.33%
+59.70%
 \end_layout
 
 \end_inset
@@ -1285,7 +2123,7 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
-59.70%
+37.33%
 \end_layout
 
 \end_inset
@@ -1332,7 +2170,7 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
-39.44%
+38.53%
 \end_layout
 
 \end_inset
@@ -1341,7 +2179,7 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
-38.53%
+39.44%
 \end_layout
 
 \end_inset
@@ -1388,7 +2226,7 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
-7.13%
+7.48%
 \end_layout
 
 \end_inset
@@ -1397,7 +2235,7 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
-7.48%
+7.13%
 \end_layout
 
 \end_inset
@@ -1444,7 +2282,7 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
-15.29%
+16.64%
 \end_layout
 
 \end_inset
@@ -1453,7 +2291,7 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
-16.64%
+15.29%
 \end_layout
 
 \end_inset
@@ -1500,7 +2338,7 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
-42.59%
+41.53%
 \end_layout
 
 \end_inset
@@ -1509,7 +2347,7 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
-41.53%
+42.59%
 \end_layout
 
 \end_inset
@@ -1556,7 +2394,7 @@ Lymography
 \begin_inset Text
 
 \begin_layout Plain Layout
-35.43%
+29.26%
 \end_layout
 
 \end_inset
@@ -1565,7 +2403,7 @@ Lymography
 \begin_inset Text
 
 \begin_layout Plain Layout
-29.26%
+35.43%
 \end_layout
 
 \end_inset
@@ -1612,7 +2450,7 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
-17.24%
+46.25%
 \end_layout
 
 \end_inset
@@ -1621,7 +2459,7 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
-46.25%
+17.24%
 \end_layout
 
 \end_inset
@@ -1668,7 +2506,7 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
-27.58%
+24.06%
 \end_layout
 
 \end_inset
@@ -1677,7 +2515,7 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
-24.06%
+27.58%
 \end_layout
 
 \end_inset
@@ -1724,7 +2562,7 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
-35.59%
+34.85%
 \end_layout
 
 \end_inset
@@ -1733,7 +2571,7 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
-34.85%
+35.59%
 \end_layout
 
 \end_inset
@@ -1780,7 +2618,7 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
-5.24%
+5.18%
 \end_layout
 
 \end_inset
@@ -1789,7 +2627,7 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
-5.18%
+5.24%
 \end_layout
 
 \end_inset
@@ -1836,7 +2674,7 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
-36.28%
+29.85%
 \end_layout
 
 \end_inset
@@ -1845,7 +2683,7 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
-29.85%
+36.28%
 \end_layout
 
 \end_inset
@@ -1892,7 +2730,7 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
-37.48%
+34.04%
 \end_layout
 
 \end_inset
@@ -1901,7 +2739,7 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
-34.04%
+37.48%
 \end_layout
 
 \end_inset
@@ -1948,7 +2786,7 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
-68.97%
+49.75%
 \end_layout
 
 \end_inset
@@ -1957,7 +2795,7 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
-49.75%
+68.97%
 \end_layout
 
 \end_inset
@@ -2004,7 +2842,7 @@ Sonar
 \begin_inset Text
 
 \begin_layout Plain Layout
-25.85%
+30.33%
 \end_layout
 
 \end_inset
@@ -2013,7 +2851,7 @@ Sonar
 \begin_inset Text
 
 \begin_layout Plain Layout
-30.33%
+25.85%
 \end_layout
 
 \end_inset
@@ -2060,7 +2898,7 @@ Spiral
 \begin_inset Text
 
 \begin_layout Plain Layout
-47.99%
+47.67%
 \end_layout
 
 \end_inset
@@ -2069,7 +2907,7 @@ Spiral
 \begin_inset Text
 
 \begin_layout Plain Layout
-47.67%
+47.99%
 \end_layout
 
 \end_inset
@@ -2116,7 +2954,7 @@ Statheart
 \begin_inset Text
 
 \begin_layout Plain Layout
-39.65%
+44.04%
 \end_layout
 
 \end_inset
@@ -2125,7 +2963,7 @@ Statheart
 \begin_inset Text
 
 \begin_layout Plain Layout
-44.04%
+39.65%
 \end_layout
 
 \end_inset
@@ -2172,7 +3010,7 @@ Student
 \begin_inset Text
 
 \begin_layout Plain Layout
-7.14%
+5.13%
 \end_layout
 
 \end_inset
@@ -2181,7 +3019,7 @@ Student
 \begin_inset Text
 
 \begin_layout Plain Layout
-5.13%
+7.14%
 \end_layout
 
 \end_inset
@@ -2228,7 +3066,7 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
-29.91%
+35.35%
 \end_layout
 
 \end_inset
@@ -2237,7 +3075,7 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
-35.35%
+29.91%
 \end_layout
 
 \end_inset
@@ -2284,7 +3122,7 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
-59.71%
+29.40%
 \end_layout
 
 \end_inset
@@ -2293,7 +3131,7 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
-29.40%
+59.71%
 \end_layout
 
 \end_inset
@@ -2340,7 +3178,7 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-39.37%
+47.81%
 \end_layout
 
 \end_inset
@@ -2349,7 +3187,7 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-47.81%
+39.37%
 \end_layout
 
 \end_inset
@@ -2396,7 +3234,7 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-43.04%
+47.43%
 \end_layout
 
 \end_inset
@@ -2405,7 +3243,7 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-47.43%
+43.04%
 \end_layout
 
 \end_inset
@@ -2452,7 +3290,7 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-15.62%
+11.99%
 \end_layout
 
 \end_inset
@@ -2461,7 +3299,7 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
-11.99%
+15.62%
 \end_layout
 
 \end_inset
@@ -2508,7 +3346,7 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
-10.70%
+14.13%
 \end_layout
 
 \end_inset
@@ -2517,7 +3355,7 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
-14.13%
+10.70%
 \end_layout
 
 \end_inset
@@ -2568,7 +3406,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-33.01%
+32.70%
 \end_layout
 
 \end_inset
@@ -2579,7 +3417,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
-32.70%
+33.01%
 \end_layout
 
 \end_inset
@@ -4097,7 +4935,7 @@ Experiments with the differential weight
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -9844,6 +10682,655 @@ P.
 \series default
 , pp.
  109-15, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1977)"
+key "hayes-roth"
+literal "false"
+
+\end_inset
+
+B.
+ Hayes-Roth, B., F.
+ Hayes-Roth.
+ Concept learning and the recognition and classification of exemplars.
+ Journal of Verbal Learning and Verbal Behavior 
+\series bold
+16
+\series default
+, pp.
+ 321-338, 1977.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1997)"
+key "heart"
+literal "false"
+
+\end_inset
+
+I.
+ Kononenko, E.
+ Šimec, M.
+ Robnik-Šikonja, Overcoming the Myopia of Inductive Learning Algorithms
+ with RELIEFF, Applied Intelligence 
+\series bold
+7
+\series default
+, pp.
+ 39–55, 1997.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2002)"
+key "housevotes"
+literal "false"
+
+\end_inset
+
+R.M.
+ French, N.
+ Chater, Using noise to compute error surfaces in connectionist networks:
+ a novel means of reducing catastrophic forgetting, Neural Comput.
+ 
+\series bold
+14
+\series default
+, pp.
+ 1755-1769, 2002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2004)"
+key "ion1"
+literal "false"
+
+\end_inset
+
+J.G.
+ Dy , C.E.
+ Brodley, Feature Selection for Unsupervised Learning, The Journal of Machine
+ Learning Research 
+\series bold
+5
+\series default
+, pp 845–889, 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ion2"
+literal "false"
+
+\end_inset
+
+S.
+ J.
+ Perantonis, V.
+ Virvilis, Input Feature Extraction for Multilayered Perceptrons Using Supervise
+d Principal Component Analysis, Neural Processing Letters 
+\series bold
+10
+\series default
+, pp 243–252, 1999.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2002)"
+key "liver1"
+literal "false"
+
+\end_inset
+
+ J.
+ Garcke, M.
+ Griebel, Classification with sparse grids using simplicial basis functions,
+ Intell.
+ Data Anal.
+ 
+\series bold
+6
+\series default
+, pp.
+ 483-502, 2002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "liver2"
+literal "false"
+
+\end_inset
+
+J.
+ Mcdermott, R.S.
+ Forsyth, Diagnosing a disorder in a classification benchmark, Pattern Recogniti
+on Letters 
+\series bold
+73
+\series default
+, pp.
+ 41-43, 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2002)"
+key "lymography"
+literal "false"
+
+\end_inset
+
+G.
+ Cestnik, I.
+ Konenenko, I.
+ Bratko, Assistant-86: A Knowledge-Elicitation Tool for Sophisticated Users.
+ In: Bratko, I.
+ and Lavrac, N., Eds., Progress in Machine Learning, Sigma Press, Wilmslow,
+ pp.
+ 31-45, 1987.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "mammographic"
+literal "false"
+
+\end_inset
+
+M.
+ Elter, R.
+ Schulz-Wendtland, T.
+ Wittenberg, The prediction of breast cancer biopsy outcomes using two CAD
+ approaches that both emphasize an intelligible decision process, Med Phys.
+ 
+\series bold
+34
+\series default
+, pp.
+ 4164-72, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "parkinsons1"
+literal "false"
+
+\end_inset
+
+M.A.
+ Little, P.E.
+ McSharry, S.J Roberts et al, Exploiting Nonlinear Recurrence and Fractal
+ Scaling Properties for Voice Disorder Detection.
+ BioMed Eng OnLine 
+\series bold
+6
+\series default
+, 23, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "parkinsons2"
+literal "false"
+
+\end_inset
+
+M.A.
+ Little, P.E.
+ McSharry, E.J.
+ Hunter, J.
+ Spielman, L.O.
+ Ramig, Suitability of dysphonia measurements for telemonitoring of Parkinson's
+ disease.
+ IEEE Trans Biomed Eng.
+ 
+\series bold
+56
+\series default
+, pp.
+ 1015-1022, 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "pima"
+literal "false"
+
+\end_inset
+
+J.W.
+ Smith, J.E.
+ Everhart, W.C.
+ Dickson, W.C.
+ Knowler, R.S.
+ Johannes, Using the ADAP learning algorithm to forecast the onset of diabetes
+ mellitus, In: Proceedings of the Symposium on Computer Applications and
+ Medical Care IEEE Computer Society Press, pp.261-265, 1988.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "popfailures"
+literal "false"
+
+\end_inset
+
+D.D.
+ Lucas, R.
+ Klein, J.
+ Tannahill, D.
+ Ivanova, S.
+ Brandon, D.
+ Domyancic, Y.
+ Zhang, Failure analysis of parameter-induced simulation crashes in climate
+ models, Geoscientific Model Development 
+\series bold
+6
+\series default
+, pp.
+ 1157-1171, 2013.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "regions2"
+literal "false"
+
+\end_inset
+
+N.
+ Giannakeas, M.G.
+ Tsipouras, A.T.
+ Tzallas, K.
+ Kyriakidi, Z.E.
+ Tsianou, P.
+ Manousou, A.
+ Hall, E.C.
+ Karvounis, V.
+ Tsianos, E.
+ Tsianos, A clustering based method for collagen proportional area extraction
+ in liver biopsy images (2015) Proceedings of the Annual International Conferenc
+e of the IEEE Engineering in Medicine and Biology Society, EMBS, 2015-November,
+ art.
+ no.
+ 7319047, pp.
+ 3097-3100.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "saheart"
+literal "false"
+
+\end_inset
+
+T.
+ Hastie, R.
+ Tibshirani, Non-parametric logistic and proportional odds regression, JRSS-C
+ (Applied Statistics) 
+\series bold
+36
+\series default
+, pp.
+ 260–276, 1987.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "segment"
+literal "false"
+
+\end_inset
+
+M.
+ Dash, H.
+ Liu, P.
+ Scheuermann, K.
+ L.
+ Tan, Fast hierarchical clustering and its validation, Data & Knowledge
+ Engineering 
+\series bold
+44
+\series default
+, pp 109–138, 2003.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "sonar"
+literal "false"
+
+\end_inset
+
+Gorman, R.P.; Sejnowski, T.J.
+ Analysis of Hidden Units in a Layered Network Trained to Classify Sonar
+ Targets.
+ Neural Netw.
+ 1988, 1, 75–89.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "student"
+literal "false"
+
+\end_inset
+
+P.
+ Cortez, A.
+ M.
+ Gonçalves Silva, Using data mining to predict secondary school student
+ performance, In Proceedings of 5th FUture BUsiness TEChnology Conference
+ (FUBUTEC 2008) (pp.
+ 5–12).
+ EUROSIS-ETI, 2008.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "wdbc"
+literal "false"
+
+\end_inset
+
+W.H.
+ Wolberg, O.L.
+ Mangasarian, Multisurface method of pattern separation for medical diagnosis
+ applied to breast cytology, Proc Natl Acad Sci U S A.
+ 
+\series bold
+87
+\series default
+, pp.
+ 9193–9196, 1990.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "wine1"
+literal "false"
+
+\end_inset
+
+M.
+ Raymer, T.E.
+ Doom, L.A.
+ Kuhn, W.F.
+ Punch, Knowledge discovery in medical and biological datasets using a hybrid
+ Bayes classifier/evolutionary algorithm.
+ IEEE transactions on systems, man, and cybernetics.
+ Part B, Cybernetics : a publication of the IEEE Systems, Man, and Cybernetics
+ Society, 
+\series bold
+33
+\series default
+ , pp.
+ 802-813, 2003.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "wine2"
+literal "false"
+
+\end_inset
+
+P.
+ Zhong, M.
+ Fukushima, Regularized nonsmooth Newton method for multi-class support
+ vector machines, Optimization Methods and Software 
+\series bold
+22
+\series default
+, pp.
+ 225-236, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "eeg1"
+literal "false"
+
+\end_inset
+
+R.
+ G.
+ Andrzejak, K.
+ Lehnertz, F.Mormann, C.
+ Rieke, P.
+ David, and C.
+ E.
+ Elger, “Indications of nonlinear deterministic and finite-dimensional structure
+s in time series of brain electrical activity: dependence on recording region
+ and brain state,” Physical Review E, vol.
+ 64, no.
+ 6, Article ID 061907, 8 pages, 2001.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "eeg2"
+literal "true"
+
+\end_inset
+
+A.
+ T.
+ Tzallas, M.
+ G.
+ Tsipouras, and D.
+ I.
+ Fotiadis, “Automatic Seizure Detection Based on Time-Frequency Analysis
+ and Artificial Neural Networks,” Computational Intelligence and Neuroscience,
+ vol.
+ 2007, Article ID 80510, 13 pages, 2007.
+ doi:10.1155/2007/80510.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "zoo"
+literal "false"
+
+\end_inset
+
+M.
+ Koivisto, K.
+ Sood, Exact Bayesian Structure Discovery in Bayesian Networks, The Journal
+ of Machine Learning Research
+\series bold
+ 5
+\series default
+, pp.
+ 549–573, 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "abalone"
+literal "false"
+
+\end_inset
+
+Nash, W.J.; Sellers, T.L.; Talbot, S.R.; Cawthor, A.J.; Ford, W.B.
+ The Population Biology of Abalone (_Haliotis_ species) in Tasmania.
+ I.
+ Blacklip Abalone (_H.
+ rubra_) from the North Coast and Islands of Bass Strait, Sea Fisheries
+ Division; Technical Report No.
+ 48; Department of Primary Industry and Fisheries, Tasmania: Hobart, Australia,
+ 1994; ISSN 1034-3288
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "airfoil"
+literal "false"
+
+\end_inset
+
+Brooks, T.F.; Pope, D.S.; Marcolini, A.M.
+ Airfoil Self-Noise and Prediction.
+ Technical Report, NASA RP-1218.
+ July 1989.
+ Available online: https://ntrs.nasa.gov/citations/19890016302 (accessed on
+ 5 March 2025).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "BK"
+literal "false"
+
+\end_inset
+
+J.S.
+ Simonoff, Smooting Methods in Statistics, Springer - Verlag, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "concrete"
+literal "false"
+
+\end_inset
+
+I.Cheng Yeh, Modeling of strength of high performance concrete using artificial
+ neural networks, Cement and Concrete Research.
+ 
+\series bold
+28
+\series default
+, pp.
+ 1797-1808, 1998.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "housing"
+literal "true"
+
+\end_inset
+
+D.
+ Harrison and D.L.
+ Rubinfeld, Hedonic prices and the demand for clean ai, J.
+ Environ.
+ Economics & Management 
+\series bold
+5
+\series default
+, pp.
+ 81-102, 1978.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "friedman"
+literal "false"
+
+\end_inset
+
+Friedman, J.
+ (1991): Multivariate Adaptative Regression Splines.
+ Annals of Statistics, 19:1, 1--141.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "pydataset"
+literal "false"
+
+\end_inset
+
+R.D.
+ King, S.
+ Muggleton, R.
+ Lewis, M.J.E.
+ Sternberg, Proc.
+ Nat.
+ Acad.
+ Sci.
+ USA 
+\series bold
+89
+\series default
+, pp.
+ 11322–11326, 1992.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "neat"
+literal "false"
+
+\end_inset
+
+K.
+ O.
+ Stanley, R.
+ Miikkulainen, Evolving Neural Networks through Augmenting Topologies, Evolution
+ary Computation 
+\series bold
+10
+\series default
+, pp.
+ 99-127, 2002.
 \end_layout
 
 \begin_layout Standard
