@@ -640,8 +640,6 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-
-\series bold
 This paper proposes the usage of a two-stage technique for the efficient
  training of artificial neural networks.
  In the first stage, a genetic algorithm is used to efficiently identify
@@ -665,9 +663,7 @@ literal "false"
  In the second stage, the differential evolution method was selected as
  the base of the new operator.
  This method is an evolutionary technique widely used in a series of practical
- problems, such as
-\series default
- community detection 
+ problems, such as community detection 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "de_symmetry1"
@@ -700,11 +696,9 @@ literal "false"
 \end_inset
 
 .
+ Furthermore, this method was chosen as the basis for the new genetic operator
+ due to the small number of required parameters that the user must specify.
  
-\end_layout
-
-\begin_layout Standard
-USAGE OF DE
 \end_layout
 
 \begin_layout Standard
@@ -751,6 +745,427 @@ name "sec:Method-description"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+The two phases of the proposed method are analyzed in detail in this section.
+ During the first phase a genetic algorithm is utilized in order to detect
+ a promising interval of values for the parameters of neural network.
+ In the second phase a genetic algorithm that incorporates the suggested
+ operator is applied to minimize the training error of the neural network
+ and the parameters are initialized inside the interval located during the
+ first phase.
+\end_layout
+
+\begin_layout Subsection
+The first phase of the proposed method 
+\end_layout
+
+\begin_layout Standard
+In the first phase of the proposed technique, a genetic algorithm is used
+ to identify a range of values for the parameters of the artificial neural
+ network.
+ Genetic algorithms are evolutionary methods, where a series of randomly
+ created candidate solutions, those called chromosomes, are evolved ireratively
+ through a series of steps similar to natural processes such as selection,
+ crossover and mutation.
+ Genetic algorithms have been used successfully in a series of real - world
+ problems, such as placement of wind turbines 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "gen_app1"
+literal "true"
+
+\end_inset
+
+, water distribution 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "gen_app2"
+literal "true"
+
+\end_inset
+
+, economics 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "gen_app3"
+literal "true"
+
+\end_inset
+
+, neural network training 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "gen_app4"
+literal "true"
+
+\end_inset
+
+ etc.
+ The neural networks adopted in this manuscript have the following form,
+ as proposed in 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nnc"
+literal "false"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+N\left(\overrightarrow{x},\overrightarrow{w}\right)=\sum_{i=1}^{H}w_{(d+2)i-(d+1)}\sigma\left(\sum_{j=1}^{d}x_{j}w_{(d+2)i-(d+1)+j}+w_{(d+2)i}\right)\label{eq:nn}
+\end{equation}
+
+\end_inset
+
+Where the value 
+\begin_inset Formula $H$
+\end_inset
+
+ denotes the total number of processing units in this network and the value
+ 
+\begin_inset Formula $d$
+\end_inset
+
+ defines the number of inputs for the pattern 
+\begin_inset Formula $\overrightarrow{x}$
+\end_inset
+
+.
+ Hence, the total number of parameters for this network are: 
+\begin_inset Formula $n=(d+2)H$
+\end_inset
+
+.
+ The function 
+\begin_inset Formula $\sigma(x)$
+\end_inset
+
+ is the sigmoid function, defined as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\sigma(x)=\frac{1}{1+\exp(-x)}\label{eq:sig}
+\end{equation}
+
+\end_inset
+
+The steps of the algorithm of the first phase have as follows:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialization step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ the number of chromosomes 
+\begin_inset Formula $N_{c}$
+\end_inset
+
+ and the maximum number of allowed generations 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ the selection rate 
+\begin_inset Formula $p_{s}$
+\end_inset
+
+ and the mutation rate 
+\begin_inset Formula $p_{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ the margin factor 
+\begin_inset Formula $a$
+\end_inset
+
+, where 
+\begin_inset Formula $a\ge1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $k=0$
+\end_inset
+
+ as the generation counter.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialize
+\series default
+ randomly the chromosomes 
+\begin_inset Formula $g_{i},\ i=1,\ldots,N_{c}$
+\end_inset
+
+.
+ Each chromosome is a vector of parameters for the artificial neural network.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Fitness calculation step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,\ldots,N_{c}$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Create
+\series default
+ the neural network 
+\begin_inset Formula $N_{i}\left(\overrightarrow{x},\overrightarrow{g_{i}}\right)$
+\end_inset
+
+ for the chromosome 
+\begin_inset Formula $g_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Calculate
+\series default
+ the associated fitness value 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\[
+f_{i}=\sum_{j=1}^{M}\left(N_{i}\left(\overrightarrow{x_{j}},\overrightarrow{g_{i}}\right)-y_{j}\right)^{2}
+\]
+
+\end_inset
+
+for the pairs 
+\begin_inset Formula $\left(\overrightarrow{x_{j}},y_{j}\right),\ j=1,\ldots,M$
+\end_inset
+
+ of the training set.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+End For
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Genetic operations step.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Transfer
+\series default
+ the best 
+\begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
+\end_inset
+
+ chromosomes of the current generation to the next one.
+ The remaining will be replaced by chromosomes produced in crossover and
+ mutation.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Perform 
+\series default
+the crossover procedure.
+ During this procedure, for each pair of constructed chromosomes 
+\begin_inset Formula $\left(\widetilde{z},\widetilde{w}\right)$
+\end_inset
+
+ two chromosomes will be selected from the current population using tournament
+ selection.
+ The production of the new chromosomes is performed using process suggested
+ by Kaelo et al 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "kaelo"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Perform
+\series default
+ the mutation procedure.
+ During the mutation procedure, for each element of each chromosome a random
+ number 
+\begin_inset Formula $r\in[0,1]$
+\end_inset
+
+ is selected.
+ The corresponding element is altered randomly when 
+\begin_inset Formula $r\le p_{m}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Termination check step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $k=k+1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $k\le N_{g}$
+\end_inset
+
+ then goto Fitness Calculation step.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Margin creation step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Obtain
+\series default
+ the best chromosome 
+\begin_inset Formula $g^{*}$
+\end_inset
+
+ with the lowest fitness value.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Create
+\series default
+ the vectors 
+\begin_inset Formula $L^{*}$
+\end_inset
+
+and 
+\begin_inset Formula $R^{*}$
+\end_inset
+
+ as: 
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+L_{i}^{*} & = & -a\left|g_{i}^{*}\right|,\ i=1,\ldots,n\\
+R_{i}^{*} & = & a\left|g_{i}^{*}\right|,\ i=1,\ldots,n
+\end{array}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $f>1$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+The second phase of the proposed method
 \end_layout
 
 \begin_layout Section
@@ -11500,38 +11915,65 @@ name "sec:Conclusions"
 \end_layout
 
 \begin_layout Standard
-The study confirms the superiority of the proposed model over existing methods
- in both classification and regression tasks.
- However, its performance significantly depends on dataset characteristics,
- emphasizing the importance of tailoring models to the specificities of
- each problem.
- The choice of methods for calculating critical parameters, such as differential
- weights, appears to have limited impact on overall performance, with minor
- differences between approaches.
- Meanwhile, tuning the parameter 
+The study confirms the superiority of the proposed model compared to existing
+ methods in both classification and regression tasks.
+ This superiority is evidenced by a statistically significant reduction
+ in error, though the model’s performance is not entirely independent of
+ the data.
+ Instead, it largely depends on data characteristics such as complexity,
+ stratification, or the presence of noise.
+ This underscores the importance of tailoring models to the specificities
+ of each problem, as generalization without careful consideration of specific
+ conditions may lead to degraded results.
+ Additionally, the choice of methods for calculating critical parameters,
+ such as differential weights, appears to have relatively limited impact
+ on overall performance.
+ Differences between approaches (e.g., FIXED, ADAPTIVE, RANDOM) are minimal
+ and often statistically insignificant, indicating that model optimization
+ may require focusing on other factors.
+ At the same time, tuning the parameter 
 \begin_inset Formula $a$
 \end_inset
 
- is crucial: higher values generally enhance performance but may introduce
- instability in certain applications.
- 
+ emerges as a critical factor: while higher values enhance accuracy in many
+ cases, particularly for large or complex datasets, the same adjustment
+ may introduce instability in applications where data sensitivity is high
+ (e.g., financial forecasting).
+ This dual behavior highlights the need to balance flexibility and robustness
+ during the tuning process.
 \end_layout
 
 \begin_layout Standard
-Future work could explore adaptive algorithms that dynamically adjust the
- parameter 
+For future research, it would be valuable to explore the role of dynamic
+ algorithms that automatically adjust the parameter 
 \begin_inset Formula $a$
 \end_inset
 
- based on data patterns to optimize performance without compromising stability.
- Developing hybrid methods that combine the strengths of different approaches
- (e.g., FIXED, ADAPTIVE, RANDOM) may lead to more robust solutions.
- Investigating the impact of data nature (e.g., noisy data, class imbalances)
- on model efficacy, as well as the generalizability of findings to more
- complex or dynamic environments, would also be valuable.
- Additionally, integrating explainable AI techniques could enhance model
- transparency, aiding in result interpretation and guiding optimal parameter-tun
-ing practices.
+ based on data dynamics.
+ For example, machine learning mechanisms that analyze data variability
+ or heterogeneity in real time could optimize the value of 
+\begin_inset Formula $a$
+\end_inset
+
+ without human intervention, ensuring both stability and high performance.
+ Additionally, the development of hybrid methods that combine the advantages
+ of different approaches (e.g., the adaptability of ADAPTIVE with the simplicity
+ of FIXED) could create more robust solutions capable of addressing a broader
+ range of problems.
+ It is also worth investigating in depth how specific data characteristics—such
+ as noisy measurements, class imbalances, or lack of labeling—affect the
+ model’s effectiveness.
+ Such analysis would aid in developing adaptive strategies for data preprocessin
+g or augmentation.
+ Furthermore, the generalizability of findings to more complex environments
+ (e.g., dynamic systems, time-series data) or different domains (e.g., biomedical
+ data, social networks) remains an open research area.
+ Finally, integrating explainable artificial intelligence (XAI) techniques,
+ such as feature contribution analysis or visualization tools, could enhance
+ model transparency.
+ This would not only facilitate result interpretation by experts but also
+ help identify optimal parameter-tuning practices, transforming the model
+ into a more predictable and reliable tool for real-world applications.
 \end_layout
 
 \begin_layout Standard
@@ -12551,6 +12993,105 @@ Saha, S., & Das, R.
  some symmetry-based automatic clustering techniques: application to gene
  clustering.
  Neural Computing and Applications, 30, 735-757.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "gen_app1"
+literal "true"
+
+\end_inset
+
+S.A.
+ Grady, M.Y.
+ Hussaini, M.M.
+ Abdullah, Placement of wind turbines using genetic algorithms, Renewable
+ Energy 
+\series bold
+30
+\series default
+, pp.
+ 259-270, 2005.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "gen_app2"
+literal "true"
+
+\end_inset
+
+Prasad, T., Park, N., Multiobjective Genetic Algorithms for Design of Water
+ Distribution Networks, J.
+ Water Resour.
+ Plann.
+ Manage.
+ 
+\series bold
+130
+\series default
+, pp.
+ 73-82, 2004.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "gen_app3"
+literal "true"
+
+\end_inset
+
+Sung-Hwan Min, Jumin Lee, Ingoo Han, Hybrid genetic algorithms and support
+ vector machines for bankruptcy prediction, Expert Systems with Applications
+ 
+\series bold
+31
+\series default
+, pp.
+ 652-660, 2006.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "gen_app4"
+literal "true"
+
+\end_inset
+
+D.
+ Whitley, T.
+ Starkweather, C.
+ Bogart, Genetic algorithms and neural networks: Optimizing connections
+ and connectivity, Parallel Computing 
+\series bold
+14
+\series default
+, pp.
+ 347-361, 1990.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "kaelo"
+literal "true"
+
+\end_inset
+
+P.
+ Kaelo, M.M.
+ Ali, Integrated crossover rules in real coded genetic algorithms, European
+ Journal of Operational Research 
+\series bold
+176
+\series default
+, pp.
+ 60-76, 2007.
 \end_layout
 
 \begin_layout Bibliography
