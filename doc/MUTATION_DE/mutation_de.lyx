@@ -325,6 +325,55 @@ Neural networks; Genetic algorithms; Evolutionary computation
 Introduction
 \end_layout
 
+\begin_layout Standard
+A machine learning model that has been widely used in recent decades in
+ dozens of problems is artificial neural networks 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn1,nn2"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The remaining of this article is organized as follows: in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Method-description"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ the proposed method is discussed in detail, in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Experiments"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ the used datasets as well as the conducted experiments are discussed and
+ finally, in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Conclusions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ some conclusions are presented.
+\end_layout
+
 \begin_layout Section
 Method description
 \begin_inset CommandInset label
@@ -1445,6 +1494,7 @@ noprefix "false"
 \end_inset
 
 .
+ 
 \end_layout
 
 \begin_layout Standard
@@ -4923,7 +4973,188 @@ AVERAGE
 
 \end_inset
 
+Also, in Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statClass"
+plural "false"
+caps "false"
+noprefix "false"
 
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statRegression"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ the statistical comparison for the experimental results is outlined graphically.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img1.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison for the obtained experimental results in the classificati
+on datasets.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statClass"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img2.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison for the experimental results on the regression datasets.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statRegression"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+In the scientific analysis of the experimental results, the proposed model
+ (PROPOSED) demonstrates statistically significant superiority over other
+ methods (ADAM, BFGS, GENETIC, NEAT, RBF) in both classification and regression
+ datasets.
+ For classification, the PROPOSED model achieves a mean error rate of 20.02%,
+ compared to 25.48%-33.01% for the other methods, with extremely low p-values
+ (e.g., 
+\begin_inset Formula $p=2.3\times10^{-10}$
+\end_inset
+
+ against BFGS).
+ In regression, the model’s mean absolute error (4.64) is significantly lower
+ than that of the comparative methods (12.8-25.12), with strong statistical
+ significance 
+\begin_inset Formula $\left(p<10^{-5}\right)$
+\end_inset
+
+.
+ However, in certain datasets (e.g., CLEVELAND, FRIEDMAN), the model’s performance
+ decreases, indicating dependence on data characteristics.
+\end_layout
+
+\begin_layout Standard
+In the analysis of the experiments (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statClass"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) for classification datasets, the proposed model (PROPOSED) demonstrates
+ statistically significant superiority over all comparative methods (BFGS,
+ ADAM, NEAT, GENETIC), with extremely low p-values (
+\begin_inset Formula $p=2.3\times10^{-10}$
+\end_inset
+
+ to 
+\begin_inset Formula $p=4.4\times10^{-6}$
+\end_inset
+
+) .
+ This indicates strong differences at a confidence level >99.9%, particularly
+ against BFGS and ADAM 
+\begin_inset Formula $\left(p<10^{-9}\right)$
+\end_inset
+
+.
+ For regression datasets (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statRegression"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), PROPOSED maintains significant superiority over all methods, though with
+ slightly higher p-values 
+\begin_inset Formula $\left(p=10^{-5}\ \mbox{to}\ p=2.4\times10^{-7}\right)$
+\end_inset
+
+.
+ The largest difference is observed against NEAT 
+\begin_inset Formula $\left(p=2.4\times10^{-7}\right)$
+\end_inset
+
+, while the smallest is against GENETIC 
+\begin_inset Formula $\left(p=8.6\times10^{-5}\right)$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -4931,11 +5162,91 @@ Experiments with the differential weight
 \end_layout
 
 \begin_layout Standard
+An additional experiment was performed to demonstrate the reliability of
+ the proposed methodology.
+ In this experiment, three different differential weight 
+\begin_inset Formula $F$
+\end_inset
+
+ calculation techniques were used for the proposed operator.
+ These techniques are the following:
+\end_layout
+
+\begin_layout Enumerate
+Fixed, which is the default technique in the proposed method.
+ In this technique the value 
+\begin_inset Formula $F=0.8$
+\end_inset
+
+ is used for the differential weight.
+\end_layout
+
+\begin_layout Enumerate
+Adaptive, where the adaptive calculation of parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ is uses as proposed in 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "de_adaptive"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Random, where the stochastic calculation of parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ as proposed in 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "de_char"
+literal "false"
+
+\end_inset
+
+ is used.
+\end_layout
+
+\begin_layout Standard
+In table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:ExperimentsClassificationF"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ the results from the application of the proposed method using the previously
+ mentioned techniques for the differential weight are depicted for the classific
+ation datasets.
+ Similarly, the same method is applied on the regression datasets and the
+ results are presented in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expRegressionF"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -7316,7 +7627,189 @@ AVERAGE
 
 \end_inset
 
+Furthermore, the statistical comparison for these experimental tables is
+ outlined in Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statClassF"
+plural "false"
+caps "false"
+noprefix "false"
 
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statRegressionF"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ respectively.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img3.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison for the experimental results on the classification
+ datasets, using the proposed method and a series of differential weight
+ techniques.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statClassF"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img4.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison for the experiments on the regression datasets using
+ the proposed method and a series of differential weight calculation techniques.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statRegressionF"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+When comparing differential weight calculation methods (FIXED, ADAPTIVE,
+ RANDOM), the ADAPTIVE method shows slightly better average performance
+ (19.91% in classification, 4.59 in regression) compared to FIXED (20.02%,
+ 4.64) and RANDOM (19.97%, 4.59).
+ However, the differences are minimal and often statistically insignificant
+ (e.g., 
+\begin_inset Formula $p=0.83$
+\end_inset
+
+for FIXED vs ADAPTIVE in classification).
+ In some datasets, such as Lymography and HouseVotes, the RANDOM method
+ outperforms others, highlighting the need to tailor the method to the specific
+ problem.
+ In regression, the only significant difference occurs between FIXED and
+ ADAPTIVE (
+\begin_inset Formula $p=0.041$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+For this experiment as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statClassF"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the differences between FIXED and ADAPTIVE (
+\begin_inset Formula $p=0.83$
+\end_inset
+
+) and ADAPTIVE vs RANDOM (
+\begin_inset Formula $p=0.94$
+\end_inset
+
+) are not statistically significant, suggesting equivalent performance.
+ However, the comparison FIXED vs RANDOM (
+\begin_inset Formula $p=2.3\times10^{-10}$
+\end_inset
+
+) reveals a highly significant difference, likely due to the random nature
+ of RANDOM.
+ For regression datasets (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statRegressionF"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), the only significant difference occurs between FIXED and ADAPTIVE (
+\begin_inset Formula $p=0.041$
+\end_inset
+
+), while the remaining comparisons (FIXED vs RANDOM: 
+\begin_inset Formula $p=0.75$
+\end_inset
+
+, ADAPTIVE vs RANDOM: 
+\begin_inset Formula $p=0.31$
+\end_inset
+
+) lack statistical significance.
 \end_layout
 
 \begin_layout Subsection
@@ -7325,6 +7818,46 @@ Experiments with the margin factor
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+An additional experiment was executed to outline the performance and the
+ stability of the proposed method.
+ In this experiment that margin factor denoted as 
+\begin_inset Formula $a$
+\end_inset
+
+ in the proposed method was varied from 
+\begin_inset Formula $a=1.0$
+\end_inset
+
+ (which is the default value) to 
+\begin_inset Formula $a=4.0$
+\end_inset
+
+.
+ The experimental results for the classification datasets are shown in Table
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:ExperimentsClassificationA"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and for regression datasets in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expRegressionA"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -9049,7 +9582,7 @@ AVERAGE
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -10291,7 +10824,300 @@ AVERAGE
 
 \end_inset
 
+Also, the statistical comparisons for these experiments are shown graphically
+ in Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statClassA"
+plural "false"
+caps "false"
+noprefix "false"
 
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statRegressionA"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ respectively.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img5.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison for the experimental results on the classification
+ datasets, using the proposed method and different values for the margin
+ factor 
+\begin_inset Formula $a$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statClassA"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img6.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison for the experiments on the regression datasets, using
+ the proposed method and different values for the margin factor 
+\begin_inset Formula $a$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statRegressionA"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+The parameter 
+\begin_inset Formula $a$
+\end_inset
+
+ significantly impacts performance, with higher values (
+\begin_inset Formula $1.0\rightarrow4.0$
+\end_inset
+
+) correlating with improved mean error rates in both classification (
+\begin_inset Formula $20.02\%\rightarrow21.00\%$
+\end_inset
+
+) and regression (
+\begin_inset Formula $4.64\rightarrow5.64$
+\end_inset
+
+).
+ However, this trend is not uniform.
+ For example, in classification, Segment improves dramatically (
+\begin_inset Formula $30.00\%\rightarrow35.41\%$
+\end_inset
+
+, 
+\begin_inset Formula $p=0.0015$
+\end_inset
+
+) with increased 
+\begin_inset Formula $a$
+\end_inset
+
+, while Lymography degrades (
+\begin_inset Formula $28.60\%\rightarrow26.69\%$
+\end_inset
+
+).
+ In regression, increasing 
+\begin_inset Formula $a$
+\end_inset
+
+ introduces instability some problems (e.g., TREASURY: 
+\begin_inset Formula $0.44\rightarrow1.01$
+\end_inset
+
+).
+ Statistical tests confirm significant differences for higher 
+\begin_inset Formula $a$
+\end_inset
+
+ values (e.g., 
+\begin_inset Formula $a=1.5$
+\end_inset
+
+ vs 
+\begin_inset Formula $a=4.0$
+\end_inset
+
+: 
+\begin_inset Formula $p=0.00065$
+\end_inset
+
+ in classification, 
+\begin_inset Formula $p=0.0021$
+\end_inset
+
+ in regression).
+\end_layout
+
+\begin_layout Standard
+In the evaluation of parameter 
+\begin_inset Formula $a$
+\end_inset
+
+ for classification datasets (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statClassA"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), comparisons between higher values of 
+\begin_inset Formula $a$
+\end_inset
+
+ (e.g., 
+\begin_inset Formula $a=1.5$
+\end_inset
+
+ vs 
+\begin_inset Formula $a=4.0$
+\end_inset
+
+, 
+\begin_inset Formula $p=0.00065$
+\end_inset
+
+) show strong statistical significance, highlighting that increasing 
+\begin_inset Formula $a$
+\end_inset
+
+ improves performance.
+ Conversely, the comparison 
+\begin_inset Formula $a=1.0$
+\end_inset
+
+ vs 
+\begin_inset Formula $a=1.5$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.38$
+\end_inset
+
+) reveals no significant difference.
+ For regression datasets (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statRegressionA"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), differences become significant mainly at higher 
+\begin_inset Formula $a$
+\end_inset
+
+ values: 
+\begin_inset Formula $a=1.5$
+\end_inset
+
+ vs 
+\begin_inset Formula $a=4.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.0021$
+\end_inset
+
+) and 
+\begin_inset Formula $a=2.0$
+\end_inset
+
+ vs 
+\begin_inset Formula $a=4.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.0031$
+\end_inset
+
+).
+ However, the comparison 
+\begin_inset Formula $a=1.0$
+\end_inset
+
+ vs 
+\begin_inset Formula $a=4.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.059$
+\end_inset
+
+) approaches the significance threshold (
+\begin_inset Formula $p=0.05$
+\end_inset
+
+) without crossing it.
 \end_layout
 
 \begin_layout Section
@@ -10303,6 +11129,41 @@ name "sec:Conclusions"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+The study confirms the superiority of the proposed model over existing methods
+ in both classification and regression tasks.
+ However, its performance significantly depends on dataset characteristics,
+ emphasizing the importance of tailoring models to the specificities of
+ each problem.
+ The choice of methods for calculating critical parameters, such as differential
+ weights, appears to have limited impact on overall performance, with minor
+ differences between approaches.
+ Meanwhile, tuning the parameter 
+\begin_inset Formula $a$
+\end_inset
+
+ is crucial: higher values generally enhance performance but may introduce
+ instability in certain applications.
+ 
+\end_layout
+
+\begin_layout Standard
+Future work could explore adaptive algorithms that dynamically adjust the
+ parameter 
+\begin_inset Formula $a$
+\end_inset
+
+ based on data patterns to optimize performance without compromising stability.
+ Developing hybrid methods that combine the strengths of different approaches
+ (e.g., FIXED, ADAPTIVE, RANDOM) may lead to more robust solutions.
+ Investigating the impact of data nature (e.g., noisy data, class imbalances)
+ on model efficacy, as well as the generalizability of findings to more
+ complex or dynamic environments, would also be valuable.
+ Additionally, integrating explainable AI techniques could enhance model
+ transparency, aiding in result interpretation and guiding optimal parameter-tun
+ing practices.
 \end_layout
 
 \begin_layout Standard
@@ -10493,6 +11354,41 @@ Keep empty!
 
 \begin_layout References Title
 References
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn1"
+literal "true"
+
+\end_inset
+
+Abiodun, O.
+ I., Jantan, A., Omolara, A.
+ E., Dada, K.
+ V., Mohamed, N.
+ A., & Arshad, H.
+ (2018).
+ State-of-the-art in artificial neural network applications: A survey.
+ Heliyon, 4(11).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn2"
+literal "true"
+
+\end_inset
+
+Suryadevara, S., & Yanamala, A.
+ K.
+ Y.
+ (2021).
+ A Comprehensive Overview of Artificial Neural Networks: Evolution, Architecture
+s, and Applications.
+ Revista de Inteligencia Artificial en Medicina, 12(1), 51-76.
 \end_layout
 
 \begin_layout Bibliography
@@ -11331,6 +12227,34 @@ ary Computation
 \series default
 , pp.
  99-127, 2002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "de_adaptive"
+literal "false"
+
+\end_inset
+
+Wu, K., Liu, Z., Ma, N., & Wang, D.
+ (2022).
+ A Dynamic Adaptive Weighted Differential Evolutionary Algorithm.
+ Computational Intelligence and Neuroscience, 2022(1), 1318044.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "de_char"
+literal "false"
+
+\end_inset
+
+Charilogis V, Tsoulos IG, Tzallas A, Karvounis E.
+ Modifications for the Differential Evolution Algorithm.
+ Symmetry.
+ 2022; 14(3):447.
 \end_layout
 
 \begin_layout Standard
