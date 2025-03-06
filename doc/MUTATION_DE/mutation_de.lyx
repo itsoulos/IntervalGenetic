@@ -327,10 +327,374 @@ Introduction
 
 \begin_layout Standard
 A machine learning model that has been widely used in recent decades in
- dozens of problems is artificial neural networks 
+ dozens of problems are artificial neural networks 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn1,nn2"
+literal "false"
+
+\end_inset
+
+, which are parametric models commonly defined as 
+\begin_inset Formula $N\left(\overrightarrow{x},\overrightarrow{w}\right)$
+\end_inset
+
+.
+ The vector 
+\begin_inset Formula $\overrightarrow{x}$
+\end_inset
+
+ stands for the input pattern and the vector 
+\begin_inset Formula $\overrightarrow{w}$
+\end_inset
+
+ represents the associated set of parameters that should be calculated by
+ any optimization method.
+ The calculation is performed by minimizing the so - called training error,
+ expressed as:
+\begin_inset Formula 
+\begin{equation}
+E\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=\sum_{i=1}^{M}\left(N\left(\overrightarrow{x}_{i},\overrightarrow{w}\right)-y_{i}\right)^{2}\label{eq:eq1}
+\end{equation}
+
+\end_inset
+
+The values 
+\begin_inset Formula $\left(\overrightarrow{x_{i}},y_{i}\right),\ i=1,...,M$
+\end_inset
+
+ form the training set of the problem, where 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ represent the expected outputs for each pattern 
+\begin_inset Formula $\overrightarrow{x_{i}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Artificial neural networks have applied on a wide series of problems from
+ various areas, such as physics 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nnphysics1,nnphysics2"
+literal "false"
+
+\end_inset
+
+, astronomy 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nnastro"
+literal "false"
+
+\end_inset
+
+, chemistry 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nnchem1"
+literal "false"
+
+\end_inset
+
+, economics 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_credit"
+literal "false"
+
+\end_inset
+
+, medicine 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nnmed1,nnmed2"
+literal "false"
+
+\end_inset
+
+ etc.
+ The equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eq1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ has been minimized by various methods in the relevant literature.
+ Among them one can find the Back propagation method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bpnn,bpnn2"
+literal "false"
+
+\end_inset
+
+, the RPROP method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rpropnn,rpropnn2,rpropnn3"
+literal "false"
+
+\end_inset
+
+, Quasi Newton methods 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "quasinn,quasinn2"
+literal "false"
+
+\end_inset
+
+, Simulated Annealing 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_siman"
+literal "false"
+
+\end_inset
+
+, Particle Swarm Optimization (PSO) 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "psonn,psonn2"
+literal "false"
+
+\end_inset
+
+, Genetic Algorithms 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "geneticnn,geneticnn2"
+literal "false"
+
+\end_inset
+
+, Differential Evolution 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "weight_de1"
+literal "false"
+
+\end_inset
+
+, Ant Colony Optimization 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_aco"
+literal "false"
+
+\end_inset
+
+, Gray Wolf Optimizer 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "gwo_nn"
+literal "false"
+
+\end_inset
+
+, Whale optimization 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "whale_nn"
+literal "false"
+
+\end_inset
+
+ etc.
+ Moreover, Zhang et al proposed a hybrid algorithm that conjuncts PSO and
+ the Back Propagation algorithm for neural networks training 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_hybrid"
+literal "false"
+
+\end_inset
+
+.
+ Also, recently many researchers proposed methods that take advantage of
+ parallel processing units in order to speed up the training process 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_gpu1,nn_gpu2"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Furthermore, a series of papers has been published recently that tackle
+ the initialization procedure for the parameters of neural networks.
+ These methods include decision trees 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_init1"
+literal "false"
+
+\end_inset
+
+, incorporation of the Cauchy's inequality 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_init2"
+literal "false"
+
+\end_inset
+
+, discriminant learning 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_init3"
+literal "false"
+
+\end_inset
+
+, usage of polynomial bases 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_init1"
+literal "false"
+
+\end_inset
+
+, usage of intervals 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_init3"
+literal "false"
+
+\end_inset
+
+ etc.
+ A systematic review of initialization methods can be found in the work
+ of Narkhede et al 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_init_review"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Additionally, finding the optimal architecture of an artificial neural network
+ can effectively contribute to its training, since on the one hand it will
+ reduce the required training time and on the other hand it will eliminate
+ the problem of overfitting.
+ In this direction, a series of researchers have proposed many methods to
+ tackle this problem, such as genetic algorithms 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_arch1,nn_arch2"
+literal "false"
+
+\end_inset
+
+, the application of the PSO method method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_arch3"
+literal "false"
+
+\end_inset
+
+, application of reinforcement learning 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_arch4"
+literal "false"
+
+\end_inset
+
+ etc.
+ Also, Tsoulos et al.
+ proposed the usage of Grammatical Evolution technique 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge1"
+literal "false"
+
+\end_inset
+
+ to construct artificial neural networks 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nnc"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+This paper proposes the usage of a two-stage technique for the efficient
+ training of artificial neural networks.
+ In the first stage, a genetic algorithm is used to efficiently identify
+ a range of values within which the parameters of the artificial neural
+ network should be optimized.
+ In the second stage, a genetic algorithm optimizes these parameters, which
+ uses a new operator to enhance its results.
+ This new operator is based on the differential evolution technique 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "de_review"
+literal "false"
+
+\end_inset
+
+ and is applied periodically to randomly selected chromosomes of the genetic
+ population.
+ The first stage of the technique is necessary to ensure that the parameters
+ of the artificial neural network will be trained within a range of values,
+ which will prevent their overfitting as much as possible.
+ In the second stage, the differential evolution method was selected as
+ the base of the new operator.
+ This method is an evolutionary technique widely used in a series of practical
+ problems, such as
+\series default
+ community detection 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "de_symmetry1"
+literal "false"
+
+\end_inset
+
+, structure prediction 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "de_symmetry3"
+literal "false"
+
+\end_inset
+
+, motor fault diagnosis 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "de_symmetry6"
+literal "false"
+
+\end_inset
+
+, and clustering techniques 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "de_symmetry7"
 literal "false"
 
 \end_inset
@@ -11389,6 +11753,800 @@ Suryadevara, S., & Yanamala, A.
  A Comprehensive Overview of Artificial Neural Networks: Evolution, Architecture
 s, and Applications.
  Revista de Inteligencia Artificial en Medicina, 12(1), 51-76.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnphysics1"
+literal "false"
+
+\end_inset
+
+P.
+ Baldi, K.
+ Cranmer, T.
+ Faucett et al, Parameterized neural networks for high-energy physics, Eur.
+ Phys.
+ J.
+ C 
+\series bold
+76
+\series default
+, 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnphysics2"
+literal "true"
+
+\end_inset
+
+Baldi, P., Cranmer, K., Faucett, T., Sadowski, P., & Whiteson, D.
+ (2016).
+ Parameterized neural networks for high-energy physics.
+ The European Physical Journal C, 76(5), 1-7.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnastro"
+literal "false"
+
+\end_inset
+
+Firth, A.
+ E., Lahav, O., & Somerville, R.
+ S.
+ (2003).
+ Estimating photometric redshifts with artificial neural networks.
+ Monthly Notices of the Royal Astronomical Society, 339(4), 1195-1202.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnchem1"
+literal "false"
+
+\end_inset
+
+Shen, Y., & Bax, A.
+ (2013).
+ Protein backbone and sidechain torsion angles predicted from NMR chemical
+ shifts using artificial neural networks.
+ Journal of biomolecular NMR, 56, 227-241.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_credit"
+literal "false"
+
+\end_inset
+
+Z.
+ Huang, H.
+ Chen, C.-Jung Hsu, W.-Hwa Chen, S.
+ Wu, Credit rating analysis with support vector machines and neural networks:
+ a market comparative study, Decision Support Systems 
+\series bold
+37
+\series default
+, pp.
+ 543-558, 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnmed1"
+literal "false"
+
+\end_inset
+
+Igor I.
+ Baskin, David Winkler and Igor V.
+ Tetko, A renaissance of neural networks in drug discovery, Expert Opinion
+ on Drug Discovery 
+\series bold
+11
+\series default
+, pp.
+ 785-795, 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnmed2"
+literal "false"
+
+\end_inset
+
+Ronadl Bartzatt, Prediction of Novel Anti-Ebola Virus Compounds Utilizing
+ Artificial Neural Network (ANN), Chemistry Faculty Publications 
+\series bold
+49
+\series default
+, pp.
+ 16-34, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "bpnn"
+literal "false"
+
+\end_inset
+
+D.E.
+ Rumelhart, G.E.
+ Hinton and R.J.
+ Williams, Learning representations by back-propagating errors, Nature 
+\series bold
+323
+\series default
+, pp.
+ 533 - 536 , 1986.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "bpnn2"
+literal "false"
+
+\end_inset
+
+T.
+ Chen and S.
+ Zhong, Privacy-Preserving Backpropagation Neural Network Learning, IEEE
+ Transactions on Neural Networks 
+\series bold
+20
+\series default
+, , pp.
+ 1554-1564, 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rpropnn"
+literal "false"
+
+\end_inset
+
+M.
+ Riedmiller and H.
+ Braun, A Direct Adaptive Method for Faster Backpropagation Learning: The
+ RPROP algorithm, Proc.
+ of the IEEE Intl.
+ Conf.
+ on Neural Networks, San Francisco, CA, pp.
+ 586–591, 1993.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rpropnn3"
+literal "false"
+
+\end_inset
+
+T.
+ Pajchrowski, K.
+ Zawirski and K.
+ Nowopolski, Neural Speed Controller Trained Online by Means of Modified
+ RPROP Algorithm, IEEE Transactions on Industrial Informatics 
+\series bold
+11
+\series default
+, pp.
+ 560-568, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rpropnn2"
+literal "false"
+
+\end_inset
+
+Rinda Parama Satya Hermanto, Suharjito, Diana, Ariadi Nugroho, Waiting-Time
+ Estimation in Bank Customer Queues using RPROP Neural Networks, Procedia
+ Computer Science 
+\series bold
+ 135
+\series default
+, pp.
+ 35-42, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "quasinn"
+literal "false"
+
+\end_inset
+
+B.
+ Robitaille and B.
+ Marcos and M.
+ Veillette and G.
+ Payre, Modified quasi-Newton methods for training neural networks, Computers
+ & Chemical Engineering 
+\series bold
+20
+\series default
+, pp.
+ 1133-1140, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "quasinn2"
+literal "false"
+
+\end_inset
+
+Q.
+ Liu, J.
+ Liu, R.
+ Sang, J.
+ Li, T.
+ Zhang and Q.
+ Zhang, Fast Neural Network Training on FPGA Using Quasi-Newton Optimization
+ Method,IEEE Transactions on Very Large Scale Integration (VLSI) Systems
+ 
+\series bold
+26
+\series default
+, pp.
+ 1575-1579, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_siman"
+literal "false"
+
+\end_inset
+
+C.L.
+ Kuo, E.E.
+ Kuruoglu, W.K.V.
+ Chan, Neural Network Structure Optimization by Simulated Annealing, Entropy
+ 
+\series bold
+24
+\series default
+, 348, 2022.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "psonn"
+literal "false"
+
+\end_inset
+
+C.
+ Zhang, H.
+ Shao and Y.
+ Li, Particle swarm optimisation for evolving artificial neural network,
+ IEEE International Conference on Systems, Man, and Cybernetics, , pp.
+ 2487-2490, 2000.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "psonn2"
+literal "false"
+
+\end_inset
+
+Jianbo Yu, Shijin Wang, Lifeng Xi, Evolving artificial neural networks using
+ an improved PSO and DPSO 
+\series bold
+71
+\series default
+, pp.
+ 1054-1060, 2008.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "geneticnn"
+literal "false"
+
+\end_inset
+
+F.
+ H.
+ F.
+ Leung, H.
+ K.
+ Lam, S.
+ H.
+ Ling and P.
+ K.
+ S.
+ Tam, Tuning of the structure and parameters of a neural network using an
+ improved genetic algorithm, IEEE Transactions on Neural Networks 
+\series bold
+14
+\series default
+, pp.
+ 79-88, 2003
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "geneticnn2"
+literal "false"
+
+\end_inset
+
+X.
+ Yao, Evolving artificial neural networks, Proceedings of the IEEE, 87(9),
+ pp.
+ 1423-1447, 1999.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_de1"
+literal "false"
+
+\end_inset
+
+Wang, L., Zeng, Y., & Chen, T.
+ (2015).
+ Back propagation neural network with adaptive differential evolution algorithm
+ for time series forecasting.
+ Expert Systems with Applications, 42(2), 855-863.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_aco"
+literal "false"
+
+\end_inset
+
+K.M.
+ Salama, A.M.
+ Abdelbar, Learning neural network structures with ant colony algorithms,
+ Swarm Intell 
+\series bold
+9
+\series default
+, pp.
+ 229–265, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "gwo_nn"
+literal "false"
+
+\end_inset
+
+S.
+ Mirjalili, How effective is the Grey Wolf optimizer in training multi-layer
+ perceptrons, Appl Intell 
+\series bold
+43
+\series default
+, pp.
+ 150–161, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "whale_nn"
+literal "false"
+
+\end_inset
+
+I.
+ Aljarah, H.
+ Faris, S.
+ Mirjalili, Optimizing connection weights in neural networks using the whale
+ optimization algorithm, Soft Comput 
+\series bold
+22
+\series default
+, pp.
+ 1–15, 2018.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_hybrid"
+literal "false"
+
+\end_inset
+
+J.-R.
+ Zhang, J.
+ Zhang, T.-M.
+ Lok, M.R.
+ Lyu, A hybrid particle swarm optimization–back-propagation algorithm for
+ feedforward neural network training, Applied Mathematics and Computation
+ 
+\series bold
+185
+\series default
+, pp.
+ 1026-1037, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_gpu1"
+literal "false"
+
+\end_inset
+
+K-Su Oh, K.
+ Jung, GPU implementation of neural networks, Pattern Recognition 
+\series bold
+37
+\series default
+, pp.
+ 1311-1314, 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_gpu2"
+literal "false"
+
+\end_inset
+
+M.
+ Zhang, K.
+ Hibi, J.
+ Inoue, GPU-accelerated artificial neural network potential for molecular
+ dynamics simulation, Computer Physics Communications 
+\series bold
+285
+\series default
+, 108655, 2023.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_init1"
+literal "false"
+
+\end_inset
+
+I.
+ Ivanova, M.
+ Kubat, Initialization of neural networks by means of decision trees, Knowledge-
+Based Systems 
+\series bold
+8
+\series default
+, pp.
+ 333-344, 1995.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_init2"
+literal "false"
+
+\end_inset
+
+J.Y.F.
+ Yam, T.W.S.
+ Chow, A weight initialization method for improving training speed in feedforwar
+d neural network, Neurocomputing 
+\series bold
+30
+\series default
+, pp.
+ 219-232, 2000.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_init3"
+literal "false"
+
+\end_inset
+
+K.
+ Chumachenko, A.
+ Iosifidis, M.
+ Gabbouj, Feedforward neural networks initialization based on discriminant
+ learning, Neural Networks 
+\series bold
+146
+\series default
+, pp.
+ 220-229, 2022.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_init1"
+literal "false"
+
+\end_inset
+
+T.M.
+ Varnava, A.J.Meade, An initialization method for feedforward artificial neural
+ networks using polynomial bases, Advances in Adaptive Data Analysis 
+\series bold
+3
+\series default
+, pp.
+ 385-400, 2011.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_init3"
+literal "false"
+
+\end_inset
+
+S.S.
+ Sodhi, P.
+ Chandra, Interval based Weight Initialization Method for Sigmoidal Feedforward
+ Artificial Neural Networks, AASRI Procedia 
+\series bold
+6
+\series default
+, pp.
+ 19-25, 2014.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_init_review"
+literal "false"
+
+\end_inset
+
+Narkhede, M.
+ V., Bartakke, P.
+ P., & Sutaone, M.
+ S.
+ (2022).
+ A review on weight initialization strategies for neural networks.
+ Artificial intelligence review, 55(1), 291-322.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_arch1"
+literal "false"
+
+\end_inset
+
+J.
+ Arifovic, R.
+ Gençay, Using genetic algorithms to select architecture of a feedforward
+ artificial neural network, Physica A: Statistical Mechanics and its Application
+s 
+\series bold
+289
+\series default
+, pp.
+ 574-594, 2001.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_arch2"
+literal "false"
+
+\end_inset
+
+P.G.
+ Benardos, G.C.
+ Vosniakos, Optimizing feedforward artificial neural network architecture,
+ Engineering Applications of Artificial Intelligence 
+\series bold
+20
+\series default
+, pp.
+ 365-382, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_arch3"
+literal "false"
+
+\end_inset
+
+B.A.
+ Garro, R.A.
+ Vázquez, Designing Artificial Neural Networks Using Particle Swarm Optimization
+ Algorithms, Computational Intelligence and Neuroscience, 369298, 2015.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_arch4"
+literal "false"
+
+\end_inset
+
+B.
+ Baker, O.
+ Gupta, N.
+ Naik, R.
+ Raskar, Designing neural network architectures using reinforcement learning.
+ arXiv preprint arXiv:1611.02167, 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge1"
+literal "true"
+
+\end_inset
+
+M.
+ O’Neill, C.
+ Ryan, Grammatical evolution, IEEE Trans.
+ Evol.
+ Comput.
+ 
+\series bold
+5,
+\series default
+pp.
+ 349–358, 2001.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnc"
+literal "false"
+
+\end_inset
+
+I.G.
+ Tsoulos, D.
+ Gavrilis, E.
+ Glavas, Neural network construction and training using grammatical evolution,
+ Neurocomputing 
+\series bold
+72
+\series default
+, pp.
+ 269-277, 2008.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "de_review"
+literal "false"
+
+\end_inset
+
+Pant, M., Zaheer, H., Garcia-Hernandez, L., & Abraham, A.
+ (2020).
+ Differential Evolution: A review of more than two decades of research.
+ Engineering Applications of Artificial Intelligence, 90, 103479.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "de_symmetry1"
+literal "false"
+
+\end_inset
+
+Li, Y.
+ H., Wang, J.
+ Q., Wang, X.
+ J., Zhao, Y.
+ L., Lu, X.
+ H., & Liu, D.
+ L.
+ (2017).
+ Community detection based on differential evolution using social spider
+ optimization.
+ Symmetry, 9(9), 183.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "de_symmetry3"
+literal "false"
+
+\end_inset
+
+Yang, W., Siriwardane, E.
+ M.
+ D., Dong, R., Li, Y., & Hu, J.
+ (2021).
+ Crystal structure prediction of materials with high symmetry using differential
+ evolution.
+ Journal of Physics: Condensed Matter, 33(45), 455902.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "de_symmetry6"
+literal "false"
+
+\end_inset
+
+Lee, C.
+ Y., & Hung, C.
+ H.
+ (2021).
+ Feature ranking and differential evolution for feature selection in brushless
+ DC motor fault diagnosis.
+ Symmetry, 13(7), 1291.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "de_symmetry7"
+literal "false"
+
+\end_inset
+
+Saha, S., & Das, R.
+ (2018).
+ Exploring differential evolution and particle swarm optimization to develop
+ some symmetry-based automatic clustering techniques: application to gene
+ clustering.
+ Neural Computing and Applications, 30, 735-757.
 \end_layout
 
 \begin_layout Bibliography
