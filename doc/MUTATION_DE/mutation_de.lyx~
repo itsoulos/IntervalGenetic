@@ -1156,16 +1156,603 @@ R_{i}^{*} & = & a\left|g_{i}^{*}\right|,\ i=1,\ldots,n
 
 \end_inset
 
-where 
-\begin_inset Formula $f>1$
-\end_inset
-
 
 \end_layout
 
 \end_deeper
 \begin_layout Subsection
 The second phase of the proposed method
+\end_layout
+
+\begin_layout Standard
+During the second phase a second genetic algorithm is used to minimize the
+ training error of the neural network.
+ The parameters of the neural network are initialized inside the vectors
+ 
+\begin_inset Formula $L^{*}$
+\end_inset
+
+and 
+\begin_inset Formula $R^{*}$
+\end_inset
+
+ produced in the previous phase of the algorithm.
+ Also, a novel stochastic genetic operator, which is based on the Differential
+ Evolution approach, is applied periodically to the genetic population.
+ This new stochastic operator is used to improve the performance of randomly
+ selected chromosomes and to speed up the overall genetic algorithm in finding
+ the global minimum.
+ The main steps of the algorithm executed on the second phase have as follows:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialization step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ the number of chromosomes 
+\begin_inset Formula $N_{c}$
+\end_inset
+
+ and the maximum number of allowed generations 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ the selection rate 
+\begin_inset Formula $p_{s}\le1$
+\end_inset
+
+ and the mutation rate 
+\begin_inset Formula $p_{m}\le1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ the crossover probability CR, used in the new genetic operator.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ the differential weight 
+\begin_inset Formula $F$
+\end_inset
+
+ that will be used in the novel genetic operator.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ as 
+\begin_inset Formula $N_{i}$
+\end_inset
+
+ the number of generations before the application of the new operator.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ as 
+\begin_inset Formula $N_{l}$
+\end_inset
+
+ the number of chromosomes that will participate in the new operator.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialize
+\series default
+ the 
+\begin_inset Formula $g_{i},\ i=1,\ldots,N_{c}$
+\end_inset
+
+ chromosomes inside the vectors 
+\begin_inset Formula $L^{*}$
+\end_inset
+
+and 
+\begin_inset Formula $R^{*}$
+\end_inset
+
+ of the previous phase.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $k=0$
+\end_inset
+
+ the generation counter.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Fitness calculation step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,\ldots,N_{c}$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Produce
+\series default
+ the corresponding neural network 
+\begin_inset Formula $N_{i}\left(\overrightarrow{x},\overrightarrow{g_{i}}\right)$
+\end_inset
+
+ for the chromosome 
+\begin_inset Formula $g_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Calculate
+\series default
+ the fitness value 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\[
+f_{i}=\sum_{j=1}^{M}\left(N_{i}\left(\overrightarrow{x_{j}},\overrightarrow{g_{i}}\right)-y_{j}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+End For
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Application of genetic operators.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Copy
+\series default
+ the best 
+\begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
+\end_inset
+
+ chromosomes with the lowest fitness values to the next generation.
+ The remaining will be replaced by chromosomes produced in crossover and
+ mutation.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Apply
+\series default
+ the same crossover procedure as in the algorithm of the first phase.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Apply
+\series default
+ the same mutation procedure as in the genetic algorithm of the first phase.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Application of the novel genetic operator.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $k\ \mbox{mod}\ N_{i}=0$
+\end_inset
+
+ 
+\series bold
+then
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Create
+\series default
+ the set 
+\begin_inset Formula $C=\left\{ z_{1},z_{2},\ldots,z_{N_{cr}}\right\} $
+\end_inset
+
+ of 
+\begin_inset Formula $N_{l}$
+\end_inset
+
+ randomly selected chromosomes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,\ldots,N_{l}$
+\end_inset
+
+ apply the deOperator of algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:deOperator"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to every chromosome 
+\begin_inset Formula $z_{i}\in C$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+End if
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Termination check step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $k=k+1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $k\le N_{g}$
+\end_inset
+
+ goto Fitness calculation step.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Testing step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Obtain
+\series default
+ the best chromosome 
+\begin_inset Formula $g^{*}$
+\end_inset
+
+ from the genetic population.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Create
+\series default
+ the corresponding neural network 
+\begin_inset Formula $N^{*}\left(\overrightarrow{x_{j}},\overrightarrow{g^{*}}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Apply
+\series default
+ this neural network to the test set of the objective problem and report
+ the error.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The proposed genetic operator.
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:deOperator"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Function
+\series default
+ deOperator
+\begin_inset Formula $\left(g,F,\mbox{CR}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Select
+\series default
+ three distinct chromosomes 
+\begin_inset Formula $a,\ b,\ c$
+\end_inset
+
+ from the current population using tournament selection.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $R\in[1,n]$
+\end_inset
+
+ a randomly selected integer.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $t=g$
+\end_inset
+
+, as the trial chromosome.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,\ldots,n$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Select
+\series default
+ 
+\begin_inset Formula $r\in[0,1]$
+\end_inset
+
+ a random number.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $i=$
+\end_inset
+
+R or 
+\begin_inset Formula $r\le\mbox{CR}$
+\end_inset
+
+ 
+\series bold
+then
+\series default
+ 
+\begin_inset Formula $t_{i}=a_{i}+F\times\left(b_{i}-c_{i}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $t_{f}=\sum_{j=1}^{M}\left(N_{i}\left(\overrightarrow{x_{j}},\overrightarrow{t}\right)-y_{j}\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $t_{f}\le f_{g}$
+\end_inset
+
+ then 
+\begin_inset Formula $g=t$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+End For
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Return
+\series default
+ 
+\begin_inset Formula $g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+End Function
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1812,8 +2399,15 @@ The column DATASET represents the objective problem.
 \end_layout
 
 \begin_layout Enumerate
-The column ADAM denotes the incorporation of the ADAM optimizer to train
- a neural network with 
+The column ADAM denotes the incorporation of the ADAM optimizer 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_adam"
+literal "false"
+
+\end_inset
+
+ to train a neural network with 
 \begin_inset Formula $H=10$
 \end_inset
 
@@ -1821,8 +2415,15 @@ The column ADAM denotes the incorporation of the ADAM optimizer to train
 \end_layout
 
 \begin_layout Enumerate
-The column BFGS represents the application of the BFGS optimizer to train
- a neural network with 
+The column BFGS represents the application of the BFGS optimizer 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "powell"
+literal "false"
+
+\end_inset
+
+ to train a neural network with 
 \begin_inset Formula $H=10$
 \end_inset
 
@@ -2042,7 +2643,7 @@ Number of generations before the application of the operator
 \begin_inset Text
 
 \begin_layout Plain Layout
-Number of chromosome where the operator will be applied
+Number of chromosomes where the operator will be applied
 \end_layout
 
 \end_inset
@@ -2103,7 +2704,7 @@ CR
 \begin_inset Text
 
 \begin_layout Plain Layout
-Crossover rate for Differential Evolution
+Crossover probability
 \end_layout
 
 \end_inset
@@ -13909,6 +14510,41 @@ R.D.
 \series default
 , pp.
  11322–11326, 1992.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_adam"
+literal "false"
+
+\end_inset
+
+D.
+ P.
+ Kingma, J.
+ L.
+ Ba, ADAM: a method for stochastic optimization, in: Proceedings of the
+ 3rd International Conference on Learning Representations (ICLR 2015), pp.
+ 1–15, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "powell"
+literal "true"
+
+\end_inset
+
+M.J.D Powell, A Tolerant Algorithm for Linearly Constrained Optimization Calculati
+ons, Mathematical Programming 
+\series bold
+45
+\series default
+, pp.
+ 547-566, 1989.
  
 \end_layout
 

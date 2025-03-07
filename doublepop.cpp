@@ -548,7 +548,7 @@ void	DoublePop::Solve()
 				i,fitness_array[0],variance,stopat);
 		
 		if(fabs(fitness_array[0])<1e-10) break;
-        if(i%LI==0)
+       /* if(i%LI==0)
         {
             for(int k=0;k<LC;k++)
 	    {
@@ -556,7 +556,7 @@ void	DoublePop::Solve()
                	    localSearch(pos);
 	    }
 	    select();
-        }
+        }*/
     }
 	LocalSearch(problem,genome[0],fitness_array[0]);
 	have_finished=1;

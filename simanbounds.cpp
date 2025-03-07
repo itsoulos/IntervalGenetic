@@ -27,13 +27,15 @@ void    SimanBounds::randomBounds(Data &xl,Data &xr)
     for(int i=0;i<problem->getDimension();i++)
     {
 
-/*        double l = margins[i].leftValue();
+        double l = margins[i].leftValue();
         double r = margins[i].rightValue();
         double mid = l+(r-l)/2;
-        xl[i]=l+rand()*1.0/RAND_MAX*(mid-l);
-        xr[i]=mid+rand()*1.0/RAND_MAX*(r-mid);*/
+        double percent = 0.1;
+        xl[i]=l+drand48()*percent*(mid-l);
+        xr[i]=r-drand48()*percent*(r-mid);
+        /*
         xl[i]=mm[i].leftValue();
-        xr[i]=mm[i].rightValue();
+        xr[i]=mm[i].rightValue();*/
 
     }
 }
