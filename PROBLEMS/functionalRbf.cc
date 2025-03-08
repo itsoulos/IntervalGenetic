@@ -618,8 +618,8 @@ Data trainy;
 vector<Data> testx;
 Data testy;
 Data dclass;
-double initialLeft=-1000.0;
-double initialRight= 1000.0;
+double initialLeft=-100.0;
+double initialRight= 100.0;
 Interval maxWidth;
 int failCount=0;
 int normalTrain=0;
@@ -809,7 +809,7 @@ void 	getmargins(vector<Interval> &x)
     if(variances.size()!=0)
     {
             int icount=0;
-	    	double f=3.0;
+	    	double f=10.0;
             for(int i=0;i<nodes;i++)
             {
                 for(int j=0;j<trainx[0].size();j++)

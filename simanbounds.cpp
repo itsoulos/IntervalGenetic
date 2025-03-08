@@ -27,15 +27,15 @@ void    SimanBounds::randomBounds(Data &xl,Data &xr)
     for(int i=0;i<problem->getDimension();i++)
     {
 
-        double l = margins[i].leftValue();
+   /*     double l = margins[i].leftValue();
         double r = margins[i].rightValue();
         double mid = l+(r-l)/2;
         double percent = 0.1;
         xl[i]=l+drand48()*percent*(mid-l);
-        xr[i]=r-drand48()*percent*(r-mid);
-        /*
+*/	
+        
         xl[i]=mm[i].leftValue();
-        xr[i]=mm[i].rightValue();*/
+       xr[i]=mm[i].rightValue();
 
     }
 }
@@ -87,6 +87,7 @@ void    SimanBounds::Solve()
         {
             randomBounds(xl,xr);
             Interval fy = fitness(xl,xr);
+//	    printf("NEW F[%d]=[%.2lf %.2lf]\n",i,fy.leftValue(),fy.rightValue());
 
             if(problem->lowerValue( fy,ypoint))
             {
@@ -116,12 +117,16 @@ void    SimanBounds::Solve()
         }
         reduceTemp();
         printf("T=%20.10lg Ybest=[%20.10lg,%20.10lg]\n",
-               T0,besty.leftValue(),besty.rightValue());
+               T0,ypoint.leftValue(),ypoint.rightValue());
         if(T0<=1e-6) break;
         for(int i=0;i<margins.size();i++)
             margins[i]=Interval(left[i],right[i]);
+            //margins[i]=Interval(testXL[i],testXR[i]);
         problem->setMargins(margins);
     }
+        for(int i=0;i<margins.size();i++)
+            margins[i]=Interval(left[i],right[i]);
+        problem->setMargins(margins);
 }
 
 void    SimanBounds::reduceTemp()
