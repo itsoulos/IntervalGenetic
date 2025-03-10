@@ -310,7 +310,7 @@ int main(int argc,char **argv)
     else
     if(intervalMethod=="siman")
     {
-    p.setParameter("normalTrain",0);
+    p.setParameter("normalTrain",1);
         SimanBounds bounds(&p);
         bounds.Solve();
         Data xl,xr;

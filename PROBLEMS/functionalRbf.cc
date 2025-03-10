@@ -1160,13 +1160,15 @@ QJsonObject    done(Data &x)
             neuronOuts[j] = neuronOutput(x,pattern,pattern.size(),j);
         }
         double tempOut = arma::dot(neuronOuts,Linear);
-	if(fabs(tempOut)>1e+5)
+	if(fabs(tempOut)>=1e+3)
 	{
+		continue;
 		if(tempOut<miny) tempOut = miny;
 		if(tempOut>maxy) tempOut = maxy;
 	}
 
         per=tempOut-testy[i];
+//	printf("%lf => %lf\n",tempOut,testy[i]);
         T[i]=nearestClassIndex(testy[i]);
         O[i]=nearestClassIndex(tempOut);
         classError+=fabs(testy[i]-nearestClass(tempOut))>1e-7;

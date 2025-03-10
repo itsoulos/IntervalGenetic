@@ -27,15 +27,18 @@ void    SimanBounds::randomBounds(Data &xl,Data &xr)
     for(int i=0;i<problem->getDimension();i++)
     {
 
-   /*     double l = margins[i].leftValue();
+        double l = margins[i].leftValue();
         double r = margins[i].rightValue();
         double mid = l+(r-l)/2;
-        double percent = 0.1;
-        xl[i]=l+drand48()*percent*(mid-l);
-*/	
+        double percent = 0.001;
+	double delta1=drand48()<=0.5?1:-1;
+	double delta2=drand48()<=0.5?1:-1;
+        xl[i]=l+delta1*drand48()*percent*(mid-l);
+        xr[i]=r+delta2*drand48()*percent*(r-mid);
+	
         
-        xl[i]=mm[i].leftValue();
-       xr[i]=mm[i].rightValue();
+       // xl[i]=mm[i].leftValue();
+       //xr[i]=mm[i].rightValue();
 
     }
 }
@@ -120,9 +123,9 @@ void    SimanBounds::Solve()
                T0,ypoint.leftValue(),ypoint.rightValue());
         if(T0<=1e-6) break;
         for(int i=0;i<margins.size();i++)
-            margins[i]=Interval(left[i],right[i]);
-            //margins[i]=Interval(testXL[i],testXR[i]);
-        problem->setMargins(margins);
+            //margins[i]=Interval(left[i],right[i]);
+            margins[i]=Interval(testXL[i],testXR[i]);
+        //problem->setMargins(margins);
     }
         for(int i=0;i<margins.size();i++)
             margins[i]=Interval(left[i],right[i]);
