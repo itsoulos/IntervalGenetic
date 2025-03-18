@@ -281,7 +281,7 @@ void	DoublePop::mutate()
 void	DoublePop::calcFitnessArray()
 {
 	double dmin=1e+100;
-#pragma omp parallel for num_threads(MAXTHREADS) schedule(static) reduction(min:dmin)
+//#pragma omp parallel for num_threads(MAXTHREADS) schedule(static) reduction(min:dmin)
 	for(int i=0;i<genome_count;i++)
 	{
 		fitness_array[i]=fitness(genome[i]);
@@ -464,7 +464,7 @@ void    DoublePop::localSearch(int pos)
                double old_value = genome[pos][i];
                //F = -0.5 + 2.0 * rand()*1.0/RAND_MAX;
 	       //F = 0.5+drand48()/2.0;
-               genome[pos][i]=genome[randomA][i]+abs(F*(genome[randomB][i]-genome[randomC][i]));
+               genome[pos][i]=genome[randomA][i]+fabs(F*(genome[randomB][i]-genome[randomC][i]));
                if(!problem->isPointIn(genome[pos]))
                {
                    genome[pos][i]=old_value;
@@ -548,7 +548,7 @@ void	DoublePop::Solve()
 				i,fitness_array[0],variance,stopat);
 		
 		if(fabs(fitness_array[0])<1e-10) break;
-       /* if(i%LI==0)
+        if(i%LI==0)
         {
             for(int k=0;k<LC;k++)
 	    {
@@ -556,7 +556,7 @@ void	DoublePop::Solve()
                	    localSearch(pos);
 	    }
 	    select();
-        }*/
+        }
     }
 	LocalSearch(problem,genome[0],fitness_array[0]);
 	have_finished=1;

@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -128,17 +128,14 @@
 \end_preamble
 \options journal,article,submit,pdftex,moreauthors
 \use_default_options false
-\maintain_unincluded_children false
+\maintain_unincluded_children no
 \begin_local_layout
 #Adds an endnote inset, in addition to footnotes. You will need to add
 #\printendnotes in TeX-code where you want the endnotes to appear.
-
 Format 66
-
 Counter endnotes
     PrettyFormat "Endnote ##"
 End
-
 InsetLayout Flex:Endnote
    LyXType     custom
    LatexName   endnote
@@ -164,7 +161,9 @@ End
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
-\font_osf false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
@@ -198,7 +197,9 @@ End
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_formatted_ref 0
 \use_minted 0
+\use_lineno 0
 \index Index
 \shortcut idx
 \color #008000
@@ -214,23 +215,26 @@ End
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
+\tablestyle default
 \tracking_changes false
 \output_changes false
+\change_bars false
+\postpone_fragile_content false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
 \end_header
 
 \begin_body
 
 \begin_layout Title
-Introducing a new genetic operator based on Differential Evolution for effective
- training of neural networks
+Introducing a new genetic operator based on Differential Evolution for effective training of neural networks
 \end_layout
 
 \begin_layout Title Citation
-Introducing a new genetic operator based on Differential Evolution for effective
- training of neural networks
+Introducing a new genetic operator based on Differential Evolution for effective training of neural networks
 \end_layout
 
 \begin_layout Author
@@ -239,11 +243,13 @@ Ioannis G.
 \begin_inset Formula $^{1,*}$
 \end_inset
 
-, Vasileios Charilogis
+,
+ Vasileios Charilogis
 \begin_inset Formula $^{2}$
 \end_inset
 
-, Dimitrios Tsalikakis
+,
+ Dimitrios Tsalikakis
 \begin_inset Formula $^{3}$
 \end_inset
 
@@ -252,11 +258,17 @@ Ioannis G.
 
 \begin_layout Author Names for PDF
 Ioannis G.
- Tsoulos, Vasileios Charilogis, Dimitrios Tsalikakis
+ Tsoulos,
+ Vasileios Charilogis,
+ Dimitrios Tsalikakis
 \end_layout
 
 \begin_layout Author Names for Citation
-Tsoulos, I.G.; Charilogis, V.; Tsalikakis D.
+Tsoulos,
+ I.G.;
+ Charilogis,
+ V.;
+ Tsalikakis D.
 \end_layout
 
 \begin_layout Address
@@ -267,8 +279,10 @@ Tsoulos, I.G.; Charilogis, V.; Tsalikakis D.
 \begin_inset space \quad{}
 \end_inset
 
-Department of Informatics and Telecommunications, University of Ioannina,
- Greece; itsoulos@uoi.gr
+Department of Informatics and Telecommunications,
+ University of Ioannina,
+ Greece;
+ itsoulos@uoi.gr
 \begin_inset Newline newline
 \end_inset
 
@@ -280,8 +294,10 @@ Department of Informatics and Telecommunications, University of Ioannina,
 \begin_inset space \quad{}
 \end_inset
 
-Department of Informatics and Telecommunications, University of Ioannina,
- Greece; v.charilog@uoi.gr
+Department of Informatics and Telecommunications,
+ University of Ioannina,
+ Greece;
+ v.charilog@uoi.gr
 \begin_inset Newline newline
 \end_inset
 
@@ -289,36 +305,36 @@ Department of Informatics and Telecommunications, University of Ioannina,
 \begin_inset Formula $^{3}\quad$
 \end_inset
 
-Department of Engineering Informatics and Telecommunications, University
- of Western Macedonia, 50100 Kozani, Greece; tsalikakis@gmail.com
+Department of Engineering Informatics and Telecommunications,
+ University of Western Macedonia,
+ 50100 Kozani,
+ Greece;
+ tsalikakis@gmail.com
 \end_layout
 
 \begin_layout Corresponding Author
-Correspondence: itsoulos@uoi.gr
+Correspondence:
+ itsoulos@uoi.gr
 \end_layout
 
 \begin_layout Abstract
-Artificial neural networks are widely established models used in a variety
- of real - world problems derived from physics, chemistry etc.
- These machine learning models contain a series of parameters that must
- be appropriately tuned by various optimization techniques in order to be
- effective in the problems they face.
- Genetic algorithms have been used in many cases in the recent literature
- to train artificial neural networks and various modifications have been
- introduced to enhance this procedure.
- In this article, the incorporation of a novel genetic operator in genetic
- algorithms is proposed in order to effectively train artificial neural
- networks.
- The new operator is based on the differential evolution technique and it
- is periodically applied to randomly selected chromosomes from the genetic
- population.
- The modified genetic algorithm was used to train neural networks for classifica
-tion and regression datasets and the results are reported and compared against
- other methods that train neural networks.
+Artificial neural networks are widely established models used in a variety of real - world problems derived from physics,
+ chemistry etc.
+ These machine learning models contain a series of parameters that must be appropriately tuned by various optimization techniques in order to be effective in the problems they face.
+ Genetic algorithms have been used in many cases in the recent literature to train artificial neural networks and various modifications have been introduced to enhance this procedure.
+ In this article,
+ the incorporation of a novel genetic operator in genetic algorithms is proposed in order to effectively train artificial neural networks.
+ The new operator is based on the differential evolution technique and it is periodically applied to randomly selected chromosomes from the genetic population.
+ Furthermore,
+ to find a promising range of values for the parameters of the artificial neural network,
+ an additional genetic algorithm is executed before the execution of the basic algorithm.
+ The modified genetic algorithm was used to train neural networks for classification and regression datasets and the results are reported and compared against other methods that train neural networks.
 \end_layout
 
 \begin_layout Keywords
-Neural networks; Genetic algorithms; Evolutionary computation
+Neural networks;
+ Genetic algorithms;
+ Evolutionary computation
 \end_layout
 
 \begin_layout Section
@@ -326,8 +342,7 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-A machine learning model that has been widely used in recent decades in
- dozens of problems are artificial neural networks 
+A machine learning model that has been widely used in recent decades in dozens of problems are artificial neural networks 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn1,nn2"
@@ -335,7 +350,8 @@ literal "false"
 
 \end_inset
 
-, which are parametric models commonly defined as 
+,
+ which are parametric models commonly defined as 
 \begin_inset Formula $N\left(\overrightarrow{x},\overrightarrow{w}\right)$
 \end_inset
 
@@ -348,8 +364,7 @@ literal "false"
 \begin_inset Formula $\overrightarrow{w}$
 \end_inset
 
- represents the associated set of parameters that should be calculated by
- any optimization method.
+ represents the associated set of parameters that should be calculated by any optimization method.
  The calculation is performed by minimizing the so - called training error,
  expressed as:
 \begin_inset Formula 
@@ -363,7 +378,8 @@ The values
 \begin_inset Formula $\left(\overrightarrow{x_{i}},y_{i}\right),\ i=1,...,M$
 \end_inset
 
- form the training set of the problem, where 
+ form the training set of the problem,
+ where 
 \begin_inset Formula $y_{i}$
 \end_inset
 
@@ -376,8 +392,8 @@ The values
 \end_layout
 
 \begin_layout Standard
-Artificial neural networks have applied on a wide series of problems from
- various areas, such as physics 
+Artificial neural networks have applied on a wide series of problems from various areas,
+ such as physics 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nnphysics1,nnphysics2"
@@ -385,7 +401,8 @@ literal "false"
 
 \end_inset
 
-, astronomy 
+,
+ astronomy 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nnastro"
@@ -393,7 +410,8 @@ literal "false"
 
 \end_inset
 
-, chemistry 
+,
+ chemistry 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nnchem1"
@@ -401,7 +419,8 @@ literal "false"
 
 \end_inset
 
-, economics 
+,
+ economics 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_credit"
@@ -409,7 +428,8 @@ literal "false"
 
 \end_inset
 
-, medicine 
+,
+ medicine 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nnmed1,nnmed2"
@@ -425,6 +445,7 @@ reference "eq:eq1"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -437,7 +458,8 @@ literal "false"
 
 \end_inset
 
-, the RPROP method 
+,
+ the RPROP method 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rpropnn,rpropnn2,rpropnn3"
@@ -445,7 +467,8 @@ literal "false"
 
 \end_inset
 
-, Quasi Newton methods 
+,
+ Quasi Newton methods 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "quasinn,quasinn2"
@@ -453,7 +476,8 @@ literal "false"
 
 \end_inset
 
-, Simulated Annealing 
+,
+ Simulated Annealing 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_siman"
@@ -461,7 +485,8 @@ literal "false"
 
 \end_inset
 
-, Particle Swarm Optimization (PSO) 
+,
+ Particle Swarm Optimization (PSO) 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "psonn,psonn2"
@@ -469,7 +494,8 @@ literal "false"
 
 \end_inset
 
-, Genetic Algorithms 
+,
+ Genetic Algorithms 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "geneticnn,geneticnn2"
@@ -477,7 +503,8 @@ literal "false"
 
 \end_inset
 
-, Differential Evolution 
+,
+ Differential Evolution 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "weight_de1"
@@ -485,7 +512,8 @@ literal "false"
 
 \end_inset
 
-, Ant Colony Optimization 
+,
+ Ant Colony Optimization 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "weight_aco"
@@ -493,7 +521,8 @@ literal "false"
 
 \end_inset
 
-, Gray Wolf Optimizer 
+,
+ Gray Wolf Optimizer 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "gwo_nn"
@@ -501,7 +530,8 @@ literal "false"
 
 \end_inset
 
-, Whale optimization 
+,
+ Whale optimization 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "whale_nn"
@@ -510,8 +540,8 @@ literal "false"
 \end_inset
 
  etc.
- Moreover, Zhang et al proposed a hybrid algorithm that conjuncts PSO and
- the Back Propagation algorithm for neural networks training 
+ Moreover,
+ Zhang et al proposed a hybrid algorithm that conjuncts PSO and the Back Propagation algorithm for neural networks training 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_hybrid"
@@ -520,8 +550,8 @@ literal "false"
 \end_inset
 
 .
- Also, recently many researchers proposed methods that take advantage of
- parallel processing units in order to speed up the training process 
+ Also,
+ recently many researchers proposed methods that take advantage of parallel processing units in order to speed up the training process 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_gpu1,nn_gpu2"
@@ -533,8 +563,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Furthermore, a series of papers has been published recently that tackle
- the initialization procedure for the parameters of neural networks.
+Furthermore,
+ a series of papers has been published recently that tackle the initialization procedure for the parameters of neural networks.
  These methods include decision trees 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -543,7 +573,8 @@ literal "false"
 
 \end_inset
 
-, incorporation of the Cauchy's inequality 
+,
+ incorporation of the Cauchy's inequality 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "weight_init2"
@@ -551,7 +582,8 @@ literal "false"
 
 \end_inset
 
-, discriminant learning 
+,
+ discriminant learning 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "weight_init3"
@@ -559,7 +591,8 @@ literal "false"
 
 \end_inset
 
-, usage of polynomial bases 
+,
+ usage of polynomial bases 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_init1"
@@ -567,7 +600,8 @@ literal "false"
 
 \end_inset
 
-, usage of intervals 
+,
+ usage of intervals 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_init3"
@@ -576,8 +610,7 @@ literal "false"
 \end_inset
 
  etc.
- A systematic review of initialization methods can be found in the work
- of Narkhede et al 
+ A systematic review of initialization methods can be found in the work of Narkhede et al 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_init_review"
@@ -589,12 +622,12 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Additionally, finding the optimal architecture of an artificial neural network
- can effectively contribute to its training, since on the one hand it will
- reduce the required training time and on the other hand it will eliminate
- the problem of overfitting.
- In this direction, a series of researchers have proposed many methods to
- tackle this problem, such as genetic algorithms 
+Additionally,
+ finding the optimal architecture of an artificial neural network can effectively contribute to its training,
+ since on the one hand it will reduce the required training time and on the other hand it will eliminate the problem of overfitting.
+ In this direction,
+ a series of researchers have proposed many methods to tackle this problem,
+ such as genetic algorithms 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_arch1,nn_arch2"
@@ -602,7 +635,8 @@ literal "false"
 
 \end_inset
 
-, the application of the PSO method method 
+,
+ the application of the PSO method method 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_arch3"
@@ -610,7 +644,8 @@ literal "false"
 
 \end_inset
 
-, application of reinforcement learning 
+,
+ application of reinforcement learning 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_arch4"
@@ -619,7 +654,8 @@ literal "false"
 \end_inset
 
  etc.
- Also, Tsoulos et al.
+ Also,
+ Tsoulos et al.
  proposed the usage of Grammatical Evolution technique 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -640,13 +676,12 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-This paper proposes the usage of a two-stage technique for the efficient
- training of artificial neural networks.
- In the first stage, a genetic algorithm is used to efficiently identify
- a range of values within which the parameters of the artificial neural
- network should be optimized.
- In the second stage, a genetic algorithm optimizes these parameters, which
- uses a new operator to enhance its results.
+This paper proposes the usage of a two-stage technique for the efficient training of artificial neural networks.
+ In the first stage,
+ a genetic algorithm is used to efficiently identify a range of values within which the parameters of the artificial neural network should be optimized.
+ In the second stage,
+ a genetic algorithm optimizes these parameters,
+ which uses a new operator to enhance its results.
  This new operator is based on the differential evolution technique 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -655,15 +690,13 @@ literal "false"
 
 \end_inset
 
- and is applied periodically to randomly selected chromosomes of the genetic
- population.
- The first stage of the technique is necessary to ensure that the parameters
- of the artificial neural network will be trained within a range of values,
+ and is applied periodically to randomly selected chromosomes of the genetic population.
+ The first stage of the technique is necessary to ensure that the parameters of the artificial neural network will be trained within a range of values,
  which will prevent their overfitting as much as possible.
- In the second stage, the differential evolution method was selected as
- the base of the new operator.
- This method is an evolutionary technique widely used in a series of practical
- problems, such as community detection 
+ In the second stage,
+ the differential evolution method was selected as the base of the new operator.
+ This method is an evolutionary technique widely used in a series of practical problems,
+ such as community detection 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "de_symmetry1"
@@ -671,7 +704,8 @@ literal "false"
 
 \end_inset
 
-, structure prediction 
+,
+ structure prediction 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "de_symmetry3"
@@ -679,7 +713,8 @@ literal "false"
 
 \end_inset
 
-, motor fault diagnosis 
+,
+ motor fault diagnosis 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "de_symmetry6"
@@ -687,7 +722,8 @@ literal "false"
 
 \end_inset
 
-, and clustering techniques 
+,
+ and clustering techniques 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "de_symmetry7"
@@ -696,40 +732,45 @@ literal "false"
 \end_inset
 
 .
- Furthermore, this method was chosen as the basis for the new genetic operator
- due to the small number of required parameters that the user must specify.
+ Furthermore,
+ this method was chosen as the basis for the new genetic operator due to the small number of required parameters that the user must specify.
  
 \end_layout
 
 \begin_layout Standard
-The remaining of this article is organized as follows: in section 
+The remaining of this article is organized as follows:
+ in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Method-description"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- the proposed method is discussed in detail, in section 
+ the proposed method is discussed in detail,
+ in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Experiments"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- the used datasets as well as the conducted experiments are discussed and
- finally, in section 
+ the used datasets as well as the conducted experiments are discussed and finally,
+ in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Conclusions"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -749,12 +790,8 @@ name "sec:Method-description"
 
 \begin_layout Standard
 The two phases of the proposed method are analyzed in detail in this section.
- During the first phase a genetic algorithm is utilized in order to detect
- a promising interval of values for the parameters of neural network.
- In the second phase a genetic algorithm that incorporates the suggested
- operator is applied to minimize the training error of the neural network
- and the parameters are initialized inside the interval located during the
- first phase.
+ During the first phase a genetic algorithm is utilized in order to detect a promising interval of values for the parameters of neural network.
+ In the second phase a genetic algorithm that incorporates the suggested operator is applied to minimize the training error of the neural network and the parameters are initialized inside the interval located during the first phase.
 \end_layout
 
 \begin_layout Subsection
@@ -762,15 +799,15 @@ The first phase of the proposed method
 \end_layout
 
 \begin_layout Standard
-In the first phase of the proposed technique, a genetic algorithm is used
- to identify a range of values for the parameters of the artificial neural
- network.
- Genetic algorithms are evolutionary methods, where a series of randomly
- created candidate solutions, those called chromosomes, are evolved ireratively
- through a series of steps similar to natural processes such as selection,
+In the first phase of the proposed technique,
+ a genetic algorithm is used to identify a range of values for the parameters of the artificial neural network.
+ Genetic algorithms are evolutionary methods,
+ where a series of randomly created candidate solutions,
+ those called chromosomes,
+ are evolved ireratively through a series of steps similar to natural processes such as selection,
  crossover and mutation.
- Genetic algorithms have been used successfully in a series of real - world
- problems, such as placement of wind turbines 
+ Genetic algorithms have been used successfully in a series of real - world problems,
+ such as placement of wind turbines 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "gen_app1"
@@ -778,7 +815,8 @@ literal "true"
 
 \end_inset
 
-, water distribution 
+,
+ water distribution 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "gen_app2"
@@ -786,7 +824,8 @@ literal "true"
 
 \end_inset
 
-, economics 
+,
+ economics 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "gen_app3"
@@ -794,7 +833,8 @@ literal "true"
 
 \end_inset
 
-, neural network training 
+,
+ neural network training 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "gen_app4"
@@ -824,8 +864,7 @@ Where the value
 \begin_inset Formula $H$
 \end_inset
 
- denotes the total number of processing units in this network and the value
- 
+ denotes the total number of processing units in this network and the value 
 \begin_inset Formula $d$
 \end_inset
 
@@ -834,7 +873,9 @@ Where the value
 \end_inset
 
 .
- Hence, the total number of parameters for this network are: 
+ Hence,
+ the total number of parameters for this network are:
+ 
 \begin_inset Formula $n=(d+2)H$
 \end_inset
 
@@ -843,7 +884,8 @@ Where the value
 \begin_inset Formula $\sigma(x)$
 \end_inset
 
- is the sigmoid function, defined as:
+ is the sigmoid function,
+ defined as:
 \end_layout
 
 \begin_layout Standard
@@ -907,7 +949,8 @@ Set
 \begin_inset Formula $a$
 \end_inset
 
-, where 
+,
+ where 
 \begin_inset Formula $a\ge1$
 \end_inset
 
@@ -1029,8 +1072,7 @@ Transfer
 \end_inset
 
  chromosomes of the current generation to the next one.
- The remaining will be replaced by chromosomes produced in crossover and
- mutation.
+ The remaining will be replaced by chromosomes produced in crossover and mutation.
 \end_layout
 
 \begin_layout Enumerate
@@ -1039,14 +1081,13 @@ Transfer
 Perform 
 \series default
 the crossover procedure.
- During this procedure, for each pair of constructed chromosomes 
+ During this procedure,
+ for each pair of constructed chromosomes 
 \begin_inset Formula $\left(\widetilde{z},\widetilde{w}\right)$
 \end_inset
 
- two chromosomes will be selected from the current population using tournament
- selection.
- The production of the new chromosomes is performed using process suggested
- by Kaelo et al 
+ two chromosomes will be selected from the current population using tournament selection.
+ The production of the new chromosomes is performed using process suggested by Kaelo et al 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "kaelo"
@@ -1063,8 +1104,8 @@ literal "false"
 Perform
 \series default
  the mutation procedure.
- During the mutation procedure, for each element of each chromosome a random
- number 
+ During the mutation procedure,
+ for each element of each chromosome a random number 
 \begin_inset Formula $r\in[0,1]$
 \end_inset
 
@@ -1145,7 +1186,8 @@ and
 \begin_inset Formula $R^{*}$
 \end_inset
 
- as: 
+ as:
+ 
 \begin_inset Formula 
 \[
 \begin{array}{ccc}
@@ -1165,10 +1207,8 @@ The second phase of the proposed method
 \end_layout
 
 \begin_layout Standard
-During the second phase a second genetic algorithm is used to minimize the
- training error of the neural network.
- The parameters of the neural network are initialized inside the vectors
- 
+During the second phase a second genetic algorithm is used to minimize the training error of the neural network.
+ The parameters of the neural network are initialized inside the vectors 
 \begin_inset Formula $L^{*}$
 \end_inset
 
@@ -1177,11 +1217,11 @@ and
 \end_inset
 
  produced in the previous phase of the algorithm.
- Also, a novel stochastic genetic operator, which is based on the Differential
- Evolution approach, is applied periodically to the genetic population.
- This new stochastic operator is used to improve the performance of randomly
- selected chromosomes and to speed up the overall genetic algorithm in finding
- the global minimum.
+ Also,
+ a novel stochastic genetic operator,
+ which is based on the Differential Evolution approach,
+ is applied periodically to the genetic population.
+ This new stochastic operator is used to improve the performance of randomly selected chromosomes and to speed up the overall genetic algorithm in finding the global minimum.
  The main steps of the algorithm executed on the second phase have as follows:
 \end_layout
 
@@ -1231,7 +1271,8 @@ Set
 \series bold
 Set
 \series default
- the crossover probability CR, used in the new genetic operator.
+ the crossover probability CR,
+ used in the new genetic operator.
 \end_layout
 
 \begin_layout Enumerate
@@ -1388,8 +1429,7 @@ Copy
 \end_inset
 
  chromosomes with the lowest fitness values to the next generation.
- The remaining will be replaced by chromosomes produced in crossover and
- mutation.
+ The remaining will be replaced by chromosomes produced in crossover and mutation.
 \end_layout
 
 \begin_layout Enumerate
@@ -1463,6 +1503,7 @@ reference "alg:deOperator"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -1553,8 +1594,7 @@ Create
 \series bold
 Apply
 \series default
- this neural network to the test set of the objective problem and report
- the error.
+ this neural network to the test set of the objective problem and report the error.
 \end_layout
 
 \begin_layout Standard
@@ -1575,9 +1615,10 @@ Apply
 \begin_layout Standard
 \begin_inset Float algorithm
 placement H
+alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1643,7 +1684,8 @@ Set
 \begin_inset Formula $t=g$
 \end_inset
 
-, as the trial chromosome.
+,
+ as the trial chromosome.
 \end_layout
 
 \begin_layout Enumerate
@@ -1755,6 +1797,68 @@ End Function
 
 \end_layout
 
+\begin_layout Standard
+The steps of all phases are also graphically illustrated in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:flow"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename flowChart.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The flowchart of the proposed method.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:flow"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Experiments 
 \begin_inset CommandInset label
@@ -1768,8 +1872,7 @@ name "sec:Experiments"
 
 \begin_layout Standard
 To demonstrate the dynamics and reliability of the proposed methodology,
- a series of experiments were carried out on known datasets from the relevant
- literature.
+ a series of experiments were carried out on known datasets from the relevant literature.
  These datasets were obtained from the following databases:
 \end_layout
 
@@ -1797,7 +1900,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Keel website, 
+The Keel website,
+ 
 \begin_inset Flex URL
 status open
 
@@ -1840,13 +1944,12 @@ Experimental datasets
 \end_layout
 
 \begin_layout Standard
-The following series of classification datasets were used in the conducted
- experiments:
+The following series of classification datasets were used in the conducted experiments:
 \end_layout
 
 \begin_layout Enumerate
-The Alcohol dataset, which is related to experiments on alcohol consumption
- 
+The Alcohol dataset,
+ which is related to experiments on alcohol consumption 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "alcohol"
@@ -1858,7 +1961,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Appendicitis dataset, which is a medical dataset 
+The Appendicitis dataset,
+ which is a medical dataset 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "appendicitis"
@@ -1870,7 +1974,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Australian dataset, which is used in bank transactions 
+The Australian dataset,
+ which is used in bank transactions 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "australian"
@@ -1882,8 +1987,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Balance dataset, which contains measurements from various psychological
- experiments 
+The Balance dataset,
+ which contains measurements from various psychological experiments 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "balance"
@@ -1895,12 +2000,14 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Circular dataset, which was created artificially.
+The Circular dataset,
+ which was created artificially.
  
 \end_layout
 
 \begin_layout Enumerate
-The Cleveland dataset, which is a medical dataset 
+The Cleveland dataset,
+ which is a medical dataset 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "cleveland1,cleveland2"
@@ -1912,8 +2019,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Dermatology dataset, which is a medical dataset regarding dermatology
- problems 
+The Dermatology dataset,
+ which is a medical dataset regarding dermatology problems 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "dermatology"
@@ -1925,7 +2032,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Ecoli dataset, which is used in protein problems 
+The Ecoli dataset,
+ which is used in protein problems 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ecoli"
@@ -1937,12 +2045,13 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Fert dataset, related to the detection of relations between sperm concentrat
-ion and demographic data.
+The Fert dataset,
+ related to the detection of relations between sperm concentration and demographic data.
 \end_layout
 
 \begin_layout Enumerate
-The Haberman dataset, which is related to the detection of breast cancer.
+The Haberman dataset,
+ which is related to the detection of breast cancer.
 \end_layout
 
 \begin_layout Enumerate
@@ -1958,7 +2067,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Heart dataset, which is related to some heart diseases 
+The Heart dataset,
+ which is related to some heart diseases 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "heart"
@@ -1971,8 +2081,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The HouseVotes dataset, related to data from Congressional voting in USA
- 
+The HouseVotes dataset,
+ related to data from Congressional voting in USA 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "housevotes"
@@ -1984,7 +2094,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Ionosphere dataset, that contains measurements from the ionosphere 
+The Ionosphere dataset,
+ that contains measurements from the ionosphere 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ion1,ion2"
@@ -1996,7 +2107,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Liverdisorder dataset, which is a medical dataset 
+The Liverdisorder dataset,
+ which is a medical dataset 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "liver1,liver2"
@@ -2020,7 +2132,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Mammographic dataset, which is a medical dataset 
+The Mammographic dataset,
+ which is a medical dataset 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "mammographic"
@@ -2033,8 +2146,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Parkinsons dataset, that was used in the detection of Parkinson's disease
- 
+The Parkinsons dataset,
+ that was used in the detection of Parkinson's disease 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "parkinsons1,parkinsons2"
@@ -2046,8 +2159,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Pima dataset, a medical dataset related to the detection of diabetes's
- disease 
+The Pima dataset,
+ a medical dataset related to the detection of diabetes's disease 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "pima"
@@ -2059,7 +2172,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Popfailures dataset, related to climate model simulations 
+The Popfailures dataset,
+ related to climate model simulations 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "popfailures"
@@ -2071,7 +2185,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Regions2 dataset, related to some diseases in liver 
+The Regions2 dataset,
+ related to some diseases in liver 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "regions2"
@@ -2083,7 +2198,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Saheart dataset, related to some heart diseases 
+The Saheart dataset,
+ related to some heart diseases 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "saheart"
@@ -2095,7 +2211,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Segment dataset, related to image processing 
+The Segment dataset,
+ related to image processing 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "segment"
@@ -2107,7 +2224,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Sonar dataset, used to discriminate sonar signals 
+The Sonar dataset,
+ used to discriminate sonar signals 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "sonar"
@@ -2119,17 +2237,19 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Spiral dataset, which was created artificially.
+The Spiral dataset,
+ which was created artificially.
  
 \end_layout
 
 \begin_layout Enumerate
-The StatHeart dataset, a medical dataset regarding heart diseases.
+The StatHeart dataset,
+ a medical dataset regarding heart diseases.
 \end_layout
 
 \begin_layout Enumerate
-The Student dataset, which is related to experiments conducted in schools
- 
+The Student dataset,
+ which is related to experiments conducted in schools 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "student"
@@ -2141,7 +2261,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The WDBC dataset, which is related to the detection of cancer 
+The WDBC dataset,
+ which is related to the detection of cancer 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "wdbc"
@@ -2153,7 +2274,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Wine dataset, used to detection of the quality of wines 
+The Wine dataset,
+ used to detection of the quality of wines 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "wine1,wine2"
@@ -2165,7 +2287,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The EEG dataset, which contains various EEG measurements 
+The EEG dataset,
+ which contains various EEG measurements 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "eeg1,eeg2"
@@ -2174,12 +2297,14 @@ literal "false"
 \end_inset
 
 .
- From this dataset the following cases were utilized: Z_F_S, ZO_NF_S and
- ZONF_S.
+ From this dataset the following cases were utilized:
+ Z_F_S,
+ ZO_NF_S and ZONF_S.
 \end_layout
 
 \begin_layout Enumerate
-The ZOO dataset, which is used for animal classification 
+The ZOO dataset,
+ which is used for animal classification 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "zoo"
@@ -2191,12 +2316,13 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Also, the following regression datasets were incorporated in the conducted
- experiments:
+Also,
+ the following regression datasets were incorporated in the conducted experiments:
 \end_layout
 
 \begin_layout Enumerate
-The Abalone dataset, that was used to predict the age of abalones 
+The Abalone dataset,
+ that was used to predict the age of abalones 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "abalone"
@@ -2208,7 +2334,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Airfoil dataset, derived from NASA 
+The Airfoil dataset,
+ derived from NASA 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "airfoil"
@@ -2220,11 +2347,13 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-the Baseball dataset, used to predict the salary of baseball players.
+the Baseball dataset,
+ used to predict the salary of baseball players.
 \end_layout
 
 \begin_layout Enumerate
-The BK dataset, related to basketball games 
+The BK dataset,
+ related to basketball games 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "BK"
@@ -2236,11 +2365,13 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The BL dataset, related to some electricity experiments.
+The BL dataset,
+ related to some electricity experiments.
 \end_layout
 
 \begin_layout Enumerate
-The Concrete dataset, which is related to civil engineering 
+The Concrete dataset,
+ which is related to civil engineering 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "concrete"
@@ -2252,11 +2383,13 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Dee dataset, which is related to the price of electricity.
+The Dee dataset,
+ which is related to the price of electricity.
 \end_layout
 
 \begin_layout Enumerate
-The Housing dataset, related to the price of houses 
+The Housing dataset,
+ related to the price of houses 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "housing"
@@ -2268,7 +2401,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Friedman dataset, used in various benchmarks 
+The Friedman dataset,
+ used in various benchmarks 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "friedman"
@@ -2280,31 +2414,38 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The FY dataset, related to fruit flies.
+The FY dataset,
+ related to fruit flies.
 \end_layout
 
 \begin_layout Enumerate
-The HO dataset, obtained from the STATLIB repository.
+The HO dataset,
+ obtained from the STATLIB repository.
 \end_layout
 
 \begin_layout Enumerate
-The Laser dataset, related to laser experiments.
+The Laser dataset,
+ related to laser experiments.
 \end_layout
 
 \begin_layout Enumerate
-The LW dataset, related to the prediction of the weight of babes.
+The LW dataset,
+ related to the prediction of the weight of babes.
 \end_layout
 
 \begin_layout Enumerate
-The MB dataset, which was obtained from Smoothing Methods in Statistics.
+The MB dataset,
+ which was obtained from Smoothing Methods in Statistics.
 \end_layout
 
 \begin_layout Enumerate
-The Mortgage dataset, which is an economic dataset.
+The Mortgage dataset,
+ which is an economic dataset.
 \end_layout
 
 \begin_layout Enumerate
-The Plastic dataset, related to the pressure in plastics.
+The Plastic dataset,
+ related to the pressure in plastics.
 \end_layout
 
 \begin_layout Enumerate
@@ -2320,28 +2461,34 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The PL dataset, obtained from the STATLIB repository.
+The PL dataset,
+ obtained from the STATLIB repository.
 \end_layout
 
 \begin_layout Enumerate
-The Quake dataset, used to detect the strength of earthquakes.
+The Quake dataset,
+ used to detect the strength of earthquakes.
  
 \end_layout
 
 \begin_layout Enumerate
-The SN dataset, which is related to trellising and pruning.
+The SN dataset,
+ which is related to trellising and pruning.
 \end_layout
 
 \begin_layout Enumerate
-The Stock dataset, used to estimate the price of stocks.
+The Stock dataset,
+ used to estimate the price of stocks.
 \end_layout
 
 \begin_layout Enumerate
-The Treasury dataset, which is an economic dataset.
+The Treasury dataset,
+ which is an economic dataset.
 \end_layout
 
 \begin_layout Enumerate
-The VE dataset, obtained from the STATLIB repository.
+The VE dataset,
+ obtained from the STATLIB repository.
 \end_layout
 
 \begin_layout Subsection
@@ -2349,13 +2496,10 @@ Experimental results
 \end_layout
 
 \begin_layout Standard
-The code used in the conducted experiments was written in ANSI C++ and all
- runs were performed 30 times using a different seed for the random number
- generator each time.
- The validation of the experiments were done using the well - known method
- of 10 - fold cross validation.
- For the case of classification datasets the average classification error
- is reported in the experimental tables.
+The code used in the conducted experiments was written in ANSI C++ and all runs were performed 30 times using a different seed for the random number generator each time.
+ The validation of the experiments were done using the well - known method of 10 - fold cross validation.
+ All the experiments were conducted on an AMD RYZEN 5950X machine with 128GB of ram running Debian Linux.
+ For the case of classification datasets the average classification error is reported in the experimental tables.
  This error is calculated through the following equation:
 \begin_inset Formula 
 \begin{equation}
@@ -2369,9 +2513,9 @@ where the set
 \end_inset
 
  denotes the test set of the objective problem.
- For regression datasets the average regression error as calculated on the
- test set is reported and it is denoted as:Also, the regression error is
- defined as: 
+ For regression datasets the average regression error as calculated on the test set is reported and it is denoted as:Also,
+ the regression error is defined as:
+ 
 \begin_inset Formula 
 \begin{equation}
 E_{R}\left(N(w,x)\right)=\frac{\sum_{i=1}^{K}\left(N\left(w,x_{i}\right)-y_{i}\right)^{2}}{K}
@@ -2379,14 +2523,14 @@ E_{R}\left(N(w,x)\right)=\frac{\sum_{i=1}^{K}\left(N\left(w,x_{i}\right)-y_{i}\r
 
 \end_inset
 
-The values for the parameters of the proposed method are shown in Table
- 
+The values for the parameters of the proposed method are shown in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:settings"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -2431,14 +2575,14 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The column GENETIC denotes the usage of a Genetic Algorithm with the same
- set of parameters as shown in Table 
+The column GENETIC denotes the usage of a Genetic Algorithm with the same set of parameters as shown in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:settings"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -2450,8 +2594,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Enumerate
-The column NEAT is used for the application of the NEAT method (NeuroEvolution
- of Augmenting Topologies ) 
+The column NEAT is used for the application of the NEAT method (NeuroEvolution of Augmenting Topologies ) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "neat"
@@ -2463,13 +2606,13 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The row AVERAGE is used for the average classification or regression error
- for all datasets.
+The row AVERAGE is used for the average classification or regression error for all datasets.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -2856,14 +2999,14 @@ Margin factor
 
 \end_inset
 
-The experimental results for the classification datasets are shown in Table
- 
+The experimental results for the classification datasets are shown in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Experiments-for-classification"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -2874,6 +3017,7 @@ reference "tab:exp2"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -2884,6 +3028,7 @@ noprefix "false"
 \begin_layout Standard
 \begin_inset Float table
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -4902,6 +5047,7 @@ AVERAGE
 
 \begin_inset Float table
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -6357,13 +6503,15 @@ AVERAGE
 
 \end_inset
 
-Also, in Figures 
+Also,
+ in Figures 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:statClass"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -6374,12 +6522,14 @@ reference "fig:statRegression"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
  the statistical comparison for the experimental results is outlined graphically.
 \begin_inset Float figure
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -6399,8 +6549,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical comparison for the obtained experimental results in the classificati
-on datasets.
+Statistical comparison for the obtained experimental results in the classification datasets.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:statClass"
@@ -6424,6 +6573,7 @@ name "fig:statClass"
 
 \begin_inset Float figure
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -6464,26 +6614,34 @@ name "fig:statRegression"
 
 \end_inset
 
-In the scientific analysis of the experimental results, the proposed model
- (PROPOSED) demonstrates statistically significant superiority over other
- methods (ADAM, BFGS, GENETIC, NEAT, RBF) in both classification and regression
- datasets.
- For classification, the PROPOSED model achieves a mean error rate of 20.02%,
- compared to 25.48%-33.01% for the other methods, with extremely low p-values
- (e.g., 
+In the scientific analysis of the experimental results,
+ the proposed model (PROPOSED) demonstrates statistically significant superiority over other methods (ADAM,
+ BFGS,
+ GENETIC,
+ NEAT,
+ RBF) in both classification and regression datasets.
+ For classification,
+ the PROPOSED model achieves a mean error rate of 20.02%,
+ compared to 25.48%-33.01% for the other methods,
+ with extremely low p-values (e.g.,
+ 
 \begin_inset Formula $p=2.3\times10^{-10}$
 \end_inset
 
  against BFGS).
- In regression, the model’s mean absolute error (4.64) is significantly lower
- than that of the comparative methods (12.8-25.12), with strong statistical
- significance 
+ In regression,
+ the model’s mean absolute error (4.64) is significantly lower than that of the comparative methods (12.8-25.12),
+ with strong statistical significance 
 \begin_inset Formula $\left(p<10^{-5}\right)$
 \end_inset
 
 .
- However, in certain datasets (e.g., CLEVELAND, FRIEDMAN), the model’s performance
- decreases, indicating dependence on data characteristics.
+ However,
+ in certain datasets (e.g.,
+ CLEVELAND,
+ FRIEDMAN),
+ the model’s performance decreases,
+ indicating dependence on data characteristics.
 \end_layout
 
 \begin_layout Standard
@@ -6494,12 +6652,16 @@ reference "fig:statClass"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
-) for classification datasets, the proposed model (PROPOSED) demonstrates
- statistically significant superiority over all comparative methods (BFGS,
- ADAM, NEAT, GENETIC), with extremely low p-values (
+) for classification datasets,
+ the proposed model (PROPOSED) demonstrates statistically significant superiority over all comparative methods (BFGS,
+ ADAM,
+ NEAT,
+ GENETIC),
+ with extremely low p-values (
 \begin_inset Formula $p=2.3\times10^{-10}$
 \end_inset
 
@@ -6508,8 +6670,8 @@ noprefix "false"
 \end_inset
 
 ) .
- This indicates strong differences at a confidence level >99.9%, particularly
- against BFGS and ADAM 
+ This indicates strong differences at a confidence level >99.9%,
+ particularly against BFGS and ADAM 
 \begin_inset Formula $\left(p<10^{-9}\right)$
 \end_inset
 
@@ -6521,11 +6683,13 @@ reference "fig:statRegression"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
-), PROPOSED maintains significant superiority over all methods, though with
- slightly higher p-values 
+),
+ PROPOSED maintains significant superiority over all methods,
+ though with slightly higher p-values 
 \begin_inset Formula $\left(p=10^{-5}\ \mbox{to}\ p=2.4\times10^{-7}\right)$
 \end_inset
 
@@ -6534,7 +6698,8 @@ noprefix "false"
 \begin_inset Formula $\left(p=2.4\times10^{-7}\right)$
 \end_inset
 
-, while the smallest is against GENETIC 
+,
+ while the smallest is against GENETIC 
 \begin_inset Formula $\left(p=8.6\times10^{-5}\right)$
 \end_inset
 
@@ -6546,18 +6711,32 @@ Experiments with the differential weight
 \end_layout
 
 \begin_layout Standard
-An additional experiment was performed to demonstrate the reliability of
- the proposed methodology.
- In this experiment, three different differential weight 
+An additional experiment was performed to demonstrate the reliability of the proposed methodology.
+ In this experiment,
+ three different differential weight 
 \begin_inset Formula $F$
 \end_inset
 
  calculation techniques were used for the proposed operator.
+ The range of this parameter was defined as 
+\begin_inset Formula $[0,2]$
+\end_inset
+
+ in the work of Storn and Price 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "de_original"
+literal "false"
+
+\end_inset
+
+.
  These techniques are the following:
 \end_layout
 
 \begin_layout Enumerate
-Fixed, which is the default technique in the proposed method.
+Fixed,
+ which is the default technique in the proposed method.
  In this technique the value 
 \begin_inset Formula $F=0.8$
 \end_inset
@@ -6566,7 +6745,8 @@ Fixed, which is the default technique in the proposed method.
 \end_layout
 
 \begin_layout Enumerate
-Adaptive, where the adaptive calculation of parameter 
+Adaptive,
+ where the adaptive calculation of parameter 
 \begin_inset Formula $F$
 \end_inset
 
@@ -6582,7 +6762,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-Random, where the stochastic calculation of parameter 
+Random,
+ where the stochastic calculation of parameter 
 \begin_inset Formula $F$
 \end_inset
 
@@ -6605,20 +6786,20 @@ reference "tab:ExperimentsClassificationF"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- the results from the application of the proposed method using the previously
- mentioned techniques for the differential weight are depicted for the classific
-ation datasets.
- Similarly, the same method is applied on the regression datasets and the
- results are presented in Table 
+ the results from the application of the proposed method using the previously mentioned techniques for the differential weight are depicted for the classification datasets.
+ Similarly,
+ the same method is applied on the regression datasets and the results are presented in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:expRegressionF"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -6628,6 +6809,7 @@ noprefix "false"
 \begin_layout Standard
 \begin_inset Float table
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -6636,8 +6818,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experiments for classification datasets using a series of diferential weight
- mechanisms.
+Experiments for classification datasets using a series of diferential weight mechanisms.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:ExperimentsClassificationF"
@@ -8011,6 +8192,7 @@ AVERAGE
 
 \begin_inset Float table
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -8019,8 +8201,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experiments for regression datasets using a variety of weight mechanism
- methods.
+Experiments for regression datasets using a variety of weight mechanism methods.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:expRegressionF"
@@ -9011,14 +9192,15 @@ AVERAGE
 
 \end_inset
 
-Furthermore, the statistical comparison for these experimental tables is
- outlined in Figures 
+Furthermore,
+ the statistical comparison for these experimental tables is outlined in Figures 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:statClassF"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -9029,6 +9211,7 @@ reference "fig:statRegressionF"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -9038,6 +9221,7 @@ noprefix "false"
 \begin_layout Standard
 \begin_inset Float figure
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -9057,9 +9241,8 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical comparison for the experimental results on the classification
- datasets, using the proposed method and a series of differential weight
- techniques.
+Statistical comparison for the experimental results on the classification datasets,
+ using the proposed method and a series of differential weight techniques.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:statClassF"
@@ -9083,6 +9266,7 @@ name "fig:statClassF"
 
 \begin_inset Float figure
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -9102,8 +9286,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical comparison for the experiments on the regression datasets using
- the proposed method and a series of differential weight calculation techniques.
+Statistical comparison for the experiments on the regression datasets using the proposed method and a series of differential weight calculation techniques.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:statRegressionF"
@@ -9124,21 +9307,26 @@ name "fig:statRegressionF"
 
 \end_inset
 
-When comparing differential weight calculation methods (FIXED, ADAPTIVE,
- RANDOM), the ADAPTIVE method shows slightly better average performance
- (19.91% in classification, 4.59 in regression) compared to FIXED (20.02%,
- 4.64) and RANDOM (19.97%, 4.59).
- However, the differences are minimal and often statistically insignificant
- (e.g., 
+When comparing differential weight calculation methods (FIXED,
+ ADAPTIVE,
+ RANDOM),
+ the ADAPTIVE method shows slightly better average performance (19.91% in classification,
+ 4.59 in regression) compared to FIXED (20.02%,
+ 4.64) and RANDOM (19.97%,
+ 4.59).
+ However,
+ the differences are minimal and often statistically insignificant (e.g.,
+ 
 \begin_inset Formula $p=0.83$
 \end_inset
 
 for FIXED vs ADAPTIVE in classification).
- In some datasets, such as Lymography and HouseVotes, the RANDOM method
- outperforms others, highlighting the need to tailor the method to the specific
- problem.
- In regression, the only significant difference occurs between FIXED and
- ADAPTIVE (
+ In some datasets,
+ such as Lymography and HouseVotes,
+ the RANDOM method outperforms others,
+ highlighting the need to tailor the method to the specific problem.
+ In regression,
+ the only significant difference occurs between FIXED and ADAPTIVE (
 \begin_inset Formula $p=0.041$
 \end_inset
 
@@ -9153,10 +9341,12 @@ reference "fig:statClassF"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
-, the differences between FIXED and ADAPTIVE (
+,
+ the differences between FIXED and ADAPTIVE (
 \begin_inset Formula $p=0.83$
 \end_inset
 
@@ -9164,13 +9354,15 @@ noprefix "false"
 \begin_inset Formula $p=0.94$
 \end_inset
 
-) are not statistically significant, suggesting equivalent performance.
- However, the comparison FIXED vs RANDOM (
+) are not statistically significant,
+ suggesting equivalent performance.
+ However,
+ the comparison FIXED vs RANDOM (
 \begin_inset Formula $p=2.3\times10^{-10}$
 \end_inset
 
-) reveals a highly significant difference, likely due to the random nature
- of RANDOM.
+) reveals a highly significant difference,
+ likely due to the random nature of RANDOM.
  For regression datasets (Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -9178,18 +9370,24 @@ reference "fig:statRegressionF"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
-), the only significant difference occurs between FIXED and ADAPTIVE (
+),
+ the only significant difference occurs between FIXED and ADAPTIVE (
 \begin_inset Formula $p=0.041$
 \end_inset
 
-), while the remaining comparisons (FIXED vs RANDOM: 
+),
+ while the remaining comparisons (FIXED vs RANDOM:
+ 
 \begin_inset Formula $p=0.75$
 \end_inset
 
-, ADAPTIVE vs RANDOM: 
+,
+ ADAPTIVE vs RANDOM:
+ 
 \begin_inset Formula $p=0.31$
 \end_inset
 
@@ -9205,8 +9403,7 @@ Experiments with the margin factor
 \end_layout
 
 \begin_layout Standard
-An additional experiment was executed to outline the performance and the
- stability of the proposed method.
+An additional experiment was executed to outline the performance and the stability of the proposed method.
  In this experiment that margin factor denoted as 
 \begin_inset Formula $a$
 \end_inset
@@ -9220,14 +9417,14 @@ An additional experiment was executed to outline the performance and the
 \end_inset
 
 .
- The experimental results for the classification datasets are shown in Table
- 
+ The experimental results for the classification datasets are shown in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:ExperimentsClassificationA"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -9238,6 +9435,7 @@ reference "tab:expRegressionA"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -9247,6 +9445,7 @@ noprefix "false"
 \begin_layout Standard
 \begin_inset Float table
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -9255,8 +9454,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experiments for classification datasets using a series of values for the
- margin factor 
+Experiments for classification datasets using a series of values for the margin factor 
 \begin_inset Formula $a$
 \end_inset
 
@@ -10964,6 +11162,7 @@ AVERAGE
 
 \begin_inset Float table
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -10972,8 +11171,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experiments for regression datasets using a variety of values for the margin
- factor 
+Experiments for regression datasets using a variety of values for the margin factor 
 \begin_inset Formula $a$
 \end_inset
 
@@ -12208,14 +12406,15 @@ AVERAGE
 
 \end_inset
 
-Also, the statistical comparisons for these experiments are shown graphically
- in Figures 
+Also,
+ the statistical comparisons for these experiments are shown graphically in Figures 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:statClassA"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -12226,6 +12425,7 @@ reference "fig:statRegressionA"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -12236,6 +12436,7 @@ noprefix "false"
 \begin_layout Standard
 \begin_inset Float figure
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -12255,9 +12456,8 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical comparison for the experimental results on the classification
- datasets, using the proposed method and different values for the margin
- factor 
+Statistical comparison for the experimental results on the classification datasets,
+ using the proposed method and different values for the margin factor 
 \begin_inset Formula $a$
 \end_inset
 
@@ -12285,6 +12485,7 @@ name "fig:statClassA"
 
 \begin_inset Float figure
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -12304,8 +12505,8 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical comparison for the experiments on the regression datasets, using
- the proposed method and different values for the margin factor 
+Statistical comparison for the experiments on the regression datasets,
+ using the proposed method and different values for the margin factor 
 \begin_inset Formula $a$
 \end_inset
 
@@ -12334,7 +12535,8 @@ The parameter
 \begin_inset Formula $a$
 \end_inset
 
- significantly impacts performance, with higher values (
+ significantly impacts performance,
+ with higher values (
 \begin_inset Formula $1.0\rightarrow4.0$
 \end_inset
 
@@ -12347,12 +12549,16 @@ The parameter
 \end_inset
 
 ).
- However, this trend is not uniform.
- For example, in classification, Segment improves dramatically (
+ However,
+ this trend is not uniform.
+ For example,
+ in classification,
+ Segment improves dramatically (
 \begin_inset Formula $30.00\%\rightarrow35.41\%$
 \end_inset
 
-, 
+,
+ 
 \begin_inset Formula $p=0.0015$
 \end_inset
 
@@ -12360,16 +12566,20 @@ The parameter
 \begin_inset Formula $a$
 \end_inset
 
-, while Lymography degrades (
+,
+ while Lymography degrades (
 \begin_inset Formula $28.60\%\rightarrow26.69\%$
 \end_inset
 
 ).
- In regression, increasing 
+ In regression,
+ increasing 
 \begin_inset Formula $a$
 \end_inset
 
- introduces instability some problems (e.g., TREASURY: 
+ introduces instability some problems (e.g.,
+ TREASURY:
+ 
 \begin_inset Formula $0.44\rightarrow1.01$
 \end_inset
 
@@ -12378,7 +12588,8 @@ The parameter
 \begin_inset Formula $a$
 \end_inset
 
- values (e.g., 
+ values (e.g.,
+ 
 \begin_inset Formula $a=1.5$
 \end_inset
 
@@ -12386,11 +12597,13 @@ The parameter
 \begin_inset Formula $a=4.0$
 \end_inset
 
-: 
+:
+ 
 \begin_inset Formula $p=0.00065$
 \end_inset
 
- in classification, 
+ in classification,
+ 
 \begin_inset Formula $p=0.0021$
 \end_inset
 
@@ -12409,14 +12622,17 @@ reference "fig:statClassA"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
-), comparisons between higher values of 
+),
+ comparisons between higher values of 
 \begin_inset Formula $a$
 \end_inset
 
- (e.g., 
+ (e.g.,
+ 
 \begin_inset Formula $a=1.5$
 \end_inset
 
@@ -12424,16 +12640,19 @@ noprefix "false"
 \begin_inset Formula $a=4.0$
 \end_inset
 
-, 
+,
+ 
 \begin_inset Formula $p=0.00065$
 \end_inset
 
-) show strong statistical significance, highlighting that increasing 
+) show strong statistical significance,
+ highlighting that increasing 
 \begin_inset Formula $a$
 \end_inset
 
  improves performance.
- Conversely, the comparison 
+ Conversely,
+ the comparison 
 \begin_inset Formula $a=1.0$
 \end_inset
 
@@ -12453,14 +12672,17 @@ reference "fig:statRegressionA"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
-), differences become significant mainly at higher 
+),
+ differences become significant mainly at higher 
 \begin_inset Formula $a$
 \end_inset
 
- values: 
+ values:
+ 
 \begin_inset Formula $a=1.5$
 \end_inset
 
@@ -12485,7 +12707,8 @@ noprefix "false"
 \end_inset
 
 ).
- However, the comparison 
+ However,
+ the comparison 
 \begin_inset Formula $a=1.0$
 \end_inset
 
@@ -12516,65 +12739,72 @@ name "sec:Conclusions"
 \end_layout
 
 \begin_layout Standard
-The study confirms the superiority of the proposed model compared to existing
- methods in both classification and regression tasks.
- This superiority is evidenced by a statistically significant reduction
- in error, though the model’s performance is not entirely independent of
- the data.
- Instead, it largely depends on data characteristics such as complexity,
- stratification, or the presence of noise.
- This underscores the importance of tailoring models to the specificities
- of each problem, as generalization without careful consideration of specific
- conditions may lead to degraded results.
- Additionally, the choice of methods for calculating critical parameters,
- such as differential weights, appears to have relatively limited impact
- on overall performance.
- Differences between approaches (e.g., FIXED, ADAPTIVE, RANDOM) are minimal
- and often statistically insignificant, indicating that model optimization
- may require focusing on other factors.
- At the same time, tuning the parameter 
+The study confirms the superiority of the proposed model compared to existing methods in both classification and regression tasks.
+ This superiority is evidenced by a statistically significant reduction in error,
+ though the model’s performance is not entirely independent of the data.
+ Instead,
+ it largely depends on data characteristics such as complexity,
+ stratification,
+ or the presence of noise.
+ This underscores the importance of tailoring models to the specificities of each problem,
+ as generalization without careful consideration of specific conditions may lead to degraded results.
+ Additionally,
+ the choice of methods for calculating critical parameters,
+ such as differential weights,
+ appears to have relatively limited impact on overall performance.
+ Differences between approaches (e.g.,
+ FIXED,
+ ADAPTIVE,
+ RANDOM) are minimal and often statistically insignificant,
+ indicating that model optimization may require focusing on other factors.
+ At the same time,
+ tuning the parameter 
 \begin_inset Formula $a$
 \end_inset
 
- emerges as a critical factor: while higher values enhance accuracy in many
- cases, particularly for large or complex datasets, the same adjustment
- may introduce instability in applications where data sensitivity is high
- (e.g., financial forecasting).
- This dual behavior highlights the need to balance flexibility and robustness
- during the tuning process.
+ emerges as a critical factor:
+ while higher values enhance accuracy in many cases,
+ particularly for large or complex datasets,
+ the same adjustment may introduce instability in applications where data sensitivity is high (e.g.,
+ financial forecasting).
+ This dual behavior highlights the need to balance flexibility and robustness during the tuning process.
 \end_layout
 
 \begin_layout Standard
-For future research, it would be valuable to explore the role of dynamic
- algorithms that automatically adjust the parameter 
+For future research,
+ it would be valuable to explore the role of dynamic algorithms that automatically adjust the parameter 
 \begin_inset Formula $a$
 \end_inset
 
  based on data dynamics.
- For example, machine learning mechanisms that analyze data variability
- or heterogeneity in real time could optimize the value of 
+ For example,
+ machine learning mechanisms that analyze data variability or heterogeneity in real time could optimize the value of 
 \begin_inset Formula $a$
 \end_inset
 
- without human intervention, ensuring both stability and high performance.
- Additionally, the development of hybrid methods that combine the advantages
- of different approaches (e.g., the adaptability of ADAPTIVE with the simplicity
- of FIXED) could create more robust solutions capable of addressing a broader
- range of problems.
- It is also worth investigating in depth how specific data characteristics—such
- as noisy measurements, class imbalances, or lack of labeling—affect the
- model’s effectiveness.
- Such analysis would aid in developing adaptive strategies for data preprocessin
-g or augmentation.
- Furthermore, the generalizability of findings to more complex environments
- (e.g., dynamic systems, time-series data) or different domains (e.g., biomedical
- data, social networks) remains an open research area.
- Finally, integrating explainable artificial intelligence (XAI) techniques,
- such as feature contribution analysis or visualization tools, could enhance
- model transparency.
- This would not only facilitate result interpretation by experts but also
- help identify optimal parameter-tuning practices, transforming the model
- into a more predictable and reliable tool for real-world applications.
+ without human intervention,
+ ensuring both stability and high performance.
+ Additionally,
+ the development of hybrid methods that combine the advantages of different approaches (e.g.,
+ the adaptability of ADAPTIVE with the simplicity of FIXED) could create more robust solutions capable of addressing a broader range of problems.
+ It is also worth investigating in depth how specific data characteristics—
+such as noisy measurements,
+ class imbalances,
+ or lack of labeling—
+affect the model’s effectiveness.
+ Such analysis would aid in developing adaptive strategies for data preprocessing or augmentation.
+ Furthermore,
+ the generalizability of findings to more complex environments (e.g.,
+ dynamic systems,
+ time-series data) or different domains (e.g.,
+ biomedical data,
+ social networks) remains an open research area.
+ Finally,
+ integrating explainable artificial intelligence (XAI) techniques,
+ such as feature contribution analysis or visualization tools,
+ could enhance model transparency.
+ This would not only facilitate result interpretation by experts but also help identify optimal parameter-tuning practices,
+ transforming the model into a more predictable and reliable tool for real-world applications.
 \end_layout
 
 \begin_layout Standard
@@ -12587,8 +12817,8 @@ g or augmentation.
 \begin_layout Author Contributions
 V.C.
  and I.G.T.
- conducted the experiments, employing several datasets and provided the
- comparative experiments.
+ conducted the experiments,
+ employing several datasets and provided the comparative experiments.
  D.T.
  and V.C.
  performed the statistical analysis and prepared the manuscript.
@@ -12614,11 +12844,11 @@ Not applicable.
 \end_layout
 
 \begin_layout Acknowledgments
-This research has been financed by the European Union : Next Generation
- EU through the Program Greece 2.0 National Recovery and Resilience Plan
- , under the call RESEARCH – CREATE – INNOVATE, project name “iCREW: Intelligent
- small craft simulator for advanced crew training using Virtual Reality
- techniques" (project code:TAEDK-06195).
+This research has been financed by the European Union :
+ Next Generation EU through the Program Greece 2.0 National Recovery and Resilience Plan ,
+ under the call RESEARCH – CREATE – INNOVATE,
+ project name “iCREW:
+ Intelligent small craft simulator for advanced crew training using Virtual Reality techniques" (project code:TAEDK-06195).
   
 \end_layout
 
@@ -12663,8 +12893,7 @@ Appendix A
 \end_inset
 
 ).
- If the appendix sections contain a heading then change the argument to
- 
+ If the appendix sections contain a heading then change the argument to 
 \begin_inset Quotes eld
 \end_inset
 
@@ -12676,7 +12905,8 @@ yes
 \end_layout
 
 \begin_layout Plain Layout
-Please, note that in LyX a trailing dot is always present and the name 
+Please,
+ note that in LyX a trailing dot is always present and the name 
 \begin_inset Quotes eld
 \end_inset
 
@@ -12775,14 +13005,27 @@ literal "true"
 
 \end_inset
 
-Abiodun, O.
- I., Jantan, A., Omolara, A.
- E., Dada, K.
- V., Mohamed, N.
- A., & Arshad, H.
+Abiodun,
+ O.
+ I.,
+ Jantan,
+ A.,
+ Omolara,
+ A.
+ E.,
+ Dada,
+ K.
+ V.,
+ Mohamed,
+ N.
+ A.,
+ & Arshad,
+ H.
  (2018).
- State-of-the-art in artificial neural network applications: A survey.
- Heliyon, 4(11).
+ State-of-the-art in artificial neural network applications:
+ A survey.
+ Heliyon,
+ 4(11).
 \end_layout
 
 \begin_layout Bibliography
@@ -12793,13 +13036,20 @@ literal "true"
 
 \end_inset
 
-Suryadevara, S., & Yanamala, A.
+Suryadevara,
+ S.,
+ & Yanamala,
+ A.
  K.
  Y.
  (2021).
- A Comprehensive Overview of Artificial Neural Networks: Evolution, Architecture
-s, and Applications.
- Revista de Inteligencia Artificial en Medicina, 12(1), 51-76.
+ A Comprehensive Overview of Artificial Neural Networks:
+ Evolution,
+ Architectures,
+ and Applications.
+ Revista de Inteligencia Artificial en Medicina,
+ 12(1),
+ 51-76.
 \end_layout
 
 \begin_layout Bibliography
@@ -12811,16 +13061,21 @@ literal "false"
 \end_inset
 
 P.
- Baldi, K.
- Cranmer, T.
- Faucett et al, Parameterized neural networks for high-energy physics, Eur.
+ Baldi,
+ K.
+ Cranmer,
+ T.
+ Faucett et al,
+ Parameterized neural networks for high-energy physics,
+ Eur.
  Phys.
  J.
  C 
 \series bold
 76
 \series default
-, 2016.
+,
+ 2016.
 \end_layout
 
 \begin_layout Bibliography
@@ -12831,10 +13086,21 @@ literal "true"
 
 \end_inset
 
-Baldi, P., Cranmer, K., Faucett, T., Sadowski, P., & Whiteson, D.
+Baldi,
+ P.,
+ Cranmer,
+ K.,
+ Faucett,
+ T.,
+ Sadowski,
+ P.,
+ & Whiteson,
+ D.
  (2016).
  Parameterized neural networks for high-energy physics.
- The European Physical Journal C, 76(5), 1-7.
+ The European Physical Journal C,
+ 76(5),
+ 1-7.
 \end_layout
 
 \begin_layout Bibliography
@@ -12845,12 +13111,19 @@ literal "false"
 
 \end_inset
 
-Firth, A.
- E., Lahav, O., & Somerville, R.
+Firth,
+ A.
+ E.,
+ Lahav,
+ O.,
+ & Somerville,
+ R.
  S.
  (2003).
  Estimating photometric redshifts with artificial neural networks.
- Monthly Notices of the Royal Astronomical Society, 339(4), 1195-1202.
+ Monthly Notices of the Royal Astronomical Society,
+ 339(4),
+ 1195-1202.
 \end_layout
 
 \begin_layout Bibliography
@@ -12861,11 +13134,15 @@ literal "false"
 
 \end_inset
 
-Shen, Y., & Bax, A.
+Shen,
+ Y.,
+ & Bax,
+ A.
  (2013).
- Protein backbone and sidechain torsion angles predicted from NMR chemical
- shifts using artificial neural networks.
- Journal of biomolecular NMR, 56, 227-241.
+ Protein backbone and sidechain torsion angles predicted from NMR chemical shifts using artificial neural networks.
+ Journal of biomolecular NMR,
+ 56,
+ 227-241.
 \end_layout
 
 \begin_layout Bibliography
@@ -12877,15 +13154,23 @@ literal "false"
 \end_inset
 
 Z.
- Huang, H.
- Chen, C.-Jung Hsu, W.-Hwa Chen, S.
- Wu, Credit rating analysis with support vector machines and neural networks:
- a market comparative study, Decision Support Systems 
+ Huang,
+ H.
+ Chen,
+ C.-Jung Hsu,
+ W.-Hwa Chen,
+ S.
+ Wu,
+ Credit rating analysis with support vector machines and neural networks:
+ a market comparative study,
+ Decision Support Systems 
 \series bold
 37
 \series default
-, pp.
- 543-558, 2004.
+,
+ pp.
+ 543-558,
+ 2004.
 \end_layout
 
 \begin_layout Bibliography
@@ -12897,14 +13182,18 @@ literal "false"
 \end_inset
 
 Igor I.
- Baskin, David Winkler and Igor V.
- Tetko, A renaissance of neural networks in drug discovery, Expert Opinion
- on Drug Discovery 
+ Baskin,
+ David Winkler and Igor V.
+ Tetko,
+ A renaissance of neural networks in drug discovery,
+ Expert Opinion on Drug Discovery 
 \series bold
 11
 \series default
-, pp.
- 785-795, 2016.
+,
+ pp.
+ 785-795,
+ 2016.
 \end_layout
 
 \begin_layout Bibliography
@@ -12915,13 +13204,16 @@ literal "false"
 
 \end_inset
 
-Ronadl Bartzatt, Prediction of Novel Anti-Ebola Virus Compounds Utilizing
- Artificial Neural Network (ANN), Chemistry Faculty Publications 
+Ronadl Bartzatt,
+ Prediction of Novel Anti-Ebola Virus Compounds Utilizing Artificial Neural Network (ANN),
+ Chemistry Faculty Publications 
 \series bold
 49
 \series default
-, pp.
- 16-34, 2018.
+,
+ pp.
+ 16-34,
+ 2018.
 \end_layout
 
 \begin_layout Bibliography
@@ -12933,14 +13225,19 @@ literal "false"
 \end_inset
 
 D.E.
- Rumelhart, G.E.
+ Rumelhart,
+ G.E.
  Hinton and R.J.
- Williams, Learning representations by back-propagating errors, Nature 
+ Williams,
+ Learning representations by back-propagating errors,
+ Nature 
 \series bold
 323
 \series default
-, pp.
- 533 - 536 , 1986.
+,
+ pp.
+ 533 - 536 ,
+ 1986.
 \end_layout
 
 \begin_layout Bibliography
@@ -12953,13 +13250,17 @@ literal "false"
 
 T.
  Chen and S.
- Zhong, Privacy-Preserving Backpropagation Neural Network Learning, IEEE
- Transactions on Neural Networks 
+ Zhong,
+ Privacy-Preserving Backpropagation Neural Network Learning,
+ IEEE Transactions on Neural Networks 
 \series bold
 20
 \series default
-, , pp.
- 1554-1564, 2009.
+,
+ ,
+ pp.
+ 1554-1564,
+ 2009.
 \end_layout
 
 \begin_layout Bibliography
@@ -12972,12 +13273,18 @@ literal "false"
 
 M.
  Riedmiller and H.
- Braun, A Direct Adaptive Method for Faster Backpropagation Learning: The
- RPROP algorithm, Proc.
+ Braun,
+ A Direct Adaptive Method for Faster Backpropagation Learning:
+ The RPROP algorithm,
+ Proc.
  of the IEEE Intl.
  Conf.
- on Neural Networks, San Francisco, CA, pp.
- 586–591, 1993.
+ on Neural Networks,
+ San Francisco,
+ CA,
+ pp.
+ 586–591,
+ 1993.
 \end_layout
 
 \begin_layout Bibliography
@@ -12989,15 +13296,19 @@ literal "false"
 \end_inset
 
 T.
- Pajchrowski, K.
+ Pajchrowski,
+ K.
  Zawirski and K.
- Nowopolski, Neural Speed Controller Trained Online by Means of Modified
- RPROP Algorithm, IEEE Transactions on Industrial Informatics 
+ Nowopolski,
+ Neural Speed Controller Trained Online by Means of Modified RPROP Algorithm,
+ IEEE Transactions on Industrial Informatics 
 \series bold
 11
 \series default
-, pp.
- 560-568, 2015.
+,
+ pp.
+ 560-568,
+ 2015.
 \end_layout
 
 \begin_layout Bibliography
@@ -13008,14 +13319,19 @@ literal "false"
 
 \end_inset
 
-Rinda Parama Satya Hermanto, Suharjito, Diana, Ariadi Nugroho, Waiting-Time
- Estimation in Bank Customer Queues using RPROP Neural Networks, Procedia
- Computer Science 
+Rinda Parama Satya Hermanto,
+ Suharjito,
+ Diana,
+ Ariadi Nugroho,
+ Waiting-Time Estimation in Bank Customer Queues using RPROP Neural Networks,
+ Procedia Computer Science 
 \series bold
  135
 \series default
-, pp.
- 35-42, 2018.
+,
+ pp.
+ 35-42,
+ 2018.
 \end_layout
 
 \begin_layout Bibliography
@@ -13030,13 +13346,16 @@ B.
  Robitaille and B.
  Marcos and M.
  Veillette and G.
- Payre, Modified quasi-Newton methods for training neural networks, Computers
- & Chemical Engineering 
+ Payre,
+ Modified quasi-Newton methods for training neural networks,
+ Computers & Chemical Engineering 
 \series bold
 20
 \series default
-, pp.
- 1133-1140, 1996.
+,
+ pp.
+ 1133-1140,
+ 1996.
 \end_layout
 
 \begin_layout Bibliography
@@ -13048,19 +13367,24 @@ literal "false"
 \end_inset
 
 Q.
- Liu, J.
- Liu, R.
- Sang, J.
- Li, T.
+ Liu,
+ J.
+ Liu,
+ R.
+ Sang,
+ J.
+ Li,
+ T.
  Zhang and Q.
- Zhang, Fast Neural Network Training on FPGA Using Quasi-Newton Optimization
- Method,IEEE Transactions on Very Large Scale Integration (VLSI) Systems
- 
+ Zhang,
+ Fast Neural Network Training on FPGA Using Quasi-Newton Optimization Method,IEEE Transactions on Very Large Scale Integration (VLSI) Systems 
 \series bold
 26
 \series default
-, pp.
- 1575-1579, 2018.
+,
+ pp.
+ 1575-1579,
+ 2018.
 \end_layout
 
 \begin_layout Bibliography
@@ -13072,14 +13396,19 @@ literal "false"
 \end_inset
 
 C.L.
- Kuo, E.E.
- Kuruoglu, W.K.V.
- Chan, Neural Network Structure Optimization by Simulated Annealing, Entropy
- 
+ Kuo,
+ E.E.
+ Kuruoglu,
+ W.K.V.
+ Chan,
+ Neural Network Structure Optimization by Simulated Annealing,
+ Entropy 
 \series bold
 24
 \series default
-, 348, 2022.
+,
+ 348,
+ 2022.
 \end_layout
 
 \begin_layout Bibliography
@@ -13091,11 +13420,18 @@ literal "false"
 \end_inset
 
 C.
- Zhang, H.
+ Zhang,
+ H.
  Shao and Y.
- Li, Particle swarm optimisation for evolving artificial neural network,
- IEEE International Conference on Systems, Man, and Cybernetics, , pp.
- 2487-2490, 2000.
+ Li,
+ Particle swarm optimisation for evolving artificial neural network,
+ IEEE International Conference on Systems,
+ Man,
+ and Cybernetics,
+ ,
+ pp.
+ 2487-2490,
+ 2000.
 \end_layout
 
 \begin_layout Bibliography
@@ -13106,13 +13442,17 @@ literal "false"
 
 \end_inset
 
-Jianbo Yu, Shijin Wang, Lifeng Xi, Evolving artificial neural networks using
- an improved PSO and DPSO 
+Jianbo Yu,
+ Shijin Wang,
+ Lifeng Xi,
+ Evolving artificial neural networks using an improved PSO and DPSO 
 \series bold
 71
 \series default
-, pp.
- 1054-1060, 2008.
+,
+ pp.
+ 1054-1060,
+ 2008.
 \end_layout
 
 \begin_layout Bibliography
@@ -13126,20 +13466,25 @@ literal "false"
 F.
  H.
  F.
- Leung, H.
+ Leung,
+ H.
  K.
- Lam, S.
+ Lam,
+ S.
  H.
  Ling and P.
  K.
  S.
- Tam, Tuning of the structure and parameters of a neural network using an
- improved genetic algorithm, IEEE Transactions on Neural Networks 
+ Tam,
+ Tuning of the structure and parameters of a neural network using an improved genetic algorithm,
+ IEEE Transactions on Neural Networks 
 \series bold
 14
 \series default
-, pp.
- 79-88, 2003
+,
+ pp.
+ 79-88,
+ 2003
 \end_layout
 
 \begin_layout Bibliography
@@ -13151,9 +13496,13 @@ literal "false"
 \end_inset
 
 X.
- Yao, Evolving artificial neural networks, Proceedings of the IEEE, 87(9),
+ Yao,
+ Evolving artificial neural networks,
+ Proceedings of the IEEE,
+ 87(9),
  pp.
- 1423-1447, 1999.
+ 1423-1447,
+ 1999.
 \end_layout
 
 \begin_layout Bibliography
@@ -13164,11 +13513,17 @@ literal "false"
 
 \end_inset
 
-Wang, L., Zeng, Y., & Chen, T.
+Wang,
+ L.,
+ Zeng,
+ Y.,
+ & Chen,
+ T.
  (2015).
- Back propagation neural network with adaptive differential evolution algorithm
- for time series forecasting.
- Expert Systems with Applications, 42(2), 855-863.
+ Back propagation neural network with adaptive differential evolution algorithm for time series forecasting.
+ Expert Systems with Applications,
+ 42(2),
+ 855-863.
 \end_layout
 
 \begin_layout Bibliography
@@ -13180,14 +13535,18 @@ literal "false"
 \end_inset
 
 K.M.
- Salama, A.M.
- Abdelbar, Learning neural network structures with ant colony algorithms,
+ Salama,
+ A.M.
+ Abdelbar,
+ Learning neural network structures with ant colony algorithms,
  Swarm Intell 
 \series bold
 9
 \series default
-, pp.
- 229–265, 2015.
+,
+ pp.
+ 229–265,
+ 2015.
 \end_layout
 
 \begin_layout Bibliography
@@ -13199,13 +13558,16 @@ literal "false"
 \end_inset
 
 S.
- Mirjalili, How effective is the Grey Wolf optimizer in training multi-layer
- perceptrons, Appl Intell 
+ Mirjalili,
+ How effective is the Grey Wolf optimizer in training multi-layer perceptrons,
+ Appl Intell 
 \series bold
 43
 \series default
-, pp.
- 150–161, 2015.
+,
+ pp.
+ 150–161,
+ 2015.
 \end_layout
 
 \begin_layout Bibliography
@@ -13217,15 +13579,20 @@ literal "false"
 \end_inset
 
 I.
- Aljarah, H.
- Faris, S.
- Mirjalili, Optimizing connection weights in neural networks using the whale
- optimization algorithm, Soft Comput 
+ Aljarah,
+ H.
+ Faris,
+ S.
+ Mirjalili,
+ Optimizing connection weights in neural networks using the whale optimization algorithm,
+ Soft Comput 
 \series bold
 22
 \series default
-, pp.
- 1–15, 2018.
+,
+ pp.
+ 1–15,
+ 2018.
  
 \end_layout
 
@@ -13238,17 +13605,22 @@ literal "false"
 \end_inset
 
 J.-R.
- Zhang, J.
- Zhang, T.-M.
- Lok, M.R.
- Lyu, A hybrid particle swarm optimization–back-propagation algorithm for
- feedforward neural network training, Applied Mathematics and Computation
- 
+ Zhang,
+ J.
+ Zhang,
+ T.-M.
+ Lok,
+ M.R.
+ Lyu,
+ A hybrid particle swarm optimization–back-propagation algorithm for feedforward neural network training,
+ Applied Mathematics and Computation 
 \series bold
 185
 \series default
-, pp.
- 1026-1037, 2007.
+,
+ pp.
+ 1026-1037,
+ 2007.
 \end_layout
 
 \begin_layout Bibliography
@@ -13259,13 +13631,18 @@ literal "false"
 
 \end_inset
 
-K-Su Oh, K.
- Jung, GPU implementation of neural networks, Pattern Recognition 
+K-Su Oh,
+ K.
+ Jung,
+ GPU implementation of neural networks,
+ Pattern Recognition 
 \series bold
 37
 \series default
-, pp.
- 1311-1314, 2004.
+,
+ pp.
+ 1311-1314,
+ 2004.
 \end_layout
 
 \begin_layout Bibliography
@@ -13277,14 +13654,19 @@ literal "false"
 \end_inset
 
 M.
- Zhang, K.
- Hibi, J.
- Inoue, GPU-accelerated artificial neural network potential for molecular
- dynamics simulation, Computer Physics Communications 
+ Zhang,
+ K.
+ Hibi,
+ J.
+ Inoue,
+ GPU-accelerated artificial neural network potential for molecular dynamics simulation,
+ Computer Physics Communications 
 \series bold
 285
 \series default
-, 108655, 2023.
+,
+ 108655,
+ 2023.
  
 \end_layout
 
@@ -13297,14 +13679,18 @@ literal "false"
 \end_inset
 
 I.
- Ivanova, M.
- Kubat, Initialization of neural networks by means of decision trees, Knowledge-
-Based Systems 
+ Ivanova,
+ M.
+ Kubat,
+ Initialization of neural networks by means of decision trees,
+ Knowledge-Based Systems 
 \series bold
 8
 \series default
-, pp.
- 333-344, 1995.
+,
+ pp.
+ 333-344,
+ 1995.
 \end_layout
 
 \begin_layout Bibliography
@@ -13316,14 +13702,18 @@ literal "false"
 \end_inset
 
 J.Y.F.
- Yam, T.W.S.
- Chow, A weight initialization method for improving training speed in feedforwar
-d neural network, Neurocomputing 
+ Yam,
+ T.W.S.
+ Chow,
+ A weight initialization method for improving training speed in feedforward neural network,
+ Neurocomputing 
 \series bold
 30
 \series default
-, pp.
- 219-232, 2000.
+,
+ pp.
+ 219-232,
+ 2000.
 \end_layout
 
 \begin_layout Bibliography
@@ -13335,15 +13725,20 @@ literal "false"
 \end_inset
 
 K.
- Chumachenko, A.
- Iosifidis, M.
- Gabbouj, Feedforward neural networks initialization based on discriminant
- learning, Neural Networks 
+ Chumachenko,
+ A.
+ Iosifidis,
+ M.
+ Gabbouj,
+ Feedforward neural networks initialization based on discriminant learning,
+ Neural Networks 
 \series bold
 146
 \series default
-, pp.
- 220-229, 2022.
+,
+ pp.
+ 220-229,
+ 2022.
 \end_layout
 
 \begin_layout Bibliography
@@ -13355,13 +13750,17 @@ literal "false"
 \end_inset
 
 T.M.
- Varnava, A.J.Meade, An initialization method for feedforward artificial neural
- networks using polynomial bases, Advances in Adaptive Data Analysis 
+ Varnava,
+ A.J.Meade,
+ An initialization method for feedforward artificial neural networks using polynomial bases,
+ Advances in Adaptive Data Analysis 
 \series bold
 3
 \series default
-, pp.
- 385-400, 2011.
+,
+ pp.
+ 385-400,
+ 2011.
 \end_layout
 
 \begin_layout Bibliography
@@ -13373,14 +13772,18 @@ literal "false"
 \end_inset
 
 S.S.
- Sodhi, P.
- Chandra, Interval based Weight Initialization Method for Sigmoidal Feedforward
- Artificial Neural Networks, AASRI Procedia 
+ Sodhi,
+ P.
+ Chandra,
+ Interval based Weight Initialization Method for Sigmoidal Feedforward Artificial Neural Networks,
+ AASRI Procedia 
 \series bold
 6
 \series default
-, pp.
- 19-25, 2014.
+,
+ pp.
+ 19-25,
+ 2014.
 \end_layout
 
 \begin_layout Bibliography
@@ -13391,13 +13794,20 @@ literal "false"
 
 \end_inset
 
-Narkhede, M.
- V., Bartakke, P.
- P., & Sutaone, M.
+Narkhede,
+ M.
+ V.,
+ Bartakke,
+ P.
+ P.,
+ & Sutaone,
+ M.
  S.
  (2022).
  A review on weight initialization strategies for neural networks.
- Artificial intelligence review, 55(1), 291-322.
+ Artificial intelligence review,
+ 55(1),
+ 291-322.
 \end_layout
 
 \begin_layout Bibliography
@@ -13409,15 +13819,19 @@ literal "false"
 \end_inset
 
 J.
- Arifovic, R.
- Gençay, Using genetic algorithms to select architecture of a feedforward
- artificial neural network, Physica A: Statistical Mechanics and its Application
-s 
+ Arifovic,
+ R.
+ Gençay,
+ Using genetic algorithms to select architecture of a feedforward artificial neural network,
+ Physica A:
+ Statistical Mechanics and its Applications 
 \series bold
 289
 \series default
-, pp.
- 574-594, 2001.
+,
+ pp.
+ 574-594,
+ 2001.
 \end_layout
 
 \begin_layout Bibliography
@@ -13429,14 +13843,18 @@ literal "false"
 \end_inset
 
 P.G.
- Benardos, G.C.
- Vosniakos, Optimizing feedforward artificial neural network architecture,
+ Benardos,
+ G.C.
+ Vosniakos,
+ Optimizing feedforward artificial neural network architecture,
  Engineering Applications of Artificial Intelligence 
 \series bold
 20
 \series default
-, pp.
- 365-382, 2007.
+,
+ pp.
+ 365-382,
+ 2007.
 \end_layout
 
 \begin_layout Bibliography
@@ -13448,9 +13866,13 @@ literal "false"
 \end_inset
 
 B.A.
- Garro, R.A.
- Vázquez, Designing Artificial Neural Networks Using Particle Swarm Optimization
- Algorithms, Computational Intelligence and Neuroscience, 369298, 2015.
+ Garro,
+ R.A.
+ Vázquez,
+ Designing Artificial Neural Networks Using Particle Swarm Optimization Algorithms,
+ Computational Intelligence and Neuroscience,
+ 369298,
+ 2015.
  
 \end_layout
 
@@ -13463,11 +13885,16 @@ literal "false"
 \end_inset
 
 B.
- Baker, O.
- Gupta, N.
- Naik, R.
- Raskar, Designing neural network architectures using reinforcement learning.
- arXiv preprint arXiv:1611.02167, 2016.
+ Baker,
+ O.
+ Gupta,
+ N.
+ Naik,
+ R.
+ Raskar,
+ Designing neural network architectures using reinforcement learning.
+ arXiv preprint arXiv:1611.02167,
+ 2016.
 \end_layout
 
 \begin_layout Bibliography
@@ -13479,8 +13906,11 @@ literal "true"
 \end_inset
 
 M.
- O’Neill, C.
- Ryan, Grammatical evolution, IEEE Trans.
+ O’Neill,
+ C.
+ Ryan,
+ Grammatical evolution,
+ IEEE Trans.
  Evol.
  Comput.
  
@@ -13488,7 +13918,8 @@ M.
 5,
 \series default
 pp.
- 349–358, 2001.
+ 349–358,
+ 2001.
 \end_layout
 
 \begin_layout Bibliography
@@ -13500,15 +13931,20 @@ literal "false"
 \end_inset
 
 I.G.
- Tsoulos, D.
- Gavrilis, E.
- Glavas, Neural network construction and training using grammatical evolution,
+ Tsoulos,
+ D.
+ Gavrilis,
+ E.
+ Glavas,
+ Neural network construction and training using grammatical evolution,
  Neurocomputing 
 \series bold
 72
 \series default
-, pp.
- 269-277, 2008.
+,
+ pp.
+ 269-277,
+ 2008.
 \end_layout
 
 \begin_layout Bibliography
@@ -13519,10 +13955,20 @@ literal "false"
 
 \end_inset
 
-Pant, M., Zaheer, H., Garcia-Hernandez, L., & Abraham, A.
+Pant,
+ M.,
+ Zaheer,
+ H.,
+ Garcia-Hernandez,
+ L.,
+ & Abraham,
+ A.
  (2020).
- Differential Evolution: A review of more than two decades of research.
- Engineering Applications of Artificial Intelligence, 90, 103479.
+ Differential Evolution:
+ A review of more than two decades of research.
+ Engineering Applications of Artificial Intelligence,
+ 90,
+ 103479.
 \end_layout
 
 \begin_layout Bibliography
@@ -13533,17 +13979,29 @@ literal "false"
 
 \end_inset
 
-Li, Y.
- H., Wang, J.
- Q., Wang, X.
- J., Zhao, Y.
- L., Lu, X.
- H., & Liu, D.
+Li,
+ Y.
+ H.,
+ Wang,
+ J.
+ Q.,
+ Wang,
+ X.
+ J.,
+ Zhao,
+ Y.
+ L.,
+ Lu,
+ X.
+ H.,
+ & Liu,
+ D.
  L.
  (2017).
- Community detection based on differential evolution using social spider
- optimization.
- Symmetry, 9(9), 183.
+ Community detection based on differential evolution using social spider optimization.
+ Symmetry,
+ 9(9),
+ 183.
 \end_layout
 
 \begin_layout Bibliography
@@ -13554,13 +14012,24 @@ literal "false"
 
 \end_inset
 
-Yang, W., Siriwardane, E.
+Yang,
+ W.,
+ Siriwardane,
+ E.
  M.
- D., Dong, R., Li, Y., & Hu, J.
+ D.,
+ Dong,
+ R.,
+ Li,
+ Y.,
+ & Hu,
+ J.
  (2021).
- Crystal structure prediction of materials with high symmetry using differential
- evolution.
- Journal of Physics: Condensed Matter, 33(45), 455902.
+ Crystal structure prediction of materials with high symmetry using differential evolution.
+ Journal of Physics:
+ Condensed Matter,
+ 33(45),
+ 455902.
 \end_layout
 
 \begin_layout Bibliography
@@ -13571,13 +14040,17 @@ literal "false"
 
 \end_inset
 
-Lee, C.
- Y., & Hung, C.
+Lee,
+ C.
+ Y.,
+ & Hung,
+ C.
  H.
  (2021).
- Feature ranking and differential evolution for feature selection in brushless
- DC motor fault diagnosis.
- Symmetry, 13(7), 1291.
+ Feature ranking and differential evolution for feature selection in brushless DC motor fault diagnosis.
+ Symmetry,
+ 13(7),
+ 1291.
 \end_layout
 
 \begin_layout Bibliography
@@ -13588,12 +14061,16 @@ literal "false"
 
 \end_inset
 
-Saha, S., & Das, R.
+Saha,
+ S.,
+ & Das,
+ R.
  (2018).
- Exploring differential evolution and particle swarm optimization to develop
- some symmetry-based automatic clustering techniques: application to gene
- clustering.
- Neural Computing and Applications, 30, 735-757.
+ Exploring differential evolution and particle swarm optimization to develop some symmetry-based automatic clustering techniques:
+ application to gene clustering.
+ Neural Computing and Applications,
+ 30,
+ 735-757.
 \end_layout
 
 \begin_layout Bibliography
@@ -13605,15 +14082,20 @@ literal "true"
 \end_inset
 
 S.A.
- Grady, M.Y.
- Hussaini, M.M.
- Abdullah, Placement of wind turbines using genetic algorithms, Renewable
- Energy 
+ Grady,
+ M.Y.
+ Hussaini,
+ M.M.
+ Abdullah,
+ Placement of wind turbines using genetic algorithms,
+ Renewable Energy 
 \series bold
 30
 \series default
-, pp.
- 259-270, 2005.
+,
+ pp.
+ 259-270,
+ 2005.
 \end_layout
 
 \begin_layout Bibliography
@@ -13624,8 +14106,12 @@ literal "true"
 
 \end_inset
 
-Prasad, T., Park, N., Multiobjective Genetic Algorithms for Design of Water
- Distribution Networks, J.
+Prasad,
+ T.,
+ Park,
+ N.,
+ Multiobjective Genetic Algorithms for Design of Water Distribution Networks,
+ J.
  Water Resour.
  Plann.
  Manage.
@@ -13633,8 +14119,10 @@ Prasad, T., Park, N., Multiobjective Genetic Algorithms for Design of Water
 \series bold
 130
 \series default
-, pp.
- 73-82, 2004.
+,
+ pp.
+ 73-82,
+ 2004.
  
 \end_layout
 
@@ -13646,14 +14134,18 @@ literal "true"
 
 \end_inset
 
-Sung-Hwan Min, Jumin Lee, Ingoo Han, Hybrid genetic algorithms and support
- vector machines for bankruptcy prediction, Expert Systems with Applications
- 
+Sung-Hwan Min,
+ Jumin Lee,
+ Ingoo Han,
+ Hybrid genetic algorithms and support vector machines for bankruptcy prediction,
+ Expert Systems with Applications 
 \series bold
 31
 \series default
-, pp.
- 652-660, 2006.
+,
+ pp.
+ 652-660,
+ 2006.
 \end_layout
 
 \begin_layout Bibliography
@@ -13665,15 +14157,21 @@ literal "true"
 \end_inset
 
 D.
- Whitley, T.
- Starkweather, C.
- Bogart, Genetic algorithms and neural networks: Optimizing connections
- and connectivity, Parallel Computing 
+ Whitley,
+ T.
+ Starkweather,
+ C.
+ Bogart,
+ Genetic algorithms and neural networks:
+ Optimizing connections and connectivity,
+ Parallel Computing 
 \series bold
 14
 \series default
-, pp.
- 347-361, 1990.
+,
+ pp.
+ 347-361,
+ 1990.
 \end_layout
 
 \begin_layout Bibliography
@@ -13685,14 +14183,18 @@ literal "true"
 \end_inset
 
 P.
- Kaelo, M.M.
- Ali, Integrated crossover rules in real coded genetic algorithms, European
- Journal of Operational Research 
+ Kaelo,
+ M.M.
+ Ali,
+ Integrated crossover rules in real coded genetic algorithms,
+ European Journal of Operational Research 
 \series bold
 176
 \series default
-, pp.
- 60-76, 2007.
+,
+ pp.
+ 60-76,
+ 2007.
 \end_layout
 
 \begin_layout Bibliography
@@ -13704,11 +14206,15 @@ literal "false"
 \end_inset
 
 M.
- Kelly, R.
- Longjohn, K.
- Nottingham, The UCI Machine Learning Repository.
+ Kelly,
+ R.
+ Longjohn,
+ K.
+ Nottingham,
+ The UCI Machine Learning Repository.
  2023.
- Available online: https://archive.ics.uci.edu (accessed on 20 September 2023).
+ Available online:
+ https://archive.ics.uci.edu (accessed on 20 September 2023).
 \end_layout
 
 \begin_layout Bibliography
@@ -13720,17 +14226,26 @@ literal "false"
 \end_inset
 
 J.
- Alcalá-Fdez, A.
- Fernandez, J.
- Luengo, J.
- Derrac, S.
- García, L.
- Sánchez, F.
+ Alcalá-Fdez,
+ A.
+ Fernandez,
+ J.
+ Luengo,
+ J.
+ Derrac,
+ S.
+ García,
+ L.
+ Sánchez,
+ F.
  Herrera.
- KEEL Data-Mining Software Tool: Data Set Repository, Integration of Algorithms
- and Experimental Analysis Framework.
- Journal of Multiple-Valued Logic and Soft Computing 17, pp.
- 255-287, 2011.
+ KEEL Data-Mining Software Tool:
+ Data Set Repository,
+ Integration of Algorithms and Experimental Analysis Framework.
+ Journal of Multiple-Valued Logic and Soft Computing 17,
+ pp.
+ 255-287,
+ 2011.
 \end_layout
 
 \begin_layout Bibliography
@@ -13742,11 +14257,22 @@ literal "false"
 
 \end_inset
 
-Tzimourta, K.D.; Tsoulos, I.; Bilero, I.T.; Tzallas, A.T.; Tsipouras, M.G.; Giannakeas,
+Tzimourta,
+ K.D.;
+ Tsoulos,
+ I.;
+ Bilero,
+ I.T.;
+ Tzallas,
+ A.T.;
+ Tsipouras,
+ M.G.;
+ Giannakeas,
  N.
- Direct Assessment of Alcohol Consumption in Mental State Using Brain Computer
- Interfaces and Grammatical Evolution.
- Inventions 2018, 3, 51.
+ Direct Assessment of Alcohol Consumption in Mental State Using Brain Computer Interfaces and Grammatical Evolution.
+ Inventions 2018,
+ 3,
+ 51.
 \end_layout
 
 \begin_layout Bibliography
@@ -13757,10 +14283,17 @@ literal "false"
 
 \end_inset
 
-Weiss, Sholom M.
- and Kulikowski, Casimir A., Computer Systems That Learn: Classification
- and Prediction Methods from Statistics, Neural Nets, Machine Learning,
- and Expert Systems, Morgan Kaufmann Publishers Inc, 1991.
+Weiss,
+ Sholom M.
+ and Kulikowski,
+ Casimir A.,
+ Computer Systems That Learn:
+ Classification and Prediction Methods from Statistics,
+ Neural Nets,
+ Machine Learning,
+ and Expert Systems,
+ Morgan Kaufmann Publishers Inc,
+ 1991.
 \end_layout
 
 \begin_layout Bibliography
@@ -13773,13 +14306,16 @@ literal "false"
 \end_inset
 
 J.R.
- Quinlan, Simplifying Decision Trees.
+ Quinlan,
+ Simplifying Decision Trees.
  International Journal of Man-Machine Studies 
 \series bold
 27
 \series default
-, pp.
- 221-234, 1987.
+,
+ pp.
+ 221-234,
+ 1987.
  
 \end_layout
 
@@ -13792,15 +14328,20 @@ literal "false"
 \end_inset
 
 T.
- Shultz, D.
- Mareschal, W.
- Schmidt, Modeling Cognitive Development on Balance Scale Phenomena, Machine
- Learning 
+ Shultz,
+ D.
+ Mareschal,
+ W.
+ Schmidt,
+ Modeling Cognitive Development on Balance Scale Phenomena,
+ Machine Learning 
 \series bold
 16
 \series default
-, pp.
- 59-88, 1994.
+,
+ pp.
+ 59-88,
+ 1994.
 \end_layout
 
 \begin_layout Bibliography
@@ -13814,13 +14355,16 @@ literal "false"
 
 Z.H.
  Zhou,Y.
- Jiang, NeC4.5: neural ensemble based C4.5," in IEEE Transactions on Knowledge
- and Data Engineering 
+ Jiang,
+ NeC4.5:
+ neural ensemble based C4.5," in IEEE Transactions on Knowledge and Data Engineering 
 \series bold
 16
 \series default
-, pp.
- 770-773, 2004.
+,
+ pp.
+ 770-773,
+ 2004.
 \end_layout
 
 \begin_layout Bibliography
@@ -13832,14 +14376,19 @@ literal "false"
 \end_inset
 
 R.
- Setiono , W.K.
- Leow, FERNN: An Algorithm for Fast Extraction of Rules from Neural Networks,
+ Setiono ,
+ W.K.
+ Leow,
+ FERNN:
+ An Algorithm for Fast Extraction of Rules from Neural Networks,
  Applied Intelligence 
 \series bold
 12
 \series default
-, pp.
- 15-25, 2000.
+,
+ pp.
+ 15-25,
+ 2000.
 \end_layout
 
 \begin_layout Bibliography
@@ -13852,16 +14401,21 @@ literal "false"
 \end_inset
 
 G.
- Demiroz, H.A.
- Govenir, N.
- Ilter, Learning Differential Diagnosis of Eryhemato-Squamous Diseases using
- Voting Feature Intervals, Artificial Intelligence in Medicine.
+ Demiroz,
+ H.A.
+ Govenir,
+ N.
+ Ilter,
+ Learning Differential Diagnosis of Eryhemato-Squamous Diseases using Voting Feature Intervals,
+ Artificial Intelligence in Medicine.
  
 \series bold
 13
 \series default
-, pp.
- 147–165, 1998.
+,
+ pp.
+ 147–165,
+ 1998.
 \end_layout
 
 \begin_layout Bibliography
@@ -13874,14 +14428,18 @@ literal "false"
 \end_inset
 
 P.
- Horton, K.Nakai, A Probabilistic Classification System for Predicting the
- Cellular Localization Sites of Proteins, In: Proceedings of International
- Conference on Intelligent Systems for Molecular Biology 
+ Horton,
+ K.Nakai,
+ A Probabilistic Classification System for Predicting the Cellular Localization Sites of Proteins,
+ In:
+ Proceedings of International Conference on Intelligent Systems for Molecular Biology 
 \series bold
 4
 \series default
-, pp.
- 109-15, 1996.
+,
+ pp.
+ 109-15,
+ 1996.
 \end_layout
 
 \begin_layout Bibliography
@@ -13894,15 +14452,19 @@ literal "false"
 \end_inset
 
 B.
- Hayes-Roth, B., F.
+ Hayes-Roth,
+ B.,
+ F.
  Hayes-Roth.
  Concept learning and the recognition and classification of exemplars.
  Journal of Verbal Learning and Verbal Behavior 
 \series bold
 16
 \series default
-, pp.
- 321-338, 1977.
+,
+ pp.
+ 321-338,
+ 1977.
 \end_layout
 
 \begin_layout Bibliography
@@ -13915,15 +14477,20 @@ literal "false"
 \end_inset
 
 I.
- Kononenko, E.
- Šimec, M.
- Robnik-Šikonja, Overcoming the Myopia of Inductive Learning Algorithms
- with RELIEFF, Applied Intelligence 
+ Kononenko,
+ E.
+ Šimec,
+ M.
+ Robnik-Šikonja,
+ Overcoming the Myopia of Inductive Learning Algorithms with RELIEFF,
+ Applied Intelligence 
 \series bold
 7
 \series default
-, pp.
- 39–55, 1997.
+,
+ pp.
+ 39–55,
+ 1997.
 \end_layout
 
 \begin_layout Bibliography
@@ -13936,15 +14503,20 @@ literal "false"
 \end_inset
 
 R.M.
- French, N.
- Chater, Using noise to compute error surfaces in connectionist networks:
- a novel means of reducing catastrophic forgetting, Neural Comput.
+ French,
+ N.
+ Chater,
+ Using noise to compute error surfaces in connectionist networks:
+ a novel means of reducing catastrophic forgetting,
+ Neural Comput.
  
 \series bold
 14
 \series default
-, pp.
- 1755-1769, 2002.
+,
+ pp.
+ 1755-1769,
+ 2002.
 \end_layout
 
 \begin_layout Bibliography
@@ -13957,13 +14529,17 @@ literal "false"
 \end_inset
 
 J.G.
- Dy , C.E.
- Brodley, Feature Selection for Unsupervised Learning, The Journal of Machine
- Learning Research 
+ Dy ,
+ C.E.
+ Brodley,
+ Feature Selection for Unsupervised Learning,
+ The Journal of Machine Learning Research 
 \series bold
 5
 \series default
-, pp 845–889, 2004.
+,
+ pp 845–889,
+ 2004.
 \end_layout
 
 \begin_layout Bibliography
@@ -13976,13 +14552,17 @@ literal "false"
 
 S.
  J.
- Perantonis, V.
- Virvilis, Input Feature Extraction for Multilayered Perceptrons Using Supervise
-d Principal Component Analysis, Neural Processing Letters 
+ Perantonis,
+ V.
+ Virvilis,
+ Input Feature Extraction for Multilayered Perceptrons Using Supervised Principal Component Analysis,
+ Neural Processing Letters 
 \series bold
 10
 \series default
-, pp 243–252, 1999.
+,
+ pp 243–252,
+ 1999.
 \end_layout
 
 \begin_layout Bibliography
@@ -13995,16 +14575,20 @@ literal "false"
 \end_inset
 
  J.
- Garcke, M.
- Griebel, Classification with sparse grids using simplicial basis functions,
+ Garcke,
+ M.
+ Griebel,
+ Classification with sparse grids using simplicial basis functions,
  Intell.
  Data Anal.
  
 \series bold
 6
 \series default
-, pp.
- 483-502, 2002.
+,
+ pp.
+ 483-502,
+ 2002.
 \end_layout
 
 \begin_layout Bibliography
@@ -14016,14 +14600,18 @@ literal "false"
 \end_inset
 
 J.
- Mcdermott, R.S.
- Forsyth, Diagnosing a disorder in a classification benchmark, Pattern Recogniti
-on Letters 
+ Mcdermott,
+ R.S.
+ Forsyth,
+ Diagnosing a disorder in a classification benchmark,
+ Pattern Recognition Letters 
 \series bold
 73
 \series default
-, pp.
- 41-43, 2016.
+,
+ pp.
+ 41-43,
+ 2016.
 \end_layout
 
 \begin_layout Bibliography
@@ -14036,13 +14624,25 @@ literal "false"
 \end_inset
 
 G.
- Cestnik, I.
- Konenenko, I.
- Bratko, Assistant-86: A Knowledge-Elicitation Tool for Sophisticated Users.
- In: Bratko, I.
- and Lavrac, N., Eds., Progress in Machine Learning, Sigma Press, Wilmslow,
+ Cestnik,
+ I.
+ Konenenko,
+ I.
+ Bratko,
+ Assistant-86:
+ A Knowledge-Elicitation Tool for Sophisticated Users.
+ In:
+ Bratko,
+ I.
+ and Lavrac,
+ N.,
+ Eds.,
+ Progress in Machine Learning,
+ Sigma Press,
+ Wilmslow,
  pp.
- 31-45, 1987.
+ 31-45,
+ 1987.
  
 \end_layout
 
@@ -14056,16 +14656,21 @@ literal "false"
 \end_inset
 
 M.
- Elter, R.
- Schulz-Wendtland, T.
- Wittenberg, The prediction of breast cancer biopsy outcomes using two CAD
- approaches that both emphasize an intelligible decision process, Med Phys.
+ Elter,
+ R.
+ Schulz-Wendtland,
+ T.
+ Wittenberg,
+ The prediction of breast cancer biopsy outcomes using two CAD approaches that both emphasize an intelligible decision process,
+ Med Phys.
  
 \series bold
 34
 \series default
-, pp.
- 4164-72, 2007.
+,
+ pp.
+ 4164-72,
+ 2007.
 \end_layout
 
 \begin_layout Bibliography
@@ -14078,14 +14683,18 @@ literal "false"
 \end_inset
 
 M.A.
- Little, P.E.
- McSharry, S.J Roberts et al, Exploiting Nonlinear Recurrence and Fractal
- Scaling Properties for Voice Disorder Detection.
+ Little,
+ P.E.
+ McSharry,
+ S.J Roberts et al,
+ Exploiting Nonlinear Recurrence and Fractal Scaling Properties for Voice Disorder Detection.
  BioMed Eng OnLine 
 \series bold
 6
 \series default
-, 23, 2007.
+,
+ 23,
+ 2007.
 \end_layout
 
 \begin_layout Bibliography
@@ -14097,19 +14706,25 @@ literal "false"
 \end_inset
 
 M.A.
- Little, P.E.
- McSharry, E.J.
- Hunter, J.
- Spielman, L.O.
- Ramig, Suitability of dysphonia measurements for telemonitoring of Parkinson's
- disease.
+ Little,
+ P.E.
+ McSharry,
+ E.J.
+ Hunter,
+ J.
+ Spielman,
+ L.O.
+ Ramig,
+ Suitability of dysphonia measurements for telemonitoring of Parkinson's disease.
  IEEE Trans Biomed Eng.
  
 \series bold
 56
 \series default
-, pp.
- 1015-1022, 2009.
+,
+ pp.
+ 1015-1022,
+ 2009.
 \end_layout
 
 \begin_layout Bibliography
@@ -14122,13 +14737,20 @@ literal "false"
 \end_inset
 
 J.W.
- Smith, J.E.
- Everhart, W.C.
- Dickson, W.C.
- Knowler, R.S.
- Johannes, Using the ADAP learning algorithm to forecast the onset of diabetes
- mellitus, In: Proceedings of the Symposium on Computer Applications and
- Medical Care IEEE Computer Society Press, pp.261-265, 1988.
+ Smith,
+ J.E.
+ Everhart,
+ W.C.
+ Dickson,
+ W.C.
+ Knowler,
+ R.S.
+ Johannes,
+ Using the ADAP learning algorithm to forecast the onset of diabetes mellitus,
+ In:
+ Proceedings of the Symposium on Computer Applications and Medical Care IEEE Computer Society Press,
+ pp.261-265,
+ 1988.
 \end_layout
 
 \begin_layout Bibliography
@@ -14141,19 +14763,28 @@ literal "false"
 \end_inset
 
 D.D.
- Lucas, R.
- Klein, J.
- Tannahill, D.
- Ivanova, S.
- Brandon, D.
- Domyancic, Y.
- Zhang, Failure analysis of parameter-induced simulation crashes in climate
- models, Geoscientific Model Development 
+ Lucas,
+ R.
+ Klein,
+ J.
+ Tannahill,
+ D.
+ Ivanova,
+ S.
+ Brandon,
+ D.
+ Domyancic,
+ Y.
+ Zhang,
+ Failure analysis of parameter-induced simulation crashes in climate models,
+ Geoscientific Model Development 
 \series bold
 6
 \series default
-, pp.
- 1157-1171, 2013.
+,
+ pp.
+ 1157-1171,
+ 2013.
 \end_layout
 
 \begin_layout Bibliography
@@ -14166,21 +14797,32 @@ literal "false"
 \end_inset
 
 N.
- Giannakeas, M.G.
- Tsipouras, A.T.
- Tzallas, K.
- Kyriakidi, Z.E.
- Tsianou, P.
- Manousou, A.
- Hall, E.C.
- Karvounis, V.
- Tsianos, E.
- Tsianos, A clustering based method for collagen proportional area extraction
- in liver biopsy images (2015) Proceedings of the Annual International Conferenc
-e of the IEEE Engineering in Medicine and Biology Society, EMBS, 2015-November,
+ Giannakeas,
+ M.G.
+ Tsipouras,
+ A.T.
+ Tzallas,
+ K.
+ Kyriakidi,
+ Z.E.
+ Tsianou,
+ P.
+ Manousou,
+ A.
+ Hall,
+ E.C.
+ Karvounis,
+ V.
+ Tsianos,
+ E.
+ Tsianos,
+ A clustering based method for collagen proportional area extraction in liver biopsy images (2015) Proceedings of the Annual International Conference of the IEEE Engineering in Medicine and Biology Society,
+ EMBS,
+ 2015-November,
  art.
  no.
- 7319047, pp.
+ 7319047,
+ pp.
  3097-3100.
  
 \end_layout
@@ -14195,14 +14837,18 @@ literal "false"
 \end_inset
 
 T.
- Hastie, R.
- Tibshirani, Non-parametric logistic and proportional odds regression, JRSS-C
- (Applied Statistics) 
+ Hastie,
+ R.
+ Tibshirani,
+ Non-parametric logistic and proportional odds regression,
+ JRSS-C (Applied Statistics) 
 \series bold
 36
 \series default
-, pp.
- 260–276, 1987.
+,
+ pp.
+ 260–276,
+ 1987.
 \end_layout
 
 \begin_layout Bibliography
@@ -14214,16 +14860,22 @@ literal "false"
 \end_inset
 
 M.
- Dash, H.
- Liu, P.
- Scheuermann, K.
+ Dash,
+ H.
+ Liu,
+ P.
+ Scheuermann,
+ K.
  L.
- Tan, Fast hierarchical clustering and its validation, Data & Knowledge
- Engineering 
+ Tan,
+ Fast hierarchical clustering and its validation,
+ Data & Knowledge Engineering 
 \series bold
 44
 \series default
-, pp 109–138, 2003.
+,
+ pp 109–138,
+ 2003.
 \end_layout
 
 \begin_layout Bibliography
@@ -14234,11 +14886,15 @@ literal "false"
 
 \end_inset
 
-Gorman, R.P.; Sejnowski, T.J.
- Analysis of Hidden Units in a Layered Network Trained to Classify Sonar
- Targets.
+Gorman,
+ R.P.;
+ Sejnowski,
+ T.J.
+ Analysis of Hidden Units in a Layered Network Trained to Classify Sonar Targets.
  Neural Netw.
- 1988, 1, 75–89.
+ 1988,
+ 1,
+ 75–89.
 \end_layout
 
 \begin_layout Bibliography
@@ -14250,13 +14906,15 @@ literal "false"
 \end_inset
 
 P.
- Cortez, A.
+ Cortez,
+ A.
  M.
- Gonçalves Silva, Using data mining to predict secondary school student
- performance, In Proceedings of 5th FUture BUsiness TEChnology Conference
- (FUBUTEC 2008) (pp.
+ Gonçalves Silva,
+ Using data mining to predict secondary school student performance,
+ In Proceedings of 5th FUture BUsiness TEChnology Conference (FUBUTEC 2008) (pp.
  5–12).
- EUROSIS-ETI, 2008.
+ EUROSIS-ETI,
+ 2008.
 \end_layout
 
 \begin_layout Bibliography
@@ -14268,15 +14926,19 @@ literal "false"
 \end_inset
 
 W.H.
- Wolberg, O.L.
- Mangasarian, Multisurface method of pattern separation for medical diagnosis
- applied to breast cytology, Proc Natl Acad Sci U S A.
+ Wolberg,
+ O.L.
+ Mangasarian,
+ Multisurface method of pattern separation for medical diagnosis applied to breast cytology,
+ Proc Natl Acad Sci U S A.
  
 \series bold
 87
 \series default
-, pp.
- 9193–9196, 1990.
+,
+ pp.
+ 9193–9196,
+ 1990.
 \end_layout
 
 \begin_layout Bibliography
@@ -14288,19 +14950,30 @@ literal "false"
 \end_inset
 
 M.
- Raymer, T.E.
- Doom, L.A.
- Kuhn, W.F.
- Punch, Knowledge discovery in medical and biological datasets using a hybrid
- Bayes classifier/evolutionary algorithm.
- IEEE transactions on systems, man, and cybernetics.
- Part B, Cybernetics : a publication of the IEEE Systems, Man, and Cybernetics
- Society, 
+ Raymer,
+ T.E.
+ Doom,
+ L.A.
+ Kuhn,
+ W.F.
+ Punch,
+ Knowledge discovery in medical and biological datasets using a hybrid Bayes classifier/evolutionary algorithm.
+ IEEE transactions on systems,
+ man,
+ and cybernetics.
+ Part B,
+ Cybernetics :
+ a publication of the IEEE Systems,
+ Man,
+ and Cybernetics Society,
+ 
 \series bold
 33
 \series default
- , pp.
- 802-813, 2003.
+ ,
+ pp.
+ 802-813,
+ 2003.
 \end_layout
 
 \begin_layout Bibliography
@@ -14312,14 +14985,18 @@ literal "false"
 \end_inset
 
 P.
- Zhong, M.
- Fukushima, Regularized nonsmooth Newton method for multi-class support
- vector machines, Optimization Methods and Software 
+ Zhong,
+ M.
+ Fukushima,
+ Regularized nonsmooth Newton method for multi-class support vector machines,
+ Optimization Methods and Software 
 \series bold
 22
 \series default
-, pp.
- 225-236, 2007.
+,
+ pp.
+ 225-236,
+ 2007.
 \end_layout
 
 \begin_layout Bibliography
@@ -14333,16 +15010,26 @@ literal "false"
 
 R.
  G.
- Andrzejak, K.
- Lehnertz, F.Mormann, C.
- Rieke, P.
- David, and C.
+ Andrzejak,
+ K.
+ Lehnertz,
+ F.Mormann,
+ C.
+ Rieke,
+ P.
+ David,
+ and C.
  E.
- Elger, “Indications of nonlinear deterministic and finite-dimensional structure
-s in time series of brain electrical activity: dependence on recording region
- and brain state,” Physical Review E, vol.
- 64, no.
- 6, Article ID 061907, 8 pages, 2001.
+ Elger,
+ “Indications of nonlinear deterministic and finite-dimensional structures in time series of brain electrical activity:
+ dependence on recording region and brain state,” Physical Review E,
+ vol.
+ 64,
+ no.
+ 6,
+ Article ID 061907,
+ 8 pages,
+ 2001.
  
 \end_layout
 
@@ -14356,14 +15043,19 @@ literal "true"
 
 A.
  T.
- Tzallas, M.
+ Tzallas,
+ M.
  G.
- Tsipouras, and D.
+ Tsipouras,
+ and D.
  I.
- Fotiadis, “Automatic Seizure Detection Based on Time-Frequency Analysis
- and Artificial Neural Networks,” Computational Intelligence and Neuroscience,
+ Fotiadis,
+ “Automatic Seizure Detection Based on Time-Frequency Analysis and Artificial Neural Networks,” Computational Intelligence and Neuroscience,
  vol.
- 2007, Article ID 80510, 13 pages, 2007.
+ 2007,
+ Article ID 80510,
+ 13 pages,
+ 2007.
  doi:10.1155/2007/80510.
 \end_layout
 
@@ -14377,14 +15069,18 @@ literal "false"
 \end_inset
 
 M.
- Koivisto, K.
- Sood, Exact Bayesian Structure Discovery in Bayesian Networks, The Journal
- of Machine Learning Research
+ Koivisto,
+ K.
+ Sood,
+ Exact Bayesian Structure Discovery in Bayesian Networks,
+ The Journal of Machine Learning Research
 \series bold
  5
 \series default
-, pp.
- 549–573, 2004.
+,
+ pp.
+ 549–573,
+ 2004.
 \end_layout
 
 \begin_layout Bibliography
@@ -14396,14 +15092,29 @@ literal "false"
 
 \end_inset
 
-Nash, W.J.; Sellers, T.L.; Talbot, S.R.; Cawthor, A.J.; Ford, W.B.
+Nash,
+ W.J.;
+ Sellers,
+ T.L.;
+ Talbot,
+ S.R.;
+ Cawthor,
+ A.J.;
+ Ford,
+ W.B.
  The Population Biology of Abalone (_Haliotis_ species) in Tasmania.
  I.
  Blacklip Abalone (_H.
- rubra_) from the North Coast and Islands of Bass Strait, Sea Fisheries
- Division; Technical Report No.
- 48; Department of Primary Industry and Fisheries, Tasmania: Hobart, Australia,
- 1994; ISSN 1034-3288
+ rubra_) from the North Coast and Islands of Bass Strait,
+ Sea Fisheries Division;
+ Technical Report No.
+ 48;
+ Department of Primary Industry and Fisheries,
+ Tasmania:
+ Hobart,
+ Australia,
+ 1994;
+ ISSN 1034-3288
 \end_layout
 
 \begin_layout Bibliography
@@ -14415,12 +15126,18 @@ literal "false"
 
 \end_inset
 
-Brooks, T.F.; Pope, D.S.; Marcolini, A.M.
+Brooks,
+ T.F.;
+ Pope,
+ D.S.;
+ Marcolini,
+ A.M.
  Airfoil Self-Noise and Prediction.
- Technical Report, NASA RP-1218.
+ Technical Report,
+ NASA RP-1218.
  July 1989.
- Available online: https://ntrs.nasa.gov/citations/19890016302 (accessed on
- 5 March 2025).
+ Available online:
+ https://ntrs.nasa.gov/citations/19890016302 (accessed on 5 March 2025).
 \end_layout
 
 \begin_layout Bibliography
@@ -14432,7 +15149,10 @@ literal "false"
 \end_inset
 
 J.S.
- Simonoff, Smooting Methods in Statistics, Springer - Verlag, 1996.
+ Simonoff,
+ Smooting Methods in Statistics,
+ Springer - Verlag,
+ 1996.
 \end_layout
 
 \begin_layout Bibliography
@@ -14443,14 +15163,17 @@ literal "false"
 
 \end_inset
 
-I.Cheng Yeh, Modeling of strength of high performance concrete using artificial
- neural networks, Cement and Concrete Research.
+I.Cheng Yeh,
+ Modeling of strength of high performance concrete using artificial neural networks,
+ Cement and Concrete Research.
  
 \series bold
 28
 \series default
-, pp.
- 1797-1808, 1998.
+,
+ pp.
+ 1797-1808,
+ 1998.
  
 \end_layout
 
@@ -14464,14 +15187,18 @@ literal "true"
 
 D.
  Harrison and D.L.
- Rubinfeld, Hedonic prices and the demand for clean ai, J.
+ Rubinfeld,
+ Hedonic prices and the demand for clean ai,
+ J.
  Environ.
  Economics & Management 
 \series bold
 5
 \series default
-, pp.
- 81-102, 1978.
+,
+ pp.
+ 81-102,
+ 1978.
 \end_layout
 
 \begin_layout Bibliography
@@ -14482,9 +15209,13 @@ literal "false"
 
 \end_inset
 
-Friedman, J.
- (1991): Multivariate Adaptative Regression Splines.
- Annals of Statistics, 19:1, 1--141.
+Friedman,
+ J.
+ (1991):
+ Multivariate Adaptative Regression Splines.
+ Annals of Statistics,
+ 19:1,
+ 1--141.
  
 \end_layout
 
@@ -14497,10 +15228,14 @@ literal "false"
 \end_inset
 
 R.D.
- King, S.
- Muggleton, R.
- Lewis, M.J.E.
- Sternberg, Proc.
+ King,
+ S.
+ Muggleton,
+ R.
+ Lewis,
+ M.J.E.
+ Sternberg,
+ Proc.
  Nat.
  Acad.
  Sci.
@@ -14508,8 +15243,10 @@ R.D.
 \series bold
 89
 \series default
-, pp.
- 11322–11326, 1992.
+,
+ pp.
+ 11322–11326,
+ 1992.
  
 \end_layout
 
@@ -14523,11 +15260,17 @@ literal "false"
 
 D.
  P.
- Kingma, J.
+ Kingma,
+ J.
  L.
- Ba, ADAM: a method for stochastic optimization, in: Proceedings of the
- 3rd International Conference on Learning Representations (ICLR 2015), pp.
- 1–15, 2015.
+ Ba,
+ ADAM:
+ a method for stochastic optimization,
+ in:
+ Proceedings of the 3rd International Conference on Learning Representations (ICLR 2015),
+ pp.
+ 1–15,
+ 2015.
 \end_layout
 
 \begin_layout Bibliography
@@ -14538,13 +15281,16 @@ literal "true"
 
 \end_inset
 
-M.J.D Powell, A Tolerant Algorithm for Linearly Constrained Optimization Calculati
-ons, Mathematical Programming 
+M.J.D Powell,
+ A Tolerant Algorithm for Linearly Constrained Optimization Calculations,
+ Mathematical Programming 
 \series bold
 45
 \series default
-, pp.
- 547-566, 1989.
+,
+ pp.
+ 547-566,
+ 1989.
  
 \end_layout
 
@@ -14558,14 +15304,38 @@ literal "false"
 
 K.
  O.
- Stanley, R.
- Miikkulainen, Evolving Neural Networks through Augmenting Topologies, Evolution
-ary Computation 
+ Stanley,
+ R.
+ Miikkulainen,
+ Evolving Neural Networks through Augmenting Topologies,
+ Evolutionary Computation 
 \series bold
 10
 \series default
-, pp.
- 99-127, 2002.
+,
+ pp.
+ 99-127,
+ 2002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1994)"
+key "de_original"
+literal "false"
+
+\end_inset
+
+Storn,
+ R.,
+ & Price,
+ K.
+ (1997).
+ Differential evolution–a simple and efficient heuristic for global optimization over continuous spaces.
+ Journal of global optimization,
+ 11,
+ 341-359.
 \end_layout
 
 \begin_layout Bibliography
@@ -14576,10 +15346,19 @@ literal "false"
 
 \end_inset
 
-Wu, K., Liu, Z., Ma, N., & Wang, D.
+Wu,
+ K.,
+ Liu,
+ Z.,
+ Ma,
+ N.,
+ & Wang,
+ D.
  (2022).
  A Dynamic Adaptive Weighted Differential Evolutionary Algorithm.
- Computational Intelligence and Neuroscience, 2022(1), 1318044.
+ Computational Intelligence and Neuroscience,
+ 2022(1),
+ 1318044.
 \end_layout
 
 \begin_layout Bibliography
@@ -14590,10 +15369,14 @@ literal "false"
 
 \end_inset
 
-Charilogis V, Tsoulos IG, Tzallas A, Karvounis E.
+Charilogis V,
+ Tsoulos IG,
+ Tzallas A,
+ Karvounis E.
  Modifications for the Differential Evolution Algorithm.
  Symmetry.
- 2022; 14(3):447.
+ 2022;
+ 14(3):447.
 \end_layout
 
 \begin_layout Standard
