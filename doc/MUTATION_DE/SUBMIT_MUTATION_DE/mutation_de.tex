@@ -1,4 +1,4 @@
-%% LyX 2.3.7 created this file.  For more info, see http://www.lyx.org/.
+%% LyX 2.4.1 created this file.  For more info, see https://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[journal,article,submit,pdftex,moreauthors]{Definitions/mdpi}
 \usepackage[utf8]{inputenc}
@@ -224,14 +224,17 @@ a hybrid algorithm that conjuncts PSO and the Back Propagation algorithm
 for neural networks training \citep{nn_hybrid}. Also, recently many
 researchers proposed methods that take advantage of parallel processing
 units in order to speed up the training process \citep{nn_gpu1,nn_gpu2}.
-
-Furthermore, a series of papers has been published recently that tackle
-the initialization procedure for the parameters of neural networks.
-These methods include decision trees \citep{weight_init1}, incorporation
-of the Cauchy's inequality \citep{weight_init2}, discriminant learning
-\citep{weight_init3}, usage of polynomial bases \citep{nn_init1},
-usage of intervals \citep{nn_init3} etc. A systematic review of initialization
-methods can be found in the work of Narkhede et al \citep{nn_init_review}.
+Moreover, recently Kang et al proposed a hybrid method that combines
+lattice Boltzmann method \citep{lat} and various machine learning
+methods with the neural networks included in them with good approximation
+abilities \citep{kang}. Furthermore, a series of papers has been
+published recently that tackle the initialization procedure for the
+parameters of neural networks. These methods include decision trees
+\citep{weight_init1}, incorporation of the Cauchy's inequality \citep{weight_init2},
+discriminant learning \citep{weight_init3}, usage of polynomial bases
+\citep{nn_init1}, usage of intervals \citep{nn_init3} etc. A systematic
+review of initialization methods can be found in the work of Narkhede
+et al \citep{nn_init_review}.
 
 Additionally, finding the optimal architecture of an artificial neural
 network can effectively contribute to its training, since on the one
@@ -270,7 +273,7 @@ detail, in section \ref{sec:Experiments} the used datasets as well
 as the conducted experiments are discussed and finally, in section
 \ref{sec:Conclusions} some conclusions are presented.
 
-\section{Method description\label{sec:Method-description}}
+\section{Method description\protect\label{sec:Method-description}}
 
 The two phases of the proposed method are analyzed in detail in this
 section. During the first phase a genetic algorithm is utilized in
@@ -447,7 +450,7 @@ problem and report the error.
 \end{enumerate}
 %
 \begin{algorithm}[H]
-\caption{The proposed genetic operator.\label{alg:deOperator}}
+\caption{The proposed genetic operator.\protect\label{alg:deOperator}}
 
 \textbf{Function} deOperator$\left(g,F,\mbox{CR}\right)$
 \begin{enumerate}
@@ -468,8 +471,19 @@ population using tournament selection.
 \textbf{End Function}
 \end{algorithm}
 
+The steps of all phases are also graphically illustrated in Figure
+\ref{fig:flow}.
 
-\section{Experiments \label{sec:Experiments}}
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.5]{flowChart}
+\par\end{centering}
+\caption{The flowchart of the proposed method.\protect\label{fig:flow}}
+
+\end{figure}
+
+
+\section{Experiments \protect\label{sec:Experiments}}
 
 To demonstrate the dynamics and reliability of the proposed methodology,
 a series of experiments were carried out on known datasets from the
@@ -568,9 +582,10 @@ The code used in the conducted experiments was written in ANSI C++
 and all runs were performed 30 times using a different seed for the
 random number generator each time. The validation of the experiments
 were done using the well - known method of 10 - fold cross validation.
-For the case of classification datasets the average classification
-error is reported in the experimental tables. This error is calculated
-through the following equation:
+All the experiments were conducted on an AMD RYZEN 5950X machine with
+128GB of ram running Debian Linux. For the case of classification
+datasets the average classification error is reported in the experimental
+tables. This error is calculated through the following equation:
 \begin{equation}
 E_{C}\left(N(w,x)\right)=100\times\frac{\sum_{i=1}^{K}\left(\mbox{class}\left(N\left(w,x_{i}\right)\right)-y_{i}\right)}{K}
 \end{equation}
@@ -598,8 +613,16 @@ of Augmenting Topologies ) \citep{neat}.
 \item The row AVERAGE is used for the average classification or regression
 error for all datasets.
 \end{enumerate}
+Also, for the comparisons between methods, the Wilcoxon signed-rank
+test was used, a non-parametric test for paired data. Each method
+(\textquotedbl PROPOSED\textquotedbl , \textquotedbl BFGS\textquotedbl ,
+etc.) was evaluated on the same dataset (dependent measurements),
+which is why a paired observations test was selected. The Mann-Whitney
+U test or t-test were not applied, as the former is for independent
+groups and the latter requires normally distributed data conditions
+not met here due to the use of a non-parametric test. 
 \begin{table}[H]
-\caption{The values of the experimental parameters.\label{tab:settings}}
+\caption{The values of the experimental parameters.\protect\label{tab:settings}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|}
@@ -634,7 +657,10 @@ in Table \ref{tab:Experiments-for-classification} and for the regression
 datasets in Table \ref{tab:exp2}. 
 
 \begin{table}[H]
-\caption{Experiments for classification datasets\label{tab:Experiments-for-classification}}
+\caption{Experimental results for the classification datasets mentioned here
+using a series of machine learning methods. The numbers in cells represent
+average classification error as reported in the corresponding test
+set.\protect\label{tab:Experiments-for-classification}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -713,7 +739,9 @@ ZOO & 14.13\% & 10.70\% & 20.27\% & 16.67\% & 9.07\%\tabularnewline
 \end{tabular}
 \end{table}
 \begin{table}[H]
-\caption{Experiments for regression datasets.\label{tab:exp2}}
+\caption{Experimental results for the regression datasets using a series of
+machine learning methods. Numbers in cells stand for the average regression
+error as calculated in the corresponding test set.\protect\label{tab:exp2}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -778,16 +806,16 @@ graphically.
 \begin{centering}
 \includegraphics[scale=0.5]{img1}
 \par\end{centering}
-\caption{Statistical comparison for the obtained experimental results in the
-classification datasets.\label{fig:statClass}}
+\caption{Statistical comparison for the obtained experimental results using
+a variety of machine learning methods in the classification datasets.\protect\label{fig:statClass}}
 
 \end{figure}
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[scale=0.5]{img2}
 \par\end{centering}
-\caption{Statistical comparison for the experimental results on the regression
-datasets.\label{fig:statRegression}}
+\caption{Statistical comparison for the experimental results using a series
+of machine learning methods on the regression datasets.\protect\label{fig:statRegression}}
 
 \end{figure}
 In the scientific analysis of the experimental results, the proposed
@@ -814,12 +842,33 @@ with slightly higher p-values $\left(p=10^{-5}\ \mbox{to}\ p=2.4\times10^{-7}\ri
 The largest difference is observed against NEAT $\left(p=2.4\times10^{-7}\right)$,
 while the smallest is against GENETIC $\left(p=8.6\times10^{-5}\right)$.
 
+Moreover, in Figure \ref{fig:executionTime}the a comparison of execution
+times is graphically outlined between the simple Genetic algorithm
+and the proposed method for various values of the critical parameter
+$N_{I}$. The dataset used in this experiment is the WINE classification
+dataset. As expected, increasing the value for this parameter also
+leads to a reduction in the required execution time for the proposed
+method, since the new genetic operator is applied more and more sparsely
+to the population chromosomes.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.5]{execution_time}
+\par\end{centering}
+\caption{Comparison of execution times for the WINE dataset between the simple
+Genetic algorithm and the proposed method for various values of the
+parameter $N_{I}$.\protect\label{fig:executionTime}}
+
+\end{figure}
+
+
 \subsection{Experiments with the differential weight }
 
 An additional experiment was performed to demonstrate the reliability
 of the proposed methodology. In this experiment, three different differential
 weight $F$ calculation techniques were used for the proposed operator.
-These techniques are the following:
+The range of this parameter was defined as $[0,2]$ in the work of
+Storn and Price \citep{de_original}. These techniques are the following:
 \begin{enumerate}
 \item Fixed, which is the default technique in the proposed method. In this
 technique the value $F=0.8$ is used for the differential weight.
@@ -835,8 +884,8 @@ datasets. Similarly, the same method is applied on the regression
 datasets and the results are presented in Table \ref{tab:expRegressionF}.
 
 \begin{table}[H]
-\caption{Experiments for classification datasets using a series of diferential
-weight mechanisms.\label{tab:ExperimentsClassificationF}}
+\caption{Experiments for classification datasets using a series of differential
+weight mechanisms.\protect\label{tab:ExperimentsClassificationF}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|}
@@ -916,7 +965,7 @@ ZOO & 9.07\% & 6.57\% & 8.90\%\tabularnewline
 \end{table}
 \begin{table}[H]
 \caption{Experiments for regression datasets using a variety of weight mechanism
-methods.\label{tab:expRegressionF}}
+methods.\protect\label{tab:expRegressionF}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|}
@@ -984,7 +1033,7 @@ respectively.
 \par\end{centering}
 \caption{Statistical comparison for the experimental results on the classification
 datasets, using the proposed method and a series of differential weight
-techniques.\label{fig:statClassF}}
+techniques.\protect\label{fig:statClassF}}
 
 \end{figure}
 \begin{figure}[H]
@@ -993,7 +1042,7 @@ techniques.\label{fig:statClassF}}
 \par\end{centering}
 \caption{Statistical comparison for the experiments on the regression datasets
 using the proposed method and a series of differential weight calculation
-techniques.\label{fig:statRegressionF}}
+techniques.\protect\label{fig:statRegressionF}}
 
 \end{figure}
 When comparing differential weight calculation methods (FIXED, ADAPTIVE,
@@ -1028,141 +1077,141 @@ and for regression datasets in Table \ref{tab:expRegressionA}.
 
 \begin{table}[H]
 \caption{Experiments for classification datasets using a series of values for
-the margin factor $a$.\label{tab:ExperimentsClassificationA}}
+the margin factor $a$.\protect\label{tab:ExperimentsClassificationA}}
 
 \centering{}%
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
 \hline 
-DATASET & $a=1.0$ & $a=1.5$ & $a=2.0$ & $a=4.0$\tabularnewline
+DATASET & $a=1.0$ & $a=1.5$ & $a=2.0$ & $a=2.5$ & $a=3.0$ & $a=3.5$ & $a=4.0$\tabularnewline
 \hline 
 \hline 
-Alcohol & 24.79\% & 22.88\% & 25.55\% & 28.42\%\tabularnewline
+Alcohol & 24.79\% & 22.88\% & 25.55\% & 30.21\% & 30.77\% & 32.05\% & 28.42\%\tabularnewline
 \hline 
-Appendicitis & 15.97\% & 16.33\% & 18.07\% & 19.51\%\tabularnewline
+Appendicitis & 15.97\% & 16.33\% & 18.07\% & 18.70\% & 17.30\% & 18.60\% & 19.51\%\tabularnewline
 \hline 
-Australian & 31.76\% & 32.79\% & 33.23\% & 33.68\%\tabularnewline
+Australian & 31.76\% & 32.79\% & 33.23\% & 32.65\% & 32.87\% & 32.76\% & 33.68\%\tabularnewline
 \hline 
-Balance & 8.39\% & 8.50\% & 8.39\% & 8.78\%\tabularnewline
+Balance & 8.39\% & 8.50\% & 8.39\% & 8.84\% & 8.85\% & 8.87\% & 8.78\%\tabularnewline
 \hline 
-Circular & 3.69\% & 4.19\% & 4.22\% & 4.70\%\tabularnewline
+Circular & 3.69\% & 4.19\% & 4.22\% & 4.30\% & 4.33\% & 4.46\% & 4.70\%\tabularnewline
 \hline 
-Cleveland & 48.10\% & 47.17\% & 46.68\% & 47.74\%\tabularnewline
+Cleveland & 48.10\% & 47.17\% & 46.68\% & 47.58\% & 50.84\% & 50.62\% & 47.74\%\tabularnewline
 \hline 
-Dermatology & 7.74\% & 7.47\% & 7.60\% & 7.83\%\tabularnewline
+Dermatology & 7.74\% & 7.47\% & 7.60\% & 7.57\% & 7.71\% & 8.86\% & 7.83\%\tabularnewline
 \hline 
-Ecoli & 47.62\% & 48.69\% & 48.29\% & 49.39\%\tabularnewline
+Ecoli & 47.62\% & 48.69\% & 48.29\% & 49.50\% & 51.39\% & 51.99\% & 49.39\%\tabularnewline
 \hline 
-Fert & 22.00\% & 23.47\% & 23.50\% & 24.27\%\tabularnewline
+Fert & 22.00\% & 23.47\% & 23.50\% & 25.03\% & 24.80\% & 24.17\% & 24.27\%\tabularnewline
 \hline 
-Haberman & 25.99\% & 26.26\% & 26.74\% & 27.14\%\tabularnewline
+Haberman & 25.99\% & 26.26\% & 26.74\% & 27.23\% & 27.49\% & 27.67\% & 27.14\%\tabularnewline
 \hline 
-Hayes Roth & 37.00\% & 39.15\% & 39.69\% & 40.05\%\tabularnewline
+Hayes Roth & 37.00\% & 39.15\% & 39.69\% & 35.49\% & 38.10\% & 39.15\% & 40.05\%\tabularnewline
 \hline 
-Heart & 24.79\% & 24.64\% & 24.85\% & 24.89\%\tabularnewline
+Heart & 24.79\% & 24.64\% & 24.85\% & 25.50\% & 26.85\% & 26.46\% & 24.89\%\tabularnewline
 \hline 
-HouseVotes & 5.22\% & 4.91\% & 5.05\% & 5.02\%\tabularnewline
+HouseVotes & 5.22\% & 4.91\% & 5.05\% & 4.90\% & 4.57\% & 4.71\% & 5.02\%\tabularnewline
 \hline 
-Ionosphere & 9.56\% & 9.65\% & 9.92\% & 10.23\%\tabularnewline
+Ionosphere & 9.56\% & 9.65\% & 9.92\% & 9.72\% & 9.75\% & 9.57\% & 10.23\%\tabularnewline
 \hline 
-Liverdisorder & 31.08\% & 31.94\% & 31.42\% & 32.13\%\tabularnewline
+Liverdisorder & 31.08\% & 31.94\% & 31.42\% & 30.89\% & 31.54\% & 30.92\% & 32.13\%\tabularnewline
 \hline 
-Lymography & 28.60\% & 28.24\% & 28.79\% & 26.69\%\tabularnewline
+Lymography & 28.60\% & 28.24\% & 28.79\% & 30.21\% & 29.64\% & 30.71\% & 26.69\%\tabularnewline
 \hline 
-Mammographic & 16.98\% & 16.34\% & 16.35\% & 16.69\%\tabularnewline
+Mammographic & 16.98\% & 16.34\% & 16.35\% & 15.86\% & 15.88\% & 16.35\% & 16.69\%\tabularnewline
 \hline 
-Parkinsons & 18.02\% & 18.88\% & 18.56\% & 19.40\%\tabularnewline
+Parkinsons & 18.02\% & 18.88\% & 18.56\% & 17.98\% & 17.74\% & 17.95\% & 19.40\%\tabularnewline
 \hline 
-Pima & 30.44\% & 30.89\% & 31.11\% & 31.03\%\tabularnewline
+Pima & 30.44\% & 30.89\% & 31.11\% & 32.81\% & 32.88\% & 32.83\% & 31.03\%\tabularnewline
 \hline 
-Popfailures & 4.29\% & 5.07\% & 5.53\% & 5.97\%\tabularnewline
+Popfailures & 4.29\% & 5.07\% & 5.53\% & 5.51\% & 5.54\% & 5.97\% & 5.97\%\tabularnewline
 \hline 
-Regions2 & 26.43\% & 26.53\% & 26.30\% & 25.35\%\tabularnewline
+Regions2 & 26.43\% & 26.53\% & 26.30\% & 26.52\% & 26.28\% & 26.26\% & 25.35\%\tabularnewline
 \hline 
-Saheart & 32.60\% & 31.43\% & 32.98\% & 32.93\%\tabularnewline
+Saheart & 32.60\% & 31.43\% & 32.98\% & 33.52\% & 33.49\% & 33.46\% & 32.93\%\tabularnewline
 \hline 
-Segment & 30.00\% & 27.98\% & 30.86\% & 35.41\%\tabularnewline
+Segment & 30.00\% & 27.98\% & 30.86\% & 31.39\% & 33.76\% & 34.51\% & 35.41\%\tabularnewline
 \hline 
-Sonar & 18.78\% & 21.08\% & 22.23\% & 21.68\%\tabularnewline
+Sonar & 18.78\% & 21.08\% & 22.23\% & 21.47\% & 21.75\% & 21.57\% & 21.68\%\tabularnewline
 \hline 
-Spiral & 44.20\% & 44.65\% & 44.52\% & 44.13\%\tabularnewline
+Spiral & 44.20\% & 44.65\% & 44.52\% & 43.81\% & 43.58\% & 43.39\% & 44.13\%\tabularnewline
 \hline 
-Statheart & 22.72\% & 23.40\% & 23.85\% & 24.22\%\tabularnewline
+Statheart & 22.72\% & 23.40\% & 23.85\% & 24.22\% & 25.56\% & 26.10\% & 24.22\%\tabularnewline
 \hline 
-Student & 4.16\% & 4.75\% & 5.24\% & 5.37\%\tabularnewline
+Student & 4.16\% & 4.75\% & 5.24\% & 5.38\% & 5.43\% & 5.55\% & 5.37\%\tabularnewline
 \hline 
-Wdbc & 7.73\% & 6.95\% & 6.64\% & 7.31\%\tabularnewline
+Wdbc & 7.73\% & 6.95\% & 6.64\% & 7.14\% & 7.29\% & 7.17\% & 7.31\%\tabularnewline
 \hline 
-Wine & 8.55\% & 6.59\% & 9.35\% & 11.02\%\tabularnewline
+Wine & 8.55\% & 6.59\% & 9.35\% & 9.47\% & 8.12\% & 9.65\% & 11.02\%\tabularnewline
 \hline 
-Z\_F\_S & 6.46\% & 6.66\% & 6.90\% & 6.61\%\tabularnewline
+Z\_F\_S & 6.46\% & 6.66\% & 6.90\% & 6.92\% & 6.53\% & 6.87\% & 6.61\%\tabularnewline
 \hline 
-ZO\_NF\_S & 6.01\% & 6.03\% & 6.08\% & 6.25\%\tabularnewline
+ZO\_NF\_S & 6.01\% & 6.03\% & 6.08\% & 6.95\% & 7.17\% & 7.28\% & 6.25\%\tabularnewline
 \hline 
-ZONF\_S & 1.79\% & 1.75\% & 1.80\% & 1.79\%\tabularnewline
+ZONF\_S & 1.79\% & 1.75\% & 1.80\% & 2.15\% & 2.14\% & 2.13\% & 1.79\%\tabularnewline
 \hline 
-ZOO & 9.07\% & 8.63\% & 7.00\% & 7.53\%\tabularnewline
+ZOO & 9.07\% & 8.63\% & 7.00\% & 7.87\% & 6.77\% & 6.97\% & 7.53\%\tabularnewline
 \hline 
-\textbf{AVERAGE} & \textbf{20.02\%} & \textbf{20.12\%} & \textbf{20.52\%} & \textbf{21.00\%}\tabularnewline
+\textbf{AVERAGE} & \textbf{20.02\%} & \textbf{20.12\%} & \textbf{20.52\%} & \textbf{20.83\%} & \textbf{21.11\%} & \textbf{21.38\%} & \textbf{21.00\%}\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
 \begin{table}[H]
 \caption{Experiments for regression datasets using a variety of values for
-the margin factor $a$.\label{tab:expRegressionA}}
+the margin factor $a$.\protect\label{tab:expRegressionA}}
 
 \centering{}%
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
 \hline 
-DATASET & $a=1.0$ & $a=1.5$ & $a=2.0$ & $a=4.0$\tabularnewline
+DATASET & $a=1.0$ & $a=1.5$ & $a=2.0$ & $a=2.5$ & $a=3.0$ & $a=3.5$ & $a=4.0$\tabularnewline
 \hline 
 \hline 
-ABALONE & 4.33 & 4.39 & 4.46 & 5.06\tabularnewline
+ABALONE & 4.33 & 4.39 & 4.46 & 4.64 & 4.84 & 4.93 & 5.06\tabularnewline
 \hline 
-AIRFOIL & 0.003 & 0.003 & 0.002 & 0.002\tabularnewline
+AIRFOIL & 0.003 & 0.003 & 0.002 & 0.002 & 0.003 & 0.003 & 0.002\tabularnewline
 \hline 
-BASEBALL & 67.45 & 74.66 & 79.78 & 86.54\tabularnewline
+BASEBALL & 67.45 & 74.66 & 79.78 & 79.39 & 81.55 & 84.65 & 86.54\tabularnewline
 \hline 
-BK & 0.02 & 0.019 & 0.019 & 0.02\tabularnewline
+BK & 0.02 & 0.019 & 0.019 & 0.018 & 0.017 & 0.018 & 0.02\tabularnewline
 \hline 
-BL & 0.002 & 0.001 & 0.001 & 0.003\tabularnewline
+BL & 0.002 & 0.001 & 0.001 & 0.0007 & 0.0009 & 0.0008 & 0.003\tabularnewline
 \hline 
-CONCRETE & 0.003 & 0.003 & 0.003 & 0.003\tabularnewline
+CONCRETE & 0.003 & 0.003 & 0.003 & 0.004 & 0.003 & 0.004 & 0.003\tabularnewline
 \hline 
-DEE & 0.20 & 0.20 & 0.20 & 0.20\tabularnewline
+DEE & 0.20 & 0.20 & 0.20 & 0.21 & 0.20 & 0.21 & 0.20\tabularnewline
 \hline 
-HOUSING & 26.62 & 26.24 & 28.13 & 29.25\tabularnewline
+HOUSING & 26.62 & 26.24 & 28.13 & 27.91 & 27.36 & 29.53 & 29.25\tabularnewline
 \hline 
-FRIEDMAN & 1.33 & 1.19 & 1.20 & 1.20\tabularnewline
+FRIEDMAN & 1.33 & 1.19 & 1.20 & 1.21 & 1.22 & 1.21 & 1.20\tabularnewline
 \hline 
-FY & 0.039 & 0.04 & 0.042 & 0.045\tabularnewline
+FY & 0.039 & 0.04 & 0.042 & 0.041 & 0.042 & 0.042 & 0.045\tabularnewline
 \hline 
-HO & 0.014 & 0.014 & 0.013 & 0.014\tabularnewline
+HO & 0.014 & 0.014 & 0.013 & 0.013 & 0.013 & 0.014 & 0.014\tabularnewline
 \hline 
-LASER & 0.0027 & 0.0025 & 0.0025 & 0.0024\tabularnewline
+LASER & 0.0027 & 0.0025 & 0.0025 & 0.0028 & 0.0026 & 0.0025 & 0.0024\tabularnewline
 \hline 
-LW & 0.016 & 0.011 & 0.011 & 0.013\tabularnewline
+LW & 0.016 & 0.011 & 0.011 & 0.013 & 0.013 & 0.014 & 0.013\tabularnewline
 \hline 
-MB & 0.048 & 0.049 & 0.051 & 0.09\tabularnewline
+MB & 0.048 & 0.049 & 0.051 & 0.051 & 0.052 & 0.054 & 0.09\tabularnewline
 \hline 
-MORTGAGE & 0.31 & 0.21 & 0.37 & 0.62\tabularnewline
+MORTGAGE & 0.31 & 0.21 & 0.37 & 0.48 & 0.63 & 0.68 & 0.62\tabularnewline
 \hline 
-PLASTIC & 2.20 & 2.05 & 2.18 & 2.21\tabularnewline
+PLASTIC & 2.20 & 2.05 & 2.18 & 2.23 & 2.25 & 2.23 & 2.21\tabularnewline
 \hline 
-PL & 0.023 & 0.023 & 0.021 & 0.022\tabularnewline
+PL & 0.023 & 0.023 & 0.021 & 0.022 & 0.022 & 0.022 & 0.022\tabularnewline
 \hline 
-PY & 0.016 & 0.022 & 0.023 & 0.028\tabularnewline
+PY & 0.016 & 0.022 & 0.023 & 0.026 & 0.028 & 0.027 & 0.028\tabularnewline
 \hline 
-QUAKE & 0.043 & 0.038 & 0.04 & 0.039\tabularnewline
+QUAKE & 0.043 & 0.038 & 0.04 & 0.039 & 0.037 & 0.037 & 0.039\tabularnewline
 \hline 
-SN & 0.024 & 0.024 & 0.025 & 0.026\tabularnewline
+SN & 0.024 & 0.024 & 0.025 & 0.024 & 0.026 & 0.024 & 0.026\tabularnewline
 \hline 
-STOCK & 3.47 & 3.59 & 3.68 & 3.35\tabularnewline
+STOCK & 3.47 & 3.59 & 3.68 & 3.70 & 3.37 & 3.24 & 3.35\tabularnewline
 \hline 
-TREASURY & 0.44 & 0.42 & 0.40 & 1.01\tabularnewline
+TREASURY & 0.44 & 0.42 & 0.40 & 0.65 & 0.82 & 0.95 & 1.01\tabularnewline
 \hline 
-VE & 0.023 & 0.024 & 0.024 & 0.029\tabularnewline
+VE & 0.023 & 0.024 & 0.024 & 0.025 & 0.026 & 0.027 & 0.029\tabularnewline
 \hline 
-\textbf{AVERAGE} & \textbf{4.64} & \textbf{4.92} & \textbf{5.25} & \textbf{5.64}\tabularnewline
+\textbf{AVERAGE} & \textbf{4.64} & \textbf{4.92} & \textbf{5.25} & \textbf{5.25} & \textbf{5.33} & \textbf{5.56} & \textbf{5.64}\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
@@ -1176,7 +1225,7 @@ respectively.
 \par\end{centering}
 \caption{Statistical comparison for the experimental results on the classification
 datasets, using the proposed method and different values for the margin
-factor $a$.\label{fig:statClassA}}
+factor $a$.\protect\label{fig:statClassA}}
 
 \end{figure}
 \begin{figure}[H]
@@ -1185,76 +1234,136 @@ factor $a$.\label{fig:statClassA}}
 \par\end{centering}
 \caption{Statistical comparison for the experiments on the regression datasets,
 using the proposed method and different values for the margin factor
-$a$.\label{fig:statRegressionA}}
+$a$.\protect\label{fig:statRegressionA}}
 
 \end{figure}
-The parameter $a$ significantly impacts performance, with higher
-values ($1.0\rightarrow4.0$) correlating with improved mean error
-rates in both classification ($20.02\%\rightarrow21.00\%$) and regression
-($4.64\rightarrow5.64$). However, this trend is not uniform. For
-example, in classification, Segment improves dramatically ($30.00\%\rightarrow35.41\%$,
-$p=0.0015$) with increased $a$, while Lymography degrades ($28.60\%\rightarrow26.69\%$).
-In regression, increasing $a$ introduces instability some problems
-(e.g., TREASURY: $0.44\rightarrow1.01$). Statistical tests confirm
-significant differences for higher $a$ values (e.g., $a=1.5$ vs
-$a=4.0$: $p=0.00065$ in classification, $p=0.0021$ in regression).
 
-In the evaluation of parameter $a$ for classification datasets (Figure
-\ref{fig:statClassA}), comparisons between higher values of $a$
-(e.g., $a=1.5$ vs $a=4.0$, $p=0.00065$) show strong statistical
-significance, highlighting that increasing $a$ improves performance.
-Conversely, the comparison $a=1.0$ vs $a=1.5$ ($p=0.38$) reveals
-no significant difference. For regression datasets (Figure \ref{fig:statRegressionA}),
-differences become significant mainly at higher $a$ values: $a=1.5$
-vs $a=4.0$ ($p=0.0021$) and $a=2.0$ vs $a=4.0$ ($p=0.0031$).
-However, the comparison $a=1.0$ vs $a=4.0$ ($p=0.059$) approaches
-the significance threshold ($p=0.05$) without crossing it.
+The table \ref{tab:ExperimentsClassificationA} presents the percentage
+error values corresponding to various classification datasets for
+different values of the parameter $a$ which determines the optimal
+value boundaries in the proposed machine learning model. The last
+row of the table includes the average error for each value of the
+parameter $a$. The data analysis reveals that an increase in the
+parameter $a$ generally leads to a rise in the average error rate.
+Specifically, the average increases from 20.02\% for $\alpha=1.0$
+to 21.38\% for $\alpha=3.5$, while for $\alpha=4.0$, it slightly
+decreases to 21.00\%. This indicates that, despite the general upward
+trend, there are cases where further increasing the parameter can
+reduce the error. A detailed examination of the data by dataset shows
+significant variations among different values of the parameter $a$.
+For example, in the Circular dataset, the error gradually increases
+from 3.69\% for $\alpha=1.0$ to 4.70\% for $\alpha=4.0$. Similarly,
+in the Wine dataset, the error value increases from 8.55\% for $\alpha=1.0$
+to 11.02\% for $\alpha=4.0$, indicating a clear negative impact of
+increasing the parameter. However, in other datasets, the effect of
+the parameter is neither as linear nor as pronounced. For instance,
+in the Hayes Roth dataset, the error decreases from 39.69\% for $\alpha=2.0$
+to 35.49\% for $\alpha=2.5$, before increasing again. Similarly,
+in the Lymography dataset, the error significantly decreases for $\alpha=4.0$
+(26.69\%) compared to the other parameter values. These data demonstrate
+that the relationship between the parameter $a$ and the error is
+not linear across all datasets and depends on the specific characteristics
+of each dataset. Overall, the statistical analysis indicates that
+while increasing the parameter $a$ is often associated with higher
+errors, there are exceptions that may be linked to specific properties
+of the data or the model.
 
-\section{Conclusions \label{sec:Conclusions}}
+The table \ref{tab:expRegressionA} presents the absolute error values
+for various regression datasets in relation to different values of
+the parameter $a$ which determines the optimal value boundaries in
+the proposed machine learning model. The last row lists the average
+errors for each value of the parameter $a$. The table analysis shows
+that an increase in the parameter $a$ is accompanied by a general
+increase in the average error. Specifically, the average error increases
+from 4.64 for $\alpha=1.0$ to 5.64 for $\alpha=4.0$, suggesting
+that higher parameter values may lead to worse model performance.
+Examining the individual datasets reveals variability in the effect
+of the parameter $a$. For example, in the BASEBALL dataset, the error
+continuously increases from 67.45 for $\alpha=1.0$ to 86.54 for $\alpha=4.0$,
+indicating a clear negative effect of increasing the parameter. Conversely,
+in the STOCK dataset, an increase in the parameter is accompanied
+by a decrease in error, from 3.47 for $\alpha=1.0$ to 3.35 for $\alpha=4.0$.
+In other datasets, the effect is less straightforward. For example,
+in the MORTGAGE dataset, the error increases from 0.31 for $\alpha=1.0$
+to 0.68 for $\alpha=3.5$ but slightly decreases to 0.62 for $\alpha=4.0$.
+Overall, the statistical analysis suggests that the effect of the
+parameter $a$ depends on the characteristics of each dataset and
+that, although increasing the parameter is often associated with higher
+errors, there are cases where performance remains stable or improves
+slightly.
+
+In Figure \ref{fig:statClassA}, the results pertain to classification
+datasets and various models. From the comparisons between different
+values of the parameter $a$ it is observed that the comparison between
+$a=1.0$ and $a=1.5$ does not exhibit a statistically significant
+difference ($p=0.38$). In contrast, the comparison between $a=1.5$
+and $a=2.0$ shows a significant difference ($p=0.018$), as does
+the comparison between $a=2.0$ and $a=2.5$ ($p=0.045$). The remaining
+comparisons, specifically between $a=2.5$ and $a=3.0$ ($p=0.25$),
+$a=3.0$ and $a=3.5$ ($p=0.27$), and $a=3.5$ and $a=4.0$ ($p=0.39$),
+do not demonstrate statistically significant differences.
+
+In Figure \ref{fig:statRegressionA}, the data refer to regression
+datasets and comparisons for various models. The results indicate
+that the comparison between $a=1.0$ and $a=1.5$ is not statistically
+significant ($p=0.55$), whereas the difference between $a=1.5$ and
+$a=2.0$ is statistically significant ($p=0.014$). The comparison
+between $a=2.0$ and $a=2.5$ does not show statistical significance
+($p=0.17$), nor do the comparisons between $a=2.5$ and $a=3.0$
+($p=0.2$), $a=3.0$ and $a=3.5$ ($p=0.16$), and $a=3.5$ and $a=4.0$
+($p=0.31$). Overall, the $p$ values highlight significant differences
+in specific cases, while in others, the differences remain statistically
+insignificant.
+
+\section{Conclusions \protect\label{sec:Conclusions}}
 
 The study confirms the superiority of the proposed model compared
 to existing methods in both classification and regression tasks. This
-superiority is evidenced by a statistically significant reduction
-in error, though the model’s performance is not entirely independent
-of the data. Instead, it largely depends on data characteristics such
-as complexity, stratification, or the presence of noise. This underscores
-the importance of tailoring models to the specificities of each problem,
-as generalization without careful consideration of specific conditions
-may lead to degraded results. Additionally, the choice of methods
+superiority is demonstrated by a statistically significant reduction
+in error, although the model’s performance heavily depends on data
+characteristics such as complexity, stratification, or the presence
+of noise. This highlights the importance of adapting the model to
+the specificities of each problem, as overly generalized approaches
+may lead to suboptimal results. Additionally, the choice of methods
 for calculating critical parameters, such as differential weights,
-appears to have relatively limited impact on overall performance.
+appears to have a relatively limited impact on overall performance.
 Differences between approaches (e.g., FIXED, ADAPTIVE, RANDOM) are
-minimal and often statistically insignificant, indicating that model
-optimization may require focusing on other factors. At the same time,
-tuning the parameter $a$ emerges as a critical factor: while higher
-values enhance accuracy in many cases, particularly for large or complex
-datasets, the same adjustment may introduce instability in applications
-where data sensitivity is high (e.g., financial forecasting). This
-dual behavior highlights the need to balance flexibility and robustness
-during the tuning process.
+minimal and often statistically insignificant, suggesting that optimization
+efforts could focus on other factors. Tuning the parameter \textquotedbl a,\textquotedbl{}
+however, emerges as a critical factor. Higher values of this parameter
+often improve accuracy, particularly for large or complex datasets,
+but they may also introduce instability in applications where data
+sensitivity is high (e.g., financial forecasting). This dual behavior
+underscores the need to balance flexibility and robustness during
+the tuning process. Despite its analytical approach, the study does
+not sufficiently explore the potential real-world applications of
+the proposed model beyond benchmark datasets. Addressing this gap,
+future research could expand the methodology to practical domains
+such as biomedical data analysis, social networks, or dynamic systems,
+including real-time monitoring and financial forecasting. Investigating
+the model’s adaptability and scalability in these fields could enhance
+its utility in real-world scenarios.
 
-For future research, it would be valuable to explore the role of dynamic
-algorithms that automatically adjust the parameter $a$ based on data
-dynamics. For example, machine learning mechanisms that analyze data
-variability or heterogeneity in real time could optimize the value
-of $a$ without human intervention, ensuring both stability and high
-performance. Additionally, the development of hybrid methods that
-combine the advantages of different approaches (e.g., the adaptability
-of ADAPTIVE with the simplicity of FIXED) could create more robust
-solutions capable of addressing a broader range of problems. It is
-also worth investigating in depth how specific data characteristics---such
-as noisy measurements, class imbalances, or lack of labeling---affect
-the model’s effectiveness. Such analysis would aid in developing adaptive
-strategies for data preprocessing or augmentation. Furthermore, the
-generalizability of findings to more complex environments (e.g., dynamic
-systems, time-series data) or different domains (e.g., biomedical
-data, social networks) remains an open research area. Finally, integrating
-explainable artificial intelligence (XAI) techniques, such as feature
-contribution analysis or visualization tools, could enhance model
-transparency. This would not only facilitate result interpretation
-by experts but also help identify optimal parameter-tuning practices,
-transforming the model into a more predictable and reliable tool for
-real-world applications.
+For future research, it would be beneficial to develop dynamic algorithms
+that automatically adjust the parameter $a$ based on data dynamics.
+For example, machine learning mechanisms that analyze data variability
+or heterogeneity in real-time could optimize the value of $a$ without
+human intervention, ensuring both stability and high performance.
+Additionally, the development of hybrid methods that combine the adaptability
+of ADAPTIVE approaches with the simplicity of FIXED approaches could
+result in more resilient solutions capable of addressing a broader
+range of problems. It is also important to investigate how specific
+data characteristics---such as noisy measurements, class imbalances,
+or lack of labeling---affect the model’s effectiveness. Such analysis
+would support the development of adaptive strategies for data preprocessing
+or augmentation. Furthermore, exploring the generalizability of results
+to more complex environments, such as time-series data or dynamic
+systems, remains an open research avenue. Finally, integrating explainable
+artificial intelligence (XAI) techniques, such as feature contribution
+analysis or visualization tools, could enhance the model’s transparency.
+This would not only facilitate the interpretation of results by experts
+but also aid in identifying optimal parameter-tuning practices, making
+the model a more predictable and reliable tool for real-world applications.
 
 \vspace{6pt}
 
@@ -1281,7 +1390,7 @@ using Virtual Reality techniques\textquotedbl{} (project code:TAEDK-06195).
 
 \conflictsofinterest{The authors declare no conflict of interest.}
 
-Not applicable.
+\sampleavailability{Not applicable.}
 
 \appendixtitles{no}
 
@@ -1412,6 +1521,15 @@ Pattern Recognition \textbf{37}, pp. 1311-1314, 2004.
 \bibitem{nn_gpu2}M. Zhang, K. Hibi, J. Inoue, GPU-accelerated artificial
 neural network potential for molecular dynamics simulation, Computer
 Physics Communications \textbf{285}, 108655, 2023. 
+
+\bibitem[(2017)]{lat}Krüger, T., Kusumaatmaja, H., Kuzmin, A., Shardt,
+O., Silva, G., \& Viggen, E. M. (2017). The lattice Boltzmann method.
+Springer International Publishing, 10(978-3), 4-15.
+
+\bibitem[(2024)]{kang}Kang, Q., Li, K. Q., Fu, J. L., \& Liu, Y.
+(2024). Hybrid LBM and machine learning algorithms for permeability
+prediction of porous media: a comparative study. Computers and Geotechnics,
+168, 106163.
 
 \bibitem{weight_init1}I. Ivanova, M. Kubat, Initialization of neural
 networks by means of decision trees, Knowledge-Based Systems \textbf{8},
@@ -1703,6 +1821,10 @@ Optimization Calculations, Mathematical Programming \textbf{45}, pp.
 \bibitem{neat}K. O. Stanley, R. Miikkulainen, Evolving Neural Networks
 through Augmenting Topologies, Evolutionary Computation \textbf{10},
 pp. 99-127, 2002.
+
+\bibitem[(1994)]{de_original}Storn, R., \& Price, K. (1997). Differential
+evolution--a simple and efficient heuristic for global optimization
+over continuous spaces. Journal of global optimization, 11, 341-359.
 
 \bibitem{de_adaptive}Wu, K., Liu, Z., Ma, N., \& Wang, D. (2022).
 A Dynamic Adaptive Weighted Differential Evolutionary Algorithm. Computational

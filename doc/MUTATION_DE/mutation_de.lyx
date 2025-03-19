@@ -560,10 +560,25 @@ literal "false"
 \end_inset
 
 .
-\end_layout
+ Moreover,
+ recently Kang et al proposed a hybrid method that combines lattice Boltzmann method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "lat"
+literal "false"
 
-\begin_layout Standard
-Furthermore,
+\end_inset
+
+ and various machine learning methods with the neural networks included in them with good approximation abilities 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "kang"
+literal "false"
+
+\end_inset
+
+.
+ Furthermore,
  a series of papers has been published recently that tackle the initialization procedure for the parameters of neural networks.
  These methods include decision trees 
 \begin_inset CommandInset citation
@@ -2610,6 +2625,17 @@ The row AVERAGE is used for the average classification or regression error for a
 \end_layout
 
 \begin_layout Standard
+Also,
+ for the comparisons between methods,
+ the Wilcoxon signed-rank test was used,
+ a non-parametric test for paired data.
+ Each method ("PROPOSED",
+ "BFGS",
+ etc.) was evaluated on the same dataset (dependent measurements),
+ which is why a paired observations test was selected.
+ The Mann-Whitney U test or t-test were not applied,
+ as the former is for independent groups and the latter requires normally distributed data conditions not met here due to the use of a non-parametric test.
+ 
 \begin_inset Float table
 placement H
 alignment document
@@ -3031,13 +3057,14 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experiments for classification datasets
+Experimental results for the classification datasets mentioned here using a series of machine learning methods.
+ The numbers in cells represent average classification error as reported in the corresponding test set.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Experiments-for-classification"
@@ -5050,13 +5077,14 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experiments for regression datasets.
+Experimental results for the regression datasets using a series of machine learning methods.
+ Numbers in cells stand for the average regression error as calculated in the corresponding test set.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:exp2"
@@ -6532,7 +6560,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -6549,7 +6577,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical comparison for the obtained experimental results in the classification datasets.
+Statistical comparison for the obtained experimental results using a variety of machine learning methods in the classification datasets.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:statClass"
@@ -6576,7 +6604,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -6593,7 +6621,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical comparison for the experimental results on the regression datasets.
+Statistical comparison for the experimental results using a series of machine learning methods on the regression datasets.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:statRegression"
@@ -6706,6 +6734,81 @@ nolink "false"
 .
 \end_layout
 
+\begin_layout Standard
+Moreover,
+ in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:executionTime"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+the a comparison of execution times is graphically outlined between the simple Genetic algorithm and the proposed method for various values of the critical parameter 
+\begin_inset Formula $N_{I}$
+\end_inset
+
+.
+ The dataset used in this experiment is the WINE classification dataset.
+ As expected,
+ increasing the value for this parameter also leads to a reduction in the required execution time for the proposed method,
+ since the new genetic operator is applied more and more sparsely to the population chromosomes.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename execution_time.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparison of execution times for the WINE dataset between the simple Genetic algorithm and the proposed method for various values of the parameter 
+\begin_inset Formula $N_{I}$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:executionTime"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Experiments with the differential weight 
 \end_layout
@@ -6812,13 +6915,13 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experiments for classification datasets using a series of diferential weight mechanisms.
+Experiments for classification datasets using a series of differential weight mechanisms.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:ExperimentsClassificationF"
@@ -8195,7 +8298,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -12128,7 +12231,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -14095,7 +14198,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -14144,7 +14247,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -14187,91 +14290,215 @@ name "fig:statRegressionA"
 
 \end_inset
 
-The parameter 
-\begin_inset Formula $a$
-\end_inset
 
- significantly impacts performance,
- with higher values (
-\begin_inset Formula $1.0\rightarrow4.0$
-\end_inset
-
-) correlating with improved mean error rates in both classification (
-\begin_inset Formula $20.02\%\rightarrow21.00\%$
-\end_inset
-
-) and regression (
-\begin_inset Formula $4.64\rightarrow5.64$
-\end_inset
-
-).
- However,
- this trend is not uniform.
- For example,
- in classification,
- Segment improves dramatically (
-\begin_inset Formula $30.00\%\rightarrow35.41\%$
-\end_inset
-
-,
- 
-\begin_inset Formula $p=0.0015$
-\end_inset
-
-) with increased 
-\begin_inset Formula $a$
-\end_inset
-
-,
- while Lymography degrades (
-\begin_inset Formula $28.60\%\rightarrow26.69\%$
-\end_inset
-
-).
- In regression,
- increasing 
-\begin_inset Formula $a$
-\end_inset
-
- introduces instability some problems (e.g.,
- TREASURY:
- 
-\begin_inset Formula $0.44\rightarrow1.01$
-\end_inset
-
-).
- Statistical tests confirm significant differences for higher 
-\begin_inset Formula $a$
-\end_inset
-
- values (e.g.,
- 
-\begin_inset Formula $a=1.5$
-\end_inset
-
- vs 
-\begin_inset Formula $a=4.0$
-\end_inset
-
-:
- 
-\begin_inset Formula $p=0.00065$
-\end_inset
-
- in classification,
- 
-\begin_inset Formula $p=0.0021$
-\end_inset
-
- in regression).
 \end_layout
 
 \begin_layout Standard
-In the evaluation of parameter 
+The table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:ExperimentsClassificationA"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ presents the percentage error values corresponding to various classification datasets for different values of the parameter 
 \begin_inset Formula $a$
 \end_inset
 
- for classification datasets (Figure 
+ which determines the optimal value boundaries in the proposed machine learning model.
+ The last row of the table includes the average error for each value of the parameter 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ The data analysis reveals that an increase in the parameter 
+\begin_inset Formula $a$
+\end_inset
+
+ generally leads to a rise in the average error rate.
+ Specifically,
+ the average increases from 20.02% for 
+\begin_inset Formula $α=1.0$
+\end_inset
+
+ to 21.38% for 
+\begin_inset Formula $α=3.5$
+\end_inset
+
+,
+ while for 
+\begin_inset Formula $α=4.0$
+\end_inset
+
+,
+ it slightly decreases to 21.00%.
+ This indicates that,
+ despite the general upward trend,
+ there are cases where further increasing the parameter can reduce the error.
+ A detailed examination of the data by dataset shows significant variations among different values of the parameter 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ For example,
+ in the Circular dataset,
+ the error gradually increases from 3.69% for 
+\begin_inset Formula $α=1.0$
+\end_inset
+
+ to 4.70% for 
+\begin_inset Formula $α=4.0$
+\end_inset
+
+.
+ Similarly,
+ in the Wine dataset,
+ the error value increases from 8.55% for 
+\begin_inset Formula $α=1.0$
+\end_inset
+
+ to 11.02% for 
+\begin_inset Formula $α=4.0$
+\end_inset
+
+,
+ indicating a clear negative impact of increasing the parameter.
+ However,
+ in other datasets,
+ the effect of the parameter is neither as linear nor as pronounced.
+ For instance,
+ in the Hayes Roth dataset,
+ the error decreases from 39.69% for 
+\begin_inset Formula $α=2.0$
+\end_inset
+
+ to 35.49% for 
+\begin_inset Formula $α=2.5$
+\end_inset
+
+,
+ before increasing again.
+ Similarly,
+ in the Lymography dataset,
+ the error significantly decreases for 
+\begin_inset Formula $α=4.0$
+\end_inset
+
+ (26.69%) compared to the other parameter values.
+ These data demonstrate that the relationship between the parameter 
+\begin_inset Formula $a$
+\end_inset
+
+ and the error is not linear across all datasets and depends on the specific characteristics of each dataset.
+ Overall,
+ the statistical analysis indicates that while increasing the parameter 
+\begin_inset Formula $a$
+\end_inset
+
+ is often associated with higher errors,
+ there are exceptions that may be linked to specific properties of the data or the model.
+\end_layout
+
+\begin_layout Standard
+The table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expRegressionA"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ presents the absolute error values for various regression datasets in relation to different values of the parameter 
+\begin_inset Formula $a$
+\end_inset
+
+ which determines the optimal value boundaries in the proposed machine learning model.
+ The last row lists the average errors for each value of the parameter 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ The table analysis shows that an increase in the parameter 
+\begin_inset Formula $a$
+\end_inset
+
+ is accompanied by a general increase in the average error.
+ Specifically,
+ the average error increases from 4.64 for 
+\begin_inset Formula $α=1.0$
+\end_inset
+
+ to 5.64 for 
+\begin_inset Formula $α=4.0$
+\end_inset
+
+,
+ suggesting that higher parameter values may lead to worse model performance.
+ Examining the individual datasets reveals variability in the effect of the parameter 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ For example,
+ in the BASEBALL dataset,
+ the error continuously increases from 67.45 for 
+\begin_inset Formula $α=1.0$
+\end_inset
+
+ to 86.54 for 
+\begin_inset Formula $α=4.0$
+\end_inset
+
+,
+ indicating a clear negative effect of increasing the parameter.
+ Conversely,
+ in the STOCK dataset,
+ an increase in the parameter is accompanied by a decrease in error,
+ from 3.47 for 
+\begin_inset Formula $α=1.0$
+\end_inset
+
+ to 3.35 for 
+\begin_inset Formula $α=4.0$
+\end_inset
+
+.
+ In other datasets,
+ the effect is less straightforward.
+ For example,
+ in the MORTGAGE dataset,
+ the error increases from 0.31 for 
+\begin_inset Formula $α=1.0$
+\end_inset
+
+ to 0.68 for 
+\begin_inset Formula $α=3.5$
+\end_inset
+
+ but slightly decreases to 0.62 for 
+\begin_inset Formula $α=4.0$
+\end_inset
+
+.
+ Overall,
+ the statistical analysis suggests that the effect of the parameter 
+\begin_inset Formula $a$
+\end_inset
+
+ depends on the characteristics of each dataset and that,
+ although increasing the parameter is often associated with higher errors,
+ there are cases where performance remains stable or improves slightly.
+\end_layout
+
+\begin_layout Standard
+In Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:statClassA"
@@ -14282,46 +14509,97 @@ nolink "false"
 
 \end_inset
 
-),
- comparisons between higher values of 
-\begin_inset Formula $a$
-\end_inset
-
- (e.g.,
- 
-\begin_inset Formula $a=1.5$
-\end_inset
-
- vs 
-\begin_inset Formula $a=4.0$
-\end_inset
-
 ,
- 
-\begin_inset Formula $p=0.00065$
-\end_inset
-
-) show strong statistical significance,
- highlighting that increasing 
+ the results pertain to classification datasets and various models.
+ From the comparisons between different values of the parameter 
 \begin_inset Formula $a$
 \end_inset
 
- improves performance.
- Conversely,
- the comparison 
+ it is observed that the comparison between 
 \begin_inset Formula $a=1.0$
 \end_inset
 
- vs 
+ and 
 \begin_inset Formula $a=1.5$
 \end_inset
 
- (
+ does not exhibit a statistically significant difference (
 \begin_inset Formula $p=0.38$
 \end_inset
 
-) reveals no significant difference.
- For regression datasets (Figure 
+).
+ In contrast,
+ the comparison between 
+\begin_inset Formula $a=1.5$
+\end_inset
+
+ and 
+\begin_inset Formula $a=2.0$
+\end_inset
+
+ shows a significant difference (
+\begin_inset Formula $p=0.018$
+\end_inset
+
+),
+ as does the comparison between 
+\begin_inset Formula $a=2.0$
+\end_inset
+
+ and 
+\begin_inset Formula $a=2.5$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.045$
+\end_inset
+
+).
+ The remaining comparisons,
+ specifically between 
+\begin_inset Formula $a=2.5$
+\end_inset
+
+ and 
+\begin_inset Formula $a=3.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.25$
+\end_inset
+
+),
+ 
+\begin_inset Formula $a=3.0$
+\end_inset
+
+ and 
+\begin_inset Formula $a=3.5$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.27$
+\end_inset
+
+),
+ and 
+\begin_inset Formula $a=3.5$
+\end_inset
+
+ and 
+\begin_inset Formula $a=4.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.39$
+\end_inset
+
+),
+ do not demonstrate statistically significant differences.
+\end_layout
+
+\begin_layout Standard
+In Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:statRegressionA"
@@ -14332,55 +14610,94 @@ nolink "false"
 
 \end_inset
 
-),
- differences become significant mainly at higher 
-\begin_inset Formula $a$
-\end_inset
-
- values:
- 
-\begin_inset Formula $a=1.5$
-\end_inset
-
- vs 
-\begin_inset Formula $a=4.0$
-\end_inset
-
- (
-\begin_inset Formula $p=0.0021$
-\end_inset
-
-) and 
-\begin_inset Formula $a=2.0$
-\end_inset
-
- vs 
-\begin_inset Formula $a=4.0$
-\end_inset
-
- (
-\begin_inset Formula $p=0.0031$
-\end_inset
-
-).
- However,
- the comparison 
+,
+ the data refer to regression datasets and comparisons for various models.
+ The results indicate that the comparison between 
 \begin_inset Formula $a=1.0$
 \end_inset
 
- vs 
+ and 
+\begin_inset Formula $a=1.5$
+\end_inset
+
+ is not statistically significant (
+\begin_inset Formula $p=0.55$
+\end_inset
+
+),
+ whereas the difference between 
+\begin_inset Formula $a=1.5$
+\end_inset
+
+ and 
+\begin_inset Formula $a=2.0$
+\end_inset
+
+ is statistically significant (
+\begin_inset Formula $p=0.014$
+\end_inset
+
+).
+ The comparison between 
+\begin_inset Formula $a=2.0$
+\end_inset
+
+ and 
+\begin_inset Formula $a=2.5$
+\end_inset
+
+ does not show statistical significance (
+\begin_inset Formula $p=0.17$
+\end_inset
+
+),
+ nor do the comparisons between 
+\begin_inset Formula $a=2.5$
+\end_inset
+
+ and 
+\begin_inset Formula $a=3.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.2$
+\end_inset
+
+),
+ 
+\begin_inset Formula $a=3.0$
+\end_inset
+
+ and 
+\begin_inset Formula $a=3.5$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.16$
+\end_inset
+
+),
+ and 
+\begin_inset Formula $a=3.5$
+\end_inset
+
+ and 
 \begin_inset Formula $a=4.0$
 \end_inset
 
  (
-\begin_inset Formula $p=0.059$
+\begin_inset Formula $p=0.31$
 \end_inset
 
-) approaches the significance threshold (
-\begin_inset Formula $p=0.05$
+).
+ Overall,
+ the 
+\begin_inset Formula $p$
 \end_inset
 
-) without crossing it.
+ values highlight significant differences in specific cases,
+ while in others,
+ the differences remain statistically insignificant.
 \end_layout
 
 \begin_layout Section
@@ -14396,71 +14713,70 @@ name "sec:Conclusions"
 
 \begin_layout Standard
 The study confirms the superiority of the proposed model compared to existing methods in both classification and regression tasks.
- This superiority is evidenced by a statistically significant reduction in error,
- though the model’s performance is not entirely independent of the data.
- Instead,
- it largely depends on data characteristics such as complexity,
+ This superiority is demonstrated by a statistically significant reduction in error,
+ although the model’s performance heavily depends on data characteristics such as complexity,
  stratification,
  or the presence of noise.
- This underscores the importance of tailoring models to the specificities of each problem,
- as generalization without careful consideration of specific conditions may lead to degraded results.
+ This highlights the importance of adapting the model to the specificities of each problem,
+ as overly generalized approaches may lead to suboptimal results.
  Additionally,
  the choice of methods for calculating critical parameters,
  such as differential weights,
- appears to have relatively limited impact on overall performance.
+ appears to have a relatively limited impact on overall performance.
  Differences between approaches (e.g.,
  FIXED,
  ADAPTIVE,
  RANDOM) are minimal and often statistically insignificant,
- indicating that model optimization may require focusing on other factors.
- At the same time,
- tuning the parameter 
-\begin_inset Formula $a$
-\end_inset
-
- emerges as a critical factor:
- while higher values enhance accuracy in many cases,
+ suggesting that optimization efforts could focus on other factors.
+ Tuning the parameter "a," however,
+ emerges as a critical factor.
+ Higher values of this parameter often improve accuracy,
  particularly for large or complex datasets,
- the same adjustment may introduce instability in applications where data sensitivity is high (e.g.,
+ but they may also introduce instability in applications where data sensitivity is high (e.g.,
  financial forecasting).
- This dual behavior highlights the need to balance flexibility and robustness during the tuning process.
+ This dual behavior underscores the need to balance flexibility and robustness during the tuning process.
+ Despite its analytical approach,
+ the study does not sufficiently explore the potential real-world applications of the proposed model beyond benchmark datasets.
+ Addressing this gap,
+ future research could expand the methodology to practical domains such as biomedical data analysis,
+ social networks,
+ or dynamic systems,
+ including real-time monitoring and financial forecasting.
+ Investigating the model’s adaptability and scalability in these fields could enhance its utility in real-world scenarios.
 \end_layout
 
 \begin_layout Standard
 For future research,
- it would be valuable to explore the role of dynamic algorithms that automatically adjust the parameter 
+ it would be beneficial to develop dynamic algorithms that automatically adjust the parameter 
 \begin_inset Formula $a$
 \end_inset
 
  based on data dynamics.
  For example,
- machine learning mechanisms that analyze data variability or heterogeneity in real time could optimize the value of 
+ machine learning mechanisms that analyze data variability or heterogeneity in real-time could optimize the value of 
 \begin_inset Formula $a$
 \end_inset
 
  without human intervention,
  ensuring both stability and high performance.
  Additionally,
- the development of hybrid methods that combine the advantages of different approaches (e.g.,
- the adaptability of ADAPTIVE with the simplicity of FIXED) could create more robust solutions capable of addressing a broader range of problems.
- It is also worth investigating in depth how specific data characteristics—
+ the development of hybrid methods that combine the adaptability of ADAPTIVE approaches with the simplicity of FIXED approaches could result in more resilient solutions capable of addressing a broader range of problems.
+ It is also important to investigate how specific data characteristics—
 such as noisy measurements,
  class imbalances,
  or lack of labeling—
 affect the model’s effectiveness.
- Such analysis would aid in developing adaptive strategies for data preprocessing or augmentation.
+ Such analysis would support the development of adaptive strategies for data preprocessing or augmentation.
  Furthermore,
- the generalizability of findings to more complex environments (e.g.,
- dynamic systems,
- time-series data) or different domains (e.g.,
- biomedical data,
- social networks) remains an open research area.
+ exploring the generalizability of results to more complex environments,
+ such as time-series data or dynamic systems,
+ remains an open research avenue.
  Finally,
  integrating explainable artificial intelligence (XAI) techniques,
  such as feature contribution analysis or visualization tools,
- could enhance model transparency.
- This would not only facilitate result interpretation by experts but also help identify optimal parameter-tuning practices,
- transforming the model into a more predictable and reliable tool for real-world applications.
+ could enhance the model’s transparency.
+ This would not only facilitate the interpretation of results by experts but also aid in identifying optimal parameter-tuning practices,
+ making the model a more predictable and reliable tool for real-world applications.
 \end_layout
 
 \begin_layout Standard
@@ -15324,6 +15640,62 @@ M.
  108655,
  2023.
  
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2017)"
+key "lat"
+literal "false"
+
+\end_inset
+
+Krüger,
+ T.,
+ Kusumaatmaja,
+ H.,
+ Kuzmin,
+ A.,
+ Shardt,
+ O.,
+ Silva,
+ G.,
+ & Viggen,
+ E.
+ M.
+ (2017).
+ The lattice Boltzmann method.
+ Springer International Publishing,
+ 10(978-3),
+ 4-15.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2024)"
+key "kang"
+literal "false"
+
+\end_inset
+
+Kang,
+ Q.,
+ Li,
+ K.
+ Q.,
+ Fu,
+ J.
+ L.,
+ & Liu,
+ Y.
+ (2024).
+ Hybrid LBM and machine learning algorithms for permeability prediction of porous media:
+ a comparative study.
+ Computers and Geotechnics,
+ 168,
+ 106163.
 \end_layout
 
 \begin_layout Bibliography
