@@ -2834,13 +2834,8 @@ name "sec:Experiments"
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-(OK)
-\series default
-To demonstrate the dynamics and reliability of the proposed methodology,
- a series of experiments were carried out on known datasets from the relevant literature.
- These datasets were obtained from the following databases:
+A series of classification and regression datasets from various websites was incorporate to test the proposed method and to measure its reliability.
+ The datasets used in the conducted experiments were downloaded from the following online databases:
 \end_layout
 
 \begin_layout Enumerate
@@ -2855,7 +2850,7 @@ https://archive.ics.uci.edu/
 
 \end_inset
 
-(accessed on 5 March 2025)
+(accessed on 26 March 2025)
 \begin_inset CommandInset citation
 LatexCommand citep
 key "UCL"
@@ -2879,7 +2874,7 @@ https://sci2s.ugr.es/keel/datasets.php
 
 \end_inset
 
-(accessed on 5 March 2025)
+(accessed on 26 March 2025)
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Keel"
@@ -2902,7 +2897,7 @@ ftp://lib.stat.cmu.edu/datasets/index.html
 
 \end_inset
 
-(accessed on 5 March 2025).
+(accessed on 26 March 2025).
  
 \end_layout
 
@@ -2911,12 +2906,12 @@ Experimental datasets
 \end_layout
 
 \begin_layout Standard
-The following classification datasets were used in the series of conducted experiments:
+In the conducted experiments the following classification datasets were used:
 \end_layout
 
 \begin_layout Enumerate
 The Alcohol dataset,
- which is related to experiments on alcohol consumption 
+ used in various experiments regarding alcohol consumption 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Alcohol"
@@ -2928,8 +2923,7 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Appendicitis dataset,
- which is a medical dataset 
+The Appendicitis dataset 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "appendicitis"
@@ -2942,7 +2936,7 @@ literal "false"
 
 \begin_layout Enumerate
 The Australian dataset,
- which is used in bank transactions 
+ used in various bank transactions 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "australian"
@@ -2955,7 +2949,7 @@ literal "false"
 
 \begin_layout Enumerate
 The Balance dataset,
- which contains measurements from various psychological experiments 
+ used in a series of psychological experiments 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "balance"
@@ -2968,8 +2962,7 @@ literal "false"
 
 \begin_layout Enumerate
 The Circular dataset,
- which was created artificially.
- 
+ which is an artificial dataset.
 \end_layout
 
 \begin_layout Enumerate
@@ -2987,7 +2980,7 @@ literal "false"
 
 \begin_layout Enumerate
 The Dermatology dataset,
- which is a medical dataset regarding dermatology problems 
+ obtained from various dermatology problems 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "dermatology"
@@ -3012,7 +3005,7 @@ literal "false"
 
 \begin_layout Enumerate
 The Heart dataset,
- which is related to some heart diseases 
+ which is a medical dataset regarding heart diseases 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "heart"
@@ -3025,12 +3018,14 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-HeartAttack...
+The HeartAttack dataset,
+ used in the prediction of heart attacks.
+ 
 \end_layout
 
 \begin_layout Enumerate
 The HouseVotes dataset,
- related to data from Congressional voting in USA 
+ that contains data from Congressional voting in USA 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "housevotes"
@@ -3043,7 +3038,7 @@ literal "false"
 
 \begin_layout Enumerate
 The Ionosphere dataset,
- that contains measurements from the ionosphere 
+ obtained from various experiments in the ionosphere 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ion1,ion2"
@@ -3095,7 +3090,7 @@ literal "false"
 
 \begin_layout Enumerate
 The Parkinsons dataset,
- that was used in the detection of Parkinson's disease 
+ used for the the detection of Parkinson's disease 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "parkinsons1,parkinsons2"
@@ -3107,12 +3102,13 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-Phoneme...
+The Phoneme datasets,
+ obtained from various sound experiments.
 \end_layout
 
 \begin_layout Enumerate
 The Pima dataset,
- a medical dataset related to the detection of diabetes's disease 
+ a medical dataset used for in the diabetes's disease 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "pima"
@@ -3125,7 +3121,7 @@ literal "false"
 
 \begin_layout Enumerate
 The Popfailures dataset,
- related to climate model simulations 
+ related to measurements from climate model simulations 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "popfailures"
@@ -3138,7 +3134,7 @@ literal "false"
 
 \begin_layout Enumerate
 The Regions2 dataset,
- related to some diseases in liver 
+ which is a medical dataset 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "regions2"
@@ -3151,7 +3147,7 @@ literal "false"
 
 \begin_layout Enumerate
 The Saheart dataset,
- related to some heart diseases 
+ which is a medical dataset about heart diseases 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "saheart"
@@ -3164,7 +3160,7 @@ literal "false"
 
 \begin_layout Enumerate
 The Segment dataset,
- related to image processing 
+ related to issues regarding image processing 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "segment"
@@ -3177,7 +3173,7 @@ literal "false"
 
 \begin_layout Enumerate
 The Sonar dataset,
- used to discriminate sonar signals 
+ related to sonar signals 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "sonar"
@@ -3190,18 +3186,17 @@ literal "false"
 
 \begin_layout Enumerate
 The Spiral dataset,
- which was created artificially.
- 
+ which is an artificial dataset.
 \end_layout
 
 \begin_layout Enumerate
 The StatHeart dataset,
- a medical dataset regarding heart diseases.
+ a medical dataset related to heart diseases.
 \end_layout
 
 \begin_layout Enumerate
 The Student dataset,
- which is related to experiments conducted in schools 
+ derived from various experiments in schools 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "student"
@@ -3213,12 +3208,20 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-Transfusion
+The Transfusion dataset 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "transfusion"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
 The WDBC dataset,
- which is related to the detection of cancer 
+ which is a medical dataset about the detection of cancer 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "wdbc"
@@ -3231,7 +3234,7 @@ literal "false"
 
 \begin_layout Enumerate
 The Wine dataset,
- used to detection of the quality of wines 
+ related to the detection of the quality of wines 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "wine1,wine2"
@@ -3244,7 +3247,7 @@ literal "false"
 
 \begin_layout Enumerate
 The EEG dataset,
- which contains various EEG measurements 
+ which is obtained from various EEG measurements 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "eeg1,eeg2"
@@ -3253,14 +3256,14 @@ literal "false"
 \end_inset
 
 .
- From this dataset the following cases were utilized:
- Z_F_S,
- ZO_NF_S and ZONF_S.
+ The cases Z_F_S,
+ Z_O_N_F_S,
+ ZO_NF_S and ZONF_S were used from this dataset.
 \end_layout
 
 \begin_layout Enumerate
 The ZOO dataset,
- which is used for animal classification 
+ used for animal classification 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "zoo"
@@ -3272,12 +3275,13 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Also the following list of regression datasets was used in the conducted experiments:
+Moreover,
+ the following regression datasets were obtained for the conducted experiments:
 \end_layout
 
 \begin_layout Enumerate
 The Abalone dataset,
- that was used to predict the age of abalones 
+ that contains data related to the age of abalones 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "abalone"
@@ -3290,7 +3294,7 @@ literal "false"
 
 \begin_layout Enumerate
 The Airfoil dataset,
- derived from NASA 
+ obtained from NASA 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "airfoil"
@@ -3302,13 +3306,18 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-the Baseball dataset,
- used to predict the salary of baseball players.
+The Auto dataset,
+ used to estimate the fuel consumption in cars.
+\end_layout
+
+\begin_layout Enumerate
+The Baseball dataset,
+ related to the estimation of salary of baseball players.
 \end_layout
 
 \begin_layout Enumerate
 The BK dataset,
- related to basketball games 
+ used for the prediction of points in basketball games 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "BK"
@@ -3321,12 +3330,12 @@ literal "false"
 
 \begin_layout Enumerate
 The BL dataset,
- related to some electricity experiments.
+ used in some some electricity experiments.
 \end_layout
 
 \begin_layout Enumerate
 The Concrete dataset,
- which is related to civil engineering 
+ derived from civil engineering 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "concrete"
@@ -3339,12 +3348,12 @@ literal "false"
 
 \begin_layout Enumerate
 The Dee dataset,
- which is related to the price of electricity.
+ used for the estimation of the price of electricity.
 \end_layout
 
 \begin_layout Enumerate
 The Housing dataset,
- related to the price of houses 
+ used to estimate the price of houses 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "housing"
@@ -3356,8 +3365,7 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Friedman dataset,
- used in various benchmarks 
+The Friedman datase
 \begin_inset CommandInset citation
 LatexCommand citep
 key "friedman"
@@ -3369,33 +3377,34 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
+The FA dataset,
+ which is related to fat measurements.
+ 
+\end_layout
+
+\begin_layout Enumerate
 The FY dataset,
- related to fruit flies.
+ that contains data regarding the fruit flies.
 \end_layout
 
 \begin_layout Enumerate
 The HO dataset,
- obtained from the STATLIB repository.
+ that was derived from the STATLIB repository.
 \end_layout
 
 \begin_layout Enumerate
 The Laser dataset,
- related to laser experiments.
-\end_layout
-
-\begin_layout Enumerate
-The LW dataset,
- related to the prediction of the weight of babes.
+ used in various laser experiments.
 \end_layout
 
 \begin_layout Enumerate
 The MB dataset,
- which was obtained from Smoothing Methods in Statistics.
+ derived from the Smoothing Methods in Statistics.
 \end_layout
 
 \begin_layout Enumerate
 The Mortgage dataset,
- which is an economic dataset.
+ that contains economic measurements.
 \end_layout
 
 \begin_layout Enumerate
@@ -3412,7 +3421,7 @@ literal "false"
 
 \begin_layout Enumerate
 The Plastic dataset,
- related to the pressure in plastics.
+ that contains measurements form experiments conducted for the pressure in plastics.
 \end_layout
 
 \begin_layout Enumerate
@@ -3429,28 +3438,29 @@ literal "false"
 
 \begin_layout Enumerate
 The PL dataset,
- obtained from the STATLIB repository.
+ downloaded from the STATLIB repository.
 \end_layout
 
 \begin_layout Enumerate
 The Quake dataset,
- used to detect the strength of earthquakes.
+ related to the estimation of the strength of earthquakes.
  
 \end_layout
 
 \begin_layout Enumerate
 The SN dataset,
- which is related to trellising and pruning.
+ that contains measurements about trellising and pruning.
 \end_layout
 
 \begin_layout Enumerate
 The Stock dataset,
- used to estimate the price of stocks.
+ which is an economic dataset about the prediction of the price of stocks.
 \end_layout
 
 \begin_layout Enumerate
 The Treasury dataset,
- which is an economic dataset.
+ which contains economic measurements.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -6498,7 +6508,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -14950,13 +14960,93 @@ nolink "false"
 
 \end_inset
 
- examines comparisons of parameter "F" for the regression datasets and shows no statistically significant differences.
- The p-values for the comparisons F=1.5 vs F=3.0 (p=0.18),
- F=1.5 vs F=5.0 (p=0.15),
- F=1.5 vs F=10.0 (p=0.21),
- F=3.0 vs F=5.0 (p=0.7),
- F=3.0 vs F=10.0 (p=0.54),
- and F=5.0 vs F=10.0 (p=0.89) indicate that variations in the value of parameter "F" do not significantly affect the model's performance on the regression datasets.
+ examines comparisons of parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ for the regression datasets and shows no statistically significant differences.
+ The p-values for the comparisons 
+\begin_inset Formula $F=1.5$
+\end_inset
+
+ vs 
+\begin_inset Formula $F=3.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.18$
+\end_inset
+
+),
+ 
+\begin_inset Formula $F=1.5$
+\end_inset
+
+ vs 
+\begin_inset Formula $F=5.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.15$
+\end_inset
+
+),
+ 
+\begin_inset Formula $F=1.5$
+\end_inset
+
+ vs 
+\begin_inset Formula $F=10.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.21$
+\end_inset
+
+),
+ 
+\begin_inset Formula $F=3.0$
+\end_inset
+
+ vs 
+\begin_inset Formula $F=5.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.7$
+\end_inset
+
+),
+ 
+\begin_inset Formula $F=3.0$
+\end_inset
+
+ vs 
+\begin_inset Formula $F=10.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.54$
+\end_inset
+
+),
+ and 
+\begin_inset Formula $F=5.0$
+\end_inset
+
+ vs 
+\begin_inset Formula $F=10.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.89$
+\end_inset
+
+) indicate that variations in the value of parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ do not significantly affect the model's performance on the regression datasets.
  This may suggest greater stability of the model to changes in this parameter compared to the classification datasets.
 \end_layout
 
@@ -15020,6 +15110,89 @@ name "sec:Conclusions"
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
+The article's conclusions clearly highlight the superiority of the proposed method.
+ In classification datasets,
+ the method achieves lower average error rates,
+ particularly when parameters 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $F$
+\end_inset
+
+ are optimally configured.
+ For instance,
+ in classification datasets,
+ the parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ significantly influences performance,
+ with 
+\begin_inset Formula $F=5.0$
+\end_inset
+
+ proving to be the most effective value in many cases.
+ In datasets such as "Ionosphere" and "Wine," dramatic reductions in error rates are observed as the value of 
+\begin_inset Formula $F$
+\end_inset
+
+ increases,
+ emphasizing the importance of selecting this parameter correctly.
+ Similarly,
+ in regression datasets,
+ the proposed model demonstrates exceptional performance,
+ with notable examples including datasets like "Abalone" and "Friedman," where the error decreases significantly compared to traditional techniques.
+ The "MB" dataset is particularly interesting,
+ as the use of Simulated Annealing contributed to a substantial performance improvement,
+ avoiding errors commonly encountered in traditional approaches.
+ Despite the generally positive results,
+ there are cases where the method's performance is suboptimal,
+ such as in the "Segment" dataset,
+ indicating that the method is not universally generalizable without adjustment to the characteristics of each dataset.
+ The need for further research on the parameters 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $F$
+\end_inset
+
+ becomes evident,
+ as these parameters critically impact performance across numerous datasets.
+\end_layout
+
+\begin_layout Standard
+For the future,
+ the article proposes numerous directions for further exploration and development.
+ Initially,
+ applying the method to more diverse data categories,
+ such as time series,
+ image data,
+ or even genetic data,
+ could broaden its application scope.
+ Additionally,
+ the dynamic adjustment of parameters "a" and "F" during training,
+ using reinforcement learning techniques,
+ could further enhance performance by eliminating the need for manual tuning.
+ Furthermore,
+ integrating the method into deep learning systems,
+ such as Convolutional or Recurrent Neural Networks,
+ could lead to hybrid approaches that combine the flexibility of RBF with the computational power of deep neural networks.
+ Moreover,
+ investigating the robustness of the method in environments with dynamic or imbalanced data could provide additional insights into its generalizability.
+ Finally,
+ analyzing the method's performance on big data and integrating it with technologies like distributed processing or cloud computing could open new avenues,
+ enabling its scalability to larger-scale problems.
+ The methodology proposed in the article not only sets new standards for the performance of RBF but also paves the way for further innovation in the field of machine learning.
+\end_layout
+
+\begin_layout Standard
 
 \end_layout
 
@@ -16814,6 +16987,29 @@ P.
  5–12).
  EUROSIS-ETI,
  2008.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2009)"
+key "transfusion"
+literal "false"
+
+\end_inset
+
+I-Cheng Yeh,
+ King-Jang Yang,
+ Tao-Ming Ting,
+ Knowledge discovery on RFM model using Bernoulli sequence,
+ Expert Systems with Applications 
+\series bold
+36
+\series default
+,
+ pp.
+ 5866-5871,
+ 2009.
 \end_layout
 
 \begin_layout Bibliography
