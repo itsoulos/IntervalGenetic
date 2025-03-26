@@ -1161,6 +1161,567 @@ The output of the algorithm are the
 
 \end_inset
 
+When this process is finished,
+ the vector 
+\begin_inset Formula $\overrightarrow{z}$
+\end_inset
+
+ with the calculated parameters is formed with the following procedure:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $l=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,\ldots,k$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $j=1,\ldots,d$
+\end_inset
+
+ 
+\series bold
+do
+\series default
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $z_{l}=c_{i,j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $l=l+1$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+End For
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+End For
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,\ldots,k$
+\end_inset
+
+ do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $z_{l}=\sigma_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $l=l+1$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+End For
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,\ldots,k$
+\end_inset
+
+ do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $z_{l}=w_{0}$
+\end_inset
+
+,
+ where 
+\begin_inset Formula $w_{0}$
+\end_inset
+
+ a positive double precision number.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $l=l+1$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+End For
+\end_layout
+
+\begin_layout Standard
+The layout of the vector 
+\begin_inset Formula $\overrightarrow{z}$
+\end_inset
+
+ is outlined in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-layout-of"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ In this layout,
+ the initial values of the centers are entered at the beginning of the vector,
+ then the initial values for the variances are entered,
+ and finally the initial values for the network weights.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The scheme of the particles in the proposed method.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:The-layout-of"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+
+\size scriptsize
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="21">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $c_{11}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $c_{12}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $c_{1d}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $c_{21}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $c_{22}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $c_{2d}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $c_{k1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $c_{k2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $c_{kd}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $\sigma_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $\ldots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $\sigma_{k}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $w_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $w_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $\ldots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $w_{k}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -1215,33 +1776,713 @@ of a factor called temperature,
  For large values of temperature the algorithm performs a wide exploration of the search space and at low values \SpecialChar allowbreak
 \SpecialChar allowbreak
 it focuses around some minimum of the objective function.
- The Simulated Annealing variant used here minimizes the interval function 
+ The Simulated Annealing variant used here minimizes interval functions denoted as:
+ 
 \begin_inset Formula 
 \begin{equation}
-f\left(R\left(\overrightarrow{x}\right)\right)=\left[E_{\mbox{min}}\left(R\left(\overrightarrow{x}\right)\right),E_{\mbox{max}}\left(R\left(\overrightarrow{x}\right)\right)\right]
+f\left(x\right)=\left[f_{\mbox{min}}\left(x\right),f_{\mbox{max}}\left(x\right)\right]
 \end{equation}
 
 \end_inset
 
-where the 
-\begin_inset Formula $E_{\mbox{min}}\left(R\left(\overrightarrow{x}\right)\right)$
+Also,
+ in order to compare two intervals 
+\begin_inset Formula $a=\left[a_{1},a_{2}\right]$
 \end_inset
 
- represents the minimum training error obtained for the network 
-\begin_inset Formula $\left(R\left(\overrightarrow{x}\right)\right)$
+ and 
+\begin_inset Formula $b=\left[b_{1},b_{2}\right]$
 \end_inset
 
- and the value 
-\begin_inset Formula $E_{\mbox{max}}\left(R\left(\overrightarrow{x}\right)\right)$
+ the operator 
+\begin_inset Formula $D(a,b)$
 \end_inset
 
- denotes the maximum obtained value of the training error.
+ is incorporated with the following definition:
+\begin_inset Formula 
+\begin{equation}
+D(a,b)=\begin{cases}
+\mbox{TRUE,} & a_{1}<b_{1}\ \mbox{OR}\ \left(a_{1}=b_{1}\ \mbox{AND}\ a_{2}<b_{2}\right)\\
+\mbox{FALSE,} & \mbox{otherwise}
+\end{cases}\label{eq:Comparison}
+\end{equation}
+
+\end_inset
+
+The method used below assumes that there are value intervals for the network parameters.
+ The calculation of the functional values \SpecialChar allowbreak
+\SpecialChar allowbreak
+for such value intervals is performed using Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:fitness"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ The main steps of the method used in the second phase have as follows:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialization step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Construct
+\series default
+ the bound vectors 
+\begin_inset Formula $L^{*},\ R^{*}$
+\end_inset
+
+ using the vector 
+\begin_inset Formula $\overrightarrow{z}$
+\end_inset
+
+ of the first phase as follows:
+ 
+\begin_inset Formula 
+\[
+\begin{array}{ccccc}
+L_{i}^{*} & = & -F\times z_{i} & , & i=1,\ldots,n\\
+R_{i}^{*} & = & \text{}F\times z_{i} & , & i=1,\ldots,n
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set 
+\begin_inset Formula $k=0$
+\end_inset
+
+,
+ 
+\begin_inset Formula $T_{0}>0,\ \epsilon>0,$
+\end_inset
+
+
+\begin_inset Formula $r_{T}>0,\ r_{T}<1$
+\end_inset
+
+
+\series default
+.
+
+\series bold
+ 
+\series default
+The value 
+\begin_inset Formula $T_{0}$
+\end_inset
+
+ is used to represent the temperature of the algorithm.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set 
+\series default
+
+\begin_inset Formula $N_{\mbox{eps}}>0$
+\end_inset
+
+,
+ which is a positive integer and it is used as the number of samples that will be created in each iteration of the algorithm.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $a>0$
+\end_inset
+
+ a positive double precision number with the property 
+\begin_inset Formula $a<1$
+\end_inset
+
+,
+ that will be used a the perturbation factor for the production of new samples.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $N_{s}>0$
+\end_inset
+
+ a positive integer number.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $x_{b}=\left[L^{*},R^{*}\right],y_{b}=\mbox{fitness}\left(L^{*},R^{*},N_{s}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $x_{c}=x_{b},y_{c}=y_{b}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Main step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,\ldots,N_{\mbox{eps}}$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Produce
+\series default
+ a random sample 
+\begin_inset Formula $x_{t}=\left(L_{t},R_{t}\right)$
+\end_inset
+
+ using the procedure of Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:sampling"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ using as inputs to the function the interval 
+\begin_inset Formula $x_{c}=\left[L_{c},R_{c}\right]$
+\end_inset
+
+ and the double precision number 
+\begin_inset Formula $a$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $y_{t}=\mbox{fitness}\left(L_{t},R_{t},N_{s}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $D\left(y_{t},y_{c}\right)=\mbox{TRUE}$
+\end_inset
+
+ 
+\series bold
+then
+\series default
+ 
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $x_{c}=x_{t},y_{c}=y_{t}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Else Set 
+\begin_inset Formula $x_{c}=x_{t}$
+\end_inset
+
+ 
+\series default
+with probability
+\series bold
+ 
+\begin_inset Formula $\min\left\{ 1,\exp\left(-\frac{f_{t}-f_{c}}{T_{k}}\right)\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+End if
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $D\left(x_{c},x_{b}\right)=\mbox{TRUE}$
+\end_inset
+
+ 
+\series bold
+then
+\series default
+ 
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $x_{b}=x_{c},y_{b}=y_{c}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+End For
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Update temperature step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set 
+\begin_inset Formula $T_{k+1}=T_{k}r_{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set 
+\begin_inset Formula $k=k+1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If 
+\begin_inset Formula $T_{k}\le\epsilon$
+\end_inset
+
+ stop 
+\series default
+and
+\series bold
+ return 
+\begin_inset Formula $x_{b}=\left[L_{b},R_{b}\right]$
+\end_inset
+
+ 
+\series default
+as the best located interval of bounds.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Goto Main Step
+\series default
+.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The algorithm used to calculate the function value for intervals of parameters.
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:fitness"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \series bold
-VECTORS L,R INTERVAL METHOD
+function
+\series default
+ fitness
+\begin_inset Formula $\left(L,R,N_{s}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Create
+\series default
+ the set 
+\begin_inset Formula $T=\left\{ r_{1},r_{2},\ldots,r_{N_{s}}\right\} $
+\end_inset
+
+ with 
+\begin_inset Formula $N_{s}$
+\end_inset
+
+ random samples in 
+\begin_inset Formula $\left[L,R\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $E_{\mbox{min}}=\infty,\ E_{\mbox{max}}=-\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,\ldots,N_{s}$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Create
+\series default
+ the RBF network 
+\begin_inset Formula $R_{i}\left(\overrightarrow{x}\right)$
+\end_inset
+
+ using as parameter set the corresponding sample 
+\begin_inset Formula $r_{i}\in T$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Calculate
+\series default
+ the training error 
+\begin_inset Formula $f_{R_{i}}=\sum_{j=1}^{M}\left(R_{i}\left(\overrightarrow{x_{j}}\right)-y_{j}\right)^{2}$
+\end_inset
+
+ for the training set of the objective problem.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $f_{R_{i}}\le E_{\mbox{min}}$
+\end_inset
+
+ 
+\series bold
+then
+\series default
+ 
+\begin_inset Formula $E_{\mbox{min}}=f_{R_{i}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $f_{R_{i}}\ge E_{\mbox{max}}$
+\end_inset
+
+ 
+\series bold
+then
+\series default
+ 
+\begin_inset Formula $E_{\mbox{max}}=f_{R_{i}}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+End For
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Return
+\series default
+ the interval 
+\begin_inset Formula $\left[E_{\mbox{min}},E_{\mbox{max}}\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+End function
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float algorithm
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The sampling function used in the Simulated Annealing algorithm.
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:sampling"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Function
+\series default
+ sample
+\begin_inset Formula $\left(L,R,a\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,\ldots,n$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $m=L_{i}+\frac{R_{i}-L_{i}}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $L_{i}^{x}=L_{i}+ar_{1}\left(m-L_{i}\right)$
+\end_inset
+
+,
+ where 
+\begin_inset Formula $r_{1}\in[0,1]$
+\end_inset
+
+ a random value.
+\end_layout
+
+\begin_layout Enumerate
+Set 
+\begin_inset Formula $R_{i}^{x}=R_{i}-ar_{2}\left(R_{i}-m\right)$
+\end_inset
+
+,
+ where 
+\begin_inset Formula $r_{2}\in[0,1]$
+\end_inset
+
+ a random value.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+End For
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Return
+\series default
+ 
+\begin_inset Formula $x=\left[L^{x},R^{x}\right]$
+\end_inset
+
+ the located interval.
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+End function
+\end_layout
+
+\end_inset
+
+The algorithm starts from an initial value interval,
+ which is based on the result of the first phase of the overall process.
+ At each iteration it generates random value intervals that are close to the current value interval.
+ If a value interval with a smaller functional value than the current one is presented it is accepted,
+ otherwise it will be accepted with a probability that is high for large temperature values and decreases significantly as the temperature value drops.
+ This means that the algorithm makes a wide exploration of the search space for high temperature values and centers around some minimum as the temperature value decreases.
 \end_layout
 
 \begin_layout Subsection
@@ -1249,11 +2490,338 @@ The final phase of the proposed method
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-GENETIC ALGORITHM
+In the last phase of the proposed procedure,
+ a genetic algorithm is executed to train the RBF network.
+ The training is performed within the optimal value interval identified in the previous phase of the proposed procedure.
+ The main steps of the proposed genetic algorithm have as follows:
 \end_layout
 
+\begin_layout Enumerate
+
+\series bold
+Initialization step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ as 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+ the number of maximum allowed generations and as 
+\begin_inset Formula $N_{c}$
+\end_inset
+
+ the number of chromosomes for the genetic population.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ as 
+\begin_inset Formula $p_{s}$
+\end_inset
+
+ the selection rate with 
+\begin_inset Formula $p_{s}\le1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set 
+\series default
+as 
+\begin_inset Formula $p_{m}$
+\end_inset
+
+ the mutation rate with 
+\begin_inset Formula $p_{m}\le1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialize
+\series default
+ the chromosomes 
+\begin_inset Formula $g_{i},\ i=1,\ldots,N_{c}$
+\end_inset
+
+ as random vectors inside the bounds 
+\begin_inset Formula $\left[L_{b},R_{b}\right]$
+\end_inset
+
+ of the second phase of the suggested algorithm.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $k=0$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Fitness calculation step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,\ldots,N_{c}$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Create
+\series default
+ the RBF network 
+\begin_inset Formula $R_{i}\left(\overrightarrow{x}\right)$
+\end_inset
+
+using as parameters the chromosome 
+\begin_inset Formula $g_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Calculate
+\series default
+ the corresponding fitness value 
+\begin_inset Formula $f_{i}=\sum_{j=1}^{M}\left(R_{i}\left(\overrightarrow{x_{j}}\right)-y_{j}\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+End For
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Genetic operations step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Selection procedure
+\series default
+.
+ The 
+\begin_inset Formula $p_{s}\times N_{c}$
+\end_inset
+
+ best chromosomes with the lowest fitness values are copied intact to the next generation.
+ The remaining chromosomes will be replaced by new chromosomes produced in crossover and mutation procedure.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Crossover procedure
+\series default
+.
+ During the application of crossover,
+ pairs of chromosomes are chosen from the current population with tournament selection.
+ For every pair 
+\begin_inset Formula $(z,w)$
+\end_inset
+
+ of parents two new chromosomes 
+\begin_inset Formula $\tilde{z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{w}$
+\end_inset
+
+ are will be produced using the following equations:
+\begin_inset Formula 
+\begin{eqnarray}
+\tilde{z_{i}} & = & a_{i}z_{i}+\left(1-a_{i}\right)w_{i}\nonumber \\
+\tilde{w_{i}} & = & a_{i}w_{i}+\left(1-a_{i}\right)z_{i}\label{eq:crossover_ali-1}
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $i=1,\ldots,n$
+\end_inset
+
+ and 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ are randomly selected values with 
+\begin_inset Formula $a_{i}\in[-0.5,1.5]$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kaelo"
+literal "true"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Mutation procedure
+\series default
+.
+ For every element of each chromosome a random number 
+\begin_inset Formula $r\in[0,1]$
+\end_inset
+
+ is produced.
+ This element will be altered randomly when 
+\begin_inset Formula $r\le p_{m}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Termination check step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $k=k+1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $k<N_{g}$
+\end_inset
+
+ 
+\series bold
+then
+\series default
+ go to Fitness calculation step.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Testing step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Obtain
+\series default
+ the best chromosome 
+\begin_inset Formula $g_{b}$
+\end_inset
+
+ from the genetic population,
+ with the lowest fitness value.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Create
+\series default
+ the corresponding RBF network 
+\begin_inset Formula $R_{b}\left(\overrightarrow{x}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Apply
+\series default
+ 
+\begin_inset Formula $R_{b}\left(\overrightarrow{x}\right)$
+\end_inset
+
+ to the corresponding test set and measure the associated test error.
+\end_layout
+
+\end_deeper
 \begin_layout Section
 Experiments 
 \begin_inset CommandInset label
@@ -1266,6 +2834,10 @@ name "sec:Experiments"
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+(OK)
+\series default
 To demonstrate the dynamics and reliability of the proposed methodology,
  a series of experiments were carried out on known datasets from the relevant literature.
  These datasets were obtained from the following databases:
@@ -1913,7 +3485,91 @@ E_{R}\left(R(x)\right)=\frac{\sum_{i=1}^{K}\left(R\left(x_{i}\right)-y_{i}\right
 
 \end_inset
 
+The values for the parameters of the proposed method are mentioned in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:settings"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
+\end_inset
+
+.
+ In the following tables that describe the experimental results the following notation is used:
+\end_layout
+
+\begin_layout Enumerate
+The column DATASET represents the name of the objective problem.
+\end_layout
+
+\begin_layout Enumerate
+The column BFGS denotes the application of the BFGS optimization method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "powell"
+literal "false"
+
+\end_inset
+
+ in the training of a neural network 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn1,nn2"
+literal "false"
+
+\end_inset
+
+ with 10 processing nodes.
+\end_layout
+
+\begin_layout Enumerate
+The column ADAM stands for the incorporation of the ADAM optimizer 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "adam"
+literal "false"
+
+\end_inset
+
+ to train an artificial neural network with 10 processing nodes.
+\end_layout
+
+\begin_layout Enumerate
+The column NEAT represents the usage of the NEAT method (NeuroEvolution of Augmenting Topologies ) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "neat"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The column RBF-KMEANS stands for the usage of the original two - phase method to train an RBF network with 10 processing nodes.
+\end_layout
+
+\begin_layout Enumerate
+The column GENRBF represents the incorporation of the method proposed in 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "genrbf"
+literal "false"
+
+\end_inset
+
+ to train an RBF network with 10 processing nodes.
+\end_layout
+
+\begin_layout Enumerate
+The column PROPOSED denotes the usage of the proposed method to train an RBF network with 10 processing nodes.
+\end_layout
+
+\begin_layout Enumerate
+The row AVERAGE represents the average classification or regression error.
 \end_layout
 
 \begin_layout Standard
@@ -1946,7 +3602,7 @@ name "tab:settings"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="3">
+<lyxtabular version="3" rows="12" columns="3">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1985,6 +3641,9 @@ VALUE
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $w_{0}$
+\end_inset
+
 
 \end_layout
 
@@ -1994,7 +3653,7 @@ VALUE
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Initial values for the weights
 \end_layout
 
 \end_inset
@@ -2003,6 +3662,73 @@ VALUE
 \begin_inset Text
 
 \begin_layout Plain Layout
+100.0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $F$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Scale factor used in the initialization
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10.0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T_{0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Initial temperature
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $10^{6}$
+\end_inset
+
 
 \end_layout
 
@@ -2014,6 +3740,9 @@ VALUE
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $\epsilon$
+\end_inset
+
 
 \end_layout
 
@@ -2023,7 +3752,7 @@ VALUE
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Small value used in comparisons
 \end_layout
 
 \end_inset
@@ -2032,6 +3761,9 @@ VALUE
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $10^{-6}$
+\end_inset
+
 
 \end_layout
 
@@ -2043,6 +3775,9 @@ VALUE
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $a$
+\end_inset
+
 
 \end_layout
 
@@ -2052,7 +3787,7 @@ VALUE
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Perturbation factor
 \end_layout
 
 \end_inset
@@ -2061,7 +3796,167 @@ VALUE
 \begin_inset Text
 
 \begin_layout Plain Layout
+0.001
+\end_layout
 
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of samples used in the fitness calculation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{\mbox{eps}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of samples taken in Simulated Annealing
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{c}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of chromosomes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{g}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Maximum number of allowed generations
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+200
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $p_{s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Selection rate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.1
 \end_layout
 
 \end_inset
@@ -2072,6 +3967,9 @@ VALUE
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $p_{m}$
+\end_inset
+
 
 \end_layout
 
@@ -2081,7 +3979,7 @@ VALUE
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Mutation rate
 \end_layout
 
 \end_inset
@@ -2090,7 +3988,7 @@ VALUE
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.05
 \end_layout
 
 \end_inset
@@ -2105,13 +4003,38 @@ VALUE
 
 \end_inset
 
+The results from the application of the previously mentioned machine learning methods to the classification datasets are depicted in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:experClass"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
+\end_inset
+
+ and for regression datasets the results are presented in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:experRegression"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -4522,7 +6445,54 @@ AVERAGE
 
 \end_inset
 
+The table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:experClass"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
+\end_inset
+
+ presents the error rates of various machine learning models (BFGS,
+ ADAM,
+ NEAT,
+ RBF-KMEANS,
+ GENRBF,
+ PROPOSED) on different classification datasets.
+ Each row corresponds to a dataset,
+ while each column represents the error rate of a specific model.
+ These values indicate the percentage of incorrect predictions,
+ with lower values reflecting better performance.
+ The last row of the table includes the average error rates for each model.
+ Statistical analysis of the data reveals significant insights.
+ The PROPOSED model exhibits the lowest average error rate (18.67%) compared to the other models,
+ establishing it as the optimal choice based on the table.
+ Conversely,
+ the other models demonstrate higher average error rates,
+ with GENRBF showing the highest average (34.64%).
+ Additionally,
+ significant variations in error rates across datasets are observed.
+ For instance,
+ in the "Circular" and "ZONF_S" datasets,
+ the PROPOSED model outperforms others with very low error rates (4.19% and 1.79%,
+ respectively).
+ Conversely,
+ in datasets like "Cleveland," the NEAT model shows a lower error rate (53.44%) compared to the PROPOSED model (50.82%).
+ Notably,
+ in certain datasets,
+ the performance of the PROPOSED model is significantly inferior to other models.
+ For example,
+ in the "Alcohol" and "Z_F_S" datasets,
+ the PROPOSED model exhibits much higher error rates compared to other models.
+ This indicates that while the PROPOSED model generally has the lowest average error rate,
+ its performance may not be consistent across all datasets.
+ In conclusion,
+ the PROPOSED model emerges as the best general choice for minimizing error rates,
+ though its evaluation depends on the characteristics of each dataset.
+ The performance differences among models highlight the need for careful model selection depending on the application.s
 \begin_inset Float table
 placement H
 alignment document
@@ -6292,12 +8262,343 @@ AVERAGE
 
 \end_layout
 
+\begin_layout Standard
+The table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:experRegression"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ displays the absolute error values resulting from the application of various machine learning models (BFGS,
+ ADAM,
+ NEAT,
+ RBF-KMEANS,
+ GENRBF,
+ PROPOSED) on regression datasets.
+ Each row corresponds to a dataset,
+ while each column shows the error of a specific model.
+ The last row records the average error for each model.
+ Lower error values indicate better model performance.
+ Analysis shows that the PROPOSED model has the lowest average error (5.48),
+ making it the most efficient choice among the available models.
+ The second-best model is RBF-KMEANS,
+ with an average error of 9.19,
+ while other models,
+ such as BFGS (26.43) and ADAM (19.62),
+ exhibit significantly higher error values.
+ The performance of the PROPOSED model is particularly impressive in datasets such as BL,
+ where its error is nearly negligible (0.0002),
+ and Mortgage,
+ where it has a very low error (0.14) compared to other models.
+ In datasets like Stock and Plastic,
+ where errors are high across all models,
+ the PROPOSED model still outperforms,
+ with error values of 1.53 and 2.29,
+ respectively,
+ compared to the other models.
+ However,
+ there are instances where the performance difference of the PROPOSED model relative to others is small or even unfavorable.
+ For example,
+ in the Laser dataset,
+ the ADAM model has an error of 0.03,
+ slightly higher than the PROPOSED model's 0.003,
+ while in the HO dataset,
+ the PROPOSED model performs better (0.01),
+ but the RBF-KMEANS model is comparably close (0.03).
+ In summary,
+ the PROPOSED model achieves the lowest average error and the most consistent performance across most datasets,
+ making it an ideal choice for regression problems.
+ Nonetheless,
+ certain models,
+ such as RBF-KMEANS,
+ may demonstrate competitive performance in specific cases,
+ suggesting that model selection depends on the unique characteristics of each dataset.
+\end_layout
+
+\begin_layout Standard
+The analysis of significance levels for the classification datasets,
+ as illustrated in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statClass"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ reveals that the proposed model statistically significantly outperforms all other models in every comparison pair.
+ Specifically,
+ the p-values indicate strong statistical differences:
+ PROPOSED vs BFGS 
+\begin_inset Formula $\left(p=10^{-8}\right)$
+\end_inset
+
+,
+ PROPOSED vs ADAM 
+\begin_inset Formula $\left(p=6.2\times10^{-8}\right)$
+\end_inset
+
+,
+ PROPOSED vs NEAT 
+\begin_inset Formula $\left(p=2.9\times10^{-9}\right)$
+\end_inset
+
+,
+ PROPOSED vs RBF-KMEANS 
+\begin_inset Formula $\left(p=1.2\times10^{-6}\right)$
+\end_inset
+
+ and PROPOSED vs GENRBF 
+\begin_inset Formula $\left(p=1.2\times10^{-10}\right)$
+\end_inset
+
+.
+ These values suggest that the proposed model is significantly better than the others with high reliability.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img1.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison of the experimental results for the classification datasets.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statClass"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statRegression"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ which concerns the regression datasets,
+ a similar pattern is observed,
+ though the p-values are generally higher compared to the classification datasets.
+ The proposed model demonstrates statistically significant superiority over the other models in all comparison pairs:
+ PROPOSED vs BFGS (
+\begin_inset Formula $p=0.00011$
+\end_inset
+
+),
+ PROPOSED vs ADAM (
+\begin_inset Formula $p=0.015$
+\end_inset
+
+),
+ PROPOSED vs NEAT (
+\begin_inset Formula $p=0.00016$
+\end_inset
+
+),
+ PROPOSED vs RBF-KMEANS (
+\begin_inset Formula $p=0.0016$
+\end_inset
+
+),
+ and PROPOSED vs GENRBF (
+\begin_inset Formula $p=0.00049$
+\end_inset
+
+).
+ Although the significance is not as strong as in the classification datasets,
+ the proposed model's superiority remains clear.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img2.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison of the obtained experimental results for the regression datasets.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statRegression"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Experiments with the perturbation factor 
 \begin_inset Formula $a$
 \end_inset
 
  
+\end_layout
+
+\begin_layout Standard
+In order to determine the stability of the proposed technique,
+ another experiment was performed in which the perturbation factor 
+\begin_inset Formula $a$
+\end_inset
+
+ presented in the second stage of the proposed technique took a series of different values.
+ The table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:experClassA"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ presents the error rates of the proposed machine learning model for three different values of the perturbation factor 
+\begin_inset Formula $a$
+\end_inset
+
+ (0.001,
+ 0.005,
+ 0.01) across various classification datasets.
+ Each row represents a dataset,
+ and the values indicate the model's error rate for each value of 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ The last row includes the average error rates for each value of 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ Analysis of the data shows that the smallest value of 
+\begin_inset Formula $a$
+\end_inset
+
+ (0.001) achieves the lowest average error rate (18.67%),
+ while the largest value (0.01) results in the highest average (19.06%).
+ This suggests that the model generally performs better with smaller values of 
+\begin_inset Formula $a$
+\end_inset
+
+ although the difference in averages is minimal.
+ At the dataset level,
+ there are cases where the model's performance is significantly affected by changes in the parameter.
+ For instance,
+ in the "Lymography" dataset,
+ increasing 
+\begin_inset Formula $a$
+\end_inset
+
+ from 0.001 to 0.01 leads to a significant increase in the error rate from 20.64% to 30.33%.
+ A similar trend is observed in the "ZOO" dataset,
+ where the error rate rises from 4.50% to 6.87% for 
+\begin_inset Formula $a=0.005$
+\end_inset
+
+,
+ but decreases again to 4.60% for 
+\begin_inset Formula $a=0.01$
+\end_inset
+
+.
+ On the other hand,
+ in datasets like "ZO_NF_S," the error remains unchanged at 3.63%,
+ regardless of changes in 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ Datasets such as "Z_F_S" and "ZONF_S" exhibit nonlinear behavior.
+ In "Z_F_S," the error rate significantly decreases from 3.16% to 2.79% as 
+\begin_inset Formula $a$
+\end_inset
+
+ increases from 0.001 to 0.01,
+ while in "ZONF_S," a similar decrease is observed from 1.79% to 1.74%.
+ In conclusion,
+ the analysis indicates that the perturbation factor 
+\begin_inset Formula $a$
+\end_inset
+
+ has a notable impact on the performance of the proposed model.
+ Smaller values of 
+\begin_inset Formula $a$
+\end_inset
+
+ are generally associated with better performance;
+ however,
+ the optimal value may depend on the characteristics of each dataset.
+ Instances where error rates increase or decrease nonlinearly with changes in "a" suggest the need for further investigation into the tuning of "a" for specific applications.
 \end_layout
 
 \begin_layout Standard
@@ -7738,7 +10039,123 @@ AVERAGE
 
 \end_inset
 
+The table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:experRegressionA"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
+\end_inset
+
+ displays the absolute error values of the proposed machine learning model across various regression datasets for three different values of the perturbation factor 
+\begin_inset Formula $a$
+\end_inset
+
+ (0.001,
+ 0.005,
+ 0.01).
+ Data analysis reveals that the parameter 
+\begin_inset Formula $a=0.005$
+\end_inset
+
+ yields the lowest average error (4.92),
+ while the values 
+\begin_inset Formula $a=0.001$
+\end_inset
+
+ and 
+\begin_inset Formula $a=0.01$
+\end_inset
+
+ result in slightly higher averages (5.48 and 5.13,
+ respectively).
+ This difference indicates that 0.005 is generally the most suitable value for the model,
+ ensuring better performance in most cases.
+ At the dataset level,
+ the impact of 
+\begin_inset Formula $a$
+\end_inset
+
+ varies.
+ Some datasets,
+ such as "Airfoil," "Concrete," "Dee," "HO," "Laser," "NT," "PL," "Plastic," and "Quake," show no change in error with variations in 
+\begin_inset Formula $a$
+\end_inset
+
+ as error values remain constant.
+ In contrast,
+ other datasets exhibit significant variations.
+ For example,
+ in the "Baseball" dataset,
+ the error decreases from 86.19 for 
+\begin_inset Formula $a=0.001$
+\end_inset
+
+ to 77.46 for 
+\begin_inset Formula $a=0.005$
+\end_inset
+
+ then increases again to 81.97 for 
+\begin_inset Formula $a=0.01$
+\end_inset
+
+.
+ Similarly,
+ in the "MB" dataset,
+ the error drastically decreases from 5.49 for 
+\begin_inset Formula $a=0.001$
+\end_inset
+
+ to 0.56 for 
+\begin_inset Formula $a=0.005$
+\end_inset
+
+ and further to 0.48 for 
+\begin_inset Formula $a=0.01$
+\end_inset
+
+.
+ In datasets like "FA" and "FY," the error increases as 
+\begin_inset Formula $a$
+\end_inset
+
+ changes from 0.001 to 0.005,
+ then decreases again for 
+\begin_inset Formula $a=0.01$
+\end_inset
+
+.
+ In the "Treasury" dataset,
+ the error shows a slight decline as 
+\begin_inset Formula $a$
+\end_inset
+
+ increases.
+ In conclusion,
+ the parameter 
+\begin_inset Formula $a$
+\end_inset
+
+ has a significant impact on the model's performance in certain datasets,
+ while in others,
+ its effect is negligible.
+ The lowest average error observed for 
+\begin_inset Formula $a=0.005$
+\end_inset
+
+ suggests that this value is generally optimal for the model,
+ though further tuning may be required for specific datasets.
+ Cases with high variability in errors highlight the need for deeper analysis and optimization of the 
+\begin_inset Formula $a$
+\end_inset
+
+ parameter based on the characteristics of each dataset.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 placement H
 alignment document
@@ -8794,6 +11211,221 @@ AVERAGE
 
 \end_inset
 
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statClassA"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ compares different values of parameter 
+\begin_inset Formula $a$
+\end_inset
+
+ for the classification datasets.
+ The p-values for the comparisons 
+\begin_inset Formula $a=0.001$
+\end_inset
+
+ vs 
+\begin_inset Formula $a=0.005$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.36$
+\end_inset
+
+),
+ 
+\begin_inset Formula $a=0.001$
+\end_inset
+
+ vs 
+\begin_inset Formula $a=0.01$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.071$
+\end_inset
+
+),
+ and 
+\begin_inset Formula $a=0.005$
+\end_inset
+
+ vs 
+\begin_inset Formula $a=0.01$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.17$
+\end_inset
+
+) indicate that the differences between the parameter values are not statistically significant.
+ This suggests that varying parameter 
+\begin_inset Formula $a$
+\end_inset
+
+ within this range does not substantially affect the model's performance on these datasets.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img3.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison of the obtained results from the application of the current method in the classification datasets using different values of perturbation factor 
+\begin_inset Formula $a$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statClassA"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statRegressionA"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ presents corresponding comparisons for the regression datasets,
+ where a similar result is observed.
+ The p-values for the comparisons 
+\begin_inset Formula $a=0.001$
+\end_inset
+
+ vs 
+\begin_inset Formula $a=0.005$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.75$
+\end_inset
+
+),
+ 
+\begin_inset Formula $a=0.001$
+\end_inset
+
+ vs 
+\begin_inset Formula $a=0.01$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.41$
+\end_inset
+
+),
+ and 
+\begin_inset Formula $a=0.005$
+\end_inset
+
+ vs 
+\begin_inset Formula $a=0.01$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.94$
+\end_inset
+
+) indicate the absence of statistically significant differences.
+ This shows that the choice of parameter 
+\begin_inset Formula $a$
+\end_inset
+
+ does not significantly influence the model's performance on the regression datasets.
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img4.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison of the obtained experiments results from the application of the proposed method to the regression datasets,
+ using different values of the perturbation factor 
+\begin_inset Formula $a$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statRegressionA"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -8803,6 +11435,155 @@ Experiments with the parameter
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Another experiment was conducted using the initialization factor 
+\begin_inset Formula $F$
+\end_inset
+
+.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:experClassF"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ presents the percentage error rates of the proposed machine learning model across various classification datasets for four different values of the parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ (1.5,
+ 3.0,
+ 5.0,
+ 10.0).
+ Analyzing the data reveals that the parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ influences the model's performance,
+ but this effect varies by dataset.
+ The lowest average error rate is observed for 
+\begin_inset Formula $F=5.0$
+\end_inset
+
+ (18.58%),
+ indicating that this value is generally optimal.
+ For the other values,
+ slightly higher average error rates are noted:
+ 18.88% for 
+\begin_inset Formula $F=3.0$
+\end_inset
+
+ 18.67% for 
+\begin_inset Formula $F=10.0$
+\end_inset
+
+ and the highest rate,
+ 20.32%,
+ for 
+\begin_inset Formula $F=1.5$
+\end_inset
+
+.
+ Examining individual datasets,
+ it is evident that for many of them,
+ increasing 
+\begin_inset Formula $F$
+\end_inset
+
+ improves performance,
+ as reflected in reduced error rates.
+ Examples include the "Ionosphere," "Wine," and "ZONF_S" datasets,
+ where error rates decrease as 
+\begin_inset Formula $F$
+\end_inset
+
+ increases.
+ In "Ionosphere," the error rate drops from 12.92% for 
+\begin_inset Formula $F=1.5$
+\end_inset
+
+ to 7.39% for 
+\begin_inset Formula $F=10.0$
+\end_inset
+
+.
+ In "Wine," the error rate decreases from 10.90% for 
+\begin_inset Formula $F=1.5$
+\end_inset
+
+ to 7.71% for 
+\begin_inset Formula $F=10.0$
+\end_inset
+
+.
+ Similarly,
+ in "ZONF_S," the error rate steadily decreases from 2.59% for 
+\begin_inset Formula $F=1.5$
+\end_inset
+
+ to 1.79% for 
+\begin_inset Formula $F=10.0$
+\end_inset
+
+.
+ However,
+ there are cases where increasing 
+\begin_inset Formula $F$
+\end_inset
+
+ does not lead to improvement or results in higher error rates.
+ For example,
+ in the "Segment" dataset,
+ the error rate rises from 35.81% for 
+\begin_inset Formula $F=1.5$
+\end_inset
+
+ to 40.83% for 
+\begin_inset Formula $F=10.0$
+\end_inset
+
+.
+ In the "Spiral" dataset,
+ the error rate consistently increases from 13.28% for 
+\begin_inset Formula $F=1.5$
+\end_inset
+
+ to 22.52% for 
+\begin_inset Formula $F=10.0$
+\end_inset
+
+.
+ A similar trend is observed in the "Z_O_N_F_S" dataset,
+ where the error rate rises from 46.00% for 
+\begin_inset Formula $F=1.5$
+\end_inset
+
+ to 46.77% for 
+\begin_inset Formula $F=10.0$
+\end_inset
+
+.
+ Overall,
+ the parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ significantly affects the model's performance,
+ and the optimal value appears to be 
+\begin_inset Formula $F=5.0$
+\end_inset
+
+ as evidenced by the lowest average error rate.
+ However,
+ the exact impact depends on the characteristics of each dataset,
+ emphasizing the need to fine-tune the parameter value for specific datasets to achieve optimal performance.
 \end_layout
 
 \begin_layout Standard
@@ -10573,7 +13354,144 @@ AVERAGE
 
 \end_inset
 
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:experRegressionF"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
+\end_inset
+
+ provides the absolute error values of the proposed machine learning model across various regression datasets for four different values of the parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ (1.5,
+ 3.0,
+ 5.0,
+ 10.0).
+ The data analysis shows that the parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ affects the model's performance differently depending on the dataset.
+ The average errors indicate that 
+\begin_inset Formula $F=5.0$
+\end_inset
+
+ yields the lowest overall error (5.22),
+ followed by 
+\begin_inset Formula $F=3.0$
+\end_inset
+
+ with an average of 5.25.
+ Higher averages are observed for 
+\begin_inset Formula $F=1.5$
+\end_inset
+
+ (5.52) and 
+\begin_inset Formula $F=10.0$
+\end_inset
+
+ (5.48),
+ suggesting that deviating from 
+\begin_inset Formula $F=5.0$
+\end_inset
+
+ tends to increase error in some cases.
+ Examining the datasets,
+ it is evident that in several cases,
+ increasing 
+\begin_inset Formula $F$
+\end_inset
+
+ improves performance,
+ reducing error rates.
+ For example,
+ in the "Abalone" dataset,
+ the error decreases from 6.39 for 
+\begin_inset Formula $F=1.5$
+\end_inset
+
+ to 5.10 for 
+\begin_inset Formula $F=10.0$
+\end_inset
+
+.
+ Similarly,
+ in the "Friedman" dataset,
+ the error significantly decreases from 6.59 for 
+\begin_inset Formula $F=1.5$
+\end_inset
+
+ to 1.45 for 
+\begin_inset Formula $F=10.0$
+\end_inset
+
+.
+ In the "Laser" dataset,
+ the error decreases progressively from 0.022 for 
+\begin_inset Formula $F=1.5$
+\end_inset
+
+ to 0.003 for 
+\begin_inset Formula $F=10.0$
+\end_inset
+
+.
+ Conversely,
+ there are datasets where the effect of 
+\begin_inset Formula $F$
+\end_inset
+
+ is nonlinear or increases the error rate.
+ For instance,
+ in the "Housing" dataset,
+ the error rises from 16.75 for 
+\begin_inset Formula $F=1.5$
+\end_inset
+
+ to 18.70 for 
+\begin_inset Formula $F=10.0$
+\end_inset
+
+.
+ In the "MB" dataset,
+ there is a sharp increase in error from 0.116 for 
+\begin_inset Formula $F=1.5$
+\end_inset
+
+ to 5.49 for 
+\begin_inset Formula $F=10.0$
+\end_inset
+
+,
+ indicating that 
+\begin_inset Formula $F$
+\end_inset
+
+ significantly impacts model performance for this dataset.
+ In summary,
+ the parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ has varying effects on the model's performance across different datasets.
+ While the average indicates that 
+\begin_inset Formula $F=5.0$
+\end_inset
+
+ is the optimal choice,
+ precise optimization of the parameter should be dataset-specific.
+ Additionally,
+ extreme parameter values may lead to significant performance degradation in certain datasets,
+ as seen in examples like "MB" and "Housing."
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 placement H
 alignment document
@@ -11869,6 +14787,308 @@ AVERAGE
 
 \end_inset
 
+In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statClassF"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ which compares different values of parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ for the classification datasets,
+ several statistically significant differences are observed.
+ The p-values for the comparisons 
+\begin_inset Formula $F=1.5$
+\end_inset
+
+ vs 
+\begin_inset Formula $F=3.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.00019$
+\end_inset
+
+),
+ 
+\begin_inset Formula $F=1.5$
+\end_inset
+
+ vs 
+\begin_inset Formula $F=5.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.00012$
+\end_inset
+
+),
+ and 
+\begin_inset Formula $F=1.5$
+\end_inset
+
+ vs 
+\begin_inset Formula $F=10.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.00069$
+\end_inset
+
+) indicate a strong difference in the model's performance.
+ In contrast,
+ the values for the comparisons 
+\begin_inset Formula $F=3.0$
+\end_inset
+
+ vs 
+\begin_inset Formula $F=5.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.027$
+\end_inset
+
+),
+ 
+\begin_inset Formula $F=3.0$
+\end_inset
+
+ vs 
+\begin_inset Formula $F=10.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.062$
+\end_inset
+
+),
+ and 
+\begin_inset Formula $F=5.0$
+\end_inset
+
+ vs 
+\begin_inset Formula $F=10.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.23$
+\end_inset
+
+) show that the differences between larger values of parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ are less significant.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img5.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison for the experimental results by the application of the proposed method with different values of parameter 
+\begin_inset Formula $F$
+\end_inset
+
+.
+ The method was applied on the classification datasets.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statClassF"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statRegressionF"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ examines comparisons of parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ for the regression datasets and shows no statistically significant differences.
+ The p-values for the comparisons 
+\begin_inset Formula $F=1.5$
+\end_inset
+
+ vs 
+\begin_inset Formula $F=3.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.18$
+\end_inset
+
+),
+ 
+\begin_inset Formula $F=1.5$
+\end_inset
+
+ vs 
+\begin_inset Formula $F=5.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.15$
+\end_inset
+
+),
+ 
+\begin_inset Formula $F=1.5$
+\end_inset
+
+ vs 
+\begin_inset Formula $F=10.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.21$
+\end_inset
+
+),
+ 
+\begin_inset Formula $F=3.0$
+\end_inset
+
+ vs 
+\begin_inset Formula $F=5.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.7$
+\end_inset
+
+),
+ 
+\begin_inset Formula $F=3.0$
+\end_inset
+
+ vs 
+\begin_inset Formula $F=10.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.54$
+\end_inset
+
+),
+ and 
+\begin_inset Formula $F=5.0$
+\end_inset
+
+ vs 
+\begin_inset Formula $F=10.0$
+\end_inset
+
+ (
+\begin_inset Formula $p=0.89$
+\end_inset
+
+) indicate that variations in the value of parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ do not significantly affect the model's performance on the regression datasets.
+ This may suggest greater stability of the model to changes in this parameter compared to the classification datasets.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img6.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison for the obtained results by the application of the proposed method to the regression datasets.
+ For this experiment different values of parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ were used.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statRegressionF"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -12959,6 +16179,30 @@ Dupanloup,
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+label "(2007)"
+key "kaelo"
+literal "false"
+
+\end_inset
+
+P.
+ Kaelo,
+ M.M.
+ Ali,
+ Integrated crossover rules in real coded genetic algorithms,
+ European Journal of Operational Research 
+\series bold
+176
+\series default
+,
+ pp.
+ 60-76,
+ 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "UCL"
 literal "false"
 
@@ -14010,6 +17254,136 @@ R.D.
  11322–11326,
  1992.
  
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "powell"
+literal "false"
+
+\end_inset
+
+M.J.D Powell,
+ A Tolerant Algorithm for Linearly Constrained Optimization Calculations,
+ Mathematical Programming 
+\series bold
+45
+\series default
+,
+ pp.
+ 547-566,
+ 1989.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "nn1"
+literal "false"
+
+\end_inset
+
+C.
+ Bishop,
+ Neural Networks for Pattern Recognition,
+ Oxford University Press,
+ 1995.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn2"
+literal "true"
+
+\end_inset
+
+G.
+ Cybenko,
+ Approximation by superpositions of a sigmoidal function,
+ Mathematics of Control Signals and Systems 
+\series bold
+2
+\series default
+,
+ pp.
+ 303-314,
+ 1989.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "adam"
+literal "false"
+
+\end_inset
+
+D.
+ P.
+ Kingma,
+ J.
+ L.
+ Ba,
+ ADAM:
+ a method for stochastic optimization,
+ in:
+ Proceedings of the 3rd International Conference on Learning Representations (ICLR 2015),
+ pp.
+ 1–15,
+ 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "neat"
+literal "false"
+
+\end_inset
+
+K.
+ O.
+ Stanley,
+ R.
+ Miikkulainen,
+ Evolving Neural Networks through Augmenting Topologies,
+ Evolutionary Computation 
+\series bold
+10
+\series default
+,
+ pp.
+ 99-127,
+ 2002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "genrbf"
+literal "false"
+
+\end_inset
+
+S.
+ Ding,
+ L.
+ Xu,
+ C.
+ Su et al,
+ An optimizing method of RBF neural network based on genetic algorithm.
+ Neural Comput & Applic 21,
+ pp.
+ 333–336,
+ 2012.
 \end_layout
 
 \begin_layout Standard
