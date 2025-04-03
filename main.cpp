@@ -342,15 +342,15 @@ int main(int argc,char **argv)
         bestMargin = p.getMargins();
         for(int i=0;i<bestMargin.size();i++)
         {
-            bestMargin[i]=Interval(-4.0*fabs(bestx[i]),
-                                   4.0*fabs(bestx[i]));
+            bestMargin[i]=Interval(-2.0*fabs(bestx[i]),
+                                   2.0*fabs(bestx[i]));
 
             printf("Margin[%d]=%lf,%lf\n",i,bestMargin[i].leftValue(),
                    bestMargin[i].rightValue());
         }
         p.setMargins(bestMargin);
         intervalMethod="genetic";
-
+    	bestMargin=runDoubleInterval(&p,bestgeneticx);
     }
     else
     if(intervalMethod=="grammar")
