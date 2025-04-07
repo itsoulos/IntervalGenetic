@@ -221,6 +221,32 @@ IntervalData runGrammarInterval(DllProblem *p,Data &bestp)
     return bestMargin;
 }
 
+IntervalData runDoubleInterval(IntervalData &data, DllProblem *p,Data &bestp)
+{
+	p->setMargins(data);
+    IntervalGenetic gen(p,chromosomes);
+    gen.setSamples(double_samples);
+    gen.setMutationRate(mutation_rate);
+    gen.setSelectionRate(selection_rate);
+    IntervalData bestx;
+    Interval besty;
+
+    for(int g=1;g<=maxGenerations;g++)
+    {
+        gen.nextGeneration();
+        gen.getBest(bestx,besty);
+	if(debug )
+        {
+            cout<<"g="<<g<<" BESTY "<<besty<<endl;
+            if(g%20==0)    p->printData(bestx);
+             bestp=gen.getBestPoint();
+        }
+    }
+    bestp=gen.getBestPoint();
+    IntervalData bestMargin=bestx;
+    return bestMargin;
+}
+
 IntervalData runDoubleInterval(DllProblem *p,Data &bestp)
 {
     IntervalGenetic gen(filename,params,chromosomes,threads);
@@ -338,19 +364,20 @@ int main(int argc,char **argv)
         pop.Solve();
         Data bestx = pop.getBestGenome();
 
-        printf("Phase 1 margins....\n");
+        printf("*****Phase 1 margins....\n");
         bestMargin = p.getMargins();
         for(int i=0;i<bestMargin.size();i++)
         {
-            bestMargin[i]=Interval(-2.0*fabs(bestx[i]),
-                                   2.0*fabs(bestx[i]));
+            bestMargin[i]=Interval(-1.5*fabs(bestx[i]),
+                                   1.5*fabs(bestx[i]));
 
-            printf("Margin[%d]=%lf,%lf\n",i,bestMargin[i].leftValue(),
+            printf("***Margin[%d]=%lf,%lf\n",i,bestMargin[i].leftValue(),
                    bestMargin[i].rightValue());
         }
         p.setMargins(bestMargin);
         intervalMethod="genetic";
-    	bestMargin=runDoubleInterval(&p,bestgeneticx);
+        p.setParameter("normalTrain",0);
+    	bestMargin=runDoubleInterval(bestMargin,&p,bestgeneticx);
     }
     else
     if(intervalMethod=="grammar")
