@@ -1,0 +1,772 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass Definitions/mdpi
+\begin_preamble
+%  LaTeX support: latex@mdpi.com 
+%  For support, please attach all files needed for compiling as well as the log file, and specify your operating system, LaTeX version, and LaTeX editor.
+
+%=================================================================
+%\documentclass[preprints,article,submit,pdftex,moreauthors]{Definitions/mdpi} 
+% For posting an early version of this manuscript as a preprint, you may use "preprints" as the journal. Changing "submit" to "accept" before posting will remove line numbers.
+
+% Below journals will use APA reference format:
+% admsci, behavsci, businesses, econometrics, economies, education, ejihpe, famsci, games, humans, ijcs, ijfs, journalmedia, jrfm, languages, psycholint, publications, tourismhosp, youth
+
+% Below journals will use Chicago reference format:
+% arts, genealogy, histories, humanities, jintelligence, laws, literature, religions, risks, socsci
+
+%--------------------
+% Class Options:
+%--------------------
+%----------
+% journal
+%----------
+% Choose between the following MDPI journals:
+% accountaudit, acoustics, actuators, addictions, adhesives, admsci, adolescents, aerobiology, aerospace, agriculture, agriengineering, agrochemicals, agronomy, ai, air, algorithms, allergies, alloys, amh, analytica, analytics, anatomia, anesthres, animals, antibiotics, antibodies, antioxidants, applbiosci, appliedchem, appliedmath, appliedphys, applmech, applmicrobiol, applnano, applsci, aquacj, architecture, arm, arthropoda, arts, asc, asi, astronomy, atmosphere, atoms, audiolres, automation, axioms, bacteria, batteries, bdcc, behavsci, beverages, biochem, bioengineering, biologics, biology, biomass, biomechanics, biomed, biomedicines, biomedinformatics, biomimetics, biomolecules, biophysica, biosensors, biosphere, biotech, birds, blockchains, bloods, blsf, brainsci, breath, buildings, businesses, cancers, carbon, cardiogenetics, catalysts, cells, ceramics, challenges, chemengineering, chemistry, chemosensors, chemproc, children, chips, cimb, civileng, cleantechnol, climate, clinbioenerg, clinpract, clockssleep, cmd, cmtr, coasts, coatings, colloids, colorants, commodities, complications, compounds, computation, computers, condensedmatter, conservation, constrmater, cosmetics, covid, crops, cryo, cryptography, crystals, csmf, ctn, curroncol, cyber, dairy, data, ddc, dentistry, dermato, dermatopathology, designs, devices, diabetology, diagnostics, dietetics, digital, disabilities, diseases, diversity, dna, drones, dynamics, earth, ebj, ecm, ecologies, econometrics, economies, education, eesp, ejihpe, electricity, electrochem, electronicmat, electronics, encyclopedia, endocrines, energies, eng, engproc, ent, entomology, entropy, environments, epidemiologia, epigenomes, esa, est, famsci, fermentation, fibers, fintech, fire, fishes, fluids, foods, forecasting, forensicsci, forests, fossstud, foundations, fractalfract, fuels, future, futureinternet, futureparasites, futurepharmacol, futurephys, futuretransp, galaxies, games, gases, gastroent, gastrointestdisord, gastronomy, gels, genealogy, genes, geographies, geohazards, geomatics, geometry, geosciences, geotechnics, geriatrics, glacies, grasses, greenhealth, gucdd, hardware, hazardousmatters, healthcare, hearts, hemato, hematolrep, heritage, higheredu, highthroughput, histories, horticulturae, hospitals, humanities, humans, hydrobiology, hydrogen, hydrology, hygiene, idr, iic, ijerph, ijfs, ijgi, ijmd, ijms, ijns, ijpb, ijt, ijtm, ijtpp, ime, immuno, informatics, information, infrastructures, inorganics, insects, instruments, inventions, iot, j, jal, jcdd, jcm, jcp, jcs, jcto, jdad, jdb, jeta, jfb, jfmk, jimaging, jintelligence, jlpea, jmahp, jmmp, jmms, jmp, jmse, jne, jnt, jof, joitmc, joma, jop, jor, journalmedia, jox, jpbi, jpm, jrfm, jsan, jtaer, jvd, jzbg, kidney, kidneydial, kinasesphosphatases, knowledge, labmed, laboratories, land, languages, laws, life, lights, limnolrev, lipidology, liquids, literature, livers, logics, logistics, lubricants, lymphatics, machines, macromol, magnetism, magnetochemistry, make, marinedrugs, materials, materproc, mathematics, mca, measurements, medicina, medicines, medsci, membranes, merits, metabolites, metals, meteorology, methane, metrics, metrology, micro, microarrays, microbiolres, microelectronics, micromachines, microorganisms, microplastics, microwave, minerals, mining, mmphys, modelling, molbank, molecules, mps, msf, mti, multimedia, muscles, nanoenergyadv, nanomanufacturing, nanomaterials, ncrna, ndt, network, neuroglia, neurolint, neurosci, nitrogen, notspecified, nursrep, nutraceuticals, nutrients, obesities, oceans, ohbm, onco, oncopathology, optics, oral, organics, organoids, osteology, oxygen, parasites, parasitologia, particles, pathogens, pathophysiology, pediatrrep, pets, pharmaceuticals, pharmaceutics, pharmacoepidemiology, pharmacy, philosophies, photochem, photonics, phycology, physchem, physics, physiologia, plants, plasma, platforms, pollutants, polymers, polysaccharides, populations, poultry, powders, preprints, proceedings, processes, prosthesis, proteomes, psf, psych, psychiatryint, psychoactives, psycholint, publications, purification, quantumrep, quaternary, qubs, radiation, reactions, realestate, receptors, recycling, regeneration, religions, remotesensing, reports, reprodmed, resources, rheumato, risks, robotics, rsee, ruminants, safety, sci, scipharm, sclerosis, seeds, sensors, separations, sexes, signals, sinusitis, siuj, skins, smartcities, sna, societies, socsci, software, soilsystems, solar, solids, spectroscj, sports, standards, stats, std, stresses, surfaces, surgeries, suschem, sustainability, symmetry, synbio, systems, tae, targets, taxonomy, technologies, telecom, test, textiles, thalassrep, therapeutics, thermo, timespace, tomography, tourismhosp, toxics, toxins, transplantology, transportation, traumacare, traumas, tropicalmed, universe, urbansci, uro, vaccines, vehicles, venereology, vetsci, vibration, virtualworlds, viruses, vision, waste, water, wem, wevj, wild, wind, women, world, youth, zoonoticdis
+
+%---------
+% article
+%---------
+% The default type of manuscript is "article", but can be replaced by: 
+% abstract, addendum, article, book, bookreview, briefreport, casereport, comment, commentary, communication, conferenceproceedings, correction, conferencereport, entry, expressionofconcern, extendedabstract, datadescriptor, editorial, essay, erratum, hypothesis, interestingimage, obituary, opinion, projectreport, reply, retraction, review, perspective, protocol, shortnote, studyprotocol, systematicreview, supfile, technicalnote, viewpoint, guidelines, registeredreport, tutorial
+% supfile = supplementary materials
+
+%----------
+% submit
+%----------
+% The class option "submit" will be changed to "accept" by the Editorial Office when the paper is accepted. This will only make changes to the frontpage (e.g., the logo of the journal will get visible), the headings, and the copyright information. Also, line numbering will be removed. Journal info and pagination for accepted papers will also be assigned by the Editorial Office.
+
+%------------------
+% moreauthors
+%------------------
+% If there is only one author the class option oneauthor should be used. Otherwise use the class option moreauthors.
+
+%---------
+% pdftex
+%---------
+% The option pdftex is for use with pdfLaTeX. If eps figures are used, remove the option pdftex and use LaTeX and dvi2pdf.
+
+%=================================================================
+% MDPI internal commands - do not modify
+\firstpage{1} 
+\setcounter{page}{\@firstpage}
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2025}
+\copyrightyear{2025}
+%\externaleditor{Firstname Lastname} % More than 1 editor, please add `` and '' before the last editor name
+\datereceived{}
+\daterevised{ } % Comment out if no revised date
+\dateaccepted{}
+\datepublished{}
+%\datecorrected{} % For corrected papers include a "Corrected: XXX" date in the original paper.
+%\dateretracted{} % For retracted papers include a "RETRACTED: XXX" date in the original paper.
+\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+%\pdfoutput=1 % Uncommented for upload to arXiv.org
+%\CorrStatement{yes}  % For updates
+%\longauthorlist{yes} % For many authors that exceed the left citation part
+
+%=================================================================
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, lineno, float, amsmath, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, cleveref, amsthm, hyphenat, natbib, hyperref, footmisc, url, geometry, newfloat, caption
+
+%=================================================================
+%% Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
+%% For proofs, please use the proof environment (the amsthm package is loaded by the MDPI class).
+
+%=================================================================
+% The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
+%\PACS{J0101}
+%\MSC{}
+%\JEL{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Diversity
+%\LSID{\url{http://}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Applied Sciences:
+%\featuredapplication{Authors are encouraged to provide a concise description of the specific application or a potential application of the work. This section is not mandatory.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Data:
+%\dataset{DOI number or link to the deposited data set in cases where the data set is published or set to be published separately. If the data set is submitted and will be published as a supplement to this paper in the journal Data, this field will be filled by the editors of the journal. In this case, please make sure to submit the data set as a supplement when entering your manuscript into our manuscript editorial system.}
+
+%\datasetlicense{license under which the data set is made available (CC0, CC-BY, CC-BY-SA, CC-BY-NC, etc.)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Toxins
+%\keycontribution{The breakthroughs or highlights of the manuscript. Authors can write one or two sentences to describe the most important part of the paper.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Encyclopedia
+%\encyclopediadef{Instead of the abstract}
+%\entrylink{The Link to this entry published on the encyclopedia platform.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Advances in Respiratory Medicine, Smart Cities and Sensors
+%\addhighlights{yes}
+%\renewcommand{\addhighlights}{%
+
+%\noindent This is an obligatory section in â€œAdvances in Respiratory Medicineâ€, whose goal is to increase the discoverability and readability of the article via search engines and other scholars. Highlights should not be a copy of the abstract, but a simple text allowing the reader to quickly and simplified find out what the article is about and what can be cited from it. Each of these parts should be devoted up to 2~bullet points.\vspace{3pt}\\
+%\textbf{What are the main findings?}
+% \begin{itemize}[labelsep=2.5mm,topsep=-3pt]
+% \item First bullet.
+% \item Second bullet.
+% \end{itemize}\vspace{3pt}
+%\textbf{What is the implication of the main finding?}
+% \begin{itemize}[labelsep=2.5mm,topsep=-3pt]
+% \item First bullet.
+% \item Second bullet.
+% \end{itemize}
+%}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_preamble
+\options journal,article,submit,pdftex,moreauthors
+\use_default_options false
+\maintain_unincluded_children no
+\begin_local_layout
+#Adds an endnote inset, in addition to footnotes. You will need to add
+#\printendnotes in TeX-code where you want the endnotes to appear.
+Format 66
+Counter endnotes
+    PrettyFormat "Endnote ##"
+End
+InsetLayout Flex:Endnote
+   LyXType     custom
+   LatexName   endnote
+   LatexType   command
+   Counter     endnotes
+   Decoration  classic
+   Font
+     Size Small
+   EndFont
+   MultiPar    true
+   LabelString endnote
+   Requires    enotez
+End
+\end_local_layout
+\language english
+\language_package none
+\inputencoding utf8
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Gen2Gen:
+ Efficiently training artificial neural networks using a series of genetic algorithms
+\end_layout
+
+\begin_layout Title Citation
+Gen2Gen:
+ Efficiently training artificial neural networks using a series of genetic algorithms
+\end_layout
+
+\begin_layout Author
+Ioannis G.
+ Tsoulos
+\begin_inset Formula $^{1,*}$
+\end_inset
+
+,
+ Vasileios Charilogis
+\begin_inset Formula $^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author Names for PDF
+Tsoulos,
+ I.G.,
+ Charilogis,
+ V.
+\end_layout
+
+\begin_layout Author Names for PDF
+Ioannis G.
+ Tsoulos,
+ Vasileios Charilogis 
+\end_layout
+
+\begin_layout Author Names for Citation
+Tsoulos,
+ I.G.;
+ Charilogis,
+ V.
+\end_layout
+
+\begin_layout Address
+\begin_inset Formula $^{1}$
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+Department of Informatics and Telecommunications,
+ University of Ioannina,
+ Greece;
+ itsoulos@uoi.gr
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $^{2}$
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+Department of Informatics and Telecommunications,
+ University of Ioannina,
+ Greece;
+ v.charilog@uoi.gr
+\end_layout
+
+\begin_layout Corresponding Author
+Correspondence:
+ itsoulos@uoi.gr
+\end_layout
+
+\begin_layout Abstract
+Artificial neural networks have been used in a multitude of applications in various research areas in recent decades,
+ providing excellent results in both data classification and data fitting.
+ Their success is based on the effective identification (training) of their parameters using optimization techniques,
+ and in this direction,
+ a multitude of techniques have been developed for training these models.
+ However,
+ many times these techniques either get trapped in local minima of the error function with poor overall results or present overfitting problems in which the performance of the artificial neural network is significantly reduced on data that was not present during its training.
+ This paper proposes a new method for the efficient training of artificial neural networks,
+ where a series of genetic algorithms are applied to the network parameters in several stages.
+ In the first stage,
+ an initial identification of the network value interval is made,
+ in the second stage,
+ the initial estimate of the value interval is improved,
+ and in the third stage,
+ the final adjustment of the network parameters within the previously identified value interval takes place.
+ The new method was evaluated on a wide series of classification and regression problems from the relevant literature,
+ and it was compared against other methods used for neural network training.
+\end_layout
+
+\begin_layout Keywords
+Genetic algorithms;
+ Evolutionary computation;
+ Artificial neural networks
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+clearpage
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Section
+Materials and Methods
+\end_layout
+
+\begin_layout Section
+Results
+\end_layout
+
+\begin_layout Section
+Conclusions
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 6pt
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author Contributions
+For research articles with several authors,
+ a short paragraph specifying their individual contributions must be provided.
+ The following statements should be used 
+\begin_inset Quotes eld
+\end_inset
+
+Conceptualization,
+ X.X.
+ and Y.Y.;
+ methodology,
+ X.X.;
+ software,
+ X.X.;
+ validation,
+ X.X.,
+ Y.Y.
+ and Z.Z.;
+ formal analysis,
+ X.X.;
+ investigation,
+ X.X.;
+ resources,
+ X.X.;
+ data curation,
+ X.X.;
+ writing—
+original draft preparation,
+ X.X.;
+ writing—
+review and editing,
+ X.X.;
+ visualization,
+ X.X.;
+ supervision,
+ X.X.;
+ project administration,
+ X.X.;
+ funding acquisition,
+ Y.Y.
+ All authors have read and agreed to the published version of the manuscript.
+\begin_inset Quotes erd
+\end_inset
+
+,
+ please turn to the 
+\begin_inset CommandInset href
+LatexCommand href
+name "CRediT taxonomy"
+target "http://img.mdpi.org/data/contributor-role-instruction.pdf"
+literal "false"
+
+\end_inset
+
+for the term explanation.
+ Authorship must be limited to those who have contributed substantially to the work
+\begin_inset space ~
+\end_inset
+
+reported.
+\end_layout
+
+\begin_layout Funding
+This research received no external funding.
+\end_layout
+
+\begin_layout Institutional Review
+Not applicable.
+\end_layout
+
+\begin_layout Informed Consent
+Not applicable.
+\end_layout
+
+\begin_layout Acknowledgments
+In this section you can acknowledge any support given which is not covered by the author contribution or funding sections.
+ This may include administrative and technical support,
+ or donations in kind (e.g.,
+ materials used for experiments).
+ Where GenAI has been used for purposes such as generating text,
+ data,
+ or graphics,
+ or for study design,
+ data collection,
+ analysis,
+ or interpretation of data,
+ please add “During the preparation of this manuscript/study,
+ the author(s) used [tool name,
+ version information] for the purposes of [description of use].
+ The authors have reviewed and edited the output and take full responsibility for the content of this publication.”
+\end_layout
+
+\begin_layout Conflicts of Interest
+The authors declare no conflicts of interest.
+\end_layout
+
+\begin_layout Begin Whole Page
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Keep empty!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout References Title
+References
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring 999
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Author1(year)"
+key "ref-journal"
+literal "false"
+
+\end_inset
+
+ Author
+\begin_inset space ~
+\end_inset
+
+1,
+ T.
+ The title of the cited article.
+ 
+\emph on
+Journal Abbreviation
+\emph default
+ 
+\series bold
+2008
+\series default
+,
+ 
+\emph on
+10
+\emph default
+,
+ 142–149.
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring 999
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Author2(year)"
+key "ref-book1"
+literal "false"
+
+\end_inset
+
+ Author
+\begin_inset space ~
+\end_inset
+
+2,
+ L.
+ The title of the cited contribution.
+ In 
+\emph on
+The Book Title
+\emph default
+;
+ Editor1,
+ F.,
+ Editor2,
+ A.,
+ Eds.;
+ Publishing House:
+ City,
+ Country,
+ 2007;
+ pp.
+ 32–58.
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring 999
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Author3(year)"
+key "ref-book2"
+literal "false"
+
+\end_inset
+
+ Author 1,
+ A.;
+ Author 2,
+ B.
+ 
+\shape italic
+Book Title
+\shape default
+,
+ 3rd ed.;
+ Publisher:
+ Publisher Location,
+ Country,
+ 2008;
+ pp.
+ 154–196.
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring 999
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Author4(year)"
+key "ref-unpublish"
+literal "false"
+
+\end_inset
+
+ Author 1,
+ A.B.;
+ Author 2,
+ C.
+ Title of Unpublished Work.
+ 
+\shape italic
+Abbreviated Journal Name
+\shape default
+ year,
+ 
+\shape italic
+phrase indicating stage of publication (submitted;
+ accepted;
+ in press)
+\shape default
+.
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring 999
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Author5(year)"
+key "ref-url"
+literal "false"
+
+\end_inset
+
+ Title of Site.
+ Available online:
+ URL (accessed on Day Month Year).
+ 
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring 999
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Author6(year)"
+key "ref-proceeding"
+literal "false"
+
+\end_inset
+
+ Author 1,
+ A.B.;
+ Author 2,
+ C.D.;
+ Author 3,
+ E.F.
+ Title of presentation.
+ In Proceedings of the Name of the Conference,
+ Location of Conference,
+ Country,
+ Date of Conference (Day Month Year);
+ Abstract Number (optional),
+ Pagination (optional).
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring 999
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Author7(year)"
+key "ref-thesis"
+literal "false"
+
+\end_inset
+
+ Author 1,
+ A.B.
+ Title of Thesis.
+ Level of Thesis,
+ Degree-Granting University,
+ Location of University,
+ Date of Completion.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+%% for journal Sci
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+reviewreports{
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Reviewer 1 comments and authors' response
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Reviewer 2 comments and authors' response
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Reviewer 3 comments and authors' response
+\end_layout
+
+\begin_layout Plain Layout
+
+%}
+\end_layout
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+PublishersNote{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout End Whole Page
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Keep empty!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
