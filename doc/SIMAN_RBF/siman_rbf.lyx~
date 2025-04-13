@@ -687,6 +687,7 @@ literal "false"
 
 \end_inset
 
+,
  etc.
  Furthermore,
  since there has been an extremely large spread of parallel programming techniques in recent decades,
@@ -1140,7 +1141,7 @@ For
 
 \end_deeper
 \begin_layout Enumerate
-The algorithm terminate when 
+The algorithm terminates when 
 \begin_inset Formula $c_{j}$
 \end_inset
 
@@ -1166,7 +1167,78 @@ When this process is finished,
 \begin_inset Formula $\overrightarrow{z}$
 \end_inset
 
- with the calculated parameters is formed with the following procedure:
+ with the calculated parameters is formed using the function calculateZ() described in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:algorithmZ"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The used algorithm for the calculation of the initial set of parameters for the RBF network.
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:algorithmZ"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Function
+\series default
+ calculateZ(
+\begin_inset Formula $\overrightarrow{c},\overrightarrow{\sigma},w_{0})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Inputs
+\series default
+:
+ The initial calculated values for centers 
+\begin_inset Formula $\overrightarrow{c},$
+\end_inset
+
+the initial values for variances 
+\begin_inset Formula $\overrightarrow{\sigma}$
+\end_inset
+
+ and a positive value 
+\begin_inset Formula $w_{0}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -1344,6 +1416,29 @@ Set
 End For
 \end_layout
 
+\begin_layout Enumerate
+
+\series bold
+Return
+\series default
+ the vector 
+\begin_inset Formula $\overrightarrow{z}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+End function
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 The layout of the vector 
 \begin_inset Formula $\overrightarrow{z}$
@@ -1373,7 +1468,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1824,18 +1919,96 @@ nolink "false"
 \end_inset
 
 .
- The main steps of the method used in the second phase have as follows:
-\end_layout
+ The main steps of the method used in the second phase are shown as a procedure in Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:simanVariant"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
-\begin_layout Enumerate
+\end_inset
 
-\series bold
-Initialization step
-\series default
 .
 \end_layout
 
-\begin_deeper
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The main steps of the proposed Simulated Annealing variant.
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:simanVariant"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Function
+\series default
+ simanMethod
+\begin_inset Formula $\left(\overrightarrow{z},F,T_{0},r_{T},N_{\mbox{\mbox{eps}}},a\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Inputs
+\series default
+:
+ The vector 
+\begin_inset Formula $\overrightarrow{z}$
+\end_inset
+
+ with the initial set of parameters,
+ the limit factor 
+\begin_inset Formula $F>1$
+\end_inset
+
+,
+ the initial temperature 
+\begin_inset Formula $T_{0}$
+\end_inset
+
+,
+ the reduction factor for temperature 
+\begin_inset Formula $r_{T},\ r_{T}>0,\ r_{T}<1$
+\end_inset
+
+,
+ the number of samples taken at every iteration denoted as 
+\begin_inset Formula $N_{\mbox{eps}}$
+\end_inset
+
+ and 
+\begin_inset Formula $a>0$
+\end_inset
+
+ the perturbation factor.
+\end_layout
+
 \begin_layout Enumerate
 
 \series bold
@@ -1861,79 +2034,19 @@ R_{i}^{*} & = & \text{}F\times z_{i} & , & i=1,\ldots,n
 
 \end_inset
 
+The parameter 
+\begin_inset Formula $F$
+\end_inset
 
+ is a positive number greater than 1 and is used as a limiting factor for the network parameters.
 \end_layout
 
 \begin_layout Enumerate
-
-\series bold
 Set 
 \begin_inset Formula $k=0$
 \end_inset
 
-,
- 
-\begin_inset Formula $T_{0}>0,\ \epsilon>0,$
-\end_inset
 
-
-\begin_inset Formula $r_{T}>0,\ r_{T}<1$
-\end_inset
-
-
-\series default
-.
-
-\series bold
- 
-\series default
-The value 
-\begin_inset Formula $T_{0}$
-\end_inset
-
- is used to represent the temperature of the algorithm.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set 
-\series default
-
-\begin_inset Formula $N_{\mbox{eps}}>0$
-\end_inset
-
-,
- which is a positive integer and it is used as the number of samples that will be created in each iteration of the algorithm.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- 
-\begin_inset Formula $a>0$
-\end_inset
-
- a positive double precision number with the property 
-\begin_inset Formula $a<1$
-\end_inset
-
-,
- that will be used a the perturbation factor for the production of new samples.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- 
-\begin_inset Formula $N_{s}>0$
-\end_inset
-
- a positive integer number.
 \end_layout
 
 \begin_layout Enumerate
@@ -1943,6 +2056,18 @@ Set
 \series default
  
 \begin_inset Formula $x_{b}=\left[L^{*},R^{*}\right],y_{b}=\mbox{fitness}\left(L^{*},R^{*},N_{s}\right)$
+\end_inset
+
+.
+ This function utilizes the function fitness() outlined in Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:fitness"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
 \end_inset
 
 .
@@ -1960,16 +2085,6 @@ Set
 
 \end_layout
 
-\end_deeper
-\begin_layout Enumerate
-
-\series bold
-Main step
-\series default
-.
-\end_layout
-
-\begin_deeper
 \begin_layout Enumerate
 
 \series bold
@@ -1982,6 +2097,13 @@ For
  
 \series bold
 do
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:forFitness"
+
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -2023,6 +2145,17 @@ Set
 \series default
  
 \begin_inset Formula $y_{t}=\mbox{fitness}\left(L_{t},R_{t},N_{s}\right)$
+\end_inset
+
+ which calls the function provided in algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:fitness"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
 \end_inset
 
 .
@@ -2076,7 +2209,6 @@ with probability
 End if
 \end_layout
 
-\end_deeper
 \begin_layout Enumerate
 
 \series bold
@@ -2101,22 +2233,13 @@ Set
 
 \end_layout
 
+\end_deeper
 \begin_layout Enumerate
 
 \series bold
 End For
 \end_layout
 
-\end_deeper
-\begin_layout Enumerate
-
-\series bold
-Update temperature step
-\series default
-.
-\end_layout
-
-\begin_deeper
 \begin_layout Enumerate
 
 \series bold
@@ -2160,9 +2283,31 @@ as the best located interval of bounds.
 \begin_layout Enumerate
 
 \series bold
-Goto Main Step
+Go to
 \series default
+ step 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:forFitness"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
 .
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+End function
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2172,14 +2317,13 @@ Goto Main Step
 
 \end_layout
 
-\end_deeper
 \begin_layout Standard
 \begin_inset Float algorithm
 placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2493,64 +2637,89 @@ The final phase of the proposed method
 In the last phase of the proposed procedure,
  a genetic algorithm is executed to train the RBF network.
  The training is performed within the optimal value interval identified in the previous phase of the proposed procedure.
- The main steps of the proposed genetic algorithm have as follows:
-\end_layout
+ The main steps of the proposed genetic algorithm are shown in Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:The-final-phase"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
-\begin_layout Enumerate
+\end_inset
 
-\series bold
-Initialization step
-\series default
 .
 \end_layout
 
-\begin_deeper
-\begin_layout Enumerate
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The final phase of the proposed method.
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:The-final-phase"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \series bold
-Set
+Procedure
 \series default
- as 
+ finalPhase
+\begin_inset Formula $\left(N_{c},N_{g},p_{s},p_{m},\left[L_{b},R_{b}\right]\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Inputs
+\series default
+:
+ Number of chromosomes 
+\begin_inset Formula $N_{c},$
+\end_inset
+
+number of generations 
 \begin_inset Formula $N_{g}$
 \end_inset
 
- the number of maximum allowed generations and as 
-\begin_inset Formula $N_{c}$
-\end_inset
-
- the number of chromosomes for the genetic population.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
- as 
+,
+ selection rate 
 \begin_inset Formula $p_{s}$
 \end_inset
 
- the selection rate with 
-\begin_inset Formula $p_{s}\le1$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set 
-\series default
-as 
+,
+ mutation rate 
 \begin_inset Formula $p_{m}$
 \end_inset
 
- the mutation rate with 
-\begin_inset Formula $p_{m}\le1$
+,
+ the bounds the bounds 
+\begin_inset Formula $\left[L_{b},R_{b}\right]$
 \end_inset
 
-.
+ of previous phase.
 \end_layout
 
 \begin_layout Enumerate
@@ -2581,16 +2750,6 @@ Set
 
 \end_layout
 
-\end_deeper
-\begin_layout Enumerate
-
-\series bold
-Fitness calculation step
-\series default
-.
-\end_layout
-
-\begin_deeper
 \begin_layout Enumerate
 
 \series bold
@@ -2603,6 +2762,13 @@ For
  
 \series bold
 do
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:fitnessCalc"
+
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -2641,16 +2807,6 @@ Calculate
 End For
 \end_layout
 
-\end_deeper
-\begin_layout Enumerate
-
-\series bold
-Genetic operations step
-\series default
-.
-\end_layout
-
-\begin_deeper
 \begin_layout Enumerate
 
 \series bold
@@ -2736,16 +2892,6 @@ Mutation procedure
 .
 \end_layout
 
-\end_deeper
-\begin_layout Enumerate
-
-\series bold
-Termination check step
-\series default
-.
-\end_layout
-
-\begin_deeper
 \begin_layout Enumerate
 
 \series bold
@@ -2771,19 +2917,20 @@ If
 \series bold
 then
 \series default
- go to Fitness calculation step.
-\end_layout
+ go to step 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:fitnessCalc"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
-\end_deeper
-\begin_layout Enumerate
+\end_inset
 
-\series bold
-Testing step
-\series default
 .
 \end_layout
 
-\begin_deeper
 \begin_layout Enumerate
 
 \series bold
@@ -2818,10 +2965,24 @@ Apply
 \begin_inset Formula $R_{b}\left(\overrightarrow{x}\right)$
 \end_inset
 
- to the corresponding test set and measure the associated test error.
+ to the corresponding test set and measure the associated test error and 
+\series bold
+Terminate
+\series default
+.
 \end_layout
 
-\end_deeper
+\begin_layout Plain Layout
+
+\series bold
+End procedure
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Experiments 
 \begin_inset CommandInset label
@@ -3469,6 +3630,19 @@ Experimental results
 
 \begin_layout Standard
 The code used in the experiments was implemented in the C++ programming language and a machine equipped with 128GB RAM running Debian Linux was utilized in the conducted experiments.
+ The code was written with the assistance of the freely available GlobalOptimus optimization environment,
+ that can be downloaded from 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/itsoulos/GlobalOptimus
+\end_layout
+
+\end_inset
+
+ (accessed on 12 April 2025).
  Each experiment was executed 30 times and the average classification error was measured for the classification datasets and the average regression error was measured for the regression datasets.
  The classification error is computed using the following equation:
 \begin_inset Formula 
@@ -3507,6 +3681,9 @@ nolink "false"
 \end_inset
 
 .
+ The selection of values \SpecialChar allowbreak
+\SpecialChar allowbreak
+for the experimental parameters was done in such a way that there is a compromise between the speed and reliability of the proposed methodology.
  In the following tables that describe the experimental results the following notation is used:
 \end_layout
 
@@ -3580,6 +3757,12 @@ The column PROPOSED denotes the usage of the proposed method to train an RBF net
 
 \begin_layout Enumerate
 The row AVERAGE represents the average classification or regression error.
+\end_layout
+
+\begin_layout Enumerate
+The row WAVERAGE denotes the average classification error for all datasets and for each method.
+ In this average,
+ each individual classification error was multiplied by the number of patterns for the corresponding dataset.
 \end_layout
 
 \begin_layout Standard
@@ -4069,7 +4252,7 @@ name "tab:experClass"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="36" columns="7">
+<lyxtabular version="3" rows="37" columns="7">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -6368,7 +6551,7 @@ ZOO
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6379,7 +6562,7 @@ AVERAGE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6390,7 +6573,7 @@ AVERAGE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6401,7 +6584,7 @@ AVERAGE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6412,7 +6595,7 @@ AVERAGE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6423,7 +6606,7 @@ AVERAGE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6434,13 +6617,92 @@ AVERAGE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \series bold
 18.67%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+WAVERAGE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+32.01%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+34.97%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+34.32%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+30.13%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+34.73%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+20.21%
 \end_layout
 
 \end_inset
@@ -6502,13 +6764,143 @@ nolink "false"
  In conclusion,
  the PROPOSED model emerges as the best general choice for minimizing error rates,
  though its evaluation depends on the characteristics of each dataset.
- The performance differences among models highlight the need for careful model selection depending on the application.s
-\begin_inset Float table
+ The performance differences among models highlight the need for careful model selection depending on the application.
+\end_layout
+
+\begin_layout Standard
+Also,
+ the average execution time for each machine learning that was applied on the classification datasets is depicted in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:timeClass"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename simrbf_time.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average execution time for the machine learning methods that were applied on the classification datasets.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:timeClass"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+As expected,
+ the proposed technique requires significantly more execution time than all the other techniques in the set,
+ since it consists of the serial execution of global optimization techniques.
+ Moreover,
+ the method entitled as GENRBF required also significant time with respect to other more simpler methods in the set.
+ The additional time required by the proposed technique can of course be significantly reduced by the use of parallel processing techniques in its various stages,
+ such as for example the use of parallel Simulated Annealing techniques 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "parallelSA"
+literal "false"
+
+\end_inset
+
+.
+ Moreover,
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:errorRates"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ depicts a comparison of error rates across models for all classification datasets involved in the conducted experiments.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
 placement H
 alignment document
 wide false
 sideways false
 status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparison of error rates across the machine learning models utilized.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:errorRates"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -15114,6 +15506,33 @@ name "sec:Conclusions"
 \end_layout
 
 \begin_layout Standard
+The article focuses on optimizing the parameter tuning process in Radial Basis Function networks through a multidimensional and innovative approach that combines techniques such as Simulated Annealing and genetic algorithms.
+ The proposed method surpasses traditional two-stage approaches,
+ where parameters are typically determined using fixed processes like K-means clustering followed by a split between training and validation phases.
+ Instead,
+ the article introduces a three-phase process.
+ In the first phase,
+ initial parameter estimation is performed using K-means,
+ ensuring a stable starting point.
+ In the second phase,
+ the application of Simulated Annealing provides an advanced mechanism for exploring the parameter space,
+ avoiding local minima and examining a broader range of potential values.
+ Finally,
+ the third phase integrates genetic algorithms,
+ enabling the optimization of parameters based on the model's actual performance.
+ This process ensures a comprehensive and adaptive approach,
+ reducing the likelihood of overfitting and numerical instability.
+ The novelty of the method lies not only in the three-phase process but also in the model's ability to adapt to datasets with diverse characteristics,
+ such as those involving complex nonlinear relationships or multidimensional dependencies.
+ Experimental results demonstrate the method's superiority compared to traditional techniques,
+ such as BFGS,
+ ADAM,
+ NEAT,
+ and RBF-KMEANS,
+ achieving improvements in terms of average error rates across both classification and regression datasets.
+\end_layout
+
+\begin_layout Standard
 The article's conclusions clearly highlight the superiority of the proposed method.
  In classification datasets,
  the method achieves lower average error rates,
@@ -15177,7 +15596,15 @@ For the future,
  or even genetic data,
  could broaden its application scope.
  Additionally,
- the dynamic adjustment of parameters "a" and "F" during training,
+ the dynamic adjustment of parameters 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $F$
+\end_inset
+
+ during training,
  using reinforcement learning techniques,
  could further enhance performance by eliminating the need for manual tuning.
  Furthermore,
@@ -15190,10 +15617,6 @@ For the future,
  analyzing the method's performance on big data and integrating it with technologies like distributed processing or cloud computing could open new avenues,
  enabling its scalability to larger-scale problems.
  The methodology proposed in the article not only sets new standards for the performance of RBF but also paves the way for further innovation in the field of machine learning.
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \begin_layout Standard
@@ -17500,6 +17923,26 @@ S.
  pp.
  333–336,
  2012.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2002)"
+key "parallelSA"
+literal "false"
+
+\end_inset
+
+Bevilacqua,
+ A.
+ A methodological approach to parallel simulated annealing on an SMP system.
+ J.
+ Parallel Distrib.
+ 2002,
+ 62,
+ 1548–1570.
+ 
 \end_layout
 
 \begin_layout Standard
