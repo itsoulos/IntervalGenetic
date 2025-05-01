@@ -901,16 +901,1045 @@ name "sec:Method-description"
 
 \end_layout
 
-\begin_layout Subsection
-The algorithm of the first stage 
+\begin_layout Standard
+This section describes in details the three distinct algorithms used in each phase of the proposed method.
 \end_layout
 
+\begin_layout Subsection
+The algorithm of the first stage
+\end_layout
+
+\begin_layout Standard
+The activation function used commonly in neural networks is the sigmoid function defined as:
+\begin_inset Formula 
+\begin{equation}
+\sigma(x)=\frac{1}{1+\exp(-x)}\label{eq:sig-1}
+\end{equation}
+
+\end_inset
+
+An example plot for this function is outlined in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:sigPlot"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename sig.eps
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+An example plot of the sigmoid function.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:sigPlot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+As it is clearly shown in this figure,
+ the sigmoid function very quickly takes on the value 1 as x goes towards infinity and very quickly takes on the value 0 as x goes towards minus infinity.
+ This behavior has the direct result that the function loses its generalization capabilities very quickly and these are limited to a small range of values.
+ In order to measure this effect,
+ the function 
+\begin_inset Formula $B\left(N\left(\overrightarrow{x},\overrightarrow{w}\right),a\right)$
+\end_inset
+
+ is introduced and it is shown in Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:CalculationBound"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ The quantity 
+\begin_inset Formula $a$
+\end_inset
+
+ is used as a threshold beyond which the artificial neural network loses its generalization capabilities.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Float algorithm
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Calculating the quantity 
+\begin_inset Formula $B(N\left(\overrightarrow{x},\overrightarrow{w}\right),a)$
+\end_inset
+
+ with 
+\begin_inset Formula $a>0$
+\end_inset
+
+ for a a provided neural network 
+\begin_inset Formula $N(x,w).$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:CalculationBound"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Function
+\series default
+ 
+\begin_inset Formula $B(N\left(\overrightarrow{x},\overrightarrow{w}\right),a)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Inputs
+\series default
+:
+ The neural network 
+\begin_inset Formula $N\left(\overrightarrow{x},\overrightarrow{w}\right)$
+\end_inset
+
+ and the bound factor 
+\begin_inset Formula $a>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set 
+\begin_inset Formula $k=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For 
+\begin_inset Formula $i=1..H$
+\end_inset
+
+ Do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+For 
+\begin_inset Formula $j=1..M$
+\end_inset
+
+ Do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Set 
+\begin_inset Formula $v=\sum_{k=1}^{d}\left(w_{(d+2)i-(d+i)+k}x_{jk}\right)+w_{(d+2)i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If 
+\begin_inset Formula $\left|v\right|>a$
+\end_inset
+
+ then 
+\begin_inset Formula $k=k+1$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Return 
+\begin_inset Formula $\frac{k}{H\star M}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+End Function
+\end_layout
+
+\end_inset
+
+
+\series default
+The main steps of the used algorithm are listed below:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialization step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+ the maximum number of allowed generations.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $N_{c}$
+\end_inset
+
+ the number of used chromosomes.
+ Each chromosome is considered as a vector of 
+\begin_inset Formula $n=\left(d+2\right)H$
+\end_inset
+
+ double precision values,
+ where 
+\begin_inset Formula $d$
+\end_inset
+
+ stands for the dimension of the input pattern and 
+\begin_inset Formula $H$
+\end_inset
+
+ is the number of processing nodes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $p_{s}$
+\end_inset
+
+ the selection rate,
+ where 
+\begin_inset Formula $p_{s}\le1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $p_{m}$
+\end_inset
+
+ the mutation rate,
+ where 
+\begin_inset Formula $p_{m}\le1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $k=0$
+\end_inset
+
+ the generation counter.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Fitness calculation step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,\ldots,N_{c}$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Create
+\series default
+ the neural network 
+\begin_inset Formula $N_{i}\left(\overrightarrow{x},\overrightarrow{g_{i}}\right)$
+\end_inset
+
+ for the chromosome 
+\begin_inset Formula $\overrightarrow{g_{i}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $E_{i}=\sum_{j=1}^{M}\left(N\left(\overrightarrow{x_{j}},\overrightarrow{g_{i}}\right)-y_{j}\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $b_{i}=B(N\left(\overrightarrow{x},\overrightarrow{g_{i}}\right),a)$
+\end_inset
+
+ using the function of Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:CalculationBound"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $f_{i}=E\left(N\left(\overrightarrow{x},\overrightarrow{g_{i}}\right)\right)\times\left(1+\lambda b_{i}^{2}\right)$
+\end_inset
+
+ as value for the fitness of chromosome 
+\begin_inset Formula $g_{i}$
+\end_inset
+
+,
+ with 
+\begin_inset Formula $\lambda>1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+End For
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Application of genetic operations
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Copy
+\series default
+ the best 
+\begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
+\end_inset
+
+ chromosomes of the current population intact to the next generation.
+ The remaining of chromosomes will be replaced by new chromosomes produced during crossover and mutation.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Perform 
+\series default
+the crossover procedure.
+ For each new element,
+ two parents 
+\begin_inset Formula $z=\left(z_{1},z_{2},...,z_{n}\right),\ \ w=\left(w_{1},w_{2},...,w_{n}\right)$
+\end_inset
+
+ are selected from the current population using using tournament selection.
+ After the selection of the parents,
+ the new offsprings 
+\begin_inset Formula $\tilde{z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{w}$
+\end_inset
+
+ are formed using the following:
+\begin_inset Formula 
+\begin{eqnarray}
+\tilde{z_{i}} & = & r_{i}z_{i}+\left(1-r_{i}\right)w_{i}\nonumber \\
+\tilde{w_{i}} & = & r_{i}w_{i}+\left(1-r_{i}\right)z_{i}\label{eq:crossover_ali}
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $r_{i}$
+\end_inset
+
+ are random numbers in 
+\begin_inset Formula $[-0.5,1.5]$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_gpu2"
+literal "true"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Perform
+\series default
+ the mutation procedure,
+ as proposed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kaelo"
+literal "false"
+
+\end_inset
+
+:
+ For every chromosome and each element select a random number 
+\begin_inset Formula $r\in[0,1]$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $r\le p_{m}$
+\end_inset
+
+ alter the corresponding element 
+\begin_inset Formula $g_{ij}$
+\end_inset
+
+ as
+\begin_inset Formula 
+\begin{equation}
+g_{ij}=\left\{ \begin{array}{cc}
+g_{ij}+\Delta\left(\mbox{t},b_{g,i}-g_{ij}\right) & t=0\\
+g_{ij}-\Delta\left(\mbox{t},g_{ij}-a_{g,i}\right) & t=1
+\end{array}\right.\label{eq:ali_mutation}
+\end{equation}
+
+\end_inset
+
+The number 
+\begin_inset Formula $t$
+\end_inset
+
+ is a random number that can be 0 or 1 and the function 
+\begin_inset Formula $\Delta(\mbox{t},y)$
+\end_inset
+
+ is calculated as:
+\begin_inset Formula 
+\begin{equation}
+\Delta(t,y)=y\left(1-\omega^{\left(1-\frac{t}{N_{t}}\right)z}\right)\label{eq:delta_equation}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\omega\in[0,1]$
+\end_inset
+
+ is a random number and 
+\begin_inset Formula $z$
+\end_inset
+
+ is parameter defined from the user.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Termination check step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $k=k+1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $k<N_{g}$
+\end_inset
+
+ go to Fitness Calculation step.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Final Step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Get
+\series default
+ the best chromosome 
+\begin_inset Formula $g^{*}$
+\end_inset
+
+ with the lowest fitness value.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Produce 
+\series default
+the vectors 
+\begin_inset Formula $L^{*}$
+\end_inset
+
+and 
+\begin_inset Formula $R^{*}$
+\end_inset
+
+ using the following:
+ 
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+L_{i}^{*} & = & -f\left|g_{i}^{*}\right|,\ i=1,\ldots,n\\
+R_{i}^{*} & = & f\left|g_{i}^{*}\right|,\ i=1,\ldots,n
+\end{array}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $f>1$
+\end_inset
+
+.
+ These vectors will be used in the second phase of the proposed algorithm.
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 The algorithm of the second stage 
 \end_layout
 
+\begin_layout Standard
+In the second phase of the current work,
+ a bound method is applied using the vectors 
+\begin_inset Formula $L^{*}$
+\end_inset
+
+ and 
+\begin_inset Formula $R^{*}$
+\end_inset
+
+ of the previous phase,
+ to discover the optimal bound for the parameters of neural network.
+ During this phase,
+ a modified genetic algorithm is incorporated,
+ where the chromosomes are defined as interval sets 
+\begin_inset Formula $\left[\overrightarrow{L_{k}},\overrightarrow{R_{k}}\right]$
+\end_inset
+
+.
+ Also,
+ the fitness value for each chromosome is considered as an interval 
+\begin_inset Formula $f=\left[f_{1},f_{2}\right].$
+\end_inset
+
+ The function 
+\begin_inset Formula $D(a,b)$
+\end_inset
+
+ is introduced here for the comparison of two intervals 
+\begin_inset Formula $a=\left[a_{1},a_{2}\right]$
+\end_inset
+
+ and 
+\begin_inset Formula $b=\left[b_{1},b_{2}\right].$
+\end_inset
+
+ This function is defined as:
+\begin_inset Formula 
+\begin{equation}
+D(a,b)=\begin{cases}
+\mbox{TRUE}, & a_{1}<b_{1},\mbox{OR\ \ensuremath{\left(a_{1}=b_{1}\ \mbox{AND}\ a_{2}<b_{2}\right)}}\\
+\mbox{FALSE}, & \mbox{\mbox{OTHERWISE}}
+\end{cases}\label{eq:eqD}
+\end{equation}
+
+\end_inset
+
+
+\series bold
+(OK)
+\series default
+The steps of the procedure used in the second phase have as follows:
+\end_layout
+
 \begin_layout Subsection
 The final training algorithm
+\end_layout
+
+\begin_layout Standard
+In the second phase the best chromosome 
+\begin_inset Formula $g_{b}$
+\end_inset
+
+ defined as 
+\begin_inset Formula 
+\begin{equation}
+g_{\mbox{b}}=\left\{ \left\{ l_{b,1},r_{b,1}\right\} ,\left\{ l_{b,2},r_{b,2}\right\} ,\ldots,\left\{ l_{b,K},r_{b,K}\right\} \right\} 
+\end{equation}
+
+\end_inset
+
+ is used to transform the original bounding box 
+\begin_inset Formula $S=[-F,F]^{(n)}$
+\end_inset
+
+ to a new box 
+\begin_inset Formula $S_{b}$
+\end_inset
+
+.
+ The new hyperbox is defined as 
+\begin_inset Formula 
+\begin{equation}
+S_{b}=\left[a_{g,1},b_{g,1}\right]\times\left[a_{g,2},b_{g,2}\right]\times\ldots\times\left[a_{g,n},b_{g,n}\right]
+\end{equation}
+
+\end_inset
+
+This hyperbox will be used to bound the parameters of the neural network.
+ The parameters of the network are trained using a genetic algorithm with the following steps:
+\end_layout
+
+\begin_layout Paragraph
+Initialization step
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $N_{C}$
+\end_inset
+
+ as the total number of chromosomes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $P_{s}$
+\end_inset
+
+ as the selection rate,
+ where 
+\begin_inset Formula $P_{s}\le1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $P_{m}$
+\end_inset
+
+ as the mutation rate,
+ where 
+\begin_inset Formula $P_{m}\le1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $t=0$
+\end_inset
+
+ the current generation number.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $N_{t}$
+\end_inset
+
+ the maximum number of generations allowed.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialize
+\series default
+ randomly the chromosomes 
+\begin_inset Formula $C_{i},\ i=1,..,N_{C}$
+\end_inset
+
+ inside the bounding box 
+\begin_inset Formula $S_{b}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Termination check step 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ t=t+1
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $t\ge N_{t}$
+\end_inset
+
+ 
+\series bold
+goto
+\series default
+ Local Search Step.
+\end_layout
+
+\begin_layout Paragraph
+Genetic operations step 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Calculate
+\series default
+ the fitness value of every chromosome
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1..N_{C}$
+\end_inset
+
+ 
+\series bold
+Do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $f_{i}=E\left(N\left(\overrightarrow{x},C_{i}\right)\right)$
+\end_inset
+
+ using the equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eq1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+\SpecialChar endofsentence
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Apply
+\series default
+ the crossover operator.
+ In this phase the best
+\series bold
+ 
+\begin_inset Formula $\left(1-P_{s}\right)\times N_{c}$
+\end_inset
+
+
+\series default
+ chromosomes are transferred intact to the next generation.
+ The rest of the chromosomes are substituted by offsprings created through crossover.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Apply
+\series default
+ the mutation operator.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Goto
+\series default
+ Termination check step.
+\end_layout
+
+\begin_layout Paragraph
+Local Search step
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $C^{*}$
+\end_inset
+
+ the best chromosome of the population.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Apply
+\series default
+ a local search procedure 
+\begin_inset Formula $C^{*}={\cal L}\left(C^{*}\right)$
+\end_inset
+
+.
+ The local search procedure used was a BFGS method of Powell 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "powell"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -7005,6 +8034,76 @@ Zhou,
  In International conference on machine learning (pp.
  7603-7613).
  PMLR.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2013)"
+key "weight_gpu2"
+literal "false"
+
+\end_inset
+
+A.A.
+ Huqqani,
+ E.
+ Schikuta,
+ S.
+ Ye Peng Chen,
+ Multicore and GPU Parallelization of Neural Networks for Face Recognition,
+ Procedia Computer Science 
+\series bold
+18
+\series default
+,
+ pp.
+ 349-358,
+ 2013.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "kaelo"
+literal "true"
+
+\end_inset
+
+P.
+ Kaelo,
+ M.M.
+ Ali,
+ Integrated crossover rules in real coded genetic algorithms,
+ European Journal of Operational Research 
+\series bold
+176
+\series default
+,
+ pp.
+ 60-76,
+ 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "powell"
+literal "true"
+
+\end_inset
+
+M.J.D Powell,
+ A Tolerant Algorithm for Linearly Constrained Optimization Calculations,
+ Mathematical Programming 
+\series bold
+45
+\series default
+,
+ pp.
+ 547-566,
+ 1989.
+ 
 \end_layout
 
 \begin_layout Bibliography
