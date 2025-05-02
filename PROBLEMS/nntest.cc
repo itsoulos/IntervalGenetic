@@ -28,8 +28,8 @@ Data trainy;
 vector<Data> testx;
 Data testy;
 Data dclass;
-double initialLeft=-20.0;
-double initialRight= 20.0;
+double initialLeft=-10.0;
+double initialRight= 10.0;
 Interval maxWidth;
 int failCount=0;
 int normalTrain=0;
@@ -151,7 +151,7 @@ double	dgetValue(Data &node,Data &x,int &fcount)
 			arg+=node[pos]*x[j-1];
 		}
         arg+=node[(dimension+2)*i-1];
-        fcount+=(fabs(arg)>=10.0);
+        fcount+=(fabs(arg)>=5.0);
         per+=node[(dimension+2)*i-(dimension+1)-1]*dsig(arg);
 	}
 	return per;
@@ -170,7 +170,7 @@ adept::adouble	adgetValue(adept::aVector &node,Data &x,int &fcount)
             arg+=node[pos]*x[j-1];
         }
         arg+=node[(dimension+2)*i-1];
-        fcount+=(fabs(arg)>=10.0);
+        fcount+=(fabs(arg)>=5.0);
         per+=node[(dimension+2)*i-(dimension+1)-1]*adsig(arg);
     }
     return per;
