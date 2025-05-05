@@ -1211,6 +1211,11 @@ Set
 \end_inset
 
  is the number of processing nodes.
+ Each element of each chromosome is initialized randomly in the range 
+\begin_inset Formula $\left[-I_{0},I_{0}\right],I_{0}>0$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -1645,53 +1650,371 @@ D(a,b)=\begin{cases}
 
 \end_inset
 
+A modified genetic algorithm is incorporated here to locate the most promising interval for the parameters of the neural network.
+ This procedure uses the vectors 
+\begin_inset Formula $L^{*}$
+\end_inset
+
+ and 
+\begin_inset Formula $R^{*}$
+\end_inset
+
+ of the previous phase.
+ 
+\series bold
+E
+\series default
+ach chromosome is considered as a set of intervals,
+ which is initialized randomly inside
+\series bold
+ 
+\series default
+the vectors 
+\begin_inset Formula $L^{*}$
+\end_inset
+
+ and 
+\begin_inset Formula $R^{*}$
+\end_inset
+
+.
+ The steps of the algorithm for the second phase are presented below:
+\end_layout
+
+\begin_layout Enumerate
 
 \series bold
-(OK)
+Initialization step
 \series default
-The steps of the procedure used in the second phase have as follows:
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ as 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+ the maximum number of allowed generations and as 
+\begin_inset Formula $N_{c}$
+\end_inset
+
+ the total number of chromosomes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ as 
+\begin_inset Formula $p_{s}$
+\end_inset
+
+ the selection rate and as 
+\begin_inset Formula $p_{m}$
+\end_inset
+
+ the mutation rate.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialize
+\series default
+ every chromosomes
+\begin_inset Formula $g_{i}=$
+\end_inset
+
+
+\begin_inset Formula $\left[\overrightarrow{L_{i}},\overrightarrow{R_{i}}\right],\ i=1,\ldots,N_{c}$
+\end_inset
+
+ randomly inside the produced vectors 
+\begin_inset Formula $L^{*}$
+\end_inset
+
+and 
+\begin_inset Formula $R^{*}$
+\end_inset
+
+ from the previous phase.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ as 
+\begin_inset Formula $N_{s}$
+\end_inset
+
+ the number of samples used in the fitness calculation step.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $k=0$
+\end_inset
+
+,
+ the generation counter.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Fitness calculation step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,\ldots,N_{c}$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Calculate
+\series default
+ the fitness 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+ of each chromosome 
+\begin_inset Formula $g_{i}$
+\end_inset
+
+ using the procedure provided in Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:fitnessCalculation"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+End For
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Application of genetic operators
+\series default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Termination check step
+\series default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Final step
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fitness calculation for each chromosome 
+\begin_inset Formula $g=\left[\overrightarrow{L_{g}},\overrightarrow{R_{g}}\right]$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:fitnessCalculation"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Take
+\series default
+ 
+\begin_inset Formula $N_{s}$
+\end_inset
+
+ random samples in 
+\begin_inset Formula $a$
+\end_inset
+
+ and form the set 
+\begin_inset Formula $S_{a}=\left\{ \overrightarrow{s_{1}},\overrightarrow{s_{2},}\ldots,\overrightarrow{s_{N_{s}}}\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $f_{\mbox{min}}=\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $f_{\max}=-\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,\ldots,N_{s}$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Calculate
+\series default
+ 
+\begin_inset Formula $E_{i}=\sum_{j=1}^{M}\left(N\left(\overrightarrow{x_{j}},\overrightarrow{s_{i}}\right)-y_{j}\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $E_{i}<f_{\mbox{min}}$
+\end_inset
+
+ set 
+\begin_inset Formula $f_{\mbox{min}}=E_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $E_{i}>f_{\mbox{max}}$
+\end_inset
+
+ set 
+\begin_inset Formula $f_{\mbox{max}}=E_{i}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+End For
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Return
+\series default
+ as fitness value the quantity 
+\begin_inset Formula $f_{a}=\left[f_{\mbox{min}},f_{\mbox{max}}\right]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
 The final training algorithm
-\end_layout
-
-\begin_layout Standard
-In the second phase the best chromosome 
-\begin_inset Formula $g_{b}$
-\end_inset
-
- defined as 
-\begin_inset Formula 
-\begin{equation}
-g_{\mbox{b}}=\left\{ \left\{ l_{b,1},r_{b,1}\right\} ,\left\{ l_{b,2},r_{b,2}\right\} ,\ldots,\left\{ l_{b,K},r_{b,K}\right\} \right\} 
-\end{equation}
-
-\end_inset
-
- is used to transform the original bounding box 
-\begin_inset Formula $S=[-F,F]^{(n)}$
-\end_inset
-
- to a new box 
-\begin_inset Formula $S_{b}$
-\end_inset
-
-.
- The new hyperbox is defined as 
-\begin_inset Formula 
-\begin{equation}
-S_{b}=\left[a_{g,1},b_{g,1}\right]\times\left[a_{g,2},b_{g,2}\right]\times\ldots\times\left[a_{g,n},b_{g,n}\right]
-\end{equation}
-
-\end_inset
-
-This hyperbox will be used to bound the parameters of the neural network.
- The parameters of the network are trained using a genetic algorithm with the following steps:
-\end_layout
-
-\begin_layout Paragraph
-Initialization step
 \end_layout
 
 \begin_layout Enumerate
