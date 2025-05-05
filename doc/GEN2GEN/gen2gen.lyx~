@@ -1839,6 +1839,49 @@ Application of genetic operators
 .
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+Selection procedure.
+ Copy the best 
+\begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
+\end_inset
+
+ chromosomes to the next generation without changes.
+ The remaining ones will be replaced by offsprings created using the crossover and the mutation procedure.
+\end_layout
+
+\begin_layout Enumerate
+Crossover procedure.
+ Perform the crossover procedure,
+ where for every couple 
+\begin_inset Formula $\left(\widetilde{z},\widetilde{w}\right)$
+\end_inset
+
+ of produced offsprings,
+ two parents 
+\begin_inset Formula $\left(z,w\right)$
+\end_inset
+
+will be selected using tournament selection.
+ The production of the new offsprings is performed using one - point crossover.
+ An example of this procedure is outlined in Figure .
+\end_layout
+
+\begin_layout Enumerate
+Mutation procedure.
+ For each element of each chromosome a random number 
+\begin_inset Formula $r\in[0,1]$
+\end_inset
+
+ is drawn.
+ The corresponding element is altered randomly when 
+\begin_inset Formula $r\le p_{m}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 
 \series bold
@@ -1847,6 +1890,24 @@ Termination check step
 .
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+Set 
+\begin_inset Formula $k=k+1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $k<N_{g}$
+\end_inset
+
+ go to Fitness calculation step.
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 
 \series bold
@@ -1861,17 +1922,14 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Fitness calculation for each chromosome 
-\begin_inset Formula $g=\left[\overrightarrow{L_{g}},\overrightarrow{R_{g}}\right]$
-\end_inset
-
-.
+Fitness calculation function.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:fitnessCalculation"
@@ -1889,17 +1947,46 @@ name "alg:fitnessCalculation"
 \begin_layout Enumerate
 
 \series bold
-Take
+function 
+\series default
+fitness
+\begin_inset Formula $\left(g,N_{s}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Input
+\series default
+:
+ The chromosome 
+\begin_inset Formula $g=\left[\overrightarrow{L_{g}},\overrightarrow{R_{g}}\right]$
+\end_inset
+
+ and the number of random samples 
+\begin_inset Formula $N_{s}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Draw
 \series default
  
 \begin_inset Formula $N_{s}$
 \end_inset
 
  random samples in 
-\begin_inset Formula $a$
+\begin_inset Formula $g$
 \end_inset
 
- and form the set 
+ and create the set 
 \begin_inset Formula $S_{a}=\left\{ \overrightarrow{s_{1}},\overrightarrow{s_{2},}\ldots,\overrightarrow{s_{N_{s}}}\right\} $
 \end_inset
 
@@ -1948,7 +2035,7 @@ do
 \begin_layout Enumerate
 
 \series bold
-Calculate
+Set
 \series default
  
 \begin_inset Formula $E_{i}=\sum_{j=1}^{M}\left(N\left(\overrightarrow{x_{j}},\overrightarrow{s_{i}}\right)-y_{j}\right)^{2}$
@@ -2002,10 +2089,16 @@ End For
 Return
 \series default
  as fitness value the quantity 
-\begin_inset Formula $f_{a}=\left[f_{\mbox{min}},f_{\mbox{max}}\right]$
+\begin_inset Formula $f_{g}=\left[f_{\mbox{min}},f_{\mbox{max}}\right]$
 \end_inset
 
 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+End Function
 \end_layout
 
 \end_inset
