@@ -2765,11 +2765,11 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-
+The 
 \series bold
 Lymography
 \series default
- 
+ dataset 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "lymography"
@@ -2786,7 +2786,7 @@ literal "false"
 Mammographic
 \series default
 ,
- which is a medical dataset used for the prediction of breast cancer 
+ which is related to the presence of breast cancer 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "mammographic"
@@ -2820,7 +2820,7 @@ literal "false"
 Pima
 \series default
 ,
- which is a medical dataset for the detection of diabetes
+ which is related to the presence of diabetes
 \begin_inset CommandInset citation
 LatexCommand citep
 key "pima"
@@ -2926,7 +2926,7 @@ Statheart
 Spiral
 \series default
 ,
- an artificial dataset with two classes.
+ which was created artificially and contains two distinct classes.
 \end_layout
 
 \begin_layout Enumerate
@@ -2952,7 +2952,7 @@ literal "false"
 Transfusion
 \series default
 ,
- which is a medical dataset 
+ which is also a dataset used for medical purposes 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "transfusion"
@@ -2969,7 +2969,7 @@ literal "false"
 Wdbc
 \series default
 ,
- which is a medical dataset regarding breast cancer 
+ which is used for the detection of breast cancer 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "wdbc1,wdbc2"
@@ -2986,7 +2986,7 @@ literal "false"
 Wine
 \series default
 ,
- a dataset regarding measurements about the quality of wines 
+ a dataset used to detect the quality of wines 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "wine1,wine2"
@@ -3003,7 +3003,7 @@ literal "false"
 EEG
 \series default
 ,
- which is dataset regardingEEG recordings 
+ which is a dataset regarding EEG recordings 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "eeg1,eeg2"
@@ -3011,8 +3011,7 @@ literal "false"
 
 \end_inset
 
-.
- From this dataset the following cases were used:
+ and from this dataset the following cases were used:
  Z_F_S,
  ZO_NF_S,
  ZONF_S and Z_O_N_F_S.
@@ -3036,7 +3035,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Moreover a series of regression datasets was adopted in the conducted experiments.
+Moreover a series of regression datasets was adopted in the performed experiments.
  The list with the regression datasets has as follows:
 \end_layout
 
@@ -3046,7 +3045,7 @@ Moreover a series of regression datasets was adopted in the conducted experiment
 Abalone
 \series default
 ,
- which is a dataset about the age of abalones 
+ which is a dataset for the detection of the age of abalones 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "abalone"
@@ -3063,7 +3062,7 @@ literal "false"
 Airfoil
 \series default
 ,
- a dataset founded in NASA 
+ founded in NASA 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "airfoil"
@@ -3080,7 +3079,7 @@ literal "false"
 Auto
 \series default
 ,
- a dataset related to the consumption of fuels from cars.
+ a dataset used to predict the fuel consumption in cars.
 \end_layout
 
 \begin_layout Enumerate
@@ -3196,7 +3195,7 @@ literal "false"
 Laser
 \series default
 ,
- which contains measurements from various physics experiments.
+ which is used in physics experiments.
 \end_layout
 
 \begin_layout Enumerate
@@ -3230,7 +3229,7 @@ literal "false"
 Mortgage
 \series default
 ,
- a dataset that contains measurements from the economy of USA.
+ a dataset that contains data from the economy of USA.
 \end_layout
 
 \begin_layout Enumerate
@@ -3291,7 +3290,7 @@ SN
 Stock
 \series default
 ,
- which is a dataset regarding stocks.
+ which related to the prices of stocks.
 \end_layout
 
 \begin_layout Enumerate
@@ -3349,7 +3348,11 @@ E_{R}\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=\frac{\sum
 
 \end_inset
 
-The values for the experimental parameters are outlined in Table 
+
+\end_layout
+
+\begin_layout Standard
+Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:expValues"
@@ -3360,8 +3363,8 @@ nolink "false"
 
 \end_inset
 
-.
- The experimental results for the classification datasets are shown in Table 
+ contains the values used for the experimental parameters of the proposed method.
+ The results obtained for the classification datasets are depicted in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:experClass"
@@ -3388,11 +3391,15 @@ nolink "false"
 \end_layout
 
 \begin_layout Enumerate
-The column DATASET stands for the name of the used problem.
+The column DATASET is used to denote the name of the dataset.
 \end_layout
 
 \begin_layout Enumerate
-The column BFGS represents the application of the BFGS optimization method 
+The column BFGS represents the results obtained by the training of a neural network with 
+\begin_inset Formula $H=10$
+\end_inset
+
+ processing nodes using the BFGS optimization method 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "powell"
@@ -3400,15 +3407,15 @@ literal "false"
 
 \end_inset
 
- for the training of a neural network with 
-\begin_inset Formula $H=10$
-\end_inset
-
- processing nodes.
+ .
 \end_layout
 
 \begin_layout Enumerate
-The column ADAM is used for the usage of the ADAM optimization method 
+The column ADAM is used to denote the training of a neural network with 
+\begin_inset Formula $H=10$
+\end_inset
+
+ processing nodes using the ADAM optimization method 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_adam"
@@ -3416,15 +3423,11 @@ literal "false"
 
 \end_inset
 
- for the training of a neural network with 
-\begin_inset Formula $H=10$
-\end_inset
-
- processing nodes.
+.
 \end_layout
 
 \begin_layout Enumerate
-The column NEAT represents the usage of the NEAT method (NeuroEvolution of Augmenting Topologies ) 
+The column NEAT represents the incorporation of the NEAT method (NeuroEvolution of Augmenting Topologies ) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "neat"
@@ -3436,7 +3439,7 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The column RBF is used for the application of a Radial Basis Function (RBF) network 
+The column RBF is used to denote the usage of a Radial Basis Function (RBF) network 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbf1,rbf2"
@@ -3448,7 +3451,7 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The column GENETIC represents the incorporation of a genetic algorithm for the training of a neural network with 
+The column GENETIC denotes the usage of a genetic algorithm to train a neural network with 
 \begin_inset Formula $H=10$
 \end_inset
 
@@ -3456,11 +3459,11 @@ The column GENETIC represents the incorporation of a genetic algorithm for the t
 \end_layout
 
 \begin_layout Enumerate
-The column PROPOSED denotes the proposed method.
+The column PROPOSED denotes experimental results of the proposed method.
 \end_layout
 
 \begin_layout Enumerate
-The row AVERAGE represents the average classification or regression error for all datasets.x
+The row AVERAGE represents the average classification or regression error for all datasets.
 \end_layout
 
 \begin_layout Standard
@@ -3839,7 +3842,7 @@ nolink "false"
 
 \end_inset
 
- presented shows the error rates resulting from the use of different machine learning models on various classification datasets.
+ presented shows the error rates resulting from the incorporation of the mentioned machine learning models on the used classification datasets.
  The columns refer to the models (BFGS,
  ADAM,
  NEAT,
@@ -3847,15 +3850,13 @@ nolink "false"
  GENETIC,
  PROPOSED),
  while the rows correspond to the datasets.
- The last row contains the average error rate for each model,
- where lower values indicate better performance.
  From the analysis of the data,
  it is observed that the PROPOSED model exhibits the lowest error rates in many datasets,
  such as "HouseVotes" (3.05%),
  "Dermatology" (5.97%),
  and "ZONF_S" (2.35%).
  Furthermore,
- it has the lowest average error rate (19.49%) compared to the other models,
+ it has the lowest average error rate (19.49%) when a comparison is made against to the other models,
  indicating overall superior performance.
  The NEAT model shows the highest error rates in several cases,
  such as "Cleveland" (77.55%) and "Segment" (68.97%),
@@ -3871,7 +3872,7 @@ nolink "false"
  demonstrates balanced performance in many cases,
  with low error rates in datasets such as "Popfailures" (7.04%) and "HouseVotes" (6.13%).
  Overall,
- the PROPOSED model stands out as the most reliable,
+ the PROPOSED model stands out as the most effective,
  with the lowest average error rates and exceptional performance across multiple dataset categories,
  making it the preferred choice for classification tasks.
 \begin_inset Float table
@@ -3879,14 +3880,14 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experimental results for the classification datasets using the mentioned machine learning methods.
- Numbers in cells stand for the average classification error.
+Experimental results using the incorporated machine learning methods on the classification datasets.
+ The numbers in cells represent average classification error for the test set.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:experClass"
@@ -6248,7 +6249,11 @@ nolink "false"
  referring to classification datasets and comparing the performance of the PROPOSED model with various machine learning models.
  The comparisons include the following cases:
  PROPOSED vs BFGS with p=**** (Very extremely significant),
- PROPOSED vs ADAM with p=****,
+ 
+\series bold
+(OK)
+\series default
+PROPOSED vs ADAM with p=****,
  PROPOSED vs NEAT with p=****,
  PROPOSED vs RBF with p=****,
  and PROPOSED vs GENETIC with p=****.
@@ -6279,7 +6284,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical comparison of the obtained results using the various machine learning methods for the classification datasets.
+Statistical comparison for the applied machine learning methods and the classification datasets.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:stat1"
@@ -6291,10 +6296,6 @@ name "fig:stat1"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -6315,7 +6316,7 @@ nolink "false"
 
 \end_inset
 
- presents the error values obtained from the use of different machine learning models on regression datasets.
+ presents the obtained regression errors from the usage of different machine learning models on regression datasets.
  The columns refer to the models (BFGS,
  ADAM,
  NEAT,
@@ -6323,11 +6324,8 @@ nolink "false"
  GENETIC,
  PROPOSED),
  while the rows correspond to the datasets.
- The last row shows the average error for each model,
- where lower values indicate better performance.
  From the analysis of the data,
- it is evident that the PROPOSED model achieves the lowest average error (5.33),
- making it the most accurate overall.
+ it is evident that the PROPOSED model managed to achieve the lowest average error (5.33).
  This model exhibits exceptionally low errors in datasets such as "BL" (0.001),
  "HO" (0.012),
  and "Concrete" (0.004).
@@ -6361,15 +6359,14 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experimental results for regression datasets,
- using the mentioned machine learning methods.
- The numbers in cells stand for the average regression.
+Experimental results using the incorporated machine learning methods on the regression datasets.
+ The numbers in cells represent average regression on the test set.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:experRegression"
@@ -8178,7 +8175,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical comparison for the obtained results using the machine learning methods for the regression datasets.
+Statistical comparison for the experimental results obtained by the application of the mentioned machine learning methods on the regression datasets.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:stat2"
@@ -8203,12 +8200,12 @@ name "fig:stat2"
 \end_layout
 
 \begin_layout Standard
-An addition experiment was conducted using different values for the initialization factor 
+An addition experiment was performed using a variety of values for the initialization factor 
 \begin_inset Formula $I_{0}$
 \end_inset
 
- and the regression datasets incorporated here.
- The average regression error for a variety of values of the factor 
+ and the regression datasets.
+ The average regression error from this experiment and for each value of 
 \begin_inset Formula $I_{0}$
 \end_inset
 
@@ -8274,8 +8271,8 @@ name "fig:experI0"
 
 \end_inset
 
-The average regression error remains low for lower value of the initialization factor and increases as this factor gets higher values.
- This means that initializing the parameters of the artificial neural network in a value interval with smaller extreme values \SpecialChar allowbreak
+The obtained regression error remains low for lower value of the initialization factor and increases as this factor gets higher values.
+ This means that initializing the parameters of the neural network in a value interval with smaller extreme values \SpecialChar allowbreak
 and a smaller range gives the artificial neural network better generalization capabilities.
 \end_layout
 
@@ -8323,7 +8320,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-The average regression error obtained by the usage of the proposed method on the regression datasets using different values of the scale factor 
+The average regression error obtained by the usage of the proposed method on the regression datasets for a variety of values of the scale factor 
 \begin_inset Formula $f$
 \end_inset
 
@@ -8364,6 +8361,64 @@ name "sec:Conclusions"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+The proposed method for training artificial neural networks is based on the application of genetic algorithms in three distinct phases,with the primary objective of efficient training and minimizing overfitting,
+ a common challenge in modern optimization techniques.
+ The first phase focuses on identifying an initial interval for the values of the network.
+ This phase is crucial as it sets the initial positioning of the parameters within a range that avoids excessively large values,
+ which could limit the model’s generalization capability.
+ The proposed value range is determined using a genetic algorithm that incorporates a modified error calculation,
+ penalizing large parameter values.
+ This step reduces the risk of overfitting to the training data,
+ enhancing the model's capacity to respond effectively to unseen data.
+ In the second phase,
+ the method employs an optimized genetic algorithm to identify the ideal parameter value bounds within the initially defined range.
+ This process makes the method particularly effective as it focuses on intervals already evaluated as suitable while incorporating representative samples from the initial value range to assess accuracy.
+ The use of genetic algorithms allows for gradual and adaptive improvement,
+ eliminating local minima a frequent issue in traditional optimization methods.
+ The third phase focuses on training the neural network within the optimized parameter bounds.
+ In this phase,
+ a genetic algorithm used to minimize the training error,
+ followed by a local optimization step using the BFGS method.
+ This local optimization ensures further accuracy improvement,
+ fully utilizing the model's potential.
+ The experiments conducted demonstrate the clear superiority of the proposed method compared to other established techniques.
+ For classification datasets,
+ the method achieved significantly lower error rates compared to techniques like ADAM,
+ BFGS,
+ and NEAT.
+ For example,
+ in datasets such as Dermatology and HouseVotes,
+ the error rate was nearly halved compared to alternative methods.
+ Similar results were observed for regression datasets,
+ where the method achieved the highest accuracy across nearly all datasets.
+ The lowest average error achieved highlights its consistent and versatile performance.
+ A notable innovation of the method is its approach to tackling overfitting.
+ The genetic algorithms enable exploration across a wide range of values without being constrainedto local minima.
+ Simultaneously,
+ the incorporation of penalties for large parameter values prevents excessive adaptation to the training data.
+ This is particularly important as overfitting often limits the performance of artificial neural networks when applied to unseen data.
+ Experiments with varying initial parameters,
+ such as the initialization factor and the scale factor,
+ provide valuable insights into model configuration.
+ For instance,
+ smaller initial value ranges contributed to better generalization,
+ while larger scale factor values led to higher error,
+ emphasizing the importance of tighter parameter bounds.
+ This indicates that careful parameter selection is critical for overall performance.
+ 
+\end_layout
+
+\begin_layout Standard
+The proposed method paves new paths for the application of genetic algorithms in training process of  neural networks.
+ Its adaptive nature makes it suitable for a wide range of applications,
+ from medical diagnosis and forecasting of physical phenomena to the optimization of industrial processes.
+ Future steps could include its application in deep learning networks,
+ the integration of hybrid methods combining genetic algorithms with other optimization techniques,
+ and the use of distributed computing environments to accelerate training.
+ This approach has the potential to become a benchmark for effective and reliable training of artificial neural networks.
 \end_layout
 
 \begin_layout Standard
