@@ -316,20 +316,19 @@ Correspondence:
 Artificial neural networks have been used in a multitude of applications in various research areas in recent decades,
  providing excellent results in both data classification and data fitting.
  Their success is based on the effective identification (training) of their parameters using optimization techniques,
- and in this direction,
- a multitude of techniques have been developed for training these models.
+ and hence a series of programming methods have been developed for training these models.
  However,
- many times these techniques either get trapped in local minima of the error function with poor overall results or present overfitting problems in which the performance of the artificial neural network is significantly reduced on data that was not present during its training.
- This paper proposes a new method for the efficient training of artificial neural networks,
- where a series of genetic algorithms are applied to the network parameters in several stages.
+ many times these techniques either can identity only some local minima of the error function with poor overall results or present overfitting problems in which the performance of the artificial neural network is significantly reduced when it is applied on different data from the training set.
+ This manuscript introduces a method for the efficient training of artificial neural networks,
+ where a series of genetic algorithms is applied to the network parameters in several stages.
  In the first stage,
  an initial identification of the network value interval is made,
  in the second stage,
  the initial estimate of the value interval is improved,
  and in the third stage,
  the final adjustment of the network parameters within the previously identified value interval takes place.
- The new method was evaluated on a wide series of classification and regression problems from the relevant literature,
- and it was compared against other methods used for neural network training.
+ The new method was tesed on some classification and regression problems found in the relevant literature,
+ and the experimental results was compared against the results obtained by the application of other well - known methods used for neural network training.
 \end_layout
 
 \begin_layout Keywords
@@ -354,8 +353,8 @@ literal "false"
 .
  In most cases artificial neural networks are defined as parametric machine learning models,
  where learning is achieved by calculating the values of their parameters through some optimization technique.
- The underlying optimization procedure should minimize the so - called training error,
- which is defined as:
+ The underlying optimization procedure should minimize the associated training error,
+ calculated as:
  
 \begin_inset Formula 
 \begin{equation}
@@ -368,12 +367,13 @@ The function
 \begin_inset Formula $N\left(\overrightarrow{x},\overrightarrow{w}\right)$
 \end_inset
 
- stands for the artificial neural network,
- vector 
+ stands for the artificial neural network and the input vector 
 \begin_inset Formula $\overrightarrow{x}$
 \end_inset
 
- denotes the input pattern and the vector 
+ represents the input pattern.
+ Also,
+ the input vector 
 \begin_inset Formula $\overrightarrow{w}$
 \end_inset
 
@@ -401,7 +401,7 @@ literal "false"
 \end_inset
 
 ,
- where a neural network is defined as the following function:
+ where it is defined as:
 \begin_inset Formula 
 \begin{equation}
 N\left(\overrightarrow{x},\overrightarrow{w}\right)=\sum_{i=1}^{H}w_{(d+2)i-(d+1)}\sigma\left(\sum_{j=1}^{d}x_{j}w_{(d+2)i-(d+1)+j}+w_{(d+2)i}\right)\label{eq:nn}
@@ -458,8 +458,8 @@ nolink "false"
  
 \series default
 Also,
- other activation functions can be used,
- such as the tanh function with the following definition:
+ alternative activation functions can be used.
+ As an example consider the the tanh defined as:
 \begin_inset Formula 
 \begin{equation}
 \mbox{tanh}\left(x\right)=\frac{e^{2x}+1}{e^{2x}-1}
@@ -468,7 +468,7 @@ Also,
 \end_inset
 
 Moreover,
- Guarnieri et al introduced an adaptive spline activation function for neural networks 
+ Guarnieri et al introduced the usage of an adaptive spline function as the activation function of neural networks 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "activation_spline"
@@ -478,7 +478,7 @@ literal "false"
 
 .
  Similarly,
- Ertuğrul introduced the trained activation function for artificial neural networks 
+ Ertuğrul introduced the trained activation function 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "activation_trained"
@@ -500,7 +500,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Artificial neural networks have been applied in a wide series of problems appeared in real - world problems,
+Artificial neural networks have been incorporated in a wide series of problems appeared in real - world problems,
  such as image processing 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -673,8 +673,7 @@ literal "false"
 
 .
  Additionally,
- due to the wide usage of parallel computing techniques,
- a series of methods that exploit parallel computing libraries for faster training of artificial neural networks have been published recently 
+ the widespread use of parallel processing techniques in recent years has resulted in a series of related works on the training of artificial neural networks that utilize such techniques 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_gpu1,nn_gpu2"
@@ -689,10 +688,10 @@ literal "false"
 Nevertheless,
  the previous optimization methods have have a number of problems such as,
  for example,
- they can be trapped in any local minimum of the error function or they suffer from the phenomenon of overifitting.
+ they can identity only local minima of the error function or they suffer from the phenomenon of overifitting.
  In overfitting,
- the artificial neural network exhibits reduced performance when it used on data that was not present during the training process.
- This problem has been studied by various researchers in the past and some methods have been proposed to handle this problem,
+ the artificial neural network exhibits reduced performance when it used on data that was not used in the training process.
+ This problem has been tackled by various researchers in the past and some methods have been introduced,
  such as weight sharing 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -754,11 +753,7 @@ literal "false"
 .
  Additionally,
  Siebel at al.
- proposed
-\series bold
- 
-\series default
-the usage of evolutionary reinforcement learning for the optimal design of artificial neural networks 
+ introduced the usage of evolutionary reinforcement learning for the optimal design of artificial neural networks 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_ereinf"
@@ -845,15 +840,15 @@ and consequently the phenomenon of overifitting.
  
 \series default
 In the second phase of the process,
- an interval technique using a genetic algorithm is utilized to find the optimal interval of values for the parameters of the artificial neural network using the optimal prediction made by the algorithm of the first phase.
+ an interval technique using a genetic algorithm is utilized to locate the optimal interval for the parameters of the artificial neural network using the best chromosome obtained by the algorithm of the first phase.
  Finally,
  in the third phase a simple genetic algorithm is incorporated to train the artificial neural network using the bounds located in the second phase of the method.
  The proposed technique was tested on a series of classification and regression problems from various research fields and it was compared against traditional methods used for the training of neural networks.
 \end_layout
 
 \begin_layout Standard
-The remaining of this article is organized as follows:
- in section 
+The remaining of this article have the following sections:
+ The section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Method-description"
@@ -864,8 +859,8 @@ nolink "false"
 
 \end_inset
 
- the proposed method and the accompanied genetic algorithm are introduced,
- in section 
+ describes the proposed method,
+ the section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Results"
@@ -876,7 +871,7 @@ nolink "false"
 
 \end_inset
 
- the experimental datasets and the series of experiments conducted are listed and final in section 
+ outlines the experimental datasets and the series of experiments conducted and final the section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Conclusions"
@@ -887,7 +882,7 @@ nolink "false"
 
 \end_inset
 
- some conclusions are discussed.
+ presents some conclusions.
 \end_layout
 
 \begin_layout Section
@@ -902,7 +897,7 @@ name "sec:Method-description"
 \end_layout
 
 \begin_layout Standard
-This section describes in details the three distinct algorithms used in each phase of the proposed method.
+This section describes in details the three distinct algorithms used in every stage of the proposed method.
 \end_layout
 
 \begin_layout Subsection
@@ -1170,7 +1165,7 @@ End Function
 
 
 \series default
-The main steps of the used algorithm are listed below:
+The steps of the used algorithm are outlined below:
 \end_layout
 
 \begin_layout Enumerate
@@ -1191,7 +1186,7 @@ Set
 \begin_inset Formula $N_{g}$
 \end_inset
 
- the maximum number of allowed generations.
+ as the maximum number of allowed generations.
 \end_layout
 
 \begin_layout Enumerate
@@ -1208,17 +1203,17 @@ Set
 \begin_inset Formula $n=\left(d+2\right)H$
 \end_inset
 
- double precision values,
- where 
+ double precision values.
+ The value 
 \begin_inset Formula $d$
 \end_inset
 
- stands for the dimension of the input pattern and 
+ is used to represent the dimension of the input pattern and the constant 
 \begin_inset Formula $H$
 \end_inset
 
- is the number of processing nodes.
- Each element of each chromosome is initialized randomly in the range 
+ defines the number of the nodes of the neural network.
+ Every value in the chromosomes is  initialized randomly in the range 
 \begin_inset Formula $\left[-I_{0},I_{0}\right],I_{0}>0$
 \end_inset
 
@@ -8368,7 +8363,6 @@ name "fig:experF"
 As it can observed,
  as the scale factor increases the average regression error increases also.
  The conclusion from this experiment is that the artificial neural network is able to generalize more efficiently when its parameter values \SpecialChar allowbreak
-\SpecialChar allowbreak
 are limited to a smaller range of values \SpecialChar allowbreak
 than those identified in the first phase.
 \end_layout
