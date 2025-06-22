@@ -234,7 +234,7 @@ extern "C"
      	double ff=program[thread()].fitness(genome);
         double avg_test=program[thread()].getTestError();
         double avg_class=program[thread()].getClassTestError(genome);
-	/*
+	
  	int tries=0;
    	MinInfo Info1;
         Info1.iters=2001;
@@ -254,8 +254,6 @@ extern "C"
 	program[thread()].neuralparser->setleftmargin(x1);
 	program[thread()].neuralparser->setrightmargin(x2);
 	const int iters = 30;
-	double avg_test=0.0;
-	double avg_class=0.0;
 
 	Data saveW = w;
 	for(int ik=1;ik<=iters;ik++)
@@ -289,7 +287,7 @@ extern "C"
         avg_class+=program[thread()].getClassTestError(genome);
 	}
 	avg_test/=iters;
-	avg_class/=iters;*/
+	avg_class/=iters;
         QJsonObject result;
         result["nodes"]=10;
         result["testError"]=avg_test;
