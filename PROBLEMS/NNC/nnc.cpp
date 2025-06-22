@@ -234,7 +234,7 @@ extern "C"
 	
      	double ff=program[thread()].fitness(genome);
         double avg_test=program[thread()].getTestError();
-        double avg_class=program[thread()].getClassTestError(genome);
+        double avg_class=program[thread()].getClassTestError();
 	
  	int tries=0;
    	MinInfo Info1;

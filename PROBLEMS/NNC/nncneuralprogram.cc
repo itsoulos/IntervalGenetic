@@ -278,11 +278,39 @@ double	NNCNeuralProgram::getTrainError()
     return value;
 }
 
-double	NNCNeuralProgram::getClassTestError(vector<int> &genome)
+double	NNCNeuralProgram::getClassTestError()
 {
 	double value=0.0;
+	double *xx=new double[train_xpoint[0].size()];
+
+	for(int i=0;i<test_ypoint.size();i++)
+	{
+		for(int j=0;j<test_xpoint[i].size();j++) xx[j]=test_xpoint[i][j];
+		double v=neuralparser->eval(xx);
+		
+		double minValue=1e+10;
+		int index=-1;
+		for(int j=0;j<categ.size();j++)
+		{
+			if(fabs(categ[j]-v)<minValue)
+			{
+				minValue=fabs(categ[j]-v);
+				index = j;
+			}
+		}
+		double myclass=categ[index];
+		value+=fabs(test_ypoint[i]-myclass)>1e-5;
+	}
+
+	delete[] xx;
+	return value*100.0/test_ypoint.size();
+}
+
+double	NNCNeuralProgram::getClassTestError(vector<int> &genome)
+{
 	string str;
 	if(!getElements(genome,str)) return -1e+8;
+	double value = 0.0;
 	program->Parse(str);
 	double *xx=new double[train_xpoint[0].size()];
 

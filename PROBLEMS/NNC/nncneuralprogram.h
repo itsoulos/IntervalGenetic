@@ -26,6 +26,7 @@ class NNCNeuralProgram :
 		virtual double  getTestError();
 		virtual void	getDeriv(Data &g);
 		double	getClassTestError(vector<int> &genome);
+		double	getClassTestError();
 		int	getTrainSize() const;
 		int	getTestSize() const;
         virtual void    printOutput(QString filename);
