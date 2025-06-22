@@ -219,7 +219,7 @@ extern "C"
         vector<int> genome;
 	genome.resize(getdimension());
         for(int i=0;i<getdimension();i++)
-        genome[i]=double2int(x[i]);//(int)fabs(x[i]);
+        genome[i]=255.0;//double2int(x[i]);//(int)fabs(x[i]);
 
 	
 	GPopulation pop(500,getdimension(),genome,&program[thread()]);
