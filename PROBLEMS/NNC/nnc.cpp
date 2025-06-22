@@ -227,7 +227,8 @@ extern "C"
 	{
 		pop.nextGeneration();
 		double f = pop.getBestFitness();
-        fprintf(stderr,"nnc[%d]=%lf\n",i,f);
+		if(i%50==0)
+        	fprintf(stderr,"nnc[%d]=%lf\n",i,f);
 	}
 	genome= pop.getBestGenome();
 	
@@ -255,39 +256,14 @@ extern "C"
 	program[thread()].neuralparser->setrightmargin(x2);
 	const int iters = 30;
 
-	Data saveW = w;
-	for(int ik=1;ik<=iters;ik++)
-	{
-
-		srand48(ik);
-		srand(ik);
-		w = saveW;
-    //GenSolve(&program[thread()],w,ff,0,0);
-
 	program[thread()].neuralparser->setWeights(w);
-    tries = 0;
-//	fprintf(stderr,"After genetic value = %lf \n",ff);
-        do
-        {
-           value=program[thread()].getTrainError();
-           value=tolmin(w,Info1);
-		program[thread()].neuralparser->setWeights(w);
-           program[thread()].neuralparser->getWeights(w);
-	//   fprintf(stderr,"value [%d ] =%lf \n",tries,value);
-           if(fabs(old_f-value)<1e-5) break;
-           old_f=value;
-           tries++;
-           if(tries>=200) break;
-         }while(1);
-      program[thread()].neuralparser->getWeights(w);
-        Converter con(w,w.size()/(dimension+2),dimension);
+        value=tolmin(w,Info1);
+        //program[thread()].neuralparser->setWeights(w);
+        /*Converter con(w,w.size()/(dimension+2),dimension);
          con.convert(genome);
-         ff=program[thread()].fitness(genome);
+         ff=program[thread()].fitness(genome);*/
         avg_test+=program[thread()].getTestError();
         avg_class+=program[thread()].getClassTestError(genome);
-	}
-	avg_test/=iters;
-	avg_class/=iters;
         QJsonObject result;
         result["nodes"]=10;
         result["testError"]=avg_test;
