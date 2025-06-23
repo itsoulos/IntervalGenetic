@@ -227,7 +227,41 @@ extern "C"
 		pop.nextGeneration();
 		double f = pop.getBestFitness();
 		if(i%50==0)
+        {
         	fprintf(stderr,"nnc[%d]=%lf\n",i,f);
+            for(int ik=1;ik<=10;ik++)
+            {
+            int pos = rand() % 500;
+            pop.getGenome(pos,genome);
+            double ff=program[thread()].fitness(genome);
+
+            MinInfo Info1;
+            Info1.iters=2001;
+            Info1.problem=&program[thread()];
+            Data w;
+            program[thread()].neuralparser->getWeights(w);
+            Data x1,x2;
+            x1.resize(w.size());
+            x2.resize(w.size());
+            for(int i=0;i<w.size();i++)
+            {
+                x1[i]=-5.0 *fabs(w[i]);
+                x2[i]= 5.0 *fabs(w[i]);
+            }
+            program[thread()].neuralparser->setleftmargin(x1);
+            program[thread()].neuralparser->setrightmargin(x2);
+            double tvalue = tolmin(w,Info1);
+            printf("Trial fitness = %20.10lg\n",tvalue);
+            Converter con(w,w.size()/(dimension+2),dimension);
+            con.convert(genome);
+            for(int i=0;i<genome.size();i++)
+            {
+                //if(abs(trial_genome[i])>255) trial_genome[i]=0;
+            }
+
+            pop.setGenome(pos,genome,-tvalue);
+            }
+        }
 	}
 	genome= pop.getBestGenome();
 	

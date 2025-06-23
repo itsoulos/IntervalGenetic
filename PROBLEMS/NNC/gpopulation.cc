@@ -217,7 +217,7 @@ void	GPopulation::nextGeneration()
     if((generation+1)%10==0)
         for(int i=0;i<10;i++)
 		localSearch(rand() % genome_count);
-	
+
 	++generation;
 }
 
@@ -369,6 +369,12 @@ void	GPopulation::setGenome(int pos,vector<int> &g,double f)
 {
 	double tf=fitness(g);
 	if(tf<fitness_array[pos] && fabs(tf-f)>1e-4) return;
+    if(g.size()!=genome_size)
+    {
+        printf("PROBLEM IN SIZES %d vs %d \n",
+               g.size(),genome_size);
+        return;
+    }
 	if(g.size()>genome_size)
 	{
 		int *old=new int[genome_size];
