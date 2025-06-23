@@ -395,7 +395,7 @@ void   IntervalGenetic::nextGeneration()
     ++generation;
     calcFitnessArray();
 
-    if(generation%2000==0)
+    if(generation%5000==0)
     {
 
         int count=10;
@@ -412,10 +412,10 @@ void   IntervalGenetic::nextGeneration()
 
         }
 	
- //IntervalData mx=getMaximumInterval();
+ IntervalData mx=getMaximumInterval();
   
- //for(int j=0;j<omp_get_max_threads();j++)
-   //    problem[j]->setMargins(mx);
+ for(int j=0;j<omp_get_max_threads();j++)
+      problem[j]->setMargins(mx);
     }
     selection();
  crossover();

@@ -150,7 +150,6 @@ extern "C"
        // program[i].getModel()->setNumOfWeights(weights);
         }
         populationCount=chromosomeSize;
-	printf("pop = %d \n",populationCount);
     }
 
     int	getdimension()
@@ -219,7 +218,7 @@ extern "C"
         vector<int> genome;
 	genome.resize(getdimension());
         for(int i=0;i<getdimension();i++)
-        genome[i]=255.0;//double2int(x[i]);//(int)fabs(x[i]);
+        genome[i]=255;//double2int(x[i]);//(int)fabs(x[i]);
 
 	
 	GPopulation pop(500,getdimension(),genome,&program[thread()]);
@@ -254,19 +253,16 @@ extern "C"
 	}
 	program[thread()].neuralparser->setleftmargin(x1);
 	program[thread()].neuralparser->setrightmargin(x2);
-	const int iters = 30;
-
 	program[thread()].neuralparser->setWeights(w);
-        value=tolmin(w,Info1);
-	printf("TOLMIN VALUE= %lf \n",value);
-        program[thread()].neuralparser->setWeights(w);
+    value=tolmin(w,Info1);
+    program[thread()].neuralparser->setWeights(w);
 	value = program[thread()].getTrainError();
-        avg_test=program[thread()].getTestError();
-        avg_class=program[thread()].getClassTestError(genome);
-        QJsonObject result;
-        result["nodes"]=10;
-        result["testError"]=avg_test;
-        result["classError"]=avg_class;
+    avg_test=program[thread()].getTestError();
+    avg_class=program[thread()].getClassTestError();
+    QJsonObject result;
+    result["nodes"]=10;
+    result["testError"]=avg_test;
+    result["classError"]=avg_class;
 	QString bestProgram=program[thread()].printProgram(genome).c_str();
 	printf("Train Error %10.5lf Test Error %10.5lf Class Error %10.5lf%%\n",
 			value,result["testError"].toDouble(),result["classError"].toDouble());

@@ -213,11 +213,11 @@ void	GPopulation::nextGeneration()
 	crossover();
 	mutate();
 	calcFitnessArray();
-    /*extern int localSearchGenerations,localSearchChromosomes;
-    if((generation+1)%100==0)
-        for(int i=0;i<20;i++)
+    /*extern int localSearchGenerations,localSearchChromosomes;*/
+    if((generation+1)%10==0)
+        for(int i=0;i<10;i++)
 		localSearch(rand() % genome_count);
-*/	
+	
 	++generation;
 }
 
