@@ -173,6 +173,7 @@ void	NeuralProgram::getDeriv(Data &g)
 {
 	Data x;
 	neuralparser->getWeights(x);
+
 	for(int i=0;i<g.size();i++)
 	{
 		double eps=pow(1e-18,1.0/3.0)*dmax(1.0,fabs(x[i]));

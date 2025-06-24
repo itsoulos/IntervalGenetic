@@ -158,8 +158,11 @@ static void mymap(Data x,Data &x1)
 
 void	NNCNeuralProgram::getDeriv(Data &g)
 {
+
 	for(int i=0;i<g.size();i++) g[i]=0.0;
-	Data tempg;
+    NeuralProgram::getDeriv(g);
+    return ;
+    Data tempg;
 	tempg.resize(g.size());
 	int start=0;
 	int end=train_ypoint.size();
@@ -209,6 +212,7 @@ double	NNCNeuralProgram::getTrainError()
 		start=0;
 		end=4*train_ypoint.size()/5;
 	}
+    neuralparser->sigcount=neuralparser->violcount=0;
 	for(int i=start;i<end;i++)
 	{
 		for(int j=0;j<dimension;j++) xtemp[j]=train_xpoint[i][j];
@@ -221,6 +225,8 @@ double	NNCNeuralProgram::getTrainError()
 		v=(v-train_ypoint[i]);
 		value=value+v*v;
 	}
+    double percent=neuralparser->violcount*1.0/neuralparser->sigcount;
+    value = value * (1.0 +percent);
 #else
 	vector<int> fail;
 	vector<int> belong;
