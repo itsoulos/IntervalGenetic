@@ -190,8 +190,8 @@ extern "C"
 	program[thread()].neuralparser->sigcount=0;
 	program[thread()].neuralparser->violcount=0;
       double f=program[thread()].fitness(genome);
-    //double percent=program[thread()].neuralparser->violcount*1.0/program[thread()].neuralparser->sigcount;
-    //return -f * (1.0+percent);
+//    double percent=program[thread()].neuralparser->violcount*1.0/program[thread()].neuralparser->sigcount;
+ //   return -f * (1.0+percent);
       return -f;
     }
     double dmax(double a,double b){return a>b?a:b;}
@@ -218,7 +218,10 @@ extern "C"
         vector<int> genome;
 	genome.resize(getdimension());
         for(int i=0;i<getdimension();i++)
-        genome[i]=double2int(x[i]);//(int)fabs(x[i]);
+	{
+	        genome[i]=double2int(x[i]);
+	}
+
 
 	
 	GPopulation pop(500,getdimension(),genome,&program[thread()]);

@@ -222,7 +222,6 @@ void	DoublePop::mutate()
 {
 	int start = elitism * (int)(genome_count*selection_rate);
 	start = elitism;
-	extern int maxGenerations;
 	const double b=(1.0-generation*1.0/maxGenerations)*5.0;
 	for(int i=start;i<genome_count;i++)
 	{
@@ -487,7 +486,6 @@ void    DoublePop::localSearch(int pos)
 }
 void	DoublePop::Solve()
 {
-	extern int maxGenerations;
 	double x1=0.0;
 	double x2=0.0;
 	double stopat=0.0;
@@ -548,7 +546,7 @@ void	DoublePop::Solve()
 				i,fitness_array[0],variance,stopat);
 		
 		if(fabs(fitness_array[0])<1e-10) break;
-/*        if(i%LI==0)
+        if(i%LI==0)
         {
             for(int k=0;k<LC;k++)
 	    {
@@ -556,7 +554,7 @@ void	DoublePop::Solve()
                	    localSearch(pos);
 	    }
 	    select();
-        }*/
+        }
     }
 	LocalSearch(problem,genome[0],fitness_array[0]);
 	have_finished=1;

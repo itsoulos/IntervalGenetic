@@ -395,10 +395,10 @@ void   IntervalGenetic::nextGeneration()
     ++generation;
     calcFitnessArray();
 
-    if(generation%5000==0)
+    if(generation%20==0)
     {
 
-        int count=5;
+        int count=20;
 
 
         omp_set_nested(0);
@@ -412,10 +412,10 @@ void   IntervalGenetic::nextGeneration()
 
         }
 	
- IntervalData mx=getMaximumInterval();
+/* IntervalData mx=getMaximumInterval();
   
  for(int j=0;j<omp_get_max_threads();j++)
-      problem[j]->setMargins(mx);
+      problem[j]->setMargins(mx);*/
     }
     selection();
  crossover();
@@ -449,7 +449,7 @@ void    IntervalGenetic::localSearch(IntervalData &x,Interval &value)
     for(int k=1;k<=10 ;k++)
     {
 	    minFound = false;
-    for(int i=0;i<x.size();i++)
+    for(int i=0;i<x.size()/10;i++)
     {
        Interval temp=Interval(0,0);
        int ipos=rand() % x.size();
@@ -484,7 +484,7 @@ void    IntervalGenetic::localSearch(IntervalData &x,Interval &value)
            x[ipos]=temp;
        }
     }
-    //if(k==10)
+    if(k==10)
     cout<<"ITERATION "<<k<<" NEW VALUE "<<value<<endl;
    //break;
  //  if (minFound) break;

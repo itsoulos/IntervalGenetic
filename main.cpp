@@ -356,11 +356,11 @@ int main(int argc,char **argv)
         intervalMethod="none";
         p.setParameter("normalTrain",0);
         DoublePop pop(chromosomes,&np);
-        pop.setLocalIterations(2000);
-        pop.setLocalChromosomes(0);
+        pop.setLocalIterations(50);
+        pop.setLocalChromosomes(10);
         pop.setSelectionRate(selection_rate);
         pop.setMutationRate(mutation_rate);
-        pop.setMaxGenerations(200);
+        pop.setMaxGenerations(5000);
         pop.Solve();
         Data bestx = pop.getBestGenome();
 
@@ -371,18 +371,19 @@ int main(int argc,char **argv)
             //for GE ONLY!
 
             bestMargin[i]=Interval(0.0,
-                                   2.0*fabs(bestx[i]));
+                                   1.0*fabs(bestx[i]));
 
             //bestMargin[i]=Interval(-2.0*fabs(bestx[i]),
             //                       2.0*fabs(bestx[i]));
 
             printf("***Margin[%d]=%lf,%lf\n",i,bestMargin[i].leftValue(),
                    bestMargin[i].rightValue());
+	    bestgeneticx[i]=bestx[i];
         }
         p.setMargins(bestMargin);
         intervalMethod="genetic";
         p.setParameter("normalTrain",1);
-    	bestMargin=runDoubleInterval(bestMargin,&p,bestgeneticx);
+    	//bestMargin=runDoubleInterval(bestMargin,&p,bestgeneticx);
     }
     else
     if(intervalMethod=="grammar")
@@ -472,7 +473,6 @@ int main(int argc,char **argv)
             if(intervalMethod=="none")
                  bestx=np.getUniformRandomPoint();
             else bestx=bestgeneticx;
-           // np.done(bestx);
         }
 
        QJsonObject result=p.done(bestx);

@@ -217,7 +217,7 @@ QJsonObject    done(Data &x)
 	vector<int> genome;
 	genome.resize(getdimension());
     for(int i=0;i<getdimension();i++)
-        genome[i]=(int)fabs(x[i]);
+        genome[i]=255;//(int)fabs(x[i]);
     double ff;
     string lastExpr="";
 
