@@ -160,8 +160,7 @@ void	NNCNeuralProgram::getDeriv(Data &g)
 {
 
 	for(int i=0;i<g.size();i++) g[i]=0.0;
-    NeuralProgram::getDeriv(g);
-    return ;
+
     Data tempg;
 	tempg.resize(g.size());
 	int start=0;

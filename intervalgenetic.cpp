@@ -305,7 +305,7 @@ void   IntervalGenetic::crossover()
         int parent2=tournament();
         unsigned size=chromosome[0].size();
         //DOUBLE CROSSOVER
-  /* for(int i=0;i<size;i++)
+/*   for(int i=0;i<size;i++)
         {
             double alfa=-0.5+2.0*problem[omp_get_thread_num()]->randomDouble();
             Interval x1,x2;
@@ -341,8 +341,8 @@ void   IntervalGenetic::crossover()
 
             children[children_count+1][i]=Interval(chromosome[parent2][i].leftValue(),
                                               chromosome[parent1][i].rightValue());
-        }*/
-
+        }
+*/
         children_count+=2;
         if(children_count>=children_size) break;
     }
@@ -398,7 +398,7 @@ void   IntervalGenetic::nextGeneration()
     if(generation%5000==0)
     {
 
-        int count=10;
+        int count=5;
 
 
         omp_set_nested(0);
@@ -484,9 +484,9 @@ void    IntervalGenetic::localSearch(IntervalData &x,Interval &value)
            x[ipos]=temp;
        }
     }
-    if(k==10)
+    //if(k==10)
     cout<<"ITERATION "<<k<<" NEW VALUE "<<value<<endl;
- //   break;
+   //break;
  //  if (minFound) break;
     }
 
