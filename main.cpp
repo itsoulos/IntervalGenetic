@@ -360,7 +360,7 @@ int main(int argc,char **argv)
         pop.setLocalChromosomes(10);
         pop.setSelectionRate(selection_rate);
         pop.setMutationRate(mutation_rate);
-        pop.setMaxGenerations(5000);
+        pop.setMaxGenerations(500);
         pop.Solve();
         Data bestx = pop.getBestGenome();
 
@@ -368,13 +368,10 @@ int main(int argc,char **argv)
         bestMargin = p.getMargins();
         for(int i=0;i<bestMargin.size();i++)
         {
-            //for GE ONLY!
 
-            bestMargin[i]=Interval(0.0,
-                                   1.0*fabs(bestx[i]));
 
-            //bestMargin[i]=Interval(-2.0*fabs(bestx[i]),
-            //                       2.0*fabs(bestx[i]));
+            bestMargin[i]=Interval(-2.0*fabs(bestx[i]),
+                                   2.0*fabs(bestx[i]));
 
             printf("***Margin[%d]=%lf,%lf\n",i,bestMargin[i].leftValue(),
                    bestMargin[i].rightValue());
@@ -454,6 +451,7 @@ int main(int argc,char **argv)
             DoublePop pop(chromosomes,&np);
             pop.setSelectionRate(selection_rate);
             pop.setMutationRate(mutation_rate);
+	    pop.setMaxGenerations(maxGenerations);
         //    if(intervalMethod!="none") pop.setBest(bestgeneticx,0.0);
             pop.Solve();
             bestx=pop.getBestGenome();
