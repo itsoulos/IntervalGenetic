@@ -1160,12 +1160,9 @@ QJsonObject    done(Data &x)
             neuronOuts[j] = neuronOutput(x,pattern,pattern.size(),j);
         }
         double tempOut = arma::dot(neuronOuts,Linear);
-/*	if(fabs(tempOut)>=1e+3)
-	{
-		continue;
-		if(tempOut<miny) tempOut = miny;
-		if(tempOut>maxy) tempOut = maxy;
-	}*/
+
+        if(tempOut>maxy) tempOut=maxy;
+        if(tempOut<miny) tempOut=miny;
 
         per=tempOut-testy[i];
 //	printf("%lf => %lf\n",tempOut,testy[i]);
@@ -1190,11 +1187,11 @@ QJsonObject    done(Data &x)
     avg_precision/=dclass.size();
     avg_recall/=dclass.size();
     avg_fscore/=dclass.size();
-    printf("CLASSERROR=%.2lf%% TESTERROR=%10.5lf\n",
+  /*  printf("CLASSERROR=%.2lf%% TESTERROR=%10.5lf\n",
            classError*100.0/testy.size(),sum);
     printf("PRECISION=%10.5lg RECALL=%10.5lg FSCORE=%10.5lg\n",
            avg_precision,avg_recall,avg_fscore);
-
+*/
 #endif
     QJsonObject result;
     result["nodes"]=nodes;

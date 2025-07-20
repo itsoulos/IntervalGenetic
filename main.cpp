@@ -312,7 +312,7 @@ int main(int argc,char **argv)
     double avg_recall  = 0.0;
     double avg_fscore = 0.0;
     const int outIters = 1;
-    int tries=30;
+    int tries=10;
 
     for(int ik=1;ik<=outIters;ik++)
     {
@@ -452,6 +452,7 @@ int main(int argc,char **argv)
             pop.setSelectionRate(selection_rate);
             pop.setMutationRate(mutation_rate);
 	    pop.setMaxGenerations(maxGenerations);
+        	pop.setLocalChromosomes(0);
         //    if(intervalMethod!="none") pop.setBest(bestgeneticx,0.0);
             pop.Solve();
             bestx=pop.getBestGenome();
