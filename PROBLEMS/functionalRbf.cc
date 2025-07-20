@@ -795,7 +795,7 @@ int	getdimension()
 #ifdef KMEANS
     return 2*(trainx[0].size())*nodes;
 #else
-    return (dimension+1) * nodes;
+    return dimension*nodes + 2* nodes;
 #endif
 }
 
@@ -809,7 +809,7 @@ void 	getmargins(vector<Interval> &x)
     if(variances.size()!=0)
     {
             int icount=0;
-	    	double f=10.0;
+	    	double f=2.0;
             for(int i=0;i<nodes;i++)
             {
                 for(int j=0;j<trainx[0].size();j++)
@@ -1160,12 +1160,12 @@ QJsonObject    done(Data &x)
             neuronOuts[j] = neuronOutput(x,pattern,pattern.size(),j);
         }
         double tempOut = arma::dot(neuronOuts,Linear);
-	if(fabs(tempOut)>=1e+3)
+/*	if(fabs(tempOut)>=1e+3)
 	{
 		continue;
 		if(tempOut<miny) tempOut = miny;
 		if(tempOut>maxy) tempOut = maxy;
-	}
+	}*/
 
         per=tempOut-testy[i];
 //	printf("%lf => %lf\n",tempOut,testy[i]);
