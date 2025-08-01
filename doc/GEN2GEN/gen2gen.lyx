@@ -686,7 +686,7 @@ literal "false"
 
 \begin_layout Standard
 Nevertheless,
- the previous optimization methods have have a number of problems such as,
+ the previous optimization methods faced a number of problems such as,
  for example,
  they can identity only local minima of the error function or they suffer from the phenomenon of overifitting.
  In overfitting,
@@ -3472,7 +3472,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -8352,6 +8352,117 @@ are limited to a smaller range of values \SpecialChar allowbreak
 than those identified in the first phase.
 \end_layout
 
+\begin_layout Subsection
+A practical example
+\end_layout
+
+\begin_layout Standard
+As a practical example of application with many patterns,
+ consider the PIRvision dataset,
+ which was presented in 2023 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "pirvision"
+literal "false"
+
+\end_inset
+
+.
+ This dataset contains data from occupancy detection.
+ The associated data were collected from a Synchronized Low-Energy Electronically-chopped Passive Infra-Red sensing node in residential and office environments.
+ The dataset has 15302 patterns and each pattern has 59 features.
+ The following methods were applied on this dataset in the conducted experiments:
+\end_layout
+
+\begin_layout Enumerate
+RBF,
+ which represents the application of the RBF network with 10 processing nodes.
+\end_layout
+
+\begin_layout Enumerate
+BFGS,
+ that stands for the BFGS method which used to train a neural network with 
+\begin_inset Formula $H=10$
+\end_inset
+
+ processing nodes.
+\end_layout
+
+\begin_layout Enumerate
+GENETIC,
+ which represents a genetic algorithm incorporated to to train a neural network with 
+\begin_inset Formula $H=10$
+\end_inset
+
+ processing nodes.
+\end_layout
+
+\begin_layout Enumerate
+GEN2GEN,
+ that represents the proposed method.
+\end_layout
+
+\begin_layout Standard
+The results were validated using the ten - fold cross validation method and they are presented graphically in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:pirvision"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename pirvision.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Results obtained for the PIRvision dataset,
+ using a variety of methods and the proposed method.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:pirvision"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+As is evident from the experimental results,
+ the proposed method significantly reduces the classification error,
+ especially compared to the simple genetic algorithm and is around 5%.
+\end_layout
+
 \begin_layout Section
 Conclusions
 \begin_inset CommandInset label
@@ -8419,6 +8530,22 @@ The proposed method paves new paths for the application of genetic algorithms in
  the integration of hybrid methods combining genetic algorithms with other optimization techniques,
  and the use of distributed computing environments to accelerate training.
  This approach has the potential to become a benchmark for effective and reliable training of artificial neural networks.
+\end_layout
+
+\begin_layout Standard
+Although the proposed method demonstrates clear superiority across a wide range of classification and regression problems,
+ it is important to note that the experiments and analysis focus primarily on relatively simple neural network architectures.
+ While the authors mention the potential application of the method to deep neural networks and hybrid approaches,
+ the article does not provide a thorough discussion of the challenges that may arise when extending the method to such contexts.
+ Deep neural networks,
+ characterized by their multilayered structure and large number of parameters,
+ introduce significant issues related to the stability of the evolutionary process,
+ the efficiency of training,
+ and computational cost.
+ Furthermore,
+ the dynamic interaction between genetic algorithms and other optimization techniques may require specialized adaptations to ensure both effectiveness and scalability when applied to more complex or hybrid environments.
+ Including a brief discussion of these aspects would enhance the completeness of the article,
+ offering a more nuanced perspective on the strengths and limitations of the proposed approach and helping to guide future research efforts towards optimizing the method for use in truly deep and hybrid network architectures.
 \end_layout
 
 \begin_layout Standard
@@ -10800,6 +10927,26 @@ G.A.
  pp.
  52-74,
  2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2023)"
+key "pirvision"
+literal "false"
+
+\end_inset
+
+Emad-Ud-Din,
+ M.,
+ & Wang,
+ Y.
+ (2023).
+ Promoting occupancy detection accuracy using on-device lifelong learning.
+ IEEE Sensors Journal,
+ 23(9),
+ 9595-9606.
 \end_layout
 
 \begin_layout Standard
