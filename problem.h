@@ -20,6 +20,7 @@ public:
     Data        getUniformRandomPoint();
     QJsonObject done(Data &x);
     double      randomDouble();
+    IntervalProblem	*getIntervalProblem();
     bool        isPointIn(Data &x);
 };
 

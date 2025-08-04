@@ -555,11 +555,23 @@ void	DoublePop::Solve()
 	    }
 	    select();
         }
+	if(printDebug==1)	
+	{
+	printf("%d ",i);
+	problem->getIntervalProblem()->setParameter("printFlag","1");		
+	fitness_array[0]=problem->funmin(genome[0]);
+	}
+	problem->getIntervalProblem()->setParameter("printFlag","0");		
     }
 	LocalSearch(problem,genome[0],fitness_array[0]);
 	have_finished=1;
 	fitness_array[0]=problem->funmin(genome[0]);
 	have_finished=0;
+}
+
+void	DoublePop::enableDebug()
+{
+	printDebug =1;
 }
 
 DoublePop::~DoublePop()

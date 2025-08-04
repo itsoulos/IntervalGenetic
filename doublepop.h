@@ -31,8 +31,10 @@ class DoublePop
 		void	tournament(Data &p1,Data &p2);
 		Problem	*problem;
         int LI=20,LC=20;
+	int printDebug=0;
 	public:
 		DoublePop(int gcount,Problem *p);
+		void enableDebug();
 		void	setElitism(int s);
 		int	getGeneration() const;
 		int	getCount() const;

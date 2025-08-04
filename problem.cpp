@@ -13,6 +13,11 @@ Problem::Problem(IntervalProblem *p)
     }
 }
 
+IntervalProblem *Problem::getIntervalProblem()
+{
+	return problem;
+}
+
 Data       Problem::getUniformRandomPoint()
 {
     Data x;

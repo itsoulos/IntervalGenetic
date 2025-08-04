@@ -33,6 +33,7 @@ double initialRight= 10.0;
 Interval maxWidth;
 int failCount=0;
 int normalTrain=0;
+int printFlag =0;
 
 void loadTrain()
 {
@@ -75,6 +76,10 @@ void setParameter(QString name,QVariant value)
     if(name=="normalTrain")
     {
         normalTrain=value.toInt();
+    }
+    if(name == "printFlag")
+    {
+       printFlag = value.toInt();
     }
 }
 
@@ -281,28 +286,6 @@ adept::adouble afunmin(adept::aVector &Weights){
 
 }
 
-double	funmin(vector<double> &x)
-{
-    double sum=0.0;
-    double per=0.0;
-    int fcount=0;
-    for(int i=0;i<trainx.size();i++)
-    {
-        per=dgetValue(x,trainx[i],fcount)-trainy[i];
-        sum+=per * per;
-    }
-    if(normalTrain==1) return sum;
-    return sum+lambda*pow(fcount*1.0/(nodes * trainx.size()),2.0);
-}
-
-void    granal(vector<double> &x,vector<double> &g)
-{
-	if(normalTrain==1) getOriginalGranal(x,g);
-	else
-    getGradient(x,g);
-}
-
-
 double nearestClass(double y)
 {
     int ifound=-1;
@@ -317,6 +300,52 @@ double nearestClass(double y)
     }
     return dclass[ifound];
 }
+void getTestError(vector<double> &x,double &testError,double &classError)
+{
+	testError = 0.0;
+	classError = 0.0;
+	int fcount = 0;
+    for(int i=0;i<testx.size();i++)
+    {
+        double neuralOutput=dgetValue(x,testx[i],fcount);
+        double per=neuralOutput-testy[i];
+        classError+=fabs(testy[i]-nearestClass(neuralOutput))>1e-7;
+        testError+=per * per;
+    }
+    classError = classError * 100.0/testy.size();
+}
+
+double	funmin(vector<double> &x)
+{
+    double sum=0.0;
+    double per=0.0;
+    int fcount=0;
+    for(int i=0;i<trainx.size();i++)
+    {
+        per=dgetValue(x,trainx[i],fcount)-trainy[i];
+        sum+=per * per;
+    }
+    if(normalTrain==1)
+    {
+	    double testError,classError;
+	    if(printFlag)
+	    {
+	    	getTestError(x,testError,classError);
+	    	printf("%lf %lf %lf \n",sum,testError,classError);
+	    }
+	    return sum;
+    }
+    return sum+lambda*pow(fcount*1.0/(nodes * trainx.size()),2.0);
+}
+
+void    granal(vector<double> &x,vector<double> &g)
+{
+	if(normalTrain==1) getOriginalGranal(x,g);
+	else
+    getGradient(x,g);
+}
+
+
 
 QString toString(Data &x)
 {
