@@ -3420,6 +3420,9 @@ literal "false"
 \end_inset
 
  .
+ 
+\series bold
+(.....)
 \end_layout
 
 \begin_layout Enumerate
@@ -3436,6 +3439,9 @@ literal "false"
 \end_inset
 
 .
+ 
+\series bold
+(....Parameters....)
 \end_layout
 
 \begin_layout Enumerate
@@ -3448,6 +3454,9 @@ literal "false"
 \end_inset
 
 .
+ 
+\series bold
+(....)
 \end_layout
 
 \begin_layout Enumerate
@@ -3460,6 +3469,9 @@ literal "false"
 \end_inset
 
  with 10 processing nodes.
+ 
+\series bold
+(.....)
 \end_layout
 
 \begin_layout Enumerate
@@ -3468,6 +3480,9 @@ The column GENETIC denotes the usage of a genetic algorithm to train a neural ne
 \end_inset
 
  processing nodes.
+ 
+\series bold
+(.....)
 \end_layout
 
 \begin_layout Enumerate
@@ -8167,7 +8182,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -8229,7 +8244,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -8305,7 +8320,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -8379,7 +8394,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center

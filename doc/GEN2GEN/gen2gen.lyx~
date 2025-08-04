@@ -3420,6 +3420,9 @@ literal "false"
 \end_inset
 
  .
+ 
+\series bold
+(.....)
 \end_layout
 
 \begin_layout Enumerate
@@ -3436,6 +3439,9 @@ literal "false"
 \end_inset
 
 .
+ 
+\series bold
+(....Parameters....)
 \end_layout
 
 \begin_layout Enumerate
@@ -8167,7 +8173,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -8184,7 +8190,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Detailed Statistical Assessment of the Experimental Performance of Machine Learning Algorithms on a Range of Regression Datasets.
+Detailed statistical assessment of the experimental performance of machine learning algorithms on a range of regression datasets.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:stat2"
@@ -8229,7 +8235,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -8305,7 +8311,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -8379,7 +8385,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
