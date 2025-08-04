@@ -940,13 +940,13 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename sig.eps
-	scale 50
+	scale 75
 
 \end_inset
 
@@ -957,7 +957,19 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-An example plot of the sigmoid function.
+An example plot of the sigmoid function in the range 
+\begin_inset Formula $[-10,10].$
+\end_inset
+
+ The function tends quickly to 0 as 
+\begin_inset Formula $x\rightarrow-\infty$
+\end_inset
+
+ and moves quickly to 1 as 
+\begin_inset Formula $x\rightarrow\infty$
+\end_inset
+
+.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:sigPlot"
@@ -6269,7 +6281,7 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename stat1.png
-	scale 50
+	scale 75
 
 \end_inset
 
@@ -6280,7 +6292,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical comparison for the applied machine learning methods and the classification datasets.
+Comprehensive statistical evaluation of the performance of different machine learning algorithms on benchmark classification datasets.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:stat1"
@@ -8155,12 +8167,13 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename stat2.png
-	scale 50
+	scale 75
 
 \end_inset
 
@@ -8171,7 +8184,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical comparison for the experimental results obtained by the application of the mentioned machine learning methods on the regression datasets.
+Detailed Statistical Assessment of the Experimental Performance of Machine Learning Algorithms on a Range of Regression Datasets.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:stat2"
@@ -8192,7 +8205,74 @@ name "fig:stat2"
 
 \end_inset
 
+Furthermore,
+ to clarify the effect of the number of generations parameter on the speed of the method,
+ another experiment was performed,
+ in which the number of generations was gradually increased from 50 to 400 and the execution times were compared between the simple genetic algorithm method and the proposed procedure.
+ The results are presented graphically in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Average-execution-time"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename gen2gen_time.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average execution time and comparison between the original genetic algorithm and the proposed method.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Average-execution-time"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+As expected,
+ the time required by the proposed method increases significantly as the number of generations increases.
+ This is of course because the proposed method consists of a series of genetic algorithms executed in serial.
+ However,
+ the execution time could be significantly reduced by using parallel programming techniques,
+ since genetic algorithms can be parallelized relatively easily.
 \end_layout
 
 \begin_layout Standard
@@ -8225,13 +8305,13 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename plot_i0.png
-	scale 50
+	scale 75
 
 \end_inset
 
@@ -8299,13 +8379,13 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename plot_f.png
-	scale 50
+	scale 75
 
 \end_inset
 
@@ -8372,7 +8452,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -8380,7 +8460,7 @@ status open
 \begin_layout Plain Layout
 Experimental results using the genetic algorithm,
  the proposed method without the incorporation of the BFGS local search method and the proposed method with the addition of the BFGS method.
- The experiments were conducted on the mentioned classification datasets and the  numbers in cells represent average classification error for the test set.
+ The experiments were conducted on the mentioned classification datasets and the numbers in cells represent average classification error for the test set.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:experClassNoBfgs"
@@ -9759,7 +9839,9 @@ AVERAGE
 
 \end_inset
 
-
+As can be seen from the study of the above results,
+ the local optimization method BFGS improves the results of the proposed method in some problems,
+ but on average the classification error of the proposed method remains low compared to a simple genetic algorithm.
 \end_layout
 
 \begin_layout Subsection

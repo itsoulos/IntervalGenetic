@@ -801,15 +801,21 @@ int	getdimension()
 
 void 	getmargins(vector<Interval> &x)
 {
+	double dmax=-1e+100;
+	    	double f=2.0;
+	for(int i=0;i<trainy.size();i++)
+	{
+		if(trainy[i]>dmax) dmax=trainy[i];
+	}
     for(int i=0;i<getdimension();i++)
     {
-            x[i]=Interval(initialLeft,initialRight);
+            //x[i]=Interval(initialLeft,initialRight);
+            x[i]=Interval(-f * fabs(dmax),f * fabs(dmax));
     }
 	
     if(variances.size()!=0)
     {
             int icount=0;
-	    	double f=2.0;
             for(int i=0;i<nodes;i++)
             {
                 for(int j=0;j<trainx[0].size();j++)
