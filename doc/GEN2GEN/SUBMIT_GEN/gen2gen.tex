@@ -1,4 +1,4 @@
-%% LyX 2.4.0~RC3 created this file.  For more info, see https://www.lyx.org/.
+%% LyX 2.4.3 created this file.  For more info, see https://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[journal,article,submit,pdftex,moreauthors]{Definitions/mdpi}
 \usepackage[utf8]{inputenc}
@@ -265,8 +265,8 @@ use of parallel processing techniques in recent years has resulted
 in a series of related works on the training of artificial neural
 networks that utilize such techniques \citep{nn_gpu1,nn_gpu2}.
 
-Nevertheless, the previous optimization methods have have a number
-of problems such as, for example, they can identity only local minima
+Nevertheless, the previous optimization methods faced a number of
+problems such as, for example, they can identity only local minima
 of the error function or they suffer from the phenomenon of overifitting.
 In overfitting, the artificial neural network exhibits reduced performance
 when it used on data that was not used in the training process. This
@@ -310,18 +310,34 @@ was tested on a series of classification and regression problems from
 various research fields and it was compared against traditional methods
 used for the training of neural networks.
 
+The proposed method consists of three distinct stages which have as
+their ultimate goal to improve the generalization ability of artificial
+neural networks. In the first phase, an estimate of the initial values
+for the value intervals of the parameters of the artificial neural
+network is made. In this phase, the use of sigmoid functions is taken
+into account and the observation that they can lose their generalization
+abilities when the inputs to them exceed certain values in absolute
+value. For this reason, the parameters of the artificial neural network
+are limited in such a way that the inputs of the problem are also
+taken into account. In the second phase, an interval technique undertakes
+to identify a reliable value interval for the parameters of the artificial
+neural network, using the information from the first phase, and finally
+in the third phase, an optimization method, such as a genetic algorithm,
+can be used for the final phase of training the parameters of the
+artificial neural network.
+
 The remaining of this article have the following sections: The section
 \ref{sec:Method-description} describes the proposed method, the section
 \ref{sec:Results} outlines the experimental datasets and the series
 of experiments conducted and final the section \ref{sec:Conclusions}
 presents some conclusions.
 
-\section{Method description\protect\label{sec:Method-description}}
+\section{Method description\label{sec:Method-description}}
 
 This section describes in details the three distinct algorithms used
 in every stage of the proposed method.
 
-\subsection{The algorithm of the first stage\protect\label{subsec:firstPhase}}
+\subsection{The algorithm of the first stage\label{subsec:firstPhase}}
 
 The activation function used commonly in neural networks is the sigmoid
 function defined as:
@@ -332,26 +348,43 @@ An example plot for this function is outlined in Figure \ref{fig:sigPlot}.
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[scale=0.5]{sig}
+\includegraphics[scale=0.75]{sig}
 \par\end{centering}
-\caption{An example plot of the sigmoid function.\protect\label{fig:sigPlot}}
+\caption{An example plot of the sigmoid function in the range $[-10,10].$
+The function tends quickly to 0 as $x\rightarrow-\infty$ and moves
+quickly to 1 as $x\rightarrow\infty$.\label{fig:sigPlot}}
 
 \end{figure}
 As it is clearly shown in this figure, the sigmoid function very quickly
 takes on the value 1 as x goes towards infinity and very quickly takes
 on the value 0 as x goes towards minus infinity. This behavior has
 the direct result that the function loses its generalization capabilities
-very quickly and these are limited to a small range of values. In
-order to measure this effect, the function $B\left(N\left(\overrightarrow{x},\overrightarrow{w}\right),a\right)$
-is introduced and it is shown in Algorithm \ref{alg:CalculationBound}.
-The quantity $a$ is used as a threshold beyond which the artificial
-neural network loses its generalization capabilities.
+very quickly and these are limited to a small range of values.
+
+The sigmoid function converges very fast to 1 as $x\rightarrow+\infty$
+and to 0 as $x\rightarrow-\infty$ . The consequence of this effect
+is that the corresponding computing unit has the same output for different
+input values and different values for the computational nodes and
+hence the corresponding unit. Based on the previous consideration
+one can define the function $B\left(N\left(\overrightarrow{x},\overrightarrow{w}\right),a\right)$,
+which stands for the percentage of how many times the absolute value
+of the input argument of the sigmoid units exceeds a limit $a$ .
+This function can be used to avoid the phenomenon of overfitting by
+limiting the values of the parameters of the artificial neural network
+to specified intervals which will also directly depend on the inputs
+presented to the sigmoid functions. This function is described in
+Algorithm \ref{alg:CalculationBound}. The parameter $a$ is used
+as a heuristic measure for the value that is input to the sigmoid
+function. If the input to the function is greater, in absolute values,
+than this parameter, then we can consider that the sigmoid function
+loses any generalization abilities, as now the result of the sigmoid
+will be the same (0 or 1) regardless of changes in its input.
 
 {\bfseries{}
 \begin{algorithm}[H]
-\textbf{\caption{Calculating the quantity $B(N\left(\protect\overrightarrow{x},\protect\overrightarrow{w}\right),a)$
-with $a>0$ for a a provided neural network $N(x,w).$\protect\label{alg:CalculationBound}}
-}
+\caption{Calculating the quantity $B(N\left(\protect\overrightarrow{x},\protect\overrightarrow{w}\right),a)$
+with $a>0$ for a a provided neural network $N(x,w).$\label{alg:CalculationBound}}
+
 \begin{enumerate}
 \item \textbf{Function} $B(N\left(\overrightarrow{x},\overrightarrow{w}\right),a)$
 \item \textbf{Inputs}: The neural network $N\left(\overrightarrow{x},\overrightarrow{w}\right)$
@@ -528,7 +561,7 @@ when $r\le p_{m}$.
 \end{enumerate}
 \end{enumerate}
 \begin{algorithm}[H]
-\caption{Fitness calculation function. \protect\label{alg:fitnessCalculation}}
+\caption{Fitness calculation function. \label{alg:fitnessCalculation}}
 
 \begin{enumerate}
 \item \textbf{function }fitness$\left(g,N_{s}\right)$
@@ -552,7 +585,7 @@ and the number of random samples $N_{s}$.
 \begin{figure}[H]
 \includegraphics[scale=0.5]{crossover}
 
-\caption{An example of the one - point crossover procedure.\protect\label{fig:onePoint}}
+\caption{An example of the one - point crossover procedure.\label{fig:onePoint}}
 
 \end{figure}
 
@@ -607,7 +640,7 @@ problem to obtain the test error.
 \end{enumerate}
 \end{enumerate}
 
-\section{Results\protect\label{sec:Results}}
+\section{Results\label{sec:Results}}
 
 The validation of the proposed method was performed using a wide series
 of classification and regression datasets, available from various
@@ -735,21 +768,32 @@ were used for the experimental tables:
 \item The column DATASET is used to denote the name of the dataset.
 \item The column BFGS represents the results obtained by the training of
 a neural network with $H=10$ processing nodes using the BFGS optimization
-method \citep{powell} .
+method \citep{powell} . This method terminates either when the derivative
+is zero or when a maximum number of iterations is reached. In the
+experiments performed, this number was set to 2000.
 \item The column ADAM is used to denote the training of a neural network
 with $H=10$ processing nodes using the ADAM optimization method \citep{nn_adam}.
+The parameters used for the conducted experiments were the following:$b_{1}=0.9,\ b_{2}=0.999$
+and the maximum number of iterations was set to 10000.
 \item The column NEAT represents the incorporation of the NEAT method (NeuroEvolution
-of Augmenting Topologies ) \citep{neat}.
+of Augmenting Topologies ) \citep{neat}. The population size was
+set to 500, as in the case of the proposed method.
 \item The column RBF is used to denote the usage of a Radial Basis Function
-(RBF) network \citep{rbf1,rbf2} with 10 processing nodes.
+(RBF) network \citep{rbf1,rbf2} with 10 processing nodes. The network
+was trained with the original training method incorporated in RBF
+networks with two distinct phases: during the first phase the centers
+and the variances of the model were calculated using the k-means algorithm
+\citep{kmeans} and during the second phase the weights of the network
+was obtained by solving a linear system of equations.
 \item The column GENETIC denotes the usage of a genetic algorithm to train
-a neural network with $H=10$ processing nodes.
+a neural network with $H=10$ processing nodes. The parameters used
+in this algorithm are listed in Table \ref{tab:expValues}.
 \item The column PROPOSED denotes experimental results of the proposed method.
 \item The row AVERAGE represents the average classification or regression
 error for all datasets.
 \end{enumerate}
 \begin{table}[H]
-\caption{The values for the parameters of the proposed method.\protect\label{tab:expValues}}
+\caption{The values for the parameters of the proposed method.\label{tab:expValues}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|}
@@ -807,7 +851,7 @@ tasks.
 \begin{table}[H]
 \caption{Experimental results using the incorporated machine learning methods
 on the classification datasets. The numbers in cells represent average
-classification error for the test set.\protect\label{tab:experClass}}
+classification error for the test set.\label{tab:experClass}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -893,21 +937,38 @@ levels of the experiments using the critical parameter p. In Figure
 to classification datasets and comparing the performance of the PROPOSED
 model with various machine learning models. The comparisons include
 the following cases: PROPOSED vs BFGS with p={*}{*}{*}{*} (Very extremely
-significant), \textbf{(OK)}PROPOSED vs ADAM with p={*}{*}{*}{*}, PROPOSED
-vs NEAT with p={*}{*}{*}{*}, PROPOSED vs RBF with p={*}{*}{*}{*},
-and PROPOSED vs GENETIC with p={*}{*}{*}{*}. The results provide a
-clear assessment of the statistical significance of the differences
-in performance between the PROPOSED model and the other models. The
-lower the p-value, the stronger the indication that the observed difference
-in performance is not due to random factors but reflects the genuine
-superiority of the PROPOSED model.
+significant), PROPOSED vs ADAM with p={*}{*}{*}{*}, PROPOSED vs NEAT
+with p={*}{*}{*}{*}, PROPOSED vs RBF with p={*}{*}{*}{*}, and PROPOSED
+vs GENETIC with p={*}{*}{*}{*}. The results provide a clear assessment
+of the statistical significance of the differences in performance
+between the PROPOSED model and the other models. The lower the p-value,
+the stronger the indication that the observed difference in performance
+is not due to random factors but reflects the genuine superiority
+of the PROPOSED model.
 
 \begin{figure}[H]
-\includegraphics[scale=0.5]{stat1}
+\includegraphics[scale=0.75]{stat1}
 
-\caption{Statistical comparison for the applied machine learning methods and
-the classification datasets.\protect\label{fig:stat1}}
+\caption{Comprehensive statistical evaluation of the performance of different
+machine learning algorithms on benchmark classification datasets.\label{fig:stat1}}
 \end{figure}
+As an example of a comparison in terms of the drop in error in the
+control set between the proposed method and the simple genetic algorithm,
+consider Figure \ref{fig:exampleClassError}.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.5]{dermatology_error}
+\par\end{centering}
+\caption{Example of the execution progress of the genetic algorithm and the
+proposed method for the classification problem of Dermatology. The
+figure outlines the classification error as calculated on the test
+set. \label{fig:exampleClassError}}
+\end{figure}
+As can be seen from the figure above, the proposed method has a lower
+error in the control set compared to the simple genetic algorithm
+and furthermore presents very small fluctuations in the value of this
+specific error.
 
 The Table \ref{tab:experRegression} presents the obtained regression
 errors from the usage of different machine learning models on regression
@@ -939,7 +1000,7 @@ BFGS, although less competitive, deliver good results in certain datasets.
 \begin{table}[H]
 \caption{Experimental results using the incorporated machine learning methods
 on the regression datasets. The numbers in cells represent average
-regression on the test set.\protect\label{tab:experRegression}}
+regression on the test set.\label{tab:experRegression}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -1017,13 +1078,34 @@ highly significant, meaning that the probability of the observed differences
 being due to chance is less than 0.1\%.
 
 \begin{figure}[H]
-\includegraphics[scale=0.5]{stat2}
-
-\caption{Statistical comparison for the experimental results obtained by the
-application of the mentioned machine learning methods on the regression
-datasets.\protect\label{fig:stat2}}
+\begin{centering}
+\includegraphics[scale=0.75]{stat2}
+\par\end{centering}
+\caption{Detailed statistical assessment of the experimental performance of
+machine learning algorithms on a range of regression datasets.\label{fig:stat2}}
 
 \end{figure}
+Furthermore, to clarify the effect of the number of generations parameter
+on the speed of the method, another experiment was performed, in which
+the number of generations was gradually increased from 50 to 400 and
+the execution times were compared between the simple genetic algorithm
+method and the proposed procedure. The results are presented graphically
+in Figure \ref{fig:Average-execution-time}.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.75]{gen2gen_time}
+\par\end{centering}
+\caption{Average execution time and comparison between the original genetic
+algorithm and the proposed method.\label{fig:Average-execution-time}}
+
+\end{figure}
+As expected, the time required by the proposed method increases significantly
+as the number of generations increases. This is of course because
+the proposed method consists of a series of genetic algorithms executed
+in serial. However, the execution time could be significantly reduced
+by using parallel programming techniques, since genetic algorithms
+can be parallelized relatively easily.
 
 An addition experiment was performed using a variety of values for
 the initialization factor $I_{0}$ and the regression datasets. The
@@ -1032,10 +1114,10 @@ $I_{0}$ is depicted graphically in Figure \ref{fig:experI0}.
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[scale=0.5]{plot_i0}
+\includegraphics[scale=0.75]{plot_i0}
 \par\end{centering}
 \caption{Experiments using different values of the initialization factor $I_{0}$
-and the used regression datasets.\protect\label{fig:experI0}}
+and the used regression datasets.\label{fig:experI0}}
 
 \end{figure}
 The obtained regression error remains low for lower value of the initialization
@@ -1051,11 +1133,11 @@ regression error for this experiment is outlined graphically in Figure
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[scale=0.5]{plot_f}
+\includegraphics[scale=0.75]{plot_f}
 \par\end{centering}
 \caption{The average regression error obtained by the usage of the proposed
 method on the regression datasets for a variety of values of the scale
-factor $f$.\protect\label{fig:experF}}
+factor $f$.\label{fig:experF}}
 
 \end{figure}
 As it can observed, as the scale factor increases the average regression
@@ -1065,7 +1147,134 @@ when its parameter values \LyXZeroWidthSpace are limited to a smaller
 range of values \LyXZeroWidthSpace than those identified in the first
 phase.
 
-\section{Conclusions\protect\label{sec:Conclusions}}
+Furthermore, in order to assess the contribution of the local optimization
+method BFGS to the performance of the proposed method, an additional
+experiment was performed where the proposed method was executed without
+the use of the method BFGS in the final stage. The experimental results
+from the above experiment are presented in detail in Table \ref{tab:experClassNoBfgs}
+for the classification datasets.
+
+\begin{table}[H]
+\caption{Experimental results using the genetic algorithm, the proposed method
+without the incorporation of the BFGS local search method and the
+proposed method with the addition of the BFGS method. The experiments
+were conducted on the mentioned classification datasets and the numbers
+in cells represent average classification error for the test set.\label{tab:experClassNoBfgs}}
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|}
+\hline 
+\textbf{DATASET} & \textbf{GENETIC} & \textbf{PROPOSED(NO BFGS)} & \textbf{PROPOSED}\tabularnewline
+\hline 
+\hline 
+Alcohol & 39.57\% & 26.32\% & 26.24\%\tabularnewline
+\hline 
+Appendicitis & 18.10\% & 16.00\% & 14.90\%\tabularnewline
+\hline 
+Australian & 32.21\% & 28.09\% & 31.64\%\tabularnewline
+\hline 
+Balance & 8.97\% & 7.81\% & 7.80\%\tabularnewline
+\hline 
+Cleveland & 51.60\% & 46.24\% & 47.51\%\tabularnewline
+\hline 
+Circular & 5.99\% & 5.51\% & 5.42\%\tabularnewline
+\hline 
+Dermatology & 30.58\% & 8.83\% & 5.97\%\tabularnewline
+\hline 
+Hayes Roth & 56.18\% & 42.38\% & 39.28\%\tabularnewline
+\hline 
+Heart & 28.34\% & 18.37\% & 16.85\%\tabularnewline
+\hline 
+HeartAttack & 29.03\% & 19.50\% & 23.77\%\tabularnewline
+\hline 
+HouseVotes & 6.62\% & 3.48\% & 3.05\%\tabularnewline
+\hline 
+Ionosphere & 15.14\% & 10.03\% & 8.75\%\tabularnewline
+\hline 
+Liverdisorder & 31.11\% & 30.94\% & 29.53\%\tabularnewline
+\hline 
+Lymography & 28.42\% & 20.79\% & 17.17\%\tabularnewline
+\hline 
+Mammographic & 19.88\% & 16.59\% & 16.45\%\tabularnewline
+\hline 
+Parkinsons & 18.05\% & 16.21\% & 17.46\%\tabularnewline
+\hline 
+Pima & 32.19\% & 31.11\% & 27.25\%\tabularnewline
+\hline 
+Popfailures & 5.94\% & 4.61\% & 4.66\%\tabularnewline
+\hline 
+Regions2 & 29.39\% & 25.10\% & 25.88\%\tabularnewline
+\hline 
+Saheart & 34.86\% & 31.20\% & 31.59\%\tabularnewline
+\hline 
+Segment & 57.72\% & 40.87\% & 42.43\%\tabularnewline
+\hline 
+Sonar & 22.40\% & 25.55\% & 19.30\%\tabularnewline
+\hline 
+Spiral & 48.66\% & 46.13\% & 44.67\%\tabularnewline
+\hline 
+Statheart & 27.25\% & 17.59\% & 18.90\%\tabularnewline
+\hline 
+Student & 5.61\% & 3.88\% & 4.33\%\tabularnewline
+\hline 
+Transfusion & 24.87\% & 22.99\% & 23.60\%\tabularnewline
+\hline 
+Wdbc & 8.56\% & 8.43\% & 8.69\%\tabularnewline
+\hline 
+Wine & 19.20\% & 6.53\% & 7.27\%\tabularnewline
+\hline 
+Z\_F\_S & 10.73\% & 6.73\% & 5.33\%\tabularnewline
+\hline 
+Z\_O\_N\_F\_S & 64.81\% & 49.68\% & 53.15\%\tabularnewline
+\hline 
+ZO\_NF\_S & 21.54\% & 7.52\% & 5.82\%\tabularnewline
+\hline 
+ZONF\_S & 4.36\% & 2.28\% & 2.35\%\tabularnewline
+\hline 
+ZOO & 9.50\% & 13.90\% & 6.07\%\tabularnewline
+\hline 
+\textbf{AVERAGE} & \textbf{25.68\%} & \textbf{20.04\%} & \textbf{19.49\%}\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+As can be seen from the study of the above results, the local optimization
+method BFGS improves the results of the proposed method in some problems,
+but on average the classification error of the proposed method remains
+low compared to a simple genetic algorithm.
+
+\subsection{A practical example}
+
+As a practical example of application with many patterns, consider
+the PIRvision dataset, which was presented in 2023 \citep{pirvision}.
+This dataset contains data from occupancy detection. The associated
+data were collected from a Synchronized Low-Energy Electronically-chopped
+Passive Infra-Red sensing node in residential and office environments.
+The dataset has 15302 patterns and each pattern has 59 features. The
+following methods were applied on this dataset in the conducted experiments:
+\begin{enumerate}
+\item RBF, which represents the application of the RBF network with 10 processing
+nodes.
+\item BFGS, that stands for the BFGS method which used to train a neural
+network with $H=10$ processing nodes.
+\item GENETIC, which represents a genetic algorithm incorporated to to train
+a neural network with $H=10$ processing nodes.
+\item GEN2GEN, that represents the proposed method.
+\end{enumerate}
+The results were validated using the ten - fold cross validation method
+and they are presented graphically in Figure \ref{fig:pirvision}.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.75]{pirvision}
+\par\end{centering}
+\caption{Results obtained for the PIRvision dataset, using a variety of methods
+and the proposed method.\label{fig:pirvision}}
+\end{figure}
+As is evident from the experimental results, the proposed method significantly
+reduces the classification error, especially compared to the simple
+genetic algorithm and is around 5\%.
+
+\section{Conclusions\label{sec:Conclusions}}
 
 The proposed method for training artificial neural networks is based
 on the application of genetic algorithms in three distinct phases,with
@@ -1123,6 +1332,25 @@ with other optimization techniques, and the use of distributed computing
 environments to accelerate training. This approach has the potential
 to become a benchmark for effective and reliable training of artificial
 neural networks.
+
+Although the proposed method demonstrates clear superiority across
+a wide range of classification and regression problems, it is important
+to note that the experiments and analysis focus primarily on relatively
+simple neural network architectures. While the authors mention the
+potential application of the method to deep neural networks and hybrid
+approaches, the article does not provide a thorough discussion of
+the challenges that may arise when extending the method to such contexts.
+Deep neural networks, characterized by their multilayered structure
+and large number of parameters, introduce significant issues related
+to the stability of the evolutionary process, the efficiency of training,
+and computational cost. Furthermore, the dynamic interaction between
+genetic algorithms and other optimization techniques may require specialized
+adaptations to ensure both effectiveness and scalability when applied
+to more complex or hybrid environments. Including a brief discussion
+of these aspects would enhance the completeness of the article, offering
+a more nuanced perspective on the strengths and limitations of the
+proposed approach and helping to guide future research efforts towards
+optimizing the method for use in truly deep and hybrid network architectures.
 
 \vspace{6pt}
 
@@ -1570,6 +1798,15 @@ pp. 246-257, 1991.
 \bibitem{rbf2}G.A. Montazer, D. Giveki, M. Karami, H. Rastegar, Radial
 basis function neural networks: A review. Comput. Rev. J \textbf{1},
 pp. 52-74, 2018.
+
+\bibitem{kmeans}MacQueen, J.: Some methods for classification and
+analysis of multivariate observations, in: Proceedings of the fifth
+Berkeley symposium on mathematical statistics and probability, Vol.
+1, No. 14, pp. 281-297, 1967. 
+
+\bibitem[(2023)]{pirvision}Emad-Ud-Din, M., \& Wang, Y. (2023). Promoting
+occupancy detection accuracy using on-device lifelong learning. IEEE
+Sensors Journal, 23(9), 9595-9606.
 
 \end{thebibliography}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

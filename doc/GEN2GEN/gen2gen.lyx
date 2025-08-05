@@ -847,6 +847,23 @@ In the second phase of the process,
 \end_layout
 
 \begin_layout Standard
+The proposed method consists of three distinct stages which have as their ultimate goal to improve the generalization ability of artificial neural networks.
+ In the first phase,
+ an estimate of the initial values for the value intervals of the parameters of the artificial neural network is made.
+ In this phase,
+ the use of sigmoid functions is taken into account and the observation that they can lose their generalization abilities when the inputs to them exceed certain values in absolute value.
+ For this reason,
+ the parameters of the artificial neural network are limited in such a way that the inputs of the problem are also taken into account.
+ In the second phase,
+ an interval technique undertakes to identify a reliable value interval for the parameters of the artificial neural network,
+ using the information from the first phase,
+ and finally in the third phase,
+ an optimization method,
+ such as a genetic algorithm,
+ can be used for the final phase of training the parameters of the artificial neural network.
+\end_layout
+
+\begin_layout Standard
 The remaining of this article have the following sections:
  The section 
 \begin_inset CommandInset ref
@@ -996,7 +1013,7 @@ As it is clearly shown in this figure,
 \end_layout
 
 \begin_layout Standard
-The sigmoid function converges  very fast to 1 as 
+The sigmoid function converges very fast to 1 as 
 \begin_inset Formula $x\rightarrow+\infty$
 \end_inset
 
