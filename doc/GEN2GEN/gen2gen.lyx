@@ -940,7 +940,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -993,12 +993,31 @@ name "fig:sigPlot"
 As it is clearly shown in this figure,
  the sigmoid function very quickly takes on the value 1 as x goes towards infinity and very quickly takes on the value 0 as x goes towards minus infinity.
  This behavior has the direct result that the function loses its generalization capabilities very quickly and these are limited to a small range of values.
- In order to measure this effect,
- the function 
+\end_layout
+
+\begin_layout Standard
+The sigmoid function converges  very fast to 1 as 
+\begin_inset Formula $x\rightarrow+\infty$
+\end_inset
+
+ and to 0 as 
+\begin_inset Formula $x\rightarrow-\infty$
+\end_inset
+
+ .
+ The consequence of this effect is that the corresponding computing unit has the same output for different input values and different values for the computational nodes and hence the corresponding unit.
+ Based on the previous consideration one can define the function 
 \begin_inset Formula $B\left(N\left(\overrightarrow{x},\overrightarrow{w}\right),a\right)$
 \end_inset
 
- is introduced and it is shown in Algorithm 
+,
+ which stands for the percentage of how many times the absolute value of the input argument of the sigmoid units exceeds a limit 
+\begin_inset Formula $a$
+\end_inset
+
+ .
+ This function can be used to avoid the phenomenon of overfitting by limiting the values of the parameters of the artificial neural network to specified intervals which will also directly depend on the inputs presented to the sigmoid functions.
+ This function is described in Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:CalculationBound"
@@ -1010,11 +1029,7 @@ nolink "false"
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Standard
-The parameter 
+ The parameter 
 \begin_inset Formula $a$
 \end_inset
 
@@ -1034,7 +1049,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6348,7 +6363,65 @@ name "fig:stat1"
 
 \end_inset
 
+As an example of a comparison in terms of the drop in error in the control set between the proposed method and the simple genetic algorithm,
+ consider Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:exampleClassError"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename dermatology_error.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Example of the execution progress of the genetic algorithm and the proposed method for the classification problem of Dermatology.
+ The figure outlines the classification error as calculated on the test set.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:exampleClassError"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+As can be seen from the figure above,
+ the proposed method has a lower error in the control set compared to the simple genetic algorithm and furthermore presents very small fluctuations in the value of this specific error.
 \end_layout
 
 \begin_layout Standard
