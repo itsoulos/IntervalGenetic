@@ -847,6 +847,8 @@ In the second phase of the process,
 \end_layout
 
 \begin_layout Standard
+
+\color red
 The proposed method consists of three distinct stages which have as their ultimate goal to improve the generalization ability of artificial neural networks.
  In the first phase,
  an estimate of the initial values for the value intervals of the parameters of the artificial neural network is made.
@@ -1013,6 +1015,8 @@ As it is clearly shown in this figure,
 \end_layout
 
 \begin_layout Standard
+
+\color red
 The sigmoid function converges very fast to 1 as 
 \begin_inset Formula $x\rightarrow+\infty$
 \end_inset
@@ -3446,6 +3450,8 @@ The column DATASET is used to denote the name of the dataset.
 \end_layout
 
 \begin_layout Enumerate
+
+\color red
 The column BFGS represents the results obtained by the training of a neural network with 
 \begin_inset Formula $H=10$
 \end_inset
@@ -3465,6 +3471,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
+
+\color red
 The column ADAM is used to denote the training of a neural network with 
 \begin_inset Formula $H=10$
 \end_inset
@@ -3486,6 +3494,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
+
+\color red
 The column NEAT represents the incorporation of the NEAT method (NeuroEvolution of Augmenting Topologies ) 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3500,6 +3510,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
+
+\color red
 The column RBF is used to denote the usage of a Radial Basis Function (RBF) network 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -3522,6 +3534,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
+
+\color red
 The column GENETIC denotes the usage of a genetic algorithm to train a neural network with 
 \begin_inset Formula $H=10$
 \end_inset
@@ -3538,6 +3552,8 @@ nolink "false"
 
 \end_inset
 
+
+\color inherit
 .
 \end_layout
 
@@ -6380,6 +6396,8 @@ name "fig:stat1"
 
 \end_inset
 
+
+\color red
 As an example of a comparison in terms of the drop in error in the control set between the proposed method and the simple genetic algorithm,
  consider Figure 
 \begin_inset CommandInset ref
@@ -6437,6 +6455,8 @@ name "fig:exampleClassError"
 
 \end_inset
 
+
+\color red
 As can be seen from the figure above,
  the proposed method has a lower error in the control set compared to the simple genetic algorithm and furthermore presents very small fluctuations in the value of this specific error.
 \end_layout
@@ -8334,6 +8354,8 @@ name "fig:stat2"
 
 \end_inset
 
+
+\color red
 Furthermore,
  to clarify the effect of the number of generations parameter on the speed of the method,
  another experiment was performed,
@@ -8396,6 +8418,8 @@ name "fig:Average-execution-time"
 
 \end_inset
 
+
+\color red
 As expected,
  the time required by the proposed method increases significantly as the number of generations increases.
  This is of course because the proposed method consists of a series of genetic algorithms executed in serial.
@@ -8558,6 +8582,8 @@ than those identified in the first phase.
 \end_layout
 
 \begin_layout Standard
+
+\color red
 Furthermore,
  in order to assess the contribution of the local optimization method BFGS to the performance of the proposed method,
  an additional experiment was performed where the proposed method was executed without the use of the method BFGS in the final stage.
@@ -9968,6 +9994,8 @@ AVERAGE
 
 \end_inset
 
+
+\color red
 As can be seen from the study of the above results,
  the local optimization method BFGS improves the results of the proposed method in some problems,
  but on average the classification error of the proposed method remains low compared to a simple genetic algorithm.
@@ -9978,6 +10006,8 @@ A practical example
 \end_layout
 
 \begin_layout Standard
+
+\color red
 As a practical example of application with many patterns,
  consider the PIRvision dataset,
  which was presented in 2023 
@@ -9996,11 +10026,15 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
+
+\color red
 RBF,
  which represents the application of the RBF network with 10 processing nodes.
 \end_layout
 
 \begin_layout Enumerate
+
+\color red
 BFGS,
  that stands for the BFGS method which used to train a neural network with 
 \begin_inset Formula $H=10$
@@ -10010,6 +10044,8 @@ BFGS,
 \end_layout
 
 \begin_layout Enumerate
+
+\color red
 GENETIC,
  which represents a genetic algorithm incorporated to to train a neural network with 
 \begin_inset Formula $H=10$
@@ -10019,11 +10055,15 @@ GENETIC,
 \end_layout
 
 \begin_layout Enumerate
+
+\color red
 GEN2GEN,
  that represents the proposed method.
 \end_layout
 
 \begin_layout Standard
+
+\color red
 The results were validated using the ten - fold cross validation method and they are presented graphically in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -10079,6 +10119,8 @@ name "fig:pirvision"
 
 \end_inset
 
+
+\color red
 As is evident from the experimental results,
  the proposed method significantly reduces the classification error,
  especially compared to the simple genetic algorithm and is around 5%.
@@ -10154,6 +10196,8 @@ The proposed method paves new paths for the application of genetic algorithms in
 \end_layout
 
 \begin_layout Standard
+
+\color red
 Although the proposed method demonstrates clear superiority across a wide range of classification and regression problems,
  it is important to note that the experiments and analysis focus primarily on relatively simple neural network architectures.
  While the authors mention the potential application of the method to deep neural networks and hybrid approaches,

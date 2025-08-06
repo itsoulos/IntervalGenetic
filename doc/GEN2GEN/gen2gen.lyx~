@@ -848,7 +848,7 @@ In the second phase of the process,
 
 \begin_layout Standard
 
-\series bold
+\color red
 The proposed method consists of three distinct stages which have as their ultimate goal to improve the generalization ability of artificial neural networks.
  In the first phase,
  an estimate of the initial values for the value intervals of the parameters of the artificial neural network is made.
@@ -863,10 +863,6 @@ The proposed method consists of three distinct stages which have as their ultima
  an optimization method,
  such as a genetic algorithm,
  can be used for the final phase of training the parameters of the artificial neural network.
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \begin_layout Standard
@@ -1019,6 +1015,8 @@ As it is clearly shown in this figure,
 \end_layout
 
 \begin_layout Standard
+
+\color red
 The sigmoid function converges very fast to 1 as 
 \begin_inset Formula $x\rightarrow+\infty$
 \end_inset
@@ -3452,6 +3450,8 @@ The column DATASET is used to denote the name of the dataset.
 \end_layout
 
 \begin_layout Enumerate
+
+\color red
 The column BFGS represents the results obtained by the training of a neural network with 
 \begin_inset Formula $H=10$
 \end_inset
@@ -3471,6 +3471,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
+
+\color red
 The column ADAM is used to denote the training of a neural network with 
 \begin_inset Formula $H=10$
 \end_inset
@@ -3492,6 +3494,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
+
+\color red
 The column NEAT represents the incorporation of the NEAT method (NeuroEvolution of Augmenting Topologies ) 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3506,6 +3510,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
+
+\color red
 The column RBF is used to denote the usage of a Radial Basis Function (RBF) network 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -3528,6 +3534,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
+
+\color red
 The column GENETIC denotes the usage of a genetic algorithm to train a neural network with 
 \begin_inset Formula $H=10$
 \end_inset
@@ -3544,6 +3552,8 @@ nolink "false"
 
 \end_inset
 
+
+\color inherit
 .
 \end_layout
 
@@ -6386,6 +6396,8 @@ name "fig:stat1"
 
 \end_inset
 
+
+\color red
 As an example of a comparison in terms of the drop in error in the control set between the proposed method and the simple genetic algorithm,
  consider Figure 
 \begin_inset CommandInset ref
@@ -6443,6 +6455,8 @@ name "fig:exampleClassError"
 
 \end_inset
 
+
+\color red
 As can be seen from the figure above,
  the proposed method has a lower error in the control set compared to the simple genetic algorithm and furthermore presents very small fluctuations in the value of this specific error.
 \end_layout
@@ -8340,6 +8354,8 @@ name "fig:stat2"
 
 \end_inset
 
+
+\color red
 Furthermore,
  to clarify the effect of the number of generations parameter on the speed of the method,
  another experiment was performed,
@@ -8402,6 +8418,8 @@ name "fig:Average-execution-time"
 
 \end_inset
 
+
+\color red
 As expected,
  the time required by the proposed method increases significantly as the number of generations increases.
  This is of course because the proposed method consists of a series of genetic algorithms executed in serial.
@@ -8564,6 +8582,8 @@ than those identified in the first phase.
 \end_layout
 
 \begin_layout Standard
+
+\color red
 Furthermore,
  in order to assess the contribution of the local optimization method BFGS to the performance of the proposed method,
  an additional experiment was performed where the proposed method was executed without the use of the method BFGS in the final stage.
@@ -9974,6 +9994,8 @@ AVERAGE
 
 \end_inset
 
+
+\color red
 As can be seen from the study of the above results,
  the local optimization method BFGS improves the results of the proposed method in some problems,
  but on average the classification error of the proposed method remains low compared to a simple genetic algorithm.
