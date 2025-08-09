@@ -453,7 +453,7 @@ int main(int argc,char **argv)
             pop.setMutationRate(mutation_rate);
 	    pop.setMaxGenerations(maxGenerations);
         	pop.setLocalChromosomes(0);
-		pop.enableDebug();
+        //pop.enableDebug();
         //    if(intervalMethod!="none") pop.setBest(bestgeneticx,0.0);
             pop.Solve();
             bestx=pop.getBestGenome();
