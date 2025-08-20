@@ -856,7 +856,7 @@ void 	getmargins(vector<Interval> &x)
 		}
 //        if(maxvx<0.1) maxvx=1.0;
 
-        x[icount++]=Interval(-f * maxvx,f * maxvx);
+        x[icount++]=Interval(0.0001,f * maxvx);
 		   
 	    }
 #endif
