@@ -1205,7 +1205,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename kmeans_flowchart.png
-	scale 50
+	scale 75
 
 \end_inset
 
@@ -1217,6 +1217,7 @@ status collapsed
 
 \begin_layout Plain Layout
 A graphical presentation of the K-means algorithm.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:kmeans"
@@ -1279,7 +1280,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2435,6 +2436,68 @@ Apply
  the final network to the test set of the objective problem and report the corresponding test error.
 \end_layout
 
+\begin_layout Standard
+A summary flow chart showing the sequence of the various phases of the proposed work is presented in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:summary"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename overall_flowchart.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Summary flowchart of the proposed method.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:summary"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Results
 \begin_inset CommandInset label
@@ -2447,13 +2510,8 @@ name "sec:Results"
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-(OK)
-\series default
-The validation of the proposed method was performed using a wide series of classification and regression datasets,
- available from various sources from the Internet.
- These datasets were downloaded from:
+The proposed method was validated using a series of classification and regression datasets,
+ obtained from the following online databases:
 \end_layout
 
 \begin_layout Enumerate
@@ -2505,7 +2563,7 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Statlib URL 
+The Statlib database 
 \begin_inset Flex URL
 status open
 
@@ -2525,7 +2583,7 @@ Experimental datasets
 \end_layout
 
 \begin_layout Standard
-The following datasets were utilized in the conducted experiments:
+The following datasets were incorporated in the experiments conducted in this work:
 \end_layout
 
 \begin_layout Enumerate
@@ -2533,7 +2591,7 @@ The following datasets were utilized in the conducted experiments:
 \series bold
 Appendictis
 \series default
- which is a medical dataset 
+ that is a medical dataset 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "appendicitis"
@@ -2548,7 +2606,7 @@ literal "false"
 \begin_layout Enumerate
 
 \series bold
-Alcohol
+(OK)Alcohol
 \series default
 ,
  which is dataset regarding alcohol consumption 
@@ -3260,14 +3318,20 @@ Experimental results
 \end_layout
 
 \begin_layout Standard
+The experiments were performed on a Debian Linux system with 128GB of ram and the code was implemented in ANSI C++ using the OPTIMUS optimization environment 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "optimus"
+literal "false"
 
-\series bold
-(OK)
-\series default
-The experiments were validated using the ten - fold cross validation technique.
- The average classification error,
- as measured in the corresponding test set was reported for the classification datasets.
- This error is calculated through the following formula:
+\end_inset
+
+.
+ For the validation of the experiments the ten - fold cross validation technique was utilized.
+ For the classification datasets the average classification error,
+ calculated on the corresponding test set,
+ is reported.
+ This quantity is expressed using the following equation:
 \begin_inset Formula 
 \begin{equation}
 E_{C}\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=100\times\frac{\sum_{i=1}^{N}\left(\mbox{class}\left(N\left(\overrightarrow{x_{i}},\overrightarrow{w}\right)\right)-y_{i}\right)}{N}
@@ -3275,18 +3339,17 @@ E_{C}\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=100\times\
 
 \end_inset
 
-Here the test set 
+Where the set 
 \begin_inset Formula $T$
 \end_inset
 
- is a set 
+ denotes the related test set and it is defined as 
 \begin_inset Formula $T=\left(x_{i},y_{i}\right),\ i=1,\ldots,N$
 \end_inset
 
 .
- Likewise,
- the average regression error is reported for the regression datasets.
- This error can be obtained using the following equation:
+ Similarly,
+ the average regression is reported for the case of regression datasets and it is expressed using the following equation:
 \begin_inset Formula 
 \begin{equation}
 E_{R}\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=\frac{\sum_{i=1}^{N}\left(N\left(\overrightarrow{x_{i}},\overrightarrow{w}\right)-y_{i}\right)^{2}}{N}
@@ -3294,11 +3357,18 @@ E_{R}\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=\frac{\sum
 
 \end_inset
 
-The experiments were executed on
-\series bold
- 
-\series default
-an AMD Ryzen 5950X with 128GB of RAM and the used operating system was Debian Linux.
+The values for the parameters of the proposed method are listed in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:settings"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
  
 \end_layout
 
@@ -3620,7 +3690,105 @@ Mutation rate
 
 \end_inset
 
+The experimental results for the classification datasets are shown in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expClass"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
+\end_inset
+
+ and for regression datasets in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expRegression"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ In the experimental tables the following notation is used:
+\end_layout
+
+\begin_layout Enumerate
+The column DATASET represents the name of the objective problem.
+\end_layout
+
+\begin_layout Enumerate
+The column BFGS represents the incorporation of the BFGS optimization method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bfgs"
+literal "false"
+
+\end_inset
+
+ for the training of an artificial neural network 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn1,nn2"
+literal "false"
+
+\end_inset
+
+ with 10 processing nodes.
+\end_layout
+
+\begin_layout Enumerate
+The column ADAM represents the application of the Adam optimizer 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Adam,AdamNN"
+literal "false"
+
+\end_inset
+
+ to train a neural network with 10 hidden nodes.
+\end_layout
+
+\begin_layout Enumerate
+The column RBF-KMEANS stands for the original training of an RBF network.
+\end_layout
+
+\begin_layout Enumerate
+The column NEAT (NeuroEvolution of Augmenting Topologies) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "neat"
+literal "false"
+
+\end_inset
+
+ stands for the method NEAT incorporated in the training of neural networks.
+\end_layout
+
+\begin_layout Enumerate
+The column GENRBF stands method introduced in 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbf_gen1"
+literal "false"
+
+\end_inset
+
+ for RBF training.
+\end_layout
+
+\begin_layout Enumerate
+The column PROPOSED denotes the incorporation of the current work.
+\end_layout
+
+\begin_layout Enumerate
+The row average denotes the average classification or regression error for all datasets.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 placement H
 alignment document
@@ -7629,15 +7797,13 @@ In order to determine the stability of the proposed technique when its critical 
 \end_inset
 
 .
- This factor controls the width of the value interval for the network parameters and is a multiple of the initial values \SpecialChar allowbreak
-\SpecialChar allowbreak
-estimated by the K-means method of the first phase.
+ This factor controls the width of the value interval for the network parameters and is a multiple of the initial values estimated by the K-means method of the first phase.
  In this series of experiments the value of 
 \begin_inset Formula $F$
 \end_inset
 
  was altered in the range 
-\begin_inset Formula $[1,4]$
+\begin_inset Formula $[1,8]$
 \end_inset
 
  and the results for the classification datasets are depicted in Table 
@@ -10595,6 +10761,76 @@ AVERAGE
 
 \begin_layout Subsection
 Experiments with differential initialization methods for variances
+\end_layout
+
+\begin_layout Standard
+In another set of experiments,
+ the stability of the proposed method was checked,
+ using a different way of calculating the range of values of the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ parameters of the radial functions.
+ In this work,
+ the value of the variance produced by the K-means algorithm was used as an initial estimate of the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ parameters.
+ This calculation scheme is denoted as 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+ in the following experimental tables.
+ In this additional set of experiments,
+ two more techniques were used,
+ which will be denoted as 
+\begin_inset Formula $\sigma_{\mbox{avg}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{\mbox{max}}$
+\end_inset
+
+ in the following tables.
+ In the 
+\begin_inset Formula $\sigma_{\mbox{avg}}$
+\end_inset
+
+ the following calculation is performed:
+\begin_inset Formula 
+\begin{equation}
+\sigma_{\mbox{avg}}=\frac{1}{k}\sum_{i=1}^{k}\sigma_{i}\label{eq:sigma_avg}
+\end{equation}
+
+\end_inset
+
+Subsequently 
+\begin_inset Formula $\sigma_{\mbox{avg}}$
+\end_inset
+
+ is used to determine the range of values of the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ parameters of the radial functions of the network.
+ In the 
+\begin_inset Formula $\sigma_{\mbox{avg}}$
+\end_inset
+
+ the following quantity is calculated:
+\begin_inset Formula 
+\begin{equation}
+\sigma_{\mbox{max}}=\max\sigma_{i}\label{eq:sigma_max}
+\end{equation}
+
+\end_inset
+
+Afterwards this quantity is used for the determination of the range of values for the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ parameters of the radial functions.
 \end_layout
 
 \begin_layout Standard
@@ -15451,6 +15687,183 @@ D.
  pp.
  81-102,
  1978.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2025)"
+key "optimus"
+literal "false"
+
+\end_inset
+
+I.G.
+ Tsoulos,
+ V.
+ Charilogis,
+ G.
+ Kyrou,
+ V.N.
+ Stavrou,
+ A.
+ Tzallas,
+ Journal of Open Source Software 
+\series bold
+10
+\series default
+,
+ 7584,
+ 2025.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2025)"
+key "bfgs"
+literal "false"
+
+\end_inset
+
+Yuan,
+ Y.
+ X.
+ (1991).
+ A modified BFGS algorithm for unconstrained optimization.
+ IMA Journal of Numerical Analysis,
+ 11(3),
+ 325-332.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn1"
+literal "true"
+
+\end_inset
+
+C.
+ Bishop,
+ Neural Networks for Pattern Recognition,
+ Oxford University Press,
+ 1995.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn2"
+literal "true"
+
+\end_inset
+
+G.
+ Cybenko,
+ Approximation by superpositions of a sigmoidal function,
+ Mathematics of Control Signals and Systems 
+\series bold
+2
+\series default
+,
+ pp.
+ 303-314,
+ 1989.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Adam"
+literal "false"
+
+\end_inset
+
+D.
+ P.
+ Kingma,
+ J.
+ L.
+ Ba,
+ ADAM:
+ a method for stochastic optimization,
+ in:
+ Proceedings of the 3rd International Conference on Learning Representations (ICLR 2015),
+ pp.
+ 1–15,
+ 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "AdamNN"
+literal "false"
+
+\end_inset
+
+Y.
+ Xue,
+ Y.
+ Tong,
+ F.
+ Neri,
+ An ensemble of differential evolution and Adam for training feed-forward neural networks.
+ Information Sciences 
+\series bold
+608
+\series default
+,
+ pp.
+ 453-471,
+ 2022.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2025)"
+key "neat"
+literal "false"
+
+\end_inset
+
+K.
+ O.
+ Stanley,
+ R.
+ Miikkulainen,
+ Evolving Neural Networks through Augmenting Topologies,
+ Evolutionary Computation 
+\series bold
+10
+\series default
+,
+ pp.
+ 99-127,
+ 2002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rbf_gen1"
+literal "false"
+
+\end_inset
+
+S.
+ Ding,
+ L.
+ Xu,
+ C.
+ Su et al,
+ An optimizing method of RBF neural network based on genetic algorithm.
+ Neural Comput & Applic 21,
+ pp.
+ 333–336,
+ 2012.
 \end_layout
 
 \begin_layout Standard
