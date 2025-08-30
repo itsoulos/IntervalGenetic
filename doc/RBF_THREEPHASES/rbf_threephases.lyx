@@ -936,7 +936,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1536,19 +1536,6 @@ EndFor
 \end_inset
 
 
-\series bold
-(OK)
-\series default
-The bounds for the first 
-\begin_inset Formula $(d+1)\times k$
-\end_inset
-
- variables of any given RBF network are considered as a multiple of the quantity 
-\begin_inset Formula $F$
-\end_inset
-
- with the values calculated by the K-means algorithm.
- 
 \end_layout
 
 \begin_layout Subsection
@@ -1556,17 +1543,136 @@ The second phase of the proposed method
 \end_layout
 
 \begin_layout Standard
+During the second phase an optimization procedure is utilized to minimize the equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:RbfError"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
+\end_inset
+
+ inside the bound vectors 
+\begin_inset Formula $\overrightarrow{L},\ \overrightarrow{R}$
+\end_inset
+
+ of the first phase.
+ In the proposed implementation the Genetic Algorithm was incorporated during the second phase.
+ Genetic algorithm are evolutionary methods,
+ that are based on randomly produced solutions of the objective problem.
+ These solutions are called chromosomes and they are evolved through some operations similar to natural processes of selection,
+ crossover and mutation.
+ Genetic algorithms have been used in a wide series of problems,
+ such as placement of wind turbines 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "gen_app1"
+literal "true"
+
+\end_inset
+
+,
+ water distribution 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "gen_app2"
+literal "true"
+
+\end_inset
+
+,
+ problems appeared in banking transactions 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "gen_app3"
+literal "true"
+
+\end_inset
+
+,
+ optimization of neural networks 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "gen_app4"
+literal "true"
+
+\end_inset
+
+ etc.
+ Also,
+ another advantage of Genetic Algorithms is that they can be easily adopt parallel programming techniques in order to speed up the evolutionary process 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "pga1,pga2"
+literal "false"
+
+\end_inset
+
+.
+ The layout of the chromosomes used in the obtained genetic algorithm is presented in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-layout-of"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ 
 \series bold
-Why we selected Genetic Algorithm?
- Advantages and parallel execution..
+I
+\series default
+n this layout the following assumptions are hold:
 \end_layout
 
-\begin_layout Standard
+\begin_layout Enumerate
+The value 
+\begin_inset Formula $c_{i,j}$
+\end_inset
 
-\series bold
-Coding of chromosomes in scheme?
- Vasilis?
+ denotes the 
+\begin_inset Formula $j$
+\end_inset
+
+ element of the 
+\begin_inset Formula $i$
+\end_inset
+
+ center of the RBF network,
+ with 
+\begin_inset Formula $i\in[1,k]$
+\end_inset
+
+ and 
+\begin_inset Formula $j\in[1,d].$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The value 
+\begin_inset Formula $\sigma_{i}$
+\end_inset
+
+ represents the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ parameter for the corresponding radial function.
+\end_layout
+
+\begin_layout Enumerate
+The value 
+\begin_inset Formula $w_{i},\ i\in[1,k]$
+\end_inset
+
+ represents the weight for the corresponding radial function.
 \end_layout
 
 \begin_layout Standard
@@ -1575,13 +1681,13 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-The layout of chromosomes in the second phase of the proposed algorithm.
+The layout of chromosomes used in the second stage of the proposed method.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:The-layout-of"
@@ -1913,8 +2019,7 @@ name "fig:The-layout-of"
 \end_layout
 
 \begin_layout Standard
-Hence,
- the detailed description of the steps of the algorithm is provided subsequently:
+The steps of the genetic algorithm used in the second phase of the proposed method have as follows:
 \end_layout
 
 \begin_layout Enumerate
@@ -1930,25 +2035,25 @@ Initialization step
 \begin_layout Enumerate
 
 \series bold
-Define
+Set
 \series default
- as 
+ the of chromosomes 
 \begin_inset Formula $N_{c}$
 \end_inset
 
- the number of chromosomes and as 
+ and the maximum number of generations denoted as as 
 \begin_inset Formula $N_{g}$
 \end_inset
 
- the number of allowed generations.
+.
 \end_layout
 
 \begin_layout Enumerate
 
 \series bold
-Define
+Set
 \series default
- as 
+ 
 \begin_inset Formula $p_{s}$
 \end_inset
 
@@ -1962,31 +2067,29 @@ Define
 \begin_layout Enumerate
 
 \series bold
-Set
-\series default
- as 
-\begin_inset Formula $I_{w}$
-\end_inset
-
- the number of initial weights for the neural network.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
 Initialize
 \series default
- randomly the chromosomes 
+ every chromosome 
 \begin_inset Formula $g_{i},\ i=1,\ldots,N_{c}$
 \end_inset
 
  of the population as vector of double numbers.
- The dimension of each vector is calculated as:
- 
-\begin_inset Formula $n=(d+2)I_{w}$
+ The layout of each chromosome follows the scheme of Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-layout-of"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
 \end_inset
 
+ and the initialization is performed inside the bound vectors 
+\begin_inset Formula $\overrightarrow{L},\ \overrightarrow{R}$
+\end_inset
 
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -2030,13 +2133,13 @@ do
 \begin_layout Enumerate
 
 \series bold
-Create
+Produce 
 \series default
- a neural network 
-\begin_inset Formula $N_{i}=N\left(\overrightarrow{x},\overrightarrow{g_{i}}\right)$
+an RBF network 
+\begin_inset Formula $R_{i}=R\left(\overrightarrow{x},\overrightarrow{g_{i}}\right)$
 \end_inset
 
- for the chromosome 
+ for the corresponding chromosome 
 \begin_inset Formula $\overrightarrow{g_{i}}.$
 \end_inset
 
@@ -2046,9 +2149,9 @@ Create
 \begin_layout Enumerate
 
 \series bold
-Calculate
+Estimate
 \series default
- the corresponding fitness value 
+ the related fitness value 
 \begin_inset Formula $f_{i}$
 \end_inset
 
@@ -2057,7 +2160,7 @@ Calculate
 
 \begin_inset Formula 
 \begin{equation}
-f_{i}=\sum_{j=1}^{M}\left(N\left(\overrightarrow{x}_{j},\overrightarrow{g_{i}}\right)-y_{j}\right)^{2}\label{eq:eq1-1}
+f_{i}=\sum_{j=1}^{M}\left(R\left(\overrightarrow{x}_{j},\overrightarrow{g_{i}}\right)-y_{j}\right)^{2}\label{eq:eq1-1}
 \end{equation}
 
 \end_inset
@@ -2084,32 +2187,36 @@ Genetic operations step
 \begin_deeper
 \begin_layout Enumerate
 Selection procedure:
- Firstly the chromosomes are sorted according to their fitness values.
- The best 
-\begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
+ During this procedure the chromosomes are sorted according to their fitness values and the best 
+\begin_inset Formula $p_{s}\times N_{c}$
 \end_inset
 
- of them are copied without changes to the next generation.
+ of them are transferred without any change to the next generation.
 
 \series bold
  
 \series default
-The remaining will be replaced by new chromosomes that will be produced during crossover and mutation.
+The remaining chromosomes will be substituted by offrpsings produced during crossover and mutation.
 \end_layout
 
 \begin_layout Enumerate
 Crossover procedure:
- In this procedure for each pair of produced chromosomes defined as 
+ During this procedure In this procedure 
+\begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
+\end_inset
+
+ new chromosomes will be created.
+ For each pair 
 \begin_inset Formula $\left(\tilde{z},\tilde{w}\right)$
 \end_inset
 
-,
+ of new chromosomes,
  two chromosomes 
 \begin_inset Formula $(z,w)$
 \end_inset
 
- are selected from the current population with the process of tournament selection.
- The new chromosomes are constructed using the following equations:
+ are selected from the current population using the procedure of tournament selection.
+ The new offsprings are produced following the scheme:
 \begin_inset Formula 
 \begin{eqnarray}
 \tilde{z_{i}} & = & a_{i}z_{i}+\left(1-a_{i}\right)w_{i}\nonumber \\
@@ -2118,12 +2225,11 @@ Crossover procedure:
 
 \end_inset
 
-The values 
+Where the numbers 
 \begin_inset Formula $a_{i}$
 \end_inset
 
- are considered as random numbers,
- with 
+ are random numbers having the property 
 \begin_inset Formula $a_{i}\in[-0.5,1.5]$
 \end_inset
 
@@ -2141,11 +2247,11 @@ literal "true"
 
 \begin_layout Enumerate
 Mutation procedure:
- For each element 
+ For every element 
 \begin_inset Formula $t_{j},j=1,\ldots,n$
 \end_inset
 
- of every chromosome 
+ of each chromosome 
 \begin_inset Formula $g_{i}$
 \end_inset
 
@@ -2153,31 +2259,33 @@ Mutation procedure:
 \begin_inset Formula $r\in[0,1]$
 \end_inset
 
- is selected.
- The element is altered when 
+ is drawn.
+ If 
 \begin_inset Formula $r\le p_{m}$
 \end_inset
 
- according to the scheme:
+ ,
+ then this element is altered according to the following scheme:
 \begin_inset Formula 
 \begin{equation}
 t'_{j}=\begin{cases}
-t_{j}+\Delta\left(k,r_{j}-t_{j}\right), & t=0\\
-t_{j}-\Delta\left(k,t_{j}-l_{j}\right), & t=1
+t_{j}+\Delta\left(k,R_{j}-t_{j}\right), & t=0\\
+t_{j}-\Delta\left(k,t_{j}-L_{j}\right), & t=1
 \end{cases}\label{eq:delta1}
 \end{equation}
 
 \end_inset
 
-where 
+The value 
 \begin_inset Formula $t$
 \end_inset
 
- is a random number that can have the values 0 or 1 and the function 
+ is a random number that can be either 0 or 1.
+ The function function 
 \begin_inset Formula $\Delta(k,y)$
 \end_inset
 
- is given by:
+ is provided by the following equation:
 \begin_inset Formula 
 \begin{equation}
 \Delta(k,y)=y\left(1-r^{\left(1-\frac{k}{N_{g}}\right)}\right)\label{eq:delta2}
@@ -2219,99 +2327,112 @@ If
 \begin_inset Formula $k<N_{g}$
 \end_inset
 
- then go to Fitness Calculation Step,
- else terminate.
+ then go to Fitness Calculation Step
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Else
+\series default
+ report as outcome of this procedure the best located chromosome 
+\begin_inset Formula $g^{*}$
+\end_inset
+
+ with the lowest fitness value.
 \end_layout
 
 \end_deeper
-\begin_layout Standard
-
-\series bold
-MUTATION PROCEDURE
-\end_layout
-
-\begin_layout Standard
-Let 
-\begin_inset Formula $w=\left(w_{1},w_{2},...,w_{n}\right)$
-\end_inset
-
- be the chromosome to be mutated.
- The proposed mutation procedure modifies 
-\begin_inset Formula $w_{i}$
-\end_inset
-
- with probability 
-\begin_inset Formula $p_{m}$
-\end_inset
-
- and the resulting element 
-\begin_inset Formula $w_{i}'$
-\end_inset
-
- is given by
-\begin_inset Formula 
-\begin{equation}
-w_{i}'=\left\{ \begin{array}{cc}
-w_{i}+\Delta\left(\mbox{iter},R_{i}-w_{i}\right),\ \mbox{if} & t>\frac{1}{2}0\\
-w_{i}-\Delta\left(\mbox{iter},w_{i}-L_{i}\right),\ \text{\mbox{otherwise}}
-\end{array}\right.\label{eq:ali_mutation}
-\end{equation}
-
-\end_inset
-
-where 
-\begin_inset Formula $t$
-\end_inset
-
- is a random number with 
-\begin_inset Formula $t\in[0,1]$
-\end_inset
-
-.
- The function 
-\begin_inset Formula $\Delta(\mbox{iter},y)$
-\end_inset
-
- is given by:
-\begin_inset Formula 
-\begin{equation}
-\Delta(\mbox{iter},y)=y\left(1-r^{\left(1-\frac{\mbox{iter}}{\mbox{ITERMAX}}\right)b}\right)\label{eq:delta_equation}
-\end{equation}
-
-\end_inset
-
-where 
-\begin_inset Formula $r$
-\end_inset
-
- is a random number in 
-\begin_inset Formula $[0,1]$
-\end_inset
-
- and 
-\begin_inset Formula $b$
-\end_inset
-
- controls the change of element 
-\begin_inset Formula $w_{i}$
-\end_inset
-
-.
- In the proposed algorithm the value 
-\begin_inset Formula $b=5$
-\end_inset
-
- was used.
-\end_layout
-
 \begin_layout Subsection
 The final phase of the proposed method
 \end_layout
 
 \begin_layout Standard
+In the final phase of the proposed method a local optimization procedure is applied to the outcome of the previous phase,
+ in order to locate an actual minimum for the training error of the RBF network.
+ In the current work the BFGS variant of Powell 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "powell"
+literal "false"
+
+\end_inset
+
+ was selected as the local search procedure.
+ This variant can preserve the bounds of the objective function in an efficient way.
+ During the past years a series of modifications for the BFGS method was introduced,
+ such as the limited memory variant L-BFGS ideal for large scale problems 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "lbfgs"
+literal "false"
+
+\end_inset
+
+ or the Regularized Stochastic BFGS Algorithm 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "resbfgs"
+literal "false"
+
+\end_inset
+
+.
+ Also,
+ Dai published an article on the convergence properties of the BFGS method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "conbfgs"
+literal "false"
+
+\end_inset
+
+.
+ The main steps of the final phase of the algorithm have as follows:
+\end_layout
+
+\begin_layout Enumerate
 
 \series bold
-FLOWCHART OF THE OVERALL METHOD
+Obtain
+\series default
+ the best chromosome 
+\begin_inset Formula $\overrightarrow{g^{*}}$
+\end_inset
+
+ of the previous phase.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Create
+\series default
+ the corresponding RBF network 
+\begin_inset Formula $R^{*}=R\left(\overrightarrow{x},\overrightarrow{g^{*}}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Minimize
+\series default
+ the training error of the network 
+\begin_inset Formula $R^{*}$
+\end_inset
+
+ using the local search procedure of this phase.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Apply
+\series default
+ the final network to the test set of the objective problem and report the corresponding test error.
 \end_layout
 
 \begin_layout Section
@@ -2540,25 +2661,6 @@ literal "false"
 \begin_layout Enumerate
 
 \series bold
-Glass
-\series default
- dataset,
- that contains measurements from glass component analysis.
- 
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Haberman
-\series default
-,
- a medical dataset related to breast cancer.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
 Hayes-roth
 \series default
  dataset 
@@ -2714,15 +2816,6 @@ literal "false"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Phoneme
-\series default
-,
- a dataset that contains sound measurements.
 \end_layout
 
 \begin_layout Enumerate
@@ -2884,7 +2977,7 @@ literal "false"
 EEG
 \series default
 ,
- which is dataset regardingEEG recordings 
+ which is dataset regarding EEG recordings 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "eeg1,eeg2"
@@ -3016,6 +3109,16 @@ DEE
 \series default
 ,
  a dataset that is used to predict the price of electricity.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+FA
+\series default
+ dataset,
+ related to fat measurements.
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -3157,6 +3260,49 @@ Experimental results
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+(OK)
+\series default
+The experiments were validated using the ten - fold cross validation technique.
+ The average classification error,
+ as measured in the corresponding test set was reported for the classification datasets.
+ This error is calculated through the following formula:
+\begin_inset Formula 
+\begin{equation}
+E_{C}\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=100\times\frac{\sum_{i=1}^{N}\left(\mbox{class}\left(N\left(\overrightarrow{x_{i}},\overrightarrow{w}\right)\right)-y_{i}\right)}{N}
+\end{equation}
+
+\end_inset
+
+Here the test set 
+\begin_inset Formula $T$
+\end_inset
+
+ is a set 
+\begin_inset Formula $T=\left(x_{i},y_{i}\right),\ i=1,\ldots,N$
+\end_inset
+
+.
+ Likewise,
+ the average regression error is reported for the regression datasets.
+ This error can be obtained using the following equation:
+\begin_inset Formula 
+\begin{equation}
+E_{R}\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=\frac{\sum_{i=1}^{N}\left(N\left(\overrightarrow{x_{i}},\overrightarrow{w}\right)-y_{i}\right)^{2}}{N}
+\end{equation}
+
+\end_inset
+
+The experiments were executed on
+\series bold
+ 
+\series default
+an AMD Ryzen 5950X with 128GB of RAM and the used operating system was Debian Linux.
+ 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 placement H
 alignment document
@@ -3165,8 +3311,322 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The values for each parameter of the proposed method.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:settings"
+
+\end_inset
+
 
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+NAME
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MEANING
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+VALUE
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of radial functions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $10$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $F$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Scaling factor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2.0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $B_{w}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Bound value for the weights
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $10.0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{c}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of chromosomes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $500$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{g}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Maximum number of generations
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $200$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $p_{s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Selection rate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $p_{m}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mutation rate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.05$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -7153,11 +7613,56 @@ AVERAGE
 \end_layout
 
 \begin_layout Subsection
-Experiments with different values of factor 
+Experiments with different values of scale factor 
 \begin_inset Formula $F$
 \end_inset
 
  
+\end_layout
+
+\begin_layout Standard
+In order to determine the stability of the proposed technique when its critical parameters change,
+ a series of additional experiments were conducted.
+ In one of them,
+ the stability of the technique was studied with the change of the scaling factor 
+\begin_inset Formula $F$
+\end_inset
+
+.
+ This factor controls the width of the value interval for the network parameters and is a multiple of the initial values \SpecialChar allowbreak
+\SpecialChar allowbreak
+estimated by the K-means method of the first phase.
+ In this series of experiments the value of 
+\begin_inset Formula $F$
+\end_inset
+
+ was altered in the range 
+\begin_inset Formula $[1,8]$
+\end_inset
+
+ and the results for the classification datasets are depicted in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expClassF"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ and for the regression datasets in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expRegressionF"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -10098,7 +10603,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -11498,7 +12003,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -13627,6 +14132,172 @@ E.U.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "gen_app1"
+literal "true"
+
+\end_inset
+
+S.A.
+ Grady,
+ M.Y.
+ Hussaini,
+ M.M.
+ Abdullah,
+ Placement of wind turbines using genetic algorithms,
+ Renewable Energy 
+\series bold
+30
+\series default
+,
+ pp.
+ 259-270,
+ 2005.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "gen_app2"
+literal "true"
+
+\end_inset
+
+Prasad,
+ T.,
+ Park,
+ N.,
+ Multiobjective Genetic Algorithms for Design of Water Distribution Networks,
+ J.
+ Water Resour.
+ Plann.
+ Manage.
+ 
+\series bold
+130
+\series default
+,
+ pp.
+ 73-82,
+ 2004.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "gen_app3"
+literal "true"
+
+\end_inset
+
+Sung-Hwan Min,
+ Jumin Lee,
+ Ingoo Han,
+ Hybrid genetic algorithms and support vector machines for bankruptcy prediction,
+ Expert Systems with Applications 
+\series bold
+31
+\series default
+,
+ pp.
+ 652-660,
+ 2006.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "gen_app4"
+literal "true"
+
+\end_inset
+
+D.
+ Whitley,
+ T.
+ Starkweather,
+ C.
+ Bogart,
+ Genetic algorithms and neural networks:
+ Optimizing connections and connectivity,
+ Parallel Computing 
+\series bold
+14
+\series default
+,
+ pp.
+ 347-361,
+ 1990.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2004)"
+key "pga1"
+literal "false"
+
+\end_inset
+
+Konfrst,
+ Z.
+ (2004,
+ April).
+ Parallel genetic algorithms:
+ Advances,
+ computing trends,
+ applications and perspectives.
+ In 18th International Parallel and Distributed Processing Symposium,
+ 2004.
+ Proceedings.
+ (p.
+ 162).
+ IEEE.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2004)"
+key "pga2"
+literal "false"
+
+\end_inset
+
+Johar,
+ F.
+ M.,
+ Azmin,
+ F.
+ A.,
+ Suaidi,
+ M.
+ K.,
+ Shibghatullah,
+ A.
+ S.,
+ Ahmad,
+ B.
+ H.,
+ Salleh,
+ S.
+ N.,
+ ...
+ & Shukor,
+ M.
+ M.
+ (2013,
+ November).
+ A review of genetic algorithms and parallel genetic algorithms on graphics processing unit (GPU).
+ In 2013 IEEE International Conference on Control System,
+ Computing and Engineering (pp.
+ 264-269).
+ IEEE.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "kaelo"
 literal "true"
 
@@ -13645,6 +14316,95 @@ P.
  pp.
  60-76,
  2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2004)"
+key "powell"
+literal "false"
+
+\end_inset
+
+M.J.D Powell,
+ A Tolerant Algorithm for Linearly Constrained Optimization Calculations,
+ Mathematical Programming 
+\series bold
+45
+\series default
+,
+ pp.
+ 547-566,
+ 1989.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2004)"
+key "lbfgs"
+literal "false"
+
+\end_inset
+
+Liu,
+ D.
+ C.,
+ & Nocedal,
+ J.
+ (1989).
+ On the limited memory BFGS method for large scale optimization.
+ Mathematical programming,
+ 45(1),
+ 503-528.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2004)"
+key "resbfgs"
+literal "false"
+
+\end_inset
+
+A.
+ Mokhtari and A.
+ Ribeiro,
+ "RES:
+ Regularized Stochastic BFGS Algorithm," in IEEE Transactions on Signal Processing,
+ vol.
+ 62,
+ no.
+ 23,
+ pp.
+ 6089-6104,
+ Dec.1,
+ 2014,
+ doi:
+ 10.1109/TSP.2014.2357775.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2004)"
+key "conbfgs"
+literal "false"
+
+\end_inset
+
+Dai,
+ Y.
+ H.
+ (2002).
+ Convergence properties of the BFGS algoritm.
+ SIAM Journal on Optimization,
+ 13(3),
+ 693-701.
 \end_layout
 
 \begin_layout Bibliography
