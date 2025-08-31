@@ -235,7 +235,8 @@ End
 \begin_body
 
 \begin_layout Title
-Train RBF networks using a method of three phases
+From Initialization to Convergence:
+ A Three-Stage technique for Robust RBF Network Training
 \end_layout
 
 \begin_layout Title Citation
@@ -2305,7 +2306,7 @@ literal "false"
 \begin_layout Enumerate
 
 \series bold
-(OK)Alcohol
+Alcohol
 \series default
 ,
  which is dataset regarding alcohol consumption 
@@ -14000,7 +14001,11 @@ nolink "false"
 \end_inset
 
 .
- This means that the choice of computation method for the σ parameters does not have a substantial impact on the performance of the model in regression problems.
+ This means that the choice of computation method for the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ parameters does not have a substantial impact on the performance of the model in regression problems.
  Therefore,
  it can be concluded that the model demonstrates stable and consistent behavior regardless of which initialization technique is applied.
 \end_layout
@@ -14065,6 +14070,105 @@ name "sec:Conclusions"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+The final experimental evidence shows that the three-phase RBF training pipeline bound construction via K-means,
+ global search with a GA inside those bounds,
+ and local refinement with BFGS yields robust gains across heterogeneous classification and regression tasks.
+ On classification,
+ it achieves the lowest mean error (19.45%) with extremely significant superiority over all baselines 
+\begin_inset Formula $\left(p<0.0001\right)$
+\end_inset
+
+,
+ on regression,
+ it attains the smallest mean absolute error (5.87),
+ with 
+\begin_inset Formula $p<0.01$
+\end_inset
+
+ against BFGS/ADAM and 
+\begin_inset Formula $p<0.0001$
+\end_inset
+
+ against NEAT/RBF-KMEANS/GENRBF.
+ These results indicate that coupling broad exploration with constrained,
+ precise local tuning mitigates numerical instability and local minima,
+ providing reproducible performance improvements.
+ 
+\end_layout
+
+\begin_layout Standard
+Sensitivity analyses reveal that the scale factor 
+\begin_inset Formula $F$
+\end_inset
+
+ materially affects classification at small-to-intermediate settings (
+\begin_inset Formula $F=1\rightarrow2$
+\end_inset
+
+ and 
+\begin_inset Formula $F=2\rightarrow4$
+\end_inset
+
+ are significant at 
+\begin_inset Formula $p<0.01$
+\end_inset
+
+),
+ with no meaningful gain from 
+\begin_inset Formula $F=4$
+\end_inset
+
+ to 
+\begin_inset Formula $F=8$
+\end_inset
+
+,
+ whereas for regression the 
+\begin_inset Formula $F$
+\end_inset
+
+ comparisons are not significant,
+ highlighting methodological stability.
+ Alternative 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ computation methods 
+\begin_inset Formula $\left(\sigma_{1},\ \sigma_{\mbox{avg}},\ \sigma_{\mbox{max}}\right)$
+\end_inset
+
+ differ only marginally on average and show no significant differences in either task,
+ reinforcing the method’s resilience to low-level design choices.
+ 
+\end_layout
+
+\begin_layout Standard
+Automating architecture and hyperparameter adaptation is a natural next step.
+ Joint optimization of the number of RBF units,
+ 
+\begin_inset Formula $F$
+\end_inset
+
+,
+ and bounds via Bayesian optimization or meta-learning could reduce manual tuning and improve generalization.
+ Exploring alternative global optimizers (e.g.,
+ DE,
+ PSO,
+ CMA-ES) or hybrid GA and Bayesian strategies may accelerate convergence and enhance exploration,
+ while in the final stage L-BFGS,
+ bound-aware variants,
+ and stochastic formulations could benefit large-scale,
+ high-dimensional settings.
+ A thorough ablation study to quantify each phase’s contribution,
+ along with broader post-hoc statistics,
+ would strengthen the evidence base.
+ From a systems perspective,
+ parallel/distributed GA evaluations and GPU-accelerated RBF computations can materially cut runtime.
+ Finally,
+ extending benchmarks to strong non-RBF baselines and integrating the approach into AutoML pipelines together with analyses of interpretability and predictive uncertainty will provide a more complete picture of the method’s limits and potential.
 \end_layout
 
 \begin_layout Standard
