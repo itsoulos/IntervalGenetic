@@ -1685,6 +1685,16 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename chrom.png
+	scale 65
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1697,317 +1707,6 @@ name "fig:The-layout-of"
 
 
 \end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Formula $ $
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-
-\size footnotesize
-\begin_inset Tabular
-<lyxtabular version="3" rows="1" columns="20">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-\begin_inset Formula $c_{11}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-\begin_inset Formula $c_{12}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-...
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-\begin_inset Formula $c_{1d}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-\begin_inset Formula $\sigma_{1}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-\begin_inset Formula $c_{21}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-\begin_inset Formula $c_{22}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-...
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-\begin_inset Formula $c_{2d}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-\begin_inset Formula $\sigma_{2}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-...
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-\begin_inset Formula $c_{k1}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-\begin_inset Formula $c_{k2}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-...
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-\begin_inset Formula $c_{kd}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-\begin_inset Formula $\sigma_{k}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-\begin_inset Formula $w_{1}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-\begin_inset Formula $w_{2}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-\begin_inset Formula $\ldots$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-\begin_inset Formula $w_{k}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
 
 \end_inset
 
@@ -3690,29 +3389,6 @@ Mutation rate
 
 \end_inset
 
-The experimental results for the classification datasets are shown in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:expClass"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- and for regression datasets in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:expRegression"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-.
  In the experimental tables the following notation is used:
 \end_layout
 
@@ -3786,6 +3462,71 @@ The column PROPOSED denotes the incorporation of the current work.
 
 \begin_layout Enumerate
 The row average denotes the average classification or regression error for all datasets.
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expClass"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ reports thirty-two classification datasets and six learning methods:
+ BFGS,
+ ADAM,
+ NEAT,
+ RBF-KMEANS,
+ GENRBF,
+ and the new proposed method.
+ The entries are classification error rates;
+ lower values indicate better performance.
+ The last row gives the mean error for each method across all datasets.
+ Based on these means,
+ the proposed method attains the lowest overall error,
+ about 19.45%.
+ All other methods exhibit substantially higher errors:
+ GENRBF 34.89%,
+ ADAM 33.73%,
+ BFGS 33.50%,
+ NEAT 32.77%,
+ and RBF-KMEANS 28.54%.
+ Thus,
+ on average,
+ the proposed method nearly halves the error relative to the alternatives.
+ At the dataset level,
+ the proposed approach often delivers striking gains.
+ For example,
+ on Spiral it achieves only 13.26% error,
+ whereas all other methods lie around 45–50%.
+ On Australian it yields 22.67% compared with 32–42% for the others.
+ Similarly,
+ on the challenging medical dataset Cleveland,
+ it obtains 50.86% while the others exceed 67%.
+ Comparable advantages are observed on Heart,
+ HeartAttack,
+ Statheart,
+ Wine,
+ and Z_F_S.
+ There are,
+ however,
+ datasets where the proposed method is not the best.
+ On Hayes Roth and Zoo it performs worse than GENRBF or RBF-KMEANS,
+ and on Transfusion the results are broadly similar to the other methods,
+ with no clear advantage.
+ This indicates that although the method does not dominate in every single problem,
+ the overall trend clearly favors it.
+ In summary,
+ the statistical picture suggests that the proposed method is,
+ on average,
+ the most reliable and effective strategy,
+ producing markedly lower classification errors.
+ While it lags behind certain alternatives on a few datasets,
+ its low mean error underscores a more general and robust solution for classification tasks.
 \end_layout
 
 \begin_layout Standard
@@ -6140,7 +5881,66 @@ AVERAGE
 
 \end_inset
 
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expRegression"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
+\end_inset
+
+ reports twenty-one regression datasets and six machine-learning models:
+ BFGS,
+ ADAM,
+ NEAT,
+ RBF-KMEANS,
+ GENRBF,
+ and the proposed method.
+ The entries are absolute prediction errors;
+ smaller values indicate better model performance.
+ The last row gives the mean error for each method across all datasets.
+ The analysis of the means clearly shows that the proposed method attains the smallest overall error,
+ 5.87.
+ The remaining methods have substantially higher errors:
+ BFGS 28.82,
+ ADAM 21.39,
+ NEAT 13.99,
+ RBF-KMEANS 9.56,
+ and GENRBF 13.38.
+ This implies that the proposed approach greatly improves accuracy,
+ reducing the average error to nearly half of the best competing model and far more compared with the classical BFGS and ADAM.
+ At the dataset level there are striking gaps.
+ On Housing the proposed method records an error of 15.36,
+ whereas the other models range from 56 to 97.
+ On Stock the contrast is even stronger,
+ with an error of only 1.44 while others reach well above 300.
+ Similarly,
+ on Plastic the error drops to 2.28,
+ while the alternatives lie between 8 and 26.
+ Comparable advantages are observed on Mortgage,
+ Treasury,
+ Concrete,
+ HO,
+ Quake,
+ and PL.
+ There are,
+ however,
+ a few cases where the proposed method is not the best;
+ for example,
+ on FY and SN it shows slightly higher errors than some competitors,
+ though the differences are small,
+ so no clear advantage emerges there.
+ Overall,
+ the evidence indicates that the proposed method is the most reliable and effective option on average,
+ substantially reducing regression error relative to all other techniques.
+ Although it does not lead on every dataset,
+ the large reduction in mean error and the strong results on several difficult problems demonstrate a robust and broadly applicable solution for regression tasks.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 placement H
 alignment document
@@ -7777,6 +7577,186 @@ AVERAGE
 
 \end_inset
 
+Based on the executions carried out with scripts in the R language concerning the processing of the experimental results on the classification datasets,
+ the significance levels of the 
+\begin_inset Formula $p$
+\end_inset
+
+ parameter were calculated in order to assess the statistical strength of the comparisons between the proposed model and the alternative methods.
+ In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statClass"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ these significance levels are illustrated according to the established scale,
+ where ns indicates no statistically significant difference 
+\begin_inset Formula $\left(p>0.005\right)$
+\end_inset
+
+,
+ while the presence of one to four asterisks denotes increasing statistical strength,
+ from significant 
+\begin_inset Formula $\left(p<0.05\right)$
+\end_inset
+
+ to very extremely significant 
+\begin_inset Formula $\left(p<0.0001\right)$
+\end_inset
+
+.
+ The results show that in all comparisons of the proposed model with the other methods,
+ namely BFGS,
+ ADAM,
+ NEAT,
+ RBF-KMEANS,
+ and GENRBF,
+ the significance levels were found at the highest level with 
+\begin_inset Formula $p<0.0001$
+\end_inset
+
+.
+ This indicates that the performance differences are not random but instead reflect a very strong superiority of the proposed model over all the other techniques examined.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename stat1.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison of results obtained in the classification datasets using a series of machine learning methods.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statClass"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+Similarly,
+ for the regression datasets,
+ the significance levels of the 
+\begin_inset Formula $p$
+\end_inset
+
+ parameter were computed to assess the statistical strength of the comparisons between the proposed model and the other methods.
+ In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statRegression"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ the significance levels are illustrated according to the established scale,
+ where two asterisks correspond to high statistical significance 
+\begin_inset Formula $\left(p<0.01\right)$
+\end_inset
+
+ and four asterisks indicate a very extremely significant difference 
+\begin_inset Formula $\left(p<0.0001\right)$
+\end_inset
+
+.
+ The results show that,
+ in comparison with the BFGS and ADAM models,
+ the proposed method achieves high statistical significance with 
+\begin_inset Formula $p<0.01$
+\end_inset
+
+,
+ demonstrating that its superiority is not due to chance.
+ Furthermore,
+ in all other comparisons,
+ namely against NEAT,
+ RBF-KMEANS,
+ and GENRBF,
+ the significance levels reach the highest level with 
+\begin_inset Formula $p<0.0001$
+\end_inset
+
+,
+ which highlights a very strong superiority of the proposed model over the alternative regression methods examined.
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename stat2.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison of the obtained results in the regression datasets using a variety of machine learning methods.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statRegression"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -7792,7 +7772,7 @@ Experiments with different values of scale factor
 In order to determine the stability of the proposed technique when its critical parameters change,
  a series of additional experiments were conducted.
  In one of them,
- the stability of the technique was studied with the change of the scaling factor 
+ the stability of the technique was studied with the change of the scale factor 
 \begin_inset Formula $F$
 \end_inset
 
@@ -7806,7 +7786,12 @@ In order to determine the stability of the proposed technique when its critical 
 \begin_inset Formula $[1,8]$
 \end_inset
 
- and the results for the classification datasets are depicted in Table 
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:expClassF"
@@ -7817,18 +7802,106 @@ nolink "false"
 
 \end_inset
 
- and for the regression datasets in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:expRegressionF"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
+ presents the effect of the scale factor 
+\begin_inset Formula $F$
+\end_inset
 
+ on the performance of the proposed machine learning model.
+ The parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ takes four different values,
+ 1,
+ 2,
+ 4,
+ and 8,
+ and for each dataset the classification error rate is reported.
+ Analyzing the mean values,
+ it is observed that 
+\begin_inset Formula $F=2$
+\end_inset
+
+ and 
+\begin_inset Formula $F=4$
+\end_inset
+
+ achieve the best overall performance,
+ with average errors of 19.45% and 18.53% respectively,
+ compared to 20.99% for 
+\begin_inset Formula $F=1$
+\end_inset
+
+ and 18.60% for 
+\begin_inset Formula $F=8$
 \end_inset
 
 .
+ This indicates that selecting an intermediate value of the initialization factor improves performance,
+ reducing the error by about two percentage points relative to the baseline case of 
+\begin_inset Formula $F=1$
+\end_inset
+
+.
+ At the individual dataset level,
+ interesting patterns emerge.
+ For example,
+ in Sonar the error drops significantly from 32.90% at 
+\begin_inset Formula $F=1$
+\end_inset
+
+ to 18.75% at 
+\begin_inset Formula $F=4$
+\end_inset
+
+,
+ suggesting that the parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ strongly influences performance in certain problems.
+ In contrast,
+ in Spiral increasing 
+\begin_inset Formula $F$
+\end_inset
+
+ worsens the results,
+ as the error rises from 12.03% at 
+\begin_inset Formula $F=1$
+\end_inset
+
+ to 23.56% at 
+\begin_inset Formula $F=8$
+\end_inset
+
+.
+ Similarly,
+ in the Australian dataset a gradual increase of 
+\begin_inset Formula $F$
+\end_inset
+
+ from 1 to 8 systematically improves performance,
+ reducing the error from 24.04% to 20.59%.
+ Overall,
+ the data show that the effect of the scale factor is not uniform across all problems,
+ but the general trend indicates improvement when 
+\begin_inset Formula $F$
+\end_inset
+
+ increases from 1 to 2 or 4.
+ Choosing 
+\begin_inset Formula $F=4$
+\end_inset
+
+ appears to yield the best mean result,
+ although the difference compared with 
+\begin_inset Formula $F=8$
+\end_inset
+
+ is very small.
+ Therefore,
+ it can be concluded that tuning this parameter plays an important role in the stability and accuracy of the model,
+ and that intermediate values such as 4 constitute a good general choice.
 \end_layout
 
 \begin_layout Standard
@@ -9552,7 +9625,132 @@ AVERAGE
 
 \end_inset
 
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expRegressionF"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
+\end_inset
+
+ shows the effect of the scale factor 
+\begin_inset Formula $F$
+\end_inset
+
+ on the performance of the proposed regression model.
+ Based on the mean errors,
+ the best overall performance occurs at 
+\begin_inset Formula $F=4$
+\end_inset
+
+ with an average error of 5.68,
+ while the values for 
+\begin_inset Formula $F=1,F=2$
+\end_inset
+
+ and 
+\begin_inset Formula $F=8$
+\end_inset
+
+ are 5.94,
+ 5.87,
+ and 5.78,
+ respectively.
+ The differences across the four settings are not large,
+ but they indicate that intermediate values and especially 
+\begin_inset Formula $F=4$
+\end_inset
+
+ tend to offer the best accuracy stability trade-off.
+ At the level of individual datasets,
+ substantial variations are observed.
+ For Friedman the reduction is dramatic,
+ with error dropping from 6.74 at 
+\begin_inset Formula $F=1$
+\end_inset
+
+ to 1.41 at 
+\begin_inset Formula $F=8$
+\end_inset
+
+,
+ highlighting that proper tuning of 
+\begin_inset Formula $F$
+\end_inset
+
+ can have a strong impact on performance.
+ Laser shows a similarly large improvement,
+ from 0.027 at 
+\begin_inset Formula $F=1$
+\end_inset
+
+ to just 0.0024 at 
+\begin_inset Formula $F=8$
+\end_inset
+
+.
+ Mortgage also improves markedly,
+ from 
+\begin_inset Formula $0.67$
+\end_inset
+
+ at 
+\begin_inset Formula $F=1$
+\end_inset
+
+ to 0.015 at 
+\begin_inset Formula $F=8$
+\end_inset
+
+.
+ By contrast,
+ in some datasets the value of 
+\begin_inset Formula $F$
+\end_inset
+
+ has little practical effect,
+ such as Quake and HO,
+ where errors remain nearly constant regardless of F.
+ There are also cases like Housing where increasing 
+\begin_inset Formula $F$
+\end_inset
+
+ degrades performance,
+ with error rising from 14.64 at 
+\begin_inset Formula $F=1$
+\end_inset
+
+ to 18.48 at 
+\begin_inset Formula $F=8$
+\end_inset
+
+.
+ Overall,
+ the results indicate that the scale factor 
+\begin_inset Formula $F$
+\end_inset
+
+ has a significant but nonuniform influence on model performance.
+ In some datasets it sharply reduces error,
+ while in others its impact is negligible or even negative.
+ Nevertheless,
+ the aggregate picture based on the mean errors suggests that 
+\begin_inset Formula $F=4$
+\end_inset
+
+ and 
+\begin_inset Formula $F=8$
+\end_inset
+
+ yield the most reliable results,
+ with 
+\begin_inset Formula $F=4$
+\end_inset
+
+ being the preferred choice for a general-purpose setting.
 \begin_inset Float table
 placement H
 alignment document
@@ -10759,6 +10957,239 @@ AVERAGE
 
 \end_layout
 
+\begin_layout Standard
+In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statClassF"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ the significance levels are presented for the comparisons between different values of the parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ in the proposed machine learning method based on the classification datasets.
+ The analysis shows that the comparison between 
+\begin_inset Formula $F=1$
+\end_inset
+
+ and 
+\begin_inset Formula $F=2$
+\end_inset
+
+ results in high statistical significance with 
+\begin_inset Formula $p<0.01$
+\end_inset
+
+,
+ indicating that the transition from the initial value to 
+\begin_inset Formula $F=2$
+\end_inset
+
+ has a substantial impact on performance.
+ Similarly,
+ the comparison between 
+\begin_inset Formula $F=2$
+\end_inset
+
+ and 
+\begin_inset Formula $F=4$
+\end_inset
+
+ also shows high statistical significance with 
+\begin_inset Formula $p<0.01$
+\end_inset
+
+,
+ suggesting that further increasing the parameter continues to positively affect the results.
+ However,
+ the comparison between 
+\begin_inset Formula $F=4$
+\end_inset
+
+ and 
+\begin_inset Formula $F=8$
+\end_inset
+
+ is characterized as not statistically significant,
+ since 
+\begin_inset Formula $p>0.05$
+\end_inset
+
+,
+ which means that increasing the parameter beyond 
+\begin_inset Formula $F=4$
+\end_inset
+
+ does not bring a meaningful difference in performance.
+ Overall,
+ the findings indicate that smaller values of 
+\begin_inset Formula $F$
+\end_inset
+
+ play a critical role in improving the model,
+ while increases beyond 4 do not lead to further statistically significant improvements.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename stat3.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison for the obtained results on the classification datasets using the proposed method and a series of values for the scale parameter 
+\begin_inset Formula $F$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statClassF"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statRegressionF"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ the significance levels are presented for the comparisons between different values of the parameter F in the proposed method based on the regression datasets.
+ The results show that none of the comparisons 
+\begin_inset Formula $F=1$
+\end_inset
+
+ vs 
+\begin_inset Formula $F=2$
+\end_inset
+
+,
+ 
+\begin_inset Formula $F=2$
+\end_inset
+
+ vs 
+\begin_inset Formula $F=4$
+\end_inset
+
+,
+ and 
+\begin_inset Formula $F=4$
+\end_inset
+
+ vs 
+\begin_inset Formula $F=8$
+\end_inset
+
+ exhibit statistically significant differences,
+ since in all cases 
+\begin_inset Formula $p>0.05$
+\end_inset
+
+.
+ This means that variations in the parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ do not substantially affect the performance of the model in regression problems.
+ Therefore,
+ it can be concluded that the choice of the 
+\begin_inset Formula $F$
+\end_inset
+
+ value is not of critical importance for these datasets and that the model remains stable regardless of the specific setting of this parameter.
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename stat4.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison for the experiments on the regression datasets,
+ using the proposed method and a series of values for the scale parameter 
+\begin_inset Formula $F$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statRegressionF"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Experiments with differential initialization methods for variances
 \end_layout
@@ -10831,7 +11262,11 @@ Afterwards this quantity is used for the determination of the range of values fo
 \end_inset
 
  parameters of the radial functions.
- Table 
+ 
+\end_layout
+
+\begin_layout Standard
+Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:expClassSigma"
@@ -10842,24 +11277,86 @@ nolink "false"
 
 \end_inset
 
- holds the experimental results using the proposed method and the three techniques for the calculation of the range of parameters for the 
+ presents the effect of three different calculation techniques for the 
 \begin_inset Formula $\sigma$
 \end_inset
 
- values of the radial functions.
- Similarly,
- Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:expRegressionSigma"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
+ parameters used in the radial basis functions of the RBF model.
+ The techniques are a fixed value 
+\begin_inset Formula $\sigma_{1}$
 \end_inset
 
- depicts the same experiments for the regression datasets.
+,
+ the mean distance-based initialization 
+\begin_inset Formula $\left(\sigma_{\mbox{avg}}\right)$
+\end_inset
+
+,
+ and the maximum distance–based initialization 
+\begin_inset Formula $\left(\sigma_{\mbox{max}}\right)$
+\end_inset
+
+.
+ Based on the mean errors,
+ the maximum-distance technique yields the lowest overall error at 19.18%.
+ Very close is the mean-distance technique at 19.27%,
+ while the simple 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+ initialization has a slightly higher error of 19.45%.
+ Although the differences among the three approaches are small,
+ the two adaptive methods 
+\begin_inset Formula $\left(\sigma_{\mbox{avg}}\ \mbox{and}\ \sigma_{\mbox{max}}\right)$
+\end_inset
+
+ tend to produce marginally better overall performance.
+ At the individual dataset level,
+ behaviors vary.
+ For example,
+ on Wine the 
+\begin_inset Formula $\sigma_{\mbox{max}}$
+\end_inset
+
+ choice reduces error to 7.06%,
+ far below the 9.47% obtained with 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+.
+ On Dermatology,
+ 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+ performs better than the other two,
+ whereas on Segment the mean-based option is preferable.
+ In some cases the differences are minor e.g.,
+ Circular,
+ Pima,
+ and Popfailures where all techniques are comparable;
+ in others the choice of technique materially affects performance,
+ as in Transfusion,
+ where error drops from 26.04% with 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+ to about 22.78% with the other two methods.
+ Overall,
+ the statistical picture indicates that no single technique dominates across all datasets.
+ Nevertheless,
+ methods that adapt 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ to the geometry of the data 
+\begin_inset Formula $\left(\sigma_{\mbox{avg}}\ \mbox{and}\ \sigma_{\mbox{max}}\right)$
+\end_inset
+
+ tend to yield more reliable and stable results,
+ while the fixed value lags slightly.
+ The average differences are modest,
+ but for certain problems the choice can significantly impact final performance.
 \end_layout
 
 \begin_layout Standard
@@ -10874,7 +11371,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experimental results on the classification datasets using the proposed method and a series of techniques for the initialization of the quantities 
+Experimental results on the classification datasets using the proposed method and a series of techniques for the calculation of the quantities 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -12262,7 +12759,108 @@ AVERAGE
 
 \end_inset
 
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expRegressionSigma"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
+\end_inset
+
+ presents the effect of three different calculation techniques for the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ parameters used in the radial basis functions of RBF model.
+ Based on the mean errors,
+ the distance–average method yields the lowest overall error at 5.81.
+ Very close is the fixed value 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+ with a mean error of 5.87,
+ while the maximum-distance method shows a slightly higher mean error of 5.96.
+ The difference among the three methods is small,
+ indicating that all can deliver comparable performance at a general level,
+ with a slight advantage for the distance–average approach.
+ At the level of individual datasets,
+ however,
+ significant variations are observed.
+ For example,
+ in Mortgage the 
+\begin_inset Formula $\sigma_{\mbox{max}}$
+\end_inset
+
+ method reduces the error dramatically from 0.23 with 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+ to 0.021,
+ while 
+\begin_inset Formula $\sigma_{\mbox{avg}}$
+\end_inset
+
+ also provides a much better result with 0.041.
+ In Treasury the improvement is again substantial,
+ as the error decreases from 0.47 with 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+ to just 0.08 using 
+\begin_inset Formula $\sigma_{\mbox{max}}$
+\end_inset
+
+.
+ In Stock the reduction is clear,
+ from 1.44 to 1.23,
+ while in Plastic both 
+\begin_inset Formula $\sigma_{\mbox{avg}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{\mbox{max}}$
+\end_inset
+
+ yield lower errors than 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+.
+ On the other hand,
+ in datasets such as Housing,
+ the use of 
+\begin_inset Formula $\sigma_{\mbox{max}}$
+\end_inset
+
+ worsens performance,
+ increasing the error from 15.36 with 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+ to 19.45.
+ Similarly,
+ in Auto and Baseball the lowest errors are obtained with 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+,
+ whereas the alternative techniques result in slightly worse performance.
+ Overall,
+ the results show that the choice of calculation technique for 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ can significantly affect performance in certain problems,
+ while in others the difference is negligible.
+ Although no method consistently outperforms the others across all datasets,
+ the distance–average method appears slightly more reliable overall,
+ while the maximum-distance method can in some cases produce very large improvements but in others lead to a degradation of performance.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 placement H
 alignment document
@@ -12274,7 +12872,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experimental results on the regression datasets using the proposed method and a series of techniques for the initialization of the quantities 
+Experimental results on the regression datasets using the proposed method and a series of techniques for the calculation of the quantities 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -13239,6 +13837,221 @@ AVERAGE
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statClassSigma"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ the significance levels are presented for the comparisons of different computation techniques for the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ parameters in the radial basis functions of the proposed machine learning model,
+ based on the classification datasets.
+ The comparisons performed 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+ vs 
+\begin_inset Formula $\sigma_{\mbox{avg}}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+ vs 
+\begin_inset Formula $\sigma_{\mbox{max}}$
+\end_inset
+
+,
+ and 
+\begin_inset Formula $\sigma_{\mbox{avg}}$
+\end_inset
+
+ vs 
+\begin_inset Formula $\sigma_{\mbox{max}}$
+\end_inset
+
+ did not show any statistically significant differences,
+ since in all cases 
+\begin_inset Formula $p>0.05$
+\end_inset
+
+.
+ This indicates that the choice of compuation method for the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ parameters does not substantially affect the performance of the model on classification problems.
+ Therefore,
+ it can be concluded that the model maintains stable performance regardless of which of the three compuatation techniques is used.
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename stat5.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison of the obtained results on the classification datasets,
+ using the proposed method and a series of computation techniques for the range of 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ values in the radial functions.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statClassSigma"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statRegressionSigma"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ the significance levels are presented for the comparisons of different computation techniques for the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ parameters in the radial basis functions of the proposed machine learning model,
+ based on the regression datasets.
+ The comparisons examined 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+ vs 
+\begin_inset Formula $\sigma_{\mbox{avg}}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+ vs 
+\begin_inset Formula $\sigma_{\mbox{max}}$
+\end_inset
+
+,
+ and 
+\begin_inset Formula $\sigma_{\mbox{avg}}$
+\end_inset
+
+ vs 
+\begin_inset Formula $\sigma_{\mbox{max}}$
+\end_inset
+
+ did not show any statistically significant differences,
+ since in all cases 
+\begin_inset Formula $p>0.05$
+\end_inset
+
+.
+ This means that the choice of computation method for the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ parameters does not have a substantial impact on the performance of the model in regression problems.
+ Therefore,
+ it can be concluded that the model demonstrates stable and consistent behavior regardless of which initialization technique is applied.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename stat6.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison of the obtained results on the regression datasets,
+ using the proposed method and a series of computation techniques for the range of 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ values in the radial functions.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statRegressionSigma"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
