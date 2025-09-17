@@ -240,7 +240,8 @@ From Initialization to Convergence:
 \end_layout
 
 \begin_layout Title Citation
-Title for Citation in the Left Column
+From Initialization to Convergence:
+ A Three-Stage technique for Robust RBF Network Training
 \end_layout
 
 \begin_layout Author
@@ -323,7 +324,8 @@ Correspondence:
 \end_layout
 
 \begin_layout Abstract
-Radial Basis Function (RBF) networks are well established machine learning tools used in a variety of classification and regression problems.
+Radial Basis Function (RBF) networks are well established machine learning tools used in many practical problems,
+ that can be considered as classification or regression problems.
  A key component of these networks is their radial functions.
  These networks acquire adaptive capabilities through a two-stage training technique in most cases.
  In the first stage,
@@ -359,8 +361,8 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-Many practical problems can be tackled by machine learning models,
- such as problems occurred in physics 
+Many practical problems can be handled by machine learning models.
+ Such problems appeared in physics 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "physics_ml1,physics_ml2"
@@ -453,7 +455,7 @@ The constant
 \begin_inset Formula $k$
 \end_inset
 
- denotes number of weights of the network.
+ denotes number of processing units (weights) of the network.
  The vector 
 \begin_inset Formula $\overrightarrow{w}$
 \end_inset
@@ -474,7 +476,7 @@ The function
 \begin_inset Formula $\phi(x)$
 \end_inset
 
- usually represents a Gaussian function having the following form:
+ usually represents a Gaussian function with the following definition:
 
 \series bold
  
@@ -491,11 +493,11 @@ The function
 \end_layout
 
 \begin_layout Standard
-A plot of the Gaussian function 
+An example plot of this function with 
 \begin_inset Formula $c=0,\ \sigma=1$
 \end_inset
 
- is shown in Figure 
+ is depicted in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:gaussian"
@@ -513,7 +515,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -529,7 +531,15 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-A typical plot for the Gaussian function.
+An example plot for the Gaussian function with 
+\begin_inset Formula $\sigma=1$
+\end_inset
+
+ and 
+\begin_inset Formula $c=0$
+\end_inset
+
+.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:gaussian"
@@ -546,7 +556,12 @@ name "fig:gaussian"
 
 \end_inset
 
- This graph clearly shows that the value of the function decreases as the value of x moves away from the center 
+ From the graph above,
+ one can conclude that the value of the function rapidly approaches zero as the value of the variable 
+\begin_inset Formula $x$
+\end_inset
+
+ moves away from the center 
 \begin_inset Formula $c$
 \end_inset
 
@@ -579,7 +594,7 @@ The set
 \end_layout
 
 \begin_layout Standard
-RBF networks have been used in many cases,
+These machine learning models have been incorporated in various practical problems,
  such as face recognition 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -661,12 +676,12 @@ literal "false"
 
 \end_inset
 
- proved that an RBF network with one processing layer is capable of universal approximation.
+ proved that an RBF network with one processing layer is capable of approximate any provided function.
 \end_layout
 
 \begin_layout Standard
 Recently,
- a series of papers have been proposed for the initialization of the parameters of RBF networks 
+ a magnitude of papers have been appeared for the initialization of the parameters of RBF networks 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbfinit1,rbfinit2,rbfinit3"
@@ -680,7 +695,7 @@ literal "false"
 \series bold
  
 \series default
-Benoudjit et al provided a discussion on the estimation of kernel widths in RBF networks 
+Benoudjit et al provided a discussion on the estimation of kernel widths in these models 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbfkernel"
@@ -702,9 +717,10 @@ literal "false"
 
 \end_inset
 
- have been introduced aiming to reduce the number of parameters of the RBF networks in order to avoid the overfitting problem.
+ have been introduced aiming to reduce the required number of parameters for networks,
+ providing a solution to the overfitting problem.
  Also,
- a series of optimization techniques have been incorporated in the past to tackle the equation 
+ a series of optimization techniques have been used in the past for the minimization of equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:RbfError"
@@ -761,7 +777,7 @@ literal "false"
 
 \begin_layout Standard
 In this paper,
- the use of a three-stage technique is proposed for the effective training of RBF networks.
+ the use of a three-stage technique is suggested for the effective training of RBF networks.
  In the first stage of the technique,
  the range of values for the parameters of the RBF network is detected.
  This detection is implemented using the K-Means algorithm 
@@ -801,7 +817,7 @@ for the parameters of RBF networks and then to train the network parameters with
 \end_layout
 
 \begin_layout Standard
-The remaining of this article is organized as follows:
+The remaining of this article has the following organization:
  in section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -813,7 +829,7 @@ nolink "false"
 
 \end_inset
 
- the proposed method and the accompanied genetic algorithm are introduced,
+ the suggested method and the accompanied genetic algorithm are introduced,
  in section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -825,7 +841,7 @@ nolink "false"
 
 \end_inset
 
- the experimental datasets and the series of experiments conducted are listed and discussed thoroughly followed by section 
+ the datasets used in the experiments as well the experimental results are shown and discussed and finally in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Conclusions"
@@ -836,7 +852,7 @@ nolink "false"
 
 \end_inset
 
- where some conclusions are discussed.
+ some conclusions are presented.
 \end_layout
 
 \begin_layout Section
@@ -851,7 +867,7 @@ name "sec:Materials-and-Methods"
 \end_layout
 
 \begin_layout Standard
-The three distinct phases of the proposed method are analyzed in this section.
+The three distinct phases of the proposed method are presented in detail in this section.
  The discussion initiates with the first phase,
  where the construction of the ranges for the parameter values is performed using the K-means algorithm.
  Subsequently,
@@ -865,7 +881,7 @@ The first phase of the proposed method
 
 \begin_layout Standard
 The method of K-means,
- used widely in machine learning is incorporated in the first phase for the location of the ranges for the parameters of the RBF network.
+ used widely in machine learning is incorporated in the first phase for the location of the ranges for the centers and variances of the model.
  This method is incorporated to locate the centers and the variances of the possible groups of a series of points.
  Furthermore,
  a series of extensions of this method have been published during the past years,
@@ -937,7 +953,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1163,10 +1179,9 @@ Calculate
 \begin_layout Enumerate
 
 \series bold
-Stop 
+Terminate 
 \series default
-the algorithm,
- if there is no change in centers 
+the algorithm when there is no further changes in centers 
 \begin_inset Formula $c_{j}$
 \end_inset
 
@@ -1564,10 +1579,11 @@ nolink "false"
  In the proposed implementation the Genetic Algorithm was incorporated during the second phase.
  Genetic algorithm are evolutionary methods,
  that are based on randomly produced solutions of the objective problem.
- These solutions are called chromosomes and they are evolved through some operations similar to natural processes of selection,
+ The trial solutions of the genetic algorithm are commonly called chromosomes and they are evolved through some operations that mimic some natural processes,
+ such as selection,
  crossover and mutation.
  Genetic algorithms have been used in a wide series of problems,
- such as placement of wind turbines 
+ such as energy problems 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "gen_app1"
@@ -1625,11 +1641,7 @@ nolink "false"
 \end_inset
 
 .
- 
-\series bold
-I
-\series default
-n this layout the following assumptions are hold:
+ In this layout the following assumptions are hold:
 \end_layout
 
 \begin_layout Enumerate
@@ -1720,7 +1732,8 @@ name "fig:The-layout-of"
 \end_layout
 
 \begin_layout Standard
-The steps of the genetic algorithm used in the second phase of the proposed method have as follows:
+The steps of algorithm used in the second phase are the following:
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -1738,27 +1751,22 @@ Initialization step
 \series bold
 Set
 \series default
- the of chromosomes 
+ the parameters of the genetic algorithm:
+ 
 \begin_inset Formula $N_{c}$
 \end_inset
 
- and the maximum number of generations denoted as as 
+ the number of chromosomes,
+ 
 \begin_inset Formula $N_{g}$
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Set
-\series default
+ as the maximum number of allowed generations,
  
 \begin_inset Formula $p_{s}$
 \end_inset
 
- the selection rate and as 
+ the selection rate and 
 \begin_inset Formula $p_{m}$
 \end_inset
 
@@ -1802,8 +1810,8 @@ Set
 \begin_inset Formula $k=0$
 \end_inset
 
-,
- the generation number.
+.
+ This variable denotes the number of generations.
 \end_layout
 
 \end_deeper
@@ -1840,7 +1848,7 @@ an RBF network
 \begin_inset Formula $R_{i}=R\left(\overrightarrow{x},\overrightarrow{g_{i}}\right)$
 \end_inset
 
- for the corresponding chromosome 
+ using the parameters encoded in the chromosome 
 \begin_inset Formula $\overrightarrow{g_{i}}.$
 \end_inset
 
@@ -1888,7 +1896,8 @@ Genetic operations step
 \begin_deeper
 \begin_layout Enumerate
 Selection procedure:
- During this procedure the chromosomes are sorted according to their fitness values and the best 
+ During this procedure the chromosomes are sorted according to their fitness values.
+ The first 
 \begin_inset Formula $p_{s}\times N_{c}$
 \end_inset
 
@@ -1897,7 +1906,7 @@ Selection procedure:
 \series bold
  
 \series default
-The remaining chromosomes will be substituted by offrpsings produced during crossover and mutation.
+The remaining chromosomes will be substituted by offrpsings produced using the operations of crossover and mutation.
 \end_layout
 
 \begin_layout Enumerate
@@ -1906,7 +1915,7 @@ Crossover procedure:
 \begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
 \end_inset
 
- new chromosomes will be created.
+ new chromosomes will be constructed.
  For each pair 
 \begin_inset Formula $\left(\tilde{z},\tilde{w}\right)$
 \end_inset
@@ -1916,7 +1925,7 @@ Crossover procedure:
 \begin_inset Formula $(z,w)$
 \end_inset
 
- are selected from the current population using the procedure of tournament selection.
+ are chosen using the procedure of tournament selection.
  The new offsprings are produced following the scheme:
 \begin_inset Formula 
 \begin{eqnarray}
@@ -1948,19 +1957,19 @@ literal "true"
 
 \begin_layout Enumerate
 Mutation procedure:
- For every element 
-\begin_inset Formula $t_{j},j=1,\ldots,n$
-\end_inset
-
- of each chromosome 
-\begin_inset Formula $g_{i}$
-\end_inset
-
- a random number 
+ Select a random number 
 \begin_inset Formula $r\in[0,1]$
 \end_inset
 
- is drawn.
+ for each element 
+\begin_inset Formula $t_{j},j=1,\ldots,n$
+\end_inset
+
+ of every chromosome 
+\begin_inset Formula $g_{i}$
+\end_inset
+
+ .
  If 
 \begin_inset Formula $r\le p_{m}$
 \end_inset
@@ -2034,13 +2043,13 @@ If
 \begin_layout Enumerate
 
 \series bold
-Else
+Else return 
 \series default
- report as outcome of this procedure the best located chromosome 
+the best located chromosome 
 \begin_inset Formula $g^{*}$
 \end_inset
 
- with the lowest fitness value.
+ as the outcome of this algorithm.
 \end_layout
 
 \end_deeper
@@ -2051,7 +2060,7 @@ The final phase of the proposed method
 \begin_layout Standard
 In the final phase of the proposed method a local optimization procedure is applied to the outcome of the previous phase,
  in order to locate an actual minimum for the training error of the RBF network.
- In the current work the BFGS variant of Powell 
+ In this work a BFGS variant of Powell 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "powell"
@@ -2059,7 +2068,7 @@ literal "false"
 
 \end_inset
 
- was selected as the local search procedure.
+ was utilized as the local search procedure.
  This variant can preserve the bounds of the objective function in an efficient way.
  During the past years a series of modifications for the BFGS method was introduced,
  such as the limited memory variant L-BFGS ideal for large scale problems 
@@ -2095,7 +2104,7 @@ literal "false"
 \begin_layout Enumerate
 
 \series bold
-Obtain
+Get
 \series default
  the best chromosome 
 \begin_inset Formula $\overrightarrow{g^{*}}$
@@ -2107,7 +2116,7 @@ Obtain
 \begin_layout Enumerate
 
 \series bold
-Create
+Produce
 \series default
  the corresponding RBF network 
 \begin_inset Formula $R^{*}=R\left(\overrightarrow{x},\overrightarrow{g^{*}}\right)$
@@ -2133,7 +2142,7 @@ Minimize
 \series bold
 Apply
 \series default
- the final network to the test set of the objective problem and report the corresponding test error.
+ the final model to the test set and obtain the corresponding test error.
 \end_layout
 
 \begin_layout Standard
@@ -2210,12 +2219,12 @@ name "sec:Results"
 \end_layout
 
 \begin_layout Standard
-The proposed method was validated using a series of classification and regression datasets,
- obtained from the following online databases:
+The proposed method was tested on a wide series of classification and regression problems,
+ that can be downloaded from the following URLS:
 \end_layout
 
 \begin_layout Enumerate
-The UCI database,
+UCI:
  
 \begin_inset Flex URL
 status open
@@ -2239,7 +2248,7 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Keel website,
+KEEL:
  
 \begin_inset Flex URL
 status open
@@ -2263,7 +2272,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Statlib database 
+STATLIB:
+ 
 \begin_inset Flex URL
 status open
 
@@ -2283,15 +2293,16 @@ Experimental datasets
 \end_layout
 
 \begin_layout Standard
-The following datasets were incorporated in the experiments conducted in this work:
+The following classification datasets were used in the experiments:
 \end_layout
 
 \begin_layout Enumerate
 
 \series bold
-Appendictis
+Appendictis,
+ 
 \series default
- that is a medical dataset 
+which is used for medical purposes 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "appendicitis"
@@ -2309,7 +2320,7 @@ literal "false"
 Alcohol
 \series default
 ,
- which is dataset regarding alcohol consumption 
+ a dataset related to alcohol consumption 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "alcohol"
@@ -2327,7 +2338,7 @@ literal "false"
 Australian
 \series default
 ,
- which is a dataset produced from various bank transactions 
+ a dataset related to economics 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "australian"
@@ -2352,7 +2363,7 @@ literal "false"
 \end_inset
 
 ,
- produced from various psychological experiments.
+ that contains measurements from various psychological experiments.
 \end_layout
 
 \begin_layout Enumerate
@@ -2388,7 +2399,7 @@ Circular
 Dermatology
 \series default
 ,
- a medical dataset for dermatology problems 
+ regarding some dermatology problems 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "dermatology"
@@ -2405,7 +2416,7 @@ literal "false"
 Ecoli
 \series default
 ,
- which is related to protein problems 
+ regarding some protein problems 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ecoli"
@@ -2438,7 +2449,7 @@ literal "false"
 Heart
 \series default
 ,
- which is a dataset related to heart diseases 
+ a medical dataset used to detect some heart diseases 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "heart"
@@ -2455,7 +2466,7 @@ literal "false"
 HeartAttack
 \series default
 ,
- which is a medical dataset for the detection of heart diseases
+ a medical dataset related to the presence of heart diseases
 \end_layout
 
 \begin_layout Enumerate
@@ -2464,7 +2475,7 @@ HeartAttack
 Housevotes
 \series default
 ,
- a dataset which is related to the Congressional voting in USA 
+ a dataset that contains data from voting in the Congressional of USA 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "housevotes"
@@ -2481,7 +2492,7 @@ literal "false"
 Ionosphere
 \series default
 ,
- a dataset that contains measurements from the ionosphere 
+ a dataset related to the ionosphere 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ion1,ion2"
@@ -2498,7 +2509,7 @@ literal "false"
 Liverdisorder
 \series default
 ,
- a medical dataset that was studied thoroughly in a series of papers
+ a medical dataset 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "liver,liver1"
@@ -2531,7 +2542,7 @@ literal "false"
 Mammographic
 \series default
 ,
- which is a medical dataset used for the prediction of breast cancer 
+ which is related to the prediction of breast cancer 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "mammographic"
@@ -2548,7 +2559,7 @@ literal "false"
 Parkinsons
 \series default
 ,
- which is a medical dataset used for the detection of Parkinson's disease 
+ used for the detection of Parkinson's disease 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "parkinsons1,parkinsons2"
@@ -2565,7 +2576,7 @@ literal "false"
 Pima
 \series default
 ,
- which is a medical dataset for the detection of diabetes
+ a medical dataset regarding diabetes
 \begin_inset CommandInset citation
 LatexCommand citep
 key "pima"
@@ -2582,7 +2593,7 @@ literal "false"
 Popfailures
 \series default
 ,
- a dataset related to experiments regarding climate 
+ a dataset that contains data from climate experiments 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "popfailures"
@@ -2599,7 +2610,7 @@ literal "false"
 Regions2
 \series default
 ,
- a medical dataset applied to liver problems 
+ a medical dataset related to the detection of liver problems 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "regions2"
@@ -2616,7 +2627,7 @@ literal "false"
 Saheart
 \series default
 ,
- which is a medical dataset concerning heart diseases
+ a medical dataset related to the detection of heart diseases
 \begin_inset CommandInset citation
 LatexCommand citep
 key "saheart"
@@ -2649,7 +2660,7 @@ literal "false"
 Statheart
 \series default
 ,
- a medical dataset related to heart diseases.
+ a medical dataset related to the presence of heart diseases.
 \end_layout
 
 \begin_layout Enumerate
@@ -2667,7 +2678,7 @@ Spiral
 Student
 \series default
 ,
- which is a dataset regarding experiments in schools 
+ a dataset that contains data from experiments in schools 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "student"
@@ -2683,8 +2694,7 @@ literal "false"
 \series bold
 Transfusion
 \series default
-,
- which is a medical dataset 
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "transfusion"
@@ -2701,7 +2711,7 @@ literal "false"
 Wdbc
 \series default
 ,
- which is a medical dataset regarding breast cancer 
+ regarding the detection of breast cancer 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "wdbc1,wdbc2"
@@ -2718,7 +2728,7 @@ literal "false"
 Wine
 \series default
 ,
- a dataset regarding measurements about the quality of wines 
+ a dataset regarding measurements about wines 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "wine1,wine2"
@@ -2735,7 +2745,7 @@ literal "false"
 EEG
 \series default
 ,
- which is dataset regarding EEG recordings 
+ which is contains some EEG recordings 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "eeg1,eeg2"
@@ -2744,7 +2754,7 @@ literal "false"
 \end_inset
 
 .
- From this dataset the following cases were used:
+ The following cases were used from this dataset:
  Z_F_S,
  ZO_NF_S,
  ZONF_S and Z_O_N_F_S.
@@ -2756,7 +2766,7 @@ literal "false"
 Zoo
 \series default
 ,
- which is a dataset regarding animal classification 
+ used for the classification of animals 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "zoo"
@@ -2768,8 +2778,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Moreover a series of regression datasets was adopted in the conducted experiments.
- The list with the regression datasets has as follows:
+Also,
+ the following regression datasets were used:
 \end_layout
 
 \begin_layout Enumerate
@@ -2778,7 +2788,7 @@ Moreover a series of regression datasets was adopted in the conducted experiment
 Abalone
 \series default
 ,
- which is a dataset about the age of abalones 
+ a dataset related to the age of abalones 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "abalone"
@@ -2795,7 +2805,7 @@ literal "false"
 Airfoil
 \series default
 ,
- a dataset founded in NASA 
+ a dataset provided by NASA 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "airfoil"
@@ -2812,7 +2822,7 @@ literal "false"
 Auto
 \series default
 ,
- a dataset related to the consumption of fuels from cars.
+ a dataset used to calculate the fuel consumption in cars.
 \end_layout
 
 \begin_layout Enumerate
@@ -2821,7 +2831,7 @@ Auto
 BK
 \series default
 ,
- which is used to predict the points scored in basketball games.
+ used for the prediction of points scored in some basketball games.
  
 \end_layout
 
@@ -2831,7 +2841,7 @@ BK
 BL
 \series default
 ,
- a dataset that contains measurements from electricity experiments.
+ a dataset that includes data from various electricity experiments.
 \end_layout
 
 \begin_layout Enumerate
@@ -2840,7 +2850,7 @@ BL
 Baseball
 \series default
 ,
- which is a dataset used to predict the income of baseball players.
+ used to estimate the income of baseball players.
 \end_layout
 
 \begin_layout Enumerate
@@ -2849,7 +2859,7 @@ Baseball
 Concrete
 \series default
 ,
- which is a civil engineering dataset 
+ a dataset used in civil engineering 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "concrete"
@@ -2866,7 +2876,7 @@ literal "false"
 DEE
 \series default
 ,
- a dataset that is used to predict the price of electricity.
+ a dataset used for the calculation of the price of electricity.
 \end_layout
 
 \begin_layout Enumerate
@@ -2884,8 +2894,7 @@ FA
 \series bold
 Friedman
 \series default
-,
- which is an artificial dataset
+
 \begin_inset CommandInset citation
 LatexCommand citep
 key "friedman"
@@ -2902,7 +2911,7 @@ literal "false"
 FY,
  
 \series default
-which is a dataset regarding the longevity of fruit flies.
+regarding some fruit flies.
  
 \end_layout
 
@@ -2912,7 +2921,7 @@ which is a dataset regarding the longevity of fruit flies.
 HO
 \series default
 ,
- a dataset located in the STATLIB repository.
+ a dataset obtained from the STATLIB repository.
 \end_layout
 
 \begin_layout Enumerate
@@ -2921,7 +2930,7 @@ HO
 Housing
 \series default
 ,
- regarding the price of houses 
+ used to predict the price of houses 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "housing"
@@ -2938,7 +2947,7 @@ literal "false"
 Laser
 \series default
 ,
- which contains measurements from various physics experiments.
+ a dataset that contains measurements from various physics experiments.
 \end_layout
 
 \begin_layout Enumerate
@@ -2956,7 +2965,7 @@ LW
 Mortgage
 \series default
 ,
- a dataset that contains measurements from the economy of USA.
+ an economics dataset.
 \end_layout
 
 \begin_layout Enumerate
@@ -2964,8 +2973,8 @@ Mortgage
 \series bold
 PL
 \series default
- dataset,
- located in the STALIB repository.
+,
+ a dataset obtained from the STALIB repository.
 \end_layout
 
 \begin_layout Enumerate
@@ -2974,7 +2983,7 @@ PL
 Plastic
 \series default
 ,
- a dataset regarding problems occurred with the pressure on plastics.
+ a dataset regarding some problems in plastics.
 \end_layout
 
 \begin_layout Enumerate
@@ -3010,7 +3019,7 @@ Stock
 Treasury
 \series default
 ,
- a dataset that contains measurements from the economy of USA.
+ an economics dataset.
 \end_layout
 
 \begin_layout Subsection
@@ -3018,7 +3027,8 @@ Experimental results
 \end_layout
 
 \begin_layout Standard
-The experiments were performed on a Debian Linux system with 128GB of ram and the code was implemented in ANSI C++ using the OPTIMUS optimization environment 
+All the experiments were executed on a Debian Linux system with 128GB of RAM.
+ The programming language used was C++ and for the optimization method the OPTIMUS optimization environment 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "optimus"
@@ -3026,8 +3036,8 @@ literal "false"
 
 \end_inset
 
-.
- For the validation of the experiments the ten - fold cross validation technique was utilized.
+ was incorporated.
+ The results were validated using the ten - fold cross validation technique.
  For the classification datasets the average classification error,
  calculated on the corresponding test set,
  is reported.
@@ -3049,7 +3059,8 @@ Where the set
 
 .
  Similarly,
- the average regression is reported for the case of regression datasets and it is expressed using the following equation:
+ for the regression datasets,
+ the average regression is reported which is calculated as follows:
 \begin_inset Formula 
 \begin{equation}
 E_{R}\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=\frac{\sum_{i=1}^{N}\left(N\left(\overrightarrow{x_{i}},\overrightarrow{w}\right)-y_{i}\right)^{2}}{N}
@@ -3057,7 +3068,7 @@ E_{R}\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=\frac{\sum
 
 \end_inset
 
-The values for the parameters of the proposed method are listed in Table 
+Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:settings"
@@ -3068,11 +3079,8 @@ nolink "false"
 
 \end_inset
 
-.
+ contains the values for each parameter of the proposed method.
  
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float table
 placement H
 alignment document
@@ -3394,11 +3402,11 @@ Mutation rate
 \end_layout
 
 \begin_layout Enumerate
-The column DATASET represents the name of the objective problem.
+The column DATASET denotes the name of the used dataset.
 \end_layout
 
 \begin_layout Enumerate
-The column BFGS represents the incorporation of the BFGS optimization method 
+The column BFGS represents the incorporation of the BFGS procedure 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bfgs"
@@ -3414,11 +3422,11 @@ literal "false"
 
 \end_inset
 
- with 10 processing nodes.
+ with 10 weights.
 \end_layout
 
 \begin_layout Enumerate
-The column ADAM represents the application of the Adam optimizer 
+The column ADAM denotes the incorporation of the Adam optimization method 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Adam,AdamNN"
@@ -3426,11 +3434,11 @@ literal "false"
 
 \end_inset
 
- to train a neural network with 10 hidden nodes.
+ for the training of a neural network with 10 hidden nodes.
 \end_layout
 
 \begin_layout Enumerate
-The column RBF-KMEANS stands for the original training of an RBF network.
+The column RBF-KMEANS is used to denoted the original training method of RBF networks.
 \end_layout
 
 \begin_layout Enumerate
@@ -3458,11 +3466,11 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The column PROPOSED denotes the incorporation of the current work.
+The column PROPOSED represents the results obtained by the current work.
 \end_layout
 
 \begin_layout Enumerate
-The row average denotes the average classification or regression error for all datasets.
+The row average stands for the average regression or classification error for all datasets.
 \end_layout
 
 \begin_layout Standard
@@ -3536,14 +3544,13 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experimental results on the classification datasets using the series of machine learning methods used in this article.
- The number in cells denote average classification error as measured on the corresponding test set.
+Experimental results for the classification datasets with the machine learning methods mentioned in this section.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:expClass"
@@ -5947,14 +5954,14 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experimental results on the regression datasets using a series of machine learning methods.
- Numbers in cells represent average regression error as measured on the corresponding test set.
+Experimental results for the regression datasets with the application of the mentioned machine learning techniques.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:expRegression"
@@ -7770,8 +7777,8 @@ Experiments with different values of scale factor
 \end_layout
 
 \begin_layout Standard
-In order to determine the stability of the proposed technique when its critical parameters change,
- a series of additional experiments were conducted.
+In order to evaluate the stability and reliability of the proposed method when its critical parameters change,
+ a series of additional experiments were executed.
  In one of them,
  the stability of the technique was studied with the change of the scale factor 
 \begin_inset Formula $F$
@@ -7911,14 +7918,22 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experimental results on the classification datasets using the proposed method and a series of values for the critical parameter 
+Experimental results on the classification datasets where the proposed method was applied and the critical parameter 
 \begin_inset Formula $F$
+\end_inset
+
+ was altered from 
+\begin_inset Formula $F=1$
+\end_inset
+
+ to 
+\begin_inset Formula $F=8$
 \end_inset
 
 .
@@ -9757,14 +9772,22 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experimental results on the regression datasets using the proposed technique and a series of values for the parameter 
+Experimental results on the regression datasets where the proposed method was applied and the critical parameter 
 \begin_inset Formula $F$
+\end_inset
+
+ was altered from 
+\begin_inset Formula $F=1$
+\end_inset
+
+ to 
+\begin_inset Formula $F=8$
 \end_inset
 
 .
@@ -11044,7 +11067,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -11060,7 +11083,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical comparison for the obtained results on the classification datasets using the proposed method and a series of values for the scale parameter 
+Statistical comparison for the experimental results on the classification datasets using the proposed method and a variety of values for the scale parameter 
 \begin_inset Formula $F$
 \end_inset
 
@@ -11146,7 +11169,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -11162,8 +11185,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical comparison for the experiments on the regression datasets,
- using the proposed method and a series of values for the scale parameter 
+Statistical comparison for the experimental results on the regression datasets using the proposed method and a variety of values for the scale parameter 
 \begin_inset Formula $F$
 \end_inset
 
@@ -11182,10 +11204,6 @@ name "fig:statRegressionF"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -11196,9 +11214,8 @@ Experiments with differential initialization methods for variances
 \end_layout
 
 \begin_layout Standard
-In another set of experiments,
- the stability of the proposed method was checked,
- using a different way of calculating the range of values of the 
+Additionally,
+ the stability of the proposed method was checked using a different way of calculating the range of values of the 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -11366,13 +11383,14 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experimental results on the classification datasets using the proposed method and a series of techniques for the calculation of the quantities 
+Experimental results on the classification datasets,
+ where the proposed method was applied using different mechanisms for the calculation of the quantities 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -12867,13 +12885,13 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experimental results on the regression datasets using the proposed method and a series of techniques for the calculation of the quantities 
+Experimental results on the regression datasets with the application of the proposed method and different calculation mechanisms for the 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -13905,7 +13923,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -13922,7 +13940,7 @@ status collapsed
 
 \begin_layout Plain Layout
 Statistical comparison of the obtained results on the classification datasets,
- using the proposed method and a series of computation techniques for the range of 
+ where the proposed method was applied with  a series of computation techniques for the range of 
 \begin_inset Formula $\sigma$
 \end_inset
 
