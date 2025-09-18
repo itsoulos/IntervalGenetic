@@ -3454,6 +3454,47 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
+The column DNN stands for the incorporation of a deep neural network as implemented in the Tiny Dnn library,
+ that can be downloaded freely from 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://github.com/tiny-dnn/tiny-dnn
+\end_layout
+
+\end_inset
+
+(accessed on 18 September 2025).
+ The implemented network was trained with the AdaGrad optimizer 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "adagrad"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The column BAYES stands for the usage of the Bayesian optimizer as implemented in the freely available library BayesOpt 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bayesopt"
+literal "false"
+
+\end_inset
+
+ for the training of a neural network with 
+\begin_inset Formula $H=10$
+\end_inset
+
+ processing nodes.
+\end_layout
+
+\begin_layout Enumerate
 The column GENRBF stands method introduced in 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -3567,6 +3608,8 @@ name "tab:expClass"
 
 \begin_layout Plain Layout
 \align left
+
+\size footnotesize
 \begin_inset Tabular
 <lyxtabular version="3" rows="35" columns="9">
 <features tabularvalignment="middle">
@@ -3586,6 +3629,7 @@ name "tab:expClass"
 \begin_layout Plain Layout
 
 \series bold
+\size scriptsize
 DATASET
 \end_layout
 
@@ -3597,6 +3641,7 @@ DATASET
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 BFGS
 \end_layout
 
@@ -3608,6 +3653,7 @@ BFGS
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 ADAM
 \end_layout
 
@@ -3619,6 +3665,7 @@ ADAM
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 NEAT
 \end_layout
 
@@ -3630,6 +3677,7 @@ NEAT
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 DNN
 \end_layout
 
@@ -3641,6 +3689,7 @@ DNN
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 BAYES
 \end_layout
 
@@ -3652,6 +3701,7 @@ BAYES
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 RBF-KMEANS
 \end_layout
 
@@ -3663,6 +3713,7 @@ RBF-KMEANS
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 GENRBF
 \end_layout
 
@@ -3674,6 +3725,7 @@ GENRBF
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 PROPOSED
 \end_layout
 
@@ -3685,6 +3737,8 @@ PROPOSED
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Alcohol
 \end_layout
 
@@ -3694,6 +3748,8 @@ Alcohol
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 41.50%
 \end_layout
 
@@ -3703,6 +3759,8 @@ Alcohol
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 57.78%
 \end_layout
 
@@ -3712,6 +3770,8 @@ Alcohol
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 66.80%
 \end_layout
 
@@ -3721,6 +3781,8 @@ Alcohol
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 39.04%
 \end_layout
 
@@ -3731,6 +3793,8 @@ Alcohol
 
 \begin_layout Plain Layout
 
+\size footnotesize
+30.85%
 \end_layout
 
 \end_inset
@@ -3739,6 +3803,8 @@ Alcohol
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 49.38%
 \end_layout
 
@@ -3748,6 +3814,8 @@ Alcohol
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 52.45%
 \end_layout
 
@@ -3757,6 +3825,8 @@ Alcohol
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 28.57%
 \end_layout
 
@@ -3768,6 +3838,8 @@ Alcohol
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Appendicitis
 \end_layout
 
@@ -3777,6 +3849,8 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 18.00%
 \end_layout
 
@@ -3786,6 +3860,8 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 16.50%
 \end_layout
 
@@ -3795,6 +3871,8 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 17.20%
 \end_layout
 
@@ -3804,6 +3882,8 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 17.30%
 \end_layout
 
@@ -3814,6 +3894,8 @@ Appendicitis
 
 \begin_layout Plain Layout
 
+\size footnotesize
+15.00%
 \end_layout
 
 \end_inset
@@ -3822,6 +3904,8 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 12.23%
 \end_layout
 
@@ -3831,6 +3915,8 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 16.83%
 \end_layout
 
@@ -3840,6 +3926,8 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 15.00%
 \end_layout
 
@@ -3851,6 +3939,8 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Australian
 \end_layout
 
@@ -3860,6 +3950,8 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 38.13%
 \end_layout
 
@@ -3869,6 +3961,8 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 35.65%
 \end_layout
 
@@ -3878,6 +3972,8 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 31.98%
 \end_layout
 
@@ -3887,6 +3983,8 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 35.03%
 \end_layout
 
@@ -3897,6 +3995,8 @@ Australian
 
 \begin_layout Plain Layout
 
+\size footnotesize
+34.83%
 \end_layout
 
 \end_inset
@@ -3905,6 +4005,8 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 34.89%
 \end_layout
 
@@ -3914,6 +4016,8 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 41.79%
 \end_layout
 
@@ -3923,6 +4027,8 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 22.67%
 \end_layout
 
@@ -3934,6 +4040,8 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Balance
 \end_layout
 
@@ -3943,6 +4051,8 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 8.64%
 \end_layout
 
@@ -3952,6 +4062,8 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 7.87%
 \end_layout
 
@@ -3961,6 +4073,8 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 23.14%
 \end_layout
 
@@ -3970,6 +4084,8 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 24.56%
 \end_layout
 
@@ -3980,6 +4096,8 @@ Balance
 
 \begin_layout Plain Layout
 
+\size footnotesize
+8.13%
 \end_layout
 
 \end_inset
@@ -3988,6 +4106,8 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 33.42%
 \end_layout
 
@@ -3997,6 +4117,8 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 38.02%
 \end_layout
 
@@ -4006,6 +4128,8 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 13.11%
 \end_layout
 
@@ -4017,6 +4141,8 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Cleveland
 \end_layout
 
@@ -4026,6 +4152,8 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 77.55%
 \end_layout
 
@@ -4035,6 +4163,8 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 67.55%
 \end_layout
 
@@ -4044,6 +4174,8 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 53.44%
 \end_layout
 
@@ -4053,6 +4185,8 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 63.28%
 \end_layout
 
@@ -4063,6 +4197,8 @@ Cleveland
 
 \begin_layout Plain Layout
 
+\size footnotesize
+64.79%
 \end_layout
 
 \end_inset
@@ -4071,6 +4207,8 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 67.10%
 \end_layout
 
@@ -4080,6 +4218,8 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 67.47%
 \end_layout
 
@@ -4089,6 +4229,8 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 50.86%
 \end_layout
 
@@ -4100,6 +4242,8 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Circular
 \end_layout
 
@@ -4109,6 +4253,8 @@ Circular
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 6.08%
 \end_layout
 
@@ -4118,6 +4264,8 @@ Circular
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 19.95%
 \end_layout
 
@@ -4127,6 +4275,8 @@ Circular
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 35.18%
 \end_layout
 
@@ -4136,6 +4286,8 @@ Circular
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 21.87%
 \end_layout
 
@@ -4146,6 +4298,8 @@ Circular
 
 \begin_layout Plain Layout
 
+\size footnotesize
+21.06%
 \end_layout
 
 \end_inset
@@ -4154,6 +4308,8 @@ Circular
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 5.98%
 \end_layout
 
@@ -4163,6 +4319,8 @@ Circular
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 21.43%
 \end_layout
 
@@ -4172,6 +4330,8 @@ Circular
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 5.13%
 \end_layout
 
@@ -4183,6 +4343,8 @@ Circular
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Dermatology
 \end_layout
 
@@ -4192,6 +4354,8 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 52.92%
 \end_layout
 
@@ -4201,6 +4365,8 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 26.14%
 \end_layout
 
@@ -4210,6 +4376,8 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 32.43%
 \end_layout
 
@@ -4219,6 +4387,8 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 24.26%
 \end_layout
 
@@ -4229,6 +4399,8 @@ Dermatology
 
 \begin_layout Plain Layout
 
+\size footnotesize
+49.80%
 \end_layout
 
 \end_inset
@@ -4237,6 +4409,8 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 62.34%
 \end_layout
 
@@ -4246,6 +4420,8 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 61.46%
 \end_layout
 
@@ -4255,6 +4431,8 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 36.00%
 \end_layout
 
@@ -4266,6 +4444,8 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Hayes Roth
 \end_layout
 
@@ -4275,6 +4455,8 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 37.33%
 \end_layout
 
@@ -4284,6 +4466,8 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 59.70%
 \end_layout
 
@@ -4293,6 +4477,8 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 50.15%
 \end_layout
 
@@ -4302,6 +4488,8 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 44.65%
 \end_layout
 
@@ -4312,6 +4500,8 @@ Hayes Roth
 
 \begin_layout Plain Layout
 
+\size footnotesize
+59.39%
 \end_layout
 
 \end_inset
@@ -4320,6 +4510,8 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 64.36%
 \end_layout
 
@@ -4329,6 +4521,8 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 63.46%
 \end_layout
 
@@ -4338,6 +4532,8 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 38.31%
 \end_layout
 
@@ -4349,6 +4545,8 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Heart
 \end_layout
 
@@ -4358,6 +4556,8 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 39.44%
 \end_layout
 
@@ -4367,6 +4567,8 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 38.53%
 \end_layout
 
@@ -4376,6 +4578,8 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 39.27%
 \end_layout
 
@@ -4385,6 +4589,8 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 30.67%
 \end_layout
 
@@ -4395,6 +4601,8 @@ Heart
 
 \begin_layout Plain Layout
 
+\size footnotesize
+30.85%
 \end_layout
 
 \end_inset
@@ -4403,6 +4611,8 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 31.20%
 \end_layout
 
@@ -4412,6 +4622,8 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 28.44%
 \end_layout
 
@@ -4421,6 +4633,8 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 16.07%
 \end_layout
 
@@ -4432,6 +4646,8 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 HeartAttack
 \end_layout
 
@@ -4441,6 +4657,8 @@ HeartAttack
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 46.67%
 \end_layout
 
@@ -4450,6 +4668,8 @@ HeartAttack
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 45.55%
 \end_layout
 
@@ -4459,6 +4679,8 @@ HeartAttack
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 32.34%
 \end_layout
 
@@ -4468,6 +4690,8 @@ HeartAttack
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 32.97%
 \end_layout
 
@@ -4478,6 +4702,8 @@ HeartAttack
 
 \begin_layout Plain Layout
 
+\size footnotesize
+33.93%
 \end_layout
 
 \end_inset
@@ -4486,6 +4712,8 @@ HeartAttack
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 29.00%
 \end_layout
 
@@ -4495,6 +4723,8 @@ HeartAttack
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 40.48%
 \end_layout
 
@@ -4504,6 +4734,8 @@ HeartAttack
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 19.20%
 \end_layout
 
@@ -4515,6 +4747,8 @@ HeartAttack
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 HouseVotes
 \end_layout
 
@@ -4524,6 +4758,8 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 7.13%
 \end_layout
 
@@ -4533,6 +4769,8 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 7.48%
 \end_layout
 
@@ -4542,6 +4780,8 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 10.89%
 \end_layout
 
@@ -4551,6 +4791,8 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 3.13%
 \end_layout
 
@@ -4561,6 +4803,8 @@ HouseVotes
 
 \begin_layout Plain Layout
 
+\size footnotesize
+8.39%
 \end_layout
 
 \end_inset
@@ -4569,6 +4813,8 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 6.13%
 \end_layout
 
@@ -4578,6 +4824,8 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 11.99%
 \end_layout
 
@@ -4587,6 +4835,8 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 3.65%
 \end_layout
 
@@ -4598,6 +4848,8 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Ionosphere
 \end_layout
 
@@ -4607,6 +4859,8 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 15.29%
 \end_layout
 
@@ -4616,6 +4870,8 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 16.64%
 \end_layout
 
@@ -4625,6 +4881,8 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 19.67%
 \end_layout
 
@@ -4634,6 +4892,8 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 12.57%
 \end_layout
 
@@ -4644,6 +4904,8 @@ Ionosphere
 
 \begin_layout Plain Layout
 
+\size footnotesize
+15.03%
 \end_layout
 
 \end_inset
@@ -4652,6 +4914,8 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 16.22%
 \end_layout
 
@@ -4661,6 +4925,8 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 19.83%
 \end_layout
 
@@ -4670,6 +4936,8 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 12.17%
 \end_layout
 
@@ -4681,6 +4949,8 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Liverdisorder
 \end_layout
 
@@ -4690,6 +4960,8 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 42.59%
 \end_layout
 
@@ -4699,6 +4971,8 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 41.53%
 \end_layout
 
@@ -4708,6 +4982,8 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 30.67%
 \end_layout
 
@@ -4717,6 +4993,8 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 32.21%
 \end_layout
 
@@ -4727,6 +5005,8 @@ Liverdisorder
 
 \begin_layout Plain Layout
 
+\size footnotesize
+34.21%
 \end_layout
 
 \end_inset
@@ -4735,6 +5015,8 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 30.84%
 \end_layout
 
@@ -4744,6 +5026,8 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 36.97%
 \end_layout
 
@@ -4753,6 +5037,8 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 29.29%
 \end_layout
 
@@ -4764,6 +5050,8 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Lymography
 \end_layout
 
@@ -4773,6 +5061,8 @@ Lymography
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 35.43%
 \end_layout
 
@@ -4782,6 +5072,8 @@ Lymography
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 29.26%
 \end_layout
 
@@ -4791,6 +5083,8 @@ Lymography
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 33.70%
 \end_layout
 
@@ -4800,6 +5094,8 @@ Lymography
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 24.07%
 \end_layout
 
@@ -4810,14 +5106,7 @@ Lymography
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
+\size footnotesize
 25.50%
 \end_layout
 
@@ -4827,6 +5116,19 @@ Lymography
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
+25.50%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
 29.33%
 \end_layout
 
@@ -4836,6 +5138,8 @@ Lymography
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 24.36%
 \end_layout
 
@@ -4847,6 +5151,8 @@ Lymography
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Mammographic
 \end_layout
 
@@ -4856,6 +5162,8 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 17.24%
 \end_layout
 
@@ -4865,6 +5173,8 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 46.25%
 \end_layout
 
@@ -4874,6 +5184,8 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 22.85%
 \end_layout
 
@@ -4883,6 +5195,8 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 19.83%
 \end_layout
 
@@ -4893,6 +5207,8 @@ Mammographic
 
 \begin_layout Plain Layout
 
+\size footnotesize
+21.15%
 \end_layout
 
 \end_inset
@@ -4901,6 +5217,8 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 21.38%
 \end_layout
 
@@ -4910,6 +5228,8 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 30.41%
 \end_layout
 
@@ -4919,6 +5239,8 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 17.79%
 \end_layout
 
@@ -4930,6 +5252,8 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Parkinsons
 \end_layout
 
@@ -4939,6 +5263,8 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 27.58%
 \end_layout
 
@@ -4948,6 +5274,8 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 24.06%
 \end_layout
 
@@ -4957,6 +5285,8 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 18.56%
 \end_layout
 
@@ -4966,6 +5296,8 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 21.32%
 \end_layout
 
@@ -4976,6 +5308,8 @@ Parkinsons
 
 \begin_layout Plain Layout
 
+\size footnotesize
+19.32%
 \end_layout
 
 \end_inset
@@ -4984,6 +5318,8 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 17.41%
 \end_layout
 
@@ -4993,6 +5329,8 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 33.81%
 \end_layout
 
@@ -5002,6 +5340,8 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 17.53%
 \end_layout
 
@@ -5013,6 +5353,8 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Pima
 \end_layout
 
@@ -5022,6 +5364,8 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 35.59%
 \end_layout
 
@@ -5031,6 +5375,8 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 34.85%
 \end_layout
 
@@ -5040,6 +5386,8 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 34.51%
 \end_layout
 
@@ -5049,6 +5397,8 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 32.63%
 \end_layout
 
@@ -5059,6 +5409,8 @@ Pima
 
 \begin_layout Plain Layout
 
+\size footnotesize
+35.52%
 \end_layout
 
 \end_inset
@@ -5067,6 +5419,8 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 25.78%
 \end_layout
 
@@ -5076,6 +5430,8 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 27.83%
 \end_layout
 
@@ -5085,6 +5441,8 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 24.02%
 \end_layout
 
@@ -5096,6 +5454,8 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Popfailures
 \end_layout
 
@@ -5105,6 +5465,8 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 5.24%
 \end_layout
 
@@ -5114,6 +5476,8 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 5.18%
 \end_layout
 
@@ -5123,6 +5487,8 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 7.05%
 \end_layout
 
@@ -5132,6 +5498,8 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 6.83%
 \end_layout
 
@@ -5142,6 +5510,8 @@ Popfailures
 
 \begin_layout Plain Layout
 
+\size footnotesize
+7.63%
 \end_layout
 
 \end_inset
@@ -5150,6 +5520,8 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 7.04%
 \end_layout
 
@@ -5159,6 +5531,8 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 7.08%
 \end_layout
 
@@ -5168,6 +5542,8 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 6.33%
 \end_layout
 
@@ -5179,6 +5555,8 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Regions2
 \end_layout
 
@@ -5188,6 +5566,8 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 36.28%
 \end_layout
 
@@ -5197,6 +5577,8 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 29.85%
 \end_layout
 
@@ -5206,6 +5588,8 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 33.23%
 \end_layout
 
@@ -5215,6 +5599,8 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 33.42%
 \end_layout
 
@@ -5225,6 +5611,8 @@ Regions2
 
 \begin_layout Plain Layout
 
+\size footnotesize
+30.16%
 \end_layout
 
 \end_inset
@@ -5233,6 +5621,8 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 38.29%
 \end_layout
 
@@ -5242,6 +5632,8 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 39.98%
 \end_layout
 
@@ -5251,6 +5643,8 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 26.29%
 \end_layout
 
@@ -5262,6 +5656,8 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Saheart
 \end_layout
 
@@ -5271,6 +5667,8 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 37.48%
 \end_layout
 
@@ -5280,6 +5678,8 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 34.04%
 \end_layout
 
@@ -5289,6 +5689,8 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 34.51%
 \end_layout
 
@@ -5298,6 +5700,8 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 35.11%
 \end_layout
 
@@ -5308,6 +5712,8 @@ Saheart
 
 \begin_layout Plain Layout
 
+\size footnotesize
+34.87%
 \end_layout
 
 \end_inset
@@ -5316,6 +5722,8 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 32.19%
 \end_layout
 
@@ -5325,6 +5733,8 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 33.90%
 \end_layout
 
@@ -5334,6 +5744,8 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 28.50%
 \end_layout
 
@@ -5345,6 +5757,8 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Segment
 \end_layout
 
@@ -5354,6 +5768,8 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 68.97%
 \end_layout
 
@@ -5363,6 +5779,8 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 49.75%
 \end_layout
 
@@ -5372,6 +5790,8 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 66.72%
 \end_layout
 
@@ -5381,6 +5801,8 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 32.04%
 \end_layout
 
@@ -5391,6 +5813,8 @@ Segment
 
 \begin_layout Plain Layout
 
+\size footnotesize
+51.70%
 \end_layout
 
 \end_inset
@@ -5399,6 +5823,8 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 59.68%
 \end_layout
 
@@ -5408,6 +5834,8 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 54.25%
 \end_layout
 
@@ -5417,6 +5845,8 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 45.00%
 \end_layout
 
@@ -5428,6 +5858,8 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Sonar
 \end_layout
 
@@ -5437,6 +5869,8 @@ Sonar
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 25.85%
 \end_layout
 
@@ -5446,6 +5880,8 @@ Sonar
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 30.33%
 \end_layout
 
@@ -5455,6 +5891,8 @@ Sonar
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 34.10%
 \end_layout
 
@@ -5464,6 +5902,8 @@ Sonar
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 20.50%
 \end_layout
 
@@ -5474,6 +5914,8 @@ Sonar
 
 \begin_layout Plain Layout
 
+\size footnotesize
+27.15%
 \end_layout
 
 \end_inset
@@ -5482,6 +5924,8 @@ Sonar
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 27.90%
 \end_layout
 
@@ -5491,6 +5935,8 @@ Sonar
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 37.13%
 \end_layout
 
@@ -5500,6 +5946,8 @@ Sonar
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 22.00%
 \end_layout
 
@@ -5511,6 +5959,8 @@ Sonar
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Spiral
 \end_layout
 
@@ -5520,6 +5970,8 @@ Spiral
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 47.99%
 \end_layout
 
@@ -5529,6 +5981,8 @@ Spiral
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 48.90%
 \end_layout
 
@@ -5538,6 +5992,8 @@ Spiral
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 50.22%
 \end_layout
 
@@ -5547,6 +6003,8 @@ Spiral
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 45.64%
 \end_layout
 
@@ -5557,6 +6015,8 @@ Spiral
 
 \begin_layout Plain Layout
 
+\size footnotesize
+50.57%
 \end_layout
 
 \end_inset
@@ -5565,6 +6025,8 @@ Spiral
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 44.87%
 \end_layout
 
@@ -5574,6 +6036,8 @@ Spiral
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 50.02%
 \end_layout
 
@@ -5583,6 +6047,8 @@ Spiral
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 13.26%
 \end_layout
 
@@ -5594,6 +6060,8 @@ Spiral
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Statheart
 \end_layout
 
@@ -5603,6 +6071,8 @@ Statheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 39.65%
 \end_layout
 
@@ -5612,6 +6082,8 @@ Statheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 44.04%
 \end_layout
 
@@ -5621,6 +6093,8 @@ Statheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 44.36%
 \end_layout
 
@@ -5630,6 +6104,8 @@ Statheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 30.22%
 \end_layout
 
@@ -5640,6 +6116,8 @@ Statheart
 
 \begin_layout Plain Layout
 
+\size footnotesize
+31.41%
 \end_layout
 
 \end_inset
@@ -5648,6 +6126,8 @@ Statheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 31.36%
 \end_layout
 
@@ -5657,6 +6137,8 @@ Statheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 42.94%
 \end_layout
 
@@ -5666,6 +6148,8 @@ Statheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 19.67%
 \end_layout
 
@@ -5677,6 +6161,8 @@ Statheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Student
 \end_layout
 
@@ -5686,6 +6172,8 @@ Student
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 7.14%
 \end_layout
 
@@ -5695,6 +6183,8 @@ Student
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 5.13%
 \end_layout
 
@@ -5704,6 +6194,8 @@ Student
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 10.20%
 \end_layout
 
@@ -5713,6 +6205,8 @@ Student
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 6.93%
 \end_layout
 
@@ -5723,6 +6217,8 @@ Student
 
 \begin_layout Plain Layout
 
+\size footnotesize
+5.83%
 \end_layout
 
 \end_inset
@@ -5731,6 +6227,8 @@ Student
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 5.49%
 \end_layout
 
@@ -5740,6 +6238,8 @@ Student
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 33.26%
 \end_layout
 
@@ -5749,6 +6249,8 @@ Student
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 5.23%
 \end_layout
 
@@ -5760,6 +6262,8 @@ Student
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Transfusion
 \end_layout
 
@@ -5769,6 +6273,8 @@ Transfusion
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 25.84%
 \end_layout
 
@@ -5778,6 +6284,8 @@ Transfusion
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 25.68%
 \end_layout
 
@@ -5787,6 +6295,8 @@ Transfusion
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 24.87%
 \end_layout
 
@@ -5796,6 +6306,8 @@ Transfusion
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 25.92%
 \end_layout
 
@@ -5806,6 +6318,8 @@ Transfusion
 
 \begin_layout Plain Layout
 
+\size footnotesize
+25.41%
 \end_layout
 
 \end_inset
@@ -5814,6 +6328,8 @@ Transfusion
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 26.41%
 \end_layout
 
@@ -5823,6 +6339,8 @@ Transfusion
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 25.67%
 \end_layout
 
@@ -5832,6 +6350,8 @@ Transfusion
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 26.04%
 \end_layout
 
@@ -5843,6 +6363,8 @@ Transfusion
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Wdbc
 \end_layout
 
@@ -5852,6 +6374,8 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 29.91%
 \end_layout
 
@@ -5861,6 +6385,8 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 35.35%
 \end_layout
 
@@ -5870,6 +6396,8 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 12.88%
 \end_layout
 
@@ -5879,6 +6407,8 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 9.43%
 \end_layout
 
@@ -5889,6 +6419,8 @@ Wdbc
 
 \begin_layout Plain Layout
 
+\size footnotesize
+9.52%
 \end_layout
 
 \end_inset
@@ -5897,6 +6429,8 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 7.27%
 \end_layout
 
@@ -5906,6 +6440,8 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 8.82%
 \end_layout
 
@@ -5915,6 +6451,8 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 5.54%
 \end_layout
 
@@ -5926,6 +6464,8 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Wine
 \end_layout
 
@@ -5935,6 +6475,8 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 59.71%
 \end_layout
 
@@ -5944,6 +6486,8 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 29.40%
 \end_layout
 
@@ -5953,6 +6497,8 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 25.43%
 \end_layout
 
@@ -5962,6 +6508,8 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 27.18%
 \end_layout
 
@@ -5972,6 +6520,8 @@ Wine
 
 \begin_layout Plain Layout
 
+\size footnotesize
+21.77%
 \end_layout
 
 \end_inset
@@ -5980,6 +6530,8 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 31.41%
 \end_layout
 
@@ -5989,6 +6541,8 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 31.47%
 \end_layout
 
@@ -5998,6 +6552,8 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 9.47%
 \end_layout
 
@@ -6009,6 +6565,8 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Z_F_S
 \end_layout
 
@@ -6018,6 +6576,8 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 39.37%
 \end_layout
 
@@ -6027,6 +6587,8 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 47.81%
 \end_layout
 
@@ -6036,6 +6598,8 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 38.41%
 \end_layout
 
@@ -6045,6 +6609,8 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 9.27%
 \end_layout
 
@@ -6055,6 +6621,8 @@ Z_F_S
 
 \begin_layout Plain Layout
 
+\size footnotesize
+17.63%
 \end_layout
 
 \end_inset
@@ -6063,6 +6631,8 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 13.16%
 \end_layout
 
@@ -6072,6 +6642,8 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 23.37%
 \end_layout
 
@@ -6081,6 +6653,8 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 3.73%
 \end_layout
 
@@ -6092,6 +6666,8 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 Z_O_N_F_S
 \end_layout
 
@@ -6101,6 +6677,8 @@ Z_O_N_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 65.67%
 \end_layout
 
@@ -6110,6 +6688,8 @@ Z_O_N_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 78.79%
 \end_layout
 
@@ -6119,6 +6699,8 @@ Z_O_N_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 77.08%
 \end_layout
 
@@ -6128,6 +6710,8 @@ Z_O_N_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 67.80%
 \end_layout
 
@@ -6138,6 +6722,8 @@ Z_O_N_F_S
 
 \begin_layout Plain Layout
 
+\size footnotesize
+54.08%
 \end_layout
 
 \end_inset
@@ -6146,6 +6732,8 @@ Z_O_N_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 48.70%
 \end_layout
 
@@ -6155,6 +6743,8 @@ Z_O_N_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 68.40%
 \end_layout
 
@@ -6164,6 +6754,8 @@ Z_O_N_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 41.00%
 \end_layout
 
@@ -6175,6 +6767,8 @@ Z_O_N_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 ZO_NF_S
 \end_layout
 
@@ -6184,6 +6778,8 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 43.04%
 \end_layout
 
@@ -6193,6 +6789,8 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 47.43%
 \end_layout
 
@@ -6202,6 +6800,8 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 43.75%
 \end_layout
 
@@ -6211,6 +6811,8 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 8.50%
 \end_layout
 
@@ -6221,6 +6823,8 @@ ZO_NF_S
 
 \begin_layout Plain Layout
 
+\size footnotesize
+20.02%
 \end_layout
 
 \end_inset
@@ -6229,6 +6833,8 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 9.02%
 \end_layout
 
@@ -6238,6 +6844,8 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 22.18%
 \end_layout
 
@@ -6247,6 +6855,8 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 4.24%
 \end_layout
 
@@ -6258,6 +6868,8 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 ZONF_S
 \end_layout
 
@@ -6267,6 +6879,8 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 15.62%
 \end_layout
 
@@ -6276,6 +6890,8 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 11.99%
 \end_layout
 
@@ -6285,6 +6901,8 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 5.44%
 \end_layout
 
@@ -6294,6 +6912,8 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 2.52%
 \end_layout
 
@@ -6304,6 +6924,8 @@ ZONF_S
 
 \begin_layout Plain Layout
 
+\size footnotesize
+3.10%
 \end_layout
 
 \end_inset
@@ -6312,6 +6934,8 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 4.03%
 \end_layout
 
@@ -6321,6 +6945,8 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 17.41%
 \end_layout
 
@@ -6330,6 +6956,8 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 1.98%
 \end_layout
 
@@ -6341,6 +6969,8 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size scriptsize
 ZOO
 \end_layout
 
@@ -6350,6 +6980,8 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 10.70%
 \end_layout
 
@@ -6359,6 +6991,8 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 14.13%
 \end_layout
 
@@ -6368,6 +7002,8 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 20.27%
 \end_layout
 
@@ -6377,6 +7013,8 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 16.20%
 \end_layout
 
@@ -6387,6 +7025,8 @@ ZOO
 
 \begin_layout Plain Layout
 
+\size footnotesize
+14.70%
 \end_layout
 
 \end_inset
@@ -6395,6 +7035,8 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 21.93%
 \end_layout
 
@@ -6404,6 +7046,8 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 33.50%
 \end_layout
 
@@ -6413,6 +7057,8 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 9.80%
 \end_layout
 
@@ -6426,6 +7072,7 @@ ZOO
 \begin_layout Plain Layout
 
 \series bold
+\size scriptsize
 AVERAGE
 \end_layout
 
@@ -6437,6 +7084,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 33.50%
 \end_layout
 
@@ -6448,6 +7096,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 33.73%
 \end_layout
 
@@ -6459,6 +7108,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 32.77%
 \end_layout
 
@@ -6470,6 +7120,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 25.52%
 \end_layout
 
@@ -6480,6 +7131,9 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+\size footnotesize
+27.21%
 \end_layout
 
 \end_inset
@@ -6490,6 +7144,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 28.54%
 \end_layout
 
@@ -6501,6 +7156,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 34.89%
 \end_layout
 
@@ -6512,6 +7168,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 19.45%
 \end_layout
 
@@ -6779,7 +7436,7 @@ Abalone
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+4.81
 \end_layout
 
 \end_inset
@@ -6862,7 +7519,7 @@ Airfoil
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.004
 \end_layout
 
 \end_inset
@@ -6945,7 +7602,7 @@ Auto
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+27.03
 \end_layout
 
 \end_inset
@@ -7028,7 +7685,7 @@ Baseball
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+88.76
 \end_layout
 
 \end_inset
@@ -7111,7 +7768,7 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.023
 \end_layout
 
 \end_inset
@@ -7194,7 +7851,7 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.46
 \end_layout
 
 \end_inset
@@ -7277,7 +7934,7 @@ Concrete
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.013
 \end_layout
 
 \end_inset
@@ -7360,7 +8017,7 @@ Dee
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.28
 \end_layout
 
 \end_inset
@@ -7443,7 +8100,7 @@ Housing
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+57.39
 \end_layout
 
 \end_inset
@@ -7526,7 +8183,7 @@ Friedman
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+3.79
 \end_layout
 
 \end_inset
@@ -7609,7 +8266,7 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.051
 \end_layout
 
 \end_inset
@@ -7692,7 +8349,7 @@ FY
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.21
 \end_layout
 
 \end_inset
@@ -7775,7 +8432,7 @@ HO
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.034
 \end_layout
 
 \end_inset
@@ -7858,7 +8515,7 @@ Laser
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.026
 \end_layout
 
 \end_inset
@@ -7941,7 +8598,7 @@ Mortgage
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+3.01
 \end_layout
 
 \end_inset
@@ -8024,7 +8681,7 @@ PL
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.056
 \end_layout
 
 \end_inset
@@ -8107,7 +8764,7 @@ Plastic
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+3.66
 \end_layout
 
 \end_inset
@@ -8190,7 +8847,7 @@ PY
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.401
 \end_layout
 
 \end_inset
@@ -8273,7 +8930,7 @@ Quake
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.093
 \end_layout
 
 \end_inset
@@ -8356,7 +9013,7 @@ SN
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.055
 \end_layout
 
 \end_inset
@@ -8439,7 +9096,7 @@ Stock
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+14.43
 \end_layout
 
 \end_inset
@@ -8522,7 +9179,7 @@ Treasury
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+3.74
 \end_layout
 
 \end_inset
@@ -8605,6 +9262,8 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+11.82
 \end_layout
 
 \end_inset
@@ -8614,6 +9273,8 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+9.18
 \end_layout
 
 \end_inset
@@ -17879,6 +18540,47 @@ K.
  pp.
  99-127,
  2002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2020)"
+key "adagrad"
+literal "false"
+
+\end_inset
+
+Ward,
+ R.,
+ Wu,
+ X.,
+ & Bottou,
+ L.
+ (2020).
+ Adagrad stepsizes:
+ Sharp convergence over nonconvex landscapes.
+ Journal of Machine Learning Research,
+ 21(219),
+ 1-30.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2014)"
+key "bayesopt"
+literal "false"
+
+\end_inset
+
+Ruben Martinez-Cantin,
+ BayesOpt:
+ A Bayesian Optimization Library for Nonlinear Optimization,
+ Experimental Design and Bandits.
+ Journal of Machine Learning Research,
+ 15(Nov):3735--3739,
+ 2014.
 \end_layout
 
 \begin_layout Bibliography
