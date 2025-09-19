@@ -16232,6 +16232,18 @@ name "fig:statRegressionSigma"
 
 \end_layout
 
+\begin_layout Subsection
+Experiments with the number of generations 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection
+Experiments with real - world problems
+\end_layout
+
 \begin_layout Section
 Conclusions
 \begin_inset CommandInset label

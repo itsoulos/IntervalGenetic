@@ -7273,6 +7273,8 @@ name "tab:expRegression"
 
 \begin_layout Plain Layout
 \align left
+
+\size footnotesize
 \begin_inset Tabular
 <lyxtabular version="3" rows="24" columns="9">
 <features tabularvalignment="middle">
@@ -7292,6 +7294,7 @@ name "tab:expRegression"
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 DATASET
 \end_layout
 
@@ -7303,6 +7306,7 @@ DATASET
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 BFGS
 \end_layout
 
@@ -7314,6 +7318,7 @@ BFGS
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 ADAM
 \end_layout
 
@@ -7325,6 +7330,7 @@ ADAM
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 NEAT
 \end_layout
 
@@ -7336,6 +7342,7 @@ NEAT
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 DNN
 \end_layout
 
@@ -7347,6 +7354,7 @@ DNN
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 BAYES
 \end_layout
 
@@ -7358,6 +7366,7 @@ BAYES
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 RBF-KMEANS
 \end_layout
 
@@ -7369,6 +7378,7 @@ RBF-KMEANS
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 GENRBF
 \end_layout
 
@@ -7380,6 +7390,7 @@ GENRBF
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 PROPOSED
 \end_layout
 
@@ -7391,6 +7402,8 @@ PROPOSED
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Abalone
 \end_layout
 
@@ -7400,6 +7413,8 @@ Abalone
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 5.69
 \end_layout
 
@@ -7409,6 +7424,8 @@ Abalone
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 4.30
 \end_layout
 
@@ -7418,6 +7435,8 @@ Abalone
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 9.88
 \end_layout
 
@@ -7427,6 +7446,8 @@ Abalone
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 6.91
 \end_layout
 
@@ -7436,6 +7457,8 @@ Abalone
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 4.81
 \end_layout
 
@@ -7445,6 +7468,8 @@ Abalone
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 7.37
 \end_layout
 
@@ -7454,6 +7479,8 @@ Abalone
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 9.98
 \end_layout
 
@@ -7463,6 +7490,8 @@ Abalone
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 6.12
 \end_layout
 
@@ -7474,6 +7503,8 @@ Abalone
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Airfoil
 \end_layout
 
@@ -7483,6 +7514,8 @@ Airfoil
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.003
 \end_layout
 
@@ -7492,6 +7525,8 @@ Airfoil
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.005
 \end_layout
 
@@ -7501,6 +7536,8 @@ Airfoil
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.067
 \end_layout
 
@@ -7510,6 +7547,8 @@ Airfoil
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.004
 \end_layout
 
@@ -7519,6 +7558,8 @@ Airfoil
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.004
 \end_layout
 
@@ -7528,6 +7569,8 @@ Airfoil
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.27
 \end_layout
 
@@ -7537,6 +7580,8 @@ Airfoil
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.121
 \end_layout
 
@@ -7546,6 +7591,8 @@ Airfoil
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.004
 \end_layout
 
@@ -7557,6 +7604,8 @@ Airfoil
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Auto
 \end_layout
 
@@ -7566,6 +7615,8 @@ Auto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 60.97
 \end_layout
 
@@ -7575,6 +7626,8 @@ Auto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 70.84
 \end_layout
 
@@ -7584,6 +7637,8 @@ Auto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 56.06
 \end_layout
 
@@ -7593,6 +7648,8 @@ Auto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 13.26
 \end_layout
 
@@ -7602,6 +7659,8 @@ Auto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 27.03
 \end_layout
 
@@ -7611,6 +7670,8 @@ Auto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 17.87
 \end_layout
 
@@ -7620,6 +7681,8 @@ Auto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 16.78
 \end_layout
 
@@ -7629,6 +7692,8 @@ Auto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 8.81
 \end_layout
 
@@ -7640,6 +7705,8 @@ Auto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Baseball
 \end_layout
 
@@ -7649,6 +7716,8 @@ Baseball
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 119.63
 \end_layout
 
@@ -7658,6 +7727,8 @@ Baseball
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 77.90
 \end_layout
 
@@ -7667,6 +7738,8 @@ Baseball
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 100.39
 \end_layout
 
@@ -7676,6 +7749,8 @@ Baseball
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 110.22
 \end_layout
 
@@ -7685,6 +7760,8 @@ Baseball
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 88.76
 \end_layout
 
@@ -7694,6 +7771,8 @@ Baseball
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 93.02
 \end_layout
 
@@ -7703,6 +7782,8 @@ Baseball
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 98.91
 \end_layout
 
@@ -7712,6 +7793,8 @@ Baseball
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 88.05
 \end_layout
 
@@ -7723,6 +7806,8 @@ Baseball
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 BK
 \end_layout
 
@@ -7732,6 +7817,8 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.28
 \end_layout
 
@@ -7741,6 +7828,8 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.03
 \end_layout
 
@@ -7750,6 +7839,8 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.15
 \end_layout
 
@@ -7759,6 +7850,8 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.02
 \end_layout
 
@@ -7768,6 +7861,8 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.023
 \end_layout
 
@@ -7777,6 +7872,8 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.02
 \end_layout
 
@@ -7786,6 +7883,8 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.023
 \end_layout
 
@@ -7795,6 +7894,8 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.022
 \end_layout
 
@@ -7806,6 +7907,8 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 BL
 \end_layout
 
@@ -7815,6 +7918,8 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 2.55
 \end_layout
 
@@ -7824,6 +7929,8 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.28
 \end_layout
 
@@ -7833,6 +7940,8 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.05
 \end_layout
 
@@ -7842,6 +7951,8 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.006
 \end_layout
 
@@ -7851,6 +7962,8 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.46
 \end_layout
 
@@ -7860,6 +7973,8 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.013
 \end_layout
 
@@ -7869,6 +7984,8 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.005
 \end_layout
 
@@ -7878,6 +7995,8 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.0004
 \end_layout
 
@@ -7889,6 +8008,8 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Concrete
 \end_layout
 
@@ -7898,6 +8019,8 @@ Concrete
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.066
 \end_layout
 
@@ -7907,6 +8030,8 @@ Concrete
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.078
 \end_layout
 
@@ -7916,6 +8041,8 @@ Concrete
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.081
 \end_layout
 
@@ -7925,6 +8052,8 @@ Concrete
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.021
 \end_layout
 
@@ -7934,6 +8063,8 @@ Concrete
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.013
 \end_layout
 
@@ -7943,6 +8074,8 @@ Concrete
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.011
 \end_layout
 
@@ -7952,6 +8085,8 @@ Concrete
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.015
 \end_layout
 
@@ -7961,6 +8096,8 @@ Concrete
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.005
 \end_layout
 
@@ -7972,6 +8109,8 @@ Concrete
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Dee
 \end_layout
 
@@ -7981,6 +8120,8 @@ Dee
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 2.36
 \end_layout
 
@@ -7990,6 +8131,8 @@ Dee
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.630
 \end_layout
 
@@ -7999,6 +8142,8 @@ Dee
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 1.512
 \end_layout
 
@@ -8008,6 +8153,8 @@ Dee
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.31
 \end_layout
 
@@ -8017,6 +8164,8 @@ Dee
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.28
 \end_layout
 
@@ -8026,6 +8175,8 @@ Dee
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.17
 \end_layout
 
@@ -8035,6 +8186,8 @@ Dee
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.25
 \end_layout
 
@@ -8044,6 +8197,8 @@ Dee
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.15
 \end_layout
 
@@ -8055,6 +8210,8 @@ Dee
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Housing
 \end_layout
 
@@ -8064,6 +8221,8 @@ Housing
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 97.38
 \end_layout
 
@@ -8073,6 +8232,8 @@ Housing
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 80.20
 \end_layout
 
@@ -8082,6 +8243,8 @@ Housing
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 56.49
 \end_layout
 
@@ -8091,6 +8254,8 @@ Housing
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 65.18
 \end_layout
 
@@ -8100,6 +8265,8 @@ Housing
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 57.39
 \end_layout
 
@@ -8109,6 +8276,8 @@ Housing
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 57.68
 \end_layout
 
@@ -8118,6 +8287,8 @@ Housing
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 95.69
 \end_layout
 
@@ -8127,6 +8298,8 @@ Housing
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 15.36
 \end_layout
 
@@ -8138,6 +8311,8 @@ Housing
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Friedman
 \end_layout
 
@@ -8147,6 +8322,8 @@ Friedman
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 1.26
 \end_layout
 
@@ -8156,6 +8333,8 @@ Friedman
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 22.90
 \end_layout
 
@@ -8165,6 +8344,8 @@ Friedman
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 19.35
 \end_layout
 
@@ -8174,6 +8355,8 @@ Friedman
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 2.75
 \end_layout
 
@@ -8183,6 +8366,8 @@ Friedman
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 3.79
 \end_layout
 
@@ -8192,6 +8377,8 @@ Friedman
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 7.23
 \end_layout
 
@@ -8201,6 +8388,8 @@ Friedman
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 16.24
 \end_layout
 
@@ -8210,6 +8399,8 @@ Friedman
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 5.99
 \end_layout
 
@@ -8221,6 +8412,8 @@ Friedman
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 FA
 \end_layout
 
@@ -8230,6 +8423,8 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.426
 \end_layout
 
@@ -8239,6 +8434,8 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.11
 \end_layout
 
@@ -8248,6 +8445,8 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.19
 \end_layout
 
@@ -8257,6 +8456,8 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.02
 \end_layout
 
@@ -8266,6 +8467,8 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.051
 \end_layout
 
@@ -8275,6 +8478,8 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.015
 \end_layout
 
@@ -8284,6 +8489,8 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.15
 \end_layout
 
@@ -8293,6 +8500,8 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.013
 \end_layout
 
@@ -8304,6 +8513,8 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 FY
 \end_layout
 
@@ -8313,6 +8524,8 @@ FY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.22
 \end_layout
 
@@ -8322,6 +8535,8 @@ FY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.038
 \end_layout
 
@@ -8331,6 +8546,8 @@ FY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.08
 \end_layout
 
@@ -8340,6 +8557,8 @@ FY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.039
 \end_layout
 
@@ -8349,6 +8568,8 @@ FY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.21
 \end_layout
 
@@ -8358,6 +8579,8 @@ FY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.041
 \end_layout
 
@@ -8367,6 +8590,8 @@ FY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.041
 \end_layout
 
@@ -8376,6 +8601,8 @@ FY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.054
 \end_layout
 
@@ -8387,6 +8614,8 @@ FY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 HO
 \end_layout
 
@@ -8396,6 +8625,8 @@ HO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.62
 \end_layout
 
@@ -8405,6 +8636,8 @@ HO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.035
 \end_layout
 
@@ -8414,6 +8647,8 @@ HO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.169
 \end_layout
 
@@ -8423,6 +8658,8 @@ HO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.026
 \end_layout
 
@@ -8432,6 +8669,8 @@ HO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.034
 \end_layout
 
@@ -8441,6 +8680,8 @@ HO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.03
 \end_layout
 
@@ -8450,6 +8691,8 @@ HO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.076
 \end_layout
 
@@ -8459,6 +8702,8 @@ HO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.009
 \end_layout
 
@@ -8470,6 +8715,8 @@ HO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Laser
 \end_layout
 
@@ -8479,6 +8726,8 @@ Laser
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.015
 \end_layout
 
@@ -8488,6 +8737,8 @@ Laser
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.03
 \end_layout
 
@@ -8497,6 +8748,8 @@ Laser
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.084
 \end_layout
 
@@ -8506,6 +8759,8 @@ Laser
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.045
 \end_layout
 
@@ -8515,6 +8770,8 @@ Laser
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.026
 \end_layout
 
@@ -8524,6 +8781,8 @@ Laser
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.03
 \end_layout
 
@@ -8533,6 +8792,8 @@ Laser
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.075
 \end_layout
 
@@ -8542,6 +8803,8 @@ Laser
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.016
 \end_layout
 
@@ -8553,6 +8816,8 @@ Laser
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Mortgage
 \end_layout
 
@@ -8562,6 +8827,8 @@ Mortgage
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 8.23
 \end_layout
 
@@ -8571,6 +8838,8 @@ Mortgage
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 9.24
 \end_layout
 
@@ -8580,6 +8849,8 @@ Mortgage
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 14.11
 \end_layout
 
@@ -8589,6 +8860,8 @@ Mortgage
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 9.74
 \end_layout
 
@@ -8598,6 +8871,8 @@ Mortgage
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 3.01
 \end_layout
 
@@ -8607,6 +8882,8 @@ Mortgage
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 1.45
 \end_layout
 
@@ -8616,6 +8893,8 @@ Mortgage
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 1.92
 \end_layout
 
@@ -8625,6 +8904,8 @@ Mortgage
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.23
 \end_layout
 
@@ -8636,6 +8917,8 @@ Mortgage
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 PL
 \end_layout
 
@@ -8645,6 +8928,8 @@ PL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.29
 \end_layout
 
@@ -8654,6 +8939,8 @@ PL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.117
 \end_layout
 
@@ -8663,6 +8950,8 @@ PL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.098
 \end_layout
 
@@ -8672,6 +8961,8 @@ PL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.056
 \end_layout
 
@@ -8681,6 +8972,8 @@ PL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.056
 \end_layout
 
@@ -8690,6 +8983,8 @@ PL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 2.12
 \end_layout
 
@@ -8699,6 +8994,8 @@ PL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.155
 \end_layout
 
@@ -8708,6 +9005,8 @@ PL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.023
 \end_layout
 
@@ -8719,6 +9018,8 @@ PL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Plastic
 \end_layout
 
@@ -8728,6 +9029,8 @@ Plastic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 20.32
 \end_layout
 
@@ -8737,6 +9040,8 @@ Plastic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 11.71
 \end_layout
 
@@ -8746,6 +9051,8 @@ Plastic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 20.77
 \end_layout
 
@@ -8755,6 +9062,8 @@ Plastic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 3.82
 \end_layout
 
@@ -8764,6 +9073,8 @@ Plastic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 3.66
 \end_layout
 
@@ -8773,6 +9084,8 @@ Plastic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 8.62
 \end_layout
 
@@ -8782,6 +9095,8 @@ Plastic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 25.91
 \end_layout
 
@@ -8791,6 +9106,8 @@ Plastic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 2.28
 \end_layout
 
@@ -8802,6 +9119,8 @@ Plastic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 PY
 \end_layout
 
@@ -8811,6 +9130,8 @@ PY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.578
 \end_layout
 
@@ -8820,6 +9141,8 @@ PY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.09
 \end_layout
 
@@ -8829,6 +9152,8 @@ PY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.075
 \end_layout
 
@@ -8838,6 +9163,8 @@ PY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.028
 \end_layout
 
@@ -8847,6 +9174,8 @@ PY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.401
 \end_layout
 
@@ -8856,6 +9185,8 @@ PY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.012
 \end_layout
 
@@ -8865,6 +9196,8 @@ PY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.029
 \end_layout
 
@@ -8874,6 +9207,8 @@ PY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.021
 \end_layout
 
@@ -8885,6 +9220,8 @@ PY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Quake
 \end_layout
 
@@ -8894,6 +9231,8 @@ Quake
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.42
 \end_layout
 
@@ -8903,6 +9242,8 @@ Quake
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.06
 \end_layout
 
@@ -8912,6 +9253,8 @@ Quake
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.298
 \end_layout
 
@@ -8921,6 +9264,8 @@ Quake
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.04
 \end_layout
 
@@ -8930,6 +9275,8 @@ Quake
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.093
 \end_layout
 
@@ -8939,6 +9286,8 @@ Quake
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.07
 \end_layout
 
@@ -8948,6 +9297,8 @@ Quake
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.79
 \end_layout
 
@@ -8957,6 +9308,8 @@ Quake
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.036
 \end_layout
 
@@ -8968,6 +9321,8 @@ Quake
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 SN
 \end_layout
 
@@ -8977,6 +9332,8 @@ SN
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.40
 \end_layout
 
@@ -8986,6 +9343,8 @@ SN
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.026
 \end_layout
 
@@ -8995,6 +9354,8 @@ SN
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.174
 \end_layout
 
@@ -9004,6 +9365,8 @@ SN
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.032
 \end_layout
 
@@ -9013,6 +9376,8 @@ SN
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.055
 \end_layout
 
@@ -9022,6 +9387,8 @@ SN
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.027
 \end_layout
 
@@ -9031,6 +9398,8 @@ SN
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.027
 \end_layout
 
@@ -9040,6 +9409,8 @@ SN
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.026
 \end_layout
 
@@ -9051,6 +9422,8 @@ SN
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Stock
 \end_layout
 
@@ -9060,6 +9433,8 @@ Stock
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 302.43
 \end_layout
 
@@ -9069,6 +9444,8 @@ Stock
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 180.89
 \end_layout
 
@@ -9078,6 +9455,8 @@ Stock
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 12.23
 \end_layout
 
@@ -9087,6 +9466,8 @@ Stock
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 39.08
 \end_layout
 
@@ -9096,6 +9477,8 @@ Stock
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 14.43
 \end_layout
 
@@ -9105,6 +9488,8 @@ Stock
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 12.23
 \end_layout
 
@@ -9114,6 +9499,8 @@ Stock
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 25.18
 \end_layout
 
@@ -9123,6 +9510,8 @@ Stock
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 1.44
 \end_layout
 
@@ -9134,6 +9523,8 @@ Stock
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Treasury
 \end_layout
 
@@ -9143,6 +9534,8 @@ Treasury
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 9.91
 \end_layout
 
@@ -9152,6 +9545,8 @@ Treasury
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 11.16
 \end_layout
 
@@ -9161,6 +9556,8 @@ Treasury
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 15.52
 \end_layout
 
@@ -9170,6 +9567,8 @@ Treasury
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 13.76
 \end_layout
 
@@ -9179,6 +9578,8 @@ Treasury
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 3.74
 \end_layout
 
@@ -9188,6 +9589,8 @@ Treasury
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 2.02
 \end_layout
 
@@ -9197,6 +9600,8 @@ Treasury
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 1.89
 \end_layout
 
@@ -9206,6 +9611,8 @@ Treasury
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.47
 \end_layout
 
@@ -9219,6 +9626,7 @@ Treasury
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 AVERAGE
 \end_layout
 
@@ -9230,6 +9638,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 28.82
 \end_layout
 
@@ -9241,6 +9650,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 21.39
 \end_layout
 
@@ -9252,6 +9662,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 13.99
 \end_layout
 
@@ -9263,6 +9674,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 11.82
 \end_layout
 
@@ -9274,6 +9686,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 9.18
 \end_layout
 
@@ -9285,6 +9698,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 9.56
 \end_layout
 
@@ -9296,6 +9710,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 13.38
 \end_layout
 
@@ -9307,6 +9722,7 @@ AVERAGE
 \begin_layout Plain Layout
 
 \series bold
+\size footnotesize
 5.87
 \end_layout
 
