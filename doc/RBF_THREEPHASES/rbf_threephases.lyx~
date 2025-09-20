@@ -1698,9 +1698,10 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align left
 \begin_inset Graphics
-	filename chrom.png
-	scale 65
+	filename chrom_layout.png
+	scale 20
 
 \end_inset
 
@@ -3036,7 +3037,18 @@ literal "false"
 
 \end_inset
 
- was incorporated.
+ available from 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/itsoulos/GlobalOptimus.git
+\end_layout
+
+\end_inset
+
+ (accessed on 20 September 2025) was incorporated.
  The results were validated using the ten - fold cross validation technique.
  For the classification datasets the average classification error,
  calculated on the corresponding test set,
@@ -3466,7 +3478,7 @@ https://github.com/tiny-dnn/tiny-dnn
 
 \end_inset
 
-(accessed on 18 September 2025).
+(accessed on 20 September 2025).
  The implemented network was trained with the AdaGrad optimizer 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -3515,77 +3527,12 @@ The row average stands for the average regression or classification error for al
 \end_layout
 
 \begin_layout Standard
-Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:expClass"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- reports thirty-two classification datasets and six learning methods:
- BFGS,
- ADAM,
- NEAT,
- RBF-KMEANS,
- GENRBF,
- and the new proposed method.
- The entries are classification error rates;
- lower values indicate better performance.
- The last row gives the mean error for each method across all datasets.
- Based on these means,
- the proposed method attains the lowest overall error,
- about 19.45%.
- All other methods exhibit substantially higher errors:
- GENRBF 34.89%,
- ADAM 33.73%,
- BFGS 33.50%,
- NEAT 32.77%,
- and RBF-KMEANS 28.54%.
- Thus,
- on average,
- the proposed method nearly halves the error relative to the alternatives.
- At the dataset level,
- the proposed approach often delivers striking gains.
- For example,
- on Spiral it achieves only 13.26% error,
- whereas all other methods lie around 45–50%.
- On Australian it yields 22.67% compared with 32–42% for the others.
- Similarly,
- on the challenging medical dataset Cleveland,
- it obtains 50.86% while the others exceed 67%.
- Comparable advantages are observed on Heart,
- HeartAttack,
- Statheart,
- Wine,
- and Z_F_S.
- There are,
- however,
- datasets where the proposed method is not the best.
- On Hayes Roth and Zoo it performs worse than GENRBF or RBF-KMEANS,
- and on Transfusion the results are broadly similar to the other methods,
- with no clear advantage.
- This indicates that although the method does not dominate in every single problem,
- the overall trend clearly favors it.
- In summary,
- the statistical picture suggests that the proposed method is,
- on average,
- the most reliable and effective strategy,
- producing markedly lower classification errors.
- While it lags behind certain alternatives on a few datasets,
- its low mean error underscores a more general and robust solution for classification tasks.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float table
 placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3607,7 +3554,7 @@ name "tab:expClass"
 \end_layout
 
 \begin_layout Plain Layout
-\align left
+\align center
 
 \size footnotesize
 \begin_inset Tabular
@@ -7184,10 +7131,14 @@ AVERAGE
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 Table 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:expRegression"
+reference "tab:expClass"
 plural "false"
 caps "false"
 noprefix "false"
@@ -7195,52 +7146,1088 @@ nolink "false"
 
 \end_inset
 
- reports twenty-one regression datasets and six machine-learning models:
- BFGS,
- ADAM,
- NEAT,
- RBF-KMEANS,
- GENRBF,
- and the proposed method.
- The entries are absolute prediction errors;
- smaller values indicate better model performance.
- The last row gives the mean error for each method across all datasets.
- The analysis of the means clearly shows that the proposed method attains the smallest overall error,
- 5.87.
- The remaining methods have substantially higher errors:
- BFGS 28.82,
- ADAM 21.39,
- NEAT 13.99,
- RBF-KMEANS 9.56,
- and GENRBF 13.38.
- This implies that the proposed approach greatly improves accuracy,
- reducing the average error to nearly half of the best competing model and far more compared with the classical BFGS and ADAM.
- At the dataset level there are striking gaps.
- On Housing the proposed method records an error of 15.36,
- whereas the other models range from 56 to 97.
- On Stock the contrast is even stronger,
- with an error of only 1.44 while others reach well above 300.
- Similarly,
- on Plastic the error drops to 2.28,
- while the alternatives lie between 8 and 26.
- Comparable advantages are observed on Mortgage,
- Treasury,
- Concrete,
- HO,
- Quake,
- and PL.
+ compares the performance of eight methods on thirty-three classification datasets.
+ The mean percentage error clearly shows that the proposed method is best overall at 19.45%,
+ followed by DNN at 25.52%,
+ then BAYES 27.21%,
+ RBF-KMEANS 28.54%,
+ NEAT 32.77%,
+ BFGS 33.50%,
+ ADAM 33.73%,
+ and GENRBF 34.89%.
+ Relative to the strongest competitor,
+ DNN,
+ the proposed method lowers the average error by 6.07 points,
+ about 24%.
+ The reduction versus the classical BFGS and ADAM is about 14 points,
+ roughly 42%,
+ and versus RBF-KMEANS about 9.1 points,
+ roughly 32%.
+\end_layout
+
+\begin_layout Standard
+At the level of individual datasets,
+ the proposed method delivers strikingly low errors in several cases.
+ On Spiral it drops to 13.26% while others are around 45–50%;
+ on Wine it reaches 9.47% versus 21–60%;
+ on Wdbc it achieves 5.54% versus 7–35%.
+ On Z_F_S,
+ ZO_NF_S,
+ ZONF_S,
+ and Cleveland it attains the best or tied-best results.
+ On Heart,
+ HeartAttack,
+ Statheart,
+ Regions2,
+ Saheart,
+ Pima,
+ Australian,
+ Alcohol,
+ and HouseVotes the results are also highly competitive,
+ usually best or within the top two.
  There are,
  however,
- a few cases where the proposed method is not the best;
- for example,
- on FY and SN it shows slightly higher errors than some competitors,
- though the differences are small,
- so no clear advantage emerges there.
- Overall,
- the evidence indicates that the proposed method is the most reliable and effective option on average,
- substantially reducing regression error relative to all other techniques.
- Although it does not lead on every dataset,
- the large reduction in mean error and the strong results on several difficult problems demonstrate a robust and broadly applicable solution for regression tasks.
+ datasets where other methods prevail:
+ DNN clearly leads on Segment and HouseVotes and is very strong on Dermatology;
+ RBF-KMEANS is best on Appendicitis;
+ and ADAM wins narrowly on Student and Balance.
+ In cases like Balance,
+ Popfailures,
+ Dermatology,
+ and Segment the proposed method is not the top performer,
+ though it remains competitive.
+\end_layout
+
+\begin_layout Standard
+Overall,
+ the proposed method offers the lowest average error and a consistent advantage across a wide range of problems,
+ with substantial gains over all classical and modern baselines.
+ Despite local exceptions where DNN,
+ ADAM,
+ or RBF-KMEANS come out ahead,
+ the approach appears more generalizable and stable,
+ achieving systematically low errors and large improvements on challenging datasets,
+ which supports its practical use as a default choice for classification.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename stat1.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison of results obtained in the classification datasets using a series of machine learning methods.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statClass"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways true
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Pairwise Wilcoxon Results:
+ Proposed vs Baselines on classification datasets (95% CI & Effect Size)
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Wilcoxon1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size footnotesize
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="9">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Comparison
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $V$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $r_{rank,biserial}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $conf_{low}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $conf_{high}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $p$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $p_{adj}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $p_{signif}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+PROPOSED vs BFGS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+33
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+26
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+-9536541889483070
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+-18505038146370400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+-7964957107005870
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+5667497792.56
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+17002493377.69
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+****
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+PROPOSED vs ADAM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+33
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+32
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+-9429590017825310
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+-19420020785066500
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+-8034989453223090
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+9370072082.50
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+187401441650.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+****
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+PROPOSED vs NEAT
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+33
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+11
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+-9803921568627450
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+-1840001089212400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+-7149974070777490
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+15363692460.10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+9218215476.06
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+****
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+PROPOSED vs DNN
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+33
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+66
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+-8823529411764710
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+-8925029424575650
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+-3094966481225850
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+1314556247229.44
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+1314556247229.44
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+***
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+PROPOSED vs BAYES
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+32
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+17
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+-9678030303030300
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+-10224975985015600
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+-49000094426908900
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+4040490189.97
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+161619607598.76
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+****
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+PROPOSED vs RBF-KMEANS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+33
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+-9768270944741530
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+-12110046788330500
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+-4899979230676410
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+18357733429.22
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+9218215476.06
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+****
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+PROPOSED vs GENRBF
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+33
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+-9982174688057040
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+-1912007131513760
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+-12009996230590000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+619219811.57
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+4334538680.97
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+****
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statClass"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ and the Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Wilcoxon1"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ summarizes paired Wilcoxon signed-rank tests comparing the PROPOSED method against each competitor on the same 33 classification datasets.
+ The column n is the number of paired datasets,
+ 
+\begin_inset Formula $V$
+\end_inset
+
+ is the Wilcoxon signed-rank statistic,
+ 
+\begin_inset Formula $r_{rank,biserial}$
+\end_inset
+
+ is the rank-biserial effect size (range -1 to 1,
+ with more negative meaning PROPOSED has lower error),
+ 
+\begin_inset Formula $conf_{low}$
+\end_inset
+
+ and 
+\begin_inset Formula $conf_{high}$
+\end_inset
+
+ give the 95% Hodges-Lehmann confidence interval for the median paired difference (PROPOSED - competitor) in percentage point error,
+ p is the raw p-value,
+\begin_inset Formula $p_{adj}$
+\end_inset
+
+ is the Holm-adjusted p-value,
+ and 
+\begin_inset Formula $p_{signif}$
+\end_inset
+
+ is the significance code.
+ Because all confidence intervals are entirely negative,
+ the PROPOSED method consistently shows lower error than each baseline,
+ not just statistical significance but a stable direction of effect across datasets.
+ Adjusted p-values remain very small in every comparison,
+ from 
+\begin_inset Formula $4.33×10^{-6}$
+\end_inset
+
+ (vs GENRBF) up to 
+\begin_inset Formula $1.31×10^{-4}$
+\end_inset
+
+ (vs DNN),
+ yielding **** everywhere except the DNN comparison,
+ which is ***.
+ Effect sizes are uniformly large in magnitude.
+ The strongest difference is against GENRBF with r≈-0.998 and a 95% CI for the median error reduction of roughly -19.12 to -12.01 percentage points.
+ Very large effects also appear versus NEAT (r≈-0.980,
+ CI ≈ [-18.40,
+ -7.15]) and RBF-KMEANS (r≈−0.977,
+ CI ≈ [-12.11,
+ -4.90]).
+ Comparisons with BFGS (r≈-0.954,
+ CI ≈ [-18.51,
+ -7.96]) and ADAM (r≈-0.943,
+ CI ≈ [-19.42,
+ -8.03]) remain strongly favorable.
+ The smallest,
+ yet still large,
+ effect is against DNN (r≈-0.882) with a clearly negative CI ≈ [-8.93,
+ -3.09].
+ Taken together,
+ the results show consistent,
+ substantial reductions in classification error for the PROPOSED method across all baselines,
+ with very large effect sizes,
+ tight negative confidence intervals,
+ and significance that survives multiple-comparison correction.
 \end_layout
 
 \begin_layout Standard
@@ -7249,7 +8236,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -7272,7 +8259,7 @@ name "tab:expRegression"
 \end_layout
 
 \begin_layout Plain Layout
-\align left
+\align center
 
 \size footnotesize
 \begin_inset Tabular
@@ -9738,107 +10725,14 @@ AVERAGE
 
 \end_inset
 
-Based on the executions carried out with scripts in the R language concerning the processing of the experimental results on the classification datasets,
- the significance levels of the 
-\begin_inset Formula $p$
-\end_inset
 
- parameter were calculated in order to assess the statistical strength of the comparisons between the proposed model and the alternative methods.
- In Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:statClass"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
- these significance levels are illustrated according to the established scale,
- where ns indicates no statistically significant difference 
-\begin_inset Formula $\left(p>0.005\right)$
-\end_inset
-
-,
- while the presence of one to four asterisks denotes increasing statistical strength,
- from significant 
-\begin_inset Formula $\left(p<0.05\right)$
-\end_inset
-
- to very extremely significant 
-\begin_inset Formula $\left(p<0.0001\right)$
-\end_inset
-
-.
- The results show that in all comparisons of the proposed model with the other methods,
- namely BFGS,
- ADAM,
- NEAT,
- RBF-KMEANS,
- and GENRBF,
- the significance levels were found at the highest level with 
-\begin_inset Formula $p<0.0001$
-\end_inset
-
-.
- This indicates that the performance differences are not random but instead reflect a very strong superiority of the proposed model over all the other techniques examined.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-alignment document
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename stat1.png
-	scale 75
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Statistical comparison of results obtained in the classification datasets using a series of machine learning methods.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:statClass"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-Similarly,
- for the regression datasets,
- the significance levels of the 
-\begin_inset Formula $p$
-\end_inset
-
- parameter were computed to assess the statistical strength of the comparisons between the proposed model and the other methods.
- In Figure 
+Table 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:statRegression"
+reference "tab:expRegression"
 plural "false"
 caps "false"
 noprefix "false"
@@ -9846,36 +10740,62 @@ nolink "false"
 
 \end_inset
 
-,
- the significance levels are illustrated according to the established scale,
- where two asterisks correspond to high statistical significance 
-\begin_inset Formula $\left(p<0.01\right)$
-\end_inset
+ evaluates the performance of eight regression methods on twenty-one datasets using absolute errors.
+ The average error shows a clear overall advantage for the proposed method at 5.87,
+ followed by BAYES at 9.18,
+ RBF-KMEANS at 9.56,
+ DNN at 11.82,
+ NEAT at 13.99,
+ GENRBF at 13.38,
+ ADAM at 21.39,
+ and BFGS at 28.82.
+ Relative to the best competing average,
+ BAYES,
+ the proposed method reduces error by about 3.31 points (≈36%).
+ The reduction versus RBF-KMEANS is about 3.69 points (≈39%),
+ versus DNN about 5.95 points (≈50%),
+ and relative to NEAT and GENRBF the drops are roughly 58% and 56%,
+ respectively.
+ The advantage is even larger against ADAM and BFGS,
+ where the mean error is nearly halved or more.
+\end_layout
 
- and four asterisks indicate a very extremely significant difference 
-\begin_inset Formula $\left(p<0.0001\right)$
-\end_inset
+\begin_layout Standard
+Across individual datasets,
+ the proposed method attains the best value in roughly two thirds of the cases.
+ It is clearly first on Auto,
+ BL,
+ Concrete,
+ Dee,
+ Housing,
+ FA,
+ HO,
+ Mortgage,
+ PL,
+ Plastic,
+ Quake,
+ Stock,
+ and Treasury,
+ with particularly large margins on Housing and Stock where errors fall to 15.36 and 1.44 while other methods range from tens to hundreds.
+ On Airfoil it is essentially tied with the best at 0.004,
+ while BFGS is slightly lower at 0.003.
+ There are datasets where other methods lead,
+ such as Abalone where ADAM and BAYES are ahead;
+ Friedman and Laser where BFGS gives the best value;
+ BK where DNN and RBF-KMEANS lead;
+ and PY where RBF-KMEANS is lower.
+ Despite these isolated exceptions,
+ the proposed method remains consistently among the top performers and most often the best.
+\end_layout
 
-.
- The results show that,
- in comparison with the BFGS and ADAM models,
- the proposed method achieves high statistical significance with 
-\begin_inset Formula $p<0.01$
-\end_inset
+\begin_layout Standard
+Overall,
+ the proposed approach combines a very low average error with broad superiority across diverse problem types and error scales,
+ from thousandths to very large magnitudes.
+ The consistency of the gains and the size of the margins over all baselines indicate it is the most efficient and generalizable choice among the regression methods considered.
+\end_layout
 
-,
- demonstrating that its superiority is not due to chance.
- Furthermore,
- in all other comparisons,
- namely against NEAT,
- RBF-KMEANS,
- and GENRBF,
- the significance levels reach the highest level with 
-\begin_inset Formula $p<0.0001$
-\end_inset
-
-,
- which highlights a very strong superiority of the proposed model over the alternative regression methods examined.
+\begin_layout Standard
 \begin_inset Float figure
 placement H
 alignment document
@@ -9912,13 +10832,965 @@ name "fig:statRegression"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways true
+status open
+
 \begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Pairwise Wilcoxon Results:
+ Proposed vs Baselines on regression datasets (95% CI & Effect Size)
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Wilcoxon2"
+
+\end_inset
+
 
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size scriptsize
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="9">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Comparison
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $V$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $r_{rank,biserial}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $conf_{low}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $conf_{high}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $p$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $p_{adj}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula $p_{signif}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+PROPOSED vs BFGS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+22.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+28.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-8893280632411070
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-20509998654975500
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-31607290631815900.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+14644689859755000.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+5541059559701440.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+**
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+PROPOSED vs ADAM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+21.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+33.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-8571428571428570
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-2734490876933390
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-41569559046521200.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+4370173456024450.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+6265548255802160.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+**
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+PROPOSED vs NEAT
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+22.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-9925969319615250
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-16000237429855300.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+43012521191.44
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+3010876483400.92
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+***
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+PROPOSED vs DNN
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+21.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+23.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-9004329004329000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-11086980158184000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-12031295944894700.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+13852648899253600.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+5541059559701440.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+**
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+PROPOSED vs BAYES
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+21.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+30.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-8701298701298700
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-5839992445666000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-33511395308536000.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+31327741279010800.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+6265548255802160.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+**
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+PROPOSED vs RBF-KMEANS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+22.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+14.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-9446640316205530
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-4523464832268890
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-3407835793499720.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+276740186614.05
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+13837009330702700.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+**
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+PROPOSED vs GENRBF
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+22.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+6.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-9762845849802370
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-10249984407899800
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-9806889388206810.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+9774004411.05
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+586440264662.75
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+***
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statRegression"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ and the Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Wilcoxon2"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ summarizes paired Wilcoxon signed-rank tests between PROPOSED and each method on the same regression datasets.
+ In every comparison the 95% confidence interval is entirely negative,
+ so PROPOSED consistently attains lower error than each baseline.
+ Holm-adjusted p-values range from about 
+\begin_inset Formula $5.86×10^{-4}$
+\end_inset
+
+ to 0.0063,
+ yielding ** or *** across all pairings,
+ indicating strong though not extreme significance.
+ Effect sizes are very large in absolute value,
+ implying a consistent sign of the differences across datasets.
+ The strongest dominance is against NEAT with r≈-1 and V=0,
+ meaning that in every non-tied pair PROPOSED was better,
+ with a confidence interval roughly [-9.93,
+ -0.16].
+ Similarly large effects appear against GENRBF (r≈-0.976,
+ CI [-10.25,
+ -0.098]) and RBF-KMEANS (r≈-0.945,
+ CI [-4.52,
+ -0.034]),
+ the upper bound near zero indicates that the typical improvement can range from very small to several points depending on the dataset.
+ Against BFGS and ADAM the effects remain very large (r≈-0.889 and r≈-0.857,
+ respectively) with wider intervals [-20.51,
+ -0.316] and [-27.34,
+ -0.0416],
+ showing substantial heterogeneity in the magnitude of error reduction while the direction remains in favor of PROPOSED.
+ The most challenging comparison is with DNN:
+ although |r| is still very large (≈0.900),
+ the CI is narrow and close to zero [-11.09,
+ -0.012],
+ implying that while superiority is consistent,
+ the typical error reduction may be small in many cases.
+\end_layout
+
+\begin_layout Standard
+Overall,
+ the results demonstrate that PROPOSED systematically outperforms all alternatives on regression,
+ with very large rank-based effect sizes,
+ negative and robust confidence intervals,
+ and significance that survives multiple-comparison correction.
+ The strength of the improvement varies by problem and is more modest against DNN,
+ but the direction of the effect is consistently in favor of PROPOSED across all comparisons.
 \end_layout
 
 \begin_layout Subsection
@@ -16230,6 +18102,18 @@ name "fig:statRegressionSigma"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Experiments with the number of generations 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection
+Experiments with real - world problems
 \end_layout
 
 \begin_layout Section
