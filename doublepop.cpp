@@ -541,7 +541,7 @@ void	DoublePop::Solve()
 
 		double diff1=fabs(fitness_array[0]-fitness_array[genome_count-1]);
 		double diff2=fabs(1.0-fitness_array[0]/fitness_array[genome_count-i-1]);
-        if(iprint &&i%20==0)
+        if(iprint )
 		printf("GENERATION:%4d\tVALUE=%15.8lg\tVARIANCE=%8.5lg\tSTOPAT=%8.5lg\n",
 				i,fitness_array[0],variance,stopat);
 		
