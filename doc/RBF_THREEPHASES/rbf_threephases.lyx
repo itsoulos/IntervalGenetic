@@ -22812,6 +22812,172 @@ name "fig:statRegressionNG"
 Experiments with real - world problems
 \end_layout
 
+\begin_layout Standard
+One practical problem that can be considered here is the prediction of the duration of forest fires,
+ that was presented recently for the Greek territory
+\begin_inset CommandInset citation
+LatexCommand citep
+key "mlfire"
+literal "false"
+
+\end_inset
+
+.
+ Using data from the Greek Fire Service,
+ an experiment was conducted for the prediction of the duration of forest fires for the years 2014-2024.
+ In this experiment the following method were used:
+\end_layout
+
+\begin_layout Enumerate
+A neural network with 10 computing nodes,
+ trained with the BFGS optimizer.
+\end_layout
+
+\begin_layout Enumerate
+A Radial Basis Function with 10 weights,
+ trained with the original method for RBF training.
+\end_layout
+
+\begin_layout Enumerate
+The proposed method.
+\end_layout
+
+\begin_layout Standard
+The results for the prediction of the duration are graphically illustrated in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:experFire"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ As is evident from the graph,
+ in almost all years the classification error of the proposed technique is lower than the other two machine learning techniques.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rbf3_dasi.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average classification error for the years 2014-2023 for the forest fires in the Greek territory.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:experFire"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The second real - world example is the PIRvision dataset 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "pirvision"
+literal "false"
+
+\end_inset
+
+,
+ which includes occupancy detection data and it has 15302 patterns.
+ The dimension of each pattern is 59.
+ The same machine learning models was used also in the case and the average classification error for these method is depicted graphically in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:pirvision"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ One more time,
+ the proposed method has lower classification error than the other methods involved in this experiment.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename rbf3_pirvision.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The experimental results for the PIRvision dataset.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:pirvision"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Conclusions
 \begin_inset CommandInset label
@@ -25598,6 +25764,53 @@ S.
  pp.
  333–336,
  2012.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2024)"
+key "mlfire"
+literal "false"
+
+\end_inset
+
+C.
+ Kopitsa,
+ I.G.
+ Tsoulos,
+ V.
+ Charilogis,
+ A.
+ Stavrakoudis,
+ Predicting the Duration of Forest Fires Using Machine Learning Methods,
+ Future Internet 
+\series bold
+16
+\series default
+,
+ 396,
+ 2024.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2023)"
+key "pirvision"
+literal "false"
+
+\end_inset
+
+Emad-Ud-Din,
+ M.,
+ & Wang,
+ Y.
+ (2023).
+ Promoting occupancy detection accuracy using on-device lifelong learning.
+ IEEE Sensors Journal,
+ 23(9),
+ 9595-9606.
 \end_layout
 
 \begin_layout Standard
