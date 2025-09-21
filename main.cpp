@@ -312,7 +312,7 @@ int main(int argc,char **argv)
     double avg_recall  = 0.0;
     double avg_fscore = 0.0;
     const int outIters = 1;
-    int tries=10;
+    int tries=3;
 
     for(int ik=1;ik<=outIters;ik++)
     {

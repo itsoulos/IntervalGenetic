@@ -338,15 +338,16 @@ Radial Basis Function (RBF) networks are well established machine learning tools
  In this paper,
  a three-stage method is proposed to address the above problems.
  In the first stage,
- an initial estimate of the intervals for the network parameter values \SpecialChar allowbreak
-\SpecialChar allowbreak
-is made,
+ an initial estimate of the intervals for the network parameter values is made,
  in the second stage,
  the network parameter values are adjusted within the intervals of the first phase,
  and finally in the third stage of the proposed technique,
  a local optimization method is used for the final adjustment of the network parameters.
- The proposed method was tested for its efficiency on a wide series of regression and classification datasets from the related bibliography with exceptional results.
- 
+ The proposed method was tested against some machine learning models from the related literature as well as the original RBF training method on a wide series of classification and regression datasets,
+ found in online databases and a comparison is made in terms of classification or regression error.
+ It should be noted that although the proposed methodology had very good results in the above measurements,
+ it requires significant computational execution time,
+ due to the use of three phases of processing and adaptation of the network parameters.
 \end_layout
 
 \begin_layout Keywords
@@ -515,7 +516,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -873,6 +874,8 @@ The three distinct phases of the proposed method are presented in detail in this
  Subsequently,
  the steps of the used Genetic Algorithm are presented in detail and finally this section concludes with the description of the final phase,
  where a local optimization method is applied to the best located chromosome of the second phase.
+ Also,
+ a details description of the used datasets is provided in this section.
 \end_layout
 
 \begin_layout Subsection
@@ -2208,15 +2211,8 @@ name "fig:summary"
 
 \end_layout
 
-\begin_layout Section
-Results
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Results"
-
-\end_inset
-
-
+\begin_layout Subsection
+The experimental datasets.
 \end_layout
 
 \begin_layout Standard
@@ -2287,10 +2283,6 @@ https://lib.stat.cmu.edu/datasets/index
 
 (accessed on 29 August 2025).
  
-\end_layout
-
-\begin_layout Subsection
-Experimental datasets 
 \end_layout
 
 \begin_layout Standard
@@ -2779,6 +2771,1048 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
+The number of patterns and classes for each classification dataset are shown in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:classData"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\begin_inset Float table
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The column DATASET represents the name of the dataset.
+ The column Patterns stands for the number of patterns in the dataset and the column Number of Classes represents the number of distinct classes in the mentioned dataset.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:classData"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="34" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DATASET
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Patterns
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of Classes
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ALCOHOL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+476
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+APPENDICITIS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+106
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+AUSTRALIAN
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+690
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+BALANCE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+625
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CLEVELAND
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+297
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CIRCULAR
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DERMATOLOGY
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+368
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ECOLI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+336
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+HEARTATTACK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+303
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+HAYES ROTH
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+132
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+HEART
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+270
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+HOUSEVOTES
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+232
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+IONOSPHERE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+351
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+LIVERDISORDER
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+345
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+LYMOGRAPHY
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+148
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MAMMOGRAPHIC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+830
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PARKINSONS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+195
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PIMA
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+768
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+POPFAILURES
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+540
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SPIRAL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+REGIONS2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+622
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SAHEART
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+462
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SEGMENT
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2300
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+STATHEART
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+270
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+STUDENT
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+403
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TRANSFUSION
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+748
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+WDBC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+569
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+WINE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+179
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Z_F_S
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+300
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Z_O_N_F_S
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ZO_NF_S
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ZONF_S
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ZOO
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+101
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 Also,
  the following regression datasets were used:
 \end_layout
@@ -3021,6 +4055,17 @@ Treasury
 \series default
 ,
  an economics dataset.
+\end_layout
+
+\begin_layout Section
+Results
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Results"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -3538,6 +4583,10 @@ The column PROPOSED represents the results obtained by the current work.
 The row average stands for the average regression or classification error for all datasets.
 \end_layout
 
+\begin_layout Enumerate
+The bold notation is used in all experimental tables to indicate the machine learning method with the lowest classification or rergression error.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float table
 placement H
@@ -3785,6 +4834,7 @@ Alcohol
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 28.57%
 \end_layout
@@ -3864,6 +4914,7 @@ Appendicitis
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 12.23%
 \end_layout
@@ -3987,6 +5038,7 @@ Australian
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 22.67%
 \end_layout
@@ -4022,6 +5074,7 @@ Balance
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 7.87%
 \end_layout
@@ -4189,6 +5242,7 @@ Cleveland
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 50.86%
 \end_layout
@@ -4290,6 +5344,7 @@ Circular
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 5.13%
 \end_layout
@@ -4347,6 +5402,7 @@ Dermatology
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 24.26%
 \end_layout
@@ -4415,6 +5471,7 @@ Hayes Roth
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 37.33%
 \end_layout
@@ -4593,6 +5650,7 @@ Heart
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 16.07%
 \end_layout
@@ -4694,6 +5752,7 @@ HeartAttack
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 19.20%
 \end_layout
@@ -4751,6 +5810,7 @@ HouseVotes
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 3.13%
 \end_layout
@@ -4896,6 +5956,7 @@ Ionosphere
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 12.17%
 \end_layout
@@ -4997,6 +6058,7 @@ Liverdisorder
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 29.29%
 \end_layout
@@ -5054,6 +6116,7 @@ Lymography
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 24.07%
 \end_layout
@@ -5122,6 +6185,7 @@ Mammographic
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 17.24%
 \end_layout
@@ -5278,6 +6342,7 @@ Parkinsons
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 17.41%
 \end_layout
@@ -5401,6 +6466,7 @@ Pima
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 24.02%
 \end_layout
@@ -5436,6 +6502,7 @@ Popfailures
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 5.18%
 \end_layout
@@ -5603,6 +6670,7 @@ Regions2
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 26.29%
 \end_layout
@@ -5704,6 +6772,7 @@ Saheart
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 28.50%
 \end_layout
@@ -5761,6 +6830,7 @@ Segment
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 32.04%
 \end_layout
@@ -5862,6 +6932,7 @@ Sonar
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 20.50%
 \end_layout
@@ -6007,6 +7078,7 @@ Spiral
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 13.26%
 \end_layout
@@ -6108,6 +7180,7 @@ Statheart
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 19.67%
 \end_layout
@@ -6143,6 +7216,7 @@ Student
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 5.13%
 \end_layout
@@ -6255,6 +7329,7 @@ Transfusion
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 24.87%
 \end_layout
@@ -6411,6 +7486,7 @@ Wdbc
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 5.54%
 \end_layout
@@ -6512,6 +7588,7 @@ Wine
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 9.47%
 \end_layout
@@ -6613,6 +7690,7 @@ Z_F_S
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 3.73%
 \end_layout
@@ -6714,6 +7792,7 @@ Z_O_N_F_S
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 41.00%
 \end_layout
@@ -6815,6 +7894,7 @@ ZO_NF_S
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 4.24%
 \end_layout
@@ -6916,6 +7996,7 @@ ZONF_S
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 1.98%
 \end_layout
@@ -7017,6 +8098,7 @@ ZOO
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 9.80%
 \end_layout
@@ -7270,7 +8352,7 @@ placement H
 alignment document
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -8424,6 +9506,7 @@ Abalone
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 4.30
 \end_layout
@@ -8514,6 +9597,7 @@ Airfoil
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 0.003
 \end_layout
@@ -8692,6 +9776,7 @@ Auto
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 8.81
 \end_layout
@@ -8727,6 +9812,7 @@ Baseball
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 77.90
 \end_layout
@@ -8850,6 +9936,7 @@ BK
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 0.02
 \end_layout
@@ -8995,6 +10082,7 @@ BL
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 0.0004
 \end_layout
@@ -9096,6 +10184,7 @@ Concrete
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 0.005
 \end_layout
@@ -9197,6 +10286,7 @@ Dee
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 0.15
 \end_layout
@@ -9298,6 +10388,7 @@ Housing
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 15.36
 \end_layout
@@ -9322,6 +10413,7 @@ Friedman
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 1.26
 \end_layout
@@ -9500,6 +10592,7 @@ FA
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 0.013
 \end_layout
@@ -9535,6 +10628,7 @@ FY
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 0.038
 \end_layout
@@ -9702,6 +10796,7 @@ HO
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 0.009
 \end_layout
@@ -9726,6 +10821,7 @@ Laser
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 0.015
 \end_layout
@@ -9904,6 +11000,7 @@ Mortgage
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 0.23
 \end_layout
@@ -10005,6 +11102,7 @@ PL
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 0.023
 \end_layout
@@ -10106,6 +11204,7 @@ Plastic
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 2.28
 \end_layout
@@ -10185,6 +11284,7 @@ PY
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 0.012
 \end_layout
@@ -10308,6 +11408,7 @@ Quake
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 0.036
 \end_layout
@@ -10409,6 +11510,7 @@ SN
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 0.026
 \end_layout
@@ -10510,6 +11612,7 @@ Stock
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 1.44
 \end_layout
@@ -10611,6 +11714,7 @@ Treasury
 
 \begin_layout Plain Layout
 
+\series bold
 \size footnotesize
 0.47
 \end_layout
@@ -10855,7 +11959,7 @@ placement H
 alignment document
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -12084,6 +13188,8 @@ Alcohol
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 28.57%
 \end_layout
 
@@ -12140,6 +13246,8 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 14.40%
 \end_layout
 
@@ -12196,6 +13304,8 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 20.59%
 \end_layout
 
@@ -12243,6 +13353,8 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 11.44%
 \end_layout
 
@@ -12263,6 +13375,8 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 50.45%
 \end_layout
 
@@ -12337,6 +13451,8 @@ Circular
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 3.49%
 \end_layout
 
@@ -12384,6 +13500,8 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 34.97%
 \end_layout
 
@@ -12422,6 +13540,8 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 32.62%
 \end_layout
 
@@ -12478,6 +13598,8 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 15.30%
 \end_layout
 
@@ -12525,6 +13647,8 @@ HeartAttack
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 19.07%
 \end_layout
 
@@ -12563,6 +13687,8 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 3.39%
 \end_layout
 
@@ -12619,6 +13745,8 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 7.51%
 \end_layout
 
@@ -12657,6 +13785,8 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 28.53%
 \end_layout
 
@@ -12704,6 +13834,8 @@ Lymography
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 18.07%
 \end_layout
 
@@ -12751,6 +13883,8 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 16.75%
 \end_layout
 
@@ -12807,6 +13941,8 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 14.05%
 \end_layout
 
@@ -12854,6 +13990,8 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 23.26%
 \end_layout
 
@@ -12901,6 +14039,8 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 4.69%
 \end_layout
 
@@ -12948,6 +14088,8 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 25.73%
 \end_layout
 
@@ -12977,6 +14119,8 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 28.50%
 \end_layout
 
@@ -13042,6 +14186,8 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 42.10%
 \end_layout
 
@@ -13089,6 +14235,8 @@ Sonar
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 18.05%
 \end_layout
 
@@ -13109,6 +14257,8 @@ Spiral
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 12.03%
 \end_layout
 
@@ -13156,6 +14306,8 @@ Statheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 19.30%
 \end_layout
 
@@ -13221,6 +14373,8 @@ Student
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 5.10%
 \end_layout
 
@@ -13277,6 +14431,8 @@ Transfusion
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 24.42%
 \end_layout
 
@@ -13297,6 +14453,8 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 4.86%
 \end_layout
 
@@ -13371,6 +14529,8 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 7.65%
 \end_layout
 
@@ -13418,6 +14578,8 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 3.37%
 \end_layout
 
@@ -13438,6 +14600,8 @@ Z_O_N_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 39.80%
 \end_layout
 
@@ -13512,6 +14676,8 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 3.78%
 \end_layout
 
@@ -13559,6 +14725,8 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 1.96%
 \end_layout
 
@@ -13606,6 +14774,8 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 6.90%
 \end_layout
 
@@ -13956,6 +15126,8 @@ Abalone
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 5.56
 \end_layout
 
@@ -13976,6 +15148,8 @@ Airfoil
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.004
 \end_layout
 
@@ -14032,6 +15206,8 @@ Auto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 8.81
 \end_layout
 
@@ -14088,6 +15264,8 @@ Baseball
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 85.87
 \end_layout
 
@@ -14144,6 +15322,8 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.02
 \end_layout
 
@@ -14191,6 +15371,8 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.00007
 \end_layout
 
@@ -14220,6 +15402,8 @@ Concrete
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.005
 \end_layout
 
@@ -14258,6 +15442,8 @@ Dee
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.15
 \end_layout
 
@@ -14305,6 +15491,8 @@ Housing
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 14.64
 \end_layout
 
@@ -14379,6 +15567,8 @@ Friedman
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 1.41
 \end_layout
 
@@ -14399,6 +15589,8 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.012
 \end_layout
 
@@ -14473,6 +15665,8 @@ FY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.053
 \end_layout
 
@@ -14493,6 +15687,8 @@ HO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.009
 \end_layout
 
@@ -14567,6 +15763,8 @@ Laser
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.0024
 \end_layout
 
@@ -14614,6 +15812,8 @@ Mortgage
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.015
 \end_layout
 
@@ -14661,6 +15861,8 @@ PL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.022
 \end_layout
 
@@ -14708,6 +15910,8 @@ Plastic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 2.22
 \end_layout
 
@@ -14755,6 +15959,8 @@ PY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.011
 \end_layout
 
@@ -14775,6 +15981,8 @@ Quake
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.036
 \end_layout
 
@@ -14822,6 +16030,8 @@ SN
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.024
 \end_layout
 
@@ -14878,6 +16088,8 @@ Stock
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 1.44
 \end_layout
 
@@ -14943,6 +16155,8 @@ Treasury
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.031
 \end_layout
 
@@ -15538,6 +16752,8 @@ Alcohol
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 26.17%
 \end_layout
 
@@ -15567,6 +16783,8 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 14.20%
 \end_layout
 
@@ -15596,6 +16814,8 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 22.67%
 \end_layout
 
@@ -15652,6 +16872,8 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 12.23%
 \end_layout
 
@@ -15672,6 +16894,8 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 50.86%
 \end_layout
 
@@ -15728,6 +16952,8 @@ Circular
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 4.45%
 \end_layout
 
@@ -15748,6 +16974,8 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 36.00%
 \end_layout
 
@@ -15804,6 +17032,8 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 35.69%
 \end_layout
 
@@ -15842,6 +17072,8 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 15.41%
 \end_layout
 
@@ -15880,6 +17112,8 @@ HeartAttack
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 18.97%
 \end_layout
 
@@ -15918,6 +17152,8 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 3.22%
 \end_layout
 
@@ -15938,6 +17174,8 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 12.17%
 \end_layout
 
@@ -15994,6 +17232,8 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 27.77%
 \end_layout
 
@@ -16023,6 +17263,8 @@ Lymography
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 22.43%
 \end_layout
 
@@ -16061,6 +17303,8 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 17.28%
 \end_layout
 
@@ -16099,6 +17343,8 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 14.74%
 \end_layout
 
@@ -16137,6 +17383,8 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 23.28%
 \end_layout
 
@@ -16184,6 +17432,8 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 6.24%
 \end_layout
 
@@ -16213,6 +17463,8 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 25.47%
 \end_layout
 
@@ -16260,6 +17512,8 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 28.28%
 \end_layout
 
@@ -16289,6 +17543,8 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 43.65%
 \end_layout
 
@@ -16336,6 +17592,8 @@ Sonar
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 21.30%
 \end_layout
 
@@ -16356,6 +17614,8 @@ Spiral
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 13.26%
 \end_layout
 
@@ -16412,6 +17672,8 @@ Statheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 19.00%
 \end_layout
 
@@ -16432,6 +17694,8 @@ Student
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 5.23%
 \end_layout
 
@@ -16479,6 +17743,8 @@ Transfusion
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 22.78%
 \end_layout
 
@@ -16526,6 +17792,8 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 5.21%
 \end_layout
 
@@ -16593,6 +17861,8 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 3.70%
 \end_layout
 
@@ -16631,6 +17901,8 @@ Z_O_N_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 40.20%
 \end_layout
 
@@ -16660,6 +17932,8 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 4.24%
 \end_layout
 
@@ -16707,6 +17981,8 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 1.92%
 \end_layout
 
@@ -16736,6 +18012,8 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 9.80%
 \end_layout
 
@@ -18125,6 +19403,77 @@ Experiments with the number of generations
 \end_layout
 
 \begin_layout Standard
+An additional experiments was executed,
+ where the number of generations was altered from 
+\begin_inset Formula $N_{g}=50$
+\end_inset
+
+ to 
+\begin_inset Formula $N_{g}=400$
+\end_inset
+
+ to determine the stability of the proposed method.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expClassNG"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ examines the effect of the number of generations 
+\begin_inset Formula $\left(N_{g}\right)$
+\end_inset
+
+ on the performance of the proposed classification model.
+ The overall trend is downward:
+ the mean error decreases from 20.56% at 50 generations to 19.46% at 100,
+ essentially stabilizes at 200 with 19.45%,
+ and improves slightly further at 400 to 19.11%.
+ Thus,
+ the largest gain arrives early,
+ from 50 to 100 generations (about 1.1 points),
+ after which returns diminish,
+ with small but tangible additional gains.
+ At the dataset level the behavior varies.
+ There are cases with clear improvements as 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+ increases,
+ such as Alcohol (34.11%→27.02%),
+ Australian (25.23%→21.39%),
+ Ionosphere (13.94%→11.17%),
+ Spiral (16.66%→12.45%),
+ and Z_O_N_F_S (45.14%→38.26%),
+ where more generations yield substantial benefits.
+ In other problems the best value occurs around 100–200 generations and then plateaus or slightly worsens,
+ as in Wdbc (best 4.84% at 100),
+ Student (4.85% at 100),
+ Lymography (21.64% at 100),
+ ZOO (8.70% at 100),
+ ZONF_S (1.98% at 200),
+ and Z_F_S (3.73% at 200).
+ A few datasets show mild degradation with higher 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+,
+ such as Wine (7.59%→10.24%),
+ Parkinsons (17.32%→17.63%),
+ and to a lesser extent Saheart,
+ indicating that beyond a point further search is not beneficial for all problems.
+ Overall,
+ 100 generations deliver the major error reduction and represent an efficient “sweet spot,” while 200–400 generations extract modest additional gains and,
+ in some datasets,
+ meaningful improvements,
+ at the cost of more computation and occasional local regressions.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 placement H
 alignment document
@@ -18277,6 +19626,8 @@ Alcohol
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 27.02%
 \end_layout
 
@@ -18306,6 +19657,8 @@ Appendicitis
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 14.30%
 \end_layout
 
@@ -18371,6 +19724,8 @@ Australian
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 21.39%
 \end_layout
 
@@ -18409,6 +19764,8 @@ Balance
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 13.11%
 \end_layout
 
@@ -18456,6 +19813,8 @@ Cleveland
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 50.86%
 \end_layout
 
@@ -18485,6 +19844,8 @@ Circular
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 3.75%
 \end_layout
 
@@ -18550,6 +19911,8 @@ Dermatology
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 36.00%
 \end_layout
 
@@ -18588,6 +19951,8 @@ Hayes Roth
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 36.77%
 \end_layout
 
@@ -18644,6 +20009,8 @@ Heart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 16.07%
 \end_layout
 
@@ -18691,6 +20058,8 @@ HeartAttack
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 19.20%
 \end_layout
 
@@ -18747,6 +20116,8 @@ HouseVotes
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 3.61%
 \end_layout
 
@@ -18794,6 +20165,8 @@ Ionosphere
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 11.17%
 \end_layout
 
@@ -18814,6 +20187,8 @@ Liverdisorder
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 29.06%
 \end_layout
 
@@ -18870,6 +20245,8 @@ Lymography
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 21.64%
 \end_layout
 
@@ -18908,6 +20285,8 @@ Mammographic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 17.19%
 \end_layout
 
@@ -18964,6 +20343,8 @@ Parkinsons
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 17.11%
 \end_layout
 
@@ -19020,6 +20401,8 @@ Pima
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 24.02%
 \end_layout
 
@@ -19058,6 +20441,8 @@ Popfailures
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 5.92%
 \end_layout
 
@@ -19096,6 +20481,8 @@ Regions2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 26.02%
 \end_layout
 
@@ -19143,6 +20530,8 @@ Saheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 28.28%
 \end_layout
 
@@ -19217,6 +20606,8 @@ Segment
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 41.35%
 \end_layout
 
@@ -19246,6 +20637,8 @@ Sonar
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 21.20%
 \end_layout
 
@@ -19311,6 +20704,8 @@ Spiral
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 12.45%
 \end_layout
 
@@ -19358,6 +20753,8 @@ Statheart
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 19.63%
 \end_layout
 
@@ -19387,6 +20784,8 @@ Student
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 4.85%
 \end_layout
 
@@ -19434,6 +20833,8 @@ Transfusion
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 25.32%
 \end_layout
 
@@ -19481,6 +20882,8 @@ Wdbc
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 4.84%
 \end_layout
 
@@ -19519,6 +20922,8 @@ Wine
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 7.59%
 \end_layout
 
@@ -19584,6 +20989,8 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 3.73%
 \end_layout
 
@@ -19640,6 +21047,8 @@ Z_O_N_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 38.26%
 \end_layout
 
@@ -19669,6 +21078,8 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 4.00%
 \end_layout
 
@@ -19725,6 +21136,8 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 1.98%
 \end_layout
 
@@ -19763,6 +21176,8 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 8.70%
 \end_layout
 
@@ -19853,13 +21268,75 @@ AVERAGE
 
 \end_inset
 
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expRegressionNG"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
 
+\end_inset
+
+ examines the effect of the number of generations 
+\begin_inset Formula $\left(N_{g}\right)$
+\end_inset
+
+ on the performance of the proposed regression model.
+ At the level of average error,
+ the best value appears at 100 generations with 5.61,
+ marginally better than 50 generations at 5.65,
+ while at 200 and 400 generations the mean error increases slightly to 5.87 and 5.86,
+ respectively.
+ This suggests that most of the benefit is achieved early and that further increasing the number of generations does not yield systematic improvement and may even introduce a small deterioration in overall performance.
+\end_layout
+
+\begin_layout Standard
+Across individual datasets the picture is heterogeneous.
+ Clear improvements with more generations are observed in Abalone,
+ where the error steadily drops to 5.88 at 400 generations,
+ in Friedman,
+ with a continuous decline to 5.66,
+ in Stock,
+ improving to 1.33,
+ and in Treasury,
+ where performance stabilizes at 0.47 from 200 generations onward.
+ In other problems the “sweet spot” is around 200 generations:
+ for example,
+ in Mortgage the error falls from 0.66 to 0.23 at 200 before rising again,
+ in Housing it improves to 15.36 at 200 but worsens at 400,
+ in BL the minimum 0.0004 occurs at 200,
+ and in Concrete and HO there is a small but real improvement near 200.
+ There are also cases where more generations seem to burden performance,
+ such as Baseball and BK,
+ where the error rises as 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+ increases.
+ In several datasets the number of generations has little practical effect,
+ with near-constant values in Airfoil,
+ Quake,
+ SN,
+ and PL and only minor fluctuations in Dee,
+ FA,
+ Laser,
+ and FY.
+\end_layout
+
+\begin_layout Standard
+Overall,
+ 100 generations provide an efficient and safe choice with the lowest mean error,
+ while 200 generations can deliver the best results on specific datasets at the risk of small regressions elsewhere.
+ Further increasing to 400 generations does not offer a general gain and may lead to slight degradation in some problems,
+ pointing to diminishing returns and possible overfitting or instability depending on the dataset.
 \begin_inset Float table
 placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -20008,6 +21485,8 @@ Abalone
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 5.88
 \end_layout
 
@@ -20028,6 +21507,8 @@ Airfoil
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.004
 \end_layout
 
@@ -20093,6 +21574,8 @@ Auto
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 8.81
 \end_layout
 
@@ -20122,6 +21605,8 @@ Baseball
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 78.73
 \end_layout
 
@@ -20169,6 +21654,8 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.021
 \end_layout
 
@@ -20234,6 +21721,8 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.0004
 \end_layout
 
@@ -20281,6 +21770,8 @@ Concrete
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.005
 \end_layout
 
@@ -20328,6 +21819,8 @@ Dee
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.15
 \end_layout
 
@@ -20375,6 +21868,8 @@ Housing
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 15.36
 \end_layout
 
@@ -20431,6 +21926,8 @@ Friedman
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 5.66
 \end_layout
 
@@ -20451,6 +21948,8 @@ FA
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.012
 \end_layout
 
@@ -20516,6 +22015,8 @@ FY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.054
 \end_layout
 
@@ -20563,6 +22064,8 @@ HO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.009
 \end_layout
 
@@ -20601,6 +22104,8 @@ Laser
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.015
 \end_layout
 
@@ -20657,6 +22162,8 @@ Mortgage
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.23
 \end_layout
 
@@ -20686,6 +22193,8 @@ PL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.023
 \end_layout
 
@@ -20751,6 +22260,8 @@ Plastic
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 2.28
 \end_layout
 
@@ -20807,6 +22318,8 @@ PY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.02
 \end_layout
 
@@ -20827,6 +22340,8 @@ Quake
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.036
 \end_layout
 
@@ -20874,6 +22389,8 @@ SN
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.026
 \end_layout
 
@@ -20948,6 +22465,8 @@ Stock
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 1.33
 \end_layout
 
@@ -20986,6 +22505,8 @@ Treasury
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.47
 \end_layout
 
@@ -21062,6 +22583,223 @@ AVERAGE
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statClassNG"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ shows that increasing the number of generations from 
+\begin_inset Formula $N_{g}=50$
+\end_inset
+
+ to 
+\begin_inset Formula $N_{g}=100$
+\end_inset
+
+ yields a statistically significant improvement (
+\begin_inset Formula $p<0.01$
+\end_inset
+
+,
+ **),
+ indicating a meaningful reduction in error in this range.
+ By contrast,
+ the comparisons 
+\begin_inset Formula $N_{g}=100$
+\end_inset
+
+ vs 
+\begin_inset Formula $N_{g}=200$
+\end_inset
+
+ and 
+\begin_inset Formula $N_{g}=200$
+\end_inset
+
+ vs 
+\begin_inset Formula $N_{g}=400$
+\end_inset
+
+ are not statistically significant (
+\begin_inset Formula $p>0.05$
+\end_inset
+
+,
+ ns),
+ which means that further increasing generations beyond 100 does not produce a consistent additional gain in performance.
+ Overall,
+ the results suggest that the main benefit is achieved early up to about 100 generations after which returns diminish and the differences are not statistically meaningful.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename stat10.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison for the executed experiments on the classification datasets using the proposed method and a series of values for the number of generations 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statClassNG"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statRegressionNG"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ the p-value analysis on the regression datasets shows that the comparison between 
+\begin_inset Formula $N_{g}=50$
+\end_inset
+
+ and 
+\begin_inset Formula $N_{g}=100$
+\end_inset
+
+ is not statistically significant (
+\begin_inset Formula $p>0.05$
+\end_inset
+
+,
+ ns),
+ so increasing generations in this range does not yield a consistent improvement.
+ By contrast,
+ moving from 
+\begin_inset Formula $N_{g}=100$
+\end_inset
+
+ to 
+\begin_inset Formula $N_{g}=200$
+\end_inset
+
+ is statistically significant (
+\begin_inset Formula $p<0.05$
+\end_inset
+
+,
+ *),
+ indicating a measurable reduction in error around 200 generations.
+ Finally,
+ the comparison between 
+\begin_inset Formula $N_{g}=200$
+\end_inset
+
+ and 
+\begin_inset Formula $N_{g}=400$
+\end_inset
+
+ is not statistically significant (
+\begin_inset Formula $p>0.05$
+\end_inset
+
+,
+ ns),
+ suggesting diminishing returns beyond 200 generations.
+ Overall,
+ the findings indicate that for regression problems the benefit concentrates around 200 generations,
+ while further increases in 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+ do not guarantee additional consistent gains.
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename stat11.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison for the executed experiments on the regression datasets using the proposed method and a series of values for the number of generations 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statRegressionNG"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
