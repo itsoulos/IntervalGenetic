@@ -1087,11 +1087,11 @@ void	printConfusionMatrix(vector<double> &T,vector<double> &O,
         for(j=0;j<nclass;j++)
             sum+=CM[j][i];
 
-        precision[i]=CM[i][i]/sum;
+        precision[i]=sum==0?-1:CM[i][i]/sum;
         sum = 0.0;
         for(j=0;j<nclass;j++)
             sum+=CM[i][j];
-        recall[i]=CM[i][i]/sum;
+        recall[i]=sum==0?-1:CM[i][i]/sum;
     }
     for(i=0;i<nclass;i++)
     {
@@ -1183,16 +1183,21 @@ QJsonObject    done(Data &x)
     fscore.resize(dclass.size());
     double avg_precision = 0.0, avg_recall = 0.0,avg_fscore=0.0;
     printConfusionMatrix(T,O,precision,recall);
+    int count1=dclass.size(),count2=dclass.size();
     for(int i=0;i<dclass.size();i++)
     {
-        avg_precision+=precision[i];
-        avg_recall+=recall[i];
+	    if(precision[i]<0) count1--;
+	    else
+        	avg_precision+=precision[i];
+	    if(recall[i]<0) count2--;
+	    else
+        	avg_recall+=recall[i];
         fscore[i]=2.0*precision[i]*recall[i]/(precision[i]+recall[i]);
         avg_fscore+=fscore[i];
     }
-    avg_precision/=dclass.size();
-    avg_recall/=dclass.size();
-    avg_fscore/=dclass.size();
+    avg_precision/=count1;
+    avg_recall/=count2;
+    avg_fscore=2.0 * avg_precision * avg_recall/(avg_precision+avg_recall);
   /*  printf("CLASSERROR=%.2lf%% TESTERROR=%10.5lf\n",
            classError*100.0/testy.size(),sum);
     printf("PRECISION=%10.5lg RECALL=%10.5lg FSCORE=%10.5lg\n",
