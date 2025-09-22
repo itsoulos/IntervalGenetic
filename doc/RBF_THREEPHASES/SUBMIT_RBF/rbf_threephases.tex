@@ -1,11 +1,13 @@
 %% LyX 2.4.3 created this file.  For more info, see https://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[journal,article,submit,pdftex,moreauthors]{Definitions/mdpi}
+\usepackage{textcomp}
 \usepackage[utf8]{inputenc}
 \usepackage{float}
 \usepackage{url}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{rotfloat}
 
 \makeatletter
 
@@ -37,24 +39,30 @@ University of Western Macedonia, 50100 Kozani, Greece; dtsalikakis@uowm.gr}
 
 
 \abstract{Radial Basis Function (RBF) networks are well established machine
-learning tools used in a variety of classification and regression
-problems. A key component of these networks is their radial functions.
-These networks acquire adaptive capabilities through a two-stage training
-technique in most cases. In the first stage, the centers and variances
-for the radial functions are estimated, and in the second stage, through
-the solution of a linear system, the external weights for the radial
-functions are adjusted. However, in many cases this training technique
-has reduced performance either due to instability in arithmetic operations
-or due to trapping in local minima of the training error. In this
-paper, a three-stage method is proposed to address the above problems.
-In the first stage, an initial estimate of the intervals for the network
-parameter values \LyXZeroWidthSpace\LyXZeroWidthSpace is made, in
-the second stage, the network parameter values are adjusted within
-the intervals of the first phase, and finally in the third stage of
-the proposed technique, a local optimization method is used for the
-final adjustment of the network parameters. The proposed method was
-tested for its efficiency on a wide series of regression and classification
-datasets from the related bibliography with exceptional results. }
+learning tools used in many practical problems, that can be considered
+as classification or regression problems. A key component of these
+networks is their radial functions. These networks acquire adaptive
+capabilities through a two-stage training technique in most cases.
+In the first stage, the centers and variances for the radial functions
+are estimated, and in the second stage, through the solution of a
+linear system, the external weights for the radial functions are adjusted.
+However, in many cases this training technique has reduced performance
+either due to instability in arithmetic operations or due to trapping
+in local minima of the training error. In this paper, a three-stage
+method is proposed to address the above problems. In the first stage,
+an initial estimate of the intervals for the network parameter values
+is made, in the second stage, the network parameter values are adjusted
+within the intervals of the first phase, and finally in the third
+stage of the proposed technique, a local optimization method is used
+for the final adjustment of the network parameters. The proposed method
+was tested against some machine learning models from the related literature
+as well as the original RBF training method on a wide series of classification
+and regression datasets, found in online databases and a comparison
+is made in terms of classification or regression error. It should
+be noted that although the proposed methodology had very good results
+in the above measurements, it requires significant computational execution
+time, due to the use of three phases of processing and adaptation
+of the network parameters.}
 
 
 \keyword{Machine learning; Neural networks; Genetic algorithms; Optimization}
@@ -199,8 +207,8 @@ datasets from the related bibliography with exceptional results. }
 
 \section{Introduction}
 
-Many practical problems can be tackled by machine learning models,
-such as problems occurred in physics \citep{physics_ml1,physics_ml2},
+Many practical problems can be handled by machine learning models.
+Such problems appeared in physics \citep{physics_ml1,physics_ml2},
 astronomy \citep{astronomy_ml1,astronomy_ml2}, chemistry \citep{chemistry_ml1,chemistry_ml2},
 medicine \citep{med_ml1,med_ml2}, economics \citep{econ_ml1,econ_ml2},
 image processing \citep{nn_image}, time series forecasting \citep{nn_timeseries}
@@ -214,27 +222,28 @@ The symbols appeared in this equation are defined as follows:
 \begin{enumerate}
 \item The vector $\overrightarrow{x}$ stands for the input pattern. The
 dimension of each pattern is denoted by $d$.
-\item The constant $k$ denotes number of weights of the network. The vector
-$\overrightarrow{w}$ denotes these weights.
+\item The constant $k$ denotes number of processing units (weights) of
+the network. The vector $\overrightarrow{w}$ denotes these weights.
 \item The vectors $\overrightarrow{c_{i}},\ i=1,..,k$ denote the centers
 of the network.
-\item The function $\phi(x)$ usually represents a Gaussian function having
-the following form:\textbf{ }
+\item The function $\phi(x)$ usually represents a Gaussian function with
+the following definition:\textbf{ }
 \begin{equation}
 \phi(x)=\exp\left(-\frac{\left(x-c\right)^{2}}{\sigma^{2}}\right)
 \end{equation}
 \end{enumerate}
-A plot of the Gaussian function $c=0,\ \sigma=1$ is shown in Figure
-\ref{fig:gaussian}. 
+An example plot of this function with $c=0,\ \sigma=1$ is depicted
+in Figure \ref{fig:gaussian}. 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics{gaussian}
 \par\end{centering}
-\caption{A typical plot for the Gaussian function.\label{fig:gaussian}}
+\caption{An example plot for the Gaussian function with $\sigma=1$ and $c=0$.\label{fig:gaussian}}
 \end{figure}
- This graph clearly shows that the value of the function decreases
-as the value of x moves away from the center $c$. The training error
-of any given $R(x)$ RBF network is defined as:
+ From the graph above, one can conclude that the value of the function
+rapidly approaches zero as the value of the variable $x$ moves away
+from the center $c$. The training error of any given $R(x)$ RBF
+network is defined as:
 \begin{equation}
 E\left(R\left(\overrightarrow{x}\right)\right)=\sum_{i=1}^{M}\left(R\left(\overrightarrow{x_{i}}\right)-y_{i}\right)^{2}\label{eq:RbfError}
 \end{equation}
@@ -242,31 +251,32 @@ The set $\left(\overrightarrow{x_{i}},y_{i}\right),\ i=1,...,M$ denotes
 the training set of the objective problem and the values $y_{i}$
 are considered as the actual output for each pattern $\overrightarrow{x_{i}}$.
 
-RBF networks have been used in many cases, such as face recognition
-\citep{rbfface}, solutions of differential equations \citep{rbfde1,rbfde2},
-stock prediction \citep{rbfstock}, robotics \citep{rbfrobotics1,rbfrobotics2},
-network security \citep{rbf_dos1,rbf_dos2}, classification of process
-faults \citep{rbf_process}, time series prediction \citep{rbf_time},
-estimation of wind power production \citep{rbf_wind} etc. Moreover,
-Park et al \citep{rbf_universal} proved that an RBF network with
-one processing layer is capable of universal approximation.
+These machine learning models have been incorporated in various practical
+problems, such as face recognition \citep{rbfface}, solutions of
+differential equations \citep{rbfde1,rbfde2}, stock prediction \citep{rbfstock},
+robotics \citep{rbfrobotics1,rbfrobotics2}, network security \citep{rbf_dos1,rbf_dos2},
+classification of process faults \citep{rbf_process}, time series
+prediction \citep{rbf_time}, estimation of wind power production
+\citep{rbf_wind} etc. Moreover, Park et al \citep{rbf_universal}
+proved that an RBF network with one processing layer is capable of
+approximate any provided function.
 
-Recently, a series of papers have been proposed for the initialization
+Recently, a magnitude of papers have been appeared for the initialization
 of the parameters of RBF networks \citep{rbfinit1,rbfinit2,rbfinit3}.
 Moreover,\textbf{ }Benoudjit et al provided a discussion on the estimation
-of kernel widths in RBF networks \citep{rbfkernel}. Additionally,
+of kernel widths in these models \citep{rbfkernel}. Additionally,
 a series of pruning techniques\textbf{ }\citep{rbfprun1,rbfprun2,rbfprun3}
-have been introduced aiming to reduce the number of parameters of
-the RBF networks in order to avoid the overfitting problem. Also,
-a series of optimization techniques have been incorporated in the
-past to tackle the equation \ref{eq:RbfError}, such as Genetic algorithms
+have been introduced aiming to reduce the required number of parameters
+for networks, providing a solution to the overfitting problem. Also,
+a series of optimization techniques have been used in the past for
+the minimization of equation \ref{eq:RbfError}, such as Genetic algorithms
 \citep{rbfga1,rbfga2}, the Particle Swam Optimization method \citep{rbfpso1,rbfpso2},
 the Differential Evolution technique \citep{rbfdiff1} etc. Furthermore,
 the rapid increase in the use of parallel computing techniques in
 recent decades has resulted in the publication of a series of relevant
 scientific papers that exploit this techniques\textbf{ }\citep{rbfpar1,rbfpar2}.
 
-In this paper, the use of a three-stage technique is proposed for
+In this paper, the use of a three-stage technique is suggested for
 the effective training of RBF networks. In the first stage of the
 technique, the range of values for the parameters of the RBF network
 is detected. This detection is implemented using the K-Means algorithm
@@ -288,36 +298,66 @@ and then to train the network parameters within this range of values,
 avoiding possible arithmetic instability problems presented by the
 established method of training RBF networks.
 
-The remaining of this article is organized as follows: in section
-\ref{sec:Materials-and-Methods} the proposed method and the accompanied
+The proposed technique is the application of three distinct procedures
+in series, where in each stage the results of the previous phase are
+used. In the first phase an initial estimate of the centers and variances
+is made using the K-Means technique. This method is preferred because
+it is extremely fast to execute and can provide an overview of the
+search space for neural networks. It is preferred over using random
+values as this would require a significantly large number of iterations
+for proper initialization of the parameters. After executing the K-Means
+technique, a range of values for the network parameters is created
+with values that are multiples of those produced by the K-Means technique.
+In this way, on the one hand, the use of the K-Means technique is
+utilized and on the other hand, the second-phase optimization algorithm
+is given the opportunity to search for parameter values \LyXZeroWidthSpace that
+yield lower values of the error function close to the initial values
+of the first phase. A genetic algorithm is used as the optimization
+algorithm in the second phase due to their adaptability to any environment
+and their widespread use in many computational problems. However,
+any universal optimization technique could be utilized in this phase.
+However, although genetic algorithms are extremely effective methods
+of global optimization, they often do not locate exactly a true minimum
+of the objective function and therefore the help of a local minimization
+method is deemed necessary. This occurs in the third phase, where
+a local minimization method is applied to the chromosome with the
+smallest value produced in the second phase. The minimum found in
+this phase is also the final result of the algorithm, which is also
+a configuration of the parameters of the RBF network.
+
+The remaining of this article has the following organization: in section
+\ref{sec:Materials-and-Methods} the suggested method and the accompanied
 genetic algorithm are introduced, in section \ref{sec:Results} the
-experimental datasets and the series of experiments conducted are
-listed and discussed thoroughly followed by section \ref{sec:Conclusions}
-where some conclusions are discussed.
+datasets used in the experiments as well the experimental results
+are shown and discussed and finally in section \ref{sec:Conclusions}
+some conclusions are presented.
 
 \section{Materials and Methods\label{sec:Materials-and-Methods}}
 
-The three distinct phases of the proposed method are analyzed in this
-section. The discussion initiates with the first phase, where the
-construction of the ranges for the parameter values is performed using
-the K-means algorithm. Subsequently, the steps of the used Genetic
+The three distinct phases of the proposed method are presented in
+detail in this section. The discussion initiates with the first phase,
+where the construction of the ranges for the parameter values is performed
+using the K-means algorithm. Subsequently, the steps of the used Genetic
 Algorithm are presented in detail and finally this section concludes
 with the description of the final phase, where a local optimization
 method is applied to the best located chromosome of the second phase.
+Also, a details description of the used datasets is provided in this
+section.
 
 \subsection{The first phase of the proposed method }
 
 The method of K-means, used widely in machine learning is incorporated
-in the first phase for the location of the ranges for the parameters
-of the RBF network. This method is incorporated to locate the centers
-and the variances of the possible groups of a series of points. Furthermore,
-a series of extensions of this method have been published during the
-past years, such as the Genetic K-means algotithm \citep{gen_kmeans},
-the unsupervised K-means algorithm \citep{unsuper_kmeans}, the Fixed-centered
-K-means algorithm \citep{fixed_kmeans} etc. A detailed review for
-the K-means method can be be located in the work of Oti et al. \citep{kmeans_review}.
-The K-means method is presented in Algorithm \ref{alg:The-K-Means-algorithm.}
-and a graphical rerpesentation is provided in Figure \ref{fig:kmeans}.
+in the first phase for the location of the ranges for the centers
+and variances of the model. This method is incorporated to locate
+the centers and the variances of the possible groups of a series of
+points. Furthermore, a series of extensions of this method have been
+published during the past years, such as the Genetic K-means algotithm
+\citep{gen_kmeans}, the unsupervised K-means algorithm \citep{unsuper_kmeans},
+the Fixed-centered K-means algorithm \citep{fixed_kmeans} etc. A
+detailed review for the K-means method can be be located in the work
+of Oti et al. \citep{kmeans_review}. The K-means method is presented
+in Algorithm \ref{alg:The-K-Means-algorithm.} and a graphical rerpesentation
+is provided in Figure \ref{fig:kmeans}.
 
 \begin{algorithm}[H]
 \caption{The main steps of the K-means algorithm.\label{alg:The-K-Means-algorithm.}}
@@ -350,7 +390,8 @@ c_{j}=\frac{1}{M_{j}}\sum_{i=1}^{M_{j}}x_{i}
 \[
 \sigma_{j}^{2}=\frac{\sum_{i=1}^{M_{j}}\left(x_{i}-c_{j}\right)^{2}}{M_{j}}
 \]
-\item \textbf{Stop }the algorithm, if there is no change in centers $c_{j}$.
+\item \textbf{Terminate }the algorithm when there is no further changes
+in centers $c_{j}$.
 \item \textbf{Go to} step \ref{enu:For-every-pattern}.
 \end{enumerate}
 \end{algorithm}
@@ -413,18 +454,18 @@ the equation \ref{eq:RbfError} inside the bound vectors $\overrightarrow{L},\ \o
 of the first phase. In the proposed implementation the Genetic Algorithm
 was incorporated during the second phase. Genetic algorithm are evolutionary
 methods, that are based on randomly produced solutions of the objective
-problem. These solutions are called chromosomes and they are evolved
-through some operations similar to natural processes of selection,
-crossover and mutation. Genetic algorithms have been used in a wide
-series of problems, such as placement of wind turbines \citep{gen_app1},
-water distribution \citep{gen_app2}, problems appeared in banking
-transactions \citep{gen_app3}, optimization of neural networks \citep{gen_app4}
-etc. Also, another advantage of Genetic Algorithms is that they can
-be easily adopt parallel programming techniques in order to speed
-up the evolutionary process \citep{pga1,pga2}. The layout of the
-chromosomes used in the obtained genetic algorithm is presented in
-Figure \ref{fig:The-layout-of}. \textbf{I}n this layout the following
-assumptions are hold:
+problem. The trial solutions of the genetic algorithm are commonly
+called chromosomes and they are evolved through some operations that
+mimic some natural processes, such as selection, crossover and mutation.
+Genetic algorithms have been used in a wide series of problems, such
+as energy problems \citep{gen_app1}, water distribution \citep{gen_app2},
+problems appeared in banking transactions \citep{gen_app3}, optimization
+of neural networks \citep{gen_app4} etc. Also, another advantage
+of Genetic Algorithms is that they can be easily adopt parallel programming
+techniques in order to speed up the evolutionary process \citep{pga1,pga2}.
+The layout of the chromosomes used in the obtained genetic algorithm
+is presented in Figure \ref{fig:The-layout-of}. In this layout the
+following assumptions are hold:
 \begin{enumerate}
 \item The value $c_{i,j}$ denotes the $j$ element of the $i$ center of
 the RBF network, with $i\in[1,k]$ and $j\in[1,d].$
@@ -434,33 +475,32 @@ corresponding radial function.
 radial function.
 \end{enumerate}
 \begin{figure}[H]
-\includegraphics[scale=0.65]{chrom}
-
+\begin{raggedright}
+\includegraphics[scale=0.2]{chrom_layout}
+\par\end{raggedright}
 \caption{The layout of chromosomes used in the second stage of the proposed
 method.\label{fig:The-layout-of}}
 \end{figure}
 
-The steps of the genetic algorithm used in the second phase of the
-proposed method have as follows:
+The steps of algorithm used in the second phase are the following: 
 \begin{enumerate}
 \item \textbf{Initialization step}. 
 \begin{enumerate}
-\item \textbf{Set} the of chromosomes $N_{c}$ and the maximum number of
-generations denoted as as $N_{g}$.
-\item \textbf{Set} $p_{s}$ the selection rate and as $p_{m}$ the mutation
-rate.
+\item \textbf{Set} the parameters of the genetic algorithm: $N_{c}$ the
+number of chromosomes, $N_{g}$ as the maximum number of allowed generations,
+$p_{s}$ the selection rate and $p_{m}$ the mutation rate.
 \item \textbf{Initialize} every chromosome $g_{i},\ i=1,\ldots,N_{c}$ of
 the population as vector of double numbers. The layout of each chromosome
 follows the scheme of Figure \ref{fig:The-layout-of} and the initialization
 is performed inside the bound vectors $\overrightarrow{L},\ \overrightarrow{R}$.
-\item \textbf{Set} $k=0$, the generation number.
+\item \textbf{Set} $k=0$. This variable denotes the number of generations.
 \end{enumerate}
 \item \textbf{Fitness calculation step}.
 \begin{enumerate}
 \item \textbf{For} $i=1,\ldots,N_{c}$ \textbf{do}
 \begin{enumerate}
 \item \textbf{Produce }an RBF network $R_{i}=R\left(\overrightarrow{x},\overrightarrow{g_{i}}\right)$
-for the corresponding chromosome $\overrightarrow{g_{i}}.$
+using the parameters encoded in the chromosome $\overrightarrow{g_{i}}.$
 \item \textbf{Estimate} the related fitness value $f_{i}$ as\textbf{
 \begin{equation}
 f_{i}=\sum_{j=1}^{M}\left(R\left(\overrightarrow{x}_{j},\overrightarrow{g_{i}}\right)-y_{j}\right)^{2}\label{eq:eq1-1}
@@ -472,23 +512,23 @@ f_{i}=\sum_{j=1}^{M}\left(R\left(\overrightarrow{x}_{j},\overrightarrow{g_{i}}\r
 \item \textbf{Genetic operations step}.
 \begin{enumerate}
 \item Selection procedure: During this procedure the chromosomes are sorted
-according to their fitness values and the best $p_{s}\times N_{c}$
+according to their fitness values. The first $p_{s}\times N_{c}$
 of them are transferred without any change to the next generation.\textbf{
 }The remaining chromosomes will be substituted by offrpsings produced
-during crossover and mutation.
+using the operations of crossover and mutation.
 \item Crossover procedure: During this procedure In this procedure $\left(1-p_{s}\right)\times N_{c}$
-new chromosomes will be created. For each pair $\left(\tilde{z},\tilde{w}\right)$
-of new chromosomes, two chromosomes $(z,w)$ are selected from the
-current population using the procedure of tournament selection. The
-new offsprings are produced following the scheme:
+new chromosomes will be constructed. For each pair $\left(\tilde{z},\tilde{w}\right)$
+of new chromosomes, two chromosomes $(z,w)$ are chosen using the
+procedure of tournament selection. The new offsprings are produced
+following the scheme:
 \begin{eqnarray}
 \tilde{z_{i}} & = & a_{i}z_{i}+\left(1-a_{i}\right)w_{i}\nonumber \\
 \tilde{w_{i}} & = & a_{i}w_{i}+\left(1-a_{i}\right)z_{i}\label{eq:crossover_ali-1}
 \end{eqnarray}
 Where the numbers $a_{i}$ are random numbers having the property
 $a_{i}\in[-0.5,1.5]$ \citep{kaelo}. 
-\item Mutation procedure: For every element $t_{j},j=1,\ldots,n$ of each
-chromosome $g_{i}$ a random number $r\in[0,1]$ is drawn. If $r\le p_{m}$
+\item Mutation procedure: Select a random number $r\in[0,1]$ for each element
+$t_{j},j=1,\ldots,n$ of every chromosome $g_{i}$ . If $r\le p_{m}$
 , then this element is altered according to the following scheme:
 \begin{equation}
 t'_{j}=\begin{cases}
@@ -506,8 +546,8 @@ function $\Delta(k,y)$ is provided by the following equation:
 \begin{enumerate}
 \item \textbf{Set} $k=k+1$
 \item \textbf{If} $k<N_{g}$ then go to Fitness Calculation Step
-\item \textbf{Else} report as outcome of this procedure the best located
-chromosome $g^{*}$ with the lowest fitness value.
+\item \textbf{Else return }the best located chromosome $g^{*}$ as the outcome
+of this algorithm.
 \end{enumerate}
 \end{enumerate}
 
@@ -515,24 +555,24 @@ chromosome $g^{*}$ with the lowest fitness value.
 
 In the final phase of the proposed method a local optimization procedure
 is applied to the outcome of the previous phase, in order to locate
-an actual minimum for the training error of the RBF network. In the
-current work the BFGS variant of Powell \citep{powell} was selected
-as the local search procedure. This variant can preserve the bounds
-of the objective function in an efficient way. During the past years
-a series of modifications for the BFGS method was introduced, such
-as the limited memory variant L-BFGS ideal for large scale problems
-\citep{lbfgs} or the Regularized Stochastic BFGS Algorithm \citep{resbfgs}.
-Also, Dai published an article on the convergence properties of the
-BFGS method \citep{conbfgs}. The main steps of the final phase of
-the algorithm have as follows:
+an actual minimum for the training error of the RBF network. In this
+work a BFGS variant of Powell \citep{powell} was utilized as the
+local search procedure. This variant can preserve the bounds of the
+objective function in an efficient way. During the past years a series
+of modifications for the BFGS method was introduced, such as the limited
+memory variant L-BFGS ideal for large scale problems \citep{lbfgs}
+or the Regularized Stochastic BFGS Algorithm \citep{resbfgs}. Also,
+Dai published an article on the convergence properties of the BFGS
+method \citep{conbfgs}. The main steps of the final phase of the
+algorithm have as follows:
 \begin{enumerate}
-\item \textbf{Obtain} the best chromosome $\overrightarrow{g^{*}}$ of the
+\item \textbf{Get} the best chromosome $\overrightarrow{g^{*}}$ of the
 previous phase.
-\item \textbf{Create} the corresponding RBF network $R^{*}=R\left(\overrightarrow{x},\overrightarrow{g^{*}}\right)$.
+\item \textbf{Produce} the corresponding RBF network $R^{*}=R\left(\overrightarrow{x},\overrightarrow{g^{*}}\right)$.
 \item \textbf{Minimize} the training error of the network $R^{*}$ using
 the local search procedure of this phase.
-\item \textbf{Apply} the final network to the test set of the objective
-problem and report the corresponding test error.
+\item \textbf{Apply} the final model to the test set and obtain the corresponding
+test error.
 \end{enumerate}
 A summary flow chart showing the sequence of the various phases of
 the proposed work is presented in Figure \ref{fig:summary}.
@@ -546,127 +586,203 @@ the proposed work is presented in Figure \ref{fig:summary}.
 \end{figure}
 
 
-\section{Results\label{sec:Results}}
+\subsection{The experimental datasets.}
 
-The proposed method was validated using a series of classification
-and regression datasets, obtained from the following online databases:
+The proposed method was tested on a wide series of classification
+and regression problems, that can be downloaded from the following
+URLS:
 \begin{enumerate}
-\item The UCI database, \url{https://archive.ics.uci.edu/}(accessed on
-29 August 2025)\citep{uci}
-\item The Keel website, \url{https://sci2s.ugr.es/keel/datasets.php}(accessed
-on 29 August 2025)\citep{Keel}.
-\item The Statlib database \url{https://lib.stat.cmu.edu/datasets/index}(accessed
-on 29 August 2025). 
+\item UCI: \url{https://archive.ics.uci.edu/}(accessed on 29 August 2025)\citep{uci}
+\item KEEL: \url{https://sci2s.ugr.es/keel/datasets.php}(accessed on 29
+August 2025)\citep{Keel}.
+\item STATLIB: \url{https://lib.stat.cmu.edu/datasets/index}(accessed on
+29 August 2025). 
 \end{enumerate}
-
-\subsection{Experimental datasets }
-
-The following datasets were incorporated in the experiments conducted
-in this work:
+The following classification datasets were used in the experiments:
 \begin{enumerate}
-\item \textbf{Appendictis} that is a medical dataset \citep{appendicitis}. 
-\item \textbf{Alcohol}, which is dataset regarding alcohol consumption \citep{alcohol}. 
-\item \textbf{Australian}, which is a dataset produced from various bank
-transactions \citep{australian}.
-\item \textbf{Balance} dataset \citep{balance}, produced from various psychological
-experiments.
+\item \textbf{Appendictis, }which is used for medical purposes \citep{appendicitis}. 
+\item \textbf{Alcohol}, a dataset related to alcohol consumption \citep{alcohol}. 
+\item \textbf{Australian}, a dataset related to economics \citep{australian}.
+\item \textbf{Balance} dataset \citep{balance}, that contains measurements
+from various psychological experiments.
 \item \textbf{Cleveland}, a medical dataset which was discussed in a series
 of papers \citep{cleveland1,cleveland2}. 
 \item \textbf{Circular} dataset, which is an artificial dataset.
-\item \textbf{Dermatology}, a medical dataset for dermatology problems \citep{dermatology}.
-\item \textbf{Ecoli}, which is related to protein problems \citep{ecoli}.
+\item \textbf{Dermatology}, regarding some dermatology problems \citep{dermatology}.
+\item \textbf{Ecoli}, regarding some protein problems \citep{ecoli}.
 \item \textbf{Hayes-roth} dataset \citep{hayes-roth}.
-\item \textbf{Heart}, which is a dataset related to heart diseases \citep{heart}.
-\item \textbf{HeartAttack}, which is a medical dataset for the detection
-of heart diseases
-\item \textbf{Housevotes}, a dataset which is related to the Congressional
-voting in USA \citep{housevotes}.
-\item \textbf{Ionosphere}, a dataset that contains measurements from the
-ionosphere \citep{ion1,ion2}.
-\item \textbf{Liverdisorder}, a medical dataset that was studied thoroughly
-in a series of papers\citep{liver,liver1}.
+\item \textbf{Heart}, a medical dataset used to detect some heart diseases
+\citep{heart}.
+\item \textbf{HeartAttack}, a medical dataset related to the presence of
+heart diseases
+\item \textbf{Housevotes}, a dataset that contains data from voting in the
+Congressional of USA \citep{housevotes}.
+\item \textbf{Ionosphere}, a dataset related to the ionosphere \citep{ion1,ion2}.
+\item \textbf{Liverdisorder}, a medical dataset \citep{liver,liver1}.
 \item \textbf{Lymography} \citep{lymography}.
-\item \textbf{Mammographic}, which is a medical dataset used for the prediction
-of breast cancer \citep{mammographic}.
-\item \textbf{Parkinsons}, which is a medical dataset used for the detection
-of Parkinson's disease \citep{parkinsons1,parkinsons2}.
-\item \textbf{Pima}, which is a medical dataset for the detection of diabetes\citep{pima}.
-\item \textbf{Popfailures}, a dataset related to experiments regarding climate
+\item \textbf{Mammographic}, which is related to the prediction of breast
+cancer \citep{mammographic}.
+\item \textbf{Parkinsons}, used for the detection of Parkinson's disease
+\citep{parkinsons1,parkinsons2}.
+\item \textbf{Pima}, a medical dataset regarding diabetes\citep{pima}.
+\item \textbf{Popfailures}, a dataset that contains data from climate experiments
 \citep{popfailures}.
-\item \textbf{Regions2}, a medical dataset applied to liver problems \citep{regions2}.
-\item \textbf{Saheart}, which is a medical dataset concerning heart diseases\citep{saheart}.
+\item \textbf{Regions2}, a medical dataset related to the detection of liver
+problems \citep{regions2}.
+\item \textbf{Saheart}, a medical dataset related to the detection of heart
+diseases\citep{saheart}.
 \item \textbf{Segment} dataset \citep{segment}.
-\item \textbf{Statheart}, a medical dataset related to heart diseases.
+\item \textbf{Statheart}, a medical dataset related to the presence of heart
+diseases.
 \item \textbf{Spiral}, an artificial dataset with two classes.
-\item \textbf{Student}, which is a dataset regarding experiments in schools
-\citep{student}.
-\item \textbf{Transfusion}, which is a medical dataset \citep{transfusion}.
-\item \textbf{Wdbc}, which is a medical dataset regarding breast cancer
-\citep{wdbc1,wdbc2}.
-\item \textbf{Wine}, a dataset regarding measurements about the quality
-of wines \citep{wine1,wine2}.
-\item \textbf{EEG}, which is dataset regarding EEG recordings \citep{eeg1,eeg2}.
-From this dataset the following cases were used: Z\_F\_S, ZO\_NF\_S,
+\item \textbf{Student}, a dataset that contains data from experiments in
+schools \citep{student}.
+\item \textbf{Transfusion} \citep{transfusion}.
+\item \textbf{Wdbc}, regarding the detection of breast cancer \citep{wdbc1,wdbc2}.
+\item \textbf{Wine}, a dataset regarding measurements about wines \citep{wine1,wine2}.
+\item \textbf{EEG}, which is contains some EEG recordings \citep{eeg1,eeg2}.
+The following cases were used from this dataset: Z\_F\_S, ZO\_NF\_S,
 ZONF\_S and Z\_O\_N\_F\_S.
-\item \textbf{Zoo}, which is a dataset regarding animal classification \citep{zoo}
+\item \textbf{Zoo}, used for the classification of animals \citep{zoo}
 .
 \end{enumerate}
-Moreover a series of regression datasets was adopted in the conducted
-experiments. The list with the regression datasets has as follows:
+The number of patterns and classes for each classification dataset
+are shown in Table \ref{tab:classData}.
+\begin{table}[H]
+\caption{The column DATASET represents the name of the dataset. The column
+Patterns stands for the number of patterns in the dataset and the
+column Number of Classes represents the number of distinct classes
+in the mentioned dataset.\label{tab:classData}}
+
+\centering{}%
+\begin{tabular}{|c|c|c|}
+\hline 
+DATASET & Patterns & Number of Classes\tabularnewline
+\hline 
+\hline 
+ALCOHOL & 476 & 4\tabularnewline
+\hline 
+APPENDICITIS & 106 & 2\tabularnewline
+\hline 
+AUSTRALIAN & 690 & 2\tabularnewline
+\hline 
+BALANCE & 625 & 3\tabularnewline
+\hline 
+CLEVELAND & 297 & 5\tabularnewline
+\hline 
+CIRCULAR & 500 & 2\tabularnewline
+\hline 
+DERMATOLOGY & 368 & 6\tabularnewline
+\hline 
+ECOLI & 336 & 8\tabularnewline
+\hline 
+HEARTATTACK & 303 & 2\tabularnewline
+\hline 
+HAYES ROTH & 132 & 3\tabularnewline
+\hline 
+HEART & 270 & 2\tabularnewline
+\hline 
+HOUSEVOTES & 232 & 2\tabularnewline
+\hline 
+IONOSPHERE & 351 & 2\tabularnewline
+\hline 
+LIVERDISORDER & 345 & 2\tabularnewline
+\hline 
+LYMOGRAPHY & 148 & 4\tabularnewline
+\hline 
+MAMMOGRAPHIC & 830 & 2\tabularnewline
+\hline 
+PARKINSONS & 195 & 2\tabularnewline
+\hline 
+PIMA & 768 & 2\tabularnewline
+\hline 
+POPFAILURES & 540 & 2\tabularnewline
+\hline 
+SPIRAL & 2000 & 2\tabularnewline
+\hline 
+REGIONS2 & 622 & 5\tabularnewline
+\hline 
+SAHEART & 462 & 2\tabularnewline
+\hline 
+SEGMENT & 2300 & 7\tabularnewline
+\hline 
+STATHEART & 270 & 2\tabularnewline
+\hline 
+STUDENT & 403 & 2\tabularnewline
+\hline 
+TRANSFUSION & 748 & 2\tabularnewline
+\hline 
+WDBC & 569 & 2\tabularnewline
+\hline 
+WINE & 179 & 3\tabularnewline
+\hline 
+Z\_F\_S & 300 & 3\tabularnewline
+\hline 
+Z\_O\_N\_F\_S & 500 & 5\tabularnewline
+\hline 
+ZO\_NF\_S & 500 & 3\tabularnewline
+\hline 
+ZONF\_S & 500 & 2\tabularnewline
+\hline 
+ZOO & 101 & 7\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+Also, the following regression datasets were used:
 \begin{enumerate}
-\item \textbf{Abalone}, which is a dataset about the age of abalones \citep{abalone}.
-\item \textbf{Airfoil}, a dataset founded in NASA \citep{airfoil}.
-\item \textbf{Auto}, a dataset related to the consumption of fuels from
+\item \textbf{Abalone}, a dataset related to the age of abalones \citep{abalone}.
+\item \textbf{Airfoil}, a dataset provided by NASA \citep{airfoil}.
+\item \textbf{Auto}, a dataset used to calculate the fuel consumption in
 cars.
-\item \textbf{BK}, which is used to predict the points scored in basketball
+\item \textbf{BK}, used for the prediction of points scored in some basketball
 games. 
-\item \textbf{BL}, a dataset that contains measurements from electricity
+\item \textbf{BL}, a dataset that includes data from various electricity
 experiments.
-\item \textbf{Baseball}, which is a dataset used to predict the income of
-baseball players.
-\item \textbf{Concrete}, which is a civil engineering dataset \citep{concrete}.
-\item \textbf{DEE}, a dataset that is used to predict the price of electricity.
+\item \textbf{Baseball}, used to estimate the income of baseball players.
+\item \textbf{Concrete}, a dataset used in civil engineering \citep{concrete}.
+\item \textbf{DEE}, a dataset used for the calculation of the price of electricity.
 \item \textbf{FA} dataset, related to fat measurements. 
-\item \textbf{Friedman}, which is an artificial dataset\citep{friedman}.
-\item \textbf{FY, }which is a dataset regarding the longevity of fruit flies. 
-\item \textbf{HO}, a dataset located in the STATLIB repository.
-\item \textbf{Housing}, regarding the price of houses \citep{housing}.
-\item \textbf{Laser}, which contains measurements from various physics experiments.
+\item \textbf{Friedman}\citep{friedman}.
+\item \textbf{FY, }regarding some fruit flies. 
+\item \textbf{HO}, a dataset obtained from the STATLIB repository.
+\item \textbf{Housing}, used to predict the price of houses \citep{housing}.
+\item \textbf{Laser}, a dataset that contains measurements from various
+physics experiments.
 \item \textbf{LW}, a dataset regarding the weight of babes.
-\item \textbf{Mortgage}, a dataset that contains measurements from the economy
-of USA.
-\item \textbf{PL} dataset, located in the STALIB repository.
-\item \textbf{Plastic}, a dataset regarding problems occurred with the pressure
-on plastics.
+\item \textbf{Mortgage}, an economics dataset.
+\item \textbf{PL}, a dataset obtained from the STALIB repository.
+\item \textbf{Plastic}, a dataset regarding some problems in plastics.
 \item \textbf{Quake}, a dataset regarding the measurements of earthquakes.
 \item \textbf{SN}, a dataset related to trellising and pruning.
 \item \textbf{Stock}, which is a dataset regarding stocks.
-\item \textbf{Treasury}, a dataset that contains measurements from the economy
-of USA.
+\item \textbf{Treasury}, an economics dataset.
 \end{enumerate}
+
+\section{Results\label{sec:Results}}
 
 \subsection{Experimental results }
 
-The experiments were performed on a Debian Linux system with 128GB
-of ram and the code was implemented in ANSI C++ using the OPTIMUS
-optimization environment \citep{optimus}. For the validation of the
-experiments the ten - fold cross validation technique was utilized.
-For the classification datasets the average classification error,
-calculated on the corresponding test set, is reported. This quantity
-is expressed using the following equation:
+All the experiments were executed on a Debian Linux system with 128GB
+of RAM. The programming language used was C++ and for the optimization
+method the OPTIMUS optimization environment \citep{optimus} available
+from \url{https://github.com/itsoulos/GlobalOptimus.git} (accessed
+on 20 September 2025) was incorporated. The results were validated
+using the ten - fold cross validation technique. For the classification
+datasets the average classification error, calculated on the corresponding
+test set, is reported. This quantity is expressed using the following
+equation:
 \begin{equation}
 E_{C}\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=100\times\frac{\sum_{i=1}^{N}\left(\mbox{class}\left(N\left(\overrightarrow{x_{i}},\overrightarrow{w}\right)\right)-y_{i}\right)}{N}
 \end{equation}
 Where the set $T$ denotes the related test set and it is defined
-as $T=\left(x_{i},y_{i}\right),\ i=1,\ldots,N$. Similarly, the average
-regression is reported for the case of regression datasets and it
-is expressed using the following equation:
+as $T=\left(x_{i},y_{i}\right),\ i=1,\ldots,N$. Similarly, for the
+regression datasets, the average regression is reported which is calculated
+as follows:
 \begin{equation}
 E_{R}\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=\frac{\sum_{i=1}^{N}\left(N\left(\overrightarrow{x_{i}},\overrightarrow{w}\right)-y_{i}\right)^{2}}{N}
 \end{equation}
-The values for the parameters of the proposed method are listed in
-Table \ref{tab:settings}. 
-
+Table \ref{tab:settings} contains the values for each parameter of
+the proposed method. 
 \begin{table}[H]
 \caption{The values for each parameter of the proposed method.\label{tab:settings}}
 
@@ -694,273 +810,471 @@ $p_{m}$ & Mutation rate & $0.05$\tabularnewline
 \end{table}
  In the experimental tables the following notation is used:
 \begin{enumerate}
-\item The column DATASET represents the name of the objective problem.
-\item The column BFGS represents the incorporation of the BFGS optimization
-method \citep{bfgs} for the training of an artificial neural network
-\citep{nn1,nn2} with 10 processing nodes.
-\item The column ADAM represents the application of the Adam optimizer \citep{Adam,AdamNN}
-to train a neural network with 10 hidden nodes.
-\item The column RBF-KMEANS stands for the original training of an RBF network.
+\item The column DATASET denotes the name of the used dataset.
+\item The column BFGS represents the incorporation of the BFGS procedure
+\citep{bfgs} for the training of an artificial neural network \citep{nn1,nn2}
+with 10 weights.
+\item The column ADAM denotes the incorporation of the Adam optimization
+method \citep{Adam,AdamNN} for the training of a neural network with
+10 hidden nodes.
+\item The column RBF-KMEANS is used to denoted the original training method
+of RBF networks.
 \item The column NEAT (NeuroEvolution of Augmenting Topologies) \citep{neat}
 stands for the method NEAT incorporated in the training of neural
 networks.
+\item The column DNN stands for the incorporation of a deep neural network
+as implemented in the Tiny Dnn library, that can be downloaded freely
+from \url{https://github.com/tiny-dnn/tiny-dnn}(accessed on 20 September
+2025). The implemented network was trained with the AdaGrad optimizer
+\citep{adagrad}.
+\item The column BAYES stands for the usage of the Bayesian optimizer as
+implemented in the freely available library BayesOpt \citep{bayesopt}
+for the training of a neural network with $H=10$ processing nodes.
+The code can be downloaded from \url{https://github.com/rmcantin/bayesopt}
+(accessed on 20 September 2025).
 \item The column GENRBF stands method introduced in \citep{rbf_gen1} for
 RBF training.
-\item The column PROPOSED denotes the incorporation of the current work.
-\item The row average denotes the average classification or regression error
-for all datasets.
+\item The column PROPOSED represents the results obtained by the current
+work.
+\item The row average stands for the average regression or classification
+error for all datasets.
+\item The bold notation is used in all experimental tables to indicate the
+machine learning method with the lowest classification or rergression
+error.
 \end{enumerate}
-Table \ref{tab:expClass} reports thirty-two classification datasets
-and six learning methods: BFGS, ADAM, NEAT, RBF-KMEANS, GENRBF, and
-the new proposed method. The entries are classification error rates;
-lower values indicate better performance. The last row gives the mean
-error for each method across all datasets. Based on these means, the
-proposed method attains the lowest overall error, about 19.45\%. All
-other methods exhibit substantially higher errors: GENRBF 34.89\%,
-ADAM 33.73\%, BFGS 33.50\%, NEAT 32.77\%, and RBF-KMEANS 28.54\%.
-Thus, on average, the proposed method nearly halves the error relative
-to the alternatives. At the dataset level, the proposed approach often
-delivers striking gains. For example, on Spiral it achieves only 13.26\%
-error, whereas all other methods lie around 45--50\%. On Australian
-it yields 22.67\% compared with 32--42\% for the others. Similarly,
-on the challenging medical dataset Cleveland, it obtains 50.86\% while
-the others exceed 67\%. Comparable advantages are observed on Heart,
-HeartAttack, Statheart, Wine, and Z\_F\_S. There are, however, datasets
-where the proposed method is not the best. On Hayes Roth and Zoo it
-performs worse than GENRBF or RBF-KMEANS, and on Transfusion the results
-are broadly similar to the other methods, with no clear advantage.
-This indicates that although the method does not dominate in every
-single problem, the overall trend clearly favors it. In summary, the
-statistical picture suggests that the proposed method is, on average,
-the most reliable and effective strategy, producing markedly lower
-classification errors. While it lags behind certain alternatives on
-a few datasets, its low mean error underscores a more general and
-robust solution for classification tasks.
-
 \begin{table}[H]
-\caption{Experimental results on the classification datasets using the series
-of machine learning methods used in this article. The number in cells
-denote average classification error as measured on the corresponding
-test set.\label{tab:expClass}}
+\caption{Experimental results for the classification datasets with the machine
+learning methods mentioned in this section.\label{tab:expClass}}
 
-\raggedright{}%
-\begin{tabular}{|c|c|c|c|c|c|c|}
+\centering{}{\footnotesize{}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 \hline 
-\textbf{DATASET} & \textbf{BFGS} & \textbf{ADAM} & \textbf{NEAT} & \textbf{RBF-KMEANS} & \textbf{GENRBF} & \textbf{PROPOSED}\tabularnewline
+{\scriptsize\textbf{DATASET}} & {\footnotesize\textbf{BFGS}} & {\footnotesize\textbf{ADAM}} & {\footnotesize\textbf{NEAT}} & {\footnotesize\textbf{DNN}} & {\footnotesize\textbf{BAYES}} & {\footnotesize\textbf{RBF-KMEANS}} & {\footnotesize\textbf{GENRBF}} & {\footnotesize\textbf{PROPOSED}}\tabularnewline
 \hline 
 \hline 
-Alcohol & 41.50\% & 57.78\% & 66.80\% & 49.38\% & 52.45\% & 28.57\%\tabularnewline
+{\scriptsize Alcohol} & {\footnotesize 41.50\%} & {\footnotesize 57.78\%} & {\footnotesize 66.80\%} & {\footnotesize 39.04\%} & {\footnotesize 30.85\%} & {\footnotesize 49.38\%} & {\footnotesize 52.45\%} & {\footnotesize\textbf{28.57\%}}\tabularnewline
 \hline 
-Appendicitis & 18.00\% & 16.50\% & 17.20\% & 12.23\% & 16.83\% & 15.00\%\tabularnewline
+{\scriptsize Appendicitis} & {\footnotesize 18.00\%} & {\footnotesize 16.50\%} & {\footnotesize 17.20\%} & {\footnotesize 17.30\%} & {\footnotesize 15.00\%} & {\footnotesize\textbf{12.23\%}} & {\footnotesize 16.83\%} & {\footnotesize 15.00\%}\tabularnewline
 \hline 
-Australian & 38.13\% & 35.65\% & 31.98\% & 34.89\% & 41.79\% & 22.67\%\tabularnewline
+{\scriptsize Australian} & {\footnotesize 38.13\%} & {\footnotesize 35.65\%} & {\footnotesize 31.98\%} & {\footnotesize 35.03\%} & {\footnotesize 34.83\%} & {\footnotesize 34.89\%} & {\footnotesize 41.79\%} & {\footnotesize\textbf{22.67\%}}\tabularnewline
 \hline 
-Balance & 8.64\% & 7.87\% & 23.14\% & 33.42\% & 38.02\% & 13.11\%\tabularnewline
+{\scriptsize Balance} & {\footnotesize 8.64\%} & {\footnotesize\textbf{7.87\%}} & {\footnotesize 23.14\%} & {\footnotesize 24.56\%} & {\footnotesize 8.13\%} & {\footnotesize 33.42\%} & {\footnotesize 38.02\%} & {\footnotesize 13.11\%}\tabularnewline
 \hline 
-Cleveland & 77.55\% & 67.55\% & 53.44\% & 67.10\% & 67.47\% & 50.86\%\tabularnewline
+{\scriptsize Cleveland} & {\footnotesize 77.55\%} & {\footnotesize 67.55\%} & {\footnotesize 53.44\%} & {\footnotesize 63.28\%} & {\footnotesize 64.79\%} & {\footnotesize 67.10\%} & {\footnotesize 67.47\%} & {\footnotesize\textbf{50.86\%}}\tabularnewline
 \hline 
-Circular & 6.08\% & 19.95\% & 35.18\% & 5.98\% & 21.43\% & 5.13\%\tabularnewline
+{\scriptsize Circular} & {\footnotesize 6.08\%} & {\footnotesize 19.95\%} & {\footnotesize 35.18\%} & {\footnotesize 21.87\%} & {\footnotesize 21.06\%} & {\footnotesize 5.98\%} & {\footnotesize 21.43\%} & {\footnotesize\textbf{5.13\%}}\tabularnewline
 \hline 
-Dermatology & 52.92\% & 26.14\% & 32.43\% & 62.34\% & 61.46\% & 36.00\%\tabularnewline
+{\scriptsize Dermatology} & {\footnotesize 52.92\%} & {\footnotesize 26.14\%} & {\footnotesize 32.43\%} & {\footnotesize\textbf{24.26\%}} & {\footnotesize 49.80\%} & {\footnotesize 62.34\%} & {\footnotesize 61.46\%} & {\footnotesize 36.00\%}\tabularnewline
 \hline 
-Hayes Roth & 37.33\% & 59.70\% & 50.15\% & 64.36\% & 63.46\% & 38.31\%\tabularnewline
+{\scriptsize Hayes Roth} & {\footnotesize\textbf{37.33\%}} & {\footnotesize 59.70\%} & {\footnotesize 50.15\%} & {\footnotesize 44.65\%} & {\footnotesize 59.39\%} & {\footnotesize 64.36\%} & {\footnotesize 63.46\%} & {\footnotesize 38.31\%}\tabularnewline
 \hline 
-Heart & 39.44\% & 38.53\% & 39.27\% & 31.20\% & 28.44\% & 16.07\%\tabularnewline
+{\scriptsize Heart} & {\footnotesize 39.44\%} & {\footnotesize 38.53\%} & {\footnotesize 39.27\%} & {\footnotesize 30.67\%} & {\footnotesize 30.85\%} & {\footnotesize 31.20\%} & {\footnotesize 28.44\%} & {\footnotesize\textbf{16.07\%}}\tabularnewline
 \hline 
-HeartAttack & 46.67\% & 45.55\% & 32.34\% & 29.00\% & 40.48\% & 19.20\%\tabularnewline
+{\scriptsize HeartAttack} & {\footnotesize 46.67\%} & {\footnotesize 45.55\%} & {\footnotesize 32.34\%} & {\footnotesize 32.97\%} & {\footnotesize 33.93\%} & {\footnotesize 29.00\%} & {\footnotesize 40.48\%} & {\footnotesize\textbf{19.20\%}}\tabularnewline
 \hline 
-HouseVotes & 7.13\% & 7.48\% & 10.89\% & 6.13\% & 11.99\% & 3.65\%\tabularnewline
+{\scriptsize HouseVotes} & {\footnotesize 7.13\%} & {\footnotesize 7.48\%} & {\footnotesize 10.89\%} & {\footnotesize\textbf{3.13\%}} & {\footnotesize 8.39\%} & {\footnotesize 6.13\%} & {\footnotesize 11.99\%} & {\footnotesize 3.65\%}\tabularnewline
 \hline 
-Ionosphere & 15.29\% & 16.64\% & 19.67\% & 16.22\% & 19.83\% & 12.17\%\tabularnewline
+{\scriptsize Ionosphere} & {\footnotesize 15.29\%} & {\footnotesize 16.64\%} & {\footnotesize 19.67\%} & {\footnotesize 12.57\%} & {\footnotesize 15.03\%} & {\footnotesize 16.22\%} & {\footnotesize 19.83\%} & {\footnotesize\textbf{12.17\%}}\tabularnewline
 \hline 
-Liverdisorder & 42.59\% & 41.53\% & 30.67\% & 30.84\% & 36.97\% & 29.29\%\tabularnewline
+{\scriptsize Liverdisorder} & {\footnotesize 42.59\%} & {\footnotesize 41.53\%} & {\footnotesize 30.67\%} & {\footnotesize 32.21\%} & {\footnotesize 34.21\%} & {\footnotesize 30.84\%} & {\footnotesize 36.97\%} & {\footnotesize\textbf{29.29\%}}\tabularnewline
 \hline 
-Lymography & 35.43\% & 29.26\% & 33.70\% & 25.50\% & 29.33\% & 24.36\%\tabularnewline
+{\scriptsize Lymography} & {\footnotesize 35.43\%} & {\footnotesize 29.26\%} & {\footnotesize 33.70\%} & {\footnotesize\textbf{24.07\%}} & {\footnotesize 25.50\%} & {\footnotesize 25.50\%} & {\footnotesize 29.33\%} & {\footnotesize 24.36\%}\tabularnewline
 \hline 
-Mammographic & 17.24\% & 46.25\% & 22.85\% & 21.38\% & 30.41\% & 17.79\%\tabularnewline
+{\scriptsize Mammographic} & {\footnotesize\textbf{17.24\%}} & {\footnotesize 46.25\%} & {\footnotesize 22.85\%} & {\footnotesize 19.83\%} & {\footnotesize 21.15\%} & {\footnotesize 21.38\%} & {\footnotesize 30.41\%} & {\footnotesize 17.79\%}\tabularnewline
 \hline 
-Parkinsons & 27.58\% & 24.06\% & 18.56\% & 17.41\% & 33.81\% & 17.53\%\tabularnewline
+{\scriptsize Parkinsons} & {\footnotesize 27.58\%} & {\footnotesize 24.06\%} & {\footnotesize 18.56\%} & {\footnotesize 21.32\%} & {\footnotesize 19.32\%} & {\footnotesize\textbf{17.41\%}} & {\footnotesize 33.81\%} & {\footnotesize 17.53\%}\tabularnewline
 \hline 
-Pima & 35.59\% & 34.85\% & 34.51\% & 25.78\% & 27.83\% & 24.02\%\tabularnewline
+{\scriptsize Pima} & {\footnotesize 35.59\%} & {\footnotesize 34.85\%} & {\footnotesize 34.51\%} & {\footnotesize 32.63\%} & {\footnotesize 35.52\%} & {\footnotesize 25.78\%} & {\footnotesize 27.83\%} & {\footnotesize\textbf{24.02\%}}\tabularnewline
 \hline 
-Popfailures & 5.24\% & 5.18\% & 7.05\% & 7.04\% & 7.08\% & 6.33\%\tabularnewline
+{\scriptsize Popfailures} & {\footnotesize 5.24\%} & {\footnotesize\textbf{5.18\%}} & {\footnotesize 7.05\%} & {\footnotesize 6.83\%} & {\footnotesize 7.63\%} & {\footnotesize 7.04\%} & {\footnotesize 7.08\%} & {\footnotesize 6.33\%}\tabularnewline
 \hline 
-Regions2 & 36.28\% & 29.85\% & 33.23\% & 38.29\% & 39.98\% & 26.29\%\tabularnewline
+{\scriptsize Regions2} & {\footnotesize 36.28\%} & {\footnotesize 29.85\%} & {\footnotesize 33.23\%} & {\footnotesize 33.42\%} & {\footnotesize 30.16\%} & {\footnotesize 38.29\%} & {\footnotesize 39.98\%} & {\footnotesize\textbf{26.29\%}}\tabularnewline
 \hline 
-Saheart & 37.48\% & 34.04\% & 34.51\% & 32.19\% & 33.90\% & 28.50\%\tabularnewline
+{\scriptsize Saheart} & {\footnotesize 37.48\%} & {\footnotesize 34.04\%} & {\footnotesize 34.51\%} & {\footnotesize 35.11\%} & {\footnotesize 34.87\%} & {\footnotesize 32.19\%} & {\footnotesize 33.90\%} & {\footnotesize\textbf{28.50\%}}\tabularnewline
 \hline 
-Segment & 68.97\% & 49.75\% & 66.72\% & 59.68\% & 54.25\% & 45.00\%\tabularnewline
+{\scriptsize Segment} & {\footnotesize 68.97\%} & {\footnotesize 49.75\%} & {\footnotesize 66.72\%} & {\footnotesize\textbf{32.04\%}} & {\footnotesize 51.70\%} & {\footnotesize 59.68\%} & {\footnotesize 54.25\%} & {\footnotesize 45.00\%}\tabularnewline
 \hline 
-Sonar & 25.85\% & 30.33\% & 34.10\% & 27.90\% & 37.13\% & 22.00\%\tabularnewline
+{\scriptsize Sonar} & {\footnotesize 25.85\%} & {\footnotesize 30.33\%} & {\footnotesize 34.10\%} & {\footnotesize\textbf{20.50\%}} & {\footnotesize 27.15\%} & {\footnotesize 27.90\%} & {\footnotesize 37.13\%} & {\footnotesize 22.00\%}\tabularnewline
 \hline 
-Spiral & 47.99\% & 48.90\% & 50.22\% & 44.87\% & 50.02\% & 13.26\%\tabularnewline
+{\scriptsize Spiral} & {\footnotesize 47.99\%} & {\footnotesize 48.90\%} & {\footnotesize 50.22\%} & {\footnotesize 45.64\%} & {\footnotesize 50.57\%} & {\footnotesize 44.87\%} & {\footnotesize 50.02\%} & {\footnotesize\textbf{13.26\%}}\tabularnewline
 \hline 
-Statheart & 39.65\% & 44.04\% & 44.36\% & 31.36\% & 42.94\% & 19.67\%\tabularnewline
+{\scriptsize Statheart} & {\footnotesize 39.65\%} & {\footnotesize 44.04\%} & {\footnotesize 44.36\%} & {\footnotesize 30.22\%} & {\footnotesize 31.41\%} & {\footnotesize 31.36\%} & {\footnotesize 42.94\%} & {\footnotesize\textbf{19.67\%}}\tabularnewline
 \hline 
-Student & 7.14\% & 5.13\% & 10.20\% & 5.49\% & 33.26\% & 5.23\%\tabularnewline
+{\scriptsize Student} & {\footnotesize 7.14\%} & {\footnotesize\textbf{5.13\%}} & {\footnotesize 10.20\%} & {\footnotesize 6.93\%} & {\footnotesize 5.83\%} & {\footnotesize 5.49\%} & {\footnotesize 33.26\%} & {\footnotesize 5.23\%}\tabularnewline
 \hline 
-Transfusion & 25.84\% & 25.68\% & 24.87\% & 26.41\% & 25.67\% & 26.04\%\tabularnewline
+{\scriptsize Transfusion} & {\footnotesize 25.84\%} & {\footnotesize 25.68\%} & {\footnotesize\textbf{24.87\%}} & {\footnotesize 25.92\%} & {\footnotesize 25.41\%} & {\footnotesize 26.41\%} & {\footnotesize 25.67\%} & {\footnotesize 26.04\%}\tabularnewline
 \hline 
-Wdbc & 29.91\% & 35.35\% & 12.88\% & 7.27\% & 8.82\% & 5.54\%\tabularnewline
+{\scriptsize Wdbc} & {\footnotesize 29.91\%} & {\footnotesize 35.35\%} & {\footnotesize 12.88\%} & {\footnotesize 9.43\%} & {\footnotesize 9.52\%} & {\footnotesize 7.27\%} & {\footnotesize 8.82\%} & {\footnotesize\textbf{5.54\%}}\tabularnewline
 \hline 
-Wine & 59.71\% & 29.40\% & 25.43\% & 31.41\% & 31.47\% & 9.47\%\tabularnewline
+{\scriptsize Wine} & {\footnotesize 59.71\%} & {\footnotesize 29.40\%} & {\footnotesize 25.43\%} & {\footnotesize 27.18\%} & {\footnotesize 21.77\%} & {\footnotesize 31.41\%} & {\footnotesize 31.47\%} & {\footnotesize\textbf{9.47\%}}\tabularnewline
 \hline 
-Z\_F\_S & 39.37\% & 47.81\% & 38.41\% & 13.16\% & 23.37\% & 3.73\%\tabularnewline
+{\scriptsize Z\_F\_S} & {\footnotesize 39.37\%} & {\footnotesize 47.81\%} & {\footnotesize 38.41\%} & {\footnotesize 9.27\%} & {\footnotesize 17.63\%} & {\footnotesize 13.16\%} & {\footnotesize 23.37\%} & {\footnotesize\textbf{3.73\%}}\tabularnewline
 \hline 
-Z\_O\_N\_F\_S & 65.67\% & 78.79\% & 77.08\% & 48.70\% & 68.40\% & 41.00\%\tabularnewline
+{\scriptsize Z\_O\_N\_F\_S} & {\footnotesize 65.67\%} & {\footnotesize 78.79\%} & {\footnotesize 77.08\%} & {\footnotesize 67.80\%} & {\footnotesize 54.08\%} & {\footnotesize 48.70\%} & {\footnotesize 68.40\%} & {\footnotesize\textbf{41.00\%}}\tabularnewline
 \hline 
-ZO\_NF\_S & 43.04\% & 47.43\% & 43.75\% & 9.02\% & 22.18\% & 4.24\%\tabularnewline
+{\scriptsize ZO\_NF\_S} & {\footnotesize 43.04\%} & {\footnotesize 47.43\%} & {\footnotesize 43.75\%} & {\footnotesize 8.50\%} & {\footnotesize 20.02\%} & {\footnotesize 9.02\%} & {\footnotesize 22.18\%} & {\footnotesize\textbf{4.24\%}}\tabularnewline
 \hline 
-ZONF\_S & 15.62\% & 11.99\% & 5.44\% & 4.03\% & 17.41\% & 1.98\%\tabularnewline
+{\scriptsize ZONF\_S} & {\footnotesize 15.62\%} & {\footnotesize 11.99\%} & {\footnotesize 5.44\%} & {\footnotesize 2.52\%} & {\footnotesize 3.10\%} & {\footnotesize 4.03\%} & {\footnotesize 17.41\%} & {\footnotesize\textbf{1.98\%}}\tabularnewline
 \hline 
-ZOO & 10.70\% & 14.13\% & 20.27\% & 21.93\% & 33.50\% & 9.80\%\tabularnewline
+{\scriptsize ZOO} & {\footnotesize 10.70\%} & {\footnotesize 14.13\%} & {\footnotesize 20.27\%} & {\footnotesize 16.20\%} & {\footnotesize 14.70\%} & {\footnotesize 21.93\%} & {\footnotesize 33.50\%} & {\footnotesize\textbf{9.80\%}}\tabularnewline
 \hline 
-\textbf{AVERAGE} & \textbf{33.50\%} & \textbf{33.73\%} & \textbf{32.77\%} & \textbf{28.54\%} & \textbf{34.89\%} & \textbf{19.45\%}\tabularnewline
+{\scriptsize\textbf{AVERAGE}} & {\footnotesize\textbf{33.50\%}} & {\footnotesize\textbf{33.73\%}} & {\footnotesize\textbf{32.77\%}} & {\footnotesize\textbf{25.52\%}} & {\footnotesize\textbf{27.21\%}} & {\footnotesize\textbf{28.54\%}} & {\footnotesize\textbf{34.89\%}} & {\footnotesize\textbf{19.45\%}}\tabularnewline
 \hline 
-\end{tabular}
+\end{tabular}}{\footnotesize\par}
 \end{table}
-Table \ref{tab:expRegression} reports twenty-one regression datasets
-and six machine-learning models: BFGS, ADAM, NEAT, RBF-KMEANS, GENRBF,
-and the proposed method. The entries are absolute prediction errors;
-smaller values indicate better model performance. The last row gives
-the mean error for each method across all datasets. The analysis of
-the means clearly shows that the proposed method attains the smallest
-overall error, 5.87. The remaining methods have substantially higher
-errors: BFGS 28.82, ADAM 21.39, NEAT 13.99, RBF-KMEANS 9.56, and GENRBF
-13.38. This implies that the proposed approach greatly improves accuracy,
-reducing the average error to nearly half of the best competing model
-and far more compared with the classical BFGS and ADAM. At the dataset
-level there are striking gaps. On Housing the proposed method records
-an error of 15.36, whereas the other models range from 56 to 97. On
-Stock the contrast is even stronger, with an error of only 1.44 while
-others reach well above 300. Similarly, on Plastic the error drops
-to 2.28, while the alternatives lie between 8 and 26. Comparable advantages
-are observed on Mortgage, Treasury, Concrete, HO, Quake, and PL. There
-are, however, a few cases where the proposed method is not the best;
-for example, on FY and SN it shows slightly higher errors than some
-competitors, though the differences are small, so no clear advantage
-emerges there. Overall, the evidence indicates that the proposed method
-is the most reliable and effective option on average, substantially
-reducing regression error relative to all other techniques. Although
-it does not lead on every dataset, the large reduction in mean error
-and the strong results on several difficult problems demonstrate a
-robust and broadly applicable solution for regression tasks.
 
-\begin{table}[H]
-\caption{Experimental results on the regression datasets using a series of
-machine learning methods. Numbers in cells represent average regression
-error as measured on the corresponding test set.\label{tab:expRegression}}
+Table \ref{tab:expClass} compares the performance of eight methods
+on thirty-three classification datasets. The mean percentage error
+clearly shows that the proposed method is best overall at 19.45\%,
+followed by DNN at 25.52\%, then BAYES 27.21\%, RBF-KMEANS 28.54\%,
+NEAT 32.77\%, BFGS 33.50\%, ADAM 33.73\%, and GENRBF 34.89\%. Relative
+to the strongest competitor, DNN, the proposed method lowers the average
+error by 6.07 points, about 24\%. The reduction versus the classical
+BFGS and ADAM is about 14 points, roughly 42\%, and versus RBF-KMEANS
+about 9.1 points, roughly 32\%.
 
-\raggedright{}%
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline 
-\textbf{DATASET} & \textbf{BFGS} & \textbf{ADAM} & \textbf{NEAT} & \textbf{RBF-KMEANS} & \textbf{GENRBF} & \textbf{PROPOSED}\tabularnewline
-\hline 
-Abalone & 5.69 & 4.30 & 9.88 & 7.37 & 9.98 & 6.12\tabularnewline
-\hline 
-Airfoil & 0.003 & 0.005 & 0.067 & 0.27 & 0.121 & 0.004\tabularnewline
-\hline 
-Auto & 60.97 & 70.84 & 56.06 & 17.87 & 16.78 & 8.81\tabularnewline
-\hline 
-Baseball & 119.63 & 77.90 & 100.39 & 93.02 & 98.91 & 88.05\tabularnewline
-\hline 
-BK & 0.28 & 0.03 & 0.15 & 0.02 & 0.023 & 0.022\tabularnewline
-\hline 
-BL & 2.55 & 0.28 & 0.05 & 0.013 & 0.005 & 0.0004\tabularnewline
-\hline 
-Concrete & 0.066 & 0.078 & 0.081 & 0.011 & 0.015 & 0.005\tabularnewline
-\hline 
-Dee & 2.36 & 0.630 & 1.512 & 0.17 & 0.25 & 0.15\tabularnewline
-\hline 
-Housing & 97.38 & 80.20 & 56.49 & 57.68 & 95.69 & 15.36\tabularnewline
-\hline 
-Friedman & 1.26 & 22.90 & 19.35 & 7.23 & 16.24 & 5.99\tabularnewline
-\hline 
-FA & 0.426 & 0.11 & 0.19 & 0.015 & 0.15 & 0.013\tabularnewline
-\hline 
-FY & 0.22 & 0.038 & 0.08 & 0.041 & 0.041 & 0.054\tabularnewline
-\hline 
-HO & 0.62 & 0.035 & 0.169 & 0.03 & 0.076 & 0.009\tabularnewline
-\hline 
-Laser & 0.015 & 0.03 & 0.084 & 0.03 & 0.075 & 0.016\tabularnewline
-\hline 
-Mortgage & 8.23 & 9.24 & 14.11 & 1.45 & 1.92 & 0.23\tabularnewline
-\hline 
-PL & 0.29 & 0.117 & 0.098 & 2.12 & 0.155 & 0.023\tabularnewline
-\hline 
-Plastic & 20.32 & 11.71 & 20.77 & 8.62 & 25.91 & 2.28\tabularnewline
-\hline 
-PY & 0.578 & 0.09 & 0.075 & 0.012 & 0.029 & 0.021\tabularnewline
-\hline 
-Quake & 0.42 & 0.06 & 0.298 & 0.07 & 0.79 & 0.036\tabularnewline
-\hline 
-SN & 0.40 & 0.026 & 0.174 & 0.027 & 0.027 & 0.026\tabularnewline
-\hline 
-Stock & 302.43 & 180.89 & 12.23 & 12.23 & 25.18 & 1.44\tabularnewline
-\hline 
-Treasury & 9.91 & 11.16 & 15.52 & 2.02 & 1.89 & 0.47\tabularnewline
-\hline 
-\textbf{AVERAGE} & \textbf{28.82} & \textbf{21.39} & \textbf{13.99} & \textbf{9.56} & \textbf{13.38} & \textbf{5.87}\tabularnewline
-\hline 
-\end{tabular}
-\end{table}
-Based on the executions carried out with scripts in the R language
-concerning the processing of the experimental results on the classification
-datasets, the significance levels of the $p$ parameter were calculated
-in order to assess the statistical strength of the comparisons between
-the proposed model and the alternative methods. In Figure \ref{fig:statClass}
-these significance levels are illustrated according to the established
-scale, where ns indicates no statistically significant difference
-$\left(p>0.005\right)$, while the presence of one to four asterisks
-denotes increasing statistical strength, from significant $\left(p<0.05\right)$
-to very extremely significant $\left(p<0.0001\right)$. The results
-show that in all comparisons of the proposed model with the other
-methods, namely BFGS, ADAM, NEAT, RBF-KMEANS, and GENRBF, the significance
-levels were found at the highest level with $p<0.0001$. This indicates
-that the performance differences are not random but instead reflect
-a very strong superiority of the proposed model over all the other
-techniques examined.
+At the level of individual datasets, the proposed method delivers
+strikingly low errors in several cases. On Spiral it drops to 13.26\%
+while others are around 45--50\%; on Wine it reaches 9.47\% versus
+21--60\%; on Wdbc it achieves 5.54\% versus 7--35\%. On Z\_F\_S,
+ZO\_NF\_S, ZONF\_S, and Cleveland it attains the best or tied-best
+results. On Heart, HeartAttack, Statheart, Regions2, Saheart, Pima,
+Australian, Alcohol, and HouseVotes the results are also highly competitive,
+usually best or within the top two. There are, however, datasets where
+other methods prevail: DNN clearly leads on Segment and HouseVotes
+and is very strong on Dermatology; RBF-KMEANS is best on Appendicitis;
+and ADAM wins narrowly on Student and Balance. In cases like Balance,
+Popfailures, Dermatology, and Segment the proposed method is not the
+top performer, though it remains competitive.
+
+Overall, the proposed method offers the lowest average error and a
+consistent advantage across a wide range of problems, with substantial
+gains over all classical and modern baselines. Despite local exceptions
+where DNN, ADAM, or RBF-KMEANS come out ahead, the approach appears
+more generalizable and stable, achieving systematically low errors
+and large improvements on challenging datasets, which supports its
+practical use as a default choice for classification.
 
 \begin{figure}[H]
 \includegraphics[scale=0.75]{stat1}
 
 \caption{Statistical comparison of results obtained in the classification datasets
 using a series of machine learning methods.\label{fig:statClass}}
-
 \end{figure}
-Similarly, for the regression datasets, the significance levels of
-the $p$ parameter were computed to assess the statistical strength
-of the comparisons between the proposed model and the other methods.
-In Figure \ref{fig:statRegression}, the significance levels are illustrated
-according to the established scale, where two asterisks correspond
-to high statistical significance $\left(p<0.01\right)$ and four asterisks
-indicate a very extremely significant difference $\left(p<0.0001\right)$.
-The results show that, in comparison with the BFGS and ADAM models,
-the proposed method achieves high statistical significance with $p<0.01$,
-demonstrating that its superiority is not due to chance. Furthermore,
-in all other comparisons, namely against NEAT, RBF-KMEANS, and GENRBF,
-the significance levels reach the highest level with $p<0.0001$,
-which highlights a very strong superiority of the proposed model over
-the alternative regression methods examined.
+
+\begin{sidewaystable}[H]
+\caption{Pairwise Wilcoxon Results: Proposed vs Baselines on classification
+datasets (95\% CI \& Effect Size)\label{tab:Wilcoxon1}}
+
+\centering{}{\footnotesize{}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline 
+{\footnotesize Comparison} & {\footnotesize$n$} & {\footnotesize$V$} & {\footnotesize$r_{rank,biserial}$} & {\footnotesize$conf_{low}$} & {\footnotesize$conf_{high}$} & {\footnotesize$p$} & {\footnotesize$p_{adj}$} & {\footnotesize$p_{signif}$}\tabularnewline
+\hline 
+\hline 
+{\footnotesize PROPOSED vs BFGS} & {\footnotesize 33} & {\footnotesize 26} & {\footnotesize -9536541889483070} & {\footnotesize -18505038146370400} & {\footnotesize -7964957107005870} & {\footnotesize 5667497792.56} & {\footnotesize 17002493377.69} & {\footnotesize{*}{*}{*}{*}}\tabularnewline
+\hline 
+{\footnotesize PROPOSED vs ADAM} & {\footnotesize 33} & {\footnotesize 32} & {\footnotesize -9429590017825310} & {\footnotesize -19420020785066500} & {\footnotesize -8034989453223090} & {\footnotesize 9370072082.50} & {\footnotesize 187401441650.00} & {\footnotesize{*}{*}{*}{*}}\tabularnewline
+\hline 
+{\footnotesize PROPOSED vs NEAT} & {\footnotesize 33} & {\footnotesize 11} & {\footnotesize -9803921568627450} & {\footnotesize -1840001089212400} & {\footnotesize -7149974070777490} & {\footnotesize 15363692460.10} & {\footnotesize 9218215476.06} & {\footnotesize{*}{*}{*}{*}}\tabularnewline
+\hline 
+{\footnotesize PROPOSED vs DNN} & {\footnotesize 33} & {\footnotesize 66} & {\footnotesize -8823529411764710} & {\footnotesize -8925029424575650} & {\footnotesize -3094966481225850} & {\footnotesize 1314556247229.44} & {\footnotesize 1314556247229.44} & {\footnotesize{*}{*}{*}}\tabularnewline
+\hline 
+{\footnotesize PROPOSED vs BAYES} & {\footnotesize 32} & {\footnotesize 17} & {\footnotesize -9678030303030300} & {\footnotesize -10224975985015600} & {\footnotesize -49000094426908900} & {\footnotesize 4040490189.97} & {\footnotesize 161619607598.76} & {\footnotesize{*}{*}{*}{*}}\tabularnewline
+\hline 
+{\footnotesize PROPOSED vs RBF-KMEANS} & {\footnotesize 33} & {\footnotesize 13} & {\footnotesize -9768270944741530} & {\footnotesize -12110046788330500} & {\footnotesize -4899979230676410} & {\footnotesize 18357733429.22} & {\footnotesize 9218215476.06} & {\footnotesize{*}{*}{*}{*}}\tabularnewline
+\hline 
+{\footnotesize PROPOSED vs GENRBF} & {\footnotesize 33} & {\footnotesize 1} & {\footnotesize -9982174688057040} & {\footnotesize -1912007131513760} & {\footnotesize -12009996230590000} & {\footnotesize 619219811.57} & {\footnotesize 4334538680.97} & {\footnotesize{*}{*}{*}{*}}\tabularnewline
+\hline 
+\end{tabular}}{\footnotesize\par}
+\end{sidewaystable}
+The Figure \ref{fig:statClass} and the Table \ref{tab:Wilcoxon1}
+summarizes paired Wilcoxon signed-rank tests comparing the PROPOSED
+method against each competitor on the same 33 classification datasets.
+The column n is the number of paired datasets, $V$ is the Wilcoxon
+signed-rank statistic, $r_{rank,biserial}$ is the rank-biserial effect
+size (range -1 to 1, with more negative meaning PROPOSED has lower
+error), $conf_{low}$ and $conf_{high}$ give the 95\% Hodges-Lehmann
+confidence interval for the median paired difference (PROPOSED - competitor)
+in percentage point error, p is the raw p-value,$p_{adj}$ is the
+Holm-adjusted p-value, and $p_{signif}$ is the significance code.
+Because all confidence intervals are entirely negative, the PROPOSED
+method consistently shows lower error than each baseline, not just
+statistical significance but a stable direction of effect across datasets.
+Adjusted p-values remain very small in every comparison, from $4.33\times10^{-6}$
+(vs GENRBF) up to $1.31\times10^{-4}$ (vs DNN), yielding {*}{*}{*}{*}
+everywhere except the DNN comparison, which is {*}{*}{*}. Effect sizes
+are uniformly large in magnitude. The strongest difference is against
+GENRBF with r\ensuremath{\approx}-0.998 and a 95\% CI for the median
+error reduction of roughly -19.12 to -12.01 percentage points. Very
+large effects also appear versus NEAT (r\ensuremath{\approx}-0.980,
+CI \ensuremath{\approx} {[}-18.40, -7.15{]}) and RBF-KMEANS (r\ensuremath{\approx}\textminus 0.977,
+CI \ensuremath{\approx} {[}-12.11, -4.90{]}). Comparisons with BFGS
+(r\ensuremath{\approx}-0.954, CI \ensuremath{\approx} {[}-18.51, -7.96{]})
+and ADAM (r\ensuremath{\approx}-0.943, CI \ensuremath{\approx} {[}-19.42,
+-8.03{]}) remain strongly favorable. The smallest, yet still large,
+effect is against DNN (r\ensuremath{\approx}-0.882) with a clearly
+negative CI \ensuremath{\approx} {[}-8.93, -3.09{]}. Taken together,
+the results show consistent, substantial reductions in classification
+error for the PROPOSED method across all baselines, with very large
+effect sizes, tight negative confidence intervals, and significance
+that survives multiple-comparison correction.
+
+Also, a comparison in terms of precision and recall for the classification
+datasets, between the original training method for RBF networks and
+the proposed one is depicted in Table \ref{tab:Precision-and-recall}. 
+
+\begin{table}[H]
+\begin{centering}
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+ & \multicolumn{2}{c|}{RBF - KMEANS} & \multicolumn{2}{c|}{PROPOSED}\tabularnewline
+\hline 
+\hline 
+DATASET & PRECISION & RECALL & PRECISION & RECALL\tabularnewline
+\hline 
+Alcohol & 0.507 & 0.639 & 0.723 & 0.711\tabularnewline
+\hline 
+Appendicitis & 0.762 & 0.875 & 0.804 & 0.722\tabularnewline
+\hline 
+Australian & 0.604 & 0.669 & 0.779 & 0.756\tabularnewline
+\hline 
+Balance & 0.753 & 0.741 & 0.794 & 0.86\tabularnewline
+\hline 
+Cleveland & 0.268 & 0.385 & 0.39 & 0.392\tabularnewline
+\hline 
+Circular & 0.941 & 0.948 & 0.963 & 0.962\tabularnewline
+\hline 
+Dermatology & 0.305 & 0.357 & 0.642 & 0.589\tabularnewline
+\hline 
+Hayes Roth & 0.34 & 0.378 & 0.68 & 0.632\tabularnewline
+\hline 
+Heart & 0.69 & 0.688 & 0.839 & 0.831\tabularnewline
+\hline 
+HeartAttack & 0.668 & 0.674 & 0.779 & 0.774\tabularnewline
+\hline 
+HouseVotes & 0.938 & 0.94 & 0.962 & 0.966\tabularnewline
+\hline 
+Ionosphere & 0.806 & 0.847 & 0.889 & 0.868\tabularnewline
+\hline 
+Liverdisorder & 0.665 & 0.673 & 0.689 & 0.684\tabularnewline
+\hline 
+Lymography & 0.688 & 0.742 & 0.783 & 0.774\tabularnewline
+\hline 
+Mammographic & 0.793 & 0.793 & 0.826 & 0.826\tabularnewline
+\hline 
+Parkinsons & 0.685 & 0.8 & 0.758 & 0.747\tabularnewline
+\hline 
+Pima & 0.679 & 0.732 & 0.744 & 0.705\tabularnewline
+\hline 
+Popfailures & 0.501 & 0.93 & 0.792 & 0.735\tabularnewline
+\hline 
+Regions2 & 0.331 & 0.502 & 0.645 & 0.506\tabularnewline
+\hline 
+Saheart & 0.607 & 0.641 & 0.669 & 0.645\tabularnewline
+\hline 
+Segment & 0.4 & 0.433 & 0.603 & 0.579\tabularnewline
+\hline 
+Sonar & 0.716 & 0.722 & 0.805 & 0.792\tabularnewline
+\hline 
+Spiral & 0.553 & 0.555 & 0.868 & 0.869\tabularnewline
+\hline 
+Statheart & 0.689 & 0.695 & 0.797 & 0.793\tabularnewline
+\hline 
+Student & 0.944 & 0.955 & 0.949 & 0.95\tabularnewline
+\hline 
+Transfusion & 0.533 & 0.641 & 0.618 & 0.534\tabularnewline
+\hline 
+Wdbc & 0.912 & 0.929 & 0.952 & 0.943\tabularnewline
+\hline 
+Wine & 0.676 & 0.763 & 0.919 & 0.907\tabularnewline
+\hline 
+Z\_F\_S & 0.865 & 0.871 & 0.954 & 0.96\tabularnewline
+\hline 
+Z\_O\_N\_F\_S & 0.534 & 0.52 & 0.621 & 0.61\tabularnewline
+\hline 
+ZO\_NF\_S & 0.9 & 0.9 & 0.956 & 0.6\tabularnewline
+\hline 
+ZONF\_S & 0.926 & 0.947 & 0.966 & 0.976\tabularnewline
+\hline 
+ZOO & 0.804 & 0.809 & 0.875 & 0.878\tabularnewline
+\hline 
+\textbf{AVERAGE} & \textbf{0.667} & \textbf{0.718} & \textbf{0.789} & \textbf{0.76}\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+\caption{Precision and recall for the original training method for RBFs and
+the proposed method.\label{tab:Precision-and-recall}}
+\end{table}
+\begin{table}[H]
+\caption{Experimental results for the regression datasets with the application
+of the mentioned machine learning techniques. \label{tab:expRegression}}
+
+\centering{}{\footnotesize{}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline 
+{\footnotesize\textbf{DATASET}} & {\footnotesize\textbf{BFGS}} & {\footnotesize\textbf{ADAM}} & {\footnotesize\textbf{NEAT}} & {\footnotesize\textbf{DNN}} & {\footnotesize\textbf{BAYES}} & {\footnotesize\textbf{RBF-KMEANS}} & {\footnotesize\textbf{GENRBF}} & {\footnotesize\textbf{PROPOSED}}\tabularnewline
+\hline 
+{\footnotesize Abalone} & {\footnotesize 5.69} & {\footnotesize\textbf{4.30}} & {\footnotesize 9.88} & {\footnotesize 6.91} & {\footnotesize 4.81} & {\footnotesize 7.37} & {\footnotesize 9.98} & {\footnotesize 6.12}\tabularnewline
+\hline 
+{\footnotesize Airfoil} & {\footnotesize\textbf{0.003}} & {\footnotesize 0.005} & {\footnotesize 0.067} & {\footnotesize 0.004} & {\footnotesize 0.004} & {\footnotesize 0.27} & {\footnotesize 0.121} & {\footnotesize 0.004}\tabularnewline
+\hline 
+{\footnotesize Auto} & {\footnotesize 60.97} & {\footnotesize 70.84} & {\footnotesize 56.06} & {\footnotesize 13.26} & {\footnotesize 27.03} & {\footnotesize 17.87} & {\footnotesize 16.78} & {\footnotesize\textbf{8.81}}\tabularnewline
+\hline 
+{\footnotesize Baseball} & {\footnotesize 119.63} & {\footnotesize\textbf{77.90}} & {\footnotesize 100.39} & {\footnotesize 110.22} & {\footnotesize 88.76} & {\footnotesize 93.02} & {\footnotesize 98.91} & {\footnotesize 88.05}\tabularnewline
+\hline 
+{\footnotesize BK} & {\footnotesize 0.28} & {\footnotesize 0.03} & {\footnotesize 0.15} & {\footnotesize\textbf{0.02}} & {\footnotesize 0.023} & {\footnotesize 0.02} & {\footnotesize 0.023} & {\footnotesize 0.022}\tabularnewline
+\hline 
+{\footnotesize BL} & {\footnotesize 2.55} & {\footnotesize 0.28} & {\footnotesize 0.05} & {\footnotesize 0.006} & {\footnotesize 0.46} & {\footnotesize 0.013} & {\footnotesize 0.005} & {\footnotesize\textbf{0.0004}}\tabularnewline
+\hline 
+{\footnotesize Concrete} & {\footnotesize 0.066} & {\footnotesize 0.078} & {\footnotesize 0.081} & {\footnotesize 0.021} & {\footnotesize 0.013} & {\footnotesize 0.011} & {\footnotesize 0.015} & {\footnotesize\textbf{0.005}}\tabularnewline
+\hline 
+{\footnotesize Dee} & {\footnotesize 2.36} & {\footnotesize 0.630} & {\footnotesize 1.512} & {\footnotesize 0.31} & {\footnotesize 0.28} & {\footnotesize 0.17} & {\footnotesize 0.25} & {\footnotesize\textbf{0.15}}\tabularnewline
+\hline 
+{\footnotesize Housing} & {\footnotesize 97.38} & {\footnotesize 80.20} & {\footnotesize 56.49} & {\footnotesize 65.18} & {\footnotesize 57.39} & {\footnotesize 57.68} & {\footnotesize 95.69} & {\footnotesize\textbf{15.36}}\tabularnewline
+\hline 
+{\footnotesize Friedman} & {\footnotesize\textbf{1.26}} & {\footnotesize 22.90} & {\footnotesize 19.35} & {\footnotesize 2.75} & {\footnotesize 3.79} & {\footnotesize 7.23} & {\footnotesize 16.24} & {\footnotesize 5.99}\tabularnewline
+\hline 
+{\footnotesize FA} & {\footnotesize 0.426} & {\footnotesize 0.11} & {\footnotesize 0.19} & {\footnotesize 0.02} & {\footnotesize 0.051} & {\footnotesize 0.015} & {\footnotesize 0.15} & {\footnotesize\textbf{0.013}}\tabularnewline
+\hline 
+{\footnotesize FY} & {\footnotesize 0.22} & {\footnotesize\textbf{0.038}} & {\footnotesize 0.08} & {\footnotesize 0.039} & {\footnotesize 0.21} & {\footnotesize 0.041} & {\footnotesize 0.041} & {\footnotesize 0.054}\tabularnewline
+\hline 
+{\footnotesize HO} & {\footnotesize 0.62} & {\footnotesize 0.035} & {\footnotesize 0.169} & {\footnotesize 0.026} & {\footnotesize 0.034} & {\footnotesize 0.03} & {\footnotesize 0.076} & {\footnotesize\textbf{0.009}}\tabularnewline
+\hline 
+{\footnotesize Laser} & {\footnotesize\textbf{0.015}} & {\footnotesize 0.03} & {\footnotesize 0.084} & {\footnotesize 0.045} & {\footnotesize 0.026} & {\footnotesize 0.03} & {\footnotesize 0.075} & {\footnotesize 0.016}\tabularnewline
+\hline 
+{\footnotesize Mortgage} & {\footnotesize 8.23} & {\footnotesize 9.24} & {\footnotesize 14.11} & {\footnotesize 9.74} & {\footnotesize 3.01} & {\footnotesize 1.45} & {\footnotesize 1.92} & {\footnotesize\textbf{0.23}}\tabularnewline
+\hline 
+{\footnotesize PL} & {\footnotesize 0.29} & {\footnotesize 0.117} & {\footnotesize 0.098} & {\footnotesize 0.056} & {\footnotesize 0.056} & {\footnotesize 2.12} & {\footnotesize 0.155} & {\footnotesize\textbf{0.023}}\tabularnewline
+\hline 
+{\footnotesize Plastic} & {\footnotesize 20.32} & {\footnotesize 11.71} & {\footnotesize 20.77} & {\footnotesize 3.82} & {\footnotesize 3.66} & {\footnotesize 8.62} & {\footnotesize 25.91} & {\footnotesize\textbf{2.28}}\tabularnewline
+\hline 
+{\footnotesize PY} & {\footnotesize 0.578} & {\footnotesize 0.09} & {\footnotesize 0.075} & {\footnotesize 0.028} & {\footnotesize 0.401} & {\footnotesize\textbf{0.012}} & {\footnotesize 0.029} & {\footnotesize 0.021}\tabularnewline
+\hline 
+{\footnotesize Quake} & {\footnotesize 0.42} & {\footnotesize 0.06} & {\footnotesize 0.298} & {\footnotesize 0.04} & {\footnotesize 0.093} & {\footnotesize 0.07} & {\footnotesize 0.79} & {\footnotesize\textbf{0.036}}\tabularnewline
+\hline 
+{\footnotesize SN} & {\footnotesize 0.40} & {\footnotesize 0.026} & {\footnotesize 0.174} & {\footnotesize 0.032} & {\footnotesize 0.055} & {\footnotesize 0.027} & {\footnotesize 0.027} & {\footnotesize\textbf{0.026}}\tabularnewline
+\hline 
+{\footnotesize Stock} & {\footnotesize 302.43} & {\footnotesize 180.89} & {\footnotesize 12.23} & {\footnotesize 39.08} & {\footnotesize 14.43} & {\footnotesize 12.23} & {\footnotesize 25.18} & {\footnotesize\textbf{1.44}}\tabularnewline
+\hline 
+{\footnotesize Treasury} & {\footnotesize 9.91} & {\footnotesize 11.16} & {\footnotesize 15.52} & {\footnotesize 13.76} & {\footnotesize 3.74} & {\footnotesize 2.02} & {\footnotesize 1.89} & {\footnotesize\textbf{0.47}}\tabularnewline
+\hline 
+{\footnotesize\textbf{AVERAGE}} & {\footnotesize\textbf{28.82}} & {\footnotesize\textbf{21.39}} & {\footnotesize\textbf{13.99}} & {\footnotesize\textbf{11.82}} & {\footnotesize\textbf{9.18}} & {\footnotesize\textbf{9.56}} & {\footnotesize\textbf{13.38}} & {\footnotesize\textbf{5.87}}\tabularnewline
+\hline 
+\end{tabular}}{\footnotesize\par}
+\end{table}
+
+Table \ref{tab:expRegression} evaluates the performance of eight
+regression methods on twenty-one datasets using absolute errors. The
+average error shows a clear overall advantage for the proposed method
+at 5.87, followed by BAYES at 9.18, RBF-KMEANS at 9.56, DNN at 11.82,
+NEAT at 13.99, GENRBF at 13.38, ADAM at 21.39, and BFGS at 28.82.
+Relative to the best competing average, BAYES, the proposed method
+reduces error by about 3.31 points (\ensuremath{\approx}36\%). The
+reduction versus RBF-KMEANS is about 3.69 points (\ensuremath{\approx}39\%),
+versus DNN about 5.95 points (\ensuremath{\approx}50\%), and relative
+to NEAT and GENRBF the drops are roughly 58\% and 56\%, respectively.
+The advantage is even larger against ADAM and BFGS, where the mean
+error is nearly halved or more.
+
+Across individual datasets, the proposed method attains the best value
+in roughly two thirds of the cases. It is clearly first on Auto, BL,
+Concrete, Dee, Housing, FA, HO, Mortgage, PL, Plastic, Quake, Stock,
+and Treasury, with particularly large margins on Housing and Stock
+where errors fall to 15.36 and 1.44 while other methods range from
+tens to hundreds. On Airfoil it is essentially tied with the best
+at 0.004, while BFGS is slightly lower at 0.003. There are datasets
+where other methods lead, such as Abalone where ADAM and BAYES are
+ahead; Friedman and Laser where BFGS gives the best value; BK where
+DNN and RBF-KMEANS lead; and PY where RBF-KMEANS is lower. Despite
+these isolated exceptions, the proposed method remains consistently
+among the top performers and most often the best.
+
+Overall, the proposed approach combines a very low average error with
+broad superiority across diverse problem types and error scales, from
+thousandths to very large magnitudes. The consistency of the gains
+and the size of the margins over all baselines indicate it is the
+most efficient and generalizable choice among the regression methods
+considered.
+
 \begin{figure}[H]
 \includegraphics[scale=0.75]{stat2}
 
 \caption{Statistical comparison of the obtained results in the regression datasets
 using a variety of machine learning methods.\label{fig:statRegression}}
-
 \end{figure}
 
+\begin{sidewaystable}[H]
+\caption{Pairwise Wilcoxon Results: Proposed vs Baselines on regression datasets
+(95\% CI \& Effect Size)\label{tab:Wilcoxon2}}
+
+\centering{}{\scriptsize{}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline 
+{\scriptsize Comparison} & {\scriptsize$n$} & {\scriptsize$V$} & {\scriptsize$r_{rank,biserial}$} & {\scriptsize$conf_{low}$} & {\scriptsize$conf_{high}$} & {\scriptsize$p$} & {\scriptsize$p_{adj}$} & {\scriptsize$p_{signif}$}\tabularnewline
+\hline 
+\hline 
+{\scriptsize PROPOSED vs BFGS} & {\scriptsize 22.00} & {\scriptsize 28.00} & {\scriptsize -8893280632411070} & {\scriptsize -20509998654975500} & {\scriptsize -31607290631815900.0} & {\scriptsize 14644689859755000.00} & {\scriptsize 5541059559701440.00} & {\scriptsize{*}{*}}\tabularnewline
+\hline 
+{\scriptsize PROPOSED vs ADAM} & {\scriptsize 21.00} & {\scriptsize 33.00} & {\scriptsize -8571428571428570} & {\scriptsize -2734490876933390} & {\scriptsize -41569559046521200.0} & {\scriptsize 4370173456024450.00} & {\scriptsize 6265548255802160.00} & {\scriptsize{*}{*}}\tabularnewline
+\hline 
+{\scriptsize PROPOSED vs NEAT} & {\scriptsize 22.00} & {\scriptsize 0.00} & {\scriptsize -1} & {\scriptsize -9925969319615250} & {\scriptsize -16000237429855300.0} & {\scriptsize 43012521191.44} & {\scriptsize 3010876483400.92} & {\scriptsize{*}{*}{*}}\tabularnewline
+\hline 
+{\scriptsize PROPOSED vs DNN} & {\scriptsize 21.00} & {\scriptsize 23.00} & {\scriptsize -9004329004329000} & {\scriptsize -11086980158184000} & {\scriptsize -12031295944894700.0} & {\scriptsize 13852648899253600.00} & {\scriptsize 5541059559701440.00} & {\scriptsize{*}{*}}\tabularnewline
+\hline 
+{\scriptsize PROPOSED vs BAYES} & {\scriptsize 21.00} & {\scriptsize 30.00} & {\scriptsize -8701298701298700} & {\scriptsize -5839992445666000} & {\scriptsize -33511395308536000.0} & {\scriptsize 31327741279010800.00} & {\scriptsize 6265548255802160.00} & {\scriptsize{*}{*}}\tabularnewline
+\hline 
+{\scriptsize PROPOSED vs RBF-KMEANS} & {\scriptsize 22.00} & {\scriptsize 14.00} & {\scriptsize -9446640316205530} & {\scriptsize -4523464832268890} & {\scriptsize -3407835793499720.0} & {\scriptsize 276740186614.05} & {\scriptsize 13837009330702700.00} & {\scriptsize{*}{*}}\tabularnewline
+\hline 
+{\scriptsize PROPOSED vs GENRBF} & {\scriptsize 22.00} & {\scriptsize 6.00} & {\scriptsize -9762845849802370} & {\scriptsize -10249984407899800} & {\scriptsize -9806889388206810.0} & {\scriptsize 9774004411.05} & {\scriptsize 586440264662.75} & {\scriptsize{*}{*}{*}}\tabularnewline
+\hline 
+\end{tabular}}{\scriptsize\par}
+\end{sidewaystable}
+
+The Figure \ref{fig:statRegression} and the Table \ref{tab:Wilcoxon2}
+summarizes paired Wilcoxon signed-rank tests between PROPOSED and
+each method on the same regression datasets. In every comparison the
+95\% confidence interval is entirely negative, so PROPOSED consistently
+attains lower error than each baseline. Holm-adjusted p-values range
+from about $5.86\times10^{-4}$ to 0.0063, yielding {*}{*} or {*}{*}{*}
+across all pairings, indicating strong though not extreme significance.
+Effect sizes are very large in absolute value, implying a consistent
+sign of the differences across datasets. The strongest dominance is
+against NEAT with r\ensuremath{\approx}-1 and V=0, meaning that in
+every non-tied pair PROPOSED was better, with a confidence interval
+roughly {[}-9.93, -0.16{]}. Similarly large effects appear against
+GENRBF (r\ensuremath{\approx}-0.976, CI {[}-10.25, -0.098{]}) and
+RBF-KMEANS (r\ensuremath{\approx}-0.945, CI {[}-4.52, -0.034{]}),
+the upper bound near zero indicates that the typical improvement can
+range from very small to several points depending on the dataset.
+Against BFGS and ADAM the effects remain very large (r\ensuremath{\approx}-0.889
+and r\ensuremath{\approx}-0.857, respectively) with wider intervals
+{[}-20.51, -0.316{]} and {[}-27.34, -0.0416{]}, showing substantial
+heterogeneity in the magnitude of error reduction while the direction
+remains in favor of PROPOSED. The most challenging comparison is with
+DNN: although \textbar r\textbar{} is still very large (\ensuremath{\approx}0.900),
+the CI is narrow and close to zero {[}-11.09, -0.012{]}, implying
+that while superiority is consistent, the typical error reduction
+may be small in many cases.
+
+Overall, the results demonstrate that PROPOSED systematically outperforms
+all alternatives on regression, with very large rank-based effect
+sizes, negative and robust confidence intervals, and significance
+that survives multiple-comparison correction. The strength of the
+improvement varies by problem and is more modest against DNN, but
+the direction of the effect is consistently in favor of PROPOSED across
+all comparisons.
 
 \subsection{Experiments with different values of scale factor $F$ }
 
-In order to determine the stability of the proposed technique when
-its critical parameters change, a series of additional experiments
-were conducted. In one of them, the stability of the technique was
-studied with the change of the scale factor $F$. This factor controls
-the width of the value interval for the network parameters and is
-a multiple of the initial values estimated by the K-means method of
-the first phase. In this series of experiments the value of $F$ was
-altered in the range $[1,8]$. 
+In order to evaluate the stability and reliability of the proposed
+method when its critical parameters change, a series of additional
+experiments were executed. In one of them, the stability of the technique
+was studied with the change of the scale factor $F$. This factor
+controls the width of the value interval for the network parameters
+and is a multiple of the initial values estimated by the K-means method
+of the first phase. In this series of experiments the value of $F$
+was altered in the range $[1,8]$. 
 
 Table \ref{tab:expClassF} presents the effect of the scale factor
 $F$ on the performance of the proposed machine learning model. The
@@ -989,8 +1303,9 @@ role in the stability and accuracy of the model, and that intermediate
 values such as 4 constitute a good general choice.
 
 \begin{table}[H]
-\caption{Experimental results on the classification datasets using the proposed
-method and a series of values for the critical parameter $F$.\label{tab:expClassF}}
+\caption{Experimental results on the classification datasets where the proposed
+method was applied and the critical parameter $F$ was altered from
+$F=1$ to $F=8$.\label{tab:expClassF}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|}
@@ -998,71 +1313,71 @@ method and a series of values for the critical parameter $F$.\label{tab:expClass
 \textbf{DATASET} & $F=1$ & \textbf{$F=2$} & $F=4$ & $F=8$\tabularnewline
 \hline 
 \hline 
-Alcohol & 28.83\% & 28.57\% & 28.83\% & 30.09\%\tabularnewline
+Alcohol & 28.83\% & \textbf{28.57\%} & 28.83\% & 30.09\%\tabularnewline
 \hline 
-Appendicitis & 14.60\% & 15.00\% & 14.40\% & 15.50\%\tabularnewline
+Appendicitis & 14.60\% & 15.00\% & \textbf{14.40\%} & 15.50\%\tabularnewline
 \hline 
-Australian & 24.04\% & 22.67\% & 21.52\% & 20.59\%\tabularnewline
+Australian & 24.04\% & 22.67\% & 21.52\% & \textbf{20.59\%}\tabularnewline
 \hline 
-Balance & 21.03\% & 13.11\% & 11.87\% & 11.44\%\tabularnewline
+Balance & 21.03\% & 13.11\% & 11.87\% & \textbf{11.44\%}\tabularnewline
 \hline 
-Cleveland & 50.45\% & 50.86\% & 51.59\% & 50.90\%\tabularnewline
+Cleveland & \textbf{50.45\%} & 50.86\% & 51.59\% & 50.90\%\tabularnewline
 \hline 
-Circular & 4.13\% & 5.13\% & 3.67\% & 3.49\%\tabularnewline
+Circular & 4.13\% & 5.13\% & 3.67\% & \textbf{3.49\%}\tabularnewline
 \hline 
-Dermatology & 38.34\% & 36.00\% & 35.83\% & 34.97\%\tabularnewline
+Dermatology & 38.34\% & 36.00\% & 35.83\% & \textbf{34.97\%}\tabularnewline
 \hline 
-Hayes Roth & 51.85\% & 38.31\% & 32.62\% & 33.92\%\tabularnewline
+Hayes Roth & 51.85\% & 38.31\% & \textbf{32.62\%} & 33.92\%\tabularnewline
 \hline 
-Heart & 17.26\% & 16.07\% & 15.63\% & 15.30\%\tabularnewline
+Heart & 17.26\% & 16.07\% & 15.63\% & \textbf{15.30\%}\tabularnewline
 \hline 
-HeartAttack & 22.07\% & 19.20\% & 19.30\% & 19.07\%\tabularnewline
+HeartAttack & 22.07\% & 19.20\% & 19.30\% & \textbf{19.07\%}\tabularnewline
 \hline 
-HouseVotes & 4.13\% & 3.65\% & 3.39\% & 4.81\%\tabularnewline
+HouseVotes & 4.13\% & 3.65\% & \textbf{3.39\%} & 4.81\%\tabularnewline
 \hline 
-Ionosphere & 14.69\% & 12.17\% & 8.83\% & 7.51\%\tabularnewline
+Ionosphere & 14.69\% & 12.17\% & 8.83\% & \textbf{7.51\%}\tabularnewline
 \hline 
-Liverdisorder & 29.35\% & 29.29\% & 28.53\% & 29.23\%\tabularnewline
+Liverdisorder & 29.35\% & 29.29\% & \textbf{28.53\%} & 29.23\%\tabularnewline
 \hline 
-Lymography & 26.86\% & 24.36\% & 18.07\% & 19.86\%\tabularnewline
+Lymography & 26.86\% & 24.36\% & \textbf{18.07\%} & 19.86\%\tabularnewline
 \hline 
-Mammographic & 18.21\% & 17.79\% & 16.75\% & 17.05\%\tabularnewline
+Mammographic & 18.21\% & 17.79\% & \textbf{16.75\%} & 17.05\%\tabularnewline
 \hline 
-Parkinsons & 18.32\% & 17.53\% & 15.68\% & 14.05\%\tabularnewline
+Parkinsons & 18.32\% & 17.53\% & 15.68\% & \textbf{14.05\%}\tabularnewline
 \hline 
-Pima & 23.53\% & 24.02\% & 23.72\% & 23.26\%\tabularnewline
+Pima & 23.53\% & 24.02\% & 23.72\% & \textbf{23.26\%}\tabularnewline
 \hline 
-Popfailures & 7.83\% & 6.33\% & 5.15\% & 4.69\%\tabularnewline
+Popfailures & 7.83\% & 6.33\% & 5.15\% & \textbf{4.69\%}\tabularnewline
 \hline 
-Regions2 & 26.27\% & 26.29\% & 26.15\% & 25.73\%\tabularnewline
+Regions2 & 26.27\% & 26.29\% & 26.15\% & \textbf{25.73\%}\tabularnewline
 \hline 
-Saheart & 29.24\% & 28.50\% & 28.74\% & 29.41\%\tabularnewline
+Saheart & 29.24\% & \textbf{28.50\%} & 28.74\% & 29.41\%\tabularnewline
 \hline 
-Segment & 45.08\% & 45.00\% & 42.14\% & 42.10\%\tabularnewline
+Segment & 45.08\% & 45.00\% & 42.14\% & \textbf{42.10\%}\tabularnewline
 \hline 
-Sonar & 32.90\% & 22.00\% & 18.75\% & 18.05\%\tabularnewline
+Sonar & 32.90\% & 22.00\% & 18.75\% & \textbf{18.05\%}\tabularnewline
 \hline 
-Spiral & 12.03\% & 13.26\% & 16.66\% & 23.56\%\tabularnewline
+Spiral & \textbf{12.03\%} & 13.26\% & 16.66\% & 23.56\%\tabularnewline
 \hline 
-Statheart & 19.30\% & 19.67\% & 20.00\% & 19.44\%\tabularnewline
+Statheart & \textbf{19.30\%} & 19.67\% & 20.00\% & 19.44\%\tabularnewline
 \hline 
-Student & 6.33\% & 5.23\% & 5.10\% & 5.55\%\tabularnewline
+Student & 6.33\% & 5.23\% & \textbf{5.10\%} & 5.55\%\tabularnewline
 \hline 
-Transfusion & 25.54\% & 26.04\% & 25.66\% & 24.42\%\tabularnewline
+Transfusion & 25.54\% & 26.04\% & 25.66\% & \textbf{24.42\%}\tabularnewline
 \hline 
-Wdbc & 4.86\% & 5.54\% & 5.75\% & 5.29\%\tabularnewline
+Wdbc & \textbf{4.86\%} & 5.54\% & 5.75\% & 5.29\%\tabularnewline
 \hline 
-Wine & 12.18\% & 9.47\% & 8.59\% & 7.65\%\tabularnewline
+Wine & 12.18\% & 9.47\% & 8.59\% & \textbf{7.65\%}\tabularnewline
 \hline 
-Z\_F\_S & 4.37\% & 3.73\% & 3.73\% & 3.37\%\tabularnewline
+Z\_F\_S & 4.37\% & 3.73\% & 3.73\% & \textbf{3.37\%}\tabularnewline
 \hline 
-Z\_O\_N\_F\_S & 39.80\% & 41.00\% & 40.04\% & 40.80\%\tabularnewline
+Z\_O\_N\_F\_S & \textbf{39.80\%} & 41.00\% & 40.04\% & 40.80\%\tabularnewline
 \hline 
-ZO\_NF\_S & 4.26\% & 4.24\% & 4.58\% & 3.78\%\tabularnewline
+ZO\_NF\_S & 4.26\% & 4.24\% & 4.58\% & \textbf{3.78\%}\tabularnewline
 \hline 
-ZONF\_S & 2.52\% & 1.98\% & 2.58\% & 1.96\%\tabularnewline
+ZONF\_S & 2.52\% & 1.98\% & 2.58\% & \textbf{1.96\%}\tabularnewline
 \hline 
-ZOO & 12.40\% & 9.80\% & 7.60\% & 6.90\%\tabularnewline
+ZOO & 12.40\% & 9.80\% & 7.60\% & \textbf{6.90\%}\tabularnewline
 \hline 
 \textbf{AVERAGE} & \textbf{20.99\%} & \textbf{19.45\%} & \textbf{18.53\%} & \textbf{18.60\%}\tabularnewline
 \hline 
@@ -1093,57 +1408,58 @@ based on the mean errors suggests that $F=4$ and $F=8$ yield the
 most reliable results, with $F=4$ being the preferred choice for
 a general-purpose setting.
 \begin{table}[H]
-\caption{Experimental results on the regression datasets using the proposed
-technique and a series of values for the parameter $F$.\label{tab:expRegressionF}}
+\caption{Experimental results on the regression datasets where the proposed
+method was applied and the critical parameter $F$ was altered from
+$F=1$ to $F=8$.\label{tab:expRegressionF}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|}
 \hline 
 \textbf{DATASET} & $F=1$ & \textbf{$F=2$} & $F=4$ & $F=8$\tabularnewline
 \hline 
-Abalone & 6.70 & 6.12 & 5.70 & 5.56\tabularnewline
+Abalone & 6.70 & 6.12 & 5.70 & \textbf{5.56}\tabularnewline
 \hline 
-Airfoil & 0.004 & 0.004 & 0.004 & 0.004\tabularnewline
+Airfoil & \textbf{0.004} & 0.004 & 0.004 & 0.004\tabularnewline
 \hline 
-Auto & 10.04 & 8.81 & 9.82 & 10.92\tabularnewline
+Auto & 10.04 & \textbf{8.81} & 9.82 & 10.92\tabularnewline
 \hline 
-Baseball & 87.01 & 88.05 & 85.87 & 86.76\tabularnewline
+Baseball & 87.01 & 88.05 & \textbf{85.87} & 86.76\tabularnewline
 \hline 
-BK & 0.023 & 0.022 & 0.024 & 0.02\tabularnewline
+BK & 0.023 & 0.022 & 0.024 & \textbf{0.02}\tabularnewline
 \hline 
-BL & 0.01 & 0.0004 & 0.0002 & 0.00007\tabularnewline
+BL & 0.01 & 0.0004 & 0.0002 & \textbf{0.00007}\tabularnewline
 \hline 
-Concrete & 0.008 & 0.005 & 0.005 & 0.006\tabularnewline
+Concrete & 0.008 & \textbf{0.005} & 0.005 & 0.006\tabularnewline
 \hline 
-Dee & 0.15 & 0.15 & 0.16 & 0.16\tabularnewline
+Dee & \textbf{0.15} & 0.15 & 0.16 & 0.16\tabularnewline
 \hline 
-Housing & 14.64 & 15.36 & 17.34 & 18.48\tabularnewline
+Housing & \textbf{14.64} & 15.36 & 17.34 & 18.48\tabularnewline
 \hline 
-Friedman & 6.74 & 5.99 & 2.06 & 1.41\tabularnewline
+Friedman & 6.74 & 5.99 & 2.06 & \textbf{1.41}\tabularnewline
 \hline 
-FA & 0.012 & 0.013 & 0.012 & 0.013\tabularnewline
+FA & \textbf{0.012} & 0.013 & 0.012 & 0.013\tabularnewline
 \hline 
-FY & 0.055 & 0.054 & 0.054 & 0.053\tabularnewline
+FY & 0.055 & 0.054 & 0.054 & \textbf{0.053}\tabularnewline
 \hline 
-HO & 0.009 & 0.009 & 0.01 & 0.009\tabularnewline
+HO & \textbf{0.009} & 0.009 & 0.01 & 0.009\tabularnewline
 \hline 
-Laser & 0.027 & 0.016 & 0.005 & 0.0024\tabularnewline
+Laser & 0.027 & 0.016 & 0.005 & \textbf{0.0024}\tabularnewline
 \hline 
-Mortgage & 0.67 & 0.23 & 0.035 & 0.015\tabularnewline
+Mortgage & 0.67 & 0.23 & 0.035 & \textbf{0.015}\tabularnewline
 \hline 
-PL & 0.023 & 0.023 & 0.023 & 0.022\tabularnewline
+PL & 0.023 & 0.023 & 0.023 & \textbf{0.022}\tabularnewline
 \hline 
-Plastic & 2.32 & 2.28 & 2.26 & 2.22\tabularnewline
+Plastic & 2.32 & 2.28 & 2.26 & \textbf{2.22}\tabularnewline
 \hline 
-PY & 0.019 & 0.021 & 0.013 & 0.011\tabularnewline
+PY & 0.019 & 0.021 & 0.013 & \textbf{0.011}\tabularnewline
 \hline 
-Quake & 0.036 & 0.036 & 0.036 & 0.036\tabularnewline
+Quake & \textbf{0.036} & 0.036 & 0.036 & 0.036\tabularnewline
 \hline 
-SN & 0.024 & 0.026 & 0.025 & 0.024\tabularnewline
+SN & \textbf{0.024} & 0.026 & 0.025 & 0.024\tabularnewline
 \hline 
-Stock & 1.69 & 1.44 & 1.49 & 1.48\tabularnewline
+Stock & 1.69 & \textbf{1.44} & 1.49 & 1.48\tabularnewline
 \hline 
-Treasury & 0.57 & 0.47 & 0.035 & 0.031\tabularnewline
+Treasury & 0.57 & 0.47 & 0.035 & \textbf{0.031}\tabularnewline
 \hline 
 \textbf{AVERAGE} & \textbf{5.94} & \textbf{5.87} & \textbf{5.68} & \textbf{5.78}\tabularnewline
 \hline 
@@ -1170,8 +1486,8 @@ significant improvements.
 \begin{figure}[H]
 \includegraphics[scale=0.75]{stat3}
 
-\caption{Statistical comparison for the obtained results on the classification
-datasets using the proposed method and a series of values for the
+\caption{Statistical comparison for the experimental results on the classification
+datasets using the proposed method and a variety of values for the
 scale parameter $F$.\label{fig:statClassF}}
 
 \end{figure}
@@ -1188,25 +1504,24 @@ model remains stable regardless of the specific setting of this parameter.
 \begin{figure}[H]
 \includegraphics[scale=0.75]{stat4}
 
-\caption{Statistical comparison for the experiments on the regression datasets,
-using the proposed method and a series of values for the scale parameter
-$F$.\label{fig:statRegressionF}}
-
+\caption{Statistical comparison for the experimental results on the regression
+datasets using the proposed method and a variety of values for the
+scale parameter $F$.\label{fig:statRegressionF}}
 \end{figure}
 
 
 \subsection{Experiments with differential initialization methods for variances}
 
-In another set of experiments, the stability of the proposed method
-was checked, using a different way of calculating the range of values
-of the $\sigma$ parameters of the radial functions. In this work,
-the value of the variance produced by the K-means algorithm was used
-as an initial estimate of the $\sigma$ parameters. This calculation
-scheme is denoted as $\sigma_{1}$ in the following experimental tables.
-In this additional set of experiments, two more techniques were used,
-which will be denoted as $\sigma_{\mbox{avg}}$ and $\sigma_{\mbox{max}}$
-in the following tables. In the $\sigma_{\mbox{avg}}$ the following
-calculation is performed:
+Additionally, the stability of the proposed method was checked using
+a different way of calculating the range of values of the $\sigma$
+parameters of the radial functions. In this work, the value of the
+variance produced by the K-means algorithm was used as an initial
+estimate of the $\sigma$ parameters. This calculation scheme is denoted
+as $\sigma_{1}$ in the following experimental tables. In this additional
+set of experiments, two more techniques were used, which will be denoted
+as $\sigma_{\mbox{avg}}$ and $\sigma_{\mbox{max}}$ in the following
+tables. In the $\sigma_{\mbox{avg}}$ the following calculation is
+performed:
 \begin{equation}
 \sigma_{\mbox{avg}}=\frac{1}{k}\sum_{i=1}^{k}\sigma_{i}\label{eq:sigma_avg}
 \end{equation}
@@ -1246,9 +1561,9 @@ lags slightly. The average differences are modest, but for certain
 problems the choice can significantly impact final performance.
 
 \begin{table}[H]
-\caption{Experimental results on the classification datasets using the proposed
-method and a series of techniques for the calculation of the quantities
-$\sigma$ used in the radial functions.\label{tab:expClassSigma}}
+\caption{Experimental results on the classification datasets, where the proposed
+method was applied using different mechanisms for the calculation
+of the quantities $\sigma$ used in the radial functions.\label{tab:expClassSigma}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|}
@@ -1256,71 +1571,71 @@ $\sigma$ used in the radial functions.\label{tab:expClassSigma}}
 \textbf{DATASET} & \textbf{$\sigma_{1}$} & $\sigma_{\mbox{avg}}$ & $\sigma_{\mbox{max}}$\tabularnewline
 \hline 
 \hline 
-Alcohol & 28.57\% & 28.47\% & 26.17\%\tabularnewline
+Alcohol & 28.57\% & 28.47\% & \textbf{26.17\%}\tabularnewline
 \hline 
-Appendicitis & 15.00\% & 14.20\% & 15.70\%\tabularnewline
+Appendicitis & 15.00\% & \textbf{14.20\%} & 15.70\%\tabularnewline
 \hline 
-Australian & 22.67\% & 25.14\% & 29.96\%\tabularnewline
+Australian & \textbf{22.67\%} & 25.14\% & 29.96\%\tabularnewline
 \hline 
-Balance & 13.11\% & 12.92\% & 12.23\%\tabularnewline
+Balance & 13.11\% & 12.92\% & \textbf{12.23\%}\tabularnewline
 \hline 
-Cleveland & 50.86\% & 51.76\% & 51.24\%\tabularnewline
+Cleveland & \textbf{50.86\%} & 51.76\% & 51.24\%\tabularnewline
 \hline 
-Circular & 5.13\% & 4.78\% & 4.45\%\tabularnewline
+Circular & 5.13\% & 4.78\% & \textbf{4.45\%}\tabularnewline
 \hline 
-Dermatology & 36.00\% & 37.54\% & 37.09\%\tabularnewline
+Dermatology & \textbf{36.00\%} & 37.54\% & 37.09\%\tabularnewline
 \hline 
-Hayes Roth & 38.31\% & 38.00\% & 35.69\%\tabularnewline
+Hayes Roth & 38.31\% & 38.00\% & \textbf{35.69\%}\tabularnewline
 \hline 
-Heart & 16.07\% & 16.52\% & 15.41\%\tabularnewline
+Heart & 16.07\% & 16.52\% & \textbf{15.41\%}\tabularnewline
 \hline 
-HeartAttack & 19.20\% & 19.70\% & 18.97\%\tabularnewline
+HeartAttack & 19.20\% & 19.70\% & \textbf{18.97\%}\tabularnewline
 \hline 
-HouseVotes & 3.65\% & 3.31\% & 3.22\%\tabularnewline
+HouseVotes & 3.65\% & 3.31\% & \textbf{3.22\%}\tabularnewline
 \hline 
-Ionosphere & 12.17\% & 13.00\% & 12.83\%\tabularnewline
+Ionosphere & \textbf{12.17\%} & 13.00\% & 12.83\%\tabularnewline
 \hline 
-Liverdisorder & 29.29\% & 28.38\% & 27.77\%\tabularnewline
+Liverdisorder & 29.29\% & 28.38\% & \textbf{27.77\%}\tabularnewline
 \hline 
-Lymography & 24.36\% & 22.43\% & 23.50\%\tabularnewline
+Lymography & 24.36\% & \textbf{22.43\%} & 23.50\%\tabularnewline
 \hline 
-Mammographic & 17.79\% & 17.28\% & 17.41\%\tabularnewline
+Mammographic & 17.79\% & \textbf{17.28\%} & 17.41\%\tabularnewline
 \hline 
-Parkinsons & 17.53\% & 14.74\% & 14.89\%\tabularnewline
+Parkinsons & 17.53\% & \textbf{14.74\%} & 14.89\%\tabularnewline
 \hline 
-Pima & 24.02\% & 23.28\% & 23.91\%\tabularnewline
+Pima & 24.02\% & \textbf{23.28\%} & 23.91\%\tabularnewline
 \hline 
-Popfailures & 6.33\% & 6.37\% & 6.24\%\tabularnewline
+Popfailures & 6.33\% & 6.37\% & \textbf{6.24\%}\tabularnewline
 \hline 
-Regions2 & 26.29\% & 25.47\% & 25.61\%\tabularnewline
+Regions2 & 26.29\% & \textbf{25.47\%} & 25.61\%\tabularnewline
 \hline 
-Saheart & 28.50\% & 28.89\% & 28.28\%\tabularnewline
+Saheart & 28.50\% & 28.89\% & \textbf{28.28\%}\tabularnewline
 \hline 
-Segment & 45.00\% & 43.65\% & 46.36\%\tabularnewline
+Segment & 45.00\% & \textbf{43.65\%} & 46.36\%\tabularnewline
 \hline 
-Sonar & 22.00\% & 21.90\% & 21.30\%\tabularnewline
+Sonar & 22.00\% & 21.90\% & \textbf{21.30\%}\tabularnewline
 \hline 
-Spiral & 13.26\% & 13.73\% & 13.37\%\tabularnewline
+Spiral & \textbf{13.26\%} & 13.73\% & 13.37\%\tabularnewline
 \hline 
-Statheart & 19.67\% & 20.15\% & 19.00\%\tabularnewline
+Statheart & 19.67\% & 20.15\% & \textbf{19.00\%}\tabularnewline
 \hline 
-Student & 5.23\% & 5.58\% & 5.23\%\tabularnewline
+Student & \textbf{5.23\%} & 5.58\% & 5.23\%\tabularnewline
 \hline 
-Transfusion & 26.04\% & 22.78\% & 22.79\%\tabularnewline
+Transfusion & 26.04\% & \textbf{22.78\%} & 22.79\%\tabularnewline
 \hline 
-Wdbc & 5.54\% & 5.22\% & 5.21\%\tabularnewline
+Wdbc & 5.54\% & 5.22\% & \textbf{5.21\%}\tabularnewline
 \hline 
 Wine & 9.47\% & 7.93\% & 7.06\%\tabularnewline
 \hline 
-Z\_F\_S & 3.73\% & 3.70\% & 3.73\%\tabularnewline
+Z\_F\_S & 3.73\% & \textbf{3.70\%} & 3.73\%\tabularnewline
 \hline 
-Z\_O\_N\_F\_S & 41.00\% & 40.20\% & 41.12\%\tabularnewline
+Z\_O\_N\_F\_S & 41.00\% & \textbf{40.20\%} & 41.12\%\tabularnewline
 \hline 
-ZO\_NF\_S & 4.24\% & 4.42\% & 4.84\%\tabularnewline
+ZO\_NF\_S & \textbf{4.24\%} & 4.42\% & 4.84\%\tabularnewline
 \hline 
-ZONF\_S & 1.98\% & 1.92\% & 2.06\%\tabularnewline
+ZONF\_S & 1.98\% & \textbf{1.92\%} & 2.06\%\tabularnewline
 \hline 
-ZOO & 9.80\% & 12.50\% & 10.30\%\tabularnewline
+ZOO & \textbf{9.80\%} & 12.50\% & 10.30\%\tabularnewline
 \hline 
 \textbf{AVERAGE} & \textbf{19.45\%} & \textbf{19.27\%} & \textbf{19.18\%}\tabularnewline
 \hline 
@@ -1356,8 +1671,8 @@ while the maximum-distance method can in some cases produce very large
 improvements but in others lead to a degradation of performance.
 
 \begin{table}[H]
-\caption{Experimental results on the regression datasets using the proposed
-method and a series of techniques for the calculation of the quantities
+\caption{Experimental results on the regression datasets with the application
+of the proposed method and different calculation mechanisms for the
 $\sigma$ used in the radial functions.\label{tab:expRegressionSigma}}
 
 \centering{}%
@@ -1429,8 +1744,8 @@ compuatation techniques is used.
 \includegraphics[scale=0.75]{stat5}
 
 \caption{Statistical comparison of the obtained results on the classification
-datasets, using the proposed method and a series of computation techniques
-for the range of $\sigma$ values in the radial functions.\label{fig:statClassSigma}}
+datasets, where the proposed method was applied with a series of computation
+techniques for the range of $\sigma$ values in the radial functions.\label{fig:statClassSigma}}
 
 \end{figure}
 
@@ -1455,6 +1770,292 @@ is applied.
 using the proposed method and a series of computation techniques for
 the range of $\sigma$ values in the radial functions.\label{fig:statRegressionSigma}}
 
+\end{figure}
+
+
+\subsection{Experiments with the number of generations $N_{g}$ }
+
+An additional experiments was executed, where the number of generations
+was altered from $N_{g}=50$ to $N_{g}=400$ to determine the stability
+of the proposed method. Table \ref{tab:expClassNG} examines the effect
+of the number of generations $\left(N_{g}\right)$ on the performance
+of the proposed classification model. The overall trend is downward:
+the mean error decreases from 20.56\% at 50 generations to 19.46\%
+at 100, essentially stabilizes at 200 with 19.45\%, and improves slightly
+further at 400 to 19.11\%. Thus, the largest gain arrives early, from
+50 to 100 generations (about 1.1 points), after which returns diminish,
+with small but tangible additional gains. At the dataset level the
+behavior varies. There are cases with clear improvements as $N_{g}$
+increases, such as Alcohol (34.11\%→27.02\%), Australian (25.23\%→21.39\%),
+Ionosphere (13.94\%→11.17\%), Spiral (16.66\%→12.45\%), and Z\_O\_N\_F\_S
+(45.14\%→38.26\%), where more generations yield substantial benefits.
+In other problems the best value occurs around 100--200 generations
+and then plateaus or slightly worsens, as in Wdbc (best 4.84\% at
+100), Student (4.85\% at 100), Lymography (21.64\% at 100), ZOO (8.70\%
+at 100), ZONF\_S (1.98\% at 200), and Z\_F\_S (3.73\% at 200). A few
+datasets show mild degradation with higher $N_{g}$, such as Wine
+(7.59\%→10.24\%), Parkinsons (17.32\%→17.63\%), and to a lesser extent
+Saheart, indicating that beyond a point further search is not beneficial
+for all problems. Overall, 100 generations deliver the major error
+reduction and represent an efficient “sweet spot,” while 200--400
+generations extract modest additional gains and, in some datasets,
+meaningful improvements, at the cost of more computation and occasional
+local regressions.
+
+\begin{table}[H]
+\caption{Experimental results on the classification datasets where the proposed
+method was applied and the the number of generations $N_{g}$ was
+altered from $N_{g}=50$ to $N_{g}=400$.\label{tab:expClassNG}}
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+\textbf{DATASET} & $N_{g}=50$ & $N_{g}=100$ & \textbf{$N_{g}=200$} & $N_{g}=400$\tabularnewline
+\hline 
+\hline 
+Alcohol & 34.11\% & 31.32\% & 28.57\% & \textbf{27.02\%}\tabularnewline
+\hline 
+Appendicitis & 14.90\% & \textbf{14.30\%} & 15.00\% & 14.90\%\tabularnewline
+\hline 
+Australian & 25.23\% & 24.96\% & 22.67\% & \textbf{21.39\%}\tabularnewline
+\hline 
+Balance & 14.98\% & 14.11\% & \textbf{13.11\%} & 13.52\%\tabularnewline
+\hline 
+Cleveland & 52.00\% & 51.31\% & \textbf{50.86\%} & 51.38\%\tabularnewline
+\hline 
+Circular & \textbf{3.75\%} & 3.82\% & 5.13\% & 3.82\%\tabularnewline
+\hline 
+Dermatology & 47.86\% & 36.29\% & \textbf{36.00\%} & 36.46\%\tabularnewline
+\hline 
+Hayes Roth & 40.54\% & \textbf{36.77\%} & 38.31\% & 36.77\%\tabularnewline
+\hline 
+Heart & 16.19\% & 16.37\% & \textbf{16.07\%} & 16.26\%\tabularnewline
+\hline 
+HeartAttack & 21.30\% & 21.63\% & \textbf{19.20\%} & 20.07\%\tabularnewline
+\hline 
+HouseVotes & 4.09\% & 3.65\% & 3.65\% & \textbf{3.61\%}\tabularnewline
+\hline 
+Ionosphere & 13.94\% & 12.57\% & 12.17\% & \textbf{11.17\%}\tabularnewline
+\hline 
+Liverdisorder & \textbf{29.06\%} & 29.23\% & 29.29\% & 29.06\%\tabularnewline
+\hline 
+Lymography & 22.14\% & \textbf{21.64\%} & 24.36\% & 21.86\%\tabularnewline
+\hline 
+Mammographic & \textbf{17.19\%} & 17.25\% & 17.79\% & 17.78\%\tabularnewline
+\hline 
+Parkinsons & 17.32\% & \textbf{17.11\%} & 17.53\% & 17.63\%\tabularnewline
+\hline 
+Pima & 24.07\% & 24.38\% & \textbf{24.02\%} & 24.28\%\tabularnewline
+\hline 
+Popfailures & 6.63\% & \textbf{5.92\%} & 6.33\% & 6.15\%\tabularnewline
+\hline 
+Regions2 & \textbf{26.02\%} & 26.14\% & 26.29\% & 26.13\%\tabularnewline
+\hline 
+Saheart & \textbf{28.28\%} & 28.63\% & 28.50\% & 29.61\%\tabularnewline
+\hline 
+Segment & 43.28\% & 42.70\% & 45.00\% & \textbf{41.35\%}\tabularnewline
+\hline 
+Sonar & 22.65\% & \textbf{21.20\%} & 22.00\% & 22.20\%\tabularnewline
+\hline 
+Spiral & 16.66\% & 14.47\% & 13.26\% & \textbf{12.45\%}\tabularnewline
+\hline 
+Statheart & 20.22\% & 20.67\% & 19.67\% & \textbf{19.63\%}\tabularnewline
+\hline 
+Student & 4.98\% & \textbf{4.85\%} & 5.23\% & 5.45\%\tabularnewline
+\hline 
+Transfusion & 25.47\% & \textbf{25.32\%} & 26.04\% & 25.84\%\tabularnewline
+\hline 
+Wdbc & 5.14\% & \textbf{4.84\%} & 5.54\% & 5.39\%\tabularnewline
+\hline 
+Wine & \textbf{7.59\%} & 8.53\% & 9.47\% & 10.24\%\tabularnewline
+\hline 
+Z\_F\_S & 4.13\% & 4.10\% & \textbf{3.73\%} & 4.40\%\tabularnewline
+\hline 
+Z\_O\_N\_F\_S & 45.14\% & 43.04\% & 41.00\% & \textbf{38.26\%}\tabularnewline
+\hline 
+ZO\_NF\_S & 4.14\% & \textbf{4.00\%} & 4.24\% & 4.02\%\tabularnewline
+\hline 
+ZONF\_S & 2.30\% & 2.36\% & \textbf{1.98\%} & 2.02\%\tabularnewline
+\hline 
+ZOO & 17.10\% & \textbf{8.70\%} & 9.80\% & 10.60\%\tabularnewline
+\hline 
+\textbf{AVERAGE} & \textbf{20.56\%} & \textbf{19.46\%} & \textbf{19.45\%} & \textbf{19.11\%}\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+Table \ref{tab:expRegressionNG} examines the effect of the number
+of generations $\left(N_{g}\right)$ on the performance of the proposed
+regression model. At the level of average error, the best value appears
+at 100 generations with 5.61, marginally better than 50 generations
+at 5.65, while at 200 and 400 generations the mean error increases
+slightly to 5.87 and 5.86, respectively. This suggests that most of
+the benefit is achieved early and that further increasing the number
+of generations does not yield systematic improvement and may even
+introduce a small deterioration in overall performance.
+
+Across individual datasets the picture is heterogeneous. Clear improvements
+with more generations are observed in Abalone, where the error steadily
+drops to 5.88 at 400 generations, in Friedman, with a continuous decline
+to 5.66, in Stock, improving to 1.33, and in Treasury, where performance
+stabilizes at 0.47 from 200 generations onward. In other problems
+the “sweet spot” is around 200 generations: for example, in Mortgage
+the error falls from 0.66 to 0.23 at 200 before rising again, in Housing
+it improves to 15.36 at 200 but worsens at 400, in BL the minimum
+0.0004 occurs at 200, and in Concrete and HO there is a small but
+real improvement near 200. There are also cases where more generations
+seem to burden performance, such as Baseball and BK, where the error
+rises as $N_{g}$ increases. In several datasets the number of generations
+has little practical effect, with near-constant values in Airfoil,
+Quake, SN, and PL and only minor fluctuations in Dee, FA, Laser, and
+FY.
+
+Overall, 100 generations provide an efficient and safe choice with
+the lowest mean error, while 200 generations can deliver the best
+results on specific datasets at the risk of small regressions elsewhere.
+Further increasing to 400 generations does not offer a general gain
+and may lead to slight degradation in some problems, pointing to diminishing
+returns and possible overfitting or instability depending on the dataset.
+\begin{table}[H]
+\caption{Experimental results on the regression datasets where the proposed
+method was applied and the critical parameter $N_{g}$, that denotes
+the number of generations, was altered from $N_{g}=50$ to $N_{g}=400$.\label{tab:expRegressionNG}}
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+\textbf{DATASET} & $N_{g}=50$ & $N_{g}=100$ & \textbf{$N_{g}=200$} & $N_{g}=400$\tabularnewline
+\hline 
+Abalone & 6.35 & 6.11 & 6.12 & \textbf{5.88}\tabularnewline
+\hline 
+Airfoil & \textbf{0.004} & 0.004 & 0.004 & 0.004\tabularnewline
+\hline 
+Auto & 10.27 & 9.49 & \textbf{8.81} & 9.65\tabularnewline
+\hline 
+Baseball & \textbf{78.73} & 79.89 & 88.05 & 84.40\tabularnewline
+\hline 
+BK & \textbf{0.021} & 0.021 & 0.022 & 0.025\tabularnewline
+\hline 
+BL & 0.006 & 0.003 & \textbf{0.0004} & 0.006\tabularnewline
+\hline 
+Concrete & 0.006 & 0.006 & \textbf{0.005} & 0.005\tabularnewline
+\hline 
+Dee & 0.15 & 0.16 & \textbf{0.15} & 0.16\tabularnewline
+\hline 
+Housing & 15.96 & 15.82 & \textbf{15.36} & 18.53\tabularnewline
+\hline 
+Friedman & 7.41 & 6.54 & 5.99 & \textbf{5.66}\tabularnewline
+\hline 
+FA & \textbf{0.012} & 0.013 & 0.013 & 0.013\tabularnewline
+\hline 
+FY & 0.055 & 0.055 & \textbf{0.054} & 0.057\tabularnewline
+\hline 
+HO & 0.01 & 0.01 & \textbf{0.009} & 0.01\tabularnewline
+\hline 
+Laser & 0.017 & \textbf{0.015} & 0.016 & 0.015\tabularnewline
+\hline 
+Mortgage & 0.66 & 0.66 & \textbf{0.23} & 0.48\tabularnewline
+\hline 
+PL & \textbf{0.023} & 0.023 & 0.023 & 0.023\tabularnewline
+\hline 
+Plastic & 2.28 & 2.29 & \textbf{2.28} & 2.28\tabularnewline
+\hline 
+PY & 0.02 & 0.023 & 0.021 & \textbf{0.02}\tabularnewline
+\hline 
+Quake & \textbf{0.036} & 0.036 & 0.036 & 0.036\tabularnewline
+\hline 
+SN & \textbf{0.026} & 0.026 & 0.026 & 0.026\tabularnewline
+\hline 
+Stock & 1.70 & 1.57 & 1.44 & \textbf{1.33}\tabularnewline
+\hline 
+Treasury & 0.65 & 0.61 & \textbf{0.47} & 0.47\tabularnewline
+\hline 
+\textbf{AVERAGE} & \textbf{5.65} & \textbf{5.61} & \textbf{5.87} & \textbf{5.86}\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+Figure \ref{fig:statClassNG} shows that increasing the number of
+generations from $N_{g}=50$ to $N_{g}=100$ yields a statistically
+significant improvement ($p<0.01$, {*}{*}), indicating a meaningful
+reduction in error in this range. By contrast, the comparisons $N_{g}=100$
+vs $N_{g}=200$ and $N_{g}=200$ vs $N_{g}=400$ are not statistically
+significant ($p>0.05$, ns), which means that further increasing generations
+beyond 100 does not produce a consistent additional gain in performance.
+Overall, the results suggest that the main benefit is achieved early
+up to about 100 generations after which returns diminish and the differences
+are not statistically meaningful.
+
+\begin{figure}[H]
+\includegraphics[scale=0.5]{stat10}
+
+\caption{Statistical comparison for the executed experiments on the classification
+datasets using the proposed method and a series of values for the
+number of generations $N_{g}$.\label{fig:statClassNG}}
+
+\end{figure}
+In Figure \ref{fig:statRegressionNG}, the p-value analysis on the
+regression datasets shows that the comparison between $N_{g}=50$
+and $N_{g}=100$ is not statistically significant ($p>0.05$, ns),
+so increasing generations in this range does not yield a consistent
+improvement. By contrast, moving from $N_{g}=100$ to $N_{g}=200$
+is statistically significant ($p<0.05$, {*}), indicating a measurable
+reduction in error around 200 generations. Finally, the comparison
+between $N_{g}=200$ and $N_{g}=400$ is not statistically significant
+($p>0.05$, ns), suggesting diminishing returns beyond 200 generations.
+Overall, the findings indicate that for regression problems the benefit
+concentrates around 200 generations, while further increases in $N_{g}$
+do not guarantee additional consistent gains.
+\begin{figure}[H]
+\includegraphics[scale=0.5]{stat11}
+
+\caption{Statistical comparison for the executed experiments on the regression
+datasets using the proposed method and a series of values for the
+number of generations $N_{g}$.\label{fig:statRegressionNG}}
+
+\end{figure}
+
+
+\subsection{Experiments with real - world problems}
+
+One practical problem that can be considered here is the prediction
+of the duration of forest fires, that was presented recently for the
+Greek territory\citep{mlfire}. Using data from the Greek Fire Service,
+an experiment was conducted for the prediction of the duration of
+forest fires for the years 2014-2024. In this experiment the following
+method were used:
+\begin{enumerate}
+\item A neural network with 10 computing nodes, trained with the BFGS optimizer.
+\item A Radial Basis Function with 10 weights, trained with the original
+method for RBF training.
+\item The proposed method.
+\end{enumerate}
+The results for the prediction of the duration are graphically illustrated
+in Figure \ref{fig:experFire}. As is evident from the graph, in almost
+all years the classification error of the proposed technique is lower
+than the other two machine learning techniques.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.75]{rbf3_dasi}
+\par\end{centering}
+\caption{Average classification error for the years 2014-2023 for the forest
+fires in the Greek territory. \label{fig:experFire}}
+
+\end{figure}
+
+The second real - world example is the PIRvision dataset \citep{pirvision},
+which includes occupancy detection data and it has 15302 patterns.
+The dimension of each pattern is 59. The same machine learning models
+was used also in the case and the average classification error for
+these method is depicted graphically in Figure \ref{fig:pirvision}.
+One more time, the proposed method has lower classification error
+than the other methods involved in this experiment.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.75]{rbf3_pirvision}
+\par\end{centering}
+\caption{The experimental results for the PIRvision dataset.\label{fig:pirvision}}
 \end{figure}
 
 
@@ -1498,6 +2099,15 @@ and integrating the approach into AutoML pipelines together with analyses
 of interpretability and predictive uncertainty will provide a more
 complete picture of the method’s limits and potential.
 
+However, it should be emphasized that despite its efficiency, the
+proposed method requires significantly more computational time than
+other machine learning techniques due to the serial application of
+the three training stages. In particular, the second stage of the
+genetic algorithm application requires significant computational time
+for its execution, however this time can be significantly reduced
+by using modern parallel computing techniques like OpenMP \citep{gen_openmp}
+or MPI \citep{gen_mpi}.
+
 \vspace{6pt}
 
 
@@ -1526,14 +2136,14 @@ using Virtual Reality techniques\textquotedbl{} (project code:TAEDK-06195).}
 
 \reftitle{References}
 \begin{thebibliography}{99}
-\bibitem[(2006)]{physics_ml1} M. Mjahed, The use of clustering techniques
-for the classification of high energy physics data, Nuclear Instruments
-and Methods in Physics Research Section A: Accelerators, Spectrometers,
-Detectors and Associated Equipment \textbf{559}, pp. 199-202, 2006.
+\bibitem[(2006)]{physics_ml1} Raissi, M., \& Karniadakis, G. E. (2018).
+Hidden physics models: Machine learning of nonlinear partial differential
+equations. Journal of Computational Physics, 357, 125-141.
 
-\bibitem{physics_ml2}M Andrews, M Paulini, S Gleyzer, B Poczos, End-to-End
-Event Classification of High-Energy Physics Data, Journal of Physics:
-Conference Series \textbf{1085}, 2018.
+\bibitem{physics_ml2}Kashinath, K., Mustafa, M., Albert, A., Wu,
+J. L., Jiang, C., Esmaeilzadeh, S., ... \& Prabhat, N. (2021). Physics-informed
+machine learning: case studies for weather and climate modelling.
+Philosophical Transactions of the Royal Society A, 379(2194), 20200093.
 
 \bibitem[(2006)]{astronomy_ml1}Viquar, M., Basak, S., Dasgupta, A.,
 Agrawal, S., \& Saha, S. (2019). Machine learning in astronomy: A
@@ -1546,9 +2156,8 @@ Data Mining and Information Security: Proceedings of IEMIS 2018, Volume
 learning classifications in gamma-ray astronomy. Monthly Notices of
 the Royal Astronomical Society, 492(4), 5377-5390.
 
-\bibitem[(2006)]{chemistry_ml1}P. He, C.J. Xu, Y.Z. Liang, K.T. Fang,
-Improving the classification accuracy in chemistry via boosting technique,
-Chemometrics and Intelligent Laboratory Systems 70, pp. 39-46, 2004.
+\bibitem[(2006)]{chemistry_ml1}Meuwly, M. (2021). Machine learning
+for chemical reactions. Chemical Reviews, 121(16), 10218-10239.
 
 \bibitem{chemistry_ml2}J.A. Aguiar, M.L. Gong, T.Tasdizen, Crystallographic
 prediction from diffraction and chemistry data for higher throughput
@@ -1563,39 +2172,42 @@ J Big Data \textbf{6}, 113, 2019.
 Network-Based Method for Medical Text Classification, Future Internet
 \textbf{11}, 255, 2019. 
 
-\bibitem[(2006)]{econ_ml1}I. Kaastra, M. Boyd, Designing a neural
-network for forecasting financial and economic time series, Neurocomputing
-\textbf{10}, pp. 215-236, 1996.
+\bibitem[(2006)]{econ_ml1}Athey, S. (2018). The impact of machine
+learning on economics. In The economics of artificial intelligence:
+An agenda (pp. 507-547). University of Chicago Press.
 
 \bibitem{econ_ml2}R. Hafezi, J. Shahrabi, E. Hadavandi, A bat-neural
 network multi-agent system (BNNMAS) for stock price prediction: Case
 study of DAX stock price, Applied Soft Computing \textbf{29}, pp.
 196-210, 2015.
 
-\bibitem{nn_image}M. Egmont-Petersen, D. de Ridder, H. Handels, Image
-processing with neural networks---a review, Pattern Recognition \textbf{35},
-pp. 2279-2301, 2002.
+\bibitem{nn_image}Ghai, D., Tripathi, S. L., Saxena, S., Chanda,
+M., \& Alazab, M. (Eds.). (2022). Machine learning algorithms for
+signal and image processing. John Wiley \& Sons.
 
-\bibitem{nn_timeseries}G.Peter Zhang, Time series forecasting using
-a hybrid ARIMA and neural network model, Neurocomputing \textbf{50},
-pp. 159-175, 2003.
+\bibitem{nn_timeseries}Ahmed, N. K., Atiya, A. F., Gayar, N. E.,
+\& El-Shishiny, H. (2010). An empirical comparison of machine learning
+models for time series forecasting. Econometric reviews, 29(5-6),
+594-621.
 
-\bibitem[(2006)]{rbfface}M.J. Er, S. Wu, J. Lu, H.L. Toh, Face recognition
-with radial basis function (RBF) neural networks, IEEE Transactions
-on Neural Networks \textbf{13}, pp. 697-710, 2002.
+\bibitem[(2006)]{rbfface}Radha, V., \& Nallammal, N. (2011, October).
+Neural network based face recognition using RBFN classifier. In Proceedings
+of the world congress on engineering and computer science (Vol. 1,
+pp. 19-21).
 
-\bibitem[(2006)]{rbfde1}Nam Mai-Duy, Thanh Tran-Cong, Numerical solution
-of differential equations using multiquadric radial basis function
-networks, Neural Networks 14, pp. 185-199, 2001.
+\bibitem[(2006)]{rbfde1}Kumar, M., \& Yadav, N. (2011). Multilayer
+perceptrons and radial basis function neural network methods for the
+solution of differential equations: a survey. Computers \& Mathematics
+with Applications, 62(10), 3796-3811.
 
-\bibitem{rbfde2}N. Mai‐Duy, Solving high order ordinary differential
-equations with radial basis function networks. Int. J. Numer. Meth.
-Engng. \textbf{62}, pp. 824-852, 2005.
+\bibitem{rbfde2}Zhang, Y. (2019). An accurate and stable RBF method
+for solving partial differential equations. Applied Mathematics Letters,
+97, 93-98.
 
-\bibitem[(2006)]{rbfstock}Shen, W., Guo, X., Wu, C., \& Wu, D. (2011).
-Forecasting stock indices using radial basis function neural networks
-optimized by artificial fish swarm algorithm. Knowledge-Based Systems,
-24(3), 378-385.
+\bibitem[(2006)]{rbfstock}Dash, R., \& Dash, P. K. (2015, October).
+A comparative study of radial basis function network with different
+basis functions for stock trend prediction. In 2015 IEEE Power, Communication
+and Information Technology Conference (PCITC) (pp. 430-435). IEEE.
 
 \bibitem[(2006)]{rbfrobotics1}R. -J. Lian, Adaptive Self-Organizing
 Fuzzy Sliding-Mode Radial Basis-Function Neural-Network Controller
@@ -1622,10 +2234,10 @@ basis function networks for classifying process faults,\textquotedbl{}
 in IEEE Control Systems Magazine, vol. 11, no. 3, pp. 31-38, April
 1991, doi: 10.1109/37.75576.
 
-\bibitem[(2006)]{rbf_time}Ryad Zemouri and Daniel Racoceanu and Noureddine
-Zerhouni, Recurrent radial basis function network for time-series
-prediction, Engineering Applications of Artificial Intelligence 16,
-pp. 453-463, 2003.
+\bibitem[(2006)]{rbf_time}Gan, M., Peng, H., \& Dong, X. P. (2012).
+A hybrid algorithm to optimize RBF network architecture and parameters
+for nonlinear time series prediction. Applied Mathematical Modelling,
+36(7), 2911-2919.
 
 \bibitem[(2006)]{rbf_wind}G. Sideratos and N. Hatziargyriou, \textquotedbl Using
 Radial Basis Neural Networks to Estimate Wind Power Production,\textquotedbl{}
@@ -1652,27 +2264,28 @@ for radial basis function neural network initialization, Neurocomputing
 Widths in Radial-Basis Function Networks, Neural Processing Letters
 \textbf{18}, pp. 139--154, 2003.
 
-\bibitem[(2006)]{rbfprun1}E. Ricci, R. Perfetti, Improved pruning
-strategy for radial basis function networks with dynamic decay adjustment,
-Neurocomputing \textbf{69}, pp. 1728-1732, 2006.
+\bibitem[(2006)]{rbfprun1}Määttä, J., Bazaliy, V., Kimari, J., Djurabekova,
+F., Nordlund, K., \& Roos, T. (2021). Gradient-based training and
+pruning of radial basis function networks with an application in materials
+physics. Neural Networks, 133, 123-131.
 
-\bibitem{rbfprun3}Guang-Bin Huang, P. Saratchandran and N. Sundararajan,
-A generalized growing and pruning RBF (GGAP-RBF) neural network for
-function approximation, IEEE Transactions on Neural Networks \textbf{16},
-pp. 57-67, 2005.
+\bibitem{rbfprun3}Gale, S., Vestheim, S., Gravdahl, J. T., Fjerdingen,
+S., \& Schjølberg, I. (2013, July). RBF network pruning techniques
+for adaptive learning controllers. In 9th International Workshop on
+Robot Motion and Control (pp. 246-251). IEEE.
 
 \bibitem{rbfprun2}M. Bortman and M. Aladjem, A Growing and Pruning
 Method for Radial Basis Function Networks, IEEE Transactions on Neural
 Networks \textbf{20}, pp. 1039-1045, 2009.
 
-\bibitem[(2006)]{rbfga1}Harpham, C., Dawson, C. W., \& Brown, M.
-R. (2004). A review of genetic algorithms applied to training radial
-basis function networks. Neural Computing \& Applications, 13, 193-201.
+\bibitem[(2006)]{rbfga1}Ding, S., Xu, L., Su, C., \& Jin, F. (2012).
+An optimizing method of RBF neural network based on genetic algorithm.
+Neural Computing and Applications, 21(2), 333-336.
 
-\bibitem[(2006)]{rbfga2}Sarimveis, H., Alexandridis, A., Mazarakis,
-S., \& Bafas, G. (2004). A new algorithm for developing dynamic radial
-basis function neural network models based on genetic algorithms.
-Computers \& chemical engineering, 28(1-2), 209-217.
+\bibitem[(2006)]{rbfga2}Jia, W., Zhao, D., \& Ding, L. (2016). An
+optimized RBF neural network algorithm based on partial least squares
+and genetic algorithm for classification of small sample. Applied
+Soft Computing, 48, 373-384.
 
 \bibitem[(2006)]{rbfpso1}Rani R, H. J., \& Victoire T, A. A. (2018).
 Training radial basis function networks for wind speed prediction
@@ -1726,22 +2339,22 @@ pp. 22-23, 2021.
 of wind turbines using genetic algorithms, Renewable Energy \textbf{30},
 pp. 259-270, 2005.
 
-\bibitem{gen_app2}Prasad, T., Park, N., Multiobjective Genetic Algorithms
-for Design of Water Distribution Networks, J. Water Resour. Plann.
-Manage. \textbf{130}, pp. 73-82, 2004. 
+\bibitem{gen_app2}Parvaze, S., Kumar, R., Khan, J. N., Al-Ansari,
+N., Parvaze, S., Vishwakarma, D. K., ... \& Kuriqi, A. (2023). Optimization
+of water distribution systems using genetic algorithms: A review.
+Archives of Computational Methods in Engineering, 30(7), 4209-4244.
 
-\bibitem{gen_app3}Sung-Hwan Min, Jumin Lee, Ingoo Han, Hybrid genetic
-algorithms and support vector machines for bankruptcy prediction,
-Expert Systems with Applications \textbf{31}, pp. 652-660, 2006.
+\bibitem{gen_app3}Gordini, N. (2014). A genetic algorithm approach
+for SMEs bankruptcy prediction: Empirical evidence from Italy. Expert
+systems with applications, 41(14), 6433-6445.
 
-\bibitem{gen_app4}D. Whitley, T. Starkweather, C. Bogart, Genetic
-algorithms and neural networks: Optimizing connections and connectivity,
-Parallel Computing \textbf{14}, pp. 347-361, 1990.
+\bibitem{gen_app4}Ding, S., Su, C., \& Yu, J. (2011). An optimizing
+BP neural network algorithm based on genetic algorithm. Artificial
+intelligence review, 36(2), 153-162.
 
-\bibitem[(2004)]{pga1}Konfrst, Z. (2004, April). Parallel genetic
-algorithms: Advances, computing trends, applications and perspectives.
-In 18th International Parallel and Distributed Processing Symposium,
-2004. Proceedings. (p. 162). IEEE.
+\bibitem[(2004)]{pga1}Guo, L., Funie, A. I., Thomas, D. B., Fu, H.,
+\& Luk, W. (2016). Parallel genetic algorithms on multiple FPGAs.
+ACM SIGARCH Computer Architecture News, 43(4), 86-93.
 
 \bibitem[(2004)]{pga2}Johar, F. M., Azmin, F. A., Suaidi, M. K.,
 Shibghatullah, A. S., Ahmad, B. H., Salleh, S. N., ... \& Shukor,
@@ -1984,9 +2597,36 @@ Sciences \textbf{608}, pp. 453-471, 2022.
 Networks through Augmenting Topologies, Evolutionary Computation \textbf{10},
 pp. 99-127, 2002.
 
+\bibitem[(2020)]{adagrad}Ward, R., Wu, X., \& Bottou, L. (2020).
+Adagrad stepsizes: Sharp convergence over nonconvex landscapes. Journal
+of Machine Learning Research, 21(219), 1-30.
+
+\bibitem[(2014)]{bayesopt}Ruben Martinez-Cantin, BayesOpt: A Bayesian
+Optimization Library for Nonlinear Optimization, Experimental Design
+and Bandits. Journal of Machine Learning Research, 15(Nov):3735-{}-3739,
+2014.
+
 \bibitem{rbf_gen1}S. Ding, L. Xu, C. Su et al, An optimizing method
 of RBF neural network based on genetic algorithm. Neural Comput \&
 Applic 21, pp. 333--336, 2012.
+
+\bibitem[(2024)]{mlfire}C. Kopitsa, I.G. Tsoulos, V. Charilogis,
+A. Stavrakoudis, Predicting the Duration of Forest Fires Using Machine
+Learning Methods, Future Internet \textbf{16}, 396, 2024.
+
+\bibitem[(2023)]{pirvision}Emad-Ud-Din, M., \& Wang, Y. (2023). Promoting
+occupancy detection accuracy using on-device lifelong learning. IEEE
+Sensors Journal, 23(9), 9595-9606.
+
+\bibitem[(2019)]{gen_openmp}Saxena, R., Jain, M., Malhotra, K., \&
+Vasa, K. D. (2019). An optimized openmp-based genetic algorithm solution
+to vehicle routing problem. In Smart Computing Paradigms: New Progresses
+and Challenges: Proceedings of ICACNI 2018, Volume 2 (pp. 237-245).
+Singapore: Springer Singapore.
+
+\bibitem[(2019)]{gen_mpi}Rajan, S. D., \& Nguyen, D. T. (2004). Design
+optimization of discrete structural systems using MPI-enabled genetic
+algorithm. Structural and Multidisciplinary Optimization, 28(5), 340-348.
 
 \end{thebibliography}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
