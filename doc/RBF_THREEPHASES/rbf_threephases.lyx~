@@ -681,102 +681,6 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Recently,
- a magnitude of papers have been appeared for the initialization of the parameters of RBF networks 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "rbfinit1,rbfinit2,rbfinit3"
-literal "false"
-
-\end_inset
-
-.
- Moreover,
-
-\series bold
- 
-\series default
-Benoudjit et al provided a discussion on the estimation of kernel widths in these models 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "rbfkernel"
-literal "false"
-
-\end_inset
-
-.
- Additionally,
- a series of pruning techniques
-\series bold
- 
-\series default
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "rbfprun1,rbfprun2,rbfprun3"
-literal "false"
-
-\end_inset
-
- have been introduced aiming to reduce the required number of parameters for networks,
- providing a solution to the overfitting problem.
- Also,
- a series of optimization techniques have been used in the past for the minimization of equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:RbfError"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-,
- such as Genetic algorithms 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "rbfga1,rbfga2"
-literal "false"
-
-\end_inset
-
-,
- the Particle Swam Optimization method 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "rbfpso1,rbfpso2"
-literal "false"
-
-\end_inset
-
-,
- the Differential Evolution technique 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "rbfdiff1"
-literal "false"
-
-\end_inset
-
- etc.
- Furthermore,
- the rapid increase in the use of parallel computing techniques in recent decades has resulted in the publication of a series of relevant scientific papers that exploit this techniques
-\series bold
- 
-\series default
-
-\begin_inset CommandInset citation
-LatexCommand citep
-key "rbfpar1,rbfpar2"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
 In this paper,
  the use of a three-stage technique is suggested for the effective training of RBF networks.
  In the first stage of the technique,
@@ -818,8 +722,6 @@ for the parameters of RBF networks and then to train the network parameters with
 \end_layout
 
 \begin_layout Standard
-
-\series bold
 The proposed technique is the application of three distinct procedures in series,
  where in each stage the results of the previous phase are used.
  In the first phase an initial estimate of the centers and variances is made using the K-Means technique.
@@ -903,6 +805,99 @@ The three distinct phases of the proposed method are presented in detail in this
  where a local optimization method is applied to the best located chromosome of the second phase.
  Also,
  a details description of the used datasets is provided in this section.
+\end_layout
+
+\begin_layout Subsection
+Related work
+\end_layout
+
+\begin_layout Standard
+A number of techniques have been proposed in recent years for the efficient training of neural networks and the efficient adaptation of parameters.
+ Among them,
+ one can find methods that handle the 
+\series bold
+i
+\series default
+nitialization of the parameters of RBF networks 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfinit1,rbfinit2,rbfinit3"
+literal "false"
+
+\end_inset
+
+.
+ Moreover,
+ Benoudjit et al provided a discussion on the estimation of kernel widths in these models 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfkernel"
+literal "false"
+
+\end_inset
+
+.
+ Additionally,
+ a series of pruning techniques 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbfprun1,rbfprun2,rbfprun3"
+literal "false"
+
+\end_inset
+
+ have been introduced aiming to reduce the required number of parameters for networks,
+ providing a solution to the overfitting problem.
+ Also,
+ a series of optimization techniques have been used in the past for the minimization of equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:RbfError"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ such as Genetic algorithms 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfga1,rbfga2"
+literal "false"
+
+\end_inset
+
+,
+ the Particle Swam Optimization method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfpso1,rbfpso2"
+literal "false"
+
+\end_inset
+
+,
+ the Differential Evolution technique 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfdiff1"
+literal "false"
+
+\end_inset
+
+ etc.
+ Furthermore,
+ the rapid increase in the use of parallel computing techniques in recent decades has resulted in the publication of a series of relevant scientific papers that exploit this techniques 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfpar1,rbfpar2"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -2251,7 +2246,7 @@ The proposed method was tested on a wide series of classification and regression
 UCI:
  
 \begin_inset Flex URL
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -2275,7 +2270,7 @@ literal "false"
 KEEL:
  
 \begin_inset Flex URL
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -2299,7 +2294,7 @@ literal "false"
 STATLIB:
  
 \begin_inset Flex URL
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -2486,7 +2481,15 @@ literal "false"
 HeartAttack
 \series default
 ,
- a medical dataset related to the presence of heart diseases
+ a medical dataset related to the presence of heart diseases 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "heartAttack"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -25519,6 +25522,30 @@ G.
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 label "(2006)"
+key "kmeans"
+literal "false"
+
+\end_inset
+
+MacQueen,
+ J.:
+ Some methods for classification and analysis of multivariate observations,
+ in:
+ Proceedings of the fifth Berkeley symposium on mathematical statistics and probability,
+ Vol.
+ 1,
+ No.
+ 14,
+ pp.
+ 281-297,
+ 1967.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2006)"
 key "rbf_universal"
 literal "false"
 
@@ -25881,52 +25908,6 @@ C.
 ,
  49,
  2011.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "(2006)"
-key "kmeans"
-literal "false"
-
-\end_inset
-
-MacQueen,
- J.:
- Some methods for classification and analysis of multivariate observations,
- in:
- Proceedings of the fifth Berkeley symposium on mathematical statistics and probability,
- Vol.
- 1,
- No.
- 14,
- pp.
- 281-297,
- 1967.
- 
-\end_layout
-
-\begin_layout Bibliography
-\labelwidthstring 999
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "kmeans-paterrn"
-literal "false"
-
-\end_inset
-
-Ali,
- H.
- H.,
- & Kadhum,
- L.
- E.
- (2017).
- K-means clustering algorithm applications in data mining and pattern recognition.
- International Journal of Science and Research (IJSR),
- 6(8),
- 1577-1584.
 \end_layout
 
 \begin_layout Bibliography
@@ -26623,6 +26604,26 @@ I.
  pp.
  39–55,
  1997
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2022)"
+key "heartAttack"
+literal "false"
+
+\end_inset
+
+Rashid,
+ Tarik A.;
+ Hassan,
+ Bryar (2022),
+ “Heart Attack Dataset”,
+ Mendeley Data,
+ V1,
+ doi:
+ 10.17632/wmhctcrt5v.1
 \end_layout
 
 \begin_layout Bibliography
