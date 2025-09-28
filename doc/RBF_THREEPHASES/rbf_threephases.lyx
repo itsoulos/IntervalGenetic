@@ -747,6 +747,14 @@ that yield lower values of the error function close to the initial values of the
 \end_layout
 
 \begin_layout Standard
+The main characteristics of the present technique are that it uses different techniques in series in order to identify the optimal set of parameters for the machine learning model and to avoid possible overfitting problems.
+ In the first discrete phase,
+ a well-established clustering technique such as the K-Means technique is used to identify an initial range of values for the model parameters,
+ in the second stage a global optimization algorithm is used to minimize the error function considering the range of values of the first phase and in the last phase a local minimization method will be used to find a guaranteed local minimum of the error function.
+ The method of the last phase guarantees the training of the parameters within the range of values of the first phase.
+\end_layout
+
+\begin_layout Standard
 The remaining of this article has the following organization:
  in section 
 \begin_inset CommandInset ref
@@ -849,6 +857,25 @@ literal "false"
  have been introduced aiming to reduce the required number of parameters for networks,
  providing a solution to the overfitting problem.
  Also,
+ methods that construct the architecture of RBF networks have been proposed in the recent literature,
+ such as the work of Du et al 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfcon1"
+literal "false"
+
+\end_inset
+
+ or the work of Yu et al who suggested an incremental design framework for RBF networks 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfcon2"
+literal "false"
+
+\end_inset
+
+.
+ Also,
  a series of optimization techniques have been used in the past for the minimization of equation 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -870,7 +897,7 @@ literal "false"
 \end_inset
 
 ,
- the Particle Swam Optimization method 
+ the Particle Swarm Optimization method 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbfpso1,rbfpso2"
@@ -889,10 +916,30 @@ literal "false"
 
  etc.
  Furthermore,
- the rapid increase in the use of parallel computing techniques in recent decades has resulted in the publication of a series of relevant scientific papers that exploit this techniques 
+ the rapid increase in the use of parallel computing techniques in recent decades has resulted in the publication of a series of relevant scientific papers that exploit these techniques 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbfpar1,rbfpar2"
+literal "false"
+
+\end_inset
+
+.
+ Recently,
+ Rani et al proposed an improved PSO optimizer that integrates a differential search mechanism for efficient RBF network training 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbf_pso_new"
+literal "false"
+
+\end_inset
+
+.
+ Moreover,
+ Karamichailidou et al suggested a novel method for RBF training using variable projection and fuzzy means 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbf_variable_projection"
 literal "false"
 
 \end_inset
@@ -2239,23 +2286,7 @@ The experimental datasets.
 
 \begin_layout Standard
 The proposed method was tested on a wide series of classification and regression problems,
- that can be downloaded from the following URLS:
-\end_layout
-
-\begin_layout Enumerate
-UCI:
- 
-\begin_inset Flex URL
-status collapsed
-
-\begin_layout Plain Layout
-
-https://archive.ics.uci.edu/
-\end_layout
-
-\end_inset
-
-(accessed on 29 August 2025)
+ that can be downloaded UCI database 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "uci"
@@ -2263,23 +2294,8 @@ literal "false"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Enumerate
-KEEL:
- 
-\begin_inset Flex URL
-status collapsed
-
-\begin_layout Plain Layout
-
-https://sci2s.ugr.es/keel/datasets.php
-\end_layout
-
-\end_inset
-
-(accessed on 29 August 2025)
+,
+ the KEEL database 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Keel"
@@ -2287,28 +2303,16 @@ literal "false"
 
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Enumerate
-STATLIB:
- 
-\begin_inset Flex URL
-status collapsed
-
-\begin_layout Plain Layout
-
-https://lib.stat.cmu.edu/datasets/index
-\end_layout
+ and the STATLIB database 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "statlib"
+literal "false"
 
 \end_inset
 
-(accessed on 29 August 2025).
- 
-\end_layout
-
-\begin_layout Standard
-The following classification datasets were used in the experiments:
+.
+ The following classification datasets were used in the experiments:
 \end_layout
 
 \begin_layout Enumerate
@@ -25754,6 +25758,62 @@ M.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+label "(2025)"
+key "rbfcon1"
+literal "false"
+
+\end_inset
+
+Du,
+ J.
+ X.,
+ Huang,
+ D.
+ S.,
+ Zhang,
+ G.
+ J.,
+ & Wang,
+ Z.
+ F.
+ (2006).
+ A novel full structure optimization algorithm for radial basis probabilistic neural networks.
+ Neurocomputing,
+ 70(1-3),
+ 592-596.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2025)"
+key "rbfcon2"
+literal "false"
+
+\end_inset
+
+Yu,
+ H.,
+ Reiner,
+ P.
+ D.,
+ Xie,
+ T.,
+ Bartczak,
+ T.,
+ & Wilamowski,
+ B.
+ M.
+ (2014).
+ An incremental design of radial basis function networks.
+ IEEE transactions on neural networks and learning systems,
+ 25(10),
+ 1793-1803.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 label "(2006)"
 key "rbfga1"
 literal "false"
@@ -25916,6 +25976,54 @@ C.
 ,
  49,
  2011.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2018)"
+key "rbf_pso_new"
+literal "false"
+
+\end_inset
+
+Rani R,
+ H.
+ J.,
+ & Victoire T,
+ A.
+ A.
+ (2018).
+ Training radial basis function networks for wind speed prediction using PSO enhanced differential search optimizer.
+ PloS one,
+ 13(5),
+ e0196871.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2018)"
+key "rbf_variable_projection"
+literal "false"
+
+\end_inset
+
+Karamichailidou,
+ D.,
+ Gerolymatos,
+ G.,
+ Patrinos,
+ P.,
+ Sarimveis,
+ H.,
+ & Alexandridis,
+ A.
+ (2024).
+ Radial basis function neural network training using variable projection and fuzzy means.
+ Neural Computing and Applications,
+ 36(33),
+ 21137-21151.
 \end_layout
 
 \begin_layout Bibliography
@@ -26326,7 +26434,7 @@ literal "false"
  The UCI Machine Learning Repository,
  
 \begin_inset Flex URL
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -26335,7 +26443,7 @@ https://archive.ics.uci.edu
 
 \end_inset
 
-.
+ (accessed on 28 September 2025).
 \end_layout
 
 \begin_layout Bibliography
@@ -26367,6 +26475,51 @@ J.
  pp.
  255-287,
  2011.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://sci2s.ugr.es/keel/datasets.php
+\end_layout
+
+\end_inset
+
+ (accessed on 28 September 2025).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2025)"
+key "statlib"
+literal "false"
+
+\end_inset
+
+Kooperberg,
+ C.
+ (1997).
+ Statlib:
+ an archive for statistical software,
+ datasets,
+ and information.
+ The American Statistician,
+ 51(1),
+ 98.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://lib.stat.cmu.edu/datasets/
+\end_layout
+
+\end_inset
+
+ (accessed on 28 September 2025).
 \end_layout
 
 \begin_layout Bibliography

@@ -261,21 +261,6 @@ prediction \citep{rbf_time}, estimation of wind power production
 proved that an RBF network with one processing layer is capable of
 approximate any provided function.
 
-Recently, a magnitude of papers have been appeared for the initialization
-of the parameters of RBF networks \citep{rbfinit1,rbfinit2,rbfinit3}.
-Moreover,\textbf{ }Benoudjit et al provided a discussion on the estimation
-of kernel widths in these models \citep{rbfkernel}. Additionally,
-a series of pruning techniques\textbf{ }\citep{rbfprun1,rbfprun2,rbfprun3}
-have been introduced aiming to reduce the required number of parameters
-for networks, providing a solution to the overfitting problem. Also,
-a series of optimization techniques have been used in the past for
-the minimization of equation \ref{eq:RbfError}, such as Genetic algorithms
-\citep{rbfga1,rbfga2}, the Particle Swam Optimization method \citep{rbfpso1,rbfpso2},
-the Differential Evolution technique \citep{rbfdiff1} etc. Furthermore,
-the rapid increase in the use of parallel computing techniques in
-recent decades has resulted in the publication of a series of relevant
-scientific papers that exploit this techniques\textbf{ }\citep{rbfpar1,rbfpar2}.
-
 In this paper, the use of a three-stage technique is suggested for
 the effective training of RBF networks. In the first stage of the
 technique, the range of values for the parameters of the RBF network
@@ -325,6 +310,19 @@ smallest value produced in the second phase. The minimum found in
 this phase is also the final result of the algorithm, which is also
 a configuration of the parameters of the RBF network.
 
+The main characteristics of the present technique are that it uses
+different techniques in series in order to identify the optimal set
+of parameters for the machine learning model and to avoid possible
+overfitting problems. In the first discrete phase, a well-established
+clustering technique such as the K-Means technique is used to identify
+an initial range of values for the model parameters, in the second
+stage a global optimization algorithm is used to minimize the error
+function considering the range of values of the first phase and in
+the last phase a local minimization method will be used to find a
+guaranteed local minimum of the error function. The method of the
+last phase guarantees the training of the parameters within the range
+of values of the first phase.
+
 The remaining of this article has the following organization: in section
 \ref{sec:Materials-and-Methods} the suggested method and the accompanied
 genetic algorithm are introduced, in section \ref{sec:Results} the
@@ -343,6 +341,34 @@ with the description of the final phase, where a local optimization
 method is applied to the best located chromosome of the second phase.
 Also, a details description of the used datasets is provided in this
 section.
+
+\subsection{Related work}
+
+A number of techniques have been proposed in recent years for the
+efficient training of neural networks and the efficient adaptation
+of parameters. Among them, one can find methods that handle the \textbf{i}nitialization
+of the parameters of RBF networks \citep{rbfinit1,rbfinit2,rbfinit3}.
+Moreover, Benoudjit et al provided a discussion on the estimation
+of kernel widths in these models \citep{rbfkernel}. Additionally,
+a series of pruning techniques \citep{rbfprun1,rbfprun2,rbfprun3}
+have been introduced aiming to reduce the required number of parameters
+for networks, providing a solution to the overfitting problem. Also,
+methods that construct the architecture of RBF networks have been
+proposed in the recent literature, such as the work of Du et al \citep{rbfcon1}
+or the work of Yu et al who suggested an incremental design framework
+for RBF networks \citep{rbfcon2}. Also, a series of optimization
+techniques have been used in the past for the minimization of equation
+\ref{eq:RbfError}, such as Genetic algorithms \citep{rbfga1,rbfga2},
+the Particle Swarm Optimization method \citep{rbfpso1,rbfpso2}, the
+Differential Evolution technique \citep{rbfdiff1} etc. Furthermore,
+the rapid increase in the use of parallel computing techniques in
+recent decades has resulted in the publication of a series of relevant
+scientific papers that exploit these techniques \citep{rbfpar1,rbfpar2}.
+Recently, Rani et al proposed an improved PSO optimizer that integrates
+a differential search mechanism for efficient RBF network training
+\citep{rbf_pso_new}. Moreover, Karamichailidou et al suggested a
+novel method for RBF training using variable projection and fuzzy
+means \citep{rbf_variable_projection}.
 
 \subsection{The first phase of the proposed method }
 
@@ -589,15 +615,8 @@ the proposed work is presented in Figure \ref{fig:summary}.
 \subsection{The experimental datasets.}
 
 The proposed method was tested on a wide series of classification
-and regression problems, that can be downloaded from the following
-URLS:
-\begin{enumerate}
-\item UCI: \url{https://archive.ics.uci.edu/}(accessed on 29 August 2025)\citep{uci}
-\item KEEL: \url{https://sci2s.ugr.es/keel/datasets.php}(accessed on 29
-August 2025)\citep{Keel}.
-\item STATLIB: \url{https://lib.stat.cmu.edu/datasets/index}(accessed on
-29 August 2025). 
-\end{enumerate}
+and regression problems, that can be downloaded UCI database \citep{uci},
+the KEEL database \citep{Keel} and the STATLIB database \citep{statlib}.
 The following classification datasets were used in the experiments:
 \begin{enumerate}
 \item \textbf{Appendictis, }which is used for medical purposes \citep{appendicitis}. 
@@ -614,7 +633,7 @@ of papers \citep{cleveland1,cleveland2}.
 \item \textbf{Heart}, a medical dataset used to detect some heart diseases
 \citep{heart}.
 \item \textbf{HeartAttack}, a medical dataset related to the presence of
-heart diseases
+heart diseases \citep{heartAttack}.
 \item \textbf{Housevotes}, a dataset that contains data from voting in the
 Congressional of USA \citep{housevotes}.
 \item \textbf{Ionosphere}, a dataset related to the ionosphere \citep{ion1,ion2}.
@@ -733,7 +752,7 @@ Also, the following regression datasets were used:
 \item \textbf{Abalone}, a dataset related to the age of abalones \citep{abalone}.
 \item \textbf{Airfoil}, a dataset provided by NASA \citep{airfoil}.
 \item \textbf{Auto}, a dataset used to calculate the fuel consumption in
-cars.
+cars \citep{auto_dataset}.
 \item \textbf{BK}, used for the prediction of points scored in some basketball
 games. 
 \item \textbf{BL}, a dataset that includes data from various electricity
@@ -2244,6 +2263,11 @@ Radial Basis Neural Networks to Estimate Wind Power Production,\textquotedbl{}
 2007 IEEE Power Engineering Society General Meeting, Tampa, FL, USA,
 2007, pp. 1-7, doi: 10.1109/PES.2007.385812.
 
+\bibitem[(2006)]{kmeans}MacQueen, J.: Some methods for classification
+and analysis of multivariate observations, in: Proceedings of the
+fifth Berkeley symposium on mathematical statistics and probability,
+Vol. 1, No. 14, pp. 281-297, 1967. 
+
 \bibitem[(2006)]{rbf_universal}J. Park and I. W. Sandberg, \textquotedbl Universal
 Approximation Using Radial-Basis-Function Networks,\textquotedbl{}
 in Neural Computation, vol. 3, no. 2, pp. 246-257, June 1991, doi:
@@ -2278,6 +2302,16 @@ Robot Motion and Control (pp. 246-251). IEEE.
 Method for Radial Basis Function Networks, IEEE Transactions on Neural
 Networks \textbf{20}, pp. 1039-1045, 2009.
 
+\bibitem[(2025)]{rbfcon1}Du, J. X., Huang, D. S., Zhang, G. J., \&
+Wang, Z. F. (2006). A novel full structure optimization algorithm
+for radial basis probabilistic neural networks. Neurocomputing, 70(1-3),
+592-596.
+
+\bibitem[(2025)]{rbfcon2}Yu, H., Reiner, P. D., Xie, T., Bartczak,
+T., \& Wilamowski, B. M. (2014). An incremental design of radial basis
+function networks. IEEE transactions on neural networks and learning
+systems, 25(10), 1793-1803.
+
 \bibitem[(2006)]{rbfga1}Ding, S., Xu, L., Su, C., \& Jin, F. (2012).
 An optimizing method of RBF neural network based on genetic algorithm.
 Neural Computing and Applications, 21(2), 333-336.
@@ -2311,14 +2345,15 @@ with Gaussians, Computer Methods in Applied Mechanics and Engineering
 pump based on chaotic parallel RBF network, EURASIP J. Adv. Signal
 Process. \textbf{2011}, 49, 2011.
 
-\bibitem[(2006)]{kmeans}MacQueen, J.: Some methods for classification
-and analysis of multivariate observations, in: Proceedings of the
-fifth Berkeley symposium on mathematical statistics and probability,
-Vol. 1, No. 14, pp. 281-297, 1967. 
+\bibitem[(2018)]{rbf_pso_new}Rani R, H. J., \& Victoire T, A. A.
+(2018). Training radial basis function networks for wind speed prediction
+using PSO enhanced differential search optimizer. PloS one, 13(5),
+e0196871.
 
-\bibitem{kmeans-paterrn}Ali, H. H., \& Kadhum, L. E. (2017). K-means
-clustering algorithm applications in data mining and pattern recognition.
-International Journal of Science and Research (IJSR), 6(8), 1577-1584.
+\bibitem[(2018)]{rbf_variable_projection}Karamichailidou, D., Gerolymatos,
+G., Patrinos, P., Sarimveis, H., \& Alexandridis, A. (2024). Radial
+basis function neural network training using variable projection and
+fuzzy means. Neural Computing and Applications, 36(33), 21137-21151.
 
 \bibitem{gen_kmeans}K. Krishna, M. Narasimha Murty, Genetic K-means
 algorithm, IEEE Transactions on Systems, Man, and Cybernetics, Part
@@ -2384,13 +2419,20 @@ doi: 10.1109/TSP.2014.2357775.
 of the BFGS algoritm. SIAM Journal on Optimization, 13(3), 693-701.
 
 \bibitem[(1989)]{uci} M. Kelly, R. Longjohn, K. Nottingham, The UCI
-Machine Learning Repository, \url{https://archive.ics.uci.edu}.
+Machine Learning Repository, \url{https://archive.ics.uci.edu} (accessed
+on 28 September 2025).
 
 \bibitem{Keel}J. Alcalá-Fdez, A. Fernandez, J. Luengo, J. Derrac,
 S. García, L. Sánchez, F. Herrera. KEEL Data-Mining Software Tool:
 Data Set Repository, Integration of Algorithms and Experimental Analysis
 Framework. Journal of Multiple-Valued Logic and Soft Computing 17,
-pp. 255-287, 2011.
+pp. 255-287, 2011. \url{https://sci2s.ugr.es/keel/datasets.php} (accessed
+on 28 September 2025).
+
+\bibitem[(2025)]{statlib}Kooperberg, C. (1997). Statlib: an archive
+for statistical software, datasets, and information. The American
+Statistician, 51(1), 98. \url{https://lib.stat.cmu.edu/datasets/}
+(accessed on 28 September 2025).
 
 \bibitem{appendicitis}Weiss, Sholom M. and Kulikowski, Casimir A.,
 Computer Systems That Learn: Classification and Prediction Methods
@@ -2435,6 +2477,9 @@ of Verbal Learning and Verbal Behavior \textbf{16}, pp. 321-338, 1977.
 \bibitem[(1997)]{heart}I. Kononenko, E. Šimec, M. Robnik-Šikonja,
 Overcoming the Myopia of Inductive Learning Algorithms with RELIEFF,
 Applied Intelligence \textbf{7}, pp. 39--55, 1997
+
+\bibitem[(2022)]{heartAttack}Rashid, Tarik A.; Hassan, Bryar (2022),
+“Heart Attack Dataset”, Mendeley Data, V1, doi: 10.17632/wmhctcrt5v.1
 
 \bibitem[(2002)]{housevotes}R.M. French, N. Chater, Using noise to
 compute error surfaces in connectionist networks: a novel means of
@@ -2558,6 +2603,11 @@ Hobart, Australia, 1994; ISSN 1034-3288
 Airfoil Self-Noise and Prediction. Technical Report, NASA RP-1218.
 July 1989. Available online: https://ntrs.nasa.gov/citations/19890016302
 (accessed on 14 November 2024).
+
+\bibitem[(2022)]{auto_dataset}Quinlan,R. (1993). Combining Instance-Based
+and Model-Based Learning. In Proceedings on the Tenth International
+Conference of Machine Learning, 236-243, University of Massachusetts,
+Amherst. Morgan Kaufmann.
 
 \bibitem[(2007)]{concrete}I.Cheng Yeh, Modeling of strength of high
 performance concrete using artificial neural networks, Cement and

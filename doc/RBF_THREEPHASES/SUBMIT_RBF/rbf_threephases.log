@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.9.22)  22 SEP 2025 20:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.9.28)  28 SEP 2025 13:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1424,7 +1424,7 @@ Package marginnote Info: Margin note 1.1 is on absolute page 1 on input line 20
 Package marginnote Info: right page because not two side mode on input line 205
 .
 Package marginnote Info: xpos seems to be 167.01753pt on input line 205.
-<Definitions/logo-mdpi.pdf, id=68, 74.2775pt x 49.18375pt>
+<Definitions/logo-mdpi.pdf, id=72, 74.2775pt x 49.18375pt>
 File: Definitions/logo-mdpi.pdf Graphic file (type pdf)
 <use Definitions/logo-mdpi.pdf>
 Package pdftex.def Info: Definitions/logo-mdpi.pdf  used on input line 205.
@@ -1450,7 +1450,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-di
 st/fonts/enc/dvips/base/8r.enc} <./Definitions/logo-mdpi.pdf>]
-<gaussian.png, id=116, 360.6273pt x 216.0873pt>
+<gaussian.png, id=120, 360.6273pt x 216.0873pt>
 File: gaussian.png Graphic file (type png)
 <use gaussian.png>
 Package pdftex.def Info: gaussian.png  used on input line 239.
@@ -1479,21 +1479,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [3]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 363.
+put line 389.
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 393--393
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 419--419
 []\T1/ppl/m/n/10 (-20) 10.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 395--395
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 421--421
 []\T1/ppl/m/n/10 (-20) 11.  
  []
 
-<kmeans_flowchart.png, id=195, 136.5903pt x 347.6187pt>
+<kmeans_flowchart.png, id=191, 136.5903pt x 347.6187pt>
 File: kmeans_flowchart.png Graphic file (type png)
 <use kmeans_flowchart.png>
-Package pdftex.def Info: kmeans_flowchart.png  used on input line 400.
+Package pdftex.def Info: kmeans_flowchart.png  used on input line 426.
 (pdftex.def)             Requested size: 102.44246pt x 260.71338pt.
 
 
@@ -1514,10 +1514,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [5 <./kmeans_flowchart.png>]
-<chrom_layout.png, id=256, 1927.2pt x 593.21625pt>
+<chrom_layout.png, id=250, 1927.2pt x 593.21625pt>
 File: chrom_layout.png Graphic file (type png)
 <use chrom_layout.png>
-Package pdftex.def Info: chrom_layout.png  used on input line 479.
+Package pdftex.def Info: chrom_layout.png  used on input line 505.
 (pdftex.def)             Requested size: 385.43318pt x 118.64114pt.
 
 
@@ -1529,10 +1529,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [6 <./chrom_layout.png>]
-<overall_flowchart.png, id=290, 218.8175pt x 850.17625pt>
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 24.18796pt, for example:
+(fancyhdr)                \setlength{\headheight}{24.18796pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
+
+[7]
+<overall_flowchart.png, id=315, 218.8175pt x 850.17625pt>
 File: overall_flowchart.png Graphic file (type png)
 <use overall_flowchart.png>
-Package pdftex.def Info: overall_flowchart.png  used on input line 582.
+Package pdftex.def Info: overall_flowchart.png  used on input line 608.
 (pdftex.def)             Requested size: 109.40848pt x 425.08708pt.
 
 
@@ -1543,9 +1552,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
-[7]
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 614--614
+[8]
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 633--633
 []\T1/ppl/m/n/10 (-20) 10.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 635--635
+[]\T1/ppl/m/n/10 (-20) 11.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 637--637
+[]\T1/ppl/m/n/10 (-20) 12.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 639--639
+[]\T1/ppl/m/n/10 (-20) 13.  
  []
 
 
@@ -1557,103 +1581,88 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
-[8 <./overall_flowchart.png>]
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 616--616
-[]\T1/ppl/m/n/10 (-20) 11.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 618--618
-[]\T1/ppl/m/n/10 (-20) 12.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 620--620
-[]\T1/ppl/m/n/10 (-20) 13.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 621--621
+[9 <./overall_flowchart.png>]
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 640--640
 []\T1/ppl/m/n/10 (-20) 14.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 622--622
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 641--641
 []\T1/ppl/m/n/10 (-20) 15.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 623--623
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 642--642
 []\T1/ppl/m/n/10 (-20) 16.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 625--625
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 644--644
 []\T1/ppl/m/n/10 (-20) 17.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 627--627
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 646--646
 []\T1/ppl/m/n/10 (-20) 18.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 628--628
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 647--647
 []\T1/ppl/m/n/10 (-20) 19.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 630--630
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 649--649
 []\T1/ppl/m/n/10 (-20) 20.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 632--632
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 651--651
 []\T1/ppl/m/n/10 (-20) 21.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 634--634
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 653--653
 []\T1/ppl/m/n/10 (-20) 22.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 635--635
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 654--654
 []\T1/ppl/m/n/10 (-20) 23.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 637--637
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 656--656
 []\T1/ppl/m/n/10 (-20) 24.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 638--638
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 657--657
 []\T1/ppl/m/n/10 (-20) 25.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 640--640
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 659--659
 []\T1/ppl/m/n/10 (-20) 26.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 641--641
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 660--660
 []\T1/ppl/m/n/10 (-20) 27.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 642--642
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 661--661
 []\T1/ppl/m/n/10 (-20) 28.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 643--643
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 662--662
 []\T1/ppl/m/n/10 (-20) 29.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 646--646
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 665--665
 []\T1/ppl/m/n/10 (-20) 30.  
  []
 
@@ -1666,38 +1675,38 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
-[9]
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 745--745
+[10]
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 764--764
 []\T1/ppl/m/n/10 (-20) 10.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 746--746
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 765--765
 []\T1/ppl/m/n/10 (-20) 11.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 747--747
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 766--766
 []\T1/ppl/m/n/10 (-20) 12.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 748--748
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 767--767
 []\T1/ppl/m/n/10 (-20) 13.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 749--749
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 768--768
 []\T1/ppl/m/n/10 (-20) 14.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 751--751
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 770--770
 []\T1/ppl/m/n/10 (-20) 15.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 752--752
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 771--771
 []\T1/ppl/m/n/10 (-20) 16.  
  []
 
@@ -1710,33 +1719,33 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
-[10]
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 753--753
+[11]
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 772--772
 []\T1/ppl/m/n/10 (-20) 17.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 754--754
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 773--773
 []\T1/ppl/m/n/10 (-20) 18.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 755--755
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 774--774
 []\T1/ppl/m/n/10 (-20) 19.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 756--756
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 775--775
 []\T1/ppl/m/n/10 (-20) 20.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 757--757
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 776--776
 []\T1/ppl/m/n/10 (-20) 21.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 758--758
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 777--777
 []\T1/ppl/m/n/10 (-20) 22.  
  []
 
@@ -1749,18 +1758,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
-[11]
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 839--839
+[12]
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 858--858
 []\T1/ppl/m/n/10 (-20) 10.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 841--841
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 860--860
 []\T1/ppl/m/n/10 (-20) 11.  
  []
 
 
-Overfull \hbox (29.97183pt too wide) in paragraph at lines 850--923
+Overfull \hbox (29.97183pt too wide) in paragraph at lines 869--942
  [][] 
  []
 
@@ -1773,11 +1782,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
-[12]
-<stat1.png, id=524, 505.89pt x 505.89pt>
+[13]
+<stat1.png, id=543, 505.89pt x 505.89pt>
 File: stat1.png Graphic file (type png)
 <use stat1.png>
-Package pdftex.def Info: stat1.png  used on input line 959.
+Package pdftex.def Info: stat1.png  used on input line 978.
 (pdftex.def)             Requested size: 379.41655pt x 379.41655pt.
 
 
@@ -1788,21 +1797,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
-[13 <./stat1.png>]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 24.18796pt, for example:
-(fancyhdr)                \setlength{\headheight}{24.18796pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
-
-[14]
-Overfull \hbox (10.97914pt too wide) in paragraph at lines 1114--1164
- [][] 
- []
-
-
+[14 <./stat1.png>]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1812,6 +1807,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [15]
+Overfull \hbox (10.97914pt too wide) in paragraph at lines 1133--1183
+ [][] 
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1821,10 +1821,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [16]
-<stat2.png, id=550, 505.89pt x 505.89pt>
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 24.18796pt, for example:
+(fancyhdr)                \setlength{\headheight}{24.18796pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
+
+[17]
+<stat2.png, id=568, 505.89pt x 505.89pt>
 File: stat2.png Graphic file (type png)
 <use stat2.png>
-Package pdftex.def Info: stat2.png  used on input line 1201.
+Package pdftex.def Info: stat2.png  used on input line 1220.
 (pdftex.def)             Requested size: 379.41655pt x 379.41655pt.
 
 
@@ -1835,7 +1844,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
-[17]
+[18]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1844,25 +1853,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
-[18 <./stat2.png>]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 24.18796pt, for example:
-(fancyhdr)                \setlength{\headheight}{24.18796pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
-
-[19]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1268.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1268.
-
-
+[19 <./stat2.png>]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1873,6 +1864,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [20]
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1287.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1287.
+
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 24.18796pt, for example:
@@ -1881,12 +1881,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [21]
-<stat3.png, id=584, 505.89pt x 505.89pt>
-File: stat3.png Graphic file (type png)
-<use stat3.png>
-Package pdftex.def Info: stat3.png  used on input line 1487.
-(pdftex.def)             Requested size: 379.41655pt x 379.41655pt.
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1896,10 +1890,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [22]
-<stat4.png, id=591, 505.89pt x 505.89pt>
+<stat3.png, id=602, 505.89pt x 505.89pt>
+File: stat3.png Graphic file (type png)
+<use stat3.png>
+Package pdftex.def Info: stat3.png  used on input line 1506.
+(pdftex.def)             Requested size: 379.41655pt x 379.41655pt.
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 24.18796pt, for example:
+(fancyhdr)                \setlength{\headheight}{24.18796pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
+
+[23]
+<stat4.png, id=609, 505.89pt x 505.89pt>
 File: stat4.png Graphic file (type png)
 <use stat4.png>
-Package pdftex.def Info: stat4.png  used on input line 1505.
+Package pdftex.def Info: stat4.png  used on input line 1524.
 (pdftex.def)             Requested size: 379.41655pt x 379.41655pt.
 
 
@@ -1910,7 +1919,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
-[23 <./stat3.png>]
+[24 <./stat3.png>]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1919,22 +1928,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
-[24 <./stat4.png>]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 24.18796pt, for example:
-(fancyhdr)                \setlength{\headheight}{24.18796pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
-
-[25]
-<stat5.png, id=614, 505.89pt x 505.89pt>
-File: stat5.png Graphic file (type png)
-<use stat5.png>
-Package pdftex.def Info: stat5.png  used on input line 1744.
-(pdftex.def)             Requested size: 379.41655pt x 379.41655pt.
-
+[25 <./stat4.png>]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1944,10 +1938,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [26]
-<stat6.png, id=622, 505.89pt x 505.89pt>
-File: stat6.png Graphic file (type png)
-<use stat6.png>
-Package pdftex.def Info: stat6.png  used on input line 1767.
+<stat5.png, id=632, 505.89pt x 505.89pt>
+File: stat5.png Graphic file (type png)
+<use stat5.png>
+Package pdftex.def Info: stat5.png  used on input line 1763.
 (pdftex.def)             Requested size: 379.41655pt x 379.41655pt.
 
 
@@ -1958,44 +1952,59 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
-[27 <./stat5.png>]
+[27]
+<stat6.png, id=640, 505.89pt x 505.89pt>
+File: stat6.png Graphic file (type png)
+<use stat6.png>
+Package pdftex.def Info: stat6.png  used on input line 1786.
+(pdftex.def)             Requested size: 379.41655pt x 379.41655pt.
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 24.18796pt, for example:
+(fancyhdr)                \setlength{\headheight}{24.18796pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
+
+[28 <./stat5.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1776.
+(hyperref)                removing `math shift' on input line 1795.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 1776.
+(hyperref)                removing `subscript' on input line 1795.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1776.
+(hyperref)                removing `math shift' on input line 1795.
 
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ppl in TS1 encoding.
-            Default family used instead on input line 1789.
+            Default family used instead on input line 1808.
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ppl in TS1 encoding.
-            Default family used instead on input line 1789.
+            Default family used instead on input line 1808.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ppl in TS1 encoding.
-            Default family used instead on input line 1790.
+            Default family used instead on input line 1809.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ppl in TS1 encoding.
-            Default family used instead on input line 1790.
+            Default family used instead on input line 1809.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ppl in TS1 encoding.
-            Default family used instead on input line 1791.
+            Default family used instead on input line 1810.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ppl in TS1 encoding.
-            Default family used instead on input line 1797.
+            Default family used instead on input line 1816.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ppl in TS1 encoding.
-            Default family used instead on input line 1797.
+            Default family used instead on input line 1816.
 
 
 
@@ -2005,22 +2014,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
-[28 <./stat6.png>]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 24.18796pt, for example:
-(fancyhdr)                \setlength{\headheight}{24.18796pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
-
-[29]
-<stat10.png, id=644, 505.89pt x 505.89pt>
-File: stat10.png Graphic file (type png)
-<use stat10.png>
-Package pdftex.def Info: stat10.png  used on input line 1989.
-(pdftex.def)             Requested size: 252.94437pt x 252.94437pt.
-
+[29 <./stat6.png>]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2030,10 +2024,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [30]
-<stat11.png, id=651, 505.89pt x 505.89pt>
-File: stat11.png Graphic file (type png)
-<use stat11.png>
-Package pdftex.def Info: stat11.png  used on input line 2009.
+<stat10.png, id=662, 505.89pt x 505.89pt>
+File: stat10.png Graphic file (type png)
+<use stat10.png>
+Package pdftex.def Info: stat10.png  used on input line 2008.
 (pdftex.def)             Requested size: 252.94437pt x 252.94437pt.
 
 
@@ -2044,11 +2038,26 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
-[31 <./stat10.png>]
-<rbf3_dasi.png, id=661, 455.01192pt x 256.12488pt>
+[31]
+<stat11.png, id=670, 505.89pt x 505.89pt>
+File: stat11.png Graphic file (type png)
+<use stat11.png>
+Package pdftex.def Info: stat11.png  used on input line 2028.
+(pdftex.def)             Requested size: 252.94437pt x 252.94437pt.
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 24.18796pt, for example:
+(fancyhdr)                \setlength{\headheight}{24.18796pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
+
+[32 <./stat10.png>]
+<rbf3_dasi.png, id=679, 455.01192pt x 256.12488pt>
 File: rbf3_dasi.png Graphic file (type png)
 <use rbf3_dasi.png>
-Package pdftex.def Info: rbf3_dasi.png  used on input line 2039.
+Package pdftex.def Info: rbf3_dasi.png  used on input line 2058.
 (pdftex.def)             Requested size: 341.2581pt x 192.09317pt.
 
 
@@ -2059,11 +2068,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
-[32 <./stat11.png> <./rbf3_dasi.png>]
-<rbf3_pirvision.png, id=675, 455.01192pt x 256.12488pt>
+[33 <./stat11.png> <./rbf3_dasi.png>]
+<rbf3_pirvision.png, id=693, 455.01192pt x 256.12488pt>
 File: rbf3_pirvision.png Graphic file (type png)
 <use rbf3_pirvision.png>
-Package pdftex.def Info: rbf3_pirvision.png  used on input line 2056.
+Package pdftex.def Info: rbf3_pirvision.png  used on input line 2075.
 (pdftex.def)             Requested size: 341.2581pt x 192.09317pt.
 
 
@@ -2074,16 +2083,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
-[33 <./rbf3_pirvision.png>]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 24.18796pt, for example:
-(fancyhdr)                \setlength{\headheight}{24.18796pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
-
-[34]
+[34 <./rbf3_pirvision.png>]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2119,7 +2119,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
-[38] 
+[38]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 24.18796pt, for example:
+(fancyhdr)                \setlength{\headheight}{24.18796pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
+
+[39] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (./rbf_threephases.aux)
  ***********
@@ -2127,16 +2136,16 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `rbf_threephases.out' has not changed.
-(rerunfilecheck)             Checksum: 4A976BBABD91F0D4CD08F2F610CA4EE5;3012.
+(rerunfilecheck)             Checksum: 051720BCA3C704E9119FEE6D719CC6E0;3132.
  ) 
 Here is how much of TeX's memory you used:
- 35461 strings out of 475102
- 651715 string characters out of 5764877
+ 35488 strings out of 475102
+ 652185 string characters out of 5764877
  1142033 words of memory out of 5000000
- 56954 multiletter control sequences out of 15000+600000
- 645000 words of font info for 511 fonts, out of 8000000 for 9000
+ 56973 multiletter control sequences out of 15000+600000
+ 645085 words of font info for 513 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 123i,20n,126p,5048b,1008s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 123i,20n,126p,5048b,994s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/sheridan/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.
 600pk> </home/sheridan/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0
 800.375pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10
@@ -2149,10 +2158,10 @@ texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist
 pe1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/pala
 tino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a
 .pfb>
-Output written on rbf_threephases.pdf (38 pages, 815884 bytes).
+Output written on rbf_threephases.pdf (39 pages, 818854 bytes).
 PDF statistics:
- 849 PDF objects out of 1000 (max. 8388607)
- 740 compressed objects within 8 object streams
- 332 named destinations out of 1000 (max. 500000)
- 105160 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 869 PDF objects out of 1000 (max. 8388607)
+ 759 compressed objects within 8 object streams
+ 337 named destinations out of 1000 (max. 500000)
+ 105168 words of extra memory for PDF output out of 106986 (max. 10000000)
 
