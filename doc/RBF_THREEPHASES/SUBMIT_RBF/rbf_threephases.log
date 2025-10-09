@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.10.7)  7 OCT 2025 12:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.10.7)  9 OCT 2025 21:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1091,7 +1091,7 @@ Package rotfloat Info: float package v1.3 detected on input line 74.
 )
 \@float@every@algorithm=\toks64
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 205.
+h' as default language. on input line 206.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-11-05 v7.01l Hypertext links for LaTeX
@@ -1221,7 +1221,7 @@ Package cleveref Info: always capitalise cross-reference names on input line 78
 Package cleveref Info: no abbreviation of names on input line 7852.
 )
 LaTeX Font Info:    Trying to load font information for T1+ppl on input line 20
-5.
+6.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
@@ -1229,24 +1229,24 @@ File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 (./rbf_threephases.aux)
 \openout1 = `rbf_threephases.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 205.
-LaTeX Font Info:    ... okay on input line 205.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 205.
-LaTeX Font Info:    ... okay on input line 205.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 205.
-LaTeX Font Info:    ... okay on input line 205.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 205.
-LaTeX Font Info:    ... okay on input line 205.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 205.
-LaTeX Font Info:    ... okay on input line 205.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 205.
-LaTeX Font Info:    ... okay on input line 205.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 205.
-LaTeX Font Info:    ... okay on input line 205.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 205.
-LaTeX Font Info:    ... okay on input line 205.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 205.
-LaTeX Font Info:    ... okay on input line 205.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 206.
+LaTeX Font Info:    ... okay on input line 206.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 206.
+LaTeX Font Info:    ... okay on input line 206.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 206.
+LaTeX Font Info:    ... okay on input line 206.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 206.
+LaTeX Font Info:    ... okay on input line 206.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 206.
+LaTeX Font Info:    ... okay on input line 206.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 206.
+LaTeX Font Info:    ... okay on input line 206.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 206.
+LaTeX Font Info:    ... okay on input line 206.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 206.
+LaTeX Font Info:    ... okay on input line 206.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 206.
+LaTeX Font Info:    ... okay on input line 206.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1262,20 +1262,20 @@ LaTeX Font Info:    ... okay on input line 205.
 \makeMPintoPDFobject=\count401
 \everyMPtoPDFconversion=\toks66
 )
-LaTeX Info: Redefining \microtypecontext on input line 205.
-Package microtype Info: Applying patch `item' on input line 205.
-Package microtype Info: Applying patch `toc' on input line 205.
-Package microtype Info: Applying patch `eqnum' on input line 205.
-Package microtype Info: Applying patch `footnote' on input line 205.
-Package microtype Info: Applying patch `verbatim' on input line 205.
-LaTeX Info: Redefining \microtypesetup on input line 205.
+LaTeX Info: Redefining \microtypecontext on input line 206.
+Package microtype Info: Applying patch `item' on input line 206.
+Package microtype Info: Applying patch `toc' on input line 206.
+Package microtype Info: Applying patch `eqnum' on input line 206.
+Package microtype Info: Applying patch `footnote' on input line 206.
+Package microtype Info: Applying patch `verbatim' on input line 206.
+LaTeX Info: Redefining \microtypesetup on input line 206.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 205.
+LaTeX Info: Redefining \showhyphens on input line 206.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1288,7 +1288,7 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 205.
+or `english'. on input line 206.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: hyperref package is loaded.
@@ -1333,13 +1333,13 @@ Package caption Info: End \AtBeginDocument code.
 
 Package newfloat Info: `float' package detected.
 Package newfloat Info: `rotating' package detected.
-Package hyperref Info: Link coloring ON on input line 205.
+Package hyperref Info: Link coloring ON on input line 206.
 (./rbf_threephases.out) (./rbf_threephases.out)
 \@outlinefile=\write4
 \openout4 = `rbf_threephases.out'.
 
 LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 2
-05.
+06.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
@@ -1349,47 +1349,47 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 2
-05.
+06.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
 LaTeX Font Info:    Trying to load font information for OML+zplm on input line 
-205.
+206.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 
-205.
+206.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 
-205.
+206.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 205.
+(Font)              scaled to size 7.29405pt on input line 206.
 
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 205.
+(Font)              scaled to size 5.21004pt on input line 206.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 205.
+(Font)              scaled to size 7.29405pt on input line 206.
 
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 205.
+(Font)              scaled to size 5.21004pt on input line 206.
 LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 
-205.
+206.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
@@ -1403,36 +1403,36 @@ Package microtype Info: Loading generic protrusion settings for font family
 File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 205.
+(Font)              scaled to size 10.42007pt on input line 206.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 205.
+(Font)              scaled to size 7.91925pt on input line 206.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 205.
+(Font)              scaled to size 6.25204pt on input line 206.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 205.
+(Font)              scaled to size 10.42007pt on input line 206.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 205.
+(Font)              scaled to size 7.91925pt on input line 206.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 205.
-LaTeX Font Info:    Redeclaring symbol font `AMSb' on input line 205.
+(Font)              scaled to size 6.25204pt on input line 206.
+LaTeX Font Info:    Redeclaring symbol font `AMSb' on input line 206.
 LaTeX Font Info:    Overwriting symbol font `AMSb' in version `normal'
-(Font)                  U/msb/m/n --> U/msb/m/n on input line 205.
+(Font)                  U/msb/m/n --> U/msb/m/n on input line 206.
 LaTeX Font Info:    Overwriting symbol font `AMSb' in version `bold'
-(Font)                  U/msb/m/n --> U/msb/m/n on input line 205.
+(Font)                  U/msb/m/n --> U/msb/m/n on input line 206.
 Package marginnote Info: Margin note 1.1 is on absolute page 1 on input line 20
-5.
-Package marginnote Info: right page because not two side mode on input line 205
+6.
+Package marginnote Info: right page because not two side mode on input line 206
 .
-Package marginnote Info: xpos seems to be 167.01753pt on input line 205.
+Package marginnote Info: xpos seems to be 167.01753pt on input line 206.
 <Definitions/logo-mdpi.pdf, id=72, 74.2775pt x 49.18375pt>
 File: Definitions/logo-mdpi.pdf Graphic file (type pdf)
 <use Definitions/logo-mdpi.pdf>
-Package pdftex.def Info: Definitions/logo-mdpi.pdf  used on input line 205.
+Package pdftex.def Info: Definitions/logo-mdpi.pdf  used on input line 206.
 (pdftex.def)             Requested size: 42.96877pt x 28.45274pt.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 205.
+(Font)              scaled to size 8.33606pt on input line 206.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 205.
+(Font)              scaled to size 8.33606pt on input line 206.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmss' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
@@ -1450,15 +1450,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-di
 st/fonts/enc/dvips/base/8r.enc} <./Definitions/logo-mdpi.pdf>]
-<gaussian.png, id=120, 360.6273pt x 216.0873pt>
+<gaussian.png, id=119, 360.6273pt x 216.0873pt>
 File: gaussian.png Graphic file (type png)
 <use gaussian.png>
-Package pdftex.def Info: gaussian.png  used on input line 239.
+Package pdftex.def Info: gaussian.png  used on input line 240.
 (pdftex.def)             Requested size: 360.62642pt x 216.08676pt.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 241.
+(Font)              scaled to size 9.37807pt on input line 242.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 241.
+(Font)              scaled to size 9.37807pt on input line 242.
 
 
 
@@ -1479,21 +1479,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [3]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 389.
+put line 388.
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 419--419
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 418--418
 []\T1/ppl/m/n/10 (-20) 10.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 421--421
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 420--420
 []\T1/ppl/m/n/10 (-20) 11.  
  []
 
 <kmeans_flowchart.png, id=191, 136.5903pt x 347.6187pt>
 File: kmeans_flowchart.png Graphic file (type png)
 <use kmeans_flowchart.png>
-Package pdftex.def Info: kmeans_flowchart.png  used on input line 426.
+Package pdftex.def Info: kmeans_flowchart.png  used on input line 425.
 (pdftex.def)             Requested size: 102.44246pt x 260.71338pt.
 
 
@@ -1514,10 +1514,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [5 <./kmeans_flowchart.png>]
-<chrom_layout.png, id=250, 1927.2pt x 593.21625pt>
+<flowchart2.png, id=241, 502.9992pt x 673.5564pt>
+File: flowchart2.png Graphic file (type png)
+<use flowchart2.png>
+Package pdftex.def Info: flowchart2.png  used on input line 461.
+(pdftex.def)             Requested size: 251.49898pt x 336.77737pt.
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 24.18796pt, for example:
+(fancyhdr)                \setlength{\headheight}{24.18796pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
+
+[6 <./flowchart2.png>]
+<chrom_layout.png, id=258, 1927.2pt x 593.21625pt>
 File: chrom_layout.png Graphic file (type png)
 <use chrom_layout.png>
-Package pdftex.def Info: chrom_layout.png  used on input line 506.
+Package pdftex.def Info: chrom_layout.png  used on input line 498.
 (pdftex.def)             Requested size: 385.43318pt x 118.64114pt.
 
 
@@ -1528,20 +1543,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
-[6 <./chrom_layout.png>]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 24.18796pt, for example:
-(fancyhdr)                \setlength{\headheight}{24.18796pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
-
-[7]
-<overall_flowchart.png, id=315, 218.8175pt x 850.17625pt>
+[7 <./chrom_layout.png>]
+<overall_flowchart.png, id=292, 218.8175pt x 850.17625pt>
 File: overall_flowchart.png Graphic file (type png)
 <use overall_flowchart.png>
-Package pdftex.def Info: overall_flowchart.png  used on input line 609.
+Package pdftex.def Info: overall_flowchart.png  used on input line 605.
 (pdftex.def)             Requested size: 109.40848pt x 425.08708pt.
 
 
@@ -1553,26 +1559,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [8]
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 634--634
-[]\T1/ppl/m/n/10 (-20) 10.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 636--636
-[]\T1/ppl/m/n/10 (-20) 11.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 638--638
-[]\T1/ppl/m/n/10 (-20) 12.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 640--640
-[]\T1/ppl/m/n/10 (-20) 13.  
- []
-
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1582,91 +1568,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [9 <./overall_flowchart.png>]
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 641--641
-[]\T1/ppl/m/n/10 (-20) 14.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 642--642
-[]\T1/ppl/m/n/10 (-20) 15.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 643--643
-[]\T1/ppl/m/n/10 (-20) 16.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 645--645
-[]\T1/ppl/m/n/10 (-20) 17.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 647--647
-[]\T1/ppl/m/n/10 (-20) 18.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 648--648
-[]\T1/ppl/m/n/10 (-20) 19.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 650--650
-[]\T1/ppl/m/n/10 (-20) 20.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 652--652
-[]\T1/ppl/m/n/10 (-20) 21.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 654--654
-[]\T1/ppl/m/n/10 (-20) 22.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 655--655
-[]\T1/ppl/m/n/10 (-20) 23.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 657--657
-[]\T1/ppl/m/n/10 (-20) 24.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 658--658
-[]\T1/ppl/m/n/10 (-20) 25.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 660--660
-[]\T1/ppl/m/n/10 (-20) 26.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 661--661
-[]\T1/ppl/m/n/10 (-20) 27.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 662--662
-[]\T1/ppl/m/n/10 (-20) 28.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 663--663
-[]\T1/ppl/m/n/10 (-20) 29.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 666--666
-[]\T1/ppl/m/n/10 (-20) 30.  
- []
-
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1676,41 +1577,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [10]
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 765--765
-[]\T1/ppl/m/n/10 (-20) 10.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 766--766
-[]\T1/ppl/m/n/10 (-20) 11.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 767--767
-[]\T1/ppl/m/n/10 (-20) 12.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 768--768
-[]\T1/ppl/m/n/10 (-20) 13.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 769--769
-[]\T1/ppl/m/n/10 (-20) 14.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 771--771
-[]\T1/ppl/m/n/10 (-20) 15.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 772--772
-[]\T1/ppl/m/n/10 (-20) 16.  
- []
-
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1720,56 +1586,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [11]
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 773--773
-[]\T1/ppl/m/n/10 (-20) 17.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 774--774
-[]\T1/ppl/m/n/10 (-20) 18.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 775--775
-[]\T1/ppl/m/n/10 (-20) 19.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 776--776
-[]\T1/ppl/m/n/10 (-20) 20.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 777--777
-[]\T1/ppl/m/n/10 (-20) 21.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 778--778
-[]\T1/ppl/m/n/10 (-20) 22.  
- []
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 24.18796pt, for example:
-(fancyhdr)                \setlength{\headheight}{24.18796pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
-
-[12]
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 859--859
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 841--841
 []\T1/ppl/m/n/10 (-20) 10.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 861--861
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 843--843
 []\T1/ppl/m/n/10 (-20) 11.  
  []
 
 
-Overfull \hbox (29.97183pt too wide) in paragraph at lines 870--943
+Overfull \hbox (29.97183pt too wide) in paragraph at lines 852--925
  [][] 
  []
 
@@ -1782,11 +1609,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
+[12]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 24.18796pt, for example:
+(fancyhdr)                \setlength{\headheight}{24.18796pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
+
 [13]
-<stat1.png, id=543, 505.89pt x 505.89pt>
+<stat1.png, id=498, 505.89pt x 505.89pt>
 File: stat1.png Graphic file (type png)
 <use stat1.png>
-Package pdftex.def Info: stat1.png  used on input line 979.
+Package pdftex.def Info: stat1.png  used on input line 961.
 (pdftex.def)             Requested size: 379.41655pt x 379.41655pt.
 
 
@@ -1807,7 +1643,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [15]
-Overfull \hbox (10.97914pt too wide) in paragraph at lines 1134--1184
+Overfull \hbox (10.97914pt too wide) in paragraph at lines 1117--1167
  [][] 
  []
 
@@ -1830,10 +1666,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [17]
-<stat2.png, id=568, 505.89pt x 505.89pt>
+<stat2.png, id=523, 505.89pt x 505.89pt>
 File: stat2.png Graphic file (type png)
 <use stat2.png>
-Package pdftex.def Info: stat2.png  used on input line 1221.
+Package pdftex.def Info: stat2.png  used on input line 1204.
 (pdftex.def)             Requested size: 379.41655pt x 379.41655pt.
 
 
@@ -1865,11 +1701,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [20]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1288.
+(hyperref)                removing `math shift' on input line 1271.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1288.
+(hyperref)                removing `math shift' on input line 1271.
 
 
 
@@ -1890,10 +1726,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [22]
-<stat3.png, id=602, 505.89pt x 505.89pt>
+<stat3.png, id=556, 505.89pt x 505.89pt>
 File: stat3.png Graphic file (type png)
 <use stat3.png>
-Package pdftex.def Info: stat3.png  used on input line 1507.
+Package pdftex.def Info: stat3.png  used on input line 1490.
 (pdftex.def)             Requested size: 379.41655pt x 379.41655pt.
 
 
@@ -1905,10 +1741,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [23]
-<stat4.png, id=609, 505.89pt x 505.89pt>
+<stat4.png, id=563, 505.89pt x 505.89pt>
 File: stat4.png Graphic file (type png)
 <use stat4.png>
-Package pdftex.def Info: stat4.png  used on input line 1525.
+Package pdftex.def Info: stat4.png  used on input line 1508.
 (pdftex.def)             Requested size: 379.41655pt x 379.41655pt.
 
 
@@ -1938,10 +1774,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [26]
-<stat5.png, id=632, 505.89pt x 505.89pt>
+<stat5.png, id=586, 505.89pt x 505.89pt>
 File: stat5.png Graphic file (type png)
 <use stat5.png>
-Package pdftex.def Info: stat5.png  used on input line 1764.
+Package pdftex.def Info: stat5.png  used on input line 1747.
 (pdftex.def)             Requested size: 379.41655pt x 379.41655pt.
 
 
@@ -1953,10 +1789,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [27]
-<stat6.png, id=640, 505.89pt x 505.89pt>
+<stat6.png, id=594, 505.89pt x 505.89pt>
 File: stat6.png Graphic file (type png)
 <use stat6.png>
-Package pdftex.def Info: stat6.png  used on input line 1787.
+Package pdftex.def Info: stat6.png  used on input line 1770.
 (pdftex.def)             Requested size: 379.41655pt x 379.41655pt.
 
 
@@ -1970,41 +1806,41 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [28 <./stat5.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1796.
+(hyperref)                removing `math shift' on input line 1779.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 1796.
+(hyperref)                removing `subscript' on input line 1779.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1796.
+(hyperref)                removing `math shift' on input line 1779.
 
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ppl in TS1 encoding.
-            Default family used instead on input line 1809.
+            Default family used instead on input line 1791.
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ppl in TS1 encoding.
-            Default family used instead on input line 1809.
+            Default family used instead on input line 1791.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ppl in TS1 encoding.
-            Default family used instead on input line 1810.
+            Default family used instead on input line 1792.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ppl in TS1 encoding.
-            Default family used instead on input line 1810.
+            Default family used instead on input line 1792.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ppl in TS1 encoding.
-            Default family used instead on input line 1811.
+            Default family used instead on input line 1793.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ppl in TS1 encoding.
-            Default family used instead on input line 1817.
+            Default family used instead on input line 1799.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ppl in TS1 encoding.
-            Default family used instead on input line 1817.
+            Default family used instead on input line 1799.
 
 
 
@@ -2024,10 +1860,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [30]
-<stat10.png, id=662, 505.89pt x 505.89pt>
+<stat10.png, id=617, 505.89pt x 505.89pt>
 File: stat10.png Graphic file (type png)
 <use stat10.png>
-Package pdftex.def Info: stat10.png  used on input line 2009.
+Package pdftex.def Info: stat10.png  used on input line 1991.
 (pdftex.def)             Requested size: 252.94437pt x 252.94437pt.
 
 
@@ -2039,10 +1875,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [31]
-<stat11.png, id=670, 505.89pt x 505.89pt>
+<stat11.png, id=625, 505.89pt x 505.89pt>
 File: stat11.png Graphic file (type png)
 <use stat11.png>
-Package pdftex.def Info: stat11.png  used on input line 2029.
+Package pdftex.def Info: stat11.png  used on input line 2011.
 (pdftex.def)             Requested size: 252.94437pt x 252.94437pt.
 
 
@@ -2054,10 +1890,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [32 <./stat10.png>]
-<rbf3_dasi.png, id=679, 455.01192pt x 256.12488pt>
+<rbf3_dasi.png, id=634, 455.01192pt x 256.12488pt>
 File: rbf3_dasi.png Graphic file (type png)
 <use rbf3_dasi.png>
-Package pdftex.def Info: rbf3_dasi.png  used on input line 2059.
+Package pdftex.def Info: rbf3_dasi.png  used on input line 2041.
 (pdftex.def)             Requested size: 341.2581pt x 192.09317pt.
 
 
@@ -2069,10 +1905,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [33 <./stat11.png> <./rbf3_dasi.png>]
-<rbf3_pirvision.png, id=693, 455.01192pt x 256.12488pt>
+<rbf3_pirvision.png, id=648, 455.01192pt x 256.12488pt>
 File: rbf3_pirvision.png Graphic file (type png)
 <use rbf3_pirvision.png>
-Package pdftex.def Info: rbf3_pirvision.png  used on input line 2076.
+Package pdftex.def Info: rbf3_pirvision.png  used on input line 2058.
 (pdftex.def)             Requested size: 341.2581pt x 192.09317pt.
 
 
@@ -2136,14 +1972,14 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `rbf_threephases.out' has not changed.
-(rerunfilecheck)             Checksum: 051720BCA3C704E9119FEE6D719CC6E0;3132.
+(rerunfilecheck)             Checksum: BBDCE8BF020779A4783E9BF8F1C1F6A0;3022.
  ) 
 Here is how much of TeX's memory you used:
- 35488 strings out of 475102
- 652185 string characters out of 5764877
- 1142040 words of memory out of 5000000
- 56973 multiletter control sequences out of 15000+600000
- 645085 words of font info for 513 fonts, out of 8000000 for 9000
+ 35447 strings out of 475102
+ 652163 string characters out of 5764877
+ 1139080 words of memory out of 5000000
+ 56992 multiletter control sequences out of 15000+600000
+ 645457 words of font info for 517 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  123i,20n,126p,5048b,994s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/sheridan/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.
@@ -2158,10 +1994,10 @@ texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist
 pe1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/pala
 tino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a
 .pfb>
-Output written on rbf_threephases.pdf (39 pages, 818900 bytes).
+Output written on rbf_threephases.pdf (39 pages, 947203 bytes).
 PDF statistics:
- 869 PDF objects out of 1000 (max. 8388607)
- 759 compressed objects within 8 object streams
- 337 named destinations out of 1000 (max. 500000)
- 105168 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 810 PDF objects out of 1000 (max. 8388607)
+ 699 compressed objects within 7 object streams
+ 271 named destinations out of 1000 (max. 500000)
+ 105173 words of extra memory for PDF output out of 106986 (max. 10000000)
 

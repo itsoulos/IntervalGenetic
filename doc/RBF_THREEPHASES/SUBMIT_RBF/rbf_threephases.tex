@@ -38,25 +38,26 @@ University of Western Macedonia, 50100 Kozani, Greece; dtsalikakis@uowm.gr}
 \corres{Correspondence: itsoulos@uoi.gr}
 
 
-\abstract{Radial Basis Function (RBF) networks are well-established machine
-learning tools used in many practical problems that can be considered
-as classification or regression problems. A key component of these
-networks is their radial functions. These networks acquire adaptive
+\abstract{A parametric machine learning tool with many applications is the
+Radial Basis Function (RBF) network, that have been incorporated in
+various classification or regression problems. A key component of
+these networks is their radial functions. These networks acquire adaptive
 capabilities through a two-stage training technique in most cases.
-In the first stage, the centers and variances for the radial functions
-are estimated, and in the second stage, through the solution of a
-linear system, the external weights for the radial functions are adjusted.
-However, in many cases, this training technique has reduced performance
-either due to instability in arithmetic operations or due to the trapping
-in local minima of the training error. In this paper, a three-stage
-method is proposed to address the above problems. In the first stage,
-an initial estimate of the intervals for the network parameter values
-is made, in the second stage, the network parameter values are adjusted
-within the intervals of the first phase, and finally, in the third
-stage of the proposed technique, a local optimization method is used
-for the final adjustment of the network parameters. The proposed method
-was tested against some machine learning models from the related literature
-as well as the original RBF training method on a wide series of classification
+During the first stage, the parameters of the model (called centers
+and variances) are estimated, and in the second stage, that involves
+solving a linear system of equations, the external weights for the
+radial functions are adjusted. However, in many cases, this training
+technique has reduced performance either due to instability in arithmetic
+operations or due to the trapping in local minima of the training
+error. In this paper, a three-stage method is suggested in this work,
+to address the above problems. In the first stage, an initial estimate
+of the intervals for the network parameter values is made, in the
+second stage, the network parameter values are adjusted within the
+intervals of the first phase, and finally, in the third stage of the
+proposed technique, a local optimization method is used for the final
+adjustment of the network parameters. The proposed method was tested
+against some machine learning models from the related literature as
+well as the original RBF training method on a wide series of classification
 and regression datasets, found in online databases, and a comparison
 was made in terms of classification or regression error. It should
 be noted that although the proposed methodology had very good results
@@ -207,14 +208,14 @@ of the network parameters.}
 
 \section{Introduction}
 
-Many practical problems can be handled by machine learning models.
-Such problems appear in physics \citep{physics_ml1,physics_ml2},
+Many practical problems can be handled by machine learning tools.
+These problems derived from areas, such as physics \citep{physics_ml1,physics_ml2},
 astronomy \citep{astronomy_ml1,astronomy_ml2}, chemistry \citep{chemistry_ml1,chemistry_ml2},
 medicine \citep{med_ml1,med_ml2}, economics \citep{econ_ml1,econ_ml2},
 image processing \citep{nn_image}, time series forecasting \citep{nn_timeseries}
 etc. Among the most used machine learning tools, one can detect the
-Radial Basis Function (RBF) network, expressed using the following
-definition:
+Radial Basis Function (RBF) network. These networks are commonly defined
+by the following equation:
 \begin{equation}
 R\left(\overrightarrow{x}\right)=\sum_{i=1}^{k}w_{i}\phi\left(\left\Vert \overrightarrow{x}-\overrightarrow{c_{i}}\right\Vert \right)\label{eq:firstrbf}
 \end{equation}
@@ -222,18 +223,18 @@ The symbols appeared in this equation are defined as follows:
 \begin{enumerate}
 \item The vector $\overrightarrow{x}$ stands for the input pattern. The
 dimension of each pattern is denoted by $d$.
-\item The constant $k$ denotes number of processing units (weights) of
-the network. The vector $\overrightarrow{w}$ denotes these weights.
+\item The number of weights for the network are expressed through the variable
+$k$. The vector $\overrightarrow{w}$ denotes these weights.
 \item The vectors $\overrightarrow{c_{i}},\ i=1,..,k$ denote the centers
-of the network.
-\item The function $\phi(x)$ usually represents a Gaussian function with
-the following definition:\textbf{ }
+for the functions used in the network.
+\item The function $\phi(x)$ denotes a Gaussian function defined as:\textbf{
+}
 \begin{equation}
 \phi(x)=\exp\left(-\frac{\left(x-c\right)^{2}}{\sigma^{2}}\right)
 \end{equation}
 \end{enumerate}
-An example plot of this function with $c=0,\ \sigma=1$ is depicted
-in Figure \ref{fig:gaussian}. 
+An example plot for the Gaussian function with the following set of
+parameters: $c=0,\ \sigma=1$ is depicted in Figure \ref{fig:gaussian}.
 \begin{figure}[H]
 \begin{centering}
 \includegraphics{gaussian}
@@ -251,15 +252,15 @@ The set $\left(\overrightarrow{x_{i}},y_{i}\right),\ i=1,...,M$ denotes
 the training set of the objective problem and the values $y_{i}$
 are considered as the actual output for each pattern $\overrightarrow{x_{i}}$.
 
-These machine learning models have been incorporated into various
-practical problems, such as face recognition \citep{rbfface}, solutions
-of differential equations \citep{rbfde1,rbfde2}, stock prediction
-\citep{rbfstock}, robotics \citep{rbfrobotics1,rbfrobotics2}, network
-security \citep{rbf_dos1,rbf_dos2}, classification of process faults
-\citep{rbf_process}, time series prediction \citep{rbf_time}, estimation
-of wind power production \citep{rbf_wind} etc. Moreover, Park et
-al. \citep{rbf_universal} proved that an RBF network with one processing
-layer is capable of approximating any provided function.
+A magnitude of problems from the real world can be tackled using RBF
+networks, such as face recognition \citep{rbfface}, numerical problems
+\citep{rbfde1,rbfde2}, economic problems \citep{rbfstock}, robotics
+\citep{rbfrobotics1,rbfrobotics2}, network security \citep{rbf_dos1,rbf_dos2},
+classification of process faults \citep{rbf_process}, time series
+prediction \citep{rbf_time}, estimation of wind power production
+\citep{rbf_wind} etc. Moreover, Park et al. \citep{rbf_universal}
+proved that an RBF network with one processing layer can be approximate
+any given function.
 
 In this paper, the use of a three-stage technique is suggested for
 the effective training of RBF networks. In the first stage of the
@@ -278,37 +279,37 @@ but any optimization technique can be incorporated. Finally, in the
 third stage of the proposed work, a local optimization procedure is
 applied to the best solution located in the second phase. The purpose
 of the present technique is first to identify a reliable range of
-values \LyXZeroWidthSpace\LyXZeroWidthSpace for the parameters of
-RBF networks and then to train the network parameters within this
-range of values, avoiding possible arithmetic instability problems
-presented by the established method of training RBF networks.
+values for the parameters of RBF networks and then to train the network
+parameters within this range of values, avoiding possible arithmetic
+instability problems presented by the established method of training
+RBF networks.
 
 The proposed technique is the application of three distinct procedures
 in series, where in each stage the results of the previous phase are
-used. In the first phase, an initial estimate of the centers and variances
-is made using the K-Means technique. This method is preferred because
-it is extremely fast to execute and can provide an overview of the
-search space for neural networks. It is preferred over using random
-values as this would require a significantly large number of iterations
-for proper initialization of the parameters. After executing the K-Means
-technique, a range of values for the network parameters is created
-with values that are multiples of those produced by the K-Means technique.
-In this way, on the one hand, the use of the K-Means technique is
-utilized and, on the other hand, the second-phase optimization algorithm
-is given the opportunity to search for parameter values \LyXZeroWidthSpace that
-yield lower values of the error function close to the initial values
-of the first phase. A genetic algorithm is used as the optimization
-algorithm in the second phase due to its adaptability to any environment
-and their widespread use in many computational problems. However,
-any universal optimization technique could be utilized in this phase.
-However, although genetic algorithms are extremely effective methods
-of global optimization, they often do not locate exactly a true minimum
-of the objective function and therefore the help of a local minimization
-method is deemed necessary. This occurs in the third phase, where
-a local minimization method is applied to the chromosome with the
-smallest value produced in the second phase. The minimum found in
-this phase is also the final result of the algorithm, which is also
-a configuration of the parameters of the RBF network.
+used. In the first phase, an initial estimation of the centers and
+variances is performed with the method of K-Means. This method is
+preferred because it is extremely fast to execute and can provide
+an overview of the search space for neural networks. It is preferred
+over using random values as this would require a significantly large
+number of iterations for proper initialization of the parameters.
+After executing the K-Means technique, a range of values for the network
+parameters is created with values that are multiples of those produced
+by the K-Means technique. In this way, on the one hand, the use of
+the K-Means technique is utilized and, on the other hand, the second-phase
+optimization algorithm is given the opportunity to search for parameter
+values \LyXZeroWidthSpace that yield lower values of the error function
+close to the initial values of the first phase. A genetic algorithm
+is used as the optimization algorithm in the second phase due to its
+adaptability to any environment and their widespread use in many computational
+problems. However, any universal optimization technique could be utilized
+in this phase. However, although genetic algorithms are extremely
+effective methods of global optimization, they often do not locate
+exactly a true minimum of the objective function and therefore the
+help of a local minimization method is deemed necessary. This occurs
+in the third phase, where a local optimization method is applied to
+the chromosome with the smallest value produced in the second phase.
+The minimum found in this phase is also the final result of the algorithm,
+which is also a configuration of the parameters of the RBF network.
 
 The main characteristics of the present technique are that it uses
 different techniques in series in order to identify the optimal set
@@ -323,31 +324,29 @@ guaranteed local minimum of the error function. The method of the
 last phase guarantees the training of the parameters within the range
 of values of the first phase.
 
-The remaining of this article has the following organization: in section
-\ref{sec:Materials-and-Methods} the suggested method and the accompanied
-genetic algorithm are introduced, in section \ref{sec:Results} the
-datasets used in the experiments as well the experimental results
-are shown and discussed and finally in section \ref{sec:Conclusions}
-some conclusions are presented.
+The remaining of this manuscript has the following structure: Section
+\ref{sec:Materials-and-Methods} discusses the used method and presents
+the associated algorithms, section \ref{sec:Results} presents the
+datasets used in the conducted experiments as well as the experimental
+results and finally \ref{sec:Conclusions} presents some conclusions.
 
 \section{Materials and Methods\label{sec:Materials-and-Methods}}
 
-The three distinct phases of the proposed method are presented in
-detail in this section. The discussion initiates with the first phase,
-where the construction of the ranges for the parameter values is performed
-using the K-means algorithm. Subsequently, the steps of the used Genetic
-Algorithm are presented in detail and finally, this section concludes
-with the description of the final phase, where a local optimization
-method is applied to the best located chromosome of the second phase.
-Also, a detailed description of the used datasets is provided in this
-section.
+The three distinct phases of the proposed method are discussed here.
+The discussion initiates with the first phase, where the construction
+of the ranges for the parameter values is performed using the K-means
+algorithm. Subsequently, the steps of the used Genetic Algorithm are
+presented in detail and finally, this section concludes with the description
+of the final phase, where a local optimization method is applied to
+the best located chromosome of the second phase. Also, the description
+of the used datasets is provided in this section in table format.
 
 \subsection{Related work}
 
-A number of techniques have been proposed in recent years for the
-efficient training of neural networks and the efficient adaptation
-of parameters. Among them, one can find methods that handle the \textbf{i}nitialization
-of the parameters of RBF networks \citep{rbfinit1,rbfinit2,rbfinit3}.
+A number of techniques have been published during the past years for
+the efficient training of neural networks and the efficient adaptation
+of parameters. Among them, one can find methods aimed to efficient
+initialize the parameters of RBF networks \citep{rbfinit1,rbfinit2,rbfinit3}.
 Moreover, Benoudjit et al. provided a discussion on the estimation
 of kernel widths in these models \citep{rbfkernel}. Additionally,
 a series of pruning techniques \citep{rbfprun1,rbfprun2,rbfprun3}
@@ -370,7 +369,7 @@ a differential search mechanism for efficient RBF network training
 novel method for RBF training using variable projection and fuzzy
 means \citep{rbf_variable_projection}.
 
-\subsection{The first phase of the proposed method }
+\subsection{The description of the first phase}
 
 The method of K-means, used widely in machine learning, is incorporated
 in the first phase for the location of the ranges for the centers
@@ -386,7 +385,7 @@ in Algorithm \ref{alg:The-K-Means-algorithm.}. A graphical rerpesentation
 is provided in Figure \ref{fig:kmeans}.
 
 \begin{algorithm}[H]
-\caption{The main steps of the K-means algorithm.\label{alg:The-K-Means-algorithm.}}
+\caption{A detailed description of K-means algorithm.\label{alg:The-K-Means-algorithm.}}
 
 \begin{enumerate}
 \item \textbf{Input: }The set of patterns of the objective problem\textbf{
@@ -396,7 +395,7 @@ $\left(\overrightarrow{x_{i}}\right),\ i=1,...,M$}
 and the quantities $\sigma_{i},\ i=1,\ldots,k$
 \item \textbf{Set} $S_{j}=\left\{ \right\} ,\ j=1..k$, as the sets of samples
 belonging to the same group.
-\item \textbf{For} each pattern $x_{i},\ i=1,...,M$ \textbf{do\label{enu:For-every-pattern}}
+\item \textbf{For} every pattern $x_{i},\ i=1,...,M$ \textbf{do\label{enu:For-every-pattern}}
 \begin{enumerate}
 \item \textbf{Set} $j^{*}=\min_{i=1}^{k}\left\{ D\left(x_{i},c_{j}\right)\right\} $.
 \item \textbf{Set} $S_{j^{*}}=S_{j^{*}}\cup\left\{ x_{i}\right\} $.
@@ -404,8 +403,8 @@ belonging to the same group.
 \item \textbf{EndFor}
 \item \textbf{For} each center $c_{j},\ j=1..k$ \textbf{do}
 \begin{enumerate}
-\item \textbf{Calculate} as $M_{j}$ the number of points belonging to the
-group $S_{j}$
+\item \textbf{Denote} with $M_{j}$ the total number of patterns that have
+been assigned to cluster $S_{j}$
 \item \textbf{Compute }$c_{j}$ as
 \[
 c_{j}=\frac{1}{M_{j}}\sum_{i=1}^{M_{j}}x_{i}
@@ -416,8 +415,8 @@ c_{j}=\frac{1}{M_{j}}\sum_{i=1}^{M_{j}}x_{i}
 \[
 \sigma_{j}^{2}=\frac{\sum_{i=1}^{M_{j}}\left(x_{i}-c_{j}\right)^{2}}{M_{j}}
 \]
-\item \textbf{Terminate }the algorithm when there is no further changes
-in centers $c_{j}$.
+\item The algorithm \textbf{terminates} when there are no changes in the
+estimated centers $c_{j}$.
 \item \textbf{Go to} step \ref{enu:For-every-pattern}.
 \end{enumerate}
 \end{algorithm}
@@ -436,55 +435,48 @@ as:
 \begin{equation}
 n=(d+2)\times k\label{eq:bound_dimension}
 \end{equation}
-For the calculation of the bound vectors the procedure presented in
-Algorithm \ref{alg:initialValues} is utilized.
 
-\begin{algorithm}[H]
-\caption{Algorithm used to obtain the bound vectors $\protect\overrightarrow{L},\ \protect\overrightarrow{R}$
-\label{alg:initialValues}}
+The algorithm shown graphically in Figure \ref{fig:The-bound-construction}
+describes a procedure for computing safe parameter bounds informed
+by K-means. The process begins by preparing the inputs the cluster
+centroids and spreads, a positive initial bound for the weights, and
+a scaling factor $F\ge1$ aiming to produce the lower and upper bound
+vectors $L$ and $R$. For each group and for each of its features,
+symmetric bounds around zero are computed as $F$ times the corresponding
+centroid coordinate (i.e., $L_{m}=-F\times c_{ij},\ R_{m}=F\times c_{ij}$).
+After completing a group’s features, a complementary step computes
+bounds based on that group’s spread, using $F\times\sigma_{i}$ (i.e.,
+$L_{m}=-F\times\sigma_{i},\ R_{m}=F\times\sigma_{i}$). In this way,
+every group receives a complete, consistent specification through
+two contributions: one driven by feature centroids and one capturing
+group extent. Once all groups have been processed, initial bounds
+for the combining weights are assigned using a fixed symmetric limit
+$B_{w}$ (i.e., $L_{m}=-B_{w},\ R_{m}=B_{w}$). Finally, all computed
+limits are assembled into L and R, ready for training, estimation,
+or validity checks. The overall logic is hierarchical and layered:
+leveraging centroid information, incorporating spread, and bounding
+the weights, with clear and reproducible steps throughout the flow.
 
-\begin{enumerate}
-\item \textbf{Input:} The vectors $\overrightarrow{c_{i}},\ i=1,..,k$ and
-the quantities $\sigma_{i},\ i=1,\ldots,k$ of the K-means procedure.
-\item \textbf{Input}: the initial bound for the weight vector $\overrightarrow{w}$,
-denoted as $B_{w}>0$.
-\item \textbf{Input}: the scaling factor $F\ge1$.
-\item \textbf{Output:} the vectors $\overrightarrow{L},\ \overrightarrow{R}$.
-\item \textbf{Set} $m=0$
-\item \textbf{For} $i=1..k$ \textbf{do}
-\begin{enumerate}
-\item \textbf{For} $j=1..d$ \textbf{do}
-\begin{enumerate}
-\item \textbf{Set} $L_{m}$=$-F\times c_{ij}$, $R_{m}$=$F\times c_{ij}$
-\item \textbf{Set} $m=m+1$
-\end{enumerate}
-\item \textbf{EndFor}
-\item \textbf{Set} $L_{m}=-F\times\sigma_{i}$, $R_{m}=F\times\sigma_{i}$
-\item \textbf{Set} $m=m+1$
-\end{enumerate}
-\item \textbf{EndFor}
-\item \textbf{For} $j=1,...,k$ \textbf{do}
-\begin{enumerate}
-\item \textbf{Set} $L_{m}=-B_{w},\ R_{m}=B_{w}$
-\item \textbf{Set} $m=m+1$
-\end{enumerate}
-\item \textbf{EndFor}
-\end{enumerate}
-\end{algorithm}
+\begin{figure}[H]
+\includegraphics[scale=0.5]{flowchart2}
+
+\caption{The bound construction algorithm.\label{fig:The-bound-construction}}
+
+\end{figure}
 
 
-\subsection{The second phase of the proposed method }
+\subsection{The description for the second phase}
 
 During the second phase, an optimization procedure is utilized to
 minimize the equation \ref{eq:RbfError} inside the bound vectors
-$\overrightarrow{L},\ \overrightarrow{R}$ of the first phase. In
+$\overrightarrow{L},\ \overrightarrow{R}$ of the previous phase.In
 the proposed implementation, the Genetic Algorithm was incorporated
 during the second phase. Genetic algorithms are evolutionary methods
 that are based on randomly produced solutions of the objective problem.
 The trial solutions of the genetic algorithm are commonly called chromosomes,
-and they are evolved through some operations that mimic some natural
-processes, such as selection, crossover and mutation. Genetic algorithms
-have been used in a wide series of problems, such as energy problems
+and they are evolved through some operations that are similar to natural
+processes, such as selection, crossover and mutation. They have been
+incorporated in a wide series of problems, such as energy problems
 \citep{gen_app1}, water distribution \citep{gen_app2}, problems
 appearing in banking transactions \citep{gen_app3}, optimization
 of neural networks \citep{gen_app4} etc. Also, another advantage
@@ -513,22 +505,24 @@ The steps of algorithm used in the second phase are the following:
 \begin{enumerate}
 \item \textbf{Initialization step}. 
 \begin{enumerate}
-\item \textbf{Set} the parameters of the genetic algorithm: $N_{c}$ the
-number of chromosomes, $N_{g}$ as the maximum number of allowed generations,
-$p_{s}$ the selection rate and $p_{m}$ the mutation rate.
-\item \textbf{Initialize} every chromosome $g_{i},\ i=1,\ldots,N_{c}$ of
-the population as vector of double numbers. The layout of each chromosome
-follows the scheme of Figure \ref{fig:The-layout-of} and the initialization
-is performed inside the bound vectors $\overrightarrow{L},\ \overrightarrow{R}$.
+\item The following set of parameter are\textbf{ initialized:} $N_{c}$
+for the number of chromosomes, $N_{g}$ used to express the maximum
+number of allowed generations, $p_{s}$ that defines the selection
+rate and finally $p_{m}$ which is used to represent the mutation
+rate.
+\item \textbf{Perform} the initialization of each chromosome $g_{i},\ i=1,\ldots,N_{c}$
+in the population. Each chromosome is considered as a set of randomly
+selected integers following the scheme of Figure \ref{fig:The-layout-of}
+and the initialization is performed inside the bound vectors $\overrightarrow{L},\ \overrightarrow{R}$.
 \item \textbf{Set} $k=0$. This variable denotes the number of generations.
 \end{enumerate}
 \item \textbf{Fitness calculation step}.
 \begin{enumerate}
 \item \textbf{For} $i=1,\ldots,N_{c}$ \textbf{do}
 \begin{enumerate}
-\item \textbf{Produce }an RBF network $R_{i}=R\left(\overrightarrow{x},\overrightarrow{g_{i}}\right)$
-using the parameters encoded in the chromosome $\overrightarrow{g_{i}}.$
-\item \textbf{Estimate} the related fitness value $f_{i}$ as\textbf{
+\item \textbf{Produce }an RBF network $R_{i}=R\left(\overrightarrow{x},\overrightarrow{g_{i}}\right).$
+The parameters of this network are stored in the chromosome $\overrightarrow{g_{i}}.$
+\item \textbf{Estimate} the related fitness $f_{i}$ as\textbf{
 \begin{equation}
 f_{i}=\sum_{j=1}^{M}\left(R\left(\overrightarrow{x}_{j},\overrightarrow{g_{i}}\right)-y_{j}\right)^{2}\label{eq:eq1-1}
 \end{equation}
@@ -538,7 +532,7 @@ f_{i}=\sum_{j=1}^{M}\left(R\left(\overrightarrow{x}_{j},\overrightarrow{g_{i}}\r
 \end{enumerate}
 \item \textbf{Genetic operations step}.
 \begin{enumerate}
-\item Selection procedure: During this procedure the chromosomes are sorted
+\item Selection procedure: Initially a sorting of all chromosomes is performed
 according to their fitness values. The first $p_{s}\times N_{c}$
 of them are transferred without any change to the next generation.\textbf{
 }The remaining chromosomes will be substituted by offrpsings produced
@@ -552,11 +546,12 @@ following the scheme:
 \tilde{z_{i}} & = & a_{i}z_{i}+\left(1-a_{i}\right)w_{i}\nonumber \\
 \tilde{w_{i}} & = & a_{i}w_{i}+\left(1-a_{i}\right)z_{i}\label{eq:crossover_ali-1}
 \end{eqnarray}
-Where the numbers $a_{i}$ are random numbers having the property
-$a_{i}\in[-0.5,1.5]$ \citep{kaelo}. 
-\item Mutation procedure: Select a random number $r\in[0,1]$ for each element
-$t_{j},j=1,\ldots,n$ of every chromosome $g_{i}$ . If $r\le p_{m}$
-, then this element is altered according to the following scheme:
+where $a_{i}$ are random numbers and the following holds: $a_{i}\in[-0.5,1.5]$
+\citep{kaelo}. 
+\item Mutation procedure: A random number $r\in[0,1]$ is picked for each
+element $t_{j},j=1,\ldots,n$ and for every chromosome $g_{i}$ .
+If $r\le p_{m}$ , then this element is altered according to the following
+equation:
 \begin{equation}
 t'_{j}=\begin{cases}
 t_{j}+\Delta\left(k,R_{j}-t_{j}\right), & t=0\\
@@ -578,16 +573,16 @@ of this algorithm.
 \end{enumerate}
 \end{enumerate}
 
-\subsection{The final phase of the proposed method}
+\subsection{The steps of the third phase}
 
-In the final phase of the proposed method, a local optimization procedure
+In the third phase of the proposed method, a local optimization procedure
 is applied to the outcome of the previous phase, in order to locate
 an actual minimum for the training error of the RBF network. In this
 work, a BFGS variant of Powell \citep{powell} was utilized as the
-local search procedure. This variant can preserve the bounds of the
-objective function in an efficient way. During the past years. a series
-of modifications to the BFGS method have been introduced, such as
-the limited memory variant L-BFGS ideal for large scale problems \citep{lbfgs}
+local search procedure. This variant can preserve the bounds located
+previously in an efficient way. During the past years a series of
+modifications to the BFGS method have been introduced, such as the
+limited memory variant L-BFGS ideal for large scale problems \citep{lbfgs}
 or the Regularized Stochastic BFGS Algorithm \citep{resbfgs}. Also,
 Dai published an article on the convergence properties of the BFGS
 method \citep{conbfgs}. The main steps of the final phase of the
@@ -595,11 +590,12 @@ algorithm are:
 \begin{enumerate}
 \item \textbf{Get} the best chromosome $\overrightarrow{g^{*}}$ of the
 previous phase.
-\item \textbf{Produce} the corresponding RBF network $R^{*}=R\left(\overrightarrow{x},\overrightarrow{g^{*}}\right)$.
+\item \textbf{Produce} the RBF network that corresponds to this chromosome
+and denoted as $R^{*}=R\left(\overrightarrow{x},\overrightarrow{g^{*}}\right)$.
 \item \textbf{Minimize} the training error of the network $R^{*}$ using
 the local search procedure of this phase.
-\item \textbf{Apply} the final model to the test set and obtain the corresponding
-test error.
+\item The final model is \textbf{applied} to the test set and the corresponding
+test error is calculated and reported.
 \end{enumerate}
 A summary flow chart showing the sequence of the various phases of
 the proposed work is presented in Figure \ref{fig:summary}.
@@ -618,191 +614,177 @@ the proposed work is presented in Figure \ref{fig:summary}.
 The proposed method was tested on a wide series of classification
 and regression problems, that can be downloaded UCI database \citep{uci},
 the KEEL database \citep{Keel} and the STATLIB database \citep{statlib}.
-The following classification datasets were used in the experiments:
-\begin{enumerate}
-\item \textbf{Appendictis, }which is used for medical purposes \citep{appendicitis}. 
-\item \textbf{Alcohol}, a dataset related to alcohol consumption \citep{alcohol}. 
-\item \textbf{Australian}, a dataset related to economics \citep{australian}.
-\item \textbf{Balance} dataset \citep{balance}, that contains measurements
-from various psychological experiments.
-\item \textbf{Cleveland}, a medical dataset which was discussed in a series
-of papers \citep{cleveland1,cleveland2}. 
-\item \textbf{Circular} dataset, which is an artificial dataset.
-\item \textbf{Dermatology}, regarding some dermatology problems \citep{dermatology}.
-\item \textbf{Ecoli}, regarding some protein problems \citep{ecoli}.
-\item \textbf{Hayes-roth} dataset \citep{hayes-roth}.
-\item \textbf{Heart}, a medical dataset used to detect some heart diseases
-\citep{heart}.
-\item \textbf{HeartAttack}, a medical dataset related to the presence of
-heart diseases \citep{heartAttack}.
-\item \textbf{Housevotes}, a dataset that contains data from voting in the
-Congressional of USA \citep{housevotes}.
-\item \textbf{Ionosphere}, a dataset related to the ionosphere \citep{ion1,ion2}.
-\item \textbf{Liverdisorder}, a medical dataset \citep{liver,liver1}.
-\item \textbf{Lymography} \citep{lymography}.
-\item \textbf{Mammographic}, which is related to the prediction of breast
-cancer \citep{mammographic}.
-\item \textbf{Parkinsons}, used for the detection of Parkinson's disease
-\citep{parkinsons1,parkinsons2}.
-\item \textbf{Pima}, a medical dataset regarding diabetes\citep{pima}.
-\item \textbf{Popfailures}, a dataset that contains data from climate experiments
-\citep{popfailures}.
-\item \textbf{Regions2}, a medical dataset related to the detection of liver
-problems \citep{regions2}.
-\item \textbf{Saheart}, a medical dataset related to the detection of heart
-diseases\citep{saheart}.
-\item \textbf{Segment} dataset \citep{segment}.
-\item \textbf{Statheart}, a medical dataset related to the presence of heart
-diseases.
-\item \textbf{Spiral}, an artificial dataset with two classes.
-\item \textbf{Student}, a dataset that contains data from experiments in
-schools \citep{student}.
-\item \textbf{Transfusion} \citep{transfusion}.
-\item \textbf{Wdbc}, regarding the detection of breast cancer \citep{wdbc1,wdbc2}.
-\item \textbf{Wine}, a dataset regarding measurements about wines \citep{wine1,wine2}.
-\item \textbf{EEG}, which is contains some EEG recordings \citep{eeg1,eeg2}.
-The following cases were used from this dataset: Z\_F\_S, ZO\_NF\_S,
-ZONF\_S and Z\_O\_N\_F\_S.
-\item \textbf{Zoo}, used for the classification of animals \citep{zoo}
-.
-\end{enumerate}
-The number of patterns and classes for each classification dataset
-are shown in Table \ref{tab:classData}.
+The classification datasets used in the experiments accompanied with
+their information (patterns and number of classes) are presented in
+Table \ref{tab:classData}.
+
 \begin{table}[H]
 \caption{The column DATASET represents the name of the dataset. The column
-Patterns stands for the number of patterns in the dataset and the
-column Number of Classes represents the number of distinct classes
-in the mentioned dataset.\label{tab:classData}}
+entitled Reference Paper denotes the paper, where this dataset was
+mentioned. The column Patterns stands for the number of patterns in
+the dataset and the column Number of Classes represents the number
+of distinct classes in the mentioned dataset.\label{tab:classData}}
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|}
+\hline 
+DATASET & Reference paper & Patterns & Number of Classes\tabularnewline
+\hline 
+\hline 
+APPENDICITIS & \citep{appendicitis} & 106 & 2\tabularnewline
+\hline 
+ALCOHOL & \citep{alcohol} & 476 & 4\tabularnewline
+\hline 
+AUSTRALIAN & \citep{australian} & 690 & 2\tabularnewline
+\hline 
+BALANCE & \citep{balance} & 625 & 3\tabularnewline
+\hline 
+CLEVELAND & \citep{cleveland1,cleveland2} & 297 & 5\tabularnewline
+\hline 
+CIRCULAR & \citep{fcgen} & 500 & 2\tabularnewline
+\hline 
+DERMATOLOGY & \citep{dermatology} & 368 & 6\tabularnewline
+\hline 
+ECOLI & \citep{ecoli} & 336 & 8\tabularnewline
+\hline 
+HAYES ROTH & \citep{hayes-roth} & 132 & 3\tabularnewline
+\hline 
+HEART & \citep{heart} & 270 & 2\tabularnewline
+\hline 
+HEARTATTACK & \citep{heartAttack} & 303 & 2\tabularnewline
+\hline 
+HOUSEVOTES & \citep{housevotes} & 232 & 2\tabularnewline
+\hline 
+IONOSPHERE & \citep{ion1,ion2} & 351 & 2\tabularnewline
+\hline 
+LIVERDISORDER & \citep{liver,liver1} & 345 & 2\tabularnewline
+\hline 
+LYMOGRAPHY & \citep{lymography} & 148 & 4\tabularnewline
+\hline 
+MAMMOGRAPHIC & \citep{mammographic} & 830 & 2\tabularnewline
+\hline 
+PARKINSONS & \citep{parkinsons1,parkinsons2} & 195 & 2\tabularnewline
+\hline 
+PIMA & \citep{pima} & 768 & 2\tabularnewline
+\hline 
+POPFAILURES & \citep{popfailures} & 540 & 2\tabularnewline
+\hline 
+REGIONS2 & \citep{regions2} & 622 & 5\tabularnewline
+\hline 
+SAHEART & \citep{saheart} & 462 & 2\tabularnewline
+\hline 
+SEGMENT & \citep{segment} & 2300 & 7\tabularnewline
+\hline 
+SPIRAL & \citep{fcgen} & 2000 & 2\tabularnewline
+\hline 
+STATHEART & \citep{statheart} & 270 & 2\tabularnewline
+\hline 
+STUDENT & \citep{student} & 403 & 2\tabularnewline
+\hline 
+TRANSFUSION & \citep{transfusion} & 748 & 2\tabularnewline
+\hline 
+WDBC & \citep{wdbc1,wdbc2} & 569 & 2\tabularnewline
+\hline 
+WINE & \citep{wine1,wine2} & 179 & 3\tabularnewline
+\hline 
+Z\_F\_S & \citep{eeg1,eeg2} & 300 & 3\tabularnewline
+\hline 
+Z\_O\_N\_F\_S & \citep{eeg1,eeg2} & 500 & 5\tabularnewline
+\hline 
+ZO\_NF\_S & \citep{eeg1,eeg2} & 500 & 3\tabularnewline
+\hline 
+ZONF\_S & \citep{eeg1,eeg2} & 500 & 2\tabularnewline
+\hline 
+ZOO & \citep{zoo} & 101 & 7\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+Also, table \ref{tab:regressionDatasets} presents the used regression
+datasets that was incorporated in the conducted experiments.
+
+\begin{table}[H]
+
+\caption{The list of regression datasets.\label{tab:regressionDatasets}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|}
 \hline 
-DATASET & Patterns & Number of Classes\tabularnewline
+DATASET & Reference paper & Patterns\tabularnewline
 \hline 
 \hline 
-ALCOHOL & 476 & 4\tabularnewline
+ABALONE & \citep{abalone} & 4177\tabularnewline
 \hline 
-APPENDICITIS & 106 & 2\tabularnewline
+AIRFOIL & \citep{airfoil} & 1483\tabularnewline
 \hline 
-AUSTRALIAN & 690 & 2\tabularnewline
+AUTO & \citep{auto_dataset} & 392\tabularnewline
 \hline 
-BALANCE & 625 & 3\tabularnewline
+BK & \citep{fcgen} & 96\tabularnewline
 \hline 
-CLEVELAND & 297 & 5\tabularnewline
+BL & \citep{fcgen} & 43\tabularnewline
 \hline 
-CIRCULAR & 500 & 2\tabularnewline
+BASEBALL & \citep{Keel} & 337\tabularnewline
 \hline 
-DERMATOLOGY & 368 & 6\tabularnewline
+CONCRETE & \citep{concrete} & 1030\tabularnewline
 \hline 
-ECOLI & 336 & 8\tabularnewline
+DEE & \citep{Keel} & 365\tabularnewline
 \hline 
-HEARTATTACK & 303 & 2\tabularnewline
+FA & \citep{statlib} & 252\tabularnewline
 \hline 
-HAYES ROTH & 132 & 3\tabularnewline
+FRIEDMAN & \citep{friedman} & 1200\tabularnewline
 \hline 
-HEART & 270 & 2\tabularnewline
+FY & \citep{statlib} & 125\tabularnewline
 \hline 
-HOUSEVOTES & 232 & 2\tabularnewline
+HO & \citep{statlib} & 506\tabularnewline
 \hline 
-IONOSPHERE & 351 & 2\tabularnewline
+HOUSING & \citep{housing} & 506\tabularnewline
 \hline 
-LIVERDISORDER & 345 & 2\tabularnewline
+LASER & \citep{uci} & 993\tabularnewline
 \hline 
-LYMOGRAPHY & 148 & 4\tabularnewline
+LW & \citep{statlib} & 189\tabularnewline
 \hline 
-MAMMOGRAPHIC & 830 & 2\tabularnewline
+MORTGAGE & \citep{Keel} & 1049\tabularnewline
 \hline 
-PARKINSONS & 195 & 2\tabularnewline
+PL & \citep{statlib} & 1650\tabularnewline
 \hline 
-PIMA & 768 & 2\tabularnewline
+PLASTIC & \citep{uci} & 1670\tabularnewline
 \hline 
-POPFAILURES & 540 & 2\tabularnewline
+QUAKE & \citep{uci} & 2178\tabularnewline
 \hline 
-SPIRAL & 2000 & 2\tabularnewline
+SN & \citep{statlib} & 576\tabularnewline
 \hline 
-REGIONS2 & 622 & 5\tabularnewline
+STOCK & \citep{Keel} & 950\tabularnewline
 \hline 
-SAHEART & 462 & 2\tabularnewline
-\hline 
-SEGMENT & 2300 & 7\tabularnewline
-\hline 
-STATHEART & 270 & 2\tabularnewline
-\hline 
-STUDENT & 403 & 2\tabularnewline
-\hline 
-TRANSFUSION & 748 & 2\tabularnewline
-\hline 
-WDBC & 569 & 2\tabularnewline
-\hline 
-WINE & 179 & 3\tabularnewline
-\hline 
-Z\_F\_S & 300 & 3\tabularnewline
-\hline 
-Z\_O\_N\_F\_S & 500 & 5\tabularnewline
-\hline 
-ZO\_NF\_S & 500 & 3\tabularnewline
-\hline 
-ZONF\_S & 500 & 2\tabularnewline
-\hline 
-ZOO & 101 & 7\tabularnewline
+TREASURY & \citep{Keel} & 1049\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
-Also, the following regression datasets were used:
-\begin{enumerate}
-\item \textbf{Abalone}, a dataset related to the age of abalones \citep{abalone}.
-\item \textbf{Airfoil}, a dataset provided by NASA \citep{airfoil}.
-\item \textbf{Auto}, a dataset used to calculate the fuel consumption in
-cars \citep{auto_dataset}.
-\item \textbf{BK}, used for the prediction of points scored in some basketball
-games. 
-\item \textbf{BL}, a dataset that includes data from various electricity
-experiments.
-\item \textbf{Baseball}, used to estimate the income of baseball players.
-\item \textbf{Concrete}, a dataset used in civil engineering \citep{concrete}.
-\item \textbf{DEE}, a dataset used for the calculation of the price of electricity.
-\item \textbf{FA} dataset, related to fat measurements. 
-\item \textbf{Friedman}\citep{friedman}.
-\item \textbf{FY, }regarding some fruit flies. 
-\item \textbf{HO}, a dataset obtained from the STATLIB repository.
-\item \textbf{Housing}, used to predict the price of houses \citep{housing}.
-\item \textbf{Laser}, a dataset that contains measurements from various
-physics experiments.
-\item \textbf{LW}, a dataset regarding the weight of babes.
-\item \textbf{Mortgage}, an economics dataset.
-\item \textbf{PL}, a dataset obtained from the STALIB repository.
-\item \textbf{Plastic}, a dataset regarding some problems in plastics.
-\item \textbf{Quake}, a dataset regarding the measurements of earthquakes.
-\item \textbf{SN}, a dataset related to trellising and pruning.
-\item \textbf{Stock}, which is a dataset regarding stocks.
-\item \textbf{Treasury}, an economics dataset.
-\end{enumerate}
+
 
 \section{Results\label{sec:Results}}
 
 \subsection{Experimental results }
 
-All the experiments were executed on a Debian Linux system with 128GB
-of RAM. The programming language used was C++ and for the optimization
-method, the OPTIMUS optimization environment \citep{optimus} available
-from \url{https://github.com/itsoulos/GlobalOptimus.git} (accessed
-on 20 September 2025) was incorporated. The results were validated
-using the ten - fold cross validation technique. For the classification
-datasets, the average classification error, calculated on the corresponding
-test set, is reported. This quantity is expressed using the following
-equation:
+The computation environment for the experiments was a Debian Linux
+system equipped with 128GB of RAM and all the necessary code was written
+in the C++ programming language. Also, the OPTIMUS OPTIMUS optimization
+environment \citep{optimus} available from \url{https://github.com/itsoulos/GlobalOptimus.git}
+(accessed on 9 October 2025) was used for the optimization methods.
+The validation of the experiments was performed using the ten - fold
+cross validation technique. For the classification datasets, the average
+classification error, calculated on the corresponding test set, is
+reported. This quantity is expressed using the following equation:
 \begin{equation}
 E_{C}\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=100\times\frac{\sum_{i=1}^{N}\left(\mbox{class}\left(N\left(\overrightarrow{x_{i}},\overrightarrow{w}\right)\right)-y_{i}\right)}{N}
 \end{equation}
-Where the set $T$ denotes the related test set and it is defined
-as $T=\left(x_{i},y_{i}\right),\ i=1,\ldots,N$. Similarly, for the
-regression datasets, the average regression is reported which is calculated
-as follows:
+The set $T$ represents the associated test set, where $T=\left(x_{i},y_{i}\right),\ i=1,\ldots,N$.
+Similarly, for the regression datasets, the average regression error
+is defined as follows:
 \begin{equation}
 E_{R}\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=\frac{\sum_{i=1}^{N}\left(N\left(\overrightarrow{x_{i}},\overrightarrow{w}\right)-y_{i}\right)^{2}}{N}
 \end{equation}
 Table \ref{tab:settings} contains the values for each parameter of
-the proposed method. 
+the current method. 
 \begin{table}[H]
 \caption{The values for each parameter of the proposed method.\label{tab:settings}}
 
@@ -828,42 +810,42 @@ $p_{m}$ & Mutation rate & $0.05$\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
- In the experimental tables the following notation is used:
+ In tables that contain the experimental results, the following notation
+is used:
 \begin{enumerate}
-\item The column DATASET denotes the name of the used dataset.
-\item The column BFGS represents the incorporation of the BFGS procedure
-\citep{bfgs} for the training of an artificial neural network \citep{nn1,nn2}
-with 10 weights.
-\item The column ADAM denotes the incorporation of the Adam optimization
-method \citep{Adam,AdamNN} for the training of a neural network with
-10 hidden nodes.
-\item The column RBF-KMEANS is used to denoted the original training method
-of RBF networks.
+\item The column DATASET is used to represent the name of the used dataset.
+\item The results from the incorporation of the BFGS procedure \citep{bfgs}
+to train an artificial neural network \citep{nn1,nn2} with 10 weights
+are presented in column under the title BFGS.
+\item The results from the usage of the ADAM optimization method \citep{Adam,AdamNN}
+to train an artificial neural network with 10 weights are presented
+in the column ADAM.
+\item The column RBF-KMEANS denotes the incorporation of the original training
+method of RBF networks to train an RBF network with 10 nodes.
 \item The column NEAT (NeuroEvolution of Augmenting Topologies) \citep{neat}
 stands for the method NEAT incorporated in the training of neural
 networks.
 \item The column DNN stands for the incorporation of a deep neural network
 as implemented in the Tiny Dnn library, that can be downloaded freely
-from \url{https://github.com/tiny-dnn/tiny-dnn}(accessed on 20 September
-2025). The implemented network was trained with the AdaGrad optimizer
-\citep{adagrad}.
+from \url{https://github.com/tiny-dnn/tiny-dnn}(accessed on 9 October
+2025). The network was trained with the AdaGrad optimizer \citep{adagrad}.
 \item The column BAYES stands for the usage of the Bayesian optimizer as
-implemented in the freely available library BayesOpt \citep{bayesopt}
-for the training of a neural network with $H=10$ processing nodes.
-The code can be downloaded from \url{https://github.com/rmcantin/bayesopt}
-(accessed on 20 September 2025).
+implemented in the freely available library BayesOpt \citep{bayesopt},
+used to train a neural network with 10 processing nodes. The code
+is available from \url{https://github.com/rmcantin/bayesopt} (accessed
+on 9 October 2025).
 \item The column GENRBF stands method introduced in \citep{rbf_gen1} for
 RBF training.
-\item The column PROPOSED represents the results obtained by the current
-work.
-\item The row average stands for the average regression or classification
+\item The column PROPOSED is used to represent the results obtained by the
+current work.
+\item The row average is used to hold the average regression or classification
 error for all datasets.
 \item The bold notation is used in all experimental tables to indicate the
 machine learning method with the lowest classification or rergression
 error.
 \end{enumerate}
 \begin{table}[H]
-\caption{Experimental results for the classification datasets with the machine
+\caption{Experimental results on the classification datasets with the machine
 learning methods mentioned in this section.\label{tab:expClass}}
 
 \centering{}{\footnotesize{}%
@@ -978,8 +960,9 @@ practical use as a default choice for classification.
 \begin{figure}[H]
 \includegraphics[scale=0.75]{stat1}
 
-\caption{Statistical comparison of results obtained in the classification datasets
-using a series of machine learning methods.\label{fig:statClass}}
+\caption{Statistical tests on the experimental results on the classification
+datasets, using the machine learning methods mentioned in the current
+article.\label{fig:statClass}}
 \end{figure}
 
 \begin{sidewaystable}[H]
@@ -1127,8 +1110,8 @@ ZOO & 0.804 & 0.809 & 0.875 & 0.878\tabularnewline
 the proposed method.\label{tab:Precision-and-recall}}
 \end{table}
 \begin{table}[H]
-\caption{Experimental results for the regression datasets with the application
-of the mentioned machine learning techniques. \label{tab:expRegression}}
+\caption{Experimental results on the regression datasets, using the machine
+learning methods mentioned in the this work.\label{tab:expRegression}}
 
 \centering{}{\footnotesize{}%
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -1220,8 +1203,8 @@ considered.
 \begin{figure}[H]
 \includegraphics[scale=0.75]{stat2}
 
-\caption{Statistical comparison of the obtained results in the regression datasets
-using a variety of machine learning methods.\label{fig:statRegression}}
+\caption{Statistical comparison on the results obtained from the application
+of the set of machine learning methods to the regression datasets.\label{fig:statRegression}}
 \end{figure}
 
 \begin{sidewaystable}[H]
@@ -1287,8 +1270,8 @@ all comparisons.
 
 \subsection{Experiments with different values of scale factor $F$ }
 
-In order to evaluate the stability and reliability of the proposed
-method when its critical parameters change, a series of additional
+In order to evaluate the stability and reliability of the current
+work when its critical parameters are altered, a series of additional
 experiments were executed. In one of them, the stability of the technique
 was studied with the change of the scale factor $F$. This factor
 controls the width of the value interval for the network parameters
@@ -1323,9 +1306,9 @@ role in the stability and accuracy of the model, and that intermediate
 values such as 4 constitute a good general choice.
 
 \begin{table}[H]
-\caption{Experimental results on the classification datasets where the proposed
-method was applied and the critical parameter $F$ was altered from
-$F=1$ to $F=8$.\label{tab:expClassF}}
+\caption{Results from the application of the proposed method to the classification
+datasets, where the critical parameter $F$ was altered from $F=1$
+to $F=8$.\label{tab:expClassF}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|}
@@ -1506,9 +1489,9 @@ significant improvements.
 \begin{figure}[H]
 \includegraphics[scale=0.75]{stat3}
 
-\caption{Statistical comparison for the experimental results on the classification
-datasets using the proposed method and a variety of values for the
-scale parameter $F$.\label{fig:statClassF}}
+\caption{Statistical tests on the results obtained by the application of the
+suggested work to the classification datasets, where the parameter
+$F$ was altered.\label{fig:statClassF}}
 
 \end{figure}
 In Figure \ref{fig:statRegressionF}, the significance levels are
@@ -1524,9 +1507,9 @@ model remains stable regardless of the specific setting of this parameter.
 \begin{figure}[H]
 \includegraphics[scale=0.75]{stat4}
 
-\caption{Statistical comparison for the experimental results on the regression
-datasets using the proposed method and a variety of values for the
-scale parameter $F$.\label{fig:statRegressionF}}
+\caption{Statistical tests on the results obtained by the application of the
+proposed method to the regression datasets, where the scale parameter
+$F$ was altered.\label{fig:statRegressionF}}
 \end{figure}
 
 
@@ -1581,9 +1564,9 @@ lags slightly. The average differences are modest, but for certain
 problems the choice can significantly impact final performance.
 
 \begin{table}[H]
-\caption{Experimental results on the classification datasets, where the proposed
-method was applied using different mechanisms for the calculation
-of the quantities $\sigma$ used in the radial functions.\label{tab:expClassSigma}}
+\caption{Experiments on the classification datasets using the proposed method
+and different mechanisms for the calculation of the quantities $\sigma$
+used in the radial functions.\label{tab:expClassSigma}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|}
@@ -1691,8 +1674,8 @@ while the maximum-distance method can in some cases produce very large
 improvements but in others lead to a degradation of performance.
 
 \begin{table}[H]
-\caption{Experimental results on the regression datasets with the application
-of the proposed method and different calculation mechanisms for the
+\caption{Results obtained by the application of the proposed method on the
+regression datasets with different calculation mechanisms for the
 $\sigma$ used in the radial functions.\label{tab:expRegressionSigma}}
 
 \centering{}%
@@ -1759,12 +1742,12 @@ This indicates that the choice of compuation method for the $\sigma$
 parameters does not substantially affect the performance of the model
 on classification problems. Therefore, it can be concluded that the
 model maintains stable performance regardless of which of the three
-compuatation techniques is used.
+computation techniques is used.
 \begin{figure}[H]
 \includegraphics[scale=0.75]{stat5}
 
-\caption{Statistical comparison of the obtained results on the classification
-datasets, where the proposed method was applied with a series of computation
+\caption{Statistical tests for the results obtained by the application of the
+current method on the classification datasets using a series of computation
 techniques for the range of $\sigma$ values in the radial functions.\label{fig:statClassSigma}}
 
 \end{figure}
@@ -1786,9 +1769,9 @@ is applied.
 \begin{figure}[H]
 \includegraphics[scale=0.75]{stat6}
 
-\caption{Statistical comparison of the obtained results on the regression datasets,
-using the proposed method and a series of computation techniques for
-the range of $\sigma$ values in the radial functions.\label{fig:statRegressionSigma}}
+\caption{Statistical tests on the produced results from the application of
+the current work to the regression datasets, using a series of computation
+techniques for the range of $\sigma$ values in the radial functions.\label{fig:statRegressionSigma}}
 
 \end{figure}
 
@@ -1796,10 +1779,9 @@ the range of $\sigma$ values in the radial functions.\label{fig:statRegressionSi
 \subsection{Experiments with the number of generations $N_{g}$ }
 
 An additional experiments was executed, where the number of generations
-was altered from $N_{g}=50$ to $N_{g}=400$ to determine the stability
-of the proposed method. Table \ref{tab:expClassNG} examines the effect
-of the number of generations $\left(N_{g}\right)$ on the performance
-of the proposed classification model. The overall trend is downward:
+was altered from $N_{g}=50$ to $N_{g}=400$ . Table \ref{tab:expClassNG}
+presents the effect of the number of generations $\left(N_{g}\right)$
+on the performance of the proposed model. The overall trend is downward:
 the mean error decreases from 20.56\% at 50 generations to 19.46\%
 at 100, essentially stabilizes at 200 with 19.45\%, and improves slightly
 further at 400 to 19.11\%. Thus, the largest gain arrives early, from
@@ -1823,9 +1805,9 @@ meaningful improvements, at the cost of more computation and occasional
 local regressions.
 
 \begin{table}[H]
-\caption{Experimental results on the classification datasets where the proposed
-method was applied and the the number of generations $N_{g}$ was
-altered from $N_{g}=50$ to $N_{g}=400$.\label{tab:expClassNG}}
+\caption{Experimental results using the proposed method on the classification
+datasets where the number of generations $N_{g}$ was altered from
+$N_{g}=50$ to $N_{g}=400$.\label{tab:expClassNG}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|}
@@ -1936,9 +1918,9 @@ Further increasing to 400 generations does not offer a general gain
 and may lead to slight degradation in some problems, pointing to diminishing
 returns and possible overfitting or instability depending on the dataset.
 \begin{table}[H]
-\caption{Experimental results on the regression datasets where the proposed
-method was applied and the critical parameter $N_{g}$, that denotes
-the number of generations, was altered from $N_{g}=50$ to $N_{g}=400$.\label{tab:expRegressionNG}}
+\caption{Experimental results using the proposed method on the regression datasets
+where the number of generations $N_{g}$ was altered from $N_{g}=50$
+to $N_{g}=400$.\label{tab:expRegressionNG}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|}
@@ -2008,9 +1990,9 @@ are not statistically meaningful.
 \begin{figure}[H]
 \includegraphics[scale=0.5]{stat10}
 
-\caption{Statistical comparison for the executed experiments on the classification
-datasets using the proposed method and a series of values for the
-number of generations $N_{g}$.\label{fig:statClassNG}}
+\caption{Statistical tests on the results obtained by the application of the
+current work on the classification datasets using a series of values
+for the parameter $N_{g}$.\label{fig:statClassNG}}
 
 \end{figure}
 In Figure \ref{fig:statRegressionNG}, the p-value analysis on the
@@ -2028,9 +2010,9 @@ do not guarantee additional consistent gains.
 \begin{figure}[H]
 \includegraphics[scale=0.5]{stat11}
 
-\caption{Statistical comparison for the executed experiments on the regression
-datasets using the proposed method and a series of values for the
-number of generations $N_{g}$.\label{fig:statRegressionNG}}
+\caption{Statistical tests on the results obtained by the application of the
+current work on the regression datasets using a series of values for
+the parameter $N_{g}$\label{fig:statRegressionNG}}
 
 \end{figure}
 
@@ -2044,7 +2026,7 @@ an experiment was conducted for the prediction of the duration of
 forest fires for the years 2014-2024. In this experiment, the following
 methods were used:
 \begin{enumerate}
-\item A neural network with 10 computing nodes, trained with the BFGS optimizer.
+\item A neural network with 10 computing nodes, trained using the BFGS optimizer.
 \item A Radial Basis Function with 10 weights, trained with the original
 method for RBF training.
 \item The proposed method.
@@ -2120,13 +2102,12 @@ of interpretability and predictive uncertainty will provide a more
 complete picture of the method’s limits and potential.
 
 However, it should be emphasized that, despite its efficiency, the
-proposed method requires significantly more computational time than
-other machine learning techniques due to the serial application of
-the three training stages. In particular, the second stage of the
-genetic algorithm application requires significant computational time
-for its execution. However this time can be significantly reduced
-by using modern parallel computing techniques like OpenMP \citep{gen_openmp}
-or MPI \citep{gen_mpi}.
+proposed method demands more computational time than other machine
+learning techniques due to the serial application of the three training
+stages. In particular, the second stage of the genetic algorithm application
+requires significant computational time for its execution. However
+this time can be significantly reduced by using modern parallel computing
+techniques like OpenMP \citep{gen_openmp} or MPI \citep{gen_mpi}.
 
 \vspace{6pt}
 
@@ -2461,6 +2442,10 @@ Engineering \textbf{16}, pp. 770-773, 2004.
 Fast Extraction of Rules from Neural Networks, Applied Intelligence
 \textbf{12}, pp. 15-25, 2000.
 
+\bibitem[(2008)]{fcgen}Gavrilis, D., Tsoulos, I. G., \& Dermatas,
+E. (2008). Selecting and constructing features using grammatical evolution.
+Pattern Recognition Letters, 29(9), 1358-1365.
+
 \bibitem[(1998)]{dermatology}G. Demiroz, H.A. Govenir, N. Ilter,
 Learning Differential Diagnosis of Eryhemato-Squamous Diseases using
 Voting Feature Intervals, Artificial Intelligence in Medicine. \textbf{13},
@@ -2547,6 +2532,10 @@ logistic and proportional odds regression, JRSS-C (Applied Statistics)
 \bibitem{segment}M. Dash, H. Liu, P. Scheuermann, K. L. Tan, Fast
 hierarchical clustering and its validation, Data \& Knowledge Engineering
 \textbf{44}, pp 109--138, 2003.
+
+\bibitem[(2008)]{statheart}Dua, D. and Graff, C. (2019). UCI Machine
+Learning Repository {[}http://archive.ics.uci.edu/ml{]}. Irvine, CA:
+University of California, School of Information and Computer Science.
 
 \bibitem[(2007)]{student}P. Cortez, A. M. Gonçalves Silva, Using
 data mining to predict secondary school student performance, In Proceedings
