@@ -38,27 +38,27 @@ University of Western Macedonia, 50100 Kozani, Greece; dtsalikakis@uowm.gr}
 \corres{Correspondence: itsoulos@uoi.gr}
 
 
-\abstract{Radial Basis Function (RBF) networks are well established machine
-learning tools used in many practical problems, that can be considered
+\abstract{Radial Basis Function (RBF) networks are well-established machine
+learning tools used in many practical problems that can be considered
 as classification or regression problems. A key component of these
 networks is their radial functions. These networks acquire adaptive
 capabilities through a two-stage training technique in most cases.
 In the first stage, the centers and variances for the radial functions
 are estimated, and in the second stage, through the solution of a
 linear system, the external weights for the radial functions are adjusted.
-However, in many cases this training technique has reduced performance
-either due to instability in arithmetic operations or due to trapping
+However, in many cases, this training technique has reduced performance
+either due to instability in arithmetic operations or due to the trapping
 in local minima of the training error. In this paper, a three-stage
 method is proposed to address the above problems. In the first stage,
 an initial estimate of the intervals for the network parameter values
 is made, in the second stage, the network parameter values are adjusted
-within the intervals of the first phase, and finally in the third
+within the intervals of the first phase, and finally, in the third
 stage of the proposed technique, a local optimization method is used
 for the final adjustment of the network parameters. The proposed method
 was tested against some machine learning models from the related literature
 as well as the original RBF training method on a wide series of classification
-and regression datasets, found in online databases and a comparison
-is made in terms of classification or regression error. It should
+and regression datasets, found in online databases, and a comparison
+was made in terms of classification or regression error. It should
 be noted that although the proposed methodology had very good results
 in the above measurements, it requires significant computational execution
 time, due to the use of three phases of processing and adaptation
@@ -208,12 +208,12 @@ of the network parameters.}
 \section{Introduction}
 
 Many practical problems can be handled by machine learning models.
-Such problems appeared in physics \citep{physics_ml1,physics_ml2},
+Such problems appear in physics \citep{physics_ml1,physics_ml2},
 astronomy \citep{astronomy_ml1,astronomy_ml2}, chemistry \citep{chemistry_ml1,chemistry_ml2},
 medicine \citep{med_ml1,med_ml2}, economics \citep{econ_ml1,econ_ml2},
 image processing \citep{nn_image}, time series forecasting \citep{nn_timeseries}
-etc. Among the most used machine learning tools one can detect the
-Radial Basis Function (RBF) networks, expressed using the following
+etc. Among the most used machine learning tools, one can detect the
+Radial Basis Function (RBF) network, expressed using the following
 definition:
 \begin{equation}
 R\left(\overrightarrow{x}\right)=\sum_{i=1}^{k}w_{i}\phi\left(\left\Vert \overrightarrow{x}-\overrightarrow{c_{i}}\right\Vert \right)\label{eq:firstrbf}
@@ -251,15 +251,15 @@ The set $\left(\overrightarrow{x_{i}},y_{i}\right),\ i=1,...,M$ denotes
 the training set of the objective problem and the values $y_{i}$
 are considered as the actual output for each pattern $\overrightarrow{x_{i}}$.
 
-These machine learning models have been incorporated in various practical
-problems, such as face recognition \citep{rbfface}, solutions of
-differential equations \citep{rbfde1,rbfde2}, stock prediction \citep{rbfstock},
-robotics \citep{rbfrobotics1,rbfrobotics2}, network security \citep{rbf_dos1,rbf_dos2},
-classification of process faults \citep{rbf_process}, time series
-prediction \citep{rbf_time}, estimation of wind power production
-\citep{rbf_wind} etc. Moreover, Park et al \citep{rbf_universal}
-proved that an RBF network with one processing layer is capable of
-approximate any provided function.
+These machine learning models have been incorporated into various
+practical problems, such as face recognition \citep{rbfface}, solutions
+of differential equations \citep{rbfde1,rbfde2}, stock prediction
+\citep{rbfstock}, robotics \citep{rbfrobotics1,rbfrobotics2}, network
+security \citep{rbf_dos1,rbf_dos2}, classification of process faults
+\citep{rbf_process}, time series prediction \citep{rbf_time}, estimation
+of wind power production \citep{rbf_wind} etc. Moreover, Park et
+al. \citep{rbf_universal} proved that an RBF network with one processing
+layer is capable of approximating any provided function.
 
 In this paper, the use of a three-stage technique is suggested for
 the effective training of RBF networks. In the first stage of the
@@ -270,22 +270,22 @@ After applying the above procedure, a range of values for the network
 parameters is created which directly depends on the values produced
 by K-means algorithm. During the second stage of the proposed work,
 a global optimization procedure is incorporated to optimize the parameters
-of the RBF network with respect to equation \ref{eq:RbfError}. The
-training of the parameters is performed inside the interval of values
-created during the first stage of the technique. In the current work
-the Genetic Algorithm is used as the method of the second phase, but
-any optimization technique can be incorporated. Finally, in the third
-stage of the proposed work, a local optimization procedure is applied
-to the best solution located in the second phase. The purpose of the
-present technique is first to identify a reliable range of values
-\LyXZeroWidthSpace\LyXZeroWidthSpace for the parameters of RBF networks
-and then to train the network parameters within this range of values,
-avoiding possible arithmetic instability problems presented by the
-established method of training RBF networks.
+of the RBF network with respect to the equation \ref{eq:RbfError}.
+The training of the parameters is performed inside the interval of
+values created during the first stage of the technique. In the current
+work, the Genetic Algorithm is used as the method of the second phase,
+but any optimization technique can be incorporated. Finally, in the
+third stage of the proposed work, a local optimization procedure is
+applied to the best solution located in the second phase. The purpose
+of the present technique is first to identify a reliable range of
+values \LyXZeroWidthSpace\LyXZeroWidthSpace for the parameters of
+RBF networks and then to train the network parameters within this
+range of values, avoiding possible arithmetic instability problems
+presented by the established method of training RBF networks.
 
 The proposed technique is the application of three distinct procedures
 in series, where in each stage the results of the previous phase are
-used. In the first phase an initial estimate of the centers and variances
+used. In the first phase, an initial estimate of the centers and variances
 is made using the K-Means technique. This method is preferred because
 it is extremely fast to execute and can provide an overview of the
 search space for neural networks. It is preferred over using random
@@ -294,11 +294,11 @@ for proper initialization of the parameters. After executing the K-Means
 technique, a range of values for the network parameters is created
 with values that are multiples of those produced by the K-Means technique.
 In this way, on the one hand, the use of the K-Means technique is
-utilized and on the other hand, the second-phase optimization algorithm
+utilized and, on the other hand, the second-phase optimization algorithm
 is given the opportunity to search for parameter values \LyXZeroWidthSpace that
 yield lower values of the error function close to the initial values
 of the first phase. A genetic algorithm is used as the optimization
-algorithm in the second phase due to their adaptability to any environment
+algorithm in the second phase due to its adaptability to any environment
 and their widespread use in many computational problems. However,
 any universal optimization technique could be utilized in this phase.
 However, although genetic algorithms are extremely effective methods
@@ -315,8 +315,8 @@ different techniques in series in order to identify the optimal set
 of parameters for the machine learning model and to avoid possible
 overfitting problems. In the first discrete phase, a well-established
 clustering technique such as the K-Means technique is used to identify
-an initial range of values for the model parameters, in the second
-stage a global optimization algorithm is used to minimize the error
+an initial range of values for the model parameters. In the second
+stage, a global optimization algorithm is used to minimize the error
 function considering the range of values of the first phase and in
 the last phase a local minimization method will be used to find a
 guaranteed local minimum of the error function. The method of the
@@ -336,10 +336,10 @@ The three distinct phases of the proposed method are presented in
 detail in this section. The discussion initiates with the first phase,
 where the construction of the ranges for the parameter values is performed
 using the K-means algorithm. Subsequently, the steps of the used Genetic
-Algorithm are presented in detail and finally this section concludes
+Algorithm are presented in detail and finally, this section concludes
 with the description of the final phase, where a local optimization
 method is applied to the best located chromosome of the second phase.
-Also, a details description of the used datasets is provided in this
+Also, a detailed description of the used datasets is provided in this
 section.
 
 \subsection{Related work}
@@ -348,41 +348,41 @@ A number of techniques have been proposed in recent years for the
 efficient training of neural networks and the efficient adaptation
 of parameters. Among them, one can find methods that handle the \textbf{i}nitialization
 of the parameters of RBF networks \citep{rbfinit1,rbfinit2,rbfinit3}.
-Moreover, Benoudjit et al provided a discussion on the estimation
+Moreover, Benoudjit et al. provided a discussion on the estimation
 of kernel widths in these models \citep{rbfkernel}. Additionally,
 a series of pruning techniques \citep{rbfprun1,rbfprun2,rbfprun3}
 have been introduced aiming to reduce the required number of parameters
 for networks, providing a solution to the overfitting problem. Also,
 methods that construct the architecture of RBF networks have been
-proposed in the recent literature, such as the work of Du et al \citep{rbfcon1}
-or the work of Yu et al who suggested an incremental design framework
+proposed in the recent literature, such as the work of Du et al. \citep{rbfcon1}
+or the work of Yu et al. who suggested an incremental design framework
 for RBF networks \citep{rbfcon2}. Also, a series of optimization
 techniques have been used in the past for the minimization of equation
-\ref{eq:RbfError}, such as Genetic algorithms \citep{rbfga1,rbfga2},
+\ref{eq:RbfError}, such as genetic algorithms \citep{rbfga1,rbfga2},
 the Particle Swarm Optimization method \citep{rbfpso1,rbfpso2}, the
 Differential Evolution technique \citep{rbfdiff1} etc. Furthermore,
 the rapid increase in the use of parallel computing techniques in
 recent decades has resulted in the publication of a series of relevant
 scientific papers that exploit these techniques \citep{rbfpar1,rbfpar2}.
-Recently, Rani et al proposed an improved PSO optimizer that integrates
+Recently, Rani et al. proposed an improved PSO optimizer that integrates
 a differential search mechanism for efficient RBF network training
-\citep{rbf_pso_new}. Moreover, Karamichailidou et al suggested a
+\citep{rbf_pso_new}. Moreover, Karamichailidou et al. suggested a
 novel method for RBF training using variable projection and fuzzy
 means \citep{rbf_variable_projection}.
 
 \subsection{The first phase of the proposed method }
 
-The method of K-means, used widely in machine learning is incorporated
+The method of K-means, used widely in machine learning, is incorporated
 in the first phase for the location of the ranges for the centers
 and variances of the model. This method is incorporated to locate
 the centers and the variances of the possible groups of a series of
 points. Furthermore, a series of extensions of this method have been
-published during the past years, such as the Genetic K-means algotithm
+published during the past years, such as the Genetic K-means algorithm
 \citep{gen_kmeans}, the unsupervised K-means algorithm \citep{unsuper_kmeans},
 the Fixed-centered K-means algorithm \citep{fixed_kmeans} etc. A
-detailed review for the K-means method can be be located in the work
-of Oti et al. \citep{kmeans_review}. The K-means method is presented
-in Algorithm \ref{alg:The-K-Means-algorithm.} and a graphical rerpesentation
+detailed review of the K-means method can be located in the work of
+Oti et al. \citep{kmeans_review}. The K-means method is presented
+in Algorithm \ref{alg:The-K-Means-algorithm.}. A graphical rerpesentation
 is provided in Figure \ref{fig:kmeans}.
 
 \begin{algorithm}[H]
@@ -475,23 +475,24 @@ denoted as $B_{w}>0$.
 
 \subsection{The second phase of the proposed method }
 
-During the second phase an optimization procedure is utilized to minimize
-the equation \ref{eq:RbfError} inside the bound vectors $\overrightarrow{L},\ \overrightarrow{R}$
-of the first phase. In the proposed implementation the Genetic Algorithm
-was incorporated during the second phase. Genetic algorithm are evolutionary
-methods, that are based on randomly produced solutions of the objective
-problem. The trial solutions of the genetic algorithm are commonly
-called chromosomes and they are evolved through some operations that
-mimic some natural processes, such as selection, crossover and mutation.
-Genetic algorithms have been used in a wide series of problems, such
-as energy problems \citep{gen_app1}, water distribution \citep{gen_app2},
-problems appeared in banking transactions \citep{gen_app3}, optimization
+During the second phase, an optimization procedure is utilized to
+minimize the equation \ref{eq:RbfError} inside the bound vectors
+$\overrightarrow{L},\ \overrightarrow{R}$ of the first phase. In
+the proposed implementation, the Genetic Algorithm was incorporated
+during the second phase. Genetic algorithms are evolutionary methods
+that are based on randomly produced solutions of the objective problem.
+The trial solutions of the genetic algorithm are commonly called chromosomes,
+and they are evolved through some operations that mimic some natural
+processes, such as selection, crossover and mutation. Genetic algorithms
+have been used in a wide series of problems, such as energy problems
+\citep{gen_app1}, water distribution \citep{gen_app2}, problems
+appearing in banking transactions \citep{gen_app3}, optimization
 of neural networks \citep{gen_app4} etc. Also, another advantage
-of Genetic Algorithms is that they can be easily adopt parallel programming
+of Genetic Algorithms is that they can easily adopt parallel programming
 techniques in order to speed up the evolutionary process \citep{pga1,pga2}.
 The layout of the chromosomes used in the obtained genetic algorithm
 is presented in Figure \ref{fig:The-layout-of}. In this layout the
-following assumptions are hold:
+following assumptions hold:
 \begin{enumerate}
 \item The value $c_{i,j}$ denotes the $j$ element of the $i$ center of
 the RBF network, with $i\in[1,k]$ and $j\in[1,d].$
@@ -579,18 +580,18 @@ of this algorithm.
 
 \subsection{The final phase of the proposed method}
 
-In the final phase of the proposed method a local optimization procedure
+In the final phase of the proposed method, a local optimization procedure
 is applied to the outcome of the previous phase, in order to locate
 an actual minimum for the training error of the RBF network. In this
-work a BFGS variant of Powell \citep{powell} was utilized as the
+work, a BFGS variant of Powell \citep{powell} was utilized as the
 local search procedure. This variant can preserve the bounds of the
-objective function in an efficient way. During the past years a series
-of modifications for the BFGS method was introduced, such as the limited
-memory variant L-BFGS ideal for large scale problems \citep{lbfgs}
+objective function in an efficient way. During the past years. a series
+of modifications to the BFGS method have been introduced, such as
+the limited memory variant L-BFGS ideal for large scale problems \citep{lbfgs}
 or the Regularized Stochastic BFGS Algorithm \citep{resbfgs}. Also,
 Dai published an article on the convergence properties of the BFGS
 method \citep{conbfgs}. The main steps of the final phase of the
-algorithm have as follows:
+algorithm are:
 \begin{enumerate}
 \item \textbf{Get} the best chromosome $\overrightarrow{g^{*}}$ of the
 previous phase.
@@ -783,11 +784,11 @@ physics experiments.
 
 All the experiments were executed on a Debian Linux system with 128GB
 of RAM. The programming language used was C++ and for the optimization
-method the OPTIMUS optimization environment \citep{optimus} available
+method, the OPTIMUS optimization environment \citep{optimus} available
 from \url{https://github.com/itsoulos/GlobalOptimus.git} (accessed
 on 20 September 2025) was incorporated. The results were validated
 using the ten - fold cross validation technique. For the classification
-datasets the average classification error, calculated on the corresponding
+datasets, the average classification error, calculated on the corresponding
 test set, is reported. This quantity is expressed using the following
 equation:
 \begin{equation}
@@ -953,18 +954,18 @@ BFGS and ADAM is about 14 points, roughly 42\%, and versus RBF-KMEANS
 about 9.1 points, roughly 32\%.
 
 At the level of individual datasets, the proposed method delivers
-strikingly low errors in several cases. On Spiral it drops to 13.26\%
+strikingly low errors in several cases. On Spiral, it drops to 13.26\%
 while others are around 45--50\%; on Wine it reaches 9.47\% versus
 21--60\%; on Wdbc it achieves 5.54\% versus 7--35\%. On Z\_F\_S,
 ZO\_NF\_S, ZONF\_S, and Cleveland it attains the best or tied-best
 results. On Heart, HeartAttack, Statheart, Regions2, Saheart, Pima,
-Australian, Alcohol, and HouseVotes the results are also highly competitive,
+Australian, Alcohol, and HouseVotes, the results are also highly competitive,
 usually best or within the top two. There are, however, datasets where
 other methods prevail: DNN clearly leads on Segment and HouseVotes
 and is very strong on Dermatology; RBF-KMEANS is best on Appendicitis;
 and ADAM wins narrowly on Student and Balance. In cases like Balance,
-Popfailures, Dermatology, and Segment the proposed method is not the
-top performer, though it remains competitive.
+Popfailures, Dermatology, and Segment, the proposed method is not
+the top performer, though it remains competitive.
 
 Overall, the proposed method offers the lowest average error and a
 consistent advantage across a wide range of problems, with substantial
@@ -1292,7 +1293,7 @@ experiments were executed. In one of them, the stability of the technique
 was studied with the change of the scale factor $F$. This factor
 controls the width of the value interval for the network parameters
 and is a multiple of the initial values estimated by the K-means method
-of the first phase. In this series of experiments the value of $F$
+of the first phase. In this series of experiments, the value of $F$
 was altered in the range $[1,8]$. 
 
 Table \ref{tab:expClassF} presents the effect of the scale factor
@@ -2037,11 +2038,11 @@ number of generations $N_{g}$.\label{fig:statRegressionNG}}
 \subsection{Experiments with real - world problems}
 
 One practical problem that can be considered here is the prediction
-of the duration of forest fires, that was presented recently for the
+of the duration of forest fires that was presented recently for the
 Greek territory\citep{mlfire}. Using data from the Greek Fire Service,
 an experiment was conducted for the prediction of the duration of
-forest fires for the years 2014-2024. In this experiment the following
-method were used:
+forest fires for the years 2014-2024. In this experiment, the following
+methods were used:
 \begin{enumerate}
 \item A neural network with 10 computing nodes, trained with the BFGS optimizer.
 \item A Radial Basis Function with 10 weights, trained with the original
@@ -2065,8 +2066,8 @@ fires in the Greek territory. \label{fig:experFire}}
 The second real - world example is the PIRvision dataset \citep{pirvision},
 which includes occupancy detection data and it has 15302 patterns.
 The dimension of each pattern is 59. The same machine learning models
-was used also in the case and the average classification error for
-these method is depicted graphically in Figure \ref{fig:pirvision}.
+were also used in the case and the average classification error for
+these methods is depicted graphically in Figure \ref{fig:pirvision}.
 One more time, the proposed method has lower classification error
 than the other methods involved in this experiment.
 
@@ -2118,12 +2119,12 @@ and integrating the approach into AutoML pipelines together with analyses
 of interpretability and predictive uncertainty will provide a more
 complete picture of the method’s limits and potential.
 
-However, it should be emphasized that despite its efficiency, the
+However, it should be emphasized that, despite its efficiency, the
 proposed method requires significantly more computational time than
 other machine learning techniques due to the serial application of
 the three training stages. In particular, the second stage of the
 genetic algorithm application requires significant computational time
-for its execution, however this time can be significantly reduced
+for its execution. However this time can be significantly reduced
 by using modern parallel computing techniques like OpenMP \citep{gen_openmp}
 or MPI \citep{gen_mpi}.
 

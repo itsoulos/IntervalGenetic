@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.9.28)  28 SEP 2025 13:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.10.7)  7 OCT 2025 12:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1517,7 +1517,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <chrom_layout.png, id=250, 1927.2pt x 593.21625pt>
 File: chrom_layout.png Graphic file (type png)
 <use chrom_layout.png>
-Package pdftex.def Info: chrom_layout.png  used on input line 505.
+Package pdftex.def Info: chrom_layout.png  used on input line 506.
 (pdftex.def)             Requested size: 385.43318pt x 118.64114pt.
 
 
@@ -1541,7 +1541,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <overall_flowchart.png, id=315, 218.8175pt x 850.17625pt>
 File: overall_flowchart.png Graphic file (type png)
 <use overall_flowchart.png>
-Package pdftex.def Info: overall_flowchart.png  used on input line 608.
+Package pdftex.def Info: overall_flowchart.png  used on input line 609.
 (pdftex.def)             Requested size: 109.40848pt x 425.08708pt.
 
 
@@ -1553,22 +1553,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [8]
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 633--633
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 634--634
 []\T1/ppl/m/n/10 (-20) 10.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 635--635
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 636--636
 []\T1/ppl/m/n/10 (-20) 11.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 637--637
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 638--638
 []\T1/ppl/m/n/10 (-20) 12.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 639--639
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 640--640
 []\T1/ppl/m/n/10 (-20) 13.  
  []
 
@@ -1582,87 +1582,87 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [9 <./overall_flowchart.png>]
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 640--640
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 641--641
 []\T1/ppl/m/n/10 (-20) 14.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 641--641
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 642--642
 []\T1/ppl/m/n/10 (-20) 15.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 642--642
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 643--643
 []\T1/ppl/m/n/10 (-20) 16.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 644--644
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 645--645
 []\T1/ppl/m/n/10 (-20) 17.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 646--646
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 647--647
 []\T1/ppl/m/n/10 (-20) 18.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 647--647
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 648--648
 []\T1/ppl/m/n/10 (-20) 19.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 649--649
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 650--650
 []\T1/ppl/m/n/10 (-20) 20.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 651--651
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 652--652
 []\T1/ppl/m/n/10 (-20) 21.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 653--653
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 654--654
 []\T1/ppl/m/n/10 (-20) 22.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 654--654
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 655--655
 []\T1/ppl/m/n/10 (-20) 23.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 656--656
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 657--657
 []\T1/ppl/m/n/10 (-20) 24.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 657--657
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 658--658
 []\T1/ppl/m/n/10 (-20) 25.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 659--659
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 660--660
 []\T1/ppl/m/n/10 (-20) 26.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 660--660
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 661--661
 []\T1/ppl/m/n/10 (-20) 27.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 661--661
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 662--662
 []\T1/ppl/m/n/10 (-20) 28.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 662--662
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 663--663
 []\T1/ppl/m/n/10 (-20) 29.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 665--665
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 666--666
 []\T1/ppl/m/n/10 (-20) 30.  
  []
 
@@ -1676,37 +1676,37 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [10]
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 764--764
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 765--765
 []\T1/ppl/m/n/10 (-20) 10.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 765--765
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 766--766
 []\T1/ppl/m/n/10 (-20) 11.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 766--766
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 767--767
 []\T1/ppl/m/n/10 (-20) 12.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 767--767
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 768--768
 []\T1/ppl/m/n/10 (-20) 13.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 768--768
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 769--769
 []\T1/ppl/m/n/10 (-20) 14.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 770--770
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 771--771
 []\T1/ppl/m/n/10 (-20) 15.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 771--771
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 772--772
 []\T1/ppl/m/n/10 (-20) 16.  
  []
 
@@ -1720,32 +1720,32 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [11]
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 772--772
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 773--773
 []\T1/ppl/m/n/10 (-20) 17.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 773--773
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 774--774
 []\T1/ppl/m/n/10 (-20) 18.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 774--774
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 775--775
 []\T1/ppl/m/n/10 (-20) 19.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 775--775
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 776--776
 []\T1/ppl/m/n/10 (-20) 20.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 776--776
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 777--777
 []\T1/ppl/m/n/10 (-20) 21.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 777--777
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 778--778
 []\T1/ppl/m/n/10 (-20) 22.  
  []
 
@@ -1759,17 +1759,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [12]
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 858--858
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 859--859
 []\T1/ppl/m/n/10 (-20) 10.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 860--860
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 861--861
 []\T1/ppl/m/n/10 (-20) 11.  
  []
 
 
-Overfull \hbox (29.97183pt too wide) in paragraph at lines 869--942
+Overfull \hbox (29.97183pt too wide) in paragraph at lines 870--943
  [][] 
  []
 
@@ -1786,7 +1786,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <stat1.png, id=543, 505.89pt x 505.89pt>
 File: stat1.png Graphic file (type png)
 <use stat1.png>
-Package pdftex.def Info: stat1.png  used on input line 978.
+Package pdftex.def Info: stat1.png  used on input line 979.
 (pdftex.def)             Requested size: 379.41655pt x 379.41655pt.
 
 
@@ -1807,7 +1807,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [15]
-Overfull \hbox (10.97914pt too wide) in paragraph at lines 1133--1183
+Overfull \hbox (10.97914pt too wide) in paragraph at lines 1134--1184
  [][] 
  []
 
@@ -1833,7 +1833,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <stat2.png, id=568, 505.89pt x 505.89pt>
 File: stat2.png Graphic file (type png)
 <use stat2.png>
-Package pdftex.def Info: stat2.png  used on input line 1220.
+Package pdftex.def Info: stat2.png  used on input line 1221.
 (pdftex.def)             Requested size: 379.41655pt x 379.41655pt.
 
 
@@ -1865,11 +1865,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [20]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1287.
+(hyperref)                removing `math shift' on input line 1288.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1287.
+(hyperref)                removing `math shift' on input line 1288.
 
 
 
@@ -1893,7 +1893,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <stat3.png, id=602, 505.89pt x 505.89pt>
 File: stat3.png Graphic file (type png)
 <use stat3.png>
-Package pdftex.def Info: stat3.png  used on input line 1506.
+Package pdftex.def Info: stat3.png  used on input line 1507.
 (pdftex.def)             Requested size: 379.41655pt x 379.41655pt.
 
 
@@ -1908,7 +1908,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <stat4.png, id=609, 505.89pt x 505.89pt>
 File: stat4.png Graphic file (type png)
 <use stat4.png>
-Package pdftex.def Info: stat4.png  used on input line 1524.
+Package pdftex.def Info: stat4.png  used on input line 1525.
 (pdftex.def)             Requested size: 379.41655pt x 379.41655pt.
 
 
@@ -1941,7 +1941,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <stat5.png, id=632, 505.89pt x 505.89pt>
 File: stat5.png Graphic file (type png)
 <use stat5.png>
-Package pdftex.def Info: stat5.png  used on input line 1763.
+Package pdftex.def Info: stat5.png  used on input line 1764.
 (pdftex.def)             Requested size: 379.41655pt x 379.41655pt.
 
 
@@ -1956,7 +1956,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <stat6.png, id=640, 505.89pt x 505.89pt>
 File: stat6.png Graphic file (type png)
 <use stat6.png>
-Package pdftex.def Info: stat6.png  used on input line 1786.
+Package pdftex.def Info: stat6.png  used on input line 1787.
 (pdftex.def)             Requested size: 379.41655pt x 379.41655pt.
 
 
@@ -1970,29 +1970,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [28 <./stat5.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1795.
+(hyperref)                removing `math shift' on input line 1796.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 1795.
+(hyperref)                removing `subscript' on input line 1796.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1795.
+(hyperref)                removing `math shift' on input line 1796.
 
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ppl in TS1 encoding.
-            Default family used instead on input line 1808.
+            Default family used instead on input line 1809.
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Info: Symbol \textrightarrow not provided by
-            font family ppl in TS1 encoding.
-            Default family used instead on input line 1808.
-LaTeX Info: Symbol \textrightarrow not provided by
-            font family ppl in TS1 encoding.
-            Default family used instead on input line 1809.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ppl in TS1 encoding.
             Default family used instead on input line 1809.
@@ -2001,10 +1995,16 @@ LaTeX Info: Symbol \textrightarrow not provided by
             Default family used instead on input line 1810.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ppl in TS1 encoding.
-            Default family used instead on input line 1816.
+            Default family used instead on input line 1810.
 LaTeX Info: Symbol \textrightarrow not provided by
             font family ppl in TS1 encoding.
-            Default family used instead on input line 1816.
+            Default family used instead on input line 1811.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ppl in TS1 encoding.
+            Default family used instead on input line 1817.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ppl in TS1 encoding.
+            Default family used instead on input line 1817.
 
 
 
@@ -2027,7 +2027,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <stat10.png, id=662, 505.89pt x 505.89pt>
 File: stat10.png Graphic file (type png)
 <use stat10.png>
-Package pdftex.def Info: stat10.png  used on input line 2008.
+Package pdftex.def Info: stat10.png  used on input line 2009.
 (pdftex.def)             Requested size: 252.94437pt x 252.94437pt.
 
 
@@ -2042,7 +2042,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <stat11.png, id=670, 505.89pt x 505.89pt>
 File: stat11.png Graphic file (type png)
 <use stat11.png>
-Package pdftex.def Info: stat11.png  used on input line 2028.
+Package pdftex.def Info: stat11.png  used on input line 2029.
 (pdftex.def)             Requested size: 252.94437pt x 252.94437pt.
 
 
@@ -2057,7 +2057,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <rbf3_dasi.png, id=679, 455.01192pt x 256.12488pt>
 File: rbf3_dasi.png Graphic file (type png)
 <use rbf3_dasi.png>
-Package pdftex.def Info: rbf3_dasi.png  used on input line 2058.
+Package pdftex.def Info: rbf3_dasi.png  used on input line 2059.
 (pdftex.def)             Requested size: 341.2581pt x 192.09317pt.
 
 
@@ -2072,7 +2072,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <rbf3_pirvision.png, id=693, 455.01192pt x 256.12488pt>
 File: rbf3_pirvision.png Graphic file (type png)
 <use rbf3_pirvision.png>
-Package pdftex.def Info: rbf3_pirvision.png  used on input line 2075.
+Package pdftex.def Info: rbf3_pirvision.png  used on input line 2076.
 (pdftex.def)             Requested size: 341.2581pt x 192.09317pt.
 
 
@@ -2141,7 +2141,7 @@ Package rerunfilecheck Info: File `rbf_threephases.out' has not changed.
 Here is how much of TeX's memory you used:
  35488 strings out of 475102
  652185 string characters out of 5764877
- 1142033 words of memory out of 5000000
+ 1142040 words of memory out of 5000000
  56973 multiletter control sequences out of 15000+600000
  645085 words of font info for 513 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
@@ -2158,7 +2158,7 @@ texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist
 pe1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/pala
 tino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a
 .pfb>
-Output written on rbf_threephases.pdf (39 pages, 818854 bytes).
+Output written on rbf_threephases.pdf (39 pages, 818900 bytes).
 PDF statistics:
  869 PDF objects out of 1000 (max. 8388607)
  759 compressed objects within 8 object streams

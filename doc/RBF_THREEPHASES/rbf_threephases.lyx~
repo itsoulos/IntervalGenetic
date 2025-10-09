@@ -324,27 +324,31 @@ Correspondence:
 \end_layout
 
 \begin_layout Abstract
-Radial Basis Function (RBF) networks are well established machine learning tools used in many practical problems,
- that can be considered as classification or regression problems.
+A parametric machine learning tool with many applications is the Radial Basis Function (RBF) network,
+ that have been incorporated in various classification or regression problems.
  A key component of these networks is their radial functions.
  These networks acquire adaptive capabilities through a two-stage training technique in most cases.
- In the first stage,
- the centers and variances for the radial functions are estimated,
+ During the first stage,
+ the parameters of the model (called centers and variances) are estimated,
  and in the second stage,
- through the solution of a linear system,
+ that involves solving a linear system of equations,
  the external weights for the radial functions are adjusted.
  However,
- in many cases this training technique has reduced performance either due to instability in arithmetic operations or due to trapping in local minima of the training error.
+ in many cases,
+ this training technique has reduced performance either due to instability in arithmetic operations or due to the trapping in local minima of the training error.
  In this paper,
- a three-stage method is proposed to address the above problems.
+ a three-stage method is suggested in this work,
+ to address the above problems.
  In the first stage,
  an initial estimate of the intervals for the network parameter values is made,
  in the second stage,
  the network parameter values are adjusted within the intervals of the first phase,
- and finally in the third stage of the proposed technique,
+ and finally,
+ in the third stage of the proposed technique,
  a local optimization method is used for the final adjustment of the network parameters.
  The proposed method was tested against some machine learning models from the related literature as well as the original RBF training method on a wide series of classification and regression datasets,
- found in online databases and a comparison is made in terms of classification or regression error.
+ found in online databases,
+ and a comparison was made in terms of classification or regression error.
  It should be noted that although the proposed methodology had very good results in the above measurements,
  it requires significant computational execution time,
  due to the use of three phases of processing and adaptation of the network parameters.
@@ -362,8 +366,9 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-Many practical problems can be handled by machine learning models.
- Such problems appeared in physics 
+Many practical problems can be handled by machine learning tools.
+ These problems derived from areas,
+ such as physics 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "physics_ml1,physics_ml2"
@@ -426,8 +431,9 @@ literal "false"
 \end_inset
 
  etc.
- Among the most used machine learning tools one can detect the Radial Basis Function (RBF) networks,
- expressed using the following definition:
+ Among the most used machine learning tools,
+ one can detect the Radial Basis Function (RBF) network.
+ These networks are commonly defined by the following equation:
 \begin_inset Formula 
 \begin{equation}
 R\left(\overrightarrow{x}\right)=\sum_{i=1}^{k}w_{i}\phi\left(\left\Vert \overrightarrow{x}-\overrightarrow{c_{i}}\right\Vert \right)\label{eq:firstrbf}
@@ -452,11 +458,11 @@ The vector
 \end_layout
 
 \begin_layout Enumerate
-The constant 
+The number of weights for the network are expressed through the variable 
 \begin_inset Formula $k$
 \end_inset
 
- denotes number of processing units (weights) of the network.
+.
  The vector 
 \begin_inset Formula $\overrightarrow{w}$
 \end_inset
@@ -469,7 +475,7 @@ The vectors
 \begin_inset Formula $\overrightarrow{c_{i}},\ i=1,..,k$
 \end_inset
 
- denote the centers of the network.
+ denote the centers for the functions used in the network.
 \end_layout
 
 \begin_layout Enumerate
@@ -477,7 +483,7 @@ The function
 \begin_inset Formula $\phi(x)$
 \end_inset
 
- usually represents a Gaussian function with the following definition:
+ denotes a Gaussian function defined as:
 
 \series bold
  
@@ -494,7 +500,8 @@ The function
 \end_layout
 
 \begin_layout Standard
-An example plot of this function with 
+An example plot for the Gaussian function with the following set of parameters:
+ 
 \begin_inset Formula $c=0,\ \sigma=1$
 \end_inset
 
@@ -595,7 +602,7 @@ The set
 \end_layout
 
 \begin_layout Standard
-These machine learning models have been incorporated in various practical problems,
+A magnitude of problems from the real world can be tackled using RBF networks,
  such as face recognition 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -605,7 +612,7 @@ literal "false"
 \end_inset
 
 ,
- solutions of differential equations 
+ numerical problems 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbfde1,rbfde2"
@@ -614,7 +621,7 @@ literal "false"
 \end_inset
 
 ,
- stock prediction 
+ economic problems 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbfstock"
@@ -669,7 +676,8 @@ literal "false"
 
  etc.
  Moreover,
- Park et al 
+ Park et al.
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbf_universal"
@@ -677,7 +685,7 @@ literal "false"
 
 \end_inset
 
- proved that an RBF network with one processing layer is capable of approximate any provided function.
+ proved that an RBF network with one processing layer can be approximate any given function.
 \end_layout
 
 \begin_layout Standard
@@ -697,7 +705,7 @@ literal "false"
  After applying the above procedure,
  a range of values for the network parameters is created which directly depends on the values produced by K-means algorithm.
  During the second stage of the proposed work,
- a global optimization procedure is incorporated to optimize the parameters of the RBF network with respect to equation 
+ a global optimization procedure is incorporated to optimize the parameters of the RBF network with respect to the equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:RbfError"
@@ -710,55 +718,55 @@ nolink "false"
 
 .
  The training of the parameters is performed inside the interval of values created during the first stage of the technique.
- In the current work the Genetic Algorithm is used as the method of the second phase,
+ In the current work,
+ the Genetic Algorithm is used as the method of the second phase,
  but any optimization technique can be incorporated.
  Finally,
  in the third stage of the proposed work,
  a local optimization procedure is applied to the best solution located in the second phase.
- The purpose of the present technique is first to identify a reliable range of values \SpecialChar allowbreak
-\SpecialChar allowbreak
-for the parameters of RBF networks and then to train the network parameters within this range of values,
+ The purpose of the present technique is first to identify a reliable range of values for the parameters of RBF networks and then to train the network parameters within this range of values,
  avoiding possible arithmetic instability problems presented by the established method of training RBF networks.
 \end_layout
 
 \begin_layout Standard
 The proposed technique is the application of three distinct procedures in series,
  where in each stage the results of the previous phase are used.
- In the first phase an initial estimate of the centers and variances is made using the K-Means technique.
+ In the first phase,
+ an initial estimation of the centers and variances is performed with the method of K-Means.
  This method is preferred because it is extremely fast to execute and can provide an overview of the search space for neural networks.
  It is preferred over using random values as this would require a significantly large number of iterations for proper initialization of the parameters.
  After executing the K-Means technique,
  a range of values for the network parameters is created with values that are multiples of those produced by the K-Means technique.
  In this way,
  on the one hand,
- the use of the K-Means technique is utilized and on the other hand,
+ the use of the K-Means technique is utilized and,
+ on the other hand,
  the second-phase optimization algorithm is given the opportunity to search for parameter values \SpecialChar allowbreak
 that yield lower values of the error function close to the initial values of the first phase.
- A genetic algorithm is used as the optimization algorithm in the second phase due to their adaptability to any environment and their widespread use in many computational problems.
+ A genetic algorithm is used as the optimization algorithm in the second phase due to its adaptability to any environment and their widespread use in many computational problems.
  However,
  any universal optimization technique could be utilized in this phase.
  However,
  although genetic algorithms are extremely effective methods of global optimization,
  they often do not locate exactly a true minimum of the objective function and therefore the help of a local minimization method is deemed necessary.
  This occurs in the third phase,
- where a local minimization method is applied to the chromosome with the smallest value produced in the second phase.
+ where a local optimization method is applied to the chromosome with the smallest value produced in the second phase.
  The minimum found in this phase is also the final result of the algorithm,
  which is also a configuration of the parameters of the RBF network.
 \end_layout
 
 \begin_layout Standard
-
-\series bold
 The main characteristics of the present technique are that it uses different techniques in series in order to identify the optimal set of parameters for the machine learning model and to avoid possible overfitting problems.
  In the first discrete phase,
- a well-established clustering technique such as the K-Means technique is used to identify an initial range of values for the model parameters,
- in the second stage a global optimization algorithm is used to minimize the error function considering the range of values of the first phase and in the last phase a local minimization method will be used to find a guaranteed local minimum of the error function.
+ a well-established clustering technique such as the K-Means technique is used to identify an initial range of values for the model parameters.
+ In the second stage,
+ a global optimization algorithm is used to minimize the error function considering the range of values of the first phase and in the last phase a local minimization method will be used to find a guaranteed local minimum of the error function.
  The method of the last phase guarantees the training of the parameters within the range of values of the first phase.
 \end_layout
 
 \begin_layout Standard
-The remaining of this article has the following organization:
- in section 
+The remaining of this manuscript has the following structure:
+ Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Materials-and-Methods"
@@ -769,8 +777,8 @@ nolink "false"
 
 \end_inset
 
- the suggested method and the accompanied genetic algorithm are introduced,
- in section 
+ discusses the used method and presents the associated algorithms,
+ section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Results"
@@ -781,7 +789,7 @@ nolink "false"
 
 \end_inset
 
- the datasets used in the experiments as well the experimental results are shown and discussed and finally in section 
+ presents the datasets used in the conducted experiments as well as the experimental results and finally 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Conclusions"
@@ -792,7 +800,7 @@ nolink "false"
 
 \end_inset
 
- some conclusions are presented.
+ presents some conclusions.
 \end_layout
 
 \begin_layout Section
@@ -807,14 +815,15 @@ name "sec:Materials-and-Methods"
 \end_layout
 
 \begin_layout Standard
-The three distinct phases of the proposed method are presented in detail in this section.
+The three distinct phases of the proposed method are discussed here.
  The discussion initiates with the first phase,
  where the construction of the ranges for the parameter values is performed using the K-means algorithm.
  Subsequently,
- the steps of the used Genetic Algorithm are presented in detail and finally this section concludes with the description of the final phase,
+ the steps of the used Genetic Algorithm are presented in detail and finally,
+ this section concludes with the description of the final phase,
  where a local optimization method is applied to the best located chromosome of the second phase.
  Also,
- a details description of the used datasets is provided in this section.
+ the description of the used datasets is provided in this section in table format.
 \end_layout
 
 \begin_layout Subsection
@@ -822,13 +831,9 @@ Related work
 \end_layout
 
 \begin_layout Standard
-A number of techniques have been proposed in recent years for the efficient training of neural networks and the efficient adaptation of parameters.
+A number of techniques have been published during the past years for the efficient training of neural networks and the efficient adaptation of parameters.
  Among them,
- one can find methods that handle the 
-\series bold
-i
-\series default
-nitialization of the parameters of RBF networks 
+ one can find methods aimed to efficient initialize the parameters of RBF networks 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbfinit1,rbfinit2,rbfinit3"
@@ -838,7 +843,8 @@ literal "false"
 
 .
  Moreover,
- Benoudjit et al provided a discussion on the estimation of kernel widths in these models 
+ Benoudjit et al.
+ provided a discussion on the estimation of kernel widths in these models 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbfkernel"
@@ -860,7 +866,8 @@ literal "false"
  providing a solution to the overfitting problem.
  Also,
  methods that construct the architecture of RBF networks have been proposed in the recent literature,
- such as the work of Du et al 
+ such as the work of Du et al.
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbfcon1"
@@ -868,7 +875,8 @@ literal "false"
 
 \end_inset
 
- or the work of Yu et al who suggested an incremental design framework for RBF networks 
+ or the work of Yu et al.
+ who suggested an incremental design framework for RBF networks 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbfcon2"
@@ -890,7 +898,7 @@ nolink "false"
 \end_inset
 
 ,
- such as Genetic algorithms 
+ such as genetic algorithms 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbfga1,rbfga2"
@@ -928,7 +936,8 @@ literal "false"
 
 .
  Recently,
- Rani et al proposed an improved PSO optimizer that integrates a differential search mechanism for efficient RBF network training 
+ Rani et al.
+ proposed an improved PSO optimizer that integrates a differential search mechanism for efficient RBF network training 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbf_pso_new"
@@ -938,7 +947,8 @@ literal "false"
 
 .
  Moreover,
- Karamichailidou et al suggested a novel method for RBF training using variable projection and fuzzy means 
+ Karamichailidou et al.
+ suggested a novel method for RBF training using variable projection and fuzzy means 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbf_variable_projection"
@@ -950,16 +960,17 @@ literal "false"
 \end_layout
 
 \begin_layout Subsection
-The first phase of the proposed method 
+The description of the first phase
 \end_layout
 
 \begin_layout Standard
 The method of K-means,
- used widely in machine learning is incorporated in the first phase for the location of the ranges for the centers and variances of the model.
+ used widely in machine learning,
+ is incorporated in the first phase for the location of the ranges for the centers and variances of the model.
  This method is incorporated to locate the centers and the variances of the possible groups of a series of points.
  Furthermore,
  a series of extensions of this method have been published during the past years,
- such as the Genetic K-means algotithm 
+ such as the Genetic K-means algorithm 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "gen_kmeans"
@@ -986,7 +997,7 @@ literal "false"
 \end_inset
 
  etc.
- A detailed review for the K-means method can be be located in the work of Oti et al.
+ A detailed review of the K-means method can be located in the work of Oti et al.
  
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -1007,7 +1018,8 @@ nolink "false"
 
 \end_inset
 
- and a graphical rerpesentation is provided in Figure 
+.
+ A graphical rerpesentation is provided in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:kmeans"
@@ -1033,7 +1045,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-The main steps of the K-means algorithm.
+A detailed description of K-means algorithm.
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:The-K-Means-algorithm."
@@ -1111,7 +1123,7 @@ Set
 \series bold
 For
 \series default
- each pattern 
+ every pattern 
 \begin_inset Formula $x_{i},\ i=1,...,M$
 \end_inset
 
@@ -1177,13 +1189,13 @@ do
 \begin_layout Enumerate
 
 \series bold
-Calculate
+Denote
 \series default
- as 
+ with 
 \begin_inset Formula $M_{j}$
 \end_inset
 
- the number of points belonging to the group 
+ the total number of patterns that have been assigned to cluster 
 \begin_inset Formula $S_{j}$
 \end_inset
 
@@ -1251,11 +1263,11 @@ Calculate
 \end_layout
 
 \begin_layout Enumerate
-
+The algorithm 
 \series bold
-Terminate 
+terminates
 \series default
-the algorithm when there is no further changes in centers 
+ when there are no changes in the estimated centers 
 \begin_inset Formula $c_{j}$
 \end_inset
 
@@ -1289,7 +1301,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1370,7 +1382,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1418,12 +1430,12 @@ Input:
 Input
 \series default
 :
- the initial bound for the weight vector 
+ A value used as the initial bounds for the weights 
 \begin_inset Formula $\overrightarrow{w}$
 \end_inset
 
 ,
- denoted as 
+ with the property 
 \begin_inset Formula $B_{w}>0$
 \end_inset
 
@@ -1630,11 +1642,12 @@ EndFor
 \end_layout
 
 \begin_layout Subsection
-The second phase of the proposed method 
+The description for the second phase
 \end_layout
 
 \begin_layout Standard
-During the second phase an optimization procedure is utilized to minimize the equation 
+During the second phase,
+ an optimization procedure is utilized to minimize the equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:RbfError"
@@ -1649,14 +1662,14 @@ nolink "false"
 \begin_inset Formula $\overrightarrow{L},\ \overrightarrow{R}$
 \end_inset
 
- of the first phase.
- In the proposed implementation the Genetic Algorithm was incorporated during the second phase.
- Genetic algorithm are evolutionary methods,
- that are based on randomly produced solutions of the objective problem.
- The trial solutions of the genetic algorithm are commonly called chromosomes and they are evolved through some operations that mimic some natural processes,
+ of the previous phase.In the proposed implementation,
+ the Genetic Algorithm was incorporated during the second phase.
+ Genetic algorithms are evolutionary methods that are based on randomly produced solutions of the objective problem.
+ The trial solutions of the genetic algorithm are commonly called chromosomes,
+ and they are evolved through some operations that are similar to natural processes,
  such as selection,
  crossover and mutation.
- Genetic algorithms have been used in a wide series of problems,
+ They have been incorporated in a wide series of problems,
  such as energy problems 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1675,7 +1688,7 @@ literal "true"
 \end_inset
 
 ,
- problems appeared in banking transactions 
+ problems appearing in banking transactions 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "gen_app3"
@@ -1694,7 +1707,7 @@ literal "true"
 
  etc.
  Also,
- another advantage of Genetic Algorithms is that they can be easily adopt parallel programming techniques in order to speed up the evolutionary process 
+ another advantage of Genetic Algorithms is that they can easily adopt parallel programming techniques in order to speed up the evolutionary process 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "pga1,pga2"
@@ -1715,7 +1728,7 @@ nolink "false"
 \end_inset
 
 .
- In this layout the following assumptions are hold:
+ In this layout the following assumptions hold:
 \end_layout
 
 \begin_layout Enumerate
@@ -1822,43 +1835,43 @@ Initialization step
 
 \begin_deeper
 \begin_layout Enumerate
-
+The following set of parameter are
 \series bold
-Set
+ initialized:
+
 \series default
- the parameters of the genetic algorithm:
  
 \begin_inset Formula $N_{c}$
 \end_inset
 
- the number of chromosomes,
+ for the number of chromosomes,
  
 \begin_inset Formula $N_{g}$
 \end_inset
 
- as the maximum number of allowed generations,
+ used to express the maximum number of allowed generations,
  
 \begin_inset Formula $p_{s}$
 \end_inset
 
- the selection rate and 
+ that defines the selection rate and finally 
 \begin_inset Formula $p_{m}$
 \end_inset
 
- the mutation rate.
+ which is used to represent the mutation rate.
 \end_layout
 
 \begin_layout Enumerate
 
 \series bold
-Initialize
+Perform
 \series default
- every chromosome 
+ the initialization of each chromosome 
 \begin_inset Formula $g_{i},\ i=1,\ldots,N_{c}$
 \end_inset
 
- of the population as vector of double numbers.
- The layout of each chromosome follows the scheme of Figure 
+ in the population.
+ Each chromosome is considered as a set of randomly selected integers following the scheme of Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:The-layout-of"
@@ -1920,10 +1933,10 @@ do
 Produce 
 \series default
 an RBF network 
-\begin_inset Formula $R_{i}=R\left(\overrightarrow{x},\overrightarrow{g_{i}}\right)$
+\begin_inset Formula $R_{i}=R\left(\overrightarrow{x},\overrightarrow{g_{i}}\right).$
 \end_inset
 
- using the parameters encoded in the chromosome 
+ The parameters of this network are stored in the chromosome 
 \begin_inset Formula $\overrightarrow{g_{i}}.$
 \end_inset
 
@@ -1935,7 +1948,7 @@ an RBF network
 \series bold
 Estimate
 \series default
- the related fitness value 
+ the related fitness 
 \begin_inset Formula $f_{i}$
 \end_inset
 
@@ -1971,7 +1984,7 @@ Genetic operations step
 \begin_deeper
 \begin_layout Enumerate
 Selection procedure:
- During this procedure the chromosomes are sorted according to their fitness values.
+ Initially a sorting of all chromosomes is performed according to their fitness values.
  The first 
 \begin_inset Formula $p_{s}\times N_{c}$
 \end_inset
@@ -2010,11 +2023,12 @@ Crossover procedure:
 
 \end_inset
 
-Where the numbers 
+where 
 \begin_inset Formula $a_{i}$
 \end_inset
 
- are random numbers having the property 
+ are random numbers and the following holds:
+ 
 \begin_inset Formula $a_{i}\in[-0.5,1.5]$
 \end_inset
 
@@ -2032,15 +2046,15 @@ literal "true"
 
 \begin_layout Enumerate
 Mutation procedure:
- Select a random number 
+ A random number 
 \begin_inset Formula $r\in[0,1]$
 \end_inset
 
- for each element 
+ is picked for each element 
 \begin_inset Formula $t_{j},j=1,\ldots,n$
 \end_inset
 
- of every chromosome 
+ and for every chromosome 
 \begin_inset Formula $g_{i}$
 \end_inset
 
@@ -2050,7 +2064,7 @@ Mutation procedure:
 \end_inset
 
  ,
- then this element is altered according to the following scheme:
+ then this element is altered according to the following equation:
 \begin_inset Formula 
 \begin{equation}
 t'_{j}=\begin{cases}
@@ -2133,9 +2147,15 @@ The final phase of the proposed method
 \end_layout
 
 \begin_layout Standard
-In the final phase of the proposed method a local optimization procedure is applied to the outcome of the previous phase,
+
+\series bold
+(OK)
+\series default
+In the final phase of the proposed method,
+ a local optimization procedure is applied to the outcome of the previous phase,
  in order to locate an actual minimum for the training error of the RBF network.
- In this work a BFGS variant of Powell 
+ In this work,
+ a BFGS variant of Powell 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "powell"
@@ -2145,7 +2165,8 @@ literal "false"
 
  was utilized as the local search procedure.
  This variant can preserve the bounds of the objective function in an efficient way.
- During the past years a series of modifications for the BFGS method was introduced,
+ During the past years.
+ a series of modifications to the BFGS method have been introduced,
  such as the limited memory variant L-BFGS ideal for large scale problems 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -2173,7 +2194,7 @@ literal "false"
 \end_inset
 
 .
- The main steps of the final phase of the algorithm have as follows:
+ The main steps of the final phase of the algorithm are:
 \end_layout
 
 \begin_layout Enumerate
@@ -4118,7 +4139,8 @@ Experimental results
 
 \begin_layout Standard
 All the experiments were executed on a Debian Linux system with 128GB of RAM.
- The programming language used was C++ and for the optimization method the OPTIMUS optimization environment 
+ The programming language used was C++ and for the optimization method,
+ the OPTIMUS optimization environment 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "optimus"
@@ -4139,7 +4161,8 @@ https://github.com/itsoulos/GlobalOptimus.git
 
  (accessed on 20 September 2025) was incorporated.
  The results were validated using the ten - fold cross validation technique.
- For the classification datasets the average classification error,
+ For the classification datasets,
+ the average classification error,
  calculated on the corresponding test set,
  is reported.
  This quantity is expressed using the following equation:
@@ -4637,7 +4660,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -8306,7 +8329,8 @@ nolink "false"
 \begin_layout Standard
 At the level of individual datasets,
  the proposed method delivers strikingly low errors in several cases.
- On Spiral it drops to 13.26% while others are around 45–50%;
+ On Spiral,
+ it drops to 13.26% while others are around 45–50%;
  on Wine it reaches 9.47% versus 21–60%;
  on Wdbc it achieves 5.54% versus 7–35%.
  On Z_F_S,
@@ -8321,7 +8345,8 @@ At the level of individual datasets,
  Pima,
  Australian,
  Alcohol,
- and HouseVotes the results are also highly competitive,
+ and HouseVotes,
+ the results are also highly competitive,
  usually best or within the top two.
  There are,
  however,
@@ -8332,7 +8357,8 @@ At the level of individual datasets,
  In cases like Balance,
  Popfailures,
  Dermatology,
- and Segment the proposed method is not the top performer,
+ and Segment,
+ the proposed method is not the top performer,
  though it remains competitive.
 \end_layout
 
@@ -14737,7 +14763,8 @@ In order to evaluate the stability and reliability of the proposed method when i
 
 .
  This factor controls the width of the value interval for the network parameters and is a multiple of the initial values estimated by the K-means method of the first phase.
- In this series of experiments the value of 
+ In this series of experiments,
+ the value of 
 \begin_inset Formula $F$
 \end_inset
 
@@ -24623,8 +24650,7 @@ Experiments with real - world problems
 \end_layout
 
 \begin_layout Standard
-One practical problem that can be considered here is the prediction of the duration of forest fires,
- that was presented recently for the Greek territory
+One practical problem that can be considered here is the prediction of the duration of forest fires that was presented recently for the Greek territory
 \begin_inset CommandInset citation
 LatexCommand citep
 key "mlfire"
@@ -24635,7 +24661,8 @@ literal "false"
 .
  Using data from the Greek Fire Service,
  an experiment was conducted for the prediction of the duration of forest fires for the years 2014-2024.
- In this experiment the following method were used:
+ In this experiment,
+ the following methods were used:
 \end_layout
 
 \begin_layout Enumerate
@@ -24729,7 +24756,7 @@ literal "false"
 ,
  which includes occupancy detection data and it has 15302 patterns.
  The dimension of each pattern is 59.
- The same machine learning models was used also in the case and the average classification error for these method is depicted graphically in Figure 
+ The same machine learning models were also used in the case and the average classification error for these methods is depicted graphically in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:pirvision"
@@ -24900,11 +24927,12 @@ Automating architecture and hyperparameter adaptation is a natural next step.
 
 \begin_layout Standard
 However,
- it should be emphasized that despite its efficiency,
+ it should be emphasized that,
+ despite its efficiency,
  the proposed method requires significantly more computational time than other machine learning techniques due to the serial application of the three training stages.
  In particular,
- the second stage of the genetic algorithm application requires significant computational time for its execution,
- however this time can be significantly reduced by using modern parallel computing techniques like OpenMP 
+ the second stage of the genetic algorithm application requires significant computational time for its execution.
+ However this time can be significantly reduced by using modern parallel computing techniques like OpenMP 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "gen_openmp"
