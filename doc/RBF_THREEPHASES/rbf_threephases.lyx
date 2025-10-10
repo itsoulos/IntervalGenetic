@@ -332,20 +332,23 @@ A parametric machine learning tool with many applications is the Radial Basis Fu
  and in the second stage,
  that involves solving a linear system of equations,
  the external weights for the radial functions are adjusted.
- However,
- in many cases,
- this training technique has reduced performance either due to instability in arithmetic operations or the the method's inability to escape from local minima of the error function.
+ Nevertheless,
+ in numerous instances,
+ this training approach has led to decreased performance,
+ either because of instability in arithmetic computations or due to the method's difficulty in escaping local minima of the error function.
  In this manuscript,
  a three-stage method is suggested in this work,
  to address the above problems.
- During the execution of the first phase,
- an initial estimate of the value interval for the machine learning model parameters is made.
- In the second stage,
- the network parameter values are adjusted within the intervals of the first phase,
- and finally,
- in the third stage of the proposed technique,
- a local optimization method is used for the final adjustment of the network parameters.
- The proposed method was tested against some machine learning models from the related literature as well as the original RBF training method and the current work has been successfully applied to a large group of related problems from the recent literature.
+ In the first phase,
+ an initial estimation of the value ranges for the machine learning model parameters is performed.
+ During the second phase,
+ the network parameters are fine-tuned within the intervals determined in the first phase.
+ Finally,
+ in the third phase of the proposed method,
+ a local optimization technique is applied to achieve the final adjustment of the network parameters.
+ The proposed method was evaluated on several machine learning models from the related literature,
+ as well as compared with the original RBF training approach.
+ This work has been successfully applied to a wide range of related problems reported in recent studies.
  Also
 \series bold
 ,
@@ -434,9 +437,9 @@ literal "false"
 \end_inset
 
  etc.
- Among the most used machine learning tools,
- one can detect the Radial Basis Function (RBF) network.
- These machine learning models are commonly defined by the following equation:
+ Among the most widely used machine learning techniques,
+ the Radial Basis Function (RBF) network stands out.
+ These models are typically described by the following equation:
 \begin_inset Formula 
 \begin{equation}
 R\left(\overrightarrow{x}\right)=\sum_{i=1}^{k}w_{i}\phi\left(\left\Vert \overrightarrow{x}-\overrightarrow{c_{i}}\right\Vert \right)\label{eq:firstrbf}
@@ -502,12 +505,11 @@ The function
 \end_layout
 
 \begin_layout Standard
-An example plot for the Gaussian function with the following set of parameters:
- 
+An example plot of the Gaussian function with the parameter set 
 \begin_inset Formula $c=0,\ \sigma=1$
 \end_inset
 
- is depicted in Figure 
+ is shown in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:gaussian"
@@ -691,13 +693,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-In this paper,
- the use of a three-stage technique is suggested for the effective training of RBF networks.
-
-\series bold
- 
-\series default
-The first phase of the technique includes an algorithm for efficiently identifying the value interval of the model parameters.
+This paper proposes a three-stage approach for the effective training of RBF networks.
+ The first stage of the method involves an algorithm designed to efficiently determine the value ranges of the model parameters.
  This detection is implemented using the K-Means algorithm 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -726,10 +723,10 @@ nolink "false"
  In the current work,
  the Genetic Algorithm is used as the method of the second phase,
  but any optimization technique can be incorporated.
- In the last phase of the proposed technique,
- a local minimization method is applied to the optimal parameters identified in the second phase.
- The purpose of the present technique is first to identify a reliable range of values for the parameters of RBF networks and then to train the network parameters within this range of values,
- avoiding possible arithmetic instability problems presented by the established method of training RBF networks.
+ In the final phase of the proposed method,
+ a local minimization technique is applied to the optimal parameters obtained from the second phase.
+ The aim of the proposed method is first to determine a reliable range of values for the parameters of RBF networks and then to train the network parameters within this range,
+ thereby avoiding potential arithmetic instability issues associated with the conventional RBF training approach.
 \end_layout
 
 \begin_layout Standard
@@ -739,9 +736,14 @@ The proposed technique is the application of three distinct procedures in series
  an initial estimation of the centers and variances is performed with the method of K-Means.
  This method is preferred because it is extremely fast to execute and can provide an overview of the search space for neural networks.
  It is preferred over using random values as this would require a significantly large number of iterations for proper initialization of the parameters.
- After executing the K-Means technique,
- a range of values for the network parameters is created with values that are multiples of those produced by the K-Means technique.
- In this way,
+ After applying the K-Means technique,
+ a range of network parameter values is generated,
+ consisting of multiples of the values obtained from the K-Means results.
+
+\series bold
+ 
+\series default
+In this way,
  on the one hand,
  the use of the K-Means technique is utilized and,
  on the other hand,
@@ -755,17 +757,22 @@ that yield lower values of the error function close to the initial values of the
  they often do not locate exactly a true minimum of the objective function and therefore the help of a local minimization method is deemed necessary.
  This occurs in the third phase,
  where a local optimization method is applied to the chromosome with the smallest value produced in the second phase.
- The minimum found in this phase is also the final result of the algorithm,
- which is also a configuration of the parameters of the RBF network.
+ The minimum identified in this phase also represents the final outcome of the algorithm,
+ corresponding to a specific configuration of the RBF network parameters.
 \end_layout
 
 \begin_layout Standard
-The main characteristics of the present technique are that it uses different techniques in series in order to identify the optimal set of parameters for the machine learning model and to avoid possible overfitting problems.
+The main features of the proposed method are its use of multiple techniques in sequence to determine the optimal set of parameters for the machine learning model while avoiding potential overfitting.
  In the first discrete phase,
- a well-established clustering technique such as the K-Means technique is applied to identify a promising range of values for the model parameters.
- In the second stage,
- a global optimization algorithm is used to minimize the error function inside the bounds of the first phase and in the last phase a local minimization method will be used to find a guaranteed local minimum of the error function.
- The method of the last phase guarantees the training of the parameters within the range of values of the first phase.
+ a well-established clustering method,
+ such as K-Means,
+ is employed to identify a promising range of values for the model parameters.
+ In the second phase,
+ a global optimization algorithm is applied to minimize the error function within the bounds established in the first phase.
+ Finally,
+ in the last phase,
+ a local minimization method is used to locate a guaranteed local minimum of the error function.
+ This final phase ensures that the network parameters are trained within the value range determined in the first phase.
 \end_layout
 
 \begin_layout Standard
@@ -840,9 +847,10 @@ Related work
 \end_layout
 
 \begin_layout Standard
-A number of techniques have been published during the past years for the training of neural networks and the efficient adaptation of parameters.
- Among them,
- one can find methods aimed to efficient initialize the parameters of RBF networks 
+Over the past years,
+ numerous techniques have been proposed for training neural networks and efficiently adapting their parameters.
+ Among these,
+ there are methods specifically designed for the effective initialization of RBF network parameters 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbfinit1,rbfinit2,rbfinit3"
@@ -853,7 +861,7 @@ literal "false"
 .
  Moreover,
  Benoudjit et al.
- provided a discussion on the estimation of kernel widths in these models 
+ discussed on the estimation of kernels in these models 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbfkernel"
@@ -934,8 +942,8 @@ literal "false"
 \end_inset
 
  etc.
- Furthermore,
- the rapid increase in the use of parallel computing techniques in recent decades has resulted in the publication of a series of relevant scientific papers that exploit these techniques 
+ Moreover,
+ the rapid growth in the use of parallel computing techniques in recent decades has led to the publication of numerous scientific studies that leverage these methods 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbfpar1,rbfpar2"
@@ -1048,13 +1056,13 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-The steps of the K-means algorithm.
+The procedure of the K-Means algorithm.
 \begin_inset CommandInset label
 LatexCommand label
 name "alg:The-K-Means-algorithm."
@@ -1366,7 +1374,7 @@ After the calculation of
 \end_inset
 
 ,
- the method locates the bound vectors 
+ the method locates the margin vectors 
 \begin_inset Formula $\overrightarrow{L},\ \overrightarrow{R}$
 \end_inset
 
@@ -1531,10 +1539,15 @@ nolink "false"
  In the proposed implementation,
  the Genetic Algorithm was incorporated during the second phase.
  Genetic algorithms are evolutionary methods that are based on randomly produced solutions of the objective problem.
- The trial solutions of the genetic algorithm are commonly called chromosomes,
- and they are evolved through some operations that are similar to natural processes,
+
+\series bold
+ 
+\series default
+The candidate solutions in a genetic algorithm are typically referred to as chromosomes,
+ and they evolve through operations inspired by natural processes,
  such as selection,
- crossover and mutation.
+ crossover,
+ and mutation.
  They have been incorporated in a wide series of problems,
  such as energy problems 
 \begin_inset CommandInset citation
@@ -1593,7 +1606,7 @@ nolink "false"
 
 \end_inset
 
- outlines the layout of the chromosomes participated in the genetic algorithm of this phase.
+ illustrates the structure of the chromosomes involved in the genetic algorithm at this phase.
  In this figure the following assumptions hold:
 \end_layout
 
@@ -1648,7 +1661,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align left
@@ -1665,7 +1678,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-This image shows the schematic arrangement of a chromosome for the proposed genetic algorithm.
+The figure illustrates the schematic arrangement of a chromosome in the proposed genetic algorithm.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:The-layout-of"
@@ -1686,7 +1699,7 @@ name "fig:The-layout-of"
 \end_layout
 
 \begin_layout Standard
-The proposed genetic algorithm consists of the following steps:
+The following steps outline the proposed genetic algorithm:
 \end_layout
 
 \begin_layout Enumerate
@@ -1848,17 +1861,14 @@ Genetic operations step
 \begin_deeper
 \begin_layout Enumerate
 Selection procedure:
- Initially a sorting of all chromosomes is performed according to their fitness values.
- The first 
+ Initially,
+ all chromosomes are sorted based on their fitness values.
+ The top 
 \begin_inset Formula $p_{s}\times N_{c}$
 \end_inset
 
- of them are transferred without any change to the next generation.
-
-\series bold
- 
-\series default
-The remaining individuals will be substituted by offrpsings produced using the operations of crossover and mutation.
+ chromosomes are directly carried over to the next generation without any modification.
+ The remaining individuals are replaced by offspring generated through crossover and mutation operations.
 \end_layout
 
 \begin_layout Enumerate
@@ -1989,19 +1999,20 @@ If
 \begin_inset Formula $k<N_{g}$
 \end_inset
 
- then the procedure continues from the Fitness Calculation Step
+ then the procedure returns to the Fitness Calculation step.
 \end_layout
 
 \begin_layout Enumerate
 
 \series bold
-Else return 
+Otherwise
 \series default
-the best located chromosome 
+,
+ the best chromosome 
 \begin_inset Formula $g^{*}$
 \end_inset
 
- as the result of this algorithm.
+ is returned as the result of the algorithm.
 \end_layout
 
 \end_deeper
@@ -2010,10 +2021,13 @@ The steps of the third phase
 \end_layout
 
 \begin_layout Standard
-In the third phase of the current work,
- a local optimization procedure is applied to the outcome of the previous phase,
- in order to locate an actual minimum for the training error of the RBF network.
- In this work,
+In the third phase of the present work,
+ a local optimization procedure is applied to the results of the previous phase to identify an actual minimum of the RBF network’s training error.
+
+\series bold
+ 
+\series default
+In this work,
  a BFGS variant of Powell 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -2170,8 +2184,8 @@ The experimental datasets.
 \end_layout
 
 \begin_layout Standard
-The proposed method was tested on a wide series of classification and regression problems,
- that can be downloaded UCI database 
+The proposed method was evaluated on a broad set of classification and regression problems,
+ available from the UCI database 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "uci"
@@ -2188,6 +2202,7 @@ literal "false"
 
 \end_inset
 
+,
  and the STATLIB database 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -2197,7 +2212,9 @@ literal "false"
 \end_inset
 
 .
- The classification datasets that was incorporated in the conducted experiments accompanied with their information (patterns and number of classes) are presented in Table 
+ The classification datasets used in the experiments,
+ along with their details (number of patterns and classes),
+ are summarized in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:classData"
@@ -2217,16 +2234,16 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-The column DATASET denotes the name of the dataset.
- The column entitled Reference Paper denotes the paper,
- where this dataset was mentioned.
- The column Patterns stands for the number of patterns in the dataset and the column Number of Classes represents the number of distinct classes in the mentioned dataset.
+The column 'DATASET' indicates the name of each dataset.
+ The 'Reference Paper' column refers to the publication in which the dataset was mentioned.
+ The 'Patterns' column shows the number of patterns in the dataset,
+ while the 'Number of Classes' column represents the number of distinct classes contained in the dataset.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:classData"
@@ -3807,7 +3824,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -4689,8 +4706,13 @@ Experimental results
 \end_layout
 
 \begin_layout Standard
-The computation environment for the implemented series of experiments was a Debian Linux system equipped with 128GB of RAM and all the necessary code was written in the C++ programming language.
- Also,
+The experiments were conducted on a Debian Linux system with 128 GB of RAM,
+ and all the necessary code was implemented in the C++ programming language.
+
+\series bold
+ 
+\series default
+Also,
  the OPTIMUS computing environment 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -4702,7 +4724,7 @@ literal "false"
 ,
  available from 
 \begin_inset Flex URL
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -4712,7 +4734,7 @@ https://github.com/itsoulos/GlobalOptimus.git
 \end_inset
 
  (accessed on 9 October 2025) was used for the optimization methods.
- The experimental results were validated using the ten - fold cross validation technique.
+ Ten-fold cross-validation was employed to validate the experimental results.
  The average classification error is calculated as:
  
 \begin_inset Formula 
@@ -4759,7 +4781,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -5100,7 +5122,7 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The results from the application of the ADAM local optimization technique 
+The ADAM column presents the results obtained by training a 10-weight neural network using the ADAM local optimization technique 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Adam,AdamNN"
@@ -5108,7 +5130,7 @@ literal "false"
 
 \end_inset
 
- to train a neural network with 10 weights are presented in the column ADAM.
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -5153,7 +5175,7 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The column BAYES stands for the application of the Bayesian optimizer as implemented in the freely available library BayesOpt 
+The BAYES column presents results obtained using the Bayesian optimizer from the open-source BayesOpt library 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bayesopt"
@@ -5161,8 +5183,8 @@ literal "false"
 
 \end_inset
 
-.
- This method was incorporated to train a neural network with 10 processing nodes.
+,
+ applied to train a neural network with 10 processing nodes.
 \end_layout
 
 \begin_layout Enumerate
@@ -5182,7 +5204,7 @@ The column PROPOSED is used to represent the results obtained by the current wor
 \end_layout
 
 \begin_layout Enumerate
-The row average is used to hold the average regression or classification error for all datasets.
+The row denoted as AVERAGE summarizes the mean regression or classification error calculated over all datasets.
 \end_layout
 
 \begin_layout Enumerate
@@ -8899,9 +8921,8 @@ At the level of individual datasets,
 \end_layout
 
 \begin_layout Standard
-Overall,
- the proposed method offers the lowest average error and a consistent advantage across a wide range of problems,
- with substantial gains over all classical and modern baselines.
+In summary,
+ the proposed method not only attains the lowest average error but also consistently outperforms a broad range of classical and contemporary baseline methods.
  Despite local exceptions where DNN,
  ADAM,
  or RBF-KMEANS come out ahead,
@@ -8932,7 +8953,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical analyses of the experimental results on the classification datasets using the machine learning methods described in this article.
+Statistical analyses of the results obtained on the classification datasets with the machine learning methods discussed in this work.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:statClass"
@@ -8958,7 +8979,7 @@ placement H
 alignment document
 wide false
 sideways true
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -9931,9 +9952,7 @@ nolink "false"
 \end_layout
 
 \begin_layout Standard
-Also,
- a comparison in terms of precision and recall for the classification datasets,
- between the original training method for RBF networks and the proposed one is depicted in Table 
+Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Precision-and-recall"
@@ -9944,7 +9963,7 @@ nolink "false"
 
 \end_inset
 
-.
+ further illustrates the comparison of precision and recall on the classification datasets between the conventional RBF training method and the proposed technique.
  
 \end_layout
 
@@ -11679,7 +11698,7 @@ AVERAGE
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Comparison of precision and recall between the original RBF training method and the proposed method.
+Comparison of precision and recall between the conventional RBF training approach and the proposed technique.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Precision-and-recall"
@@ -11708,8 +11727,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-The experimental results obtained from the regression datasets,
- employing the machine learning techniques presented in this work.
+Results from the regression datasets,
+ generated using the machine learning methods described in this work.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:expRegression"
@@ -14289,7 +14308,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -15298,8 +15317,16 @@ In order to evaluate the stability and reliability of the current work when its 
 \end_inset
 
 .
- This factor controls the width of the value interval for the network parameters and is a multiple of the initial values estimated by the K-means method of the first phase.
- In this series of experiments,
+
+\series bold
+ 
+\series default
+This factor regulates the range of network parameter values and is scaled as a multiple of the initial estimates obtained from the first-phase K-Means method.
+
+\series bold
+ 
+\series default
+In this series of experiments,
  the value of 
 \begin_inset Formula $F$
 \end_inset
@@ -15313,10 +15340,14 @@ In order to evaluate the stability and reliability of the current work when its 
 \end_layout
 
 \begin_layout Standard
-Table 
+The effect of the scale factor 
+\begin_inset Formula $F$
+\end_inset
+
+ on the performance of the proposed machine learning model is presented in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:expClassF"
+reference "tab:expClass"
 plural "false"
 caps "false"
 noprefix "false"
@@ -15324,11 +15355,7 @@ nolink "false"
 
 \end_inset
 
- presents the effect of the scale factor 
-\begin_inset Formula $F$
-\end_inset
-
- on the performance of the proposed machine learning model.
+.
  The parameter 
 \begin_inset Formula $F$
 \end_inset
@@ -15432,18 +15459,18 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experimental results obtained by applying the proposed method to the classification datasets,
+Results of applying the proposed method to the classification datasets,
  with the critical parameter 
 \begin_inset Formula $F$
 \end_inset
 
- ranging from 1 to 8.
+ ranging between 1 and 8.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:expClassF"
@@ -17345,18 +17372,18 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experimental results obtained by applying the proposed method to the regression datasets,
+Results of applying the proposed method to the regression datasets,
  with the critical parameter 
 \begin_inset Formula $F$
 \end_inset
 
- ranging from 1 to 8.
+ ranging between 1 and 8.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:expRegressionF"
@@ -18592,7 +18619,13 @@ AVERAGE
 \end_layout
 
 \begin_layout Standard
-In Figure 
+The significance levels for comparisons among different values of the parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ in the proposed machine learning method,
+ using the classification datasets,
+ are shown in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:statClassF"
@@ -18603,12 +18636,7 @@ nolink "false"
 
 \end_inset
 
-,
- the significance levels are presented for the comparisons between different values of the parameter 
-\begin_inset Formula $F$
-\end_inset
-
- in the proposed machine learning method based on the classification datasets.
+.
  The analysis shows that the comparison between 
 \begin_inset Formula $F=1$
 \end_inset
@@ -18677,7 +18705,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -18693,12 +18721,13 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical analysis of the results produced by the proposed approach on the classification datasets,
- with variations in the parameter 
+Statistical evaluation of the outcomes produced by the proposed approach on the classification datasets,
+ considering variations in the parameter 
 \begin_inset Formula $F$
 \end_inset
 
 .
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:statClassF"
@@ -18719,7 +18748,13 @@ name "fig:statClassF"
 
 \end_inset
 
-In Figure 
+The significance levels for comparisons among different values of the parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ in the proposed method,
+ using the regression datasets,
+ are presented in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:statRegressionF"
@@ -18730,8 +18765,7 @@ nolink "false"
 
 \end_inset
 
-,
- the significance levels are presented for the comparisons between different values of the parameter F in the proposed method based on the regression datasets.
+.
  The results show that none of the comparisons 
 \begin_inset Formula $F=1$
 \end_inset
@@ -18764,11 +18798,11 @@ nolink "false"
 \end_inset
 
 .
- This means that variations in the parameter 
+ These results suggest that variations in the parameter 
 \begin_inset Formula $F$
 \end_inset
 
- do not substantially affect the performance of the model in regression problems.
+ do not significantly influence the performance of the model on regression tasks.
  Therefore,
  it can be concluded that the choice of the 
 \begin_inset Formula $F$
@@ -18796,8 +18830,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical analysis of the results produced by the proposed approach on the regression datasets,
- with variations in the parameter F.
+Statistical evaluation of the outcomes produced by the proposed approach on the regression datasets,
+ with variations in the parameter 
+\begin_inset Formula $F$
+\end_inset
+
+.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:statRegressionF"
@@ -18822,19 +18860,26 @@ Experiments with differential initialization methods for variances
 \end_layout
 
 \begin_layout Standard
-Additionally,
- the stability of the proposed method was checked using a different way of calculating the range of values of the 
+The stability of the proposed method was also evaluated by employing a different procedure to determine the range of 
 \begin_inset Formula $\sigma$
 \end_inset
 
- parameters of the radial functions.
- In this work,
- the value of the variance produced by the K-means algorithm was used as an initial estimate of the 
+ parameters for the radial functions.
+
+\series bold
+ 
+\series default
+Here,
+ the 
 \begin_inset Formula $\sigma$
 \end_inset
 
- parameters.
- This calculation scheme is denoted as 
+ parameters were initially estimated using the variance calculated by the K-Means algorithm.
+
+\series bold
+ 
+\series default
+This calculation scheme is denoted as 
 \begin_inset Formula $\sigma_{1}$
 \end_inset
 
@@ -18883,16 +18928,12 @@ Subsequently
 
 \end_inset
 
-Afterwards this quantity is used for the determination of the range of values for the 
+This quantity is then employed to define the range of 
 \begin_inset Formula $\sigma$
 \end_inset
 
- parameters of the radial functions.
- 
-\end_layout
-
-\begin_layout Standard
-Table 
+ parameter values for the radial functions.
+ Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:expClassSigma"
@@ -18997,12 +19038,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experiments conducted on the classification datasets using the proposed method,
- employing various strategies for computing the 
+The proposed method was evaluated on the classification datasets using various approaches to compute the 
 \begin_inset Formula $\sigma$
 \end_inset
 
  parameters in the radial basis functions.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:expClassSigma"
@@ -20563,11 +20604,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Results derived by the incorporation of the proposed method on the regression datasets with different calculation mechanisms for the 
+The proposed method was applied to the regression datasets,
+ and results were analyzed using various approaches to compute the 
 \begin_inset Formula $\sigma$
 \end_inset
 
- used in the radial functions.
+ parameters of the radial functions.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:expRegressionSigma"
@@ -21533,7 +21575,13 @@ AVERAGE
 
 \end_inset
 
-In Figure 
+The significance levels for comparisons of various computation methods for the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ parameters in the radial basis functions of the proposed model,
+ using the classification datasets,
+ are presented in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:statClassSigma"
@@ -21544,13 +21592,7 @@ nolink "false"
 
 \end_inset
 
-,
- the significance levels are presented for the comparisons of different computation techniques for the 
-\begin_inset Formula $\sigma$
-\end_inset
-
- parameters in the radial basis functions of the proposed machine learning model,
- based on the classification datasets.
+.
  The comparisons performed 
 \begin_inset Formula $\sigma_{1}$
 \end_inset
@@ -21583,11 +21625,11 @@ nolink "false"
 \end_inset
 
 .
- This indicates that the choice of compuation method for the 
+ These results indicate that variations in the computation method for the 
 \begin_inset Formula $\sigma$
 \end_inset
 
- parameters does not substantially affect the performance of the model on classification problems.
+ parameters do not significantly influence the performance of the model on classification tasks.
  Therefore,
  it can be concluded that the model maintains stable performance regardless of which of the three computation techniques is used.
 \begin_inset Float figure
@@ -21611,12 +21653,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical analysis of the results produced by applying the proposed method to the classification datasets,
- considering various computation techniques for estimating the range of 
+Statistical evaluation of the outcomes from applying the proposed method to the classification datasets,
+ considering various approaches for determining the range of 
 \begin_inset Formula $\sigma$
 \end_inset
 
- values in the radial basis functions.
+ parameters in the radial basis functions.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:statClassSigma"
@@ -21641,7 +21683,13 @@ name "fig:statClassSigma"
 \end_layout
 
 \begin_layout Standard
-In Figure 
+The significance levels for comparisons of various methods for computing the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ parameters in the radial basis functions of the proposed model,
+ using the regression datasets,
+ are presented in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:statRegressionSigma"
@@ -21652,14 +21700,12 @@ nolink "false"
 
 \end_inset
 
-,
- the significance levels are presented for the comparisons of different computation techniques for the 
-\begin_inset Formula $\sigma$
-\end_inset
+.
 
- parameters in the radial basis functions of the proposed machine learning model,
- based on the regression datasets.
- The comparisons examined 
+\series bold
+ 
+\series default
+The comparisons examined 
 \begin_inset Formula $\sigma_{1}$
 \end_inset
 
@@ -21722,12 +21768,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical tests on the produced results from the application of the current work to the regression datasets,
- using a series of computation techniques for the range of 
+Statistical analysis of the outcomes from applying the current method to the regression datasets,
+ considering different approaches for determining the range of 
 \begin_inset Formula $\sigma$
 \end_inset
 
- values in the radial functions.
+ parameters in the radial functions.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:statRegressionSigma"
@@ -21760,7 +21806,7 @@ Experiments with the number of generations
 \end_layout
 
 \begin_layout Standard
-An additional experiments was executed,
+An additional experiment was executed,
  where the number of generations was altered from 
 \begin_inset Formula $N_{g}=50$
 \end_inset
@@ -21842,13 +21888,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Results obtained by applying the proposed method to the classification datasets,
- while varying the number of generations 
+The proposed method was applied to the classification datasets,
+ and results were analyzed for varying numbers of generations 
 \begin_inset Formula $N_{g}$
 \end_inset
 
- \SpecialChar allowbreak
- between 50 and 400.
+ ranging from 50 to 400.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -25013,8 +25058,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical analysis of the results from the application of the proposed method to the classification datasets,
- considering different values of the parameter 
+Statistical evaluation of the outcomes from applying the proposed method to the classification datasets,
+ with different settings of the parameter 
 \begin_inset Formula $N_{g}$
 \end_inset
 
@@ -25127,8 +25172,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical analysis of the results from the application of the proposed method to the regression datasets,
- considering different values of the parameter 
+Statistical evaluation of the outcomes from applying the proposed method to the regression datasets,
+ with different settings of the parameter 
 \begin_inset Formula $N_{g}$
 \end_inset
 
@@ -25162,7 +25207,8 @@ Experiments with real - world problems
 \end_layout
 
 \begin_layout Standard
-One practical problem that can be considered here is the prediction of the duration of forest fires that was presented recently for the Greek territory
+A practical problem addressed in this context is the prediction of forest fire duration,
+ which has been recently investigated for the Greek region
 \begin_inset CommandInset citation
 LatexCommand citep
 key "mlfire"
@@ -25171,8 +25217,7 @@ literal "false"
 \end_inset
 
 .
- Using data from the Greek Fire Service,
- an experiment was conducted for the prediction of the duration of forest fires for the years 2014-2024.
+ An experiment was conducted using data from the Greek Fire Service to predict forest fire durations over the period 2014–2024.
  In this experiment,
  the following methods were used:
 \end_layout
@@ -25436,13 +25481,16 @@ Automating architecture and hyperparameter adaptation is a natural next step.
 \end_layout
 
 \begin_layout Standard
-However,
- it should be emphasized that,
- despite its efficiency,
- the proposed method demands more computational time than other machine learning techniques due to the serial application of the three training stages.
- In particular,
- the second stage of the genetic algorithm application requires significant computational time for its execution.
- However this time can be minimized with the incorporation of modern parallel computing techniques like OpenMP 
+It is important to note that,
+ although highly effective,
+ the proposed method is more computationally intensive than other machine learning approaches because of the sequential application of its three training stages.
+ Specifically,
+ the second stage,
+ which applies the genetic algorithm,
+ requires considerable computational effort.
+ This overhead,
+ however,
+ can be mitigated by leveraging modern parallel computing techniques like OpenMP 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "gen_openmp"
@@ -25458,7 +25506,7 @@ literal "false"
 
 \end_inset
 
-.
+ .
 \end_layout
 
 \begin_layout Standard

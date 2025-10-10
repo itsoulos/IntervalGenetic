@@ -45,25 +45,26 @@ these networks is their radial functions. These networks acquire adaptive
 capabilities through a technique that consists of two stages. The
 centers and variances are computed in the first stage, and in the
 second stage, that involves solving a linear system of equations,
-the external weights for the radial functions are adjusted. However,
-in many cases, this training technique has reduced performance either
-due to instability in arithmetic operations or the the method's inability
-to escape from local minima of the error function. In this manuscript,
-a three-stage method is suggested in this work, to address the above
-problems. During the execution of the first phase, an initial estimate
-of the value interval for the machine learning model parameters is
-made. In the second stage, the network parameter values are adjusted
-within the intervals of the first phase, and finally, in the third
-stage of the proposed technique, a local optimization method is used
-for the final adjustment of the network parameters. The proposed method
-was tested against some machine learning models from the related literature
-as well as the original RBF training method and the current work has
-been successfully applied to a large group of related problems from
-the recent literature. Also\textbf{, }a comparison was made in terms
-of classification or regression error. It should be noted that although
-the proposed methodology had very good results in the above measurements,
-it requires significant computational execution time, due to the use
-of three phases of processing and adaptation of the network parameters.}
+the external weights for the radial functions are adjusted. Nevertheless,
+in numerous instances, this training approach has led to decreased
+performance, either because of instability in arithmetic computations
+or due to the method's difficulty in escaping local minima of the
+error function. In this manuscript, a three-stage method is suggested
+in this work, to address the above problems. In the first phase, an
+initial estimation of the value ranges for the machine learning model
+parameters is performed. During the second phase, the network parameters
+are fine-tuned within the intervals determined in the first phase.
+Finally, in the third phase of the proposed method, a local optimization
+technique is applied to achieve the final adjustment of the network
+parameters. The proposed method was evaluated on several machine learning
+models from the related literature, as well as compared with the original
+RBF training approach. This work has been successfully applied to
+a wide range of related problems reported in recent studies. Also\textbf{,
+}a comparison was made in terms of classification or regression error.
+It should be noted that although the proposed methodology had very
+good results in the above measurements, it requires significant computational
+execution time, due to the use of three phases of processing and adaptation
+of the network parameters.}
 
 
 \keyword{Machine learning; Neural networks; Genetic algorithms; Optimization}
@@ -214,9 +215,9 @@ as physics physics \citep{physics_ml1,physics_ml2}, astronomy \citep{astronomy_m
 chemistry \citep{chemistry_ml1,chemistry_ml2}, medicine \citep{med_ml1,med_ml2},
 economics \citep{econ_ml1,econ_ml2}, image processing \citep{nn_image},
 time series forecasting \citep{nn_timeseries} etc. Among the most
-used machine learning tools, one can detect the Radial Basis Function
-(RBF) network. These machine learning models are commonly defined
-by the following equation:
+widely used machine learning techniques, the Radial Basis Function
+(RBF) network stands out. These models are typically described by
+the following equation:
 \begin{equation}
 R\left(\overrightarrow{x}\right)=\sum_{i=1}^{k}w_{i}\phi\left(\left\Vert \overrightarrow{x}-\overrightarrow{c_{i}}\right\Vert \right)\label{eq:firstrbf}
 \end{equation}
@@ -234,8 +235,8 @@ for the functions used in the network.
 \phi(x)=\exp\left(-\frac{\left(x-c\right)^{2}}{\sigma^{2}}\right)
 \end{equation}
 \end{enumerate}
-An example plot for the Gaussian function with the following set of
-parameters: $c=0,\ \sigma=1$ is depicted in Figure \ref{fig:gaussian}.
+An example plot of the Gaussian function with the parameter set $c=0,\ \sigma=1$
+is shown in Figure \ref{fig:gaussian}. 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics{gaussian}
@@ -263,27 +264,26 @@ prediction \citep{rbf_time}, estimation of wind power production
 proved that an RBF network with one processing layer can be approximate
 any given function.
 
-In this paper, the use of a three-stage technique is suggested for
-the effective training of RBF networks.\textbf{ }The first phase of
-the technique includes an algorithm for efficiently identifying the
-value interval of the model parameters. This detection is implemented
-using the K-Means algorithm \citep{kmeans} for the weights and the
-variances of the radial functions. After applying the above procedure,
-a range of values for the network parameters is created which directly
-depends on the values produced by K-means algorithm. During the second
-stage of the proposed work, a global optimization procedure is incorporated
-to optimize the parameters of the RBF network with respect to the
-equation \ref{eq:RbfError}. The training of the network parameters
-is performed within the value range of the first phase to avoid possible
-overfitting problems. In the current work, the Genetic Algorithm is
-used as the method of the second phase, but any optimization technique
-can be incorporated. In the last phase of the proposed technique,
-a local minimization method is applied to the optimal parameters identified
-in the second phase. The purpose of the present technique is first
-to identify a reliable range of values for the parameters of RBF networks
-and then to train the network parameters within this range of values,
-avoiding possible arithmetic instability problems presented by the
-established method of training RBF networks.
+This paper proposes a three-stage approach for the effective training
+of RBF networks. The first stage of the method involves an algorithm
+designed to efficiently determine the value ranges of the model parameters.
+This detection is implemented using the K-Means algorithm \citep{kmeans}
+for the weights and the variances of the radial functions. After applying
+the above procedure, a range of values for the network parameters
+is created which directly depends on the values produced by K-means
+algorithm. During the second stage of the proposed work, a global
+optimization procedure is incorporated to optimize the parameters
+of the RBF network with respect to the equation \ref{eq:RbfError}.
+The training of the network parameters is performed within the value
+range of the first phase to avoid possible overfitting problems. In
+the current work, the Genetic Algorithm is used as the method of the
+second phase, but any optimization technique can be incorporated.
+In the final phase of the proposed method, a local minimization technique
+is applied to the optimal parameters obtained from the second phase.
+The aim of the proposed method is first to determine a reliable range
+of values for the parameters of RBF networks and then to train the
+network parameters within this range, thereby avoiding potential arithmetic
+instability issues associated with the conventional RBF training approach.
 
 The proposed technique is the application of three distinct procedures
 in series, where in each stage the results of the previous phase are
@@ -293,37 +293,37 @@ preferred because it is extremely fast to execute and can provide
 an overview of the search space for neural networks. It is preferred
 over using random values as this would require a significantly large
 number of iterations for proper initialization of the parameters.
-After executing the K-Means technique, a range of values for the network
-parameters is created with values that are multiples of those produced
-by the K-Means technique. In this way, on the one hand, the use of
-the K-Means technique is utilized and, on the other hand, the second-phase
-optimization algorithm is given the opportunity to search for parameter
-values \LyXZeroWidthSpace that yield lower values of the error function
-close to the initial values of the first phase. A genetic algorithm
-is used as the optimization algorithm in the second phase due to its
-adaptability to any environment and their widespread use in many computational
-problems. However, any universal optimization technique could be utilized
-in this phase. However, although genetic algorithms are extremely
-effective methods of global optimization, they often do not locate
-exactly a true minimum of the objective function and therefore the
-help of a local minimization method is deemed necessary. This occurs
-in the third phase, where a local optimization method is applied to
-the chromosome with the smallest value produced in the second phase.
-The minimum found in this phase is also the final result of the algorithm,
-which is also a configuration of the parameters of the RBF network.
+After applying the K-Means technique, a range of network parameter
+values is generated, consisting of multiples of the values obtained
+from the K-Means results.\textbf{ }In this way, on the one hand, the
+use of the K-Means technique is utilized and, on the other hand, the
+second-phase optimization algorithm is given the opportunity to search
+for parameter values \LyXZeroWidthSpace that yield lower values of
+the error function close to the initial values of the first phase.
+A genetic algorithm is used as the optimization algorithm in the second
+phase due to its adaptability to any environment and their widespread
+use in many computational problems. However, any universal optimization
+technique could be utilized in this phase. However, although genetic
+algorithms are extremely effective methods of global optimization,
+they often do not locate exactly a true minimum of the objective function
+and therefore the help of a local minimization method is deemed necessary.
+This occurs in the third phase, where a local optimization method
+is applied to the chromosome with the smallest value produced in the
+second phase. The minimum identified in this phase also represents
+the final outcome of the algorithm, corresponding to a specific configuration
+of the RBF network parameters.
 
-The main characteristics of the present technique are that it uses
-different techniques in series in order to identify the optimal set
-of parameters for the machine learning model and to avoid possible
-overfitting problems. In the first discrete phase, a well-established
-clustering technique such as the K-Means technique is applied to identify
-a promising range of values for the model parameters. In the second
-stage, a global optimization algorithm is used to minimize the error
-function inside the bounds of the first phase and in the last phase
-a local minimization method will be used to find a guaranteed local
-minimum of the error function. The method of the last phase guarantees
-the training of the parameters within the range of values of the first
-phase.
+The main features of the proposed method are its use of multiple techniques
+in sequence to determine the optimal set of parameters for the machine
+learning model while avoiding potential overfitting. In the first
+discrete phase, a well-established clustering method, such as K-Means,
+is employed to identify a promising range of values for the model
+parameters. In the second phase, a global optimization algorithm is
+applied to minimize the error function within the bounds established
+in the first phase. Finally, in the last phase, a local minimization
+method is used to locate a guaranteed local minimum of the error function.
+This final phase ensures that the network parameters are trained within
+the value range determined in the first phase.
 
 The rest of this paper has the following structure: in section \ref{sec:Materials-and-Methods},
 the parts of the proposed technique are presented in detail, in section
@@ -347,26 +347,25 @@ of the used datasets is provided in this section in table format.
 
 \subsection{Related work}
 
-A number of techniques have been published during the past years for
-the training of neural networks and the efficient adaptation of parameters.
-Among them, one can find methods aimed to efficient initialize the
-parameters of RBF networks \citep{rbfinit1,rbfinit2,rbfinit3}. Moreover,
-Benoudjit et al. provided a discussion on the estimation of kernel
-widths in these models \citep{rbfkernel}. Additionally, a series
-of pruning techniques \citep{rbfprun1,rbfprun2,rbfprun3} have been
-introduced aiming to reduce the required number of parameters for
-networks, providing a solution to the overfitting problem. Also, methods
-that construct the architecture of RBF networks have been proposed
-recently, such as the work of Du et al. \citep{rbfcon1} or the work
-of Yu et al. who suggested an incremental design framework for RBF
-networks \citep{rbfcon2}. Also, a series of optimization techniques
-have been used in the past for the minimization of equation \ref{eq:RbfError},
-such as genetic algorithms \citep{rbfga1,rbfga2}, the Particle Swarm
-Optimization method \citep{rbfpso1,rbfpso2}, the Differential Evolution
-technique \citep{rbfdiff1} etc. Furthermore, the rapid increase in
-the use of parallel computing techniques in recent decades has resulted
-in the publication of a series of relevant scientific papers that
-exploit these techniques \citep{rbfpar1,rbfpar2}. Recently, Rani
+Over the past years, numerous techniques have been proposed for training
+neural networks and efficiently adapting their parameters. Among these,
+there are methods specifically designed for the effective initialization
+of RBF network parameters \citep{rbfinit1,rbfinit2,rbfinit3}. Moreover,
+Benoudjit et al. discussed on the estimation of kernels in these models
+\citep{rbfkernel}. Additionally, a series of pruning techniques \citep{rbfprun1,rbfprun2,rbfprun3}
+have been introduced aiming to reduce the required number of parameters
+for networks, providing a solution to the overfitting problem. Also,
+methods that construct the architecture of RBF networks have been
+proposed recently, such as the work of Du et al. \citep{rbfcon1}
+or the work of Yu et al. who suggested an incremental design framework
+for RBF networks \citep{rbfcon2}. Also, a series of optimization
+techniques have been used in the past for the minimization of equation
+\ref{eq:RbfError}, such as genetic algorithms \citep{rbfga1,rbfga2},
+the Particle Swarm Optimization method \citep{rbfpso1,rbfpso2}, the
+Differential Evolution technique \citep{rbfdiff1} etc. Moreover,
+the rapid growth in the use of parallel computing techniques in recent
+decades has led to the publication of numerous scientific studies
+that leverage these methods \citep{rbfpar1,rbfpar2}. Recently, Rani
 et al. proposed an improved PSO optimizer that integrates a differential
 search mechanism for efficient RBF network training \citep{rbf_pso_new}.
 Moreover, Karamichailidou et al. suggested a novel method for RBF
@@ -388,7 +387,7 @@ is presented in Algorithm \ref{alg:The-K-Means-algorithm.}. A graphical
 rerpesentation is provided in Figure \ref{fig:kmeans}.
 
 \begin{algorithm}[H]
-\caption{The steps of the K-means algorithm.\protect\label{alg:The-K-Means-algorithm.}}
+\caption{The procedure of the K-Means algorithm.\protect\label{alg:The-K-Means-algorithm.}}
 
 \begin{enumerate}
 \item \textbf{Input: }The set of patterns of the objective problem\textbf{
@@ -432,9 +431,9 @@ change in the center values $c_{i}$ from iteration to iteration.
 
 After the calculation of $\overrightarrow{c_{i}},\ i=1,..,k$ and
 the quantities $\sigma_{i},\ i=1,\ldots,k$, the method locates the
-bound vectors $\overrightarrow{L},\ \overrightarrow{R}$ for the parameters
-of the RBF network. The dimension of the bound vectors is defined
-as:
+margin vectors $\overrightarrow{L},\ \overrightarrow{R}$ for the
+parameters of the RBF network. The dimension of the bound vectors
+is defined as:
 \begin{equation}
 n=(d+2)\times k\label{eq:bound_dimension}
 \end{equation}
@@ -475,19 +474,19 @@ minimize the equation \ref{eq:RbfError} considering the bound vectors
 $\overrightarrow{L},\ \overrightarrow{R}$ of the previous phase.
 In the proposed implementation, the Genetic Algorithm was incorporated
 during the second phase. Genetic algorithms are evolutionary methods
-that are based on randomly produced solutions of the objective problem.
-The trial solutions of the genetic algorithm are commonly called chromosomes,
-and they are evolved through some operations that are similar to natural
-processes, such as selection, crossover and mutation. They have been
-incorporated in a wide series of problems, such as energy problems
-\citep{gen_app1}, water distribution \citep{gen_app2}, problems
-appearing in banking transactions \citep{gen_app3}, optimization
+that are based on randomly produced solutions of the objective problem.\textbf{
+}The candidate solutions in a genetic algorithm are typically referred
+to as chromosomes, and they evolve through operations inspired by
+natural processes, such as selection, crossover, and mutation. They
+have been incorporated in a wide series of problems, such as energy
+problems \citep{gen_app1}, water distribution \citep{gen_app2},
+problems appearing in banking transactions \citep{gen_app3}, optimization
 of neural networks \citep{gen_app4} etc. Also, another advantage
 of Genetic Algorithms is that they can easily adopt parallel programming
 techniques in order to speed up the evolutionary process \citep{pga1,pga2}.
-Figure \ref{fig:The-layout-of} outlines the layout of the chromosomes
-participated in the genetic algorithm of this phase. In this figure
-the following assumptions hold:
+Figure \ref{fig:The-layout-of} illustrates the structure of the chromosomes
+involved in the genetic algorithm at this phase. In this figure the
+following assumptions hold:
 \begin{enumerate}
 \item The value $c_{i,j}$ denotes the $j$ element of the $i$ center of
 the RBF network, with $i\in[1,k]$ and $j\in[1,d].$
@@ -500,11 +499,11 @@ radial function.
 \begin{raggedright}
 \includegraphics[scale=0.2]{chrom_layout}
 \par\end{raggedright}
-\caption{This image shows the schematic arrangement of a chromosome for the
-proposed genetic algorithm.\protect\label{fig:The-layout-of}}
+\caption{The figure illustrates the schematic arrangement of a chromosome in
+the proposed genetic algorithm.\protect\label{fig:The-layout-of}}
 \end{figure}
 
-The proposed genetic algorithm consists of the following steps:
+The following steps outline the proposed genetic algorithm:
 \begin{enumerate}
 \item \textbf{Initialization step}. 
 \begin{enumerate}
@@ -536,11 +535,11 @@ f_{i}=\sum_{j=1}^{M}\left(R\left(\overrightarrow{x}_{j},\overrightarrow{g_{i}}\r
 \end{enumerate}
 \item \textbf{Genetic operations step}.
 \begin{enumerate}
-\item Selection procedure: Initially a sorting of all chromosomes is performed
-according to their fitness values. The first $p_{s}\times N_{c}$
-of them are transferred without any change to the next generation.\textbf{
-}The remaining individuals will be substituted by offrpsings produced
-using the operations of crossover and mutation.
+\item Selection procedure: Initially, all chromosomes are sorted based on
+their fitness values. The top $p_{s}\times N_{c}$ chromosomes are
+directly carried over to the next generation without any modification.
+The remaining individuals are replaced by offspring generated through
+crossover and mutation operations.
 \item Crossover procedure: During this procedure In this procedure $\left(1-p_{s}\right)\times N_{c}$
 new chromosomes will be constructed. For each pair $\left(\tilde{z},\tilde{w}\right)$
 of new chromosomes, two chromosomes $(z,w)$ are chosen using tournament
@@ -570,20 +569,20 @@ function $\Delta(k,y)$ is provided by the following equation:
 \item \textbf{Termination check step}.
 \begin{enumerate}
 \item \textbf{Set} $k=k+1$
-\item \textbf{If} $k<N_{g}$ then the procedure continues from the Fitness
-Calculation Step
-\item \textbf{Else return }the best located chromosome $g^{*}$ as the result
-of this algorithm.
+\item \textbf{If} $k<N_{g}$ then the procedure returns to the Fitness Calculation
+step.
+\item \textbf{Otherwise}, the best chromosome $g^{*}$ is returned as the
+result of the algorithm.
 \end{enumerate}
 \end{enumerate}
 
 \subsection{The steps of the third phase}
 
-In the third phase of the current work, a local optimization procedure
-is applied to the outcome of the previous phase, in order to locate
-an actual minimum for the training error of the RBF network. In this
-work, a BFGS variant of Powell \citep{powell} was utilized as the
-local optimization method. This variant can preserve the bounds located
+In the third phase of the present work, a local optimization procedure
+is applied to the results of the previous phase to identify an actual
+minimum of the RBF network’s training error.\textbf{ }In this work,
+a BFGS variant of Powell \citep{powell} was utilized as the local
+optimization method. This variant can preserve the bounds located
 previously in an efficient way. During the past years a series of
 modifications to the BFGS method have been introduced, such as the
 limited memory variant L-BFGS ideal for large scale problems \citep{lbfgs}
@@ -615,19 +614,19 @@ the proposed work is presented in Figure \ref{fig:summary}.
 
 \subsection{The experimental datasets.}
 
-The proposed method was tested on a wide series of classification
-and regression problems, that can be downloaded UCI database \citep{uci},
-the KEEL database \citep{Keel} and the STATLIB database \citep{statlib}.
-The classification datasets that was incorporated in the conducted
-experiments accompanied with their information (patterns and number
-of classes) are presented in Table \ref{tab:classData}.
+The proposed method was evaluated on a broad set of classification
+and regression problems, available from the UCI database \citep{uci},
+the KEEL database \citep{Keel}, and the STATLIB database \citep{statlib}.
+The classification datasets used in the experiments, along with their
+details (number of patterns and classes), are summarized in Table
+\ref{tab:classData}.
 
 \begin{table}[H]
-\caption{The column DATASET denotes the name of the dataset. The column entitled
-Reference Paper denotes the paper, where this dataset was mentioned.
-The column Patterns stands for the number of patterns in the dataset
-and the column Number of Classes represents the number of distinct
-classes in the mentioned dataset.\protect\label{tab:classData}}
+\caption{The column 'DATASET' indicates the name of each dataset. The 'Reference
+Paper' column refers to the publication in which the dataset was mentioned.
+The 'Patterns' column shows the number of patterns in the dataset,
+while the 'Number of Classes' column represents the number of distinct
+classes contained in the dataset.\protect\label{tab:classData}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|}
@@ -769,14 +768,13 @@ TREASURY & \citep{Keel} & 1049\tabularnewline
 
 \subsection{Experimental results }
 
-The computation environment for the implemented series of experiments
-was a Debian Linux system equipped with 128GB of RAM and all the necessary
-code was written in the C++ programming language. Also, the OPTIMUS
-computing environment \citep{optimus}, available from \url{https://github.com/itsoulos/GlobalOptimus.git}
+The experiments were conducted on a Debian Linux system with 128\,GB
+of RAM, and all the necessary code was implemented in the C++ programming
+language.\textbf{ }Also, the OPTIMUS computing environment \citep{optimus},
+available from \url{https://github.com/itsoulos/GlobalOptimus.git}
 (accessed on 9 October 2025) was used for the optimization methods.
-The experimental results were validated using the ten - fold cross
-validation technique. The average classification error is calculated
-as: 
+Ten-fold cross-validation was employed to validate the experimental
+results. The average classification error is calculated as: 
 \begin{equation}
 E_{C}\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=100\times\frac{\sum_{i=1}^{N}\left(\mbox{class}\left(N\left(\overrightarrow{x_{i}},\overrightarrow{w}\right)\right)-y_{i}\right)}{N}
 \end{equation}
@@ -819,9 +817,8 @@ following meaning:
 \item The results from the incorporation of the BFGS procedure \citep{bfgs}
 to train an artificial neural network \citep{nn1,nn2} with 10 weights
 are presented in column under the title BFGS.
-\item The results from the application of the ADAM local optimization technique
-\citep{Adam,AdamNN} to train a neural network with 10 weights are
-presented in the column ADAM.
+\item The ADAM column presents the results obtained by training a 10-weight
+neural network using the ADAM local optimization technique \citep{Adam,AdamNN}.
 \item The column RBF-KMEANS is used here to denote the usage of the initial
 training method of RBF networks to train an RBF network with 10 nodes.
 \item The column NEAT (NeuroEvolution of Augmenting Topologies) \citep{neat}
@@ -832,16 +829,15 @@ as implemented in the Tiny Dnn library, that can be downloaded freely
 from \url{https://github.com/tiny-dnn/tiny-dnn}(accessed on 9 October
 2025). The optimization method AdaGrad \citep{adagrad} was incorporated
 for the training of the neural network.
-\item The column BAYES stands for the application of the Bayesian optimizer
-as implemented in the freely available library BayesOpt \citep{bayesopt}.
-This method was incorporated to train a neural network with 10 processing
-nodes.
+\item The BAYES column presents results obtained using the Bayesian optimizer
+from the open-source BayesOpt library \citep{bayesopt}, applied to
+train a neural network with 10 processing nodes.
 \item The column GENRBF stands method introduced in \citep{rbf_gen1} for
 RBF training.
 \item The column PROPOSED is used to represent the results obtained by the
 current work.
-\item The row average is used to hold the average regression or classification
-error for all datasets.
+\item The row denoted as AVERAGE summarizes the mean regression or classification
+error calculated over all datasets.
 \item In the experimental results, boldface highlighting was used to make
 it clear which of the machine learning techniques has the lowest error
 on each dataset..
@@ -951,19 +947,19 @@ and ADAM wins narrowly on Student and Balance. In cases like Balance,
 Popfailures, Dermatology, and Segment, the proposed method is not
 the top performer, though it remains competitive.
 
-Overall, the proposed method offers the lowest average error and a
-consistent advantage across a wide range of problems, with substantial
-gains over all classical and modern baselines. Despite local exceptions
-where DNN, ADAM, or RBF-KMEANS come out ahead, the approach appears
-more generalizable and stable, achieving systematically low errors
-and large improvements on challenging datasets, which supports its
-practical use as a default choice for classification.
+In summary, the proposed method not only attains the lowest average
+error but also consistently outperforms a broad range of classical
+and contemporary baseline methods. Despite local exceptions where
+DNN, ADAM, or RBF-KMEANS come out ahead, the approach appears more
+generalizable and stable, achieving systematically low errors and
+large improvements on challenging datasets, which supports its practical
+use as a default choice for classification.
 
 \begin{figure}[H]
 \includegraphics[scale=0.75]{stat1}
 
-\caption{Statistical analyses of the experimental results on the classification
-datasets using the machine learning methods described in this article.\protect\label{fig:statClass}}
+\caption{Statistical analyses of the results obtained on the classification
+datasets with the machine learning methods discussed in this work.\protect\label{fig:statClass}}
 \end{figure}
 
 \begin{sidewaystable}[H]
@@ -1024,9 +1020,9 @@ error for the PROPOSED method across all baselines, with very large
 effect sizes, tight negative confidence intervals, and significance
 that survives multiple-comparison correction.
 
-Also, a comparison in terms of precision and recall for the classification
-datasets, between the original training method for RBF networks and
-the proposed one is depicted in Table \ref{tab:Precision-and-recall}. 
+Table \ref{tab:Precision-and-recall} further illustrates the comparison
+of precision and recall on the classification datasets between the
+conventional RBF training method and the proposed technique. 
 
 \begin{table}[H]
 \begin{centering}
@@ -1107,12 +1103,12 @@ ZOO & 0.804 & 0.809 & 0.875 & 0.878\tabularnewline
 \hline 
 \end{tabular}
 \par\end{centering}
-\caption{Comparison of precision and recall between the original RBF training
-method and the proposed method.\protect\label{tab:Precision-and-recall}}
+\caption{Comparison of precision and recall between the conventional RBF training
+approach and the proposed technique.\protect\label{tab:Precision-and-recall}}
 \end{table}
 \begin{table}[H]
-\caption{The experimental results obtained from the regression datasets, employing
-the machine learning techniques presented in this work.\protect\label{tab:expRegression}}
+\caption{Results from the regression datasets, generated using the machine
+learning methods described in this work.\protect\label{tab:expRegression}}
 
 \centering{}{\footnotesize{}%
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -1274,16 +1270,16 @@ all comparisons.
 In order to evaluate the stability and reliability of the current
 work when its critical parameters are altered, a series of additional
 experiments were executed. In one of them, the stability of the technique
-was studied with the change of the scale factor $F$. This factor
-controls the width of the value interval for the network parameters
-and is a multiple of the initial values estimated by the K-means method
-of the first phase. In this series of experiments, the value of $F$
-was altered in the range $[1,8]$. 
+was studied with the change of the scale factor $F$.\textbf{ }This
+factor regulates the range of network parameter values and is scaled
+as a multiple of the initial estimates obtained from the first-phase
+K-Means method.\textbf{ }In this series of experiments, the value
+of $F$ was altered in the range $[1,8]$. 
 
-Table \ref{tab:expClassF} presents the effect of the scale factor
-$F$ on the performance of the proposed machine learning model. The
-parameter $F$ takes four different values, 1, 2, 4, and 8, and for
-each dataset the classification error rate is reported. Analyzing
+The effect of the scale factor $F$ on the performance of the proposed
+machine learning model is presented in Table \ref{tab:expClass}.
+The parameter $F$ takes four different values, 1, 2, 4, and 8, and
+for each dataset the classification error rate is reported. Analyzing
 the mean values, it is observed that $F=2$ and $F=4$ achieve the
 best overall performance, with average errors of 19.45\% and 18.53\%
 respectively, compared to 20.99\% for $F=1$ and 18.60\% for $F=8$.
@@ -1307,9 +1303,8 @@ role in the stability and accuracy of the model, and that intermediate
 values such as 4 constitute a good general choice.
 
 \begin{table}[H]
-\caption{Experimental results obtained by applying the proposed method to the
-classification datasets, with the critical parameter $F$ ranging
-from 1 to 8.\protect\label{tab:expClassF}}
+\caption{Results of applying the proposed method to the classification datasets,
+with the critical parameter $F$ ranging between 1 and 8.\protect\label{tab:expClassF}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|}
@@ -1412,9 +1407,8 @@ based on the mean errors suggests that $F=4$ and $F=8$ yield the
 most reliable results, with $F=4$ being the preferred choice for
 a general-purpose setting.
 \begin{table}[H]
-\caption{Experimental results obtained by applying the proposed method to the
-regression datasets, with the critical parameter $F$ ranging from
-1 to 8.\protect\label{tab:expRegressionF}}
+\caption{Results of applying the proposed method to the regression datasets,
+with the critical parameter $F$ ranging between 1 and 8.\protect\label{tab:expRegressionF}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|}
@@ -1470,14 +1464,14 @@ Treasury & 0.57 & 0.47 & 0.035 & \textbf{0.031}\tabularnewline
 \end{tabular}
 \end{table}
 
-In Figure \ref{fig:statClassF}, the significance levels are presented
-for the comparisons between different values of the parameter $F$
-in the proposed machine learning method based on the classification
-datasets. The analysis shows that the comparison between $F=1$ and
-$F=2$ results in high statistical significance with $p<0.01$, indicating
-that the transition from the initial value to $F=2$ has a substantial
-impact on performance. Similarly, the comparison between $F=2$ and
-$F=4$ also shows high statistical significance with $p<0.01$, suggesting
+The significance levels for comparisons among different values of
+the parameter $F$ in the proposed machine learning method, using
+the classification datasets, are shown in Figure \ref{fig:statClassF}.
+The analysis shows that the comparison between $F=1$ and $F=2$ results
+in high statistical significance with $p<0.01$, indicating that the
+transition from the initial value to $F=2$ has a substantial impact
+on performance. Similarly, the comparison between $F=2$ and $F=4$
+also shows high statistical significance with $p<0.01$, suggesting
 that further increasing the parameter continues to positively affect
 the results. However, the comparison between $F=4$ and $F=8$ is
 characterized as not statistically significant, since $p>0.05$, which
@@ -1490,40 +1484,41 @@ significant improvements.
 \begin{figure}[H]
 \includegraphics[scale=0.75]{stat3}
 
-\caption{Statistical analysis of the results produced by the proposed approach
-on the classification datasets, with variations in the parameter $F$.\protect\label{fig:statClassF}}
+\caption{Statistical evaluation of the outcomes produced by the proposed approach
+on the classification datasets, considering variations in the parameter
+$F$. \protect\label{fig:statClassF}}
 
 \end{figure}
-In Figure \ref{fig:statRegressionF}, the significance levels are
-presented for the comparisons between different values of the parameter
-F in the proposed method based on the regression datasets. The results
-show that none of the comparisons $F=1$ vs $F=2$, $F=2$ vs $F=4$,
-and $F=4$ vs $F=8$ exhibit statistically significant differences,
-since in all cases $p>0.05$. This means that variations in the parameter
-$F$ do not substantially affect the performance of the model in regression
-problems. Therefore, it can be concluded that the choice of the $F$
-value is not of critical importance for these datasets and that the
-model remains stable regardless of the specific setting of this parameter.
+The significance levels for comparisons among different values of
+the parameter $F$ in the proposed method, using the regression datasets,
+are presented in \ref{fig:statRegressionF}. The results show that
+none of the comparisons $F=1$ vs $F=2$, $F=2$ vs $F=4$, and $F=4$
+vs $F=8$ exhibit statistically significant differences, since in
+all cases $p>0.05$. These results suggest that variations in the
+parameter $F$ do not significantly influence the performance of the
+model on regression tasks. Therefore, it can be concluded that the
+choice of the $F$ value is not of critical importance for these datasets
+and that the model remains stable regardless of the specific setting
+of this parameter.
 \begin{figure}[H]
 \includegraphics[scale=0.75]{stat4}
 
-\caption{Statistical analysis of the results produced by the proposed approach
-on the regression datasets, with variations in the parameter F.\protect\label{fig:statRegressionF}}
+\caption{Statistical evaluation of the outcomes produced by the proposed approach
+on the regression datasets, with variations in the parameter $F$.\protect\label{fig:statRegressionF}}
 \end{figure}
 
 
 \subsection{Experiments with differential initialization methods for variances}
 
-Additionally, the stability of the proposed method was checked using
-a different way of calculating the range of values of the $\sigma$
-parameters of the radial functions. In this work, the value of the
-variance produced by the K-means algorithm was used as an initial
-estimate of the $\sigma$ parameters. This calculation scheme is denoted
-as $\sigma_{1}$ in the following experimental tables. In this additional
-set of experiments, two more techniques were used, which will be denoted
-as $\sigma_{\mbox{avg}}$ and $\sigma_{\mbox{max}}$ in the following
-tables. In the $\sigma_{\mbox{avg}}$ the following calculation is
-performed:
+The stability of the proposed method was also evaluated by employing
+a different procedure to determine the range of $\sigma$ parameters
+for the radial functions.\textbf{ }Here, the $\sigma$ parameters
+were initially estimated using the variance calculated by the K-Means
+algorithm.\textbf{ }This calculation scheme is denoted as $\sigma_{1}$
+in the following experimental tables. In this additional set of experiments,
+two more techniques were used, which will be denoted as $\sigma_{\mbox{avg}}$
+and $\sigma_{\mbox{max}}$ in the following tables. In the $\sigma_{\mbox{avg}}$
+the following calculation is performed:
 \begin{equation}
 \sigma_{\mbox{avg}}=\frac{1}{k}\sum_{i=1}^{k}\sigma_{i}\label{eq:sigma_avg}
 \end{equation}
@@ -1533,14 +1528,13 @@ network. In the $\sigma_{\mbox{avg}}$ the following quantity is calculated:
 \begin{equation}
 \sigma_{\mbox{max}}=\max\sigma_{i}\label{eq:sigma_max}
 \end{equation}
-Afterwards this quantity is used for the determination of the range
-of values for the $\sigma$ parameters of the radial functions. 
-
-Table \ref{tab:expClassSigma} presents the effect of three different
-calculation techniques for the $\sigma$ parameters used in the radial
-basis functions of the RBF model. The techniques are a fixed value
-$\sigma_{1}$, the mean distance-based initialization $\left(\sigma_{\mbox{avg}}\right)$,
-and the maximum distance--based initialization $\left(\sigma_{\mbox{max}}\right)$.
+This quantity is then employed to define the range of $\sigma$ parameter
+values for the radial functions. Table \ref{tab:expClassSigma} presents
+the effect of three different calculation techniques for the $\sigma$
+parameters used in the radial basis functions of the RBF model. The
+techniques are a fixed value $\sigma_{1}$, the mean distance-based
+initialization $\left(\sigma_{\mbox{avg}}\right)$, and the maximum
+distance--based initialization $\left(\sigma_{\mbox{max}}\right)$.
 Based on the mean errors, the maximum-distance technique yields the
 lowest overall error at 19.18\%. Very close is the mean-distance technique
 at 19.27\%, while the simple $\sigma_{1}$ initialization has a slightly
@@ -1563,9 +1557,9 @@ lags slightly. The average differences are modest, but for certain
 problems the choice can significantly impact final performance.
 
 \begin{table}[H]
-\caption{Experiments conducted on the classification datasets using the proposed
-method, employing various strategies for computing the $\sigma$ parameters
-in the radial basis functions.\protect\label{tab:expClassSigma}}
+\caption{The proposed method was evaluated on the classification datasets using
+various approaches to compute the $\sigma$ parameters in the radial
+basis functions. \protect\label{tab:expClassSigma}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|}
@@ -1673,9 +1667,9 @@ while the maximum-distance method can in some cases produce very large
 improvements but in others lead to a degradation of performance.
 
 \begin{table}[H]
-\caption{Results derived by the incorporation of the proposed method on the
-regression datasets with different calculation mechanisms for the
-$\sigma$ used in the radial functions.\protect\label{tab:expRegressionSigma}}
+\caption{The proposed method was applied to the regression datasets, and results
+were analyzed using various approaches to compute the $\sigma$ parameters
+of the radial functions.\protect\label{tab:expRegressionSigma}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|}
@@ -1730,33 +1724,32 @@ Treasury & 0.47 & 0.15 & 0.08\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
-In Figure \ref{fig:statClassSigma}, the significance levels are presented
-for the comparisons of different computation techniques for the $\sigma$
-parameters in the radial basis functions of the proposed machine learning
-model, based on the classification datasets. The comparisons performed
-$\sigma_{1}$ vs $\sigma_{\mbox{avg}}$, $\sigma_{1}$ vs $\sigma_{\mbox{max}}$,
+The significance levels for comparisons of various computation methods
+for the $\sigma$ parameters in the radial basis functions of the
+proposed model, using the classification datasets, are presented in
+Figure \ref{fig:statClassSigma}. The comparisons performed $\sigma_{1}$
+vs $\sigma_{\mbox{avg}}$, $\sigma_{1}$ vs $\sigma_{\mbox{max}}$,
 and $\sigma_{\mbox{avg}}$ vs $\sigma_{\mbox{max}}$ did not show
 any statistically significant differences, since in all cases $p>0.05$.
-This indicates that the choice of compuation method for the $\sigma$
-parameters does not substantially affect the performance of the model
-on classification problems. Therefore, it can be concluded that the
-model maintains stable performance regardless of which of the three
-computation techniques is used.
+These results indicate that variations in the computation method for
+the $\sigma$ parameters do not significantly influence the performance
+of the model on classification tasks. Therefore, it can be concluded
+that the model maintains stable performance regardless of which of
+the three computation techniques is used.
 \begin{figure}[H]
 \includegraphics[scale=0.75]{stat5}
 
-\caption{Statistical analysis of the results produced by applying the proposed
-method to the classification datasets, considering various computation
-techniques for estimating the range of $\sigma$ values in the radial
-basis functions.\protect\label{fig:statClassSigma}}
+\caption{Statistical evaluation of the outcomes from applying the proposed
+method to the classification datasets, considering various approaches
+for determining the range of $\sigma$ parameters in the radial basis
+functions.\protect\label{fig:statClassSigma}}
 
 \end{figure}
 
-In Figure \ref{fig:statRegressionSigma}, the significance levels
-are presented for the comparisons of different computation techniques
-for the $\sigma$ parameters in the radial basis functions of the
-proposed machine learning model, based on the regression datasets.
-The comparisons examined $\sigma_{1}$ vs $\sigma_{\mbox{avg}}$,
+The significance levels for comparisons of various methods for computing
+the $\sigma$ parameters in the radial basis functions of the proposed
+model, using the regression datasets, are presented in Figure \ref{fig:statRegressionSigma}.\textbf{
+}The comparisons examined $\sigma_{1}$ vs $\sigma_{\mbox{avg}}$,
 $\sigma_{1}$ vs $\sigma_{\mbox{max}}$, and $\sigma_{\mbox{avg}}$
 vs $\sigma_{\mbox{max}}$ did not show any statistically significant
 differences, since in all cases $p>0.05$. This means that the choice
@@ -1769,16 +1762,16 @@ is applied.
 \begin{figure}[H]
 \includegraphics[scale=0.75]{stat6}
 
-\caption{Statistical tests on the produced results from the application of
-the current work to the regression datasets, using a series of computation
-techniques for the range of $\sigma$ values in the radial functions.\protect\label{fig:statRegressionSigma}}
+\caption{Statistical analysis of the outcomes from applying the current method
+to the regression datasets, considering different approaches for determining
+the range of $\sigma$ parameters in the radial functions.\protect\label{fig:statRegressionSigma}}
 
 \end{figure}
 
 
 \subsection{Experiments with the number of generations $N_{g}$ }
 
-An additional experiments was executed, where the number of generations
+An additional experiment was executed, where the number of generations
 was altered from $N_{g}=50$ to $N_{g}=400$ . Table \ref{tab:expClassNG}
 presents the effect of the number of generations $\left(N_{g}\right)$
 on the performance of the proposed model. The overall trend is downward:
@@ -1805,9 +1798,9 @@ meaningful improvements, at the cost of more computation and occasional
 local regressions.
 
 \begin{table}[H]
-\caption{Results obtained by applying the proposed method to the classification
-datasets, while varying the number of generations $N_{g}$ \LyXZeroWidthSpace{}
-between 50 and 400. \protect\label{tab:expClassNG}}
+\caption{The proposed method was applied to the classification datasets, and
+results were analyzed for varying numbers of generations $N_{g}$
+ranging from 50 to 400. \protect\label{tab:expClassNG}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|}
@@ -1990,9 +1983,9 @@ are not statistically meaningful.
 \begin{figure}[H]
 \includegraphics[scale=0.5]{stat10}
 
-\caption{Statistical analysis of the results from the application of the proposed
-method to the classification datasets, considering different values
-of the parameter $N_{g}$. \protect\label{fig:statClassNG}}
+\caption{Statistical evaluation of the outcomes from applying the proposed
+method to the classification datasets, with different settings of
+the parameter $N_{g}$. \protect\label{fig:statClassNG}}
 
 \end{figure}
 In Figure \ref{fig:statRegressionNG}, the p-value analysis on the
@@ -2010,21 +2003,21 @@ do not guarantee additional consistent gains.
 \begin{figure}[H]
 \includegraphics[scale=0.5]{stat11}
 
-\caption{Statistical analysis of the results from the application of the proposed
-method to the regression datasets, considering different values of
-the parameter $N_{g}$. \protect\label{fig:statRegressionNG}}
+\caption{Statistical evaluation of the outcomes from applying the proposed
+method to the regression datasets, with different settings of the
+parameter $N_{g}$. \protect\label{fig:statRegressionNG}}
 
 \end{figure}
 
 
 \subsection{Experiments with real - world problems}
 
-One practical problem that can be considered here is the prediction
-of the duration of forest fires that was presented recently for the
-Greek territory\citep{mlfire}. Using data from the Greek Fire Service,
-an experiment was conducted for the prediction of the duration of
-forest fires for the years 2014-2024. In this experiment, the following
-methods were used:
+A practical problem addressed in this context is the prediction of
+forest fire duration, which has been recently investigated for the
+Greek region\citep{mlfire}. An experiment was conducted using data
+from the Greek Fire Service to predict forest fire durations over
+the period 2014--2024. In this experiment, the following methods
+were used:
 \begin{enumerate}
 \item A neural network with 10 computing nodes, trained using the BFGS optimizer.
 \item A Radial Basis Function with 10 weights, trained with the original
@@ -2101,13 +2094,14 @@ and integrating the approach into AutoML pipelines together with analyses
 of interpretability and predictive uncertainty will provide a more
 complete picture of the method’s limits and potential.
 
-However, it should be emphasized that, despite its efficiency, the
-proposed method demands more computational time than other machine
-learning techniques due to the serial application of the three training
-stages. In particular, the second stage of the genetic algorithm application
-requires significant computational time for its execution. However
-this time can be minimized with the incorporation of modern parallel
-computing techniques like OpenMP \citep{gen_openmp} or MPI \citep{gen_mpi}.
+It is important to note that, although highly effective, the proposed
+method is more computationally intensive than other machine learning
+approaches because of the sequential application of its three training
+stages. Specifically, the second stage, which applies the genetic
+algorithm, requires considerable computational effort. This overhead,
+however, can be mitigated by leveraging modern parallel computing
+techniques like OpenMP \citep{gen_openmp} or MPI \citep{gen_mpi}
+.
 
 \vspace{6pt}
 
