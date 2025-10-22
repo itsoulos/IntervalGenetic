@@ -16,6 +16,7 @@
 #include "tolmin.h"
 # include <GE/grammargenetic.h>
 # include <simanbounds.h>
+# include <parallelde.h>
 using namespace  std;
 
 #define GENETIC
@@ -68,7 +69,7 @@ QString checkInList(QStringList &lst,QString value)
 void parseCmdLine(QStringList args)
 {
     intervalMethodList<<"double"<<"integer"<<"pso"<<"grammar"<<"none"<<"siman"<<"genetic";
-    localMethodList<<"gradient"<<"adam"<<"bfgs"<<"genetic"<<"none";
+    localMethodList<<"gradient"<<"adam"<<"bfgs"<<"genetic"<<"parallelde"<<"none";
 
     QString lastParam="";
     for(int i=1;i<args.size();i++)
@@ -466,6 +467,16 @@ int main(int argc,char **argv)
              bestx=np.getUniformRandomPoint();
         //else bestx=bestgeneticx;
             besty=tolmin(bestx,&np,bfgs_iterations);
+        }
+        else
+        if(localMethod=="parallelde")
+        {
+            ParallelDe de(&np);
+            de.setIslands(threads);
+            de.setAgents(chromosomes/threads);
+            de.setGenerations(maxGenerations);
+            de.Solve();
+            de.getBest(bestx,besty);
         }
         else
         if(localMethod=="none")

@@ -48,6 +48,7 @@ SOURCES += \
         intervalproblem.cpp \
         intervalpso.cpp \
         main.cpp \
+    parallelde.cpp \
     simanbounds.cpp \
     tolmin.cc \
     problem.cpp
@@ -78,6 +79,7 @@ HEADERS += \
     intervalgenetic.h \
     intervalproblem.h \
     intervalpso.h \
+    parallelde.h \
     simanbounds.h \
     tolmin.h \
     problem.h

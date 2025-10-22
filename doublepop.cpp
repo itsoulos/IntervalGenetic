@@ -280,7 +280,7 @@ void	DoublePop::mutate()
 void	DoublePop::calcFitnessArray()
 {
 	double dmin=1e+100;
-//#pragma omp parallel for num_threads(MAXTHREADS) schedule(static) reduction(min:dmin)
+#pragma omp parallel for num_threads(MAXTHREADS) schedule(static) reduction(min:dmin)
 	for(int i=0;i<genome_count;i++)
 	{
 		fitness_array[i]=fitness(genome[i]);
