@@ -598,6 +598,18 @@ The rest of this paper has the following structure:
  in section 
 \begin_inset CommandInset ref
 LatexCommand ref
+reference "sec:Related-work"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ the definition of the RBF networks is presented as well as some references to related work in the area of training of RBF networks,
+  in section 
+\begin_inset CommandInset ref
+LatexCommand ref
 reference "sec:Materials-and-Methods"
 plural "false"
 caps "false"
@@ -638,30 +650,14 @@ nolink "false"
 \end_layout
 
 \begin_layout Section
-Materials and Methods
+Related work
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Materials-and-Methods"
+name "sec:Related-work"
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-The three distinct phases of the proposed method are discussed here.
- The discussion initiates with the first phase,
- where the construction of the ranges for the parameter values is performed using the K-means algorithm.
- Afterward,
- the steps of the used Genetic Algorithm are presented in detail and finally,
- this section concludes with the description of the final phase,
- where a local optimization method is applied to the best located chromosome of the second phase.
- Also,
- the description of the used datasets is provided in this section in table format.
-\end_layout
-
-\begin_layout Subsection
-Related work
 \end_layout
 
 \begin_layout Standard
@@ -970,6 +966,29 @@ In most cases,
  the above techniques do not specify a range of values \SpecialChar allowbreak
 \SpecialChar allowbreak
 for the network parameters within which the optimization of the model parameters can be effectively performed.
+\end_layout
+
+\begin_layout Section
+Materials and Methods
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Materials-and-Methods"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The three distinct phases of the proposed method are discussed here.
+ The discussion initiates with the first phase,
+ where the construction of the ranges for the parameter values is performed using the K-means algorithm.
+ Afterward,
+ the steps of the used Genetic Algorithm are presented in detail and finally,
+ this section concludes with the description of the final phase,
+ where a local optimization method is applied to the best located chromosome of the second phase.
+ Also,
+ the description of the used datasets is provided in this section in table format.
 \end_layout
 
 \begin_layout Subsection

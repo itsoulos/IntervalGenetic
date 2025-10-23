@@ -287,27 +287,18 @@ method is used to locate a guaranteed local minimum of the error function.
 This final phase ensures that the network parameters are trained within
 the value range determined in the first phase.
 
-The rest of this paper has the following structure: in section \ref{sec:Materials-and-Methods},
-the parts of the proposed technique are presented in detail, in section
-\ref{sec:Results}, the datasets on which the method was applied are
-presented, as well as the experimental results from its application,
-and in section \ref{sec:Conclusions}, an extensive discussion of
-the practical results of the proposed technique is made and possible
-weaknesses that arose during the execution of the experiments are
-analyzed.
+The rest of this paper has the following structure: in section \ref{sec:Related-work}
+the definition of the RBF networks is presented as well as some references
+to related work in the area of training of RBF networks,  in section
+\ref{sec:Materials-and-Methods}, the parts of the proposed technique
+are presented in detail, in section \ref{sec:Results}, the datasets
+on which the method was applied are presented, as well as the experimental
+results from its application, and in section \ref{sec:Conclusions},
+an extensive discussion of the practical results of the proposed technique
+is made and possible weaknesses that arose during the execution of
+the experiments are analyzed.
 
-\section{Materials and Methods\label{sec:Materials-and-Methods}}
-
-The three distinct phases of the proposed method are discussed here.
-The discussion initiates with the first phase, where the construction
-of the ranges for the parameter values is performed using the K-means
-algorithm. Afterward, the steps of the used Genetic Algorithm are
-presented in detail and finally, this section concludes with the description
-of the final phase, where a local optimization method is applied to
-the best located chromosome of the second phase. Also, the description
-of the used datasets is provided in this section in table format.
-
-\subsection{Related work}
+\section{Related work\label{sec:Related-work}}
 
 Typically, any RBF network can be defined through the following equation:
 \begin{equation}
@@ -376,6 +367,17 @@ data due to poor initialization of the network parameters. Furthermore,
 the above techniques do not specify a range of values \LyXZeroWidthSpace\LyXZeroWidthSpace for
 the network parameters within which the optimization of the model
 parameters can be effectively performed.
+
+\section{Materials and Methods\label{sec:Materials-and-Methods}}
+
+The three distinct phases of the proposed method are discussed here.
+The discussion initiates with the first phase, where the construction
+of the ranges for the parameter values is performed using the K-means
+algorithm. Afterward, the steps of the used Genetic Algorithm are
+presented in detail and finally, this section concludes with the description
+of the final phase, where a local optimization method is applied to
+the best located chromosome of the second phase. Also, the description
+of the used datasets is provided in this section in table format.
 
 \subsection{The description of the first phase}
 
