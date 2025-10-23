@@ -325,17 +325,17 @@ Correspondence:
 
 \begin_layout Abstract
 A parametric machine learning tool with many applications is the Radial Basis Function (RBF) network,
- that have been incorporated in various classification or regression problems.
+ that has been incorporated into various classification or regression problems.
  A key component of these networks is their radial functions.
  These networks acquire adaptive capabilities through a technique that consists of two stages.
  The centers and variances are computed in the first stage,
  and in the second stage,
- that involves solving a linear system of equations,
+ which involves solving a linear system of equations,
  the external weights for the radial functions are adjusted.
  Nevertheless,
  in numerous instances,
  this training approach has led to decreased performance,
- either because of instability in arithmetic computations or due to the method's difficulty in escaping local minima of the error function.
+ either because of instability in arithmetic computations or due to the method’s difficulty in escaping local minima of the error function.
  In this manuscript,
  a three-stage method is suggested in this work,
  to address the above problems.
@@ -349,12 +349,8 @@ A parametric machine learning tool with many applications is the Radial Basis Fu
  The proposed method was evaluated on several machine learning models from the related literature,
  as well as compared with the original RBF training approach.
  This work has been successfully applied to a wide range of related problems reported in recent studies.
- Also
-\series bold
-,
- 
-\series default
-a comparison was made in terms of classification or regression error.
+ Also,
+ a comparison was made in terms of classification or regression error.
  It should be noted that although the proposed methodology had very good results in the above measurements,
  it requires significant computational execution time,
  due to the use of three phases of processing and adaptation of the network parameters.
@@ -374,7 +370,7 @@ Introduction
 \begin_layout Standard
 Many practical problems can be handled by machine learning tools.
  In these problems one can find problems from scientific fields,
- such as physics physics 
+ such as physics 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "physics_ml1,physics_ml2"
@@ -439,7 +435,238 @@ literal "false"
  etc.
  Among the most widely used machine learning techniques,
  the Radial Basis Function (RBF) network stands out.
- These models are typically described by the following equation:
+ A magnitude of problems from the real world can be tackled using RBF networks,
+ such as face recognition 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfface"
+literal "false"
+
+\end_inset
+
+,
+ numerical problems 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfde1,rbfde2"
+literal "false"
+
+\end_inset
+
+,
+ economic problems 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfstock"
+literal "false"
+
+\end_inset
+
+,
+ robotics 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbfrobotics1,rbfrobotics2"
+literal "false"
+
+\end_inset
+
+,
+ network security 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rbf_dos1,rbf_dos2"
+literal "false"
+
+\end_inset
+
+,
+ classification of process faults 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbf_process"
+literal "false"
+
+\end_inset
+
+,
+ time series prediction 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbf_time"
+literal "false"
+
+\end_inset
+
+,
+ estimation of wind power production 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbf_wind"
+literal "false"
+
+\end_inset
+
+ etc.
+ Moreover,
+ Park et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbf_universal"
+literal "false"
+
+\end_inset
+
+ proved that an RBF network with one processing layer can approximate any given function.
+\end_layout
+
+\begin_layout Standard
+This paper proposes a three-stage approach for the effective training of RBF networks.
+ The first stage of the method involves an algorithm designed to efficiently determine the value ranges of the model parameters.
+ This detection is implemented using the K-Means algorithm 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "kmeans"
+literal "false"
+
+\end_inset
+
+ for the weights and the variances of the radial functions.
+ After applying the above procedure,
+ a range of values for the network parameters is created which directly depends on the values produced by K-means algorithm.
+ During the second stage of the proposed work,
+ a global optimization procedure is incorporated to optimize the parameters of the RBF network with respect to the training error of the model.
+ The training of the network parameters is performed within the value range of the first phase to avoid possible overfitting problems.
+ In the current work,
+ the Genetic Algorithm is used as the method of the second phase,
+ but any optimization technique can be incorporated.
+ In the final phase of the proposed method,
+ a local minimization technique is applied to the optimal parameters obtained from the second phase.
+ The aim of the proposed method is first to determine a reliable range of values for the parameters of RBF networks and then to train the network parameters within this range,
+ thereby avoiding potential arithmetic instability issues associated with the conventional RBF training approach.
+\end_layout
+
+\begin_layout Standard
+The proposed technique is the application of three distinct procedures in series,
+ where in each stage the results of the previous phase are used.
+ In the first phase,
+ an initial estimation of the centers and variances is performed with the method of K-Means.
+ This method is preferred because it is extremely fast to execute and can provide an overview of the search space for neural networks.
+ It is preferred over using random values as this would require a significantly large number of iterations for proper initialization of the parameters.
+ After applying the K-Means technique,
+ a range of network parameter values is generated,
+ consisting of multiples of the values obtained from the K-Means results.
+
+\series bold
+ 
+\series default
+In this way,
+ on the one hand,
+ the use of the K-Means technique is utilized and,
+ on the other hand,
+ the second-phase optimization algorithm is given the opportunity to search for parameter values \SpecialChar allowbreak
+that yield lower values of the error function close to the initial values of the first phase.
+ A genetic algorithm is used as the optimization algorithm in the second phase due to its adaptability to any environment and its widespread use in many computational problems.
+ However,
+ any universal optimization technique could be utilized in this phase.
+ However,
+ although genetic algorithms are extremely effective methods of global optimization,
+ they often do not locate exactly a true minimum of the objective function and therefore the help of a local minimization method is deemed necessary.
+ This occurs in the third phase,
+ where a local optimization method is applied to the chromosome with the smallest value produced in the second phase.
+ The minimum identified in this phase also represents the final outcome of the algorithm,
+ corresponding to a specific configuration of the RBF network parameters.
+\end_layout
+
+\begin_layout Standard
+The main features of the proposed method are its use of multiple techniques in sequence to determine the optimal set of parameters for the machine learning model while avoiding potential overfitting.
+ In the first discrete phase,
+ a well-established clustering method,
+ such as K-Means,
+ is employed to identify a promising range of values for the model parameters.
+ In the second phase,
+ a global optimization algorithm is applied to minimize the error function within the bounds established in the first phase.
+ Finally,
+ in the last phase,
+ a local minimization method is used to locate a guaranteed local minimum of the error function.
+ This final phase ensures that the network parameters are trained within the value range determined in the first phase.
+\end_layout
+
+\begin_layout Standard
+The rest of this paper has the following structure:
+ in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Materials-and-Methods"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ the parts of the proposed technique are presented in detail,
+ in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Results"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ the datasets on which the method was applied are presented,
+ as well as the experimental results from its application,
+ and in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Conclusions"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ an extensive discussion of the practical results of the proposed technique is made and possible weaknesses that arose during the execution of the experiments are analyzed.
+\end_layout
+
+\begin_layout Section
+Materials and Methods
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Materials-and-Methods"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The three distinct phases of the proposed method are discussed here.
+ The discussion initiates with the first phase,
+ where the construction of the ranges for the parameter values is performed using the K-means algorithm.
+ Afterward,
+ the steps of the used Genetic Algorithm are presented in detail and finally,
+ this section concludes with the description of the final phase,
+ where a local optimization method is applied to the best located chromosome of the second phase.
+ Also,
+ the description of the used datasets is provided in this section in table format.
+\end_layout
+
+\begin_layout Subsection
+Related work
+\end_layout
+
+\begin_layout Standard
+Typically,
+ any RBF network can be defined through the following equation:
 \begin_inset Formula 
 \begin{equation}
 R\left(\overrightarrow{x}\right)=\sum_{i=1}^{k}w_{i}\phi\left(\left\Vert \overrightarrow{x}-\overrightarrow{c_{i}}\right\Vert \right)\label{eq:firstrbf}
@@ -527,7 +754,7 @@ placement H
 alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -603,247 +830,7 @@ The set
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-A magnitude of problems from the real world can be tackled using RBF networks,
- such as face recognition 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "rbfface"
-literal "false"
-
-\end_inset
-
-,
- numerical problems 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "rbfde1,rbfde2"
-literal "false"
-
-\end_inset
-
-,
- economic problems 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "rbfstock"
-literal "false"
-
-\end_inset
-
-,
- robotics 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "rbfrobotics1,rbfrobotics2"
-literal "false"
-
-\end_inset
-
-,
- network security 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "rbf_dos1,rbf_dos2"
-literal "false"
-
-\end_inset
-
-,
- classification of process faults 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "rbf_process"
-literal "false"
-
-\end_inset
-
-,
- time series prediction 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "rbf_time"
-literal "false"
-
-\end_inset
-
-,
- estimation of wind power production 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "rbf_wind"
-literal "false"
-
-\end_inset
-
- etc.
- Moreover,
- Park et al.
  
-\begin_inset CommandInset citation
-LatexCommand citep
-key "rbf_universal"
-literal "false"
-
-\end_inset
-
- proved that an RBF network with one processing layer can be approximate any given function.
-\end_layout
-
-\begin_layout Standard
-This paper proposes a three-stage approach for the effective training of RBF networks.
- The first stage of the method involves an algorithm designed to efficiently determine the value ranges of the model parameters.
- This detection is implemented using the K-Means algorithm 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "kmeans"
-literal "false"
-
-\end_inset
-
- for the weights and the variances of the radial functions.
- After applying the above procedure,
- a range of values for the network parameters is created which directly depends on the values produced by K-means algorithm.
- During the second stage of the proposed work,
- a global optimization procedure is incorporated to optimize the parameters of the RBF network with respect to the equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:RbfError"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-.
- The training of the network parameters is performed within the value range of the first phase to avoid possible overfitting problems.
- In the current work,
- the Genetic Algorithm is used as the method of the second phase,
- but any optimization technique can be incorporated.
- In the final phase of the proposed method,
- a local minimization technique is applied to the optimal parameters obtained from the second phase.
- The aim of the proposed method is first to determine a reliable range of values for the parameters of RBF networks and then to train the network parameters within this range,
- thereby avoiding potential arithmetic instability issues associated with the conventional RBF training approach.
-\end_layout
-
-\begin_layout Standard
-The proposed technique is the application of three distinct procedures in series,
- where in each stage the results of the previous phase are used.
- In the first phase,
- an initial estimation of the centers and variances is performed with the method of K-Means.
- This method is preferred because it is extremely fast to execute and can provide an overview of the search space for neural networks.
- It is preferred over using random values as this would require a significantly large number of iterations for proper initialization of the parameters.
- After applying the K-Means technique,
- a range of network parameter values is generated,
- consisting of multiples of the values obtained from the K-Means results.
-
-\series bold
- 
-\series default
-In this way,
- on the one hand,
- the use of the K-Means technique is utilized and,
- on the other hand,
- the second-phase optimization algorithm is given the opportunity to search for parameter values \SpecialChar allowbreak
-that yield lower values of the error function close to the initial values of the first phase.
- A genetic algorithm is used as the optimization algorithm in the second phase due to its adaptability to any environment and their widespread use in many computational problems.
- However,
- any universal optimization technique could be utilized in this phase.
- However,
- although genetic algorithms are extremely effective methods of global optimization,
- they often do not locate exactly a true minimum of the objective function and therefore the help of a local minimization method is deemed necessary.
- This occurs in the third phase,
- where a local optimization method is applied to the chromosome with the smallest value produced in the second phase.
- The minimum identified in this phase also represents the final outcome of the algorithm,
- corresponding to a specific configuration of the RBF network parameters.
-\end_layout
-
-\begin_layout Standard
-The main features of the proposed method are its use of multiple techniques in sequence to determine the optimal set of parameters for the machine learning model while avoiding potential overfitting.
- In the first discrete phase,
- a well-established clustering method,
- such as K-Means,
- is employed to identify a promising range of values for the model parameters.
- In the second phase,
- a global optimization algorithm is applied to minimize the error function within the bounds established in the first phase.
- Finally,
- in the last phase,
- a local minimization method is used to locate a guaranteed local minimum of the error function.
- This final phase ensures that the network parameters are trained within the value range determined in the first phase.
-\end_layout
-
-\begin_layout Standard
-The rest of this paper has the following structure:
- in section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Materials-and-Methods"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-,
- the parts of the proposed technique are presented in detail,
- in section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Results"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-,
- the datasets on which the method was applied are presented,
- as well as the experimental results from its application,
- and in section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Conclusions"
-plural "false"
-caps "false"
-noprefix "false"
-nolink "false"
-
-\end_inset
-
-,
- an extensive discussion of the practical results of the proposed technique is made and possible weaknesses that arose during the execution of the experiments are analyzed.
-\end_layout
-
-\begin_layout Section
-Materials and Methods
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Materials-and-Methods"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The three distinct phases of the proposed method are discussed here.
- The discussion initiates with the first phase,
- where the construction of the ranges for the parameter values is performed using the K-means algorithm.
- Afterwards,
- the steps of the used Genetic Algorithm are presented in detail and finally,
- this section concludes with the description of the final phase,
- where a local optimization method is applied to the best located chromosome of the second phase.
- Also,
- the description of the used datasets is provided in this section in table format.
-\end_layout
-
-\begin_layout Subsection
-Related work
 \end_layout
 
 \begin_layout Standard
@@ -861,7 +848,7 @@ literal "false"
 .
  Moreover,
  Benoudjit et al.
- discussed on the estimation of kernels in these models 
+ discussed the estimation of kernels in these models 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rbfkernel"
@@ -976,6 +963,15 @@ literal "false"
 .
 \end_layout
 
+\begin_layout Standard
+In most cases,
+ the above techniques are either limited to local minima of the network error function or fail to adequately classify the problem data due to poor initialization of the network parameters.
+ Furthermore,
+ the above techniques do not specify a range of values \SpecialChar allowbreak
+\SpecialChar allowbreak
+for the network parameters within which the optimization of the model parameters can be effectively performed.
+\end_layout
+
 \begin_layout Subsection
 The description of the first phase
 \end_layout
@@ -1035,8 +1031,7 @@ nolink "false"
 
 \end_inset
 
-.
- A graphical rerpesentation is provided in Figure 
+ A graphical representation is provided in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:kmeans"
@@ -25481,13 +25476,16 @@ Automating architecture and hyperparameter adaptation is a natural next step.
 \end_layout
 
 \begin_layout Standard
-However,
- it should be emphasized that,
- despite its efficiency,
- the proposed method demands more computational time than other machine learning techniques due to the serial application of the three training stages.
- In particular,
- the second stage of the genetic algorithm application requires significant computational time for its execution.
- However this time can be minimized with the incorporation of modern parallel computing techniques like OpenMP 
+It is important to note that,
+ although highly effective,
+ the proposed method is more computationally intensive than other machine learning approaches because of the sequential application of its three training stages.
+ Specifically,
+ the second stage,
+ which applies the genetic algorithm,
+ requires considerable computational effort.
+ This overhead,
+ however,
+ can be mitigated by leveraging modern parallel computing techniques like OpenMP 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "gen_openmp"
@@ -25503,7 +25501,7 @@ literal "false"
 
 \end_inset
 
-.
+ .
 \end_layout
 
 \begin_layout Standard
