@@ -191,7 +191,23 @@ void ParallelDe::init()
     for(int i=0;i<N;i++)
     {
         population[i].resize(myProblem->getDimension());
-        population[i]=myProblem->getRandomPoint();
+	int island = i/agents;
+	bool isFirst = (i % agents)==0;
+	for(int j=0;j<myProblem->getDimension();j++)
+	{
+		double a=lmargin[j];
+		double b=rmargin[j];
+		double width=(b-a);
+		double mid = a+width/2;
+		double delta = (island+1.0) *(width/2)/islands;
+
+		a=mid-delta;
+		b=mid+delta;
+		if(a>b) {double t= a; a=b;b=t;}
+		if(j==0 && isFirst)
+		printf("Delta = %lf Island %d range [%lf %lf ]\n",delta,island,a,b);
+		population[i][j]=a+(b-a)*myProblem->randomDouble();
+	}
         fitness_array[i]=myProblem->funmin(population[i]);
     }
 
@@ -472,6 +488,7 @@ void ParallelDe::done()
     double bestValue = 1e+100, bestV = 1e+100;
     getBestValue(bestIndex, bestValue);
     LocalSearch(myProblem,population[bestIndex],bestValue);
+    fitness_array[bestIndex]=bestValue;
 }
 
 void    ParallelDe::Solve()
@@ -481,6 +498,7 @@ void    ParallelDe::Solve()
     {
         step();
     }while(!terminated());
+    done();
 }
 void    ParallelDe::getBest(Data &x,double &y)
 {

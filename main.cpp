@@ -474,7 +474,7 @@ int main(int argc,char **argv)
             ParallelDe de(&np);
             de.setIslands(threads);
             de.setAgents(chromosomes/threads);
-            de.setGenerations(maxGenerations);
+            de.setGenerations(1000);
             de.Solve();
             de.getBest(bestx,besty);
         }

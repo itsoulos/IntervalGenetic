@@ -30,7 +30,7 @@ private:
     double  getDifferentialWeight();
     void    replaceValueInIsland(int islandIndex, Data &x, double &y);
     bool    checkIsland(int islandName);
-    QString parde_selection_method="random";//random, tournament
+    QString parde_selection_method="tournament";//random, tournament
 
     //for similarity stopping rule
     double global_sim_value;

@@ -79,22 +79,8 @@ Data    Problem::getRandomPoint()
     x.resize(dimension);
     for(int i=0;i<dimension;i++)
     {
-	    /*
-        double a=lmargin[i];
-        double b=rmargin[i];
-	double m = a+(b-a)/2;
-	double x1 = m -(b-a)/20;
-        double x2 = m +(b-a)/20;	
-        x[i]=x1+(x2-x1)*randomDouble();
-        */
         double r=randomDouble();
-	double middle=lmargin[i]+(rmargin[i]-lmargin[i])/2.0;
-	double delta = (r-1.0);
-	x[i]=middle+delta*(0.1 * (rmargin[i]-lmargin[i]));
-	double a=-1.0,b=1.0;
-	a=(lmargin[i]<a)?lmargin[i]:a;
-    b=(rmargin[i]<b)?rmargin[i]:b;
-    //    x[i]=lmargin[i]+r*(rmargin[i]-lmargin[i]);
+        x[i]=lmargin[i]+r*(rmargin[i]-lmargin[i]);
     }
     return x;
 }

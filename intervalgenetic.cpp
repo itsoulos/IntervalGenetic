@@ -395,7 +395,7 @@ void   IntervalGenetic::nextGeneration()
     ++generation;
     calcFitnessArray();
 
-    if(generation%20==0)
+    if(generation%2000==0)
     {
 
         int count=20;
