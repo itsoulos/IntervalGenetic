@@ -16,7 +16,7 @@ private:
     vector<double> doublebox_xx1, doublebox_xx2, doublebox_best_value, doublebox_variance, doublebox_stopat;
     QString parde_termination,
                 parde_propagate_method="1to1"//1to1,1toN,Nto1,NTON
-                ,parde_weight_method="constant";//constant,ali
+                ,parde_weight_method="ali";//constant,ali
     std::chrono::time_point<std::chrono::system_clock> before, after;
 
 
@@ -30,7 +30,7 @@ private:
     double  getDifferentialWeight();
     void    replaceValueInIsland(int islandIndex, Data &x, double &y);
     bool    checkIsland(int islandName);
-    QString parde_selection_method="tournament";//random, tournament
+    QString parde_selection_method="random";//random, tournament
 
     //for similarity stopping rule
     double global_sim_value;
