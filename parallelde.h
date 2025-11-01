@@ -1,6 +1,8 @@
 #ifndef PARALLELDE_H
 #define PARALLELDE_H
 # include <problem.h>
+# include <QStringList>
+# include <chrono>
 
 class ParallelDe
 {
@@ -15,7 +17,7 @@ private:
     vector<double> similarity_best_value,lmargin, rmargin,bestIslandValues,fitness_array,sum,newSum, MO, newMO;
     vector<double> doublebox_xx1, doublebox_xx2, doublebox_best_value, doublebox_variance, doublebox_stopat;
     QString parde_termination,
-                parde_propagate_method="1to1"//1to1,1toN,Nto1,NTON
+                parde_propagate_method="NtoN"//1to1,1toN,Nto1,NTON
                 ,parde_weight_method="ali";//constant,ali
     std::chrono::time_point<std::chrono::system_clock> before, after;
 

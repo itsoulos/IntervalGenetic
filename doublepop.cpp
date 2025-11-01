@@ -5,6 +5,7 @@
 # include <stdio.h>
 # include <tolmin.h>
 # include <QString>
+# include <QVariant>
 # include <omp.h>
 //# define LOCALSEARCH
 
