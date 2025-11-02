@@ -477,7 +477,7 @@ void ParallelDe::step()
         newMO.at(j) = (double)newSum.at(j)/islands;
       //  this->checkIsland(j);
     }
-    if (generation % parde_propagate_rate)
+    if (generation % parde_propagate_rate==0)
         propagateIslandValues();
 }
 
