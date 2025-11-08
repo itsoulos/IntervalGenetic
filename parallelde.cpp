@@ -495,6 +495,18 @@ void ParallelDe::done()
     fitness_array[bestIndex]=bestValue;
 }
 
+void 	ParallelDe::Solve(Data &x,double &y)
+{
+
+    init();
+    setBest(x,y);
+    do
+    {
+        step();
+    }while(!terminated());
+    done();
+}
+
 void    ParallelDe::Solve()
 {
     init();
@@ -510,6 +522,13 @@ void    ParallelDe::getBest(Data &x,double &y)
     getBestValue(bestIndex, y);
     x=population[bestIndex];
 }
+
+void ParallelDe::setBest(Data &x,double &y)
+{
+	population[0]=x;
+	fitness_array[0]=y;
+}
+
 
 ParallelDe::~ParallelDe()
 {

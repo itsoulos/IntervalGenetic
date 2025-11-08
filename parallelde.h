@@ -76,7 +76,9 @@ public:
      */
     virtual void done();
     void    Solve();
+    void    Solve(Data &x,double &y);
     void    getBest(Data &x,double &y);
+    void	setBest(Data &x,double &y);
     virtual ~ParallelDe();
 };
 

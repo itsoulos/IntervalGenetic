@@ -475,7 +475,8 @@ int main(int argc,char **argv)
             de.setIslands(threads);
             de.setAgents(chromosomes/threads);
             de.setGenerations(1000);
-            de.Solve();
+	    double yy=1e+100;
+            de.Solve(bestgeneticx,yy);
             de.getBest(bestx,besty);
         }
         else
