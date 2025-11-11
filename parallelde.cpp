@@ -193,24 +193,17 @@ void ParallelDe::init()
         population[i].resize(myProblem->getDimension());
 	int island = i/agents;
 	bool isFirst = (i % agents)==0;
+
 	for(int j=0;j<myProblem->getDimension();j++)
 	{
 		double a=lmargin[j];
-        double b=rmargin[j];
-        double width=(b-a);
-		double mid = a+width/2;
-		double delta = (island+1.0) *(width/2)/islands;
-
-		a=mid-delta;
-		b=mid+delta;
-		if(a>b) {double t= a; a=b;b=t;}
-		if(j==0 && isFirst)
-        printf("Delta = %lf Island %d range [%lf %lf ]\n",delta,island,a,b);
-//		a=-0.1;
-//		b= 0.1;
-		if(lmargin[i]>a) a=lmargin[i];
-		if(rmargin[i]<b) b=rmargin[i];
-		population[i][j]=a+(b-a)*myProblem->randomDouble();
+        	double b=rmargin[j];
+        	double width=(b-a);
+		double start=a+island * width/islands;
+		double end = a +(island+1) *width/islands;
+		if(j==0 && isFirst) printf("Island = %d START=%lf END=%lf\n",island,start,end);
+		
+		population[i][j]=start+(end-start)*myProblem->randomDouble();
 	}
         fitness_array[i]=myProblem->funmin(population[i]);
     }
