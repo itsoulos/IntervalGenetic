@@ -201,9 +201,13 @@ void ParallelDe::init()
         	double width=(b-a);
 		double start=a+island * width/islands;
 		double end = a +(island+1) *width/islands;
+		double w = (end- start);
+	        double mid = start+w/2;
+		a= mid -0.1*drand48()*w;
+		b= mid +0.1*drand48()*w;
 		if(j==0 && isFirst) printf("Island = %d START=%lf END=%lf\n",island,start,end);
 		
-		population[i][j]=start+(end-start)*myProblem->randomDouble();
+		population[i][j]=a+(b-a)*myProblem->randomDouble();
 	}
         fitness_array[i]=myProblem->funmin(population[i]);
     }
