@@ -143,6 +143,36 @@ double	dsig(double x)
     return 1.0/(1.0+exp(-x));
 }
 
+double nearestClass(double y)
+{
+    int ifound=-1;
+    double dmin=1e+100;
+    for(unsigned int i=0;i<dclass.size();i++)
+    {
+        if(fabs(dclass[i]-y)<dmin)
+        {
+            dmin=fabs(dclass[i]-y);
+            ifound=i;
+        }
+    }
+    return dclass[ifound];
+}
+
+int nearestClassIndex(double y)
+{
+    int ifound=-1;
+    double dmin=1e+100;
+    for(unsigned int i=0;i<dclass.size();i++)
+    {
+        if(fabs(dclass[i]-y)<dmin)
+        {
+            dmin=fabs(dclass[i]-y);
+            ifound=i;
+        }
+    }
+    return ifound;
+}
+
 double	dgetValue(Data &node,Data &x,int &fcount)
 {
 	double arg=0.0;
@@ -224,6 +254,8 @@ void getOriginalGranal(Data &node,Data &g)
     for(int j=0;j<(dimension+2)*nodes;j++) g[j]*=2.0;
 }
 
+
+
 void	getGradient(Data &node,Data &g)
 {
     adept::Stack stack;
@@ -268,44 +300,57 @@ adept::adouble afunmin(adept::aVector &Weights){
     adept::adouble per=0.0;
     int fcount=0;
     Data A;
-    //std::cout << Weights.size()<< std::endl;
     A.resize(Weights.size());
     for(unsigned i = 0; i < A.size();i++) {
-        //std::cout << i << " " << Weights[i].value() << std::endl;
         A[i] = double(Weights[i].value());
     }
-    //std::cout << Weights.size() << " " << trainx.size() << " " << trainy.size() << std::endl;
-    for(int i=0;i<trainx.size();i++)
+
+    if(normalTrain==0)
+    {
+        vector<int> belong;
+        vector<int> failed;
+        int nclass = dclass.size();
+        belong.resize(nclass);
+        failed.resize(nclass);
+        for(int i=0;i<nclass;i++)
+        {
+            failed[i]=0;
+            belong[i]=0;
+        }
+        for(unsigned int i=0;i<trainx.size();i++)
+        {
+            adept::adouble v = adgetValue(Weights,trainx[i],fcount);
+            int index1=nearestClassIndex(trainy[i]);
+            int index2=nearestClassIndex(v.value());
+            belong[index1]++;
+            if(index2!=index1)
+                failed[index1]++;
+        }
+        adept::adouble s= 0.0;
+        for(int i=0;i<nclass;i++)
+        {
+            double dv = failed[i]*100.0/belong[i];
+            s+=dv;
+        }
+        return s/nclass;
+    }
+    for(unsigned int i=0;i<trainx.size();i++)
     {
         per=adgetValue(Weights,trainx[i],fcount)-trainy[i];
         sum+=per * per;
     }
-    //std::cout << sum.value() << std::endl;
     if(normalTrain==1) return sum;
     return sum+lambda*pow(fcount*1.0/(nodes * trainx.size()),2.0);
 
 }
 
-double nearestClass(double y)
-{
-    int ifound=-1;
-    double dmin=1e+100;
-    for(int i=0;i<dclass.size();i++)
-    {
-        if(fabs(dclass[i]-y)<dmin)
-        {
-            dmin=fabs(dclass[i]-y);
-            ifound=i;
-        }
-    }
-    return dclass[ifound];
-}
+
 void getTestError(vector<double> &x,double &testError,double &classError)
 {
 	testError = 0.0;
 	classError = 0.0;
 	int fcount = 0;
-    for(int i=0;i<testx.size();i++)
+    for(unsigned int i=0;i<testx.size();i++)
     {
         double neuralOutput=dgetValue(x,testx[i],fcount);
         double per=neuralOutput-testy[i];
@@ -320,7 +365,37 @@ double	funmin(vector<double> &x)
     double sum=0.0;
     double per=0.0;
     int fcount=0;
-    for(int i=0;i<trainx.size();i++)
+    if(normalTrain==0)
+    {
+        vector<int> belong;
+        vector<int> failed;
+        int nclass = dclass.size();
+        belong.resize(nclass);
+        failed.resize(nclass);
+        for(int i=0;i<nclass;i++)
+        {
+            failed[i]=0;
+            belong[i]=0;
+        }
+        for(unsigned int i=0;i<trainx.size();i++)
+        {
+            double v = dgetValue(x,trainx[i],fcount);
+            int index1=nearestClassIndex(trainy[i]);
+            int index2=nearestClassIndex(v);
+            belong[index1]++;
+            if(index2!=index1)
+                failed[index1]++;
+        }
+        double s= 0.0;
+        for(int i=0;i<nclass;i++)
+        {
+            double dv = failed[i]*100.0/belong[i];
+            s+=dv;
+        }
+        return s/nclass;
+    }
+
+    for(unsigned int i=0;i<trainx.size();i++)
     {
         per=dgetValue(x,trainx[i],fcount)-trainy[i];
         sum+=per * per;
