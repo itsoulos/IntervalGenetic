@@ -358,7 +358,7 @@ int main(int argc,char **argv)
         p.setParameter("normalTrain",0);
         DoublePop pop(chromosomes,&np);
         pop.setLocalIterations(50);
-        pop.setLocalChromosomes(10);
+        pop.setLocalChromosomes(0);
         pop.setSelectionRate(selection_rate);
         pop.setMutationRate(mutation_rate);
         pop.setMaxGenerations(500);
@@ -414,7 +414,7 @@ int main(int argc,char **argv)
     }
 
 
-    p.setParameter("normalTrain",1);
+    p.setParameter("normalTrain",0);
      Problem np(&p,bestMargin);
 
 //#pragma omp parallel for shared(adam_b1,adam_b2,adam_learningrate,adam_iterations) num_threads(threads)

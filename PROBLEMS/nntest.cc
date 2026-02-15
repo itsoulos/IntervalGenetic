@@ -258,6 +258,20 @@ void getOriginalGranal(Data &node,Data &g)
 
 void	getGradient(Data &node,Data &g)
 {
+    double funmin(Data &x);
+    g.resize(node.size());
+    for(int i=0;i<g.size();i++)
+    {
+        double eps=pow(1e-18,1.0/3.0)*qMax(1.0,fabs(node[i]));
+        node[i]+=eps;
+        double v1=funmin(node);
+        node[i]-=2.0 *eps;
+        double v2=funmin(node);
+        g[i]=(v1-v2)/(2.0 * eps);
+        node[i]+=eps;
+    }
+
+    /*
     adept::Stack stack;
     g.resize(node.size());
     for(int i=0;i<g.size();i++) g[i]=0.0;
@@ -292,7 +306,7 @@ void	getGradient(Data &node,Data &g)
         for(int j=0;j<g.size();j++)	g[j]+=gtemp[j]*per;
 	}
     for(int j=0;j<(dimension+2)*nodes;j++) g[j]*=2.0;
-#endif
+#endif*/
 }
 
 adept::adouble afunmin(adept::aVector &Weights){
