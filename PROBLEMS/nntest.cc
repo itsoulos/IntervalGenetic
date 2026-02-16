@@ -34,6 +34,7 @@ Interval maxWidth;
 int failCount=0;
 int normalTrain=0;
 int printFlag =0;
+QString fitnessOption="mse";
 
 void loadTrain()
 {
@@ -80,6 +81,10 @@ void setParameter(QString name,QVariant value)
     if(name == "printFlag")
     {
        printFlag = value.toInt();
+    }
+    if(name == "fitnessOption")
+    {
+	    fitnessOption = value.toString();
     }
 }
 
@@ -258,7 +263,7 @@ void getOriginalGranal(Data &node,Data &g)
 
 void	getGradient(Data &node,Data &g)
 {
-    double funmin(Data &x);
+ /*   double funmin(Data &x);
     g.resize(node.size());
     for(int i=0;i<g.size();i++)
     {
@@ -269,9 +274,9 @@ void	getGradient(Data &node,Data &g)
         double v2=funmin(node);
         g[i]=(v1-v2)/(2.0 * eps);
         node[i]+=eps;
-    }
+    }*/
 
-    /*
+    
     adept::Stack stack;
     g.resize(node.size());
     for(int i=0;i<g.size();i++) g[i]=0.0;
@@ -306,7 +311,7 @@ void	getGradient(Data &node,Data &g)
         for(int j=0;j<g.size();j++)	g[j]+=gtemp[j]*per;
 	}
     for(int j=0;j<(dimension+2)*nodes;j++) g[j]*=2.0;
-#endif*/
+#endif
 }
 
 adept::adouble afunmin(adept::aVector &Weights){
@@ -318,43 +323,96 @@ adept::adouble afunmin(adept::aVector &Weights){
     for(unsigned i = 0; i < A.size();i++) {
         A[i] = double(Weights[i].value());
     }
-
-    if(normalTrain==0)
+    if(fitnessOption=="mse")
     {
-        vector<int> belong;
-        vector<int> failed;
-        int nclass = dclass.size();
-        belong.resize(nclass);
-        failed.resize(nclass);
-        for(int i=0;i<nclass;i++)
-        {
-            failed[i]=0;
-            belong[i]=0;
-        }
-        for(unsigned int i=0;i<trainx.size();i++)
-        {
-            adept::adouble v = adgetValue(Weights,trainx[i],fcount);
-            int index1=nearestClassIndex(trainy[i]);
-            int index2=nearestClassIndex(v.value());
-            belong[index1]++;
-            if(index2!=index1)
-                failed[index1]++;
-        }
-        adept::adouble s= 0.0;
-        for(int i=0;i<nclass;i++)
-        {
-            double dv = failed[i]*100.0/belong[i];
-            s+=dv;
-        }
-        return s/nclass;
+    	adept::adouble sum = 0.0;
+    	for(unsigned int i=0;i<trainx.size();i++)
+    	{
+        	adept::adouble per=adgetValue(Weights,trainx[i],fcount)-trainy[i];
+        	sum+=per * per;
+    	}
+    	return sum;
     }
-    for(unsigned int i=0;i<trainx.size();i++)
+    else
+    if(fitnessOption=="class")
     {
-        per=adgetValue(Weights,trainx[i],fcount)-trainy[i];
-        sum+=per * per;
+       	  adept::adouble s= 0.0;
+     	 for(unsigned int i=0;i<trainx.size();i++)
+      	 {
+       	   adept::adouble v = adgetValue(Weights,trainx[i],fcount);
+       	   int index1=nearestClassIndex(trainy[i]);
+       	   int index2=nearestClassIndex(v.value());
+       	   if(index2!=index1)
+       	     s=s+1.0;
+      	  }
+      	  return s*100.0/trainx.size();	
     }
+    else
+    if(fitnessOption=="average")
+    {
+    	vector<int> belong;
+    	vector<int> failed;
+    	int nclass = dclass.size();
+    	belong.resize(nclass);
+    	failed.resize(nclass);
+    	for(int i=0;i<nclass;i++)
+    	{
+    	   failed[i]=0;
+    	   belong[i]=0;
+    	 }
+    	 for(unsigned int i=0;i<trainx.size();i++)
+    	 {
+    	   adept::adouble v = adgetValue(Weights,trainx[i],fcount);
+    	   int index1=nearestClassIndex(trainy[i]);
+    	   int index2=nearestClassIndex(v.value());
+    	   belong[index1]++;
+    	   if(index2!=index1)
+    	   failed[index1]++;
+    	  }
+    	  adept::adouble s= 0.0;
+    	  for(int i=0;i<nclass;i++)
+    	  {
+    	      double dv = failed[i]*100.0/belong[i];
+    	      s+=dv;
+    	  }
+    	  return s/nclass;
+    	  
+    }
+    else
+    if(fitnessOption=="squared")
+    {
+    	
+    	vector<int> belong;
+   	 	vector<int> failed;
+       	int nclass = dclass.size();
+       	belong.resize(nclass);
+       	failed.resize(nclass);
+       	for(int i=0;i<nclass;i++)
+       	{
+       	   failed[i]=0;
+       	   belong[i]=0;
+       	 }
+       	 for(unsigned int i=0;i<trainx.size();i++)
+       	 {
+       	   adept::adouble v = adgetValue(Weights,trainx[i],fcount);
+       	   int index1=nearestClassIndex(trainy[i]);
+       	   int index2=nearestClassIndex(v.value());
+       	   belong[index1]++;
+       	   if(index2!=index1)
+       	   failed[index1]++;
+       	  }
+       	  adept::adouble s= 0.0;
+       	  for(int i=0;i<nclass;i++)
+       	  {
+       	      double dv = failed[i]*100.0/belong[i];
+       	      s+=dv*dv;
+       	  }
+       	  return sqrt(s)/nclass;
+    }
+	/*
     if(normalTrain==1) return sum;
     return sum+lambda*pow(fcount*1.0/(nodes * trainx.size()),2.0);
+    */
 
 }
 
@@ -379,7 +437,7 @@ double	funmin(vector<double> &x)
     double sum=0.0;
     double per=0.0;
     int fcount=0;
-    if(normalTrain==0)
+    if(fitnessOption=="average")
     {
         vector<int> belong;
         vector<int> failed;
@@ -407,13 +465,63 @@ double	funmin(vector<double> &x)
             s+=dv;
         }
         return s/nclass;
+        
     }
-
-    for(unsigned int i=0;i<trainx.size();i++)
+	else
+	if(fitnessOption=="mse")
+	{
+    	for(unsigned int i=0;i<trainx.size();i++)
+    	{
+        	per=dgetValue(x,trainx[i],fcount)-trainy[i];
+        	sum+=per * per;
+    	}
+    	return sum;
+    }
+    else
+    if(fitnessOption=="class")
     {
-        per=dgetValue(x,trainx[i],fcount)-trainy[i];
-        sum+=per * per;
+    	double s=0.0;
+  		for(unsigned int i=0;i<trainx.size();i++)
+    	{
+    	  double v = dgetValue(x,trainx[i],fcount);
+    	  int index1=nearestClassIndex(trainy[i]);
+    	  int index2=nearestClassIndex(v);
+          if(index2!=index1) s=s+1.0;
+       } 	
+       return s*100.0/trainx.size();
     }
+    else
+    if(fitnessOption=="squared")
+    {
+   	 	vector<int> belong;
+    	vector<int> failed;
+    	int nclass = dclass.size();
+    	belong.resize(nclass);
+    	failed.resize(nclass);
+    	for(int i=0;i<nclass;i++)
+    	{
+    	    failed[i]=0;
+    	    belong[i]=0;
+    	 }
+    	 for(unsigned int i=0;i<trainx.size();i++)
+    	 {
+    	    double v = dgetValue(x,trainx[i],fcount);
+    	    int index1=nearestClassIndex(trainy[i]);
+    	    int index2=nearestClassIndex(v);
+    	    belong[index1]++;
+    	    if(index2!=index1)
+    	         failed[index1]++;
+    	  }
+    	  double s= 0.0;
+    	  for(int i=0;i<nclass;i++)
+    	  {
+    	     double dv = failed[i]*100.0/belong[i];
+    	     s+=dv*dv;
+    	  }
+    	  return s/nclass;
+          	
+    }
+    /*
     if(normalTrain==1)
     {
 	    double testError,classError;
@@ -425,12 +533,13 @@ double	funmin(vector<double> &x)
 	    return sum;
     }
     return sum+lambda*pow(fcount*1.0/(nodes * trainx.size()),2.0);
+    */
 }
 
 void    granal(vector<double> &x,vector<double> &g)
 {
-	if(normalTrain==1) getOriginalGranal(x,g);
-	else
+	//if(normalTrain==1) getOriginalGranal(x,g);
+	//else
     getGradient(x,g);
 }
 
@@ -488,23 +597,100 @@ QString toString(Data &x)
     return s;
 }
 
+
+
+void	printConfusionMatrix(vector<double> &T,vector<double> &O,
+                             vector<double> &precision,
+                          vector<double> &recall)
+{
+    int i,j;
+
+    int N=T.size();
+    int nclass=dclass.size();
+    precision.resize(nclass);
+    recall.resize(nclass);
+    int **CM;
+    //printf("** CONFUSION MATRIX ** Number of classes: %d\n",nclass);
+    CM=new int*[nclass];
+    for(i=0;i<nclass;i++) CM[i]=new int[nclass];
+    for(i=0;i<nclass;i++)
+        for(j=0;j<nclass;j++) CM[i][j] = 0;
+
+        for(i=0;i<N;i++) CM[(int)T[i]][(int)O[i]]++;
+
+        for(i=0;i<nclass;i++)
+        {
+            double sum = 0.0;
+            for(j=0;j<nclass;j++)
+                sum+=CM[j][i];
+
+            precision[i]=sum==0?-1:CM[i][i]/sum;
+            sum = 0.0;
+            for(j=0;j<nclass;j++)
+                sum+=CM[i][j];
+            recall[i]=sum==0?-1:CM[i][i]/sum;
+        }
+        for(i=0;i<nclass;i++)
+        {
+            for(j=0;j<nclass;j++)
+            {
+                //printf("%4d ",CM[i][j]);
+            }
+            //printf("\n");
+            delete[] CM[i];
+        }
+        delete[] CM;
+}
 QJsonObject    done(Data &x)
 {
     double sum=0.0;
     double per=0.0;
     double classError=0.0;
     int fcount=0;
+    vector<double> T;
+    vector<double> O;
+    T.resize(testx.size());
+    O.resize(testx.size());
+
     for(int i=0;i<testx.size();i++)
     {
         double neuralOutput=dgetValue(x,testx[i],fcount);
         per=neuralOutput-testy[i];
         classError+=fabs(testy[i]-nearestClass(neuralOutput))>1e-7;
+        T[i]=nearestClassIndex(testy[i]);
+        O[i]=nearestClassIndex(neuralOutput);
         sum+=per * per;
     }
+
+    vector<double> precision;
+    vector<double> recall;
+    vector<double> fscore;
+    fscore.resize(dclass.size());
+    double avg_precision = 0.0, avg_recall = 0.0,avg_fscore=0.0;
+    printConfusionMatrix(T,O,precision,recall);
+    int count1=dclass.size(),count2=dclass.size();
+    for(int i=0;i<dclass.size();i++)
+    {
+        if(precision[i]<0) count1--;
+        else
+            avg_precision+=precision[i];
+        if(recall[i]<0) count2--;
+        else
+            avg_recall+=recall[i];
+        fscore[i]=2.0*precision[i]*recall[i]/(precision[i]+recall[i]);
+        avg_fscore+=fscore[i];
+    }
+    avg_precision/=count1;
+    avg_recall/=count2;
+    avg_fscore=2.0 * avg_precision * avg_recall/(avg_precision+avg_recall);
+
     QJsonObject result;
     result["nodes"]=nodes;
     result["testError"]=sum;
     result["classError"]=classError*100.0/testy.size();
+    result["precision"]=avg_precision;
+    result["recall"]=avg_recall;
+    result["fscore"]=avg_fscore;
     result["string"]=toString(x);
     return result;
 }

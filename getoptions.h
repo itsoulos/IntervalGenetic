@@ -1,6 +1,7 @@
 #ifndef GETOPTIONS_H
 #define GETOPTIONS_H
 # include <QString>
+# include <QStringList>
 # include <unistd.h>
 # include <string.h>
 # include <stdio.h>
@@ -25,4 +26,6 @@ extern int      gradient_iterations;
 extern int      bfgs_iterations;
 extern int      integer_samples;
 extern int      double_samples;
+extern QStringList fitnessOption;
+extern QString   selectedFitnessOption;
 #endif // GETOPTIONS_H

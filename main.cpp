@@ -51,6 +51,7 @@ void printParams()
     printf("--bfgs_iterations=<i>      \tSet the maximum number of iterations for the Bfgs method.\n");
     printf("--integer_samples=<i>      \tSet the number of samples for the integer interval method.\n");
     printf("--double_samples=<i>       \tSet the number of samples for the double intervale method.\n");
+    printf("--fitness_option=<s>       \tSet the fitness value (mse,class,average,squared).\n");
     printf("--param=<name>             \tSet a new parameter for the problem initialization.\n");
     printf("--value=<v>                \tSet the value for the previous parameter for the problem.\n");
     printf("--help           \tPrint this help screen and terminate.\n");
@@ -80,6 +81,9 @@ void parseCmdLine(QStringList args)
         QStringList sp=args[i].split("=");
         if(sp[0]=="--filename" ||  sp[0]=="-f")
             filename=sp[1];
+	else
+	if(sp[0]=="--fitness_option")
+	  selectedFitnessOption=checkInList(fitnessOption,sp[1]); 	
         else
         if(sp[0]=="--intervalmethod")
             intervalMethod=checkInList(intervalMethodList,sp[1]);
@@ -301,6 +305,11 @@ IntervalData runPsoInterval(DllProblem *p,Data &bestp)
     return bestMargin;*/
 }
 
+void	makeFitnessOption()
+{
+	fitnessOption<<"mse"<<"class"<<"average"<<"squared";
+}
+
 int main(int argc,char **argv)
 {
     double avgTrainError=0.0;
@@ -314,7 +323,9 @@ int main(int argc,char **argv)
     double avg_fscore = 0.0;
     const int outIters = 1;
     int tries=10;
+selectedFitnessOption ="mse";
 
+    makeFitnessOption();
     for(int ik=1;ik<=outIters;ik++)
     {
     QCoreApplication app(argc,argv);
@@ -324,6 +335,7 @@ int main(int argc,char **argv)
     QJsonObject neuralObject;
     DllProblem p(filename,params);
     p.setParameter("normalTrain",0);
+    p.setParameter("fitnessOption",selectedFitnessOption);
     srand(randomSeed+ik*10);
     Data bestgeneticx;
     bestgeneticx.resize(p.getDimension());

@@ -18,3 +18,6 @@ int      gradient_iterations=100000;
 int      bfgs_iterations=2001;
 int      integer_samples=50;
 int      double_samples=50;
+
+QStringList fitnessOption;
+QString     selectedFitnessOption;
