@@ -518,7 +518,8 @@ double	funmin(vector<double> &x)
     	     double dv = failed[i]*100.0/belong[i];
     	     s+=dv*dv;
     	  }
-    	  return s/nclass;
+	  
+    	  return sqrt(s)/nclass;
           	
     }
     /*
