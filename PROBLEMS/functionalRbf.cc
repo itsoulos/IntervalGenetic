@@ -43,6 +43,7 @@ typedef vector<double> Data;
 /*      n : columns of [B] and [C]                      */
 /* ---------------------------------------------------- */
 
+QString fitnessOption="mse";
 
 void matrix_mult(double * a, double * b, double * c,
                  int m, int p, int n)
@@ -675,6 +676,10 @@ void setParameter(QString name,QVariant value)
     {
         normalTrain=value.toInt();
     }
+    if(name == "fitnessOption")
+    {
+        fitnessOption = value.toString();
+    }
 }
 
 vector<double> centers;
@@ -788,6 +793,21 @@ void    init(QJsonObject data)
     }
 
 //#endif
+}
+
+int nearestClassIndex(double y)
+{
+    int ifound=-1;
+    double dmin=1e+100;
+    for(unsigned int i=0;i<dclass.size();i++)
+    {
+        if(fabs(dclass[i]-y)<dmin)
+        {
+            dmin=fabs(dclass[i]-y);
+            ifound=i;
+        }
+    }
+    return ifound;
 }
 
 int	getdimension()
@@ -933,26 +953,120 @@ double	funmin(vector<double> &x)
 #else
     double errorSum=0.0;  
     arma::vec Linear = train(x);
-    double norm = 0.0;
-    for(int j=0;j<nodes;j++)
 
-        norm+=(Linear(j))*(Linear(j));
-    norm = sqrt(norm);
 
+
+  if(fitnessOption=="average")
+  {
+      vector<int> belong;
+      vector<int> failed;
+      int nclass = dclass.size();
+      belong.resize(nclass);
+      failed.resize(nclass);
+      for(int i=0;i<nclass;i++)
+      {
+          failed[i]=0;
+          belong[i]=0;
+      }
+      for(unsigned int i=0;i<trainx.size();i++)
+      {
+          Data pattern = trainx[i];
+          arma::vec neuronOuts(nodes);
+          icount=0;
+          for(int j = 0; j < nodes;j++){
+              neuronOuts[j] = neuronOutput(x,pattern,pattern.size(),j);
+          }
+          double tempOut = arma::dot(neuronOuts,Linear);
+          int index1=nearestClassIndex(trainy[i]);
+          int index2=nearestClassIndex(tempOut);
+          belong[index1]++;
+          if(index2!=index1)
+              failed[index1]++;
+      }
+      double s= 0.0;
+      for(int i=0;i<nclass;i++)
+      {
+          double dv = failed[i]*100.0/belong[i];
+          s+=dv;
+      }
+      return s/nclass;
+
+  }
+  else
+  if(fitnessOption=="mse")
+  {
     for(unsigned i = 0; i < trainx.size(); i++){
-        Data pattern = trainx[i];
-        arma::vec neuronOuts(nodes);
-	icount=0;
-        for(unsigned j = 0; j < nodes;j++){
-            neuronOuts[j] = neuronOutput(x,pattern,pattern.size(),j);
-        }
-        double tempOut = arma::dot(neuronOuts,Linear);
-        errorSum += ( tempOut - trainy[i] ) * ( tempOut - trainy[i] );
+      Data pattern = trainx[i];
+      arma::vec neuronOuts(nodes);
+      icount=0;
+      for(int j = 0; j < nodes;j++){
+          neuronOuts[j] = neuronOutput(x,pattern,pattern.size(),j);
+      }
+      double tempOut = arma::dot(neuronOuts,Linear);
+      errorSum += ( tempOut - trainy[i] ) * ( tempOut - trainy[i] );
     }
+    return errorSum;
+    }
+    else
+    if(fitnessOption=="class")
+    {
+      double s=0.0;
+      for(unsigned int i=0;i<trainx.size();i++)
+      {
+          Data pattern = trainx[i];
+          arma::vec neuronOuts(nodes);
+          icount=0;
+            for(int j = 0; j < nodes;j++){
+                      neuronOuts[j] = neuronOutput(x,pattern,pattern.size(),j);
+                  }
+                  double tempOut = arma::dot(neuronOuts,Linear);
+                  int index1=nearestClassIndex(trainy[i]);
+                  int index2=nearestClassIndex(tempOut);
+                  if(index2!=index1) s=s+1.0;
+              }
+              return s*100.0/trainx.size();
+          }
+          else
+              if(fitnessOption=="squared")
+              {
+                  vector<int> belong;
+                  vector<int> failed;
+                  int nclass = dclass.size();
+                  belong.resize(nclass);
+                  failed.resize(nclass);
+                  for(int i=0;i<nclass;i++)
+                  {
+                      failed[i]=0;
+                      belong[i]=0;
+                  }
+                  for(unsigned int i=0;i<trainx.size();i++)
+                  {
+                      Data pattern = trainx[i];
+                      arma::vec neuronOuts(nodes);
+                      icount=0;
+                      for(int j = 0; j < nodes;j++){
+                          neuronOuts[j] = neuronOutput(x,pattern,pattern.size(),j);
+                      }
+                      double tempOut = arma::dot(neuronOuts,Linear);
+                      int index1=nearestClassIndex(trainy[i]);
+                      int index2=nearestClassIndex(tempOut);
+                      belong[index1]++;
+                      if(index2!=index1)
+                          failed[index1]++;
+                  }
+                  double s= 0.0;
+                  for(int i=0;i<nclass;i++)
+                  {
+                      double dv = failed[i]*100.0/belong[i];
+                      s+=dv*dv;
+                  }
 
- // if(norm>1000) return errorSum*(1.0+norm);
-  return errorSum;
+                  return sqrt(s)/nclass;
+
+              }
+
 #endif
+    return 0.0;
 }
 
 adept::adouble aneuronOutput( vector<adept::adouble> &x, vector<double> &patt, unsigned pattDim, unsigned offset ){
@@ -970,23 +1084,115 @@ adept::adouble afunmin( vector<adept::adouble> &x, vector<double> &x1 ){
     
     arma::vec Linear = train(x1);
 
-    for(unsigned i = 0; i < trainx.size(); i++){
-        Data pattern = trainx[i];
-        vector<adept::adouble> neuronOuts(nodes);
-        for(unsigned j = 0; j < nodes;j++){
-            neuronOuts[j] = aneuronOutput(x,pattern,pattern.size(),j);
+
+
+
+    if(fitnessOption=="mse")
+    {
+        for(unsigned i = 0; i < trainx.size(); i++){
+            Data pattern = trainx[i];
+            vector<adept::adouble> neuronOuts(nodes);
+            for(int j = 0; j < nodes;j++){
+                neuronOuts[j] = aneuronOutput(x,pattern,pattern.size(),j);
+            }
+            adept::adouble tempOut = 0;
+            for(int j = 0; j < nodes; j++) tempOut+= neuronOuts[j]*Linear[j];
+            errorSum += ( tempOut - trainy[i] ) * ( tempOut - trainy[i] );
+        }
+        return errorSum;
+    }
+    else
+    if(fitnessOption=="class")
+    {
+        adept::adouble s= 0.0;
+        for(unsigned int i=0;i<trainx.size();i++)
+        {
+            Data pattern = trainx[i];
+            vector<adept::adouble> neuronOuts(nodes);
+            for(int j = 0; j < nodes;j++){
+                neuronOuts[j] = aneuronOutput(x,pattern,pattern.size(),j);
+            }
+            adept::adouble tempOut = 0;
+            for(int j = 0; j < nodes; j++) tempOut+= neuronOuts[j]*Linear[j];
+            int index1=nearestClassIndex(trainy[i]);
+            int index2=nearestClassIndex(tempOut.value());
+            if(index2!=index1)
+                s=s+1.0;
+        }
+        return s*100.0/trainx.size();
+    }
+    else
+    if(fitnessOption=="average")
+    {
+        vector<int> belong;
+        vector<int> failed;
+        int nclass = dclass.size();
+        belong.resize(nclass);
+        failed.resize(nclass);
+        for(int i=0;i<nclass;i++)
+        {
+            failed[i]=0;
+            belong[i]=0;
+        }
+        for(unsigned int i=0;i<trainx.size();i++)
+        {
+            Data pattern = trainx[i];
+            vector<adept::adouble> neuronOuts(nodes);
+            for(int j = 0; j < nodes;j++){
+                neuronOuts[j] = aneuronOutput(x,pattern,pattern.size(),j);
+            }
+            adept::adouble tempOut = 0;
+            for(int j = 0; j < nodes; j++) tempOut+= neuronOuts[j]*Linear[j];
+            int index1=nearestClassIndex(trainy[i]);
+            int index2=nearestClassIndex(tempOut.value());
+            belong[index1]++;
+            if(index2!=index1)
+                failed[index1]++;
+        }
+        adept::adouble s= 0.0;
+        for(int i=0;i<nclass;i++)
+        {
+            double dv = failed[i]*100.0/belong[i];
+            s+=dv;
+        }
+        return s/nclass;
+    }
+    else
+    if(fitnessOption=="squared")
+    {
+        vector<int> belong;
+        vector<int> failed;
+        int nclass = dclass.size();
+        belong.resize(nclass);
+        failed.resize(nclass);
+        for(int i=0;i<nclass;i++)
+        {
+            failed[i]=0;
+            belong[i]=0;
+        }
+        for(unsigned int i=0;i<trainx.size();i++)
+        {
+            Data pattern = trainx[i];
+            vector<adept::adouble> neuronOuts(nodes);
+            for(int j = 0; j < nodes;j++){
+                neuronOuts[j] = aneuronOutput(x,pattern,pattern.size(),j);
         }
         adept::adouble tempOut = 0;
-        for(unsigned j = 0; j < nodes; j++) tempOut+= neuronOuts[j]*Linear[j];
-        errorSum += ( tempOut - trainy[i] ) * ( tempOut - trainy[i] );
+        for(int j = 0; j < nodes; j++) tempOut+= neuronOuts[j]*Linear[j];
+        int index1=nearestClassIndex(trainy[i]);
+        int index2=nearestClassIndex(tempOut.value());
+        belong[index1]++;
+        if(index2!=index1)
+            failed[index1]++;
+        }
+        adept::adouble s= 0.0;
+        for(int i=0;i<nclass;i++)
+        {
+            double dv = failed[i]*100.0/belong[i];
+            s+=dv*dv;
+        }
+        return sqrt(s)/nclass;
     }
-
-     double norm = 0.0;
-    for(int j=0;j<nodes;j++)
-
-        norm+=(Linear(j))*(Linear(j));
-    norm = sqrt(norm);
-    if(norm>1000) return errorSum*(1.0+norm);
     return errorSum;
 }
 
@@ -995,16 +1201,15 @@ static double dmax(double a,double b){return a>b?a:b;}
 void    granal2(vector<double> &x,vector<double> &g)
 {
     for(int i=0;i<x.size();i++)
-            {
-                    double eps=pow(1e-18,1.0/3.0)*dmax(1.0,fabs(x[i]));
-                    x[i]+=eps;
-                    double v1=funmin(x);
-                    x[i]-=2.0 *eps;
-                    double v2=funmin(x);
-                    g[i]=(v1-v2)/(2.0 * eps);
-                    x[i]+=eps;
-            }
-
+    {
+        double eps=pow(1e-18,1.0/3.0)*dmax(1.0,fabs(x[i]));
+        x[i]+=eps;
+        double v1=funmin(x);
+        x[i]-=2.0 *eps;
+        double v2=funmin(x);
+        g[i]=(v1-v2)/(2.0 * eps);
+        x[i]+=eps;
+    }
 }
 
 void    granal(vector<double> &x,vector<double> &g)
@@ -1045,21 +1250,6 @@ double nearestClass(double y)
         }
     }
     return dclass[ifound];
-}
-
-int nearestClassIndex(double y)
-{
-    int ifound=-1;
-    double dmin=1e+100;
-    for(unsigned int i=0;i<dclass.size();i++)
-    {
-        if(fabs(dclass[i]-y)<dmin)
-        {
-            dmin=fabs(dclass[i]-y);
-            ifound=i;
-        }
-    }
-    return ifound;
 }
 
 void	printConfusionMatrix(vector<double> &T,vector<double> &O,
