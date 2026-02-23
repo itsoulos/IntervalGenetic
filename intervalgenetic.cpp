@@ -270,7 +270,7 @@ Interval IntervalGenetic::fitness(IntervalData &x,unsigned ti)
 void   IntervalGenetic::calcFitnessArray()
 {
     omp_set_nested(0);
-//#pragma omp parallel for schedule(dynamic)
+#pragma omp parallel for schedule(dynamic)
     for(int i=0;i<count;i++)
     {
         fitnessArray[i]=fitness(chromosome[i],omp_get_thread_num());
@@ -305,7 +305,7 @@ void   IntervalGenetic::crossover()
         int parent2=tournament();
         unsigned size=chromosome[0].size();
         //DOUBLE CROSSOVER
-/*   for(int i=0;i<size;i++)
+   for(int i=0;i<size;i++)
         {
             double alfa=-0.5+2.0*problem[omp_get_thread_num()]->randomDouble();
             Interval x1,x2;
@@ -319,9 +319,9 @@ void   IntervalGenetic::crossover()
         }
         problem[omp_get_thread_num()]->boundInterval(children[children_count]);
         problem[omp_get_thread_num()]->boundInterval(children[children_count+1]);
-*/
+
         //ONE POINT CROSSOVER
-    int cutPoint=rand() % size;
+ /*   int cutPoint=rand() % size;
         for(int i=0;i<cutPoint;i++)
         {
             children[children_count][i]=chromosome[parent2][i];
@@ -332,7 +332,7 @@ void   IntervalGenetic::crossover()
             children[children_count][i]=chromosome[parent1][i];
             children[children_count+1][i]=chromosome[parent2][i];
         }
-
+*/
         //UNIFORM CROSSOVER
       /* for(int i=0;i<size;i++)
         {
