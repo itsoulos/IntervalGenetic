@@ -370,7 +370,7 @@ selectedFitnessOption ="mse";
         p.setParameter("normalTrain",0);
         DoublePop pop(chromosomes,&np);
         pop.setLocalIterations(50);
-        pop.setLocalChromosomes(0);
+        pop.setLocalChromosomes(10);
         pop.setSelectionRate(selection_rate);
         pop.setMutationRate(mutation_rate);
         pop.setMaxGenerations(500);
@@ -385,7 +385,7 @@ selectedFitnessOption ="mse";
 
 			//GE ONLY
             bestMargin[i]=Interval(0.0*fabs(bestx[i]),
-                                   2.0*fabs(bestx[i]));
+                                   1.0*fabs(round(bestx[i])));
             //bestMargin[i]=Interval(-2.0*fabs(bestx[i]),
             //                       2.0*fabs(bestx[i]));
 

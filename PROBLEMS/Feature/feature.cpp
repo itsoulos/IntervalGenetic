@@ -217,7 +217,7 @@ QJsonObject    done(Data &x)
 	vector<int> genome;
 	genome.resize(getdimension());
     for(int i=0;i<getdimension();i++)
-        genome[i]=255;//(int)fabs(x[i]);
+        genome[i]=(int)fabs(x[i]);
     double ff;
     string lastExpr="";
 
@@ -320,6 +320,68 @@ double	funmin(vector<double> &x)
   return -f;
 }
 double dmax(double a,double b){return a>b?a:b;}
+
+
+adept::adouble afunmin(adept::aVector &x)
+{
+    setlocale(LC_ALL, "C");
+    vector<int> xx;
+    xx.resize(getdimension());
+    for(int i=0;i<(int)xx.size();i++)
+    {
+        xx[i]=x.data()[i];
+        if(xx[i]<0) xx[i]=0;
+    }
+
+    adept::adouble f = program[thread()].fitness(xx);
+    return -f;
+
+}
+
+void granal1(vector<double> &x, vector<double> &g)
+{
+
+    adept::Stack stack;
+    g.resize(x.size());
+    for (int i = 0; i < g.size(); i++)
+        g[i] = 0.0;
+    Data gtemp;
+    gtemp.resize(g.size());
+    QJsonObject done(vector<double> & x);
+    stack.continue_recording();
+    adept::aVector w(x.size());
+    for (unsigned i = 0; i < x.size(); i++)
+        //w << x[i];
+        w[i]= x[i];
+    stack.new_recording();
+    adept::adouble y;
+    //vector<double> ww;//βοηθητικός
+    //for (unsigned i = 0; i < w.size(); i++)
+    //    ww.push_back(w[i].value()); //ενημέρωση
+    y = afunmin(w); //υπολόγισμός minimum
+    //for (unsigned i = 0; i < ww.size(); i++)
+    //    w << ww[i];//επαναφορά των τιμών στον aVector
+    y.set_gradient(1.0); // αρχικοποίηση κλίσης ώστε να μην έχουμε εξαίρεση
+    stack.compute_adjoint(); //υπολογισμός παραγώγου
+    for (unsigned i = 0; i < x.size(); i++)
+    {
+        g[i] = w[i].get_gradient();//εξαγωγή παραγώγου
+    }
+    stack.pause_recording();
+
+    //for (int i = 0; i < trainx.size(); i++)
+    //{
+    //    getDeriv(x, trainx[i], gtemp);
+    //    double per = dgetValue(x, trainx[i], fcount) - trainy[i];
+    //    for (int j = 0; j < g.size(); j++)
+    //        g[j] += gtemp[j] * per;
+    //}
+    //for (int j = 0; j < (dimension + 2) * nodes; j++)
+    //    g[j] *= 2.0;
+
+}
+
+
 
 void    granal(vector<double> &x,vector<double> &g)
 {

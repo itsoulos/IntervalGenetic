@@ -2128,7 +2128,7 @@ int fgcalc_(long *n,double *x,double *f,double *g,Problem *p)
 	for(int i=0;i<*n;i++) Xa[i]=x[i];
     *f=p->funmin(Xa);
     p->granal(Xa,Ga);
-		 //printf("TOLMIN[%d] NEW MIN = %lf \n",totcal_1.itnocs,oldmin);
+		 printf("TOLMIN[%d] NEW MIN = %lf \n",totcal_1.itnocs,oldmin);
 	{
         if(*f<=oldmin)
 		{

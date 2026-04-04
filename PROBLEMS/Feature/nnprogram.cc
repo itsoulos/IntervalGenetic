@@ -27,10 +27,6 @@ NNprogram::NNprogram(int type,int pdimension,char *filename)
 	pgenome.resize(0);
 	random_seed=1;
 }
-int thread()
-{
-    return omp_get_thread_num();
-}
 
 NNprogram::NNprogram()
 {

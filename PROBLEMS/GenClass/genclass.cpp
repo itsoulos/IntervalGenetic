@@ -270,16 +270,29 @@ static double dmax(double a,double b)
 }
 void    granal(vector<double> &x,vector<double> &g)
 {
-    for(int i=0;i<x.size();i++)
-         {
-             double eps=pow(1e-18,1.0/3.0)*dmax(1.0,fabs(x[i]));
-             x[i]+=eps;
-             double v1=funmin(x);
-             x[i]-=2*eps;
-             double v2=funmin(x);
-             g[i]=(v1-v2)/(2.0 * eps);
-	     x[i]+=eps;
-         }
+
+    int n = x.size();
+    double fx = funmin(x);
+
+    for (int i = 0; i < n; i++) {
+
+        vector<double> x_plus = x;
+        vector<double> x_minus = x;
+
+        x_plus[i] += 1;
+        x_minus[i] -= 1;
+        if(x_minus[i]<0) x_minus[i]=0;
+
+        double f_plus = funmin(x_plus);
+        double f_minus = funmin(x_minus);
+
+        if (fabs(f_plus) < fabs(fx))
+            g[i] = +1;
+        else if (fabs(f_minus) < fabs(fx))
+            g[i] = -1;
+        else
+            g[i] = 0;
+    }
 
 }
 

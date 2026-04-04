@@ -84,6 +84,9 @@ HEADERS += feature.h\
 	LBFGSpp/SubspaceMin.h\
     rbf_model.h \
     Rbf.h
+    LIBS += -ladept
+
+    DEFINES += ADEPT_RECORDING_PAUSABLE ADEPTSTORAGETHREADSAFE
 
 unix {
     target.path = /usr/lib

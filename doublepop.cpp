@@ -7,7 +7,7 @@
 # include <QString>
 # include <QVariant>
 # include <omp.h>
-# define LOCALSEARCH
+//# define LOCALSEARCH
 
 # define MAXTHREADS 12
 int have_finished=0;
@@ -475,7 +475,7 @@ void    DoublePop::localSearch(int pos)
                double trial_fitness=problem->funmin(g);
                if(fabs(trial_fitness)<fabs(fitness_array[pos]))
                {
-                  /* printf("DE[%d]=%20.10lg=>%20.10lg\n",pos,
+                 /*  printf("DE[%d]=%20.10lg=>%20.10lg\n",pos,
                           fitness_array[pos],
                           trial_fitness);*/
                    fitness_array[pos]=trial_fitness;
@@ -513,16 +513,16 @@ void	DoublePop::Solve()
 	 
 
 #ifdef LOCALSEARCH
-            const int K_LS=20;
+            const int K_LS=50;
             if( i%K_LS==0)
             {
 		Data tempg;
 		double tempf;
 		tempg.resize(genome_size);
-//#pragma omp parallel for num_threads(MAXTHREADS) schedule(dynamic)
+#pragma omp parallel for num_threads(MAXTHREADS) schedule(dynamic)
                 for(int i=0;i<5;i++)
                 {
-                int randPos=rand() % genome.size();
+                int randPos=i==0?0:rand() % genome.size();
               	tempg=genome[randPos];
 	        tempf=fitness_array[randPos];
 			
@@ -542,7 +542,7 @@ void	DoublePop::Solve()
 
 		double diff1=fabs(fitness_array[0]-fitness_array[genome_count-1]);
 		double diff2=fabs(1.0-fitness_array[0]/fitness_array[genome_count-i-1]);
-        if(iprint  && i%10==0)
+        if(iprint)
 		printf("GENERATION:%4d\tVALUE=%15.8lg\tVARIANCE=%8.5lg\tSTOPAT=%8.5lg\n",
 				i,fitness_array[0],variance,stopat);
 		

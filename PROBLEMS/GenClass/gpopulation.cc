@@ -114,8 +114,26 @@ void	GPopulation::crossover()
                         }
                         parent[i]=max_index;
                 }
-        int pt1;
+		//uniform
+        for(int j=0;j<genome_size;j++)
+        {
+            int r= rand() %2;
+            if(r==0)
+            {
+                children[count_children][j]=genome[parent[0]][j];
+                children[count_children+1][j]=genome[parent[1]][j];
+
+            }
+            else
+            {
+                children[count_children][j]=genome[parent[1]][j];
+                children[count_children+1][j]=genome[parent[0]][j];
+            }
+        }
+		count_children+=2;
 		// The one-point crossover is performed here (the point is pt1)
+		/*
+        int pt1;
 		pt1=rand() % genome_size;
 		memcpy(children[count_children],
 				genome[parent[0]],pt1 * sizeof(int));
@@ -125,7 +143,7 @@ void	GPopulation::crossover()
 				genome[parent[1]],pt1 * sizeof(int));
 		memcpy(&children[count_children+1][pt1],
 			&genome[parent[0]][pt1],(genome_size-pt1)*sizeof(int));
-		count_children+=2;
+		count_children+=2;*/
 		if(count_children>=nchildren) break;
 	}
 	
