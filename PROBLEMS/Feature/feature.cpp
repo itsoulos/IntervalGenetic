@@ -309,14 +309,12 @@ Rbf *neural = (Rbf *)program[0].getModel();// new Rbf(program[0].getMapper());
 double	funmin(vector<double> &x)
 {
   setlocale(LC_ALL,"C");
-  //return -program[thread()].fitness(x);
   
   vector<int>  genome;
   genome.resize(getdimension());
   for(int i=0;i<getdimension();i++) {
 	  genome[i]=(int)fabs(x[i]);
 	  if(genome[i]<0) genome[i]=0;
-//	  if(genome[i]>255) genome[i]=255;
   }
   double f=program[thread()].fitness(genome);
   return -f;
@@ -325,18 +323,29 @@ double dmax(double a,double b){return a>b?a:b;}
 
 void    granal(vector<double> &x,vector<double> &g)
 {
-    for(int i=0;i<x.size();i++)
-         {
-             double eps=pow(1e-18,1.0/3.0)*dmax(1.0,fabs(x[i]));
-	     eps = 0.01;
-             x[i]+=eps;
-             double v1=funmin(x);
-             x[i]-=2.0 *eps;
-             double v2=funmin(x);
-             g[i]=(v1-v2)/(2.0 * eps);
-//	     printf("g = %lf f = %lf %lf  \n",g[i],v1,v2);
-             x[i]+=eps;
-         }
+
+    int n = x.size();
+    double fx = funmin(x);
+
+    for (int i = 0; i < n; i++) {
+
+        vector<double> x_plus = x;
+        vector<double> x_minus = x;
+
+        x_plus[i] += 1;
+        x_minus[i] -= 1;
+        if(x_minus[i]<0) x_minus[i]=0;
+
+        double f_plus = funmin(x_plus);
+        double f_minus = funmin(x_minus);
+
+        if (fabs(f_plus) < fabs(fx))
+            g[i] = +1;
+        else if (fabs(f_minus) < fabs(fx))
+            g[i] = -1;
+        else
+            g[i] = 0;
+    }
 
 }
 

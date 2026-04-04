@@ -2104,6 +2104,8 @@ double tolmin(Data &x, Problem *p,int iters)
     long info=iters;
 	double *w=new double[12*n+n*n*n];
 	
+	 totcal_1.itnocs=0;
+    oldmin=1e+100;
     getmin_(&n,&m,&meq,a,&ia,b,xl,xu,xp,&acc,iact,&nact,par,&iprint,&info,
             w,p);
 
@@ -2126,6 +2128,7 @@ int fgcalc_(long *n,double *x,double *f,double *g,Problem *p)
 	for(int i=0;i<*n;i++) Xa[i]=x[i];
     *f=p->funmin(Xa);
     p->granal(Xa,Ga);
+		 //printf("TOLMIN[%d] NEW MIN = %lf \n",totcal_1.itnocs,oldmin);
 	{
         if(*f<=oldmin)
 		{

@@ -2109,7 +2109,8 @@ double tolmin1(Data &x, Problem *p,int iters)
 	long iprint=0;
     long info=iters;
 	double *w=new double[12*n+n*n*n];
-	
+    totcal_1.itnocs=0;
+    oldmin=1e+100;
     getmin_(&n,&m,&meq,a,&ia,b,xl,xu,xp,&acc,iact,&nact,par,&iprint,&info,
             w,p);
 
@@ -2135,7 +2136,7 @@ int fgcalc_(long *n,double *x,double *f,double *g,Problem *p)
 	{
         if(*f<=oldmin)
 		{
-       // printf("NEW MIN[%d] =%20.10lg\n",totcal_1.itnocs,*f);
+        //printf("NEW MIN[%d] =%20.10lg\n",totcal_1.itnocs,*f);
 		 oldmin=*f;
 		}
 	}

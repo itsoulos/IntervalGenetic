@@ -383,8 +383,11 @@ selectedFitnessOption ="mse";
         {
 
 
-            bestMargin[i]=Interval(-2.0*fabs(bestx[i]),
+			//GE ONLY
+            bestMargin[i]=Interval(0.0*fabs(bestx[i]),
                                    2.0*fabs(bestx[i]));
+            //bestMargin[i]=Interval(-2.0*fabs(bestx[i]),
+            //                       2.0*fabs(bestx[i]));
 
             printf("***Margin[%d]=%lf,%lf\n",i,bestMargin[i].leftValue(),
                    bestMargin[i].rightValue());

@@ -7,7 +7,7 @@
 # include <QString>
 # include <QVariant>
 # include <omp.h>
-//# define LOCALSEARCH
+# define LOCALSEARCH
 
 # define MAXTHREADS 12
 int have_finished=0;
@@ -519,7 +519,7 @@ void	DoublePop::Solve()
 		Data tempg;
 		double tempf;
 		tempg.resize(genome_size);
-#pragma omp parallel for num_threads(MAXTHREADS) schedule(dynamic)
+//#pragma omp parallel for num_threads(MAXTHREADS) schedule(dynamic)
                 for(int i=0;i<5;i++)
                 {
                 int randPos=rand() % genome.size();
