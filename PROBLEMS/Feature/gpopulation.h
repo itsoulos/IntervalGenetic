@@ -42,6 +42,25 @@ class GPopulation
 		void	select();
 		void	localSearch(int x);
 		bool	shouldTerminate();
+        vector<int> discreteGradient( vector<int>& x);
+        vector<int> discreteStep(vector<int>& x,vector<int>& grad);
+        void integerLocalSearch(vector<int> &x,int maxSteps = 20);
+        vector<int> integerAdam(
+            vector<int> x,
+            int steps = 50,
+            double alpha = 0.5,
+            double beta1 = 0.9,
+            double beta2 = 0.999,
+            double eps = 1e-8
+            ) ;
+        vector<int> neighbor(const vector<int>& x, int stepSize = 1);
+        vector<int> simulatedAnnealing(
+            vector<int> &x,
+            double T0 = 100.0,
+            double Tmin = 1e-3,
+            double alpha = 0.95,
+            int iterPerTemp = 20
+            );
 		~GPopulation();
 		
 };

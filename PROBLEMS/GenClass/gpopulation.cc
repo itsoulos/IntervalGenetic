@@ -195,13 +195,8 @@ void	GPopulation::calcFitnessArray()
 		for(int j=0;j<genome_size;j++) g[j]=genome[i][j];	
 			fitness_array[i]=fitness(g);	
 		if(fabs(fitness_array[i])<dmin) dmin=fabs(fitness_array[i]);
-/*		if(i%10==0)
-		{
-			printf("%d:%lf ",i,dmin);
-			fflush(stdout);
-		}*/
+
 	}
-//	printf("\n");
 }
 
 /* Return the current generation */
@@ -226,23 +221,174 @@ int	GPopulation::getSize() const
 void	GPopulation::nextGeneration()
 {
 	if(generation==0)
-	calcFitnessArray();
+        calcFitnessArray();
 	select();
 	crossover();
 	mutate();
 	calcFitnessArray();
-    /*extern int localSearchGenerations,localSearchChromosomes;
-    if((generation+1)%100==0)
-        for(int i=0;i<20;i++)
-		localSearch(rand() % genome_count);
-*/	
+    if((generation+1)%50==0)
+    {
+        for(int i=0;i<10;i++)
+            localSearch(i==0?0:rand() % genome_count);
+    }
 	++generation;
+}
+
+
+
+vector<int> GPopulation::discreteGradient(vector<int>& x)
+{
+    int n = x.size();
+    vector<int> grad(n);
+
+    double fx = fitness(x);
+
+    for (int i = 0; i < n; i++) {
+
+        vector<int> x_plus = x;
+        vector<int> x_minus = x;
+
+        x_plus[i] += 1;
+        x_minus[i] -= 1;
+        if(x_minus[i]<0) x_minus[i]=0;
+
+        double f_plus = fitness(x_plus);
+        double f_minus = fitness(x_minus);
+
+        if (fabs(f_plus) < fabs(fx))
+            grad[i] = +1;
+        else if (fabs(f_minus) < fabs(fx))
+            grad[i] = -1;
+        else
+            grad[i] = 0;
+    }
+    return grad;
+}
+
+vector<int> GPopulation::discreteStep(vector<int>& x,vector<int>& grad)
+{
+    vector<int> res = x;
+
+    for (int i = 0; i < (int)x.size(); i++)
+    {
+        res[i] += grad[i];
+    }
+
+    return res;
+}
+
+void GPopulation::integerLocalSearch(vector<int> &x,int maxSteps)
+{
+    double bestVal = fitness(x);
+    int stepSize = 100;
+    for (int step = 0; step < maxSteps; step++) {
+
+        vector<int> grad = discreteGradient(x);
+
+        vector<int> candidate = x;
+
+        for (int i = 0; i < x.size(); i++)
+        {
+            candidate[i] += grad[i] * stepSize;
+            if(candidate[i]<0) candidate[i]=0;
+        }
+
+        double val = fitness(candidate);
+
+        if (val < bestVal) {
+            x = candidate;
+            bestVal = val;
+        } else {
+            stepSize = max(1, stepSize / 2); // learning rate decay
+        }
+        printf("GD[%4d]=%20.10lg\n",step,bestVal);
+    }
+
+
+}
+
+
+vector<int> GPopulation::integerAdam(
+    vector<int> x,
+    int steps,
+    double alpha,
+    double beta1,
+    double beta2,
+    double eps
+    ) {
+    int n = x.size();
+
+    vector<double> m(n, 0.0);
+    vector<double> v(n, 0.0);
+
+    double bestVal = fitness(x);
+
+    for (int t = 1; t <= steps; t++) {
+
+        vector<int> g_int = discreteGradient(x);
+
+        // convert gradient to double
+        vector<double> g(n);
+        for (int i = 0; i < n; i++)
+            g[i] = (double)g_int[i];
+
+        // update moments
+        for (int i = 0; i < n; i++) {
+            m[i] = beta1 * m[i] + (1 - beta1) * g[i];
+            v[i] = beta2 * v[i] + (1 - beta2) * g[i] * g[i];
+        }
+
+        // bias correction
+        vector<double> m_hat(n), v_hat(n);
+        for (int i = 0; i < n; i++) {
+            m_hat[i] = m[i] / (1 - pow(beta1, t));
+            v_hat[i] = v[i] / (1 - pow(beta2, t));
+        }
+
+        // candidate update
+        vector<int> candidate = x;
+
+        for (int i = 0; i < n; i++) {
+
+            double step = alpha * m_hat[i] / (sqrt(v_hat[i]) + eps);
+            double p = fabs(step);
+
+            if (rand()*1.0/RAND_MAX < p) {
+                candidate[i] += (step > 0 ? 1 : -1);
+            }
+
+            if(candidate[i]<0) candidate[i]=0;
+        }
+
+        double val = fitness(candidate);
+        printf("ADAM[%d]=%lf\n",t,val);
+        if (fabs(val) < fabs(bestVal)) {
+            x = candidate;
+            bestVal = val;
+        }
+        else {
+            alpha *= 0.7; // decay learning rate
+        }
+    }
+
+    return x;
 }
 
 void	GPopulation::localSearch(int gpos)
 {
 	vector<int> g;
 	g.resize(genome_size);
+
+
+    for(int i=0;i<genome_size;i++) g[i]=genome[gpos][i];
+    g=integerAdam(g);
+    double f=fitness(g);
+    if(fabs(f)<fabs(fitness_array[gpos]))
+    {
+        for(int i=0;i<genome_size;i++) genome[gpos][i]=g[i];
+        fitness_array[gpos]=f;
+    }
+    return;
 	int pos=gpos;
 	for(int iters=1;iters<=100;iters++)
 	{

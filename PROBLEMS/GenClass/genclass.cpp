@@ -201,7 +201,7 @@ QJsonObject 	done(vector<double> &x)
 		pop.nextGeneration();
 
 		double f = pop.getBestFitness();
-        if(i%20==0)
+
         printf("genclass[%d]=%lf\n",i,f);
         //if(pop.shouldTerminate()) break;
 	}

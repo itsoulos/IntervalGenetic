@@ -370,7 +370,7 @@ selectedFitnessOption ="mse";
         p.setParameter("normalTrain",0);
         DoublePop pop(chromosomes,&np);
         pop.setLocalIterations(50);
-        pop.setLocalChromosomes(10);
+        pop.setLocalChromosomes(0);
         pop.setSelectionRate(selection_rate);
         pop.setMutationRate(mutation_rate);
         pop.setMaxGenerations(500);

@@ -7,7 +7,7 @@
 # include <QString>
 # include <QVariant>
 # include <omp.h>
-//# define LOCALSEARCH
+# define LOCALSEARCH
 
 # define MAXTHREADS 12
 int have_finished=0;
@@ -15,6 +15,104 @@ int have_finished=0;
 int iprint=1;
 #pragma omp threadprivate(iprint)
 
+
+vector<double> discreteGradient(
+    Problem *p,
+    vector<double>& x)
+{
+    int n = x.size();
+    vector<double> grad(n);
+
+    double fx = p->funmin(x);
+
+    for (int i = 0; i < n; i++) {
+
+        vector<double> x_plus = x;
+        vector<double> x_minus = x;
+
+        x_plus[i] += 1;
+        x_minus[i] -= 1;
+        if(x_minus[i]<0) x_minus[i]=0;
+
+        double f_plus = p->funmin(x_plus);
+        double f_minus = p->funmin(x_minus);
+
+        if (fabs(f_plus) < fabs(fx))
+            grad[i] = +1;
+        else if (fabs(f_minus) < fabs(fx))
+            grad[i] = -1;
+        else
+            grad[i] = 0;
+    }
+    return grad;
+}
+
+vector<double> integerAdam(
+    Problem *p,
+    vector<double> x,
+    int steps,
+    double alpha,
+    double beta1,
+    double beta2,
+    double eps
+    ) {
+    int n = x.size();
+
+    vector<double> m(n, 0.0);
+    vector<double> v(n, 0.0);
+
+    double bestVal = p->funmin(x);
+
+    for (int t = 1; t <= steps; t++) {
+
+        vector<double> g_int = discreteGradient(p,x);
+
+        // convert gradient to double
+        vector<double> g(n);
+        for (int i = 0; i < n; i++)
+            g[i] = (double)g_int[i];
+
+        // update moments
+        for (int i = 0; i < n; i++) {
+            m[i] = beta1 * m[i] + (1 - beta1) * g[i];
+            v[i] = beta2 * v[i] + (1 - beta2) * g[i] * g[i];
+        }
+
+        // bias correction
+        vector<double> m_hat(n), v_hat(n);
+        for (int i = 0; i < n; i++) {
+            m_hat[i] = m[i] / (1 - pow(beta1, t));
+            v_hat[i] = v[i] / (1 - pow(beta2, t));
+        }
+
+        // candidate update
+        vector<double> candidate = x;
+
+        for (int i = 0; i < n; i++) {
+
+            double step = alpha * m_hat[i] / (sqrt(v_hat[i]) + eps);
+            double p = fabs(step);
+
+            if (rand()*1.0/RAND_MAX < p) {
+                candidate[i] += (step > 0 ? 1 : -1);
+            }
+
+            if(candidate[i]<0) candidate[i]=0;
+        }
+
+        double val = p->funmin(candidate);
+        printf("ADAM[%d] VAL %lf \n",t,val);
+        if (fabs(val) < fabs(bestVal)) {
+            x = candidate;
+            bestVal = val;
+        }
+        else {
+            alpha *= 0.7; // decay learning rate
+        }
+    }
+
+    return x;
+}
 
 extern "C"
 {
@@ -383,7 +481,9 @@ void	DoublePop::getMinimum(Data &x,double &y)
 static void LocalSearch(Problem *p,Data &x,double &y)
 {
     if(x.size()>1000) return ;
-    y=tolmin(x,p,2001);
+    x=integerAdam(p,x,50,0.5,0.9,0.999,1e-8);
+    y=-p->funmin(x);
+    //y=tolmin(x,p,2001);
 }
 
 double	DoublePop::estimateVariance()
@@ -492,7 +592,7 @@ void	DoublePop::Solve()
 	double stopat=0.0;
 	double old_best=1e+100;
 	extern int iprint;
-	int it=0;
+    int it=0;
     for(int i=2;i<=maxGenerations+1;i++)
     {
 		nextGeneration();
@@ -519,25 +619,19 @@ void	DoublePop::Solve()
 		Data tempg;
 		double tempf;
 		tempg.resize(genome_size);
-#pragma omp parallel for num_threads(MAXTHREADS) schedule(dynamic)
-                for(int i=0;i<5;i++)
-                {
-                int randPos=i==0?0:rand() % genome.size();
-              	tempg=genome[randPos];
-	        tempf=fitness_array[randPos];
-			
-		LocalSearch(problem,tempg,tempf);
-		if(isnan(tempf) || isinf(tempf)) continue;
-		else
-		{
+//#pragma omp parallel for num_threads(MAXTHREADS) schedule(dynamic)
+        for(int i=0;i<5;i++)
+        {
+            int randPos=i==0?0:rand() % genome.size();
+            tempg=genome[randPos];
+	        tempf=fitness_array[randPos];		
+            LocalSearch(problem,tempg,tempf);
 			genome[randPos]=tempg;
-			fitness_array[randPos]=tempf;
-		}
-
-                printf("GETTING FROM BFGS %lf THREAD : %d \n",fitness_array[randPos],omp_get_thread_num());
-                }
-                select();
-            }
+            fitness_array[randPos]=fitness(tempg);
+            printf("GETTING FROM BFGS %lf THREAD : %d \n",fitness_array[randPos],omp_get_thread_num());
+        }
+        select();
+        }
 #endif
 
 		double diff1=fabs(fitness_array[0]-fitness_array[genome_count-1]);
